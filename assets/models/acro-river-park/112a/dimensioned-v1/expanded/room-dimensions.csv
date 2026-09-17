@@ -1,0 +1,14 @@
+name,name_ko,width_mm,depth_mm,rectangle_area_m2,kind,source
+Bedroom west,서쪽 침실,2766.938,3083.452,8.5317,interior,interpolated drawing boundaries
+Bedroom center,가운데 침실,2458.0,3083.452,7.5791,interior,basic clear width 2458 mm and depth 2593 mm; expanded south strip is inferred
+Master bedroom,안방,3339.031,3623.0,12.0973,interior,clear depth 3623 mm
+Dressing,드레스룸,2047.92,3619.032,7.4115,interior,basic clear depth 2590 mm; northern balcony absorbed in expanded scenario
+Master bathroom,안방 욕실,1395.0,2042.0,2.8486,interior,clear width 1395 mm; depth 2042 mm
+Common bathroom lower,공용 욕실 하부,1540.0,1249.0,1.9235,interior,width 1540 mm and lower depth 1249 mm
+Common shower,공용 욕실 샤워,929.0,919.0,0.8538,interior,929 x 919 mm
+Living front,거실 전면 구간,4217.156,3634.454,15.3271,interior,interpolated drawing boundaries
+West open balcony,서쪽 개방형 발코니,2456.0,998.0,2.4511,open_balcony,2456 x 998 mm; kept outside both interior variants
+Center open balcony,가운데 개방형 발코니,2741.0,998.0,2.7355,open_balcony,2741 x 998 mm; kept outside both interior variants
+Master balcony,안방 발코니,1944.071,1145.0,2.226,balcony,clear depth 1145 mm
+Master balcony utility,안방 발코니 보조실,1202.04,1145.0,1.3763,balcony,clear depth 1145 mm
+Kitchen expanded strip,확장 주방 구간,2659.32,1280.0,3.4039,interior,interpolated drawing boundaries

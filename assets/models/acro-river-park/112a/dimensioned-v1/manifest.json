@@ -1,0 +1,32 @@
+{
+  "asset": "acro-river-park/112a",
+  "revision": "dimensioned-v1",
+  "source_model_date": "2026-09-15",
+  "blender_version": "4.5.3 LTS",
+  "units": "meters (UI: millimeters)",
+  "source_basis": "User-provided dimensioned basic plan; expanded variant uses the same calibrated coordinates with the separate undimensioned expanded-plan reference.",
+  "calibration_status": "17 selected dimension spans constrained; unlisted spans interpolated; physical apartment accuracy unverified.",
+  "assumptions": {
+    "wall_height_m": 2.7,
+    "door_height_m": 2.15,
+    "other": "Most door widths and window heights assumed; furniture and finishes are staging."
+  },
+  "variants": {
+    "basic": {
+      "model": "basic/acro112a-basic.blend",
+      "bytes": 7268280,
+      "sha256": "bfa919b26b4c4e14a04537ffc253babc12836bfed74e6af6d0e272e5dded9e4a",
+      "objects": 609,
+      "meshes": 544,
+      "saved_file_checks_passed": true
+    },
+    "expanded": {
+      "model": "expanded/acro112a-expanded.blend",
+      "bytes": 6766386,
+      "sha256": "fa82308260192e809f43c2e8d4a124bf2cdfc2f61f9bd861d65f7efe1288b0da",
+      "objects": 531,
+      "meshes": 466,
+      "saved_file_checks_passed": true
+    }
+  }
+}

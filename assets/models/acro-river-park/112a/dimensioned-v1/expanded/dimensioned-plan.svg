@@ -1,0 +1,118 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="1160" viewBox="0 0 1400 1160">
+<rect width="1400" height="1160" fill="#fafbf9"/>
+<style>text{font-family:sans-serif;fill:#223431}.room{font-size:13px}.dim{font-size:17px;fill:#00766a;font-weight:600}</style>
+<text x="55" y="48" font-size="27">ACRO 112A — 확장형</text>
+<text x="55" y="78" font-size="15">치수 단위 mm · 높이 및 미표기 구간은 가정/도면 해석값 · 실제 건물 실측 검증 전</text>
+<rect x="100.00" y="573.19" width="213.05" height="237.43" fill="#ede6d8"/>
+<rect x="330.87" y="573.19" width="189.27" height="237.43" fill="#ede6d8"/>
+<rect x="877.01" y="469.99" width="257.11" height="278.97" fill="#ede6d8"/>
+<rect x="976.43" y="175.32" width="157.69" height="278.67" fill="#ede6d8"/>
+<rect x="853.02" y="296.75" width="107.41" height="157.23" fill="#ede6d8"/>
+<rect x="439.97" y="357.81" width="118.58" height="96.17" fill="#ede6d8"/>
+<rect x="439.97" y="287.05" width="71.53" height="70.76" fill="#ede6d8"/>
+<rect x="536.86" y="573.19" width="324.72" height="279.85" fill="#ede6d8"/>
+<rect x="100.00" y="826.64" width="189.11" height="76.85" fill="#e2edf0"/>
+<rect x="347.49" y="826.64" width="211.06" height="76.85" fill="#e2edf0"/>
+<rect x="877.01" y="764.88" width="149.69" height="88.16" fill="#e2edf0"/>
+<rect x="1041.56" y="764.88" width="92.56" height="88.16" fill="#e2edf0"/>
+<rect x="631.68" y="140.00" width="204.77" height="98.56" fill="#ede6d8"/>
+<rect x="84.00" y="523.31" width="16.00" height="387.60" fill="#454f4d"/>
+<rect x="92.00" y="515.28" width="117.04" height="16.05" fill="#454f4d"/>
+<rect x="200.96" y="328.71" width="16.73" height="236.45" fill="#454f4d"/>
+<rect x="209.04" y="321.29" width="46.54" height="15.41" fill="#454f4d"/>
+<rect x="324.88" y="321.29" width="108.24" height="15.41" fill="#454f4d"/>
+<rect x="425.12" y="132.00" width="14.85" height="196.71" fill="#454f4d"/>
+<rect x="433.11" y="124.00" width="89.72" height="16.00" fill="#454f4d"/>
+<rect x="522.83" y="124.00" width="62.75" height="16.00" fill="#454f4d"/>
+<rect x="585.59" y="124.00" width="38.66" height="16.00" fill="#454f4d"/>
+<rect x="624.25" y="124.00" width="60.52" height="16.00" fill="#454f4d"/>
+<rect x="684.77" y="124.00" width="87.24" height="16.00" fill="#454f4d"/>
+<rect x="772.01" y="124.00" width="72.43" height="16.00" fill="#454f4d"/>
+<rect x="836.45" y="132.00" width="16.57" height="35.34" fill="#454f4d"/>
+<rect x="844.44" y="159.37" width="29.10" height="15.95" fill="#454f4d"/>
+<rect x="873.55" y="159.37" width="64.06" height="15.95" fill="#454f4d"/>
+<rect x="937.61" y="159.37" width="30.82" height="15.95" fill="#454f4d"/>
+<rect x="968.43" y="159.37" width="63.46" height="15.95" fill="#454f4d"/>
+<rect x="1031.88" y="159.37" width="78.77" height="15.95" fill="#454f4d"/>
+<rect x="1110.66" y="159.37" width="31.46" height="15.95" fill="#454f4d"/>
+<rect x="1134.12" y="167.35" width="16.00" height="693.72" fill="#454f4d"/>
+<rect x="869.01" y="853.04" width="5.57" height="16.05" fill="#454f4d"/>
+<rect x="874.58" y="853.04" width="120.27" height="16.05" fill="#454f4d"/>
+<rect x="994.86" y="853.04" width="57.86" height="16.05" fill="#454f4d"/>
+<rect x="1052.72" y="853.04" width="71.38" height="16.05" fill="#454f4d"/>
+<rect x="1124.10" y="853.04" width="18.02" height="16.05" fill="#454f4d"/>
+<rect x="528.81" y="853.04" width="58.58" height="16.05" fill="#454f4d"/>
+<rect x="587.39" y="853.04" width="227.69" height="16.05" fill="#454f4d"/>
+<rect x="815.08" y="853.04" width="53.93" height="16.05" fill="#454f4d"/>
+<rect x="433.11" y="271.09" width="191.14" height="15.96" fill="#454f4d"/>
+<rect x="490.31" y="132.00" width="14.31" height="66.68" fill="#454f4d"/>
+<rect x="433.11" y="190.70" width="64.08" height="15.95" fill="#454f4d"/>
+<rect x="616.82" y="132.00" width="14.85" height="60.78" fill="#454f4d"/>
+<rect x="616.82" y="251.30" width="14.85" height="27.77" fill="#454f4d"/>
+<rect x="425.12" y="279.07" width="14.85" height="182.92" fill="#454f4d"/>
+<rect x="558.55" y="349.83" width="15.43" height="112.16" fill="#454f4d"/>
+<rect x="511.50" y="271.09" width="55.05" height="15.96" fill="#454f4d"/>
+<rect x="511.50" y="279.07" width="12.97" height="70.75" fill="#454f4d"/>
+<rect x="511.50" y="342.41" width="55.05" height="15.41" fill="#454f4d"/>
+<rect x="433.11" y="453.99" width="9.38" height="16.00" fill="#454f4d"/>
+<rect x="501.02" y="453.99" width="65.53" height="16.00" fill="#454f4d"/>
+<rect x="370.30" y="328.71" width="15.42" height="133.28" fill="#454f4d"/>
+<rect x="378.30" y="453.99" width="54.82" height="16.00" fill="#454f4d"/>
+<rect x="836.45" y="167.35" width="16.57" height="294.64" fill="#454f4d"/>
+<rect x="844.44" y="238.56" width="123.98" height="16.00" fill="#454f4d"/>
+<rect x="844.44" y="280.21" width="123.98" height="16.54" fill="#454f4d"/>
+<rect x="960.43" y="167.35" width="16.00" height="15.01" fill="#454f4d"/>
+<rect x="960.43" y="237.79" width="16.00" height="224.19" fill="#454f4d"/>
+<rect x="844.44" y="453.99" width="38.73" height="16.00" fill="#454f4d"/>
+<rect x="941.70" y="453.99" width="69.61" height="16.00" fill="#454f4d"/>
+<rect x="1077.53" y="453.99" width="64.59" height="16.00" fill="#454f4d"/>
+<rect x="861.59" y="461.99" width="15.43" height="10.44" fill="#454f4d"/>
+<rect x="861.59" y="538.64" width="15.43" height="322.42" fill="#454f4d"/>
+<rect x="313.05" y="565.16" width="17.82" height="253.46" fill="#454f4d"/>
+<rect x="520.14" y="565.16" width="16.73" height="295.90" fill="#454f4d"/>
+<rect x="209.04" y="557.71" width="32.76" height="15.48" fill="#454f4d"/>
+<rect x="304.94" y="557.71" width="15.91" height="15.48" fill="#454f4d"/>
+<rect x="320.85" y="557.71" width="127.82" height="15.48" fill="#454f4d"/>
+<rect x="511.81" y="557.71" width="17.00" height="15.48" fill="#454f4d"/>
+<rect x="869.01" y="748.96" width="5.57" height="15.92" fill="#454f4d"/>
+<rect x="874.58" y="748.96" width="120.27" height="15.92" fill="#454f4d"/>
+<rect x="994.86" y="748.96" width="147.26" height="15.92" fill="#454f4d"/>
+<rect x="1026.71" y="756.92" width="14.85" height="24.10" fill="#454f4d"/>
+<rect x="1026.71" y="831.06" width="14.85" height="30.00" fill="#454f4d"/>
+<rect x="92.00" y="810.62" width="57.48" height="16.02" fill="#454f4d"/>
+<rect x="149.48" y="810.62" width="120.27" height="16.02" fill="#454f4d"/>
+<rect x="269.75" y="810.62" width="51.10" height="16.02" fill="#454f4d"/>
+<rect x="320.85" y="810.62" width="39.10" height="16.02" fill="#454f4d"/>
+<rect x="359.95" y="810.62" width="122.35" height="16.02" fill="#454f4d"/>
+<rect x="482.30" y="810.62" width="46.51" height="16.02" fill="#454f4d"/>
+<rect x="289.11" y="818.63" width="15.59" height="92.28" fill="#454f4d"/>
+<rect x="329.20" y="818.63" width="18.29" height="92.28" fill="#454f4d"/>
+<rect x="558.55" y="861.07" width="15.43" height="49.84" fill="#454f4d"/>
+<rect x="100.00" y="903.48" width="189.11" height="14.85" fill="#454f4d"/>
+<rect x="347.49" y="903.48" width="211.06" height="14.85" fill="#454f4d"/>
+<text class="room" text-anchor="middle" x="206.53" y="691.90">서쪽 침실</text>
+<text class="room" text-anchor="middle" x="425.50" y="691.90">가운데 침실</text>
+<text class="room" text-anchor="middle" x="1005.56" y="609.47">안방</text>
+<text class="room" text-anchor="middle" x="1055.27" y="314.65">드레스룸</text>
+<text class="room" text-anchor="middle" x="906.72" y="375.37">안방 욕실</text>
+<text class="room" text-anchor="middle" x="699.22" y="713.12">거실 전면 구간</text>
+<text class="room" text-anchor="middle" x="194.56" y="865.06">서쪽 개방형 발코니</text>
+<text class="room" text-anchor="middle" x="453.02" y="865.06">가운데 개방형 발코니</text>
+<text class="room" text-anchor="middle" x="951.86" y="808.96">안방 발코니</text>
+<path d="M330.87170503358925,791.6159530541247v10 M520.1377050335893,791.6159530541247v10 M330.87170503358925,796.6159530541247H520.1377050335893" fill="none" stroke="#00766a"/>
+<text class="dim" x="425.5047050335893" y="789.6159530541247" text-anchor="middle">2,458</text>
+<path d="M497.1377050335893,573.1901559267981h10 M497.1377050335893,810.6159530541247h10 M502.1377050335893,573.1901559267981V810.6159530541247" fill="none" stroke="#00766a"/>
+<text class="dim" transform="translate(495.1377050335893,691.9030544904614) rotate(-90)" text-anchor="middle">3,083.5 *</text>
+<path d="M1111.1173976590621,469.9850399999996h10 M1111.1173976590621,748.9560399999996h10 M1116.1173976590621,469.9850399999996V748.9560399999996" fill="none" stroke="#00766a"/>
+<text class="dim" transform="translate(1109.1173976590621,609.4705399999996) rotate(-90)" text-anchor="middle">3,623</text>
+<path d="M853.0150376590614,434.9875199999997v10 M960.4300376590613,434.9875199999997v10 M853.0150376590614,439.9875199999997H960.4300376590613" fill="none" stroke="#00766a"/>
+<text class="dim" x="906.7225376590613" y="432.9875199999997" text-anchor="middle">1,395</text>
+<path d="M1003.7054776590617,764.8781475897584h10 M1003.7054776590617,853.0431475897585h10 M1008.7054776590617,764.8781475897584V853.0431475897585" fill="none" stroke="#00766a"/>
+<text class="dim" transform="translate(1001.7054776590617,808.9606475897585) rotate(-90)" text-anchor="middle">1,145</text>
+<path d="M100.0,884.4833821384449v10 M289.11199999999997,884.4833821384449v10 M100.0,889.4833821384449H289.11199999999997" fill="none" stroke="#00766a"/>
+<text class="dim" x="194.55599999999998" y="882.4833821384449" text-anchor="middle">2,456</text>
+<path d="M347.49001765906945,884.4833821384449v10 M558.5470176590695,884.4833821384449v10 M347.49001765906945,889.4833821384449H558.5470176590695" fill="none" stroke="#00766a"/>
+<text class="dim" x="453.0185176590695" y="882.4833821384449" text-anchor="middle">2,741</text>
+<text x="55" y="1090" font-size="15">녹색 숫자: 채택한 도면 표기값 · *: 확장 구성에서 계산된 값</text>
+<text x="55" y="1117" font-size="15">파란 영역: 발코니/개방형 발코니 · 면적 CSV는 개별 직사각형 구간의 면적이며 전용면적 합계가 아닙니다.</text>
+</svg>

@@ -1,0 +1,60 @@
+{
+  "variant": "expanded",
+  "scene": "ACRO112A_EXPANDED_Dimensioned",
+  "full_wall_height_m": 2.700000047683716,
+  "packed_images": 12,
+  "viewport_material_preview": true,
+  "window_checks": [
+    {
+      "name": "North service facade",
+      "target_mm": 815.0,
+      "error_mm": 2.38418573772492e-06
+    },
+    {
+      "name": "North kitchen facade",
+      "target_mm": 1133.0,
+      "error_mm": 1.6212463371800823e-05
+    },
+    {
+      "name": "North bath utility facade",
+      "target_mm": 832.0,
+      "error_mm": 1.7166137733504172e-05
+    },
+    {
+      "name": "North dressing facade",
+      "target_mm": 1022.9999999999999,
+      "error_mm": 1.907348723406699e-06
+    },
+    {
+      "name": "Master south facade",
+      "target_mm": 1562.0,
+      "error_mm": 3.623962396837044e-05
+    },
+    {
+      "name": "Master south facade",
+      "target_mm": 927.0,
+      "error_mm": 1.3828277634075903e-05
+    },
+    {
+      "name": "Living south facade",
+      "target_mm": 2957.0,
+      "error_mm": 1.7166137844526475e-05
+    },
+    {
+      "name": "Master balcony divider",
+      "target_mm": 1562.0,
+      "error_mm": 3.623962396837044e-05
+    },
+    {
+      "name": "West bedroom outer glazing",
+      "target_mm": 1562.0,
+      "error_mm": 3.623962396837044e-05
+    },
+    {
+      "name": "Center bedroom outer glazing",
+      "target_mm": 1589.0,
+      "error_mm": 1.3351440397713077e-05
+    }
+  ],
+  "all_passed": true
+}

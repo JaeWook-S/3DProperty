@@ -1,0 +1,607 @@
+{
+  "source": "112A_\uae30\ubcf8\ud615_\uc124\uacc4\ub3c4.png, 2096 x 1536 pixels",
+  "method": "piecewise monotonic axis mapping constrained by selected dimension labels; other spans interpolated from drawing",
+  "x_stations": [
+    [
+      142.0,
+      -0.20775999999999997
+    ],
+    [
+      156.0,
+      -0.10387999999999999
+    ],
+    [
+      170.0,
+      0.0
+    ],
+    [
+      238.0,
+      0.5094839488522949
+    ],
+    [
+      345.0,
+      1.311171927193406
+    ],
+    [
+      359.0,
+      1.4160656813688783
+    ],
+    [
+      374.0,
+      1.5284518465568848
+    ],
+    [
+      477.0,
+      2.280715309585553
+    ],
+    [
+      501.0,
+      2.456
+    ],
+    [
+      515.0,
+      2.5572356485662766
+    ],
+    [
+      529.0,
+      2.658471297132553
+    ],
+    [
+      544.0,
+      2.7669380634535634
+    ],
+    [
+      558.0,
+      2.8681737120198414
+    ],
+    [
+      576.0,
+      2.9983338316050556
+    ],
+    [
+      599.0,
+      3.2141560734944083
+    ],
+    [
+      608.0,
+      3.279196609044708
+    ],
+    [
+      640.0,
+      3.510451846556885
+    ],
+    [
+      654.0,
+      3.614270364402174
+    ],
+    [
+      667.0,
+      3.710673273829943
+    ],
+    [
+      736.0,
+      4.222350254638871
+    ],
+    [
+      750.0,
+      4.32616877248416
+    ],
+    [
+      762.0,
+      4.415156073494408
+    ],
+    [
+      857.0,
+      5.068896814235146
+    ],
+    [
+      870.0,
+      5.158356073494405
+    ],
+    [
+      884.0,
+      5.254696814235147
+    ],
+    [
+      897.0,
+      5.344156073494409
+    ],
+    [
+      908.0,
+      5.456333831605056
+    ],
+    [
+      922.0,
+      5.568971112031684
+    ],
+    [
+      935.0,
+      5.673562872427839
+    ],
+    [
+      970.0,
+      5.9551560734944085
+    ],
+    [
+      984.0,
+      6.059036073494401
+    ],
+    [
+      997.0,
+      6.155496073494395
+    ],
+    [
+      1072.0,
+      6.711996073494362
+    ],
+    [
+      1085.0,
+      6.808456073494358
+    ],
+    [
+      1098.0,
+      6.904916073494354
+    ],
+    [
+      1194.0,
+      7.617236073494316
+    ],
+    [
+      1347.0,
+      8.74135305462639
+    ],
+    [
+      1459.0,
+      9.564236073494316
+    ],
+    [
+      1473.0,
+      9.668116073494309
+    ],
+    [
+      1488.0,
+      9.779416073494303
+    ],
+    [
+      1503.0,
+      9.890719264983659
+    ],
+    [
+      1516.0,
+      9.987182030941103
+    ],
+    [
+      1530.0,
+      10.091065009664508
+    ],
+    [
+      1676.0,
+      11.174416073494303
+    ],
+    [
+      1690.0,
+      11.278296073494301
+    ],
+    [
+      1704.0,
+      11.382176073494302
+    ],
+    [
+      1767.0,
+      11.849636073494306
+    ],
+    [
+      1781.0,
+      11.953516073494308
+    ],
+    [
+      1792.0,
+      12.035136073494307
+    ],
+    [
+      1805.0,
+      12.131596073494308
+    ],
+    [
+      1818.0,
+      12.228056073494306
+    ],
+    [
+      1890.0,
+      12.76229607349431
+    ],
+    [
+      1980.0,
+      13.430096073494314
+    ],
+    [
+      1994.0,
+      13.533976073494314
+    ],
+    [
+      2008.0,
+      13.637856073494312
+    ]
+  ],
+  "y_stations": [
+    [
+      106.0,
+      -0.20775999999999997
+    ],
+    [
+      120.0,
+      -0.10387999999999999
+    ],
+    [
+      134.0,
+      0.0
+    ],
+    [
+      168.0,
+      0.2515606936416186
+    ],
+    [
+      182.0,
+      0.35514450867052033
+    ],
+    [
+      196.0,
+      0.45872832369942207
+    ],
+    [
+      223.0,
+      0.6584971098265897
+    ],
+    [
+      237.0,
+      0.7620809248554914
+    ],
+    [
+      251.0,
+      0.8656647398843931
+    ],
+    [
+      307.0,
+      1.28
+    ],
+    [
+      321.0,
+      1.3838799999999982
+    ],
+    [
+      335.0,
+      1.4877599999999962
+    ],
+    [
+      364.0,
+      1.702461754385961
+    ],
+    [
+      378.0,
+      1.8061108771929784
+    ],
+    [
+      392.0,
+      1.909759999999996
+    ],
+    [
+      408.0,
+      2.0357599999999962
+    ],
+    [
+      451.0,
+      2.35444224299065
+    ],
+    [
+      464.0,
+      2.450788037383173
+    ],
+    [
+      478.0,
+      2.554545046728968
+    ],
+    [
+      488.0,
+      2.628657196261678
+    ],
+    [
+      501.0,
+      2.7250029906542013
+    ],
+    [
+      515.0,
+      2.828759999999996
+    ],
+    [
+      684.0,
+      4.077759999999996
+    ],
+    [
+      698.0,
+      4.181639999999995
+    ],
+    [
+      712.0,
+      4.285519999999995
+    ],
+    [
+      791.0,
+      4.873774268269623
+    ],
+    [
+      805.0,
+      4.978021860114874
+    ],
+    [
+      819.0,
+      5.082269451960125
+    ],
+    [
+      865.0,
+      5.424797253737378
+    ],
+    [
+      878.0,
+      5.521598589022254
+    ],
+    [
+      892.0,
+      5.625846180867507
+    ],
+    [
+      1200.0,
+      7.908519999999995
+    ],
+    [
+      1214.0,
+      8.011910309024403
+    ],
+    [
+      1228.0,
+      8.115300618048812
+    ],
+    [
+      1242.0,
+      8.218846180867507
+    ],
+    [
+      1256.0,
+      8.322881434661795
+    ],
+    [
+      1270.0,
+      8.426916688456084
+    ],
+    [
+      1308.0,
+      8.709298091612009
+    ],
+    [
+      1322.0,
+      8.813333345406297
+    ],
+    [
+      1336.0,
+      8.917368599200584
+    ],
+    [
+      1382.0,
+      9.260300618048811
+    ],
+    [
+      1396.0,
+      9.364515978686594
+    ],
+    [
+      1410.0,
+      9.468731339324375
+    ],
+    [
+      1470.0,
+      9.915368599200583
+    ],
+    [
+      1483.0,
+      10.011828599200584
+    ],
+    [
+      1496.0,
+      10.108288599200584
+    ]
+  ],
+  "constraints": [
+    {
+      "id": "center_bedroom_clear_width",
+      "axis": "x",
+      "source_endpoints_px": [
+        576,
+        908
+      ],
+      "target_mm": 2458,
+      "actual_mm": 2458.0,
+      "status": "dimension_label_interpretation"
+    },
+    {
+      "id": "common_bath_clear_width",
+      "axis": "x",
+      "source_endpoints_px": [
+        762,
+        970
+      ],
+      "target_mm": 1540,
+      "actual_mm": 1540.0,
+      "status": "dimension_label_interpretation"
+    },
+    {
+      "id": "common_shower_width",
+      "axis": "x",
+      "source_endpoints_px": [
+        762,
+        897
+      ],
+      "target_mm": 929,
+      "actual_mm": 929.0,
+      "status": "dimension_label_interpretation"
+    },
+    {
+      "id": "master_bath_clear_width",
+      "axis": "x",
+      "source_endpoints_px": [
+        1488,
+        1676
+      ],
+      "target_mm": 1395,
+      "actual_mm": 1395.0,
+      "status": "dimension_label_interpretation"
+    },
+    {
+      "id": "west_open_balcony_width",
+      "axis": "x",
+      "source_endpoints_px": [
+        170,
+        501
+      ],
+      "target_mm": 2456,
+      "actual_mm": 2456.0,
+      "status": "dimension_label_interpretation"
+    },
+    {
+      "id": "center_open_balcony_width",
+      "axis": "x",
+      "source_endpoints_px": [
+        599,
+        970
+      ],
+      "target_mm": 2741,
+      "actual_mm": 2741.0,
+      "status": "dimension_label_interpretation"
+    },
+    {
+      "id": "entry_upper_clear_width",
+      "axis": "x",
+      "source_endpoints_px": [
+        374,
+        640
+      ],
+      "target_mm": 1982,
+      "actual_mm": 1982.0,
+      "status": "dimension_label_interpretation"
+    },
+    {
+      "id": "kitchen_counter_reference_width",
+      "axis": "x",
+      "source_endpoints_px": [
+        1194,
+        1459
+      ],
+      "target_mm": 1947,
+      "actual_mm": 1947.0,
+      "status": "dimension_label_interpretation"
+    },
+    {
+      "id": "center_bedroom_clear_depth",
+      "axis": "y",
+      "source_endpoints_px": [
+        892,
+        1242
+      ],
+      "target_mm": 2593,
+      "actual_mm": 2593.0,
+      "status": "dimension_label_interpretation"
+    },
+    {
+      "id": "master_bedroom_clear_depth",
+      "axis": "y",
+      "source_endpoints_px": [
+        712,
+        1200
+      ],
+      "target_mm": 3623,
+      "actual_mm": 3623.0,
+      "status": "dimension_label_interpretation"
+    },
+    {
+      "id": "south_balcony_clear_depth",
+      "axis": "y",
+      "source_endpoints_px": [
+        1228,
+        1382
+      ],
+      "target_mm": 1145,
+      "actual_mm": 1145.0,
+      "status": "dimension_label_interpretation"
+    },
+    {
+      "id": "open_balcony_clear_depth",
+      "axis": "y",
+      "source_endpoints_px": [
+        1336,
+        1470
+      ],
+      "target_mm": 998,
+      "actual_mm": 998.0,
+      "status": "dimension_label_interpretation"
+    },
+    {
+      "id": "master_bath_clear_depth",
+      "axis": "y",
+      "source_endpoints_px": [
+        408,
+        684
+      ],
+      "target_mm": 2042,
+      "actual_mm": 2042.0,
+      "status": "dimension_label_interpretation"
+    },
+    {
+      "id": "common_shower_depth",
+      "axis": "y",
+      "source_endpoints_px": [
+        392,
+        515
+      ],
+      "target_mm": 919,
+      "actual_mm": 919.0,
+      "status": "dimension_label_interpretation"
+    },
+    {
+      "id": "common_bath_lower_depth",
+      "axis": "y",
+      "source_endpoints_px": [
+        515,
+        684
+      ],
+      "target_mm": 1249,
+      "actual_mm": 1249.0,
+      "status": "dimension_label_interpretation"
+    },
+    {
+      "id": "kitchen_north_balcony_depth",
+      "axis": "y",
+      "source_endpoints_px": [
+        134,
+        307
+      ],
+      "target_mm": 1280,
+      "actual_mm": 1280.0,
+      "status": "dimension_label_interpretation"
+    },
+    {
+      "id": "dressing_clear_depth",
+      "axis": "y",
+      "source_endpoints_px": [
+        335,
+        684
+      ],
+      "target_mm": 2590,
+      "actual_mm": 2590.0,
+      "status": "dimension_label_interpretation"
+    }
+  ],
+  "limitations": [
+    "Dimension source has not been independently verified as an original surveyed or construction drawing.",
+    "Only the listed labels are hard constraints; pixel endpoints were interpreted visually.",
+    "Unlisted dimensions, inferred wall thickness and orthogonalization require review.",
+    "Heights and most door sizes are assumed; expanded geometry is a scenario based on the separate undimensioned plan."
+  ]
+}

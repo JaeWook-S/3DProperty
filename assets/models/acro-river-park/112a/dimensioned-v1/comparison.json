@@ -1,0 +1,56 @@
+{
+  "rooms": [
+    {
+      "id": "Bedroom west",
+      "name_ko": "서쪽 침실",
+      "basic_depth_mm": 2593.0,
+      "expanded_depth_mm": 3083.452,
+      "basic_rectangle_area_m2": 7.1747,
+      "expanded_rectangle_area_m2": 8.5317,
+      "rectangle_area_delta_m2": 1.3571
+    },
+    {
+      "id": "Bedroom center",
+      "name_ko": "가운데 침실",
+      "basic_depth_mm": 2593.0,
+      "expanded_depth_mm": 3083.452,
+      "basic_rectangle_area_m2": 6.3736,
+      "expanded_rectangle_area_m2": 7.5791,
+      "rectangle_area_delta_m2": 1.2055
+    },
+    {
+      "id": "Master bedroom",
+      "name_ko": "안방",
+      "basic_depth_mm": 3623.0,
+      "expanded_depth_mm": 3623.0,
+      "basic_rectangle_area_m2": 12.0973,
+      "expanded_rectangle_area_m2": 12.0973,
+      "rectangle_area_delta_m2": 0.0
+    },
+    {
+      "id": "Dressing",
+      "name_ko": "드레스룸",
+      "basic_depth_mm": 2590.0,
+      "expanded_depth_mm": 3619.032,
+      "basic_rectangle_area_m2": 5.3041,
+      "expanded_rectangle_area_m2": 7.4115,
+      "rectangle_area_delta_m2": 2.1074
+    },
+    {
+      "id": "Living front",
+      "name_ko": "거실 전면 구간",
+      "basic_depth_mm": 2282.674,
+      "expanded_depth_mm": 3634.454,
+      "basic_rectangle_area_m2": 9.6264,
+      "expanded_rectangle_area_m2": 15.3271,
+      "rectangle_area_delta_m2": 5.7007
+    }
+  ],
+  "scope": "Selected rectangular subareas only; not total exclusive floor area",
+  "source_constraints": 17,
+  "expanded_status": "scenario inferred from undimensioned expanded plan; common calibrated coordinates retained",
+  "unresolved": [
+    "The expanded reference omits the west open balcony outline; this pair preserves the basic external footprint pending confirmation.",
+    "Expanded structural removals and heights are not certified by a dimensioned expansion drawing."
+  ]
+}

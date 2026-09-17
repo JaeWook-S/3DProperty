@@ -1,0 +1,19 @@
+# Blender backups and temporary outputs
+*.blend[0-9]*
+*.blend@
+*.partial
+*.tmp
+# Python and local tooling
+__pycache__/
+*.py[cod]
+.venv/
+.env
+.env.*
+!.env.example
+# OS/editor state
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+# Regenerable caches
+.cache/
