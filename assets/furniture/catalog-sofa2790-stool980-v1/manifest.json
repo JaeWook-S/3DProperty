@@ -1,0 +1,146 @@
+{
+  "revision": "catalog-sofa2790-stool980-v1",
+  "units": "m",
+  "coordinate_mapping": "Blender (x,y,z) -> glTF (x,z,-y), applied once by exporter",
+  "source_sha256": "e1496809396e4f0e1a6f1b590b4380dc4c2482fb21ba62dc25977f6504e295c9",
+  "dimension_basis": "catalog",
+  "independent_measurement": false,
+  "sofa_height_configuration": "730 mm low state; 980 mm alternative not verified/modelled",
+  "assumptions": [
+    "Unlabelled cushion thickness, curvature, leg positions approximated from reference",
+    "PVC hatch is a drawing legend, not surface texture",
+    "900/520 and 380 markings are not used as independently verified geometry constraints"
+  ],
+  "checks": {
+    "sofa": {
+      "asset_id": "catalog-sofa-2790",
+      "expected_blender_xyz_m": [
+        2.79,
+        1.17,
+        0.73
+      ],
+      "evaluated_local_bounds_m": {
+        "min": [
+          -1.3949999809265137,
+          -0.5849999785423279,
+          0.0
+        ],
+        "max": [
+          1.3949999809265137,
+          0.5849999785423279,
+          0.7299999594688416
+        ],
+        "size": [
+          2.7899999618530273,
+          1.1699999570846558,
+          0.7299999594688416
+        ]
+      },
+      "max_error_m": 4.2915344167226976e-08,
+      "passed": true,
+      "placed_blender_bounds_m": {
+        "min": [
+          8.56071949005127,
+          -8.844999313354492,
+          0.0
+        ],
+        "max": [
+          9.730719566345215,
+          -6.054999828338623,
+          0.7299999594688416
+        ],
+        "size": [
+          1.1700000762939453,
+          2.789999485015869,
+          0.7299999594688416
+        ]
+      }
+    },
+    "stool": {
+      "asset_id": "catalog-stool-980",
+      "expected_blender_xyz_m": [
+        0.98,
+        0.7,
+        0.4
+      ],
+      "evaluated_local_bounds_m": {
+        "min": [
+          -0.49000000953674316,
+          -0.3499999940395355,
+          0.0
+        ],
+        "max": [
+          0.49000000953674316,
+          0.3499999940395355,
+          0.4000000059604645
+        ],
+        "size": [
+          0.9800000190734863,
+          0.699999988079071,
+          0.4000000059604645
+        ]
+      },
+      "max_error_m": 1.907348634588857e-08,
+      "passed": true,
+      "placed_blender_bounds_m": {
+        "min": [
+          7.3107194900512695,
+          -8.59000015258789,
+          0.0
+        ],
+        "max": [
+          8.010719299316406,
+          -7.610000133514404,
+          0.4000000059604645
+        ],
+        "size": [
+          0.6999998092651367,
+          0.9800000190734863,
+          0.4000000059604645
+        ]
+      }
+    }
+  },
+  "placement": {
+    "variant": "expanded",
+    "sofa_blender_xyz_m": [
+      9.14571926498366,
+      -7.45,
+      0.0
+    ],
+    "stool_blender_xyz_m": [
+      7.66071926498366,
+      -8.1,
+      0.0
+    ],
+    "rotation_z_rad": -1.5707963267948966,
+    "sofa_back_wall_gap_m": 0.16,
+    "sofa_stool_gap_m": 0.5500000000000007,
+    "stool_to_west_ledge_gap_m": 1.4521093800063198,
+    "walkthrough_view_position": [
+      6.35,
+      1.6,
+      6.4
+    ],
+    "walkthrough_view_target": [
+      9.05,
+      0.55,
+      7.52
+    ]
+  },
+  "build_seconds": 7.206923484802246,
+  "exports": {
+    "sofa.glb": {
+      "sha256": "8fdb7a7ba63064091b305d04367d7073942bf254dfe39cbd6a4a1c3998fe3c38",
+      "bytes": 2051308
+    },
+    "stool.glb": {
+      "sha256": "f6ad95a79fc5289662f3d8f78ba9cbcb3bcfd8d444d0cb44e58d8422bf816119",
+      "bytes": 1728180
+    },
+    "living-furniture.glb": {
+      "sha256": "943115542edbb3a1d54da34937713473daf00782613c29d211028c2dcc10aa19",
+      "bytes": 2175116
+    }
+  }
+}

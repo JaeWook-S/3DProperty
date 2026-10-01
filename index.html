@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#142a2b" />
+    <title>3DProperty · 아크로리버파크 공간 체험</title>
+  </head>
+  <body>
+    <main id="app">
+      <div id="viewport" aria-label="아파트 3D 공간"></div>
+      <header class="topbar">
+        <a class="brand" href="./"><span class="brand-mark">3D</span> PROPERTY</a>
+        <div class="project">아크로리버파크 <span id="project-variant">112A · 확장형</span></div>
+        <span class="scale-badge">1 : 1 <span>공간 스케일</span></span>
+      </header>
+      <section id="panel" class="panel">
+        <p class="eyebrow">SPACE WALKTHROUGH / 01</p>
+        <h1>공간을 걸어보세요.</h1>
+        <p class="intro">도면을 바탕으로 구성한 집을<br />내 눈높이에서 둘러보세요.</p>
+        <label class="setting" for="variant">평면 선택</label>
+        <select id="variant" disabled><option value="expanded">112A · 확장형</option><option value="basic">112A · 기본형</option></select>
+        <div class="preset-row">
+          <div><label class="setting" for="lighting">조명</label><select id="lighting" disabled><option value="day">낮 · 자연광</option><option value="sunset">해질녘</option><option value="night">밤 · 실내조명</option></select></div>
+          <div><label class="setting" for="finish">마감</label><select id="finish" disabled><option value="original">원본 마감</option><option value="oak">라이트 오크</option><option value="stone">웜 스톤</option></select></div>
+        </div>
+        <p class="setting-note" id="variant-note">확장부는 도면을 바탕으로 구성한 시나리오입니다.</p>
+        <div id="status" role="status">확장형 공간을 불러오는 중…</div>
+        <button id="start" class="primary" disabled>공간에 들어가기 <span>↗</span></button>
+        <button id="living-view" class="living-view" disabled>거실 가구 보기</button>
+        <details id="catalog-furniture" hidden>
+          <summary>소파 · 스툴 치수</summary>
+          <p class="furniture-dimensions">소파 <strong>2,790 × 1,170 × 730 mm</strong><br />스툴 <strong>980 × 700 × 400 mm</strong></p>
+          <p class="setting-note">폭 × 깊이 × 높이 · 제공된 상품 규격 기준<br />소파는 낮은 높이 상태, 좌면 높이 400 mm입니다.<br />곡면·쿠션·다리의 세부 형상은 사진에 맞춰 구성했어요.</p>
+        </details>
+        <p class="controls-help"><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> 이동 · 마우스로 둘러보기<br /><kbd>E</kbd> / 클릭 · 가까운 문 여닫기<br /><kbd>ESC</kbd> 마우스 해제 및 설정</p>
+        <details id="view-settings"><summary>시점 · 화질 설정</summary>
+        <label class="setting" for="eye">눈높이 <output id="eye-value">1.60 m</output></label>
+        <input id="eye" type="range" min="1.45" max="1.80" step="0.01" value="1.60" disabled />
+        <label class="setting" for="fov">시야각 <output id="fov-value">60°</output></label>
+        <input id="fov" type="range" min="45" max="75" step="1" value="60" disabled />
+        <p class="setting-note">시야각을 넓히면 같은 방도 더 넓어 보일 수 있어요.<br />모델의 실제 치수는 바뀌지 않습니다.</p>
+        <label class="setting" for="quality">화면 품질</label>
+        <select id="quality" disabled><option value="high">높음 · 접촉 그림자</option><option value="ultra">울트라 · 고해상도</option><option value="light">가벼움 · 그림자 효과 축소</option></select>
+        </details>
+        <div class="actions">
+          <button id="reset" disabled>시작 위치로</button>
+          <button id="grid" aria-pressed="false" disabled>1m 격자</button>
+        </div>
+        <p id="reference-size" class="reference-size"></p>
+        <p class="model-note">확장 부분·가구·층고에는 추정값이 포함됩니다.<br />실측 공간과의 일치는 아직 검증 전입니다.</p>
+      </section>
+      <div id="interaction" role="status" hidden></div>
+      <div id="crosshair" aria-hidden="true"></div>
+      <button id="pause" class="pause" hidden>둘러보기 종료 · ESC</button>
+      <footer class="bottom-bar">
+        <div><span class="live-dot"></span><span id="room">거실 앞 복도</span></div>
+        <div class="metrics"><span>보행 <strong>1.20 m/s</strong></span><span>눈높이 <strong id="hud-eye">1.60 m</strong></span></div>
+      </footer>
+      <div id="toast" role="status" hidden></div>
+    </main>
+    <script type="module" src="/src/walkthrough/main.js"></script>
+  </body>
+</html>

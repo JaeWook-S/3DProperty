@@ -1,0 +1,27 @@
+{
+  "generator": "built-in image_gen",
+  "promptFile": "prompts.json",
+  "note": "Requested 2048 square, received actual dimensions below. No upscaling or false resolution claim. Seamless tiling requested, not guaranteed. Original procedural normal maps are disabled for these alternate surfaces.",
+  "assets": [
+    {
+      "name": "oak",
+      "file": "oak.png",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 2337537,
+      "sha256": "f4deddef41cee87ea509f8aea4add749da37881fa4cb830b1a1805d3b6a70334",
+      "mapType": "AI-generated base color; not a measured PBR material",
+      "sampleSizeMeters": 1.2
+    },
+    {
+      "name": "limestone",
+      "file": "limestone.png",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 3022304,
+      "sha256": "7ef821e2c0c5858344ea6e07141863b2128ca3716244f3ec417e5d776c91e7dd",
+      "mapType": "AI-generated base color; not a measured PBR material",
+      "sampleSizeMeters": 1.2
+    }
+  ]
+}

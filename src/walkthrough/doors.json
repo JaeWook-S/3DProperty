@@ -1,0 +1,197 @@
+[
+  {
+    "id": "acro_0018",
+    "name": "현관문",
+    "type": "hinged",
+    "axis": "H",
+    "width": 0.9,
+    "height": 2.15,
+    "hinge": [
+      2.0204622355094677,
+      0,
+      2.454493644859809
+    ],
+    "sourceObject": "Entry north wall open door",
+    "source": "Inferred swing/slide behavior for web interaction; not a verified door schedule"
+  },
+  {
+    "id": "acro_0158",
+    "name": "주방 보조실 문",
+    "type": "hinged",
+    "axis": "V",
+    "width": 0.76,
+    "height": 2.15,
+    "hinge": [
+      6.808456073494358,
+      0,
+      0.6854335260115606
+    ],
+    "sourceObject": "Kitchen service divider open door",
+    "source": "Inferred swing/slide behavior for web interaction; not a verified door schedule"
+  },
+  {
+    "id": "acro_0185",
+    "name": "공용 욕실 문",
+    "type": "hinged",
+    "axis": "H",
+    "width": 0.76,
+    "height": 2.15,
+    "hinge": [
+      4.448044962383295,
+      0,
+      4.181639999999995
+    ],
+    "sourceObject": "Common bath entrance open door",
+    "source": "Inferred swing/slide behavior for web interaction; not a verified door schedule"
+  },
+  {
+    "id": "acro_0212",
+    "name": "안방 보조실 문",
+    "type": "hinged",
+    "axis": "V",
+    "width": 0.72,
+    "height": 2.15,
+    "hinge": [
+      11.278296073494303,
+      0,
+      0.5500578034682081
+    ],
+    "sourceObject": "Master bath dressing divider open door",
+    "source": "Inferred swing/slide behavior for web interaction; not a verified door schedule"
+  },
+  {
+    "id": "acro_0224",
+    "name": "안방 욕실·드레스룸 문",
+    "type": "hinged",
+    "axis": "H",
+    "width": 0.76,
+    "height": 2.15,
+    "hinge": [
+      10.171118201153872,
+      0,
+      4.181639999999995
+    ],
+    "sourceObject": "Master north divider open door",
+    "source": "Inferred swing/slide behavior for web interaction; not a verified door schedule"
+  },
+  {
+    "id": "acro_0231",
+    "name": "안방 욕실·드레스룸 문",
+    "type": "hinged",
+    "axis": "H",
+    "width": 0.86,
+    "height": 2.15,
+    "hinge": [
+      11.835156073494307,
+      0,
+      4.181639999999995
+    ],
+    "sourceObject": "Master north divider open door.001",
+    "source": "Inferred swing/slide behavior for web interaction; not a verified door schedule"
+  },
+  {
+    "id": "acro_0245",
+    "name": "안방 문",
+    "type": "hinged",
+    "axis": "V",
+    "width": 0.86,
+    "height": 2.15,
+    "hinge": [
+      9.990892137324083,
+      0,
+      4.317187906743247
+    ],
+    "sourceObject": "Master living divider open door",
+    "source": "Inferred swing/slide behavior for web interaction; not a verified door schedule"
+  },
+  {
+    "id": "acro_0263",
+    "name": "서쪽 침실 문",
+    "type": "hinged",
+    "axis": "H",
+    "width": 0.82,
+    "height": 2.15,
+    "hinge": [
+      1.8415011945164788,
+      0,
+      5.525321717302442
+    ],
+    "sourceObject": "Bedroom west north open door",
+    "source": "Inferred swing/slide behavior for web interaction; not a verified door schedule"
+  },
+  {
+    "id": "acro_0275",
+    "name": "가운데 침실 문",
+    "type": "hinged",
+    "axis": "H",
+    "width": 0.82,
+    "height": 2.15,
+    "hinge": [
+      4.528148666086998,
+      0,
+      5.525321717302442
+    ],
+    "sourceObject": "Bedroom center north open door",
+    "source": "Inferred swing/slide behavior for web interaction; not a verified door schedule"
+  },
+  {
+    "id": "acro_0288",
+    "name": "안방 발코니 미닫이문",
+    "type": "sliding",
+    "axis": "H",
+    "width": 1.562,
+    "height": 2.2399999999999998,
+    "hinge": [
+      10.059506499026215,
+      0.06,
+      8.011910309024403
+    ],
+    "sourceObject": "Master balcony divider glazing",
+    "source": "Inferred swing/slide behavior for web interaction; not a verified door schedule"
+  },
+  {
+    "id": "acro_0302",
+    "name": "발코니 보조실 문",
+    "type": "hinged",
+    "axis": "V",
+    "width": 0.65,
+    "height": 2.15,
+    "hinge": [
+      12.131596073494308,
+      0,
+      8.32484937515813
+    ],
+    "sourceObject": "Master balcony utility divider open door",
+    "source": "Inferred swing/slide behavior for web interaction; not a verified door schedule"
+  },
+  {
+    "id": "acro_0315",
+    "name": "서쪽 침실 발코니 미닫이문",
+    "type": "sliding",
+    "axis": "H",
+    "width": 1.562,
+    "height": 2.2399999999999998,
+    "hinge": [
+      0.6425580923814121,
+      0.06,
+      8.813333345406296
+    ],
+    "sourceObject": "West bedroom outer glazing glazing",
+    "source": "Inferred swing/slide behavior for web interaction; not a verified door schedule"
+  },
+  {
+    "id": "acro_0330",
+    "name": "가운데 침실 발코니 미닫이문",
+    "type": "sliding",
+    "axis": "H",
+    "width": 1.589,
+    "height": 2.2399999999999998,
+    "hinge": [
+      3.375940995716226,
+      0.06,
+      8.813333345406296
+    ],
+    "sourceObject": "Center bedroom outer glazing glazing",
+    "source": "Inferred swing/slide behavior for web interaction; not a verified door schedule"
+  }
+]

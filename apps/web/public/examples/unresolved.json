@@ -1,0 +1,28 @@
+{
+  "schema_version": "cortex.furniture.v0",
+  "asset_id": "example-unresolved-001",
+  "revision": "example-only",
+  "units": "m",
+  "coordinate_space": "gltf-y-up",
+  "front_axis": "+Z",
+  "pivot": "bottom-center",
+  "dimensions_m": {
+    "width": null,
+    "depth": null,
+    "height": null
+  },
+  "dimension_basis": "manual",
+  "scale_status": "unresolved",
+  "confidence": null,
+  "model_uri": null,
+  "model_sha256": null,
+  "geometry_kind": "box-proxy",
+  "provenance": {
+    "sample_id": "example-only",
+    "method": null,
+    "implementation_revision": null,
+    "weights_id": null,
+    "scale_reference_used": false,
+    "scale_reference_description": null
+  }
+}

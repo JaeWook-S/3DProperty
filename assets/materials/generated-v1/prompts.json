@@ -1,0 +1,10 @@
+[
+  {
+    "key": "limestone",
+    "prompt": "Use case: photorealistic-natural. Asset type: repeatable base-color texture for a dimensionally accurate architectural 3D apartment walkthrough. Generate one extremely detailed 2048 by 2048 square, orthographic, straight-down scan of warm ivory honed limestone. Entire frame is the stone surface, representing a 1.2m square sample: subtle fine mineral grains, tiny natural pores, delicate cloudy variation in warm off-white and pale greige, elegant high-end Korean apartment floor finish. Flat cross-polarized diffuse light, uniform brightness across the frame, intrinsic surface color only. Perfectly seamless/tileable left to right and top to bottom. No scene, no perspective, no grout, no tile borders, no objects, no directional shadows, no specular highlights, no vignette, no text, no watermark. Low contrast natural pattern; not marble veins, not dramatic cracks. This is a material albedo texture, not a finished room render."
+  },
+  {
+    "key": "oak",
+    "prompt": "Use case: photorealistic-natural. Asset type: repeatable base-color wood texture for a dimensionally accurate architectural 3D apartment walkthrough. Generate one extremely detailed 2048 by 2048 square, orthographic, straight-down scan of premium natural light European oak, matte clear finish, realistic warm pale honey-beige with fine quarter-sawn grain running vertically. The full image represents a 1.2m square material sample, with organic grain variation and fine pores at believable real-world scale. Entire frame is wood, flat cross-polarized diffuse light, intrinsic surface color only. Seamless/tileable left-right and top-bottom. No scene, no perspective, no furniture, no plank seams, no board edges, no big knots, no repeating artificial stripe pattern, no directional shadows or specular shine, no vignette, no text, no watermark. Sophisticated subtle natural timber grain suitable for both flooring and cabinetry."
+  }
+]
