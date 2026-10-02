@@ -57,7 +57,8 @@ test('expanded GLB retains meter scale, walkthrough controls and real mesh colli
   await expect.poll(async () => (await state()).doors.find((d) => d.id === 'acro_0275').progress, { timeout: 60000 }).toBeCloseTo(1, 3);
   await page.evaluate(() => document.exitPointerLock());
   await page.evaluate(() => window.__walkthrough.move(0, 1.5));
-  expect((await state()).position[2]).toBeGreaterThan(6.2);
+  // Clear the door plane at Z=5.525; the updated 2m bed stops travel farther in.
+  expect((await state()).position[2]).toBeGreaterThan(6.0);
   expect((await state()).standing).toBe(true);
   // Quality changes only the visual pass, never scale or door/collision state.
   await page.locator('#quality').selectOption('light');

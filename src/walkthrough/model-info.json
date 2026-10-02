@@ -1,8 +1,8 @@
 {
   "units": "meters",
   "upAxis": "Y",
-  "source": "dimensioned-v1/expanded; Blender (x,y,z) -> glTF (x,z,-y)",
-  "glbSha256": "f17661a63d6032eb6b5b5826ffc19f48b23c05ed3ca2a3496f4cef4f7e6bfea3",
+  "source": "dimensioned-v2/expanded; Blender (x,y,z) -> glTF (x,z,-y)",
+  "glbSha256": "cb0b24a31dadee0a9f7f0d8f2e5ba34f106631958fdc0374df840d48d4ba1a77",
   "rooms": [
     {
       "id": "Bedroom west",
@@ -2416,5 +2416,48 @@
       "name": "dressing_clear_depth end",
       "category": "Reference"
     }
-  }
+  },
+  "ceiling_m": 2.6,
+  "ceiling_source": "https://www.acro.co.kr/Posm_main.action?commonMap.CD_BIZ_LND=010366",
+  "beds": [
+    {
+      "name": "Master staged",
+      "label": "King",
+      "mattress_m": [
+        1.67,
+        2.075
+      ],
+      "measured_m": [
+        1.6699999570846558,
+        2.075000047683716,
+        0.23999999463558197
+      ]
+    },
+    {
+      "name": "West staged",
+      "label": "Single",
+      "mattress_m": [
+        1.0,
+        2.0
+      ],
+      "measured_m": [
+        1.0,
+        2.0,
+        0.23999999463558197
+      ]
+    },
+    {
+      "name": "Center staged",
+      "label": "Single",
+      "mattress_m": [
+        1.0,
+        2.0
+      ],
+      "measured_m": [
+        1.0,
+        2.0,
+        0.23999999463558197
+      ]
+    }
+  ]
 }

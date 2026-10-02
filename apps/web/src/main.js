@@ -19,6 +19,9 @@ function selectSpace(variant) {
 }
 for (const input of document.querySelectorAll('[name="variant"]')) input.addEventListener('change', () => selectSpace(input.value));
 selectSpace('expanded');
+const studioLink=document.createElement('a');
+studioLink.className='primary';studioLink.id='open-studio';studioLink.textContent='단지에서 시작 · 공간 꾸미기 ↗';studioLink.target='_blank';studioLink.rel='noopener noreferrer';
+try {const url=new URL(viewerBase);if(!['http:','https:'].includes(url.protocol)||url.username||url.password)throw Error();url.searchParams.set('studio','1');studioLink.href=url.href;$('open-viewer').before(studioLink);}catch{/* Existing configuration error remains visible. */}
 function showPanel(panel) {
   for (const id of ['space', 'furniture']) { const active = id === panel; $(`${id}-panel`).hidden = !active; $(`${id}-tab`).classList.toggle('active', active); if (active) $(`${id}-tab`).setAttribute('aria-current', 'page'); else $(`${id}-tab`).removeAttribute('aria-current'); }
 }

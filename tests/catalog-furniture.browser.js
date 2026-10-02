@@ -14,7 +14,8 @@ test('catalog sofa and stool preserve dimensions, living placement and real coll
   for (const [item, expected] of [[sofa, [1.17, .73, 2.79]], [stool, [.70, .40, .98]]]) {
     expected.forEach((size, axis) => expect(item.sizeWorld[axis]).toBeCloseTo(size, 4));
     expect(item.min[1]).toBeCloseTo(0, 5);
-    expect(item.scale).toEqual([1, 1, 1]);
+    // Reparenting an exported quaternion introduces sub-micrometer rounding.
+    item.scale.forEach(value => expect(value).toBeCloseTo(1, 6));
     expect(item.basis).toBe('catalog');
   }
   expect(sofa.min[0] - stool.max[0]).toBeCloseTo(.55, 4);

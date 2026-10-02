@@ -1,0 +1,46 @@
+import {test,expect} from '@playwright/test';
+test('complex to unit, live 2D/3D placement, persistence and room walkthrough',async({page},testInfo)=>{
+ test.setTimeout(240000);
+ const errors=[];page.on('pageerror',e=>errors.push(e.message));
+ await page.goto('/?studio=1&test=1&quality=light');
+ await expect(page.locator('body')).toHaveAttribute('data-studio-mode','complex',{timeout:90000});
+ await page.screenshot({path:testInfo.outputPath('01-complex.png')});
+ await page.locator('#select-building').click();await page.locator('#open-unit').click();
+ await expect(page.locator('body')).toHaveAttribute('data-studio-mode','overview');
+ await page.screenshot({path:testInfo.outputPath('02-unit-plan.png')});
+ await page.locator('#studio-room').selectOption('Living front');await page.locator('#room-edit').click();
+ await page.locator('#selected-item').selectOption('catalog-stool-980');
+ const before=await page.evaluate(()=>window.__studio.inspect());
+ const stool=before.items.find(i=>i.id==='catalog-stool-980');
+ const dragPoints=await page.evaluate(({x,z})=>{const m=document.getElementById('layout-plan').getScreenCTM();return [new DOMPoint(x,z).matrixTransform(m),new DOMPoint(x-.8,z).matrixTransform(m)].map(p=>({x:p.x,y:p.y}));},stool);
+ await page.mouse.move(dragPoints[0].x,dragPoints[0].y);await page.mouse.down();await page.mouse.move(dragPoints[1].x,dragPoints[1].y,{steps:5});await page.mouse.up();
+ const after=await page.evaluate(()=>window.__studio.inspect());const placed=after.items.find(i=>i.id===stool.id),mesh=after.positions.find(i=>i.id===stool.id);
+ expect(placed.x).toBeCloseTo(stool.x-.8,1);expect(mesh.position[0]).toBe(placed.x);expect(mesh.position[2]).toBe(placed.z);expect(placed.width).toBe(stool.width);
+ const collision=await page.evaluate(({old,next})=>{const check=(p)=>{try{window.__walkthrough.place(p.x,p.z,9,8);return true;}catch{return false;}};return {old:check(old),next:check(next)};},{old:stool,next:placed});
+ expect(collision).toEqual({old:true,next:false});
+ await page.locator('#rotate-item').click();expect((await page.evaluate(()=>window.__studio.inspect())).items.find(i=>i.id===stool.id).angle).toBeCloseTo(Math.PI/2);
+ await page.locator('#item-x').fill('0');await page.locator('#apply-position').click();await expect(page.locator('#studio-status')).toContainText('공간');
+ expect((await page.evaluate(()=>window.__studio.inspect())).items.find(i=>i.id===stool.id).x).toBe(placed.x);
+ await page.locator('#save-layout').click();
+ await page.locator('#remove-item').click();expect((await page.evaluate(()=>window.__studio.inspect())).items.find(i=>i.id===stool.id).deleted).toBe(true);
+ await page.locator('#add-kind').selectOption('stool');await page.locator('#add-item').click();expect((await page.evaluate(()=>window.__studio.inspect())).items.some(i=>i.id.startsWith('added-')&&!i.deleted)).toBe(true);
+ await page.locator('#reset-layout').click();await page.locator('#restore-layout').click();
+ await page.locator('#save-layout').click();await page.locator('#reset-layout').click();await page.locator('#restore-layout').click();
+ expect((await page.evaluate(()=>window.__studio.inspect())).items.find(i=>i.id===stool.id).x).toBe(placed.x);
+ await page.evaluate(()=>window.__studio.setMode('edit'));
+ await page.screenshot({path:testInfo.outputPath('03-live-interior.png')});
+ await page.locator('#room-walk').click();await expect.poll(()=>page.evaluate(()=>window.__walkthrough.getState().locked)).toBe(true);
+ expect(await page.evaluate(()=>window.__walkthrough.getState().standing)).toBe(true);
+ await page.evaluate(()=>document.exitPointerLock());
+ for(const room of ['Master bedroom','Bedroom west','Bedroom center','Common bathroom lower','Master bathroom','Kitchen']){
+   await page.locator('#studio-room').selectOption(room);await page.locator('#room-walk').click();
+   await expect.poll(()=>page.evaluate(()=>window.__walkthrough.getState().locked)).toBe(true);
+   expect(await page.evaluate(()=>window.__walkthrough.getState().standing)).toBe(true);
+   await page.evaluate(()=>document.exitPointerLock());
+ }
+ await page.locator('#nav-plan').click();await expect(page.locator('body')).toHaveAttribute('data-studio-mode','overview');
+ await page.reload();await expect(page.locator('body')).toHaveAttribute('data-studio-mode','complex',{timeout:90000});
+ await page.locator('#select-building').click();await page.locator('#open-unit').click();await page.locator('#room-edit').click();await page.locator('#restore-layout').click();
+ expect((await page.evaluate(()=>window.__studio.inspect())).items.find(i=>i.id===stool.id).x).toBe(placed.x);
+ expect(errors).toEqual([]);
+});

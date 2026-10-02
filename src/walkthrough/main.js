@@ -7,6 +7,8 @@ import { FinishLibrary, FINISHES } from './finishes.js';
 import { VARIANTS } from './variants.js';
 import { SPAWN, DEFAULT_EYE_HEIGHT, movementVector, moveWithCollisions, canStand, bodyAt } from './movement.js';
 import './style.css';
+import { stagingAssets } from './staging-assets.js';
+import { createStudio } from './studio.js';
 
 const $ = (id) => document.getElementById(id);
 const keys = new Set();
@@ -58,7 +60,7 @@ async function boot() {
   renderer.shadowMap.type = THREE.PCFShadowMap;
   $('viewport').appendChild(renderer.domElement);
   const controls = new PointerLockControls(camera, renderer.domElement);
-  let needsRender = true;
+  let needsRender = true, studio = null;
   controls.addEventListener('change', () => { needsRender = true; });
   renderer.domElement.addEventListener('webglcontextlost', (event) => {
     event.preventDefault(); controls.unlock();
@@ -70,11 +72,13 @@ async function boot() {
   controls.maxPolarAngle = Math.PI - 0.2;
   controls.addEventListener('lock', () => {
     keys.clear(); document.body.classList.add('walking'); $('pause').hidden = false;
+    if (studio) requestAnimationFrame(resizeViewport);
   });
   controls.addEventListener('unlock', () => {
     keys.clear(); document.body.classList.remove('walking');
     $('pause').hidden = true; $('interaction').hidden = true;
     $('start').innerHTML = '이어서 둘러보기 <span>↗</span>';
+    if (studio) requestAnimationFrame(resizeViewport);
   });
   document.addEventListener('pointerlockerror', () => toast('마우스 잠금에 실패했습니다. 잠시 후 다시 눌러 주세요.'));
   $('start').addEventListener('click', () => {
@@ -172,11 +176,12 @@ async function boot() {
       object.receiveShadow = true;
     });
     refineMaterials(model, renderer);
+    const staging = stagingAssets(model, definition.info);
     const doors = createDoors(model, definition.doors);
     const staticTree = collisionTree(model, (object) => {
       let owner = object;
       while (owner) {
-        if (owner.userData.doorId || owner.userData.collisionDisabled) return false;
+        if (owner.userData.doorId || owner.userData.collisionDisabled || owner.userData.stagingId) return false;
         owner = owner.parent;
       }
       let source = object;
@@ -195,8 +200,13 @@ async function boot() {
       while (parent) { if (!parent.visible) return; parent = parent.parent; }
       pickMeshes.push(object);
     });
-    return { key, model, doors, pickMeshes, definition, meshCount, catalogFurniture,
-      world: combinedWorld(staticTree, doors), doorById: new Map(doors.map((d) => [d.definition.id, d])) };
+    const architectureWorld = combinedWorld(staticTree, doors);
+    const world = { capsuleIntersect(body) {
+      const a=architectureWorld.capsuleIntersect(body), b=staging.capsuleIntersect(body);
+      return b && (!a || b.depth>a.depth) ? b : a;
+    } };
+    return { key, model, doors, pickMeshes, definition, meshCount, catalogFurniture, staging,
+      world, doorById: new Map(doors.map((d) => [d.definition.id, d])) };
   }
   let loadSequence = 0;
   async function loadVariant(key) {
@@ -231,7 +241,7 @@ async function boot() {
         ? '거실에 표기 치수로 만든 소파와 스툴을 배치했어요.'
         : '문 가까이에서 E 또는 클릭으로 여닫을 수 있어요';
       document.body.dataset.loadState = 'ready'; document.body.dataset.finishState = 'ready';
-      loadingStage = 'idle'; updateRoom(); updateURL();
+      loadingStage = 'idle'; updateRoom(); updateURL(); studio?.onVariant();
     } catch (error) {
       if (sequence !== loadSequence) return;
       console.error(error);
@@ -264,6 +274,7 @@ async function boot() {
   }
   renderer.domElement.addEventListener('pointerdown', (event) => {
     if (!ready || busy || event.button !== 0) return;
+    if (studio && studio.mode !== 'tour') return;
     const rect = renderer.domElement.getBoundingClientRect();
     interact(controls.isLocked ? undefined : new THREE.Vector2((event.clientX - rect.left) / rect.width * 2 - 1, -(event.clientY - rect.top) / rect.height * 2 + 1));
   });
@@ -281,10 +292,24 @@ async function boot() {
     keys.clear(); position.set(SPAWN.x, eyeHeight, SPAWN.z); camera.position.copy(position);
     camera.rotation.set(0, Math.PI, 0); needsRender = true;
   });
-  window.addEventListener('resize', () => {
-    camera.aspect = innerWidth / innerHeight; camera.updateProjectionMatrix();
+  function resizeViewport() {
+    const rect=$('viewport').getBoundingClientRect();
+    camera.aspect = rect.width / rect.height; camera.updateProjectionMatrix();
     appearance.resize(); needsRender = true;
-  });
+  }
+  window.addEventListener('resize', resizeViewport);
+  new ResizeObserver(resizeViewport).observe($('viewport'));
+  function enterRoom(room) {
+    const [x1,z1,x2,z2]=room.bounds_m;
+    const cx=(x1+x2)/2,cz=(z1+z2)/2,candidates=[];
+    for(let z=z1+.32;z<z2-.3;z+=.18)for(let x=x1+.32;x<x2-.3;x+=.18)candidates.push(new THREE.Vector3(x,eyeHeight,z));
+    candidates.sort((a,b)=>Math.hypot(a.x-cx,a.z-cz)-Math.hypot(b.x-cx,b.z-cz));
+    const next=candidates.find(p=>canStand(active.world,p,eyeHeight));if(!next)return false;
+    keys.clear();position.copy(next);camera.position.copy(next);camera.lookAt(cx,1.2,cz+.8);needsRender=true;updateRoom();
+    if(renderer.domElement.requestPointerLock&&!matchMedia('(pointer: coarse)').matches)controls.lock();
+    else toast('1인칭 이동은 PC의 키보드와 마우스에서 지원해요.');
+    return true;
+  }
   function updateRoom() {
     if (!active) return;
     const room = active.definition.info.rooms.find(({ bounds_m: [x1, z1, x2, z2] }) => position.x > x1 && position.x < x2 && position.z > z1 && position.z < z2);
@@ -320,7 +345,7 @@ async function boot() {
         visibleVariants: scene.children.filter((o) => o.userData.variant).length }),
       inspectFurniture: () => {
         const items = [];
-        active?.catalogFurniture?.traverse((object) => {
+        active?.model?.traverse((object) => {
           if (!object.userData.asset_id) return;
           const bounds = new THREE.Box3().setFromObject(object);
           items.push({ asset_id: object.userData.asset_id, basis: object.userData.dimension_basis,
@@ -357,5 +382,10 @@ async function boot() {
     };
   }
   await loadVariant(selected.variant);
+  if (params.has('studio') && active) {
+    studio=createStudio({scene,camera,renderer,getActive:()=>active,loadVariant,resize:resizeViewport,
+      invalidate:()=>{appearance.invalidateShadows();needsRender=true;},enterRoom,unlock:()=>{keys.clear();controls.unlock();}});
+    if(import.meta.env.DEV&&params.has('test'))window.__studio=studio;
+  }
 }
 boot().catch(showError);

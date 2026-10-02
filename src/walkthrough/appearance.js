@@ -47,14 +47,16 @@ export function setupAppearance(renderer, scene, camera) {
   composer.addPass(new OutputPass());
   let quality = 'high', lighting = 'day';
   function resize() {
+    const bounds=renderer.domElement.parentElement.getBoundingClientRect();
+    const width=Math.max(1,bounds.width),height=Math.max(1,bounds.height);
     const requested = quality === 'ultra' ? 2 : quality === 'high' ? Math.min(devicePixelRatio, 1.5) : 1;
-    const ratio = Math.min(requested, 3840 / Math.max(innerWidth, innerHeight));
+    const ratio = Math.min(requested, 3840 / Math.max(width, height));
     renderer.setPixelRatio(ratio);
-    renderer.setSize(innerWidth, innerHeight);
+    renderer.setSize(width, height);
     composer.setPixelRatio(ratio);
-    composer.setSize(innerWidth, innerHeight);
+    composer.setSize(width, height);
     const aoRatio = quality === 'ultra' ? Math.min(ratio, 1.5) : Math.min(ratio, 1.25) * 0.7;
-    ao.setSize(Math.round(innerWidth * aoRatio), Math.round(innerHeight * aoRatio));
+    ao.setSize(Math.round(width * aoRatio), Math.round(height * aoRatio));
   }
   function setLighting(value) {
     const p = LIGHTING[value];

@@ -5,7 +5,7 @@
     "type": "hinged",
     "axis": "H",
     "width": 0.9,
-    "height": 2.15,
+    "height": 2.1,
     "hinge": [
       2.0204622355094677,
       0,
@@ -20,7 +20,7 @@
     "type": "hinged",
     "axis": "V",
     "width": 0.76,
-    "height": 2.15,
+    "height": 2.1,
     "hinge": [
       6.808456073494358,
       0,
@@ -35,7 +35,7 @@
     "type": "hinged",
     "axis": "H",
     "width": 0.76,
-    "height": 2.15,
+    "height": 2.1,
     "hinge": [
       4.448044962383295,
       0,
@@ -50,7 +50,7 @@
     "type": "hinged",
     "axis": "V",
     "width": 0.72,
-    "height": 2.15,
+    "height": 2.1,
     "hinge": [
       11.278296073494303,
       0,
@@ -65,7 +65,7 @@
     "type": "hinged",
     "axis": "H",
     "width": 0.76,
-    "height": 2.15,
+    "height": 2.1,
     "hinge": [
       10.171118201153872,
       0,
@@ -80,7 +80,7 @@
     "type": "hinged",
     "axis": "H",
     "width": 0.86,
-    "height": 2.15,
+    "height": 2.1,
     "hinge": [
       11.835156073494307,
       0,
@@ -95,7 +95,7 @@
     "type": "hinged",
     "axis": "V",
     "width": 0.86,
-    "height": 2.15,
+    "height": 2.1,
     "hinge": [
       9.990892137324083,
       0,
@@ -110,7 +110,7 @@
     "type": "hinged",
     "axis": "H",
     "width": 0.82,
-    "height": 2.15,
+    "height": 2.1,
     "hinge": [
       1.8415011945164788,
       0,
@@ -125,7 +125,7 @@
     "type": "hinged",
     "axis": "H",
     "width": 0.82,
-    "height": 2.15,
+    "height": 2.1,
     "hinge": [
       4.528148666086998,
       0,
@@ -155,7 +155,7 @@
     "type": "hinged",
     "axis": "V",
     "width": 0.65,
-    "height": 2.15,
+    "height": 2.1,
     "hinge": [
       12.131596073494308,
       0,
@@ -215,7 +215,7 @@
     "type": "hinged",
     "axis": "H",
     "width": 0.65,
-    "height": 2.15,
+    "height": 2.1,
     "hinge": [
       6.891556073494337,
       0,

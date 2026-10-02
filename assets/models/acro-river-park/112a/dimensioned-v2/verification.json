@@ -1,0 +1,99 @@
+{
+  "ceiling_m": 2.6,
+  "ceiling_source": "https://www.acro.co.kr/Posm_main.action?commonMap.CD_BIZ_LND=010366",
+  "door_opening_m": 2.1,
+  "door_basis": "design assumption; not an as-built door schedule",
+  "bed_basis": "selected mattress size; frame and upholstery are approximations",
+  "variants": {
+    "basic": {
+      "beds": [
+        {
+          "name": "Master staged",
+          "label": "King",
+          "mattress_m": [
+            1.67,
+            2.075
+          ],
+          "measured_m": [
+            1.6699999570846558,
+            2.075000047683716,
+            0.23999999463558197
+          ]
+        },
+        {
+          "name": "West staged",
+          "label": "Single",
+          "mattress_m": [
+            1.0,
+            2.0
+          ],
+          "measured_m": [
+            1.0,
+            2.0,
+            0.23999999463558197
+          ]
+        },
+        {
+          "name": "Center staged",
+          "label": "Single",
+          "mattress_m": [
+            1.0,
+            2.0
+          ],
+          "measured_m": [
+            1.0,
+            2.0,
+            0.23999999463558197
+          ]
+        }
+      ],
+      "wall_top_m": 2.6000001430511475,
+      "sha256": "ad21d1d11b60104c331ed952b4c91359acf99ca22f57b4061a66ed68b90cc95d"
+    },
+    "expanded": {
+      "beds": [
+        {
+          "name": "Master staged",
+          "label": "King",
+          "mattress_m": [
+            1.67,
+            2.075
+          ],
+          "measured_m": [
+            1.6699999570846558,
+            2.075000047683716,
+            0.23999999463558197
+          ]
+        },
+        {
+          "name": "West staged",
+          "label": "Single",
+          "mattress_m": [
+            1.0,
+            2.0
+          ],
+          "measured_m": [
+            1.0,
+            2.0,
+            0.23999999463558197
+          ]
+        },
+        {
+          "name": "Center staged",
+          "label": "Single",
+          "mattress_m": [
+            1.0,
+            2.0
+          ],
+          "measured_m": [
+            1.0,
+            2.0,
+            0.23999999463558197
+          ]
+        }
+      ],
+      "wall_top_m": 2.6000001430511475,
+      "sha256": "cb0b24a31dadee0a9f7f0d8f2e5ba34f106631958fdc0374df840d48d4ba1a77"
+    }
+  }
+}
