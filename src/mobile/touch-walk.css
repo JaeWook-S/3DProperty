@@ -1,0 +1,63 @@
+/* Touch walking controls (src/mobile). Rules apply only while body has .touch-walking,
+   to touch-first devices (hover: none / pointer: coarse), or to the #touch-walk layer,
+   so the PC keyboard-and-mouse layout stays as it was. */
+
+body.touch-walking{--touch-top:max(14px,env(safe-area-inset-top));--touch-right:max(16px,env(safe-area-inset-right));--touch-bottom:max(22px,env(safe-area-inset-bottom));--touch-left:max(16px,env(safe-area-inset-left));overscroll-behavior:none}
+.touch-walk{position:fixed;inset:0;z-index:30;touch-action:none;user-select:none;-webkit-user-select:none;-webkit-touch-callout:none;-webkit-tap-highlight-color:transparent;--stick:clamp(112px,30vmin,148px);--knob:calc(var(--stick)*.42)}
+.touch-walk[hidden],.touch-walk [hidden]{display:none!important}
+.touch-walk button{font:inherit;cursor:pointer}
+
+.touch-top{position:absolute;top:var(--touch-top);right:var(--touch-right);display:flex;gap:8px}
+.touch-top button{height:40px;min-width:40px;padding:0 15px;display:grid;place-items:center;border:1px solid #ffffffa6;border-radius:20px;background:#fafbf6e8;color:#294a3e;font-size:12px;font-weight:650;box-shadow:0 2px 18px #1939321f;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.touch-top .touch-fullscreen{padding:0}
+.touch-fullscreen svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.touch-hint{position:absolute;left:50%;top:calc(var(--touch-top) + 58px);transform:translateX(-50%);width:max-content;max-width:min(88vw,430px);margin:0;padding:11px 16px;border-radius:12px;background:#183b30e6;color:#fff;font-size:12px;line-height:1.7;text-align:center;pointer-events:none;animation:touch-fade-in .3s ease}
+
+/* Bottom-left stick. The zone is larger than the pad so a thumb need not land exactly on it. */
+.touch-stick-zone{position:absolute;left:0;bottom:0;width:min(50vw,calc(var(--stick)*2.5));height:min(60%,calc(var(--stick)*2.6))}
+.touch-stick{position:absolute;left:calc(var(--touch-left) + 10px);bottom:calc(var(--touch-bottom) + 10px);width:var(--stick);height:var(--stick);border-radius:50%;background:radial-gradient(circle,#ffffff24 0 40%,#1732334d 41%);border:1.5px solid #ffffffc0;box-shadow:0 8px 28px #0f222033;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);opacity:.85;transition:transform .2s ease,opacity .2s}
+.touch-stick.active{opacity:1;transition:none}
+.touch-knob{position:absolute;left:calc(50% - var(--knob)/2);top:calc(50% - var(--knob)/2);width:var(--knob);height:var(--knob);border-radius:50%;background:#fafbf6f5;box-shadow:0 4px 16px #0f22204d,inset 0 -3px 0 #17323314;transition:transform .16s ease}
+.touch-stick.active .touch-knob{transition:none}
+.touch-arrow{position:absolute;width:0;height:0;border:7px solid transparent;opacity:.8}
+.touch-arrow[data-arrow=up]{top:9px;left:calc(50% - 7px);border-top:0;border-bottom:9px solid #fff}
+.touch-arrow[data-arrow=down]{bottom:9px;left:calc(50% - 7px);border-bottom:0;border-top:9px solid #fff}
+.touch-arrow[data-arrow=left]{left:9px;top:calc(50% - 7px);border-left:0;border-right:9px solid #fff}
+.touch-arrow[data-arrow=right]{right:9px;top:calc(50% - 7px);border-right:0;border-left:9px solid #fff}
+.touch-stick[data-direction=up] [data-arrow=up]{border-bottom-color:#f2c47e;opacity:1}
+.touch-stick[data-direction=down] [data-arrow=down]{border-top-color:#f2c47e;opacity:1}
+.touch-stick[data-direction=left] [data-arrow=left]{border-right-color:#f2c47e;opacity:1}
+.touch-stick[data-direction=right] [data-arrow=right]{border-left-color:#f2c47e;opacity:1}
+
+/* Bottom-right door button, within reach of the thumb that steers the view. */
+.touch-action{position:absolute;right:var(--touch-right);bottom:calc(var(--touch-bottom) + 18px);min-width:116px;max-width:min(46vw,250px);min-height:56px;padding:10px 18px;border:1px solid #ffffff59;border-radius:16px;background:#183b30eb;color:#fff;font-size:14px;font-weight:650;line-height:1.4;box-shadow:0 8px 26px #0d1f1a4d;animation:touch-fade-in .18s ease}
+.touch-action:active{background:#2b5d4e;transform:scale(.97)}
+@keyframes touch-fade-in{from{opacity:0}}
+
+/* Viewer chrome while walking by touch: full view, room name top-left, no keyboard prompts. */
+body.touch-walking .topbar,body.touch-walking #pause,body.touch-walking #interaction{display:none}
+body.touch-walking .bottom-bar{top:var(--touch-top);right:auto;bottom:auto;left:var(--touch-left);max-width:calc(100vw - 220px)}
+body.touch-walking .bottom-bar>div{padding:11px 15px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+body.touch-walking .metrics{display:none}
+body.touch-walking #toast{top:calc(var(--touch-top) + 118px);bottom:auto;pointer-events:none}
+body.studio.walking.touch-walking .studio-header,body.studio.walking.touch-walking #back-plan{display:none}
+body.studio.walking.touch-walking #viewport{inset:0}
+body.studio.walking.touch-walking #crosshair{left:50%;top:50%}
+
+/* Panel help: touch instructions replace keyboard keys on touch-first devices. */
+.touch-help{display:none}
+@media (hover:none) and (pointer:coarse){.controls-help{display:none}.controls-help.touch-help{display:block}}
+/* A double tap on the 3D view (tap = door) must not zoom the page and push the fixed controls off screen. */
+@media (pointer:coarse){#viewport{touch-action:manipulation}}
+
+/* Phones in landscape: shorter header and a panel that fits the low viewport. */
+@media (orientation:landscape) and (max-height:520px) and (pointer:coarse){
+  .topbar{height:54px;padding:0 20px;gap:16px}
+  .scale-badge{display:none}
+  .panel{top:58px;left:16px;width:300px;padding:18px 20px;max-height:calc(100dvh - 70px)}
+  .panel h1{font-size:20px}
+  .panel .eyebrow,.panel .intro{display:none}
+  .panel .setting{margin-top:10px}
+  .panel select{margin-top:6px;padding:7px 9px}
+  .bottom-bar{left:332px;right:16px;bottom:12px}
+}
