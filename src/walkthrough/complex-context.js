@@ -47,7 +47,7 @@ export function createComplexContext(scene) {
     }
     instances(tower,glass,windows);instances(tower,concrete,bands);
     box(group,[21,.08,18],[x,.06,z],concrete);
-    buildings.push({id,title:`예시 동 ${id}`,floors,x,z,tower});
+    buildings.push({id,title:`${id}동`,floors,x,z,tower});
   }
   // Instancing keeps the landscaped context inexpensive while orbiting.
   const treePositions=[];

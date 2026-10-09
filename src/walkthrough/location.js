@@ -34,5 +34,6 @@ export function createExterior(scene,invalidate,onLoad) {
   box([.12,2.6,1.9],[.8,1.3,1.46],wall);
   box([.12,2.6,1.9],[4.8,1.3,1.46],wall);
   group.visible=false;
-  return {group};
+  // `photo` lets src/window-view swap the photograph for a calibrated backdrop.
+  return {group,photo:walls};
 }

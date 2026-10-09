@@ -1,0 +1,15 @@
+/* Optional 360° window photo (src/window-view), shown under the exterior toggle in walk mode. */
+#window-view{margin:4px 0 8px;font-size:11px;color:#3d5f4e}
+#window-view[hidden]{display:none}
+#window-view summary{cursor:pointer;padding:6px 0;color:#345946}
+#window-view[open] summary{margin-bottom:6px}
+.wv-file{display:block;text-align:center;border:1px dashed #9fb39f;border-radius:9px;padding:10px;font-size:12px;color:#2f5545;background:#f7faf4;cursor:pointer}
+.wv-file input{display:block;width:100%;margin-top:8px;font-size:10px}
+.wv-hint{font-size:10px;line-height:1.65;color:#7d8d80;margin:7px 0 0}
+.wv-heading[hidden],#wv-reset[hidden]{display:none}
+.wv-label{display:flex;justify-content:space-between;gap:8px;font-size:11px;font-weight:600;color:#3d5f4e;margin:12px 0 6px}
+.wv-label output{font-weight:400;color:#5d7766;font-variant-numeric:tabular-nums}
+#wv-photo-heading{width:100%;accent-color:#315b49;margin:2px 0}
+#studio-sidebar #wv-reset{width:100%;margin-top:10px;font-size:11px}
+/* Walking by touch: keep the window note clear of the stick, under the exit buttons. */
+body.studio.walking.touch-walking #exterior-note{top:calc(var(--touch-top,14px) + 50px);bottom:auto;left:auto;right:var(--touch-right,16px);max-width:min(220px,calc(100vw - 32px))}

@@ -59,8 +59,23 @@ export function stagingAssets(model,info) {
     Object.assign(item,patch);apply(item);if(commit)rebuild();return null;
   }
   function reset(){for(const i of items){if(i.id.startsWith('added-')){model.remove(i.group);}else{Object.assign(i,i.initial,{deleted:false});apply(i);}}for(let n=items.length-1;n>=0;n--)if(items[n].id.startsWith('added-'))items.splice(n,1);rebuild();}
+  // Furniture built in code (src/concepts/kit.js) becomes an addable template. Its plan
+  // size comes from the catalog spec so editor warnings match the concept planner.
+  function addTemplate(kind,{title,label,group,width,depth,height}){
+    if(templates.has(kind))return templates.get(kind);
+    const template={id:`template-${kind}`,title,label,kind,width,depth,height,x:0,z:0,angle:0,deleted:false,group};
+    templates.set(kind,template);return template;
+  }
+  // Places a copy of a template at an exact transform; ids starting with 'added-' are
+  // removed again by reset() and recreated by restore().
+  function place(kind,{id,x,z,angle=0}){
+    const source=templates.get(kind);if(!source)return {error:'이 평면에서 사용할 수 없는 가구예요.'};
+    const item={...source,id:id||`added-${++serial}`,x,z,angle,deleted:false,group:source.group.clone(true)};
+    item.group.userData.stagingId=item.id;item.group.traverse(o=>{delete o.userData.asset_id;});
+    model.add(item.group);item.initial={x,z,angle};items.push(item);apply(item);return {item};
+  }
   rebuild();
-  return {items,obstacles,templates,snapshot,rebuild,move,add,reset,
+  return {items,obstacles,templates,snapshot,rebuild,move,add,reset,addTemplate,place,
     remove(id){const i=items.find(i=>i.id===id);if(i){i.deleted=true;apply(i);rebuild();}},
     restore(saved,rooms){
       // Replay finite transforms directly so intentional overlaps and swaps survive.

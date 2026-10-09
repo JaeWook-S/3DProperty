@@ -348,6 +348,28 @@ async function boot() {
     startWalking();
     return true;
   }
+  // Furniture can change while walking (concept themes): step out of anything that now
+  // overlaps the body, preferring a spot in the same room so walls are never crossed.
+  function settle() {
+    if (!active || canStand(active.world, position, eyeHeight, bodyRadius)) return true;
+    const here = active.definition.info.rooms.find(({ bounds_m: [x1, z1, x2, z2] }) => position.x > x1 && position.x < x2 && position.z > z1 && position.z < z2);
+    const inRoom = (p) => !here || (p.x > here.bounds_m[0] && p.x < here.bounds_m[2] && p.z > here.bounds_m[1] && p.z < here.bounds_m[3]);
+    for (const sameRoom of [true, false]) for (let r = 0.1; r <= 2.4; r += 0.1) for (let a = 0; a < 16; a++) {
+      const p = new THREE.Vector3(position.x + Math.cos(a * Math.PI / 8) * r, eyeHeight, position.z + Math.sin(a * Math.PI / 8) * r);
+      if ((sameRoom && !inRoom(p)) || !canStand(active.world, p, eyeHeight, bodyRadius)) continue;
+      position.copy(p); camera.position.copy(p); needsRender = true; updateRoom();
+      return true;
+    }
+    return false;
+  }
+  // Stand at a chosen viewpoint (e.g. a corner that shows the furniture); false if the body does not fit.
+  function standAt(x, z, targetX, targetZ) {
+    const next = new THREE.Vector3(x, eyeHeight, z);
+    if (!active || !canStand(active.world, next, eyeHeight, bodyRadius)) return false;
+    keys.clear(); position.copy(next); camera.position.copy(next); camera.lookAt(targetX, eyeHeight - 0.5, targetZ);
+    needsRender = true; updateRoom();
+    return true;
+  }
   function updateRoom() {
     if (!active) return;
     const room = active.definition.info.rooms.find(({ bounds_m: [x1, z1, x2, z2] }) => position.x > x1 && position.x < x2 && position.z > z1 && position.z < z2);
@@ -426,7 +448,8 @@ async function boot() {
   await loadVariant(selected.variant);
   if (params.has('studio') && active) {
     studio=createStudio({scene,camera,renderer,getActive:()=>active,loadVariant,resize:resizeViewport,
-      invalidate:()=>{appearance.invalidateShadows();needsRender=true;},enterRoom,unlock:()=>{keys.clear();release();}});
+      invalidate:()=>{appearance.invalidateShadows();needsRender=true;},enterRoom,unlock:()=>{keys.clear();release();},
+      settle,standAt,resume:()=>{if(ready&&!busy&&!walking())startWalking();}});
     if(import.meta.env.DEV&&params.has('test'))window.__studio=studio;
   }
 }
