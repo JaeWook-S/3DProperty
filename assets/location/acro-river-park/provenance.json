@@ -1,0 +1,56 @@
+{
+  "revision": 1,
+  "retrieved_utc": "2026-10-02",
+  "source_page": "https://www.acro.co.kr/Posm_main.action?commonMap.CD_BIZ_LND=010366",
+  "location": "서울 서초구 신반포로15길 19",
+  "official_site_facts": {
+    "building_count": 15,
+    "floors_range": [
+      10,
+      38
+    ],
+    "household_count": 1612
+  },
+  "assets": [
+    {
+      "file": "official-night.jpg",
+      "source_url": "https://www.acro.co.kr/jsp/front/po/010366/static/img/main-complete/riverpark-img-1.jpg",
+      "sha256": "5f4163f2fc578340e29469c7cdd490e39eda7a7deb325cdf51d0e019ce42b021",
+      "credit": "ACRO / DL E&C",
+      "rights": "Official website reference material; no open redistribution license established."
+    },
+    {
+      "file": "official-riverside.jpg",
+      "source_url": "https://www.acro.co.kr/jsp/front/po/010366/static/img/main-complete/riverpark-img-2.jpg",
+      "sha256": "81c97ae97e335b0dab31e0f300dcd0e0631a7908cc4dbb2d0d2147fca5a9f74c",
+      "credit": "ACRO / DL E&C",
+      "rights": "Official website reference material; no open redistribution license established."
+    }
+  ],
+  "limitations": [
+    "공식 소개 자료이며 실측 복원이나 실시간 지도 캡처가 아니다.",
+    "공식 페이지는 CG 및 이미지가 실제와 다를 수 있다고 명시한다.",
+    "예시 동 A의 1–38층 탐색 및 22층=112A 연결은 시연 설정이다. 실제 동·호수 대응은 확인되지 않았다.",
+    "외부 사진은 반복된 참고 배경이며 방향·층고·위치가 보정된 파노라마가 아니다.",
+    "현관 밖 공용 공간은 가정한 시각 예시이며 실측 구조 또는 외부 이동 영역이 아니다."
+  ],
+  "naver_api": {
+    "public_api_list": "https://developers.naver.com/docs/common/openapiguide/apilist.md",
+    "maps_docs": "https://navermaps.github.io/maps.js.ncp/docs/tutorial-2-Getting-Started.html",
+    "finding": "공개 API 목록에서 부동산 매물·단지 API는 확인되지 않음. 지도 API는 별도이며 앱 등록·클라이언트 ID가 필요함.",
+    "implementation": "지도 검색 링크 사용. 비공개 API 호출이나 지도 타일 추출 없음."
+  },
+  "neighborhood_context": {
+    "building_ids": "A–O",
+    "layout_basis": "Illustrative positions and heights, not surveyed building footprints",
+    "entry_available": "A / floor 22 only",
+    "views": [
+      "selected building",
+      "site",
+      "river direction (illustrative)",
+      "street direction (illustrative)",
+      "official source photograph"
+    ],
+    "rendering": "Instanced window panels and landscaping; interior model scale unchanged"
+  }
+}

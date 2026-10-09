@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="1100" viewBox="-0.7 -1 15.2 12.5">
+<rect x="-0.7" y="-1" width="15.2" height="12.5" fill="#fafaf7"/>
+<text x="0" y="-.5" font-size=".24">112A basic v3 — model-derived dimensions (mm)</text>
+<rect x="0.0" y="5.625846180867507" width="2.7669380634535634" height="2.593" fill="#e9ecdf" stroke="#506a64" stroke-width=".025"/>
+<text x="1.3834690317267817" y="6.842346180867507" text-anchor="middle" font-size=".12">서쪽 침실</text>
+<text x="1.3834690317267817" y="7.052346180867507" text-anchor="middle" font-size=".12">2767 × 2593</text>
+<rect x="2.9983338316050556" y="5.625846180867507" width="2.458" height="2.593" fill="#e9ecdf" stroke="#506a64" stroke-width=".025"/>
+<text x="4.227333831605056" y="6.842346180867507" text-anchor="middle" font-size=".12">가운데 침실</text>
+<text x="4.227333831605056" y="7.052346180867507" text-anchor="middle" font-size=".12">2458 × 2593</text>
+<rect x="10.091065009664508" y="4.285519999999995" width="3.3390310638298057" height="3.623" fill="#e9ecdf" stroke="#506a64" stroke-width=".025"/>
+<text x="11.760580541579412" y="6.017019999999995" text-anchor="middle" font-size=".12">안방</text>
+<text x="11.760580541579412" y="6.227019999999995" text-anchor="middle" font-size=".12">3339 × 3623</text>
+<rect x="11.382176073494302" y="1.4877599999999962" width="2.047920000000012" height="2.59" fill="#e9ecdf" stroke="#506a64" stroke-width=".025"/>
+<text x="12.406136073494308" y="2.702759999999996" text-anchor="middle" font-size=".12">드레스룸</text>
+<text x="12.406136073494308" y="2.912759999999996" text-anchor="middle" font-size=".12">2048 × 2590</text>
+<rect x="9.779416073494303" y="2.0357599999999962" width="1.3949999999999996" height="2.042" fill="#e9ecdf" stroke="#506a64" stroke-width=".025"/>
+<text x="10.476916073494303" y="2.976759999999996" text-anchor="middle" font-size=".12">안방 욕실</text>
+<text x="10.476916073494303" y="3.186759999999996" text-anchor="middle" font-size=".12">1395 × 2042</text>
+<rect x="4.415156073494408" y="2.828759999999996" width="1.54" height="1.249" fill="#e9ecdf" stroke="#506a64" stroke-width=".025"/>
+<text x="5.185156073494408" y="3.3732599999999957" text-anchor="middle" font-size=".12">공용 욕실 하부</text>
+<text x="5.185156073494408" y="3.5832599999999957" text-anchor="middle" font-size=".12">1540 × 1249</text>
+<rect x="4.415156073494408" y="1.909759999999996" width="0.9290000000000003" height="0.919" fill="#e9ecdf" stroke="#506a64" stroke-width=".025"/>
+<text x="4.8796560734944086" y="2.289259999999996" text-anchor="middle" font-size=".12">공용 욕실 샤워</text>
+<text x="4.8796560734944086" y="2.499259999999996" text-anchor="middle" font-size=".12">929 × 919</text>
+<rect x="5.673562872427839" y="5.625846180867507" width="4.21715639255582" height="2.282673819132488" fill="#e9ecdf" stroke="#506a64" stroke-width=".025"/>
+<text x="7.782141068705749" y="6.68718309043375" text-anchor="middle" font-size=".12">거실 전면 구간</text>
+<text x="7.782141068705749" y="6.89718309043375" text-anchor="middle" font-size=".12">4217 × 2283</text>
+<rect x="0.0" y="8.917368599200584" width="2.456" height="0.9979999999999993" fill="#daeaf1" stroke="#506a64" stroke-width=".025"/>
+<text x="1.228" y="9.336368599200584" text-anchor="middle" font-size=".12">작은 방 1 발코니</text>
+<text x="1.228" y="9.546368599200585" text-anchor="middle" font-size=".12">2456 × 998</text>
+<rect x="3.2141560734944083" y="8.917368599200584" width="2.741" height="0.9979999999999993" fill="#daeaf1" stroke="#506a64" stroke-width=".025"/>
+<text x="4.584656073494409" y="9.336368599200584" text-anchor="middle" font-size=".12">작은 방 2 발코니</text>
+<text x="4.584656073494409" y="9.546368599200585" text-anchor="middle" font-size=".12">2741 × 998</text>
+<rect x="10.091065009664508" y="8.115300618048812" width="1.9440710638297993" height="1.1449999999999996" fill="#daeaf1" stroke="#506a64" stroke-width=".025"/>
+<text x="11.063100541579407" y="8.607800618048811" text-anchor="middle" font-size=".12">안방 발코니</text>
+<text x="11.063100541579407" y="8.817800618048812" text-anchor="middle" font-size=".12">1944 × 1145</text>
+<rect x="12.228056073494306" y="8.115300618048812" width="1.2020400000000073" height="1.1449999999999996" fill="#daeaf1" stroke="#506a64" stroke-width=".025"/>
+<text x="12.82907607349431" y="8.607800618048811" text-anchor="middle" font-size=".12">안방 발코니 보조실</text>
+<text x="12.82907607349431" y="8.817800618048812" text-anchor="middle" font-size=".12">1202 × 1145</text>
+<rect x="5.673562872427839" y="8.115300618048812" width="4.21715639255582" height="1.1449999999999996" fill="#daeaf1" stroke="#506a64" stroke-width=".025"/>
+<text x="7.782141068705749" y="8.607800618048811" text-anchor="middle" font-size=".12">거실 발코니</text>
+<text x="7.782141068705749" y="8.817800618048812" text-anchor="middle" font-size=".12">4217 × 1145</text>
+<rect x="6.904916073494354" y="0.0" width="2.659319999999962" height="1.28" fill="#daeaf1" stroke="#506a64" stroke-width=".025"/>
+<text x="8.234576073494335" y="0.56" text-anchor="middle" font-size=".12">주방 뒤 발코니</text>
+<text x="8.234576073494335" y="0.77" text-anchor="middle" font-size=".12">2659 × 1280</text>
+<rect x="11.382176073494302" y="0.45872832369942207" width="2.047920000000012" height="0.821271676300578" fill="#daeaf1" stroke="#506a64" stroke-width=".025"/>
+<text x="12.406136073494308" y="0.789364161849711" text-anchor="middle" font-size=".12">드레스룸 뒤 발코니</text>
+<text x="12.406136073494308" y="0.999364161849711" text-anchor="middle" font-size=".12">2048 × 821</text>
+<rect x="0.0" y="8.426916688456084" width="2.7669380634535634" height="0.2823814031559255" fill="#daeaf1" stroke="#506a64" stroke-width=".025"/>
+<text x="1.3834690317267817" y="8.488107390034047" text-anchor="middle" font-size=".12">서쪽 침실 앞 실내 발코니</text>
+<text x="1.3834690317267817" y="8.698107390034048" text-anchor="middle" font-size=".12">2767 × 282</text>
+<rect x="2.9983338316050556" y="8.426916688456084" width="2.458" height="0.2823814031559255" fill="#daeaf1" stroke="#506a64" stroke-width=".025"/>
+<text x="4.227333831605056" y="8.488107390034047" text-anchor="middle" font-size=".12">가운데 침실 앞 실내 발코니</text>
+<text x="4.227333831605056" y="8.698107390034048" text-anchor="middle" font-size=".12">2458 × 282</text>
+<rect x="4.41515588760376" y="-0.0" width="2.296840190887451" height="1.7024617195129395" fill="#daeaf1" stroke="#506a64" stroke-width=".025"/>
+<text x="5.563575983047485" y="0.7712308597564698" text-anchor="middle" font-size=".12">다용도 발코니</text>
+<text x="5.563575983047485" y="0.9812308597564697" text-anchor="middle" font-size=".12">2297 × 1702</text>
+<text x="0" y="10.65" font-size=".16">Selected printed dimensions + interpolated spans. Expanded geometry is inferred.</text>
+<text x="0" y="10.95" font-size=".16">Rectangular room zones are not a surveyed complete wall plan or exclusive-area calculation.</text>
+</svg>

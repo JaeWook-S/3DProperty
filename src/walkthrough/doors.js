@@ -101,7 +101,8 @@ export function createDoors(model, definitions) {
         addBox(h, axisH ? [0.025, 0.018, 0.12] : [0.12, 0.018, 0.025], [0, 0, 0], nickel);
         handleGroup.add(h);
       }
-      const door = new MovingDoor(definition, pivot, pivot, (p) => { pivot.rotation.y = (1 - p) * Math.PI / 2; });
+      const swing=definition.hingeSide==='right'?-1:1;
+      const door = new MovingDoor(definition, pivot, pivot, (p) => { pivot.rotation.y = swing * (1 - p) * Math.PI / 2; });
       doors.push(door);
     } else {
       // A single exported sheet is partitioned into two real half-width leaves.

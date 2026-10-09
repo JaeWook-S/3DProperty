@@ -32,6 +32,23 @@ for (const axis of ['H', 'V']) {
     assert.equal(canStand(world, passage), false);
   });
 }
+test('right-hinged bedroom door blocks the mirrored opening and keeps its hinge fixed', () => {
+  const model = new Group();
+  const mesh = new Mesh(new BoxGeometry(0.04, 2.13, 0.80));
+  mesh.position.set(0.82, 1.075, 0.41);
+  mesh.userData.object_id = 'right-leaf'; model.add(mesh);
+  const [door] = createDoors(model, [{id: 'right-leaf', name: 'right', type: 'hinged', axis: 'H', hingeSide: 'right', width: 0.82, hinge: [0.82, 0, 0]}]);
+  const world = combinedWorld({capsuleIntersect: () => false}, [door]);
+  const passage = new Vector3(0.41, 1.6, 0);
+  assert.equal(canStand(world, passage), false);
+  door.setProgress(1);
+  assert.equal(canStand(world, passage), true);
+  const occupant = new Vector3(0.41, 1.6, -0.6);
+  moveWithCollisions(world, occupant, new Vector3(0, 0, 1.2));
+  assert.ok(occupant.z > 0.59);
+  assert.deepEqual(door.pivot.position.toArray(), [0.82, 0, 0]);
+  assert.equal(canStand(world, new Vector3(0.82, 1.6, 0.5)), false);
+});
 test('a closing leaf stops before intersecting the occupant and can reverse', () => {
   const door = hinge('H');
   door.setProgress(1);

@@ -19,6 +19,7 @@ test('complex to unit, live 2D/3D placement, persistence and room walkthrough',a
  const collision=await page.evaluate(({old,next})=>{const check=(p)=>{try{window.__walkthrough.place(p.x,p.z,9,8);return true;}catch{return false;}};return {old:check(old),next:check(next)};},{old:stool,next:placed});
  expect(collision).toEqual({old:true,next:false});
  await page.locator('#rotate-item').click();expect((await page.evaluate(()=>window.__studio.inspect())).items.find(i=>i.id===stool.id).angle).toBeCloseTo(Math.PI/2);
+ await page.locator('#allow-overlap').uncheck();
  await page.locator('#item-x').fill('0');await page.locator('#apply-position').click();await expect(page.locator('#studio-status')).toContainText('공간');
  expect((await page.evaluate(()=>window.__studio.inspect())).items.find(i=>i.id===stool.id).x).toBe(placed.x);
  await page.locator('#save-layout').click();

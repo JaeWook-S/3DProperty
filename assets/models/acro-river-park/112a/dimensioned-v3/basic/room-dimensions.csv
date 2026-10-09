@@ -1,0 +1,19 @@
+id,name_ko,width_mm,depth_mm,basis
+Bedroom west,서쪽 침실,2766.94,2593.0,interpolated drawing boundaries
+Bedroom center,가운데 침실,2458.0,2593.0,basic clear width 2458 mm and depth 2593 mm; expanded south strip is inferred
+Master bedroom,안방,3339.03,3623.0,clear depth 3623 mm
+Dressing,드레스룸,2047.92,2590.0,basic clear depth 2590 mm; northern balcony absorbed in expanded scenario
+Master bathroom,안방 욕실,1395.0,2042.0,clear width 1395 mm; depth 2042 mm
+Common bathroom lower,공용 욕실 하부,1540.0,1249.0,width 1540 mm and lower depth 1249 mm
+Common shower,공용 욕실 샤워,929.0,919.0,929 x 919 mm
+Living front,거실 전면 구간,4217.16,2282.67,interpolated drawing boundaries
+West open balcony,작은 방 1 발코니,2456.0,998.0,"2456 x 998 mm; kept outside both interior variants; enclosing glazing follows furnished reference, heights assumed"
+Center open balcony,작은 방 2 발코니,2741.0,998.0,"2741 x 998 mm; kept outside both interior variants; enclosing glazing follows furnished reference, heights assumed"
+Master balcony,안방 발코니,1944.07,1145.0,clear depth 1145 mm
+Master balcony utility,안방 발코니 보조실,1202.04,1145.0,clear depth 1145 mm
+Living balcony,거실 발코니,4217.16,1145.0,clear depth 1145 mm
+Kitchen balcony,주방 뒤 발코니,2659.32,1280.0,clear depth 1280 mm
+Dressing balcony,드레스룸 뒤 발코니,2047.92,821.27,interpolated drawing boundaries
+West enclosed strip,서쪽 침실 앞 실내 발코니,2766.94,282.38,interpolated drawing boundaries
+Center enclosed strip,가운데 침실 앞 실내 발코니,2458.0,282.38,interpolated drawing boundaries
+Service balcony,다용도 발코니,2296.84,1702.46,Bounding rectangle of existing L-shaped polygon; not a room area measurement

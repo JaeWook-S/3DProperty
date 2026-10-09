@@ -5,7 +5,8 @@ import { createDoors, collisionTree, combinedWorld } from './doors.js';
 import { setupAppearance, refineMaterials, LIGHTING } from './appearance.js';
 import { FinishLibrary, FINISHES } from './finishes.js';
 import { VARIANTS } from './variants.js';
-import { SPAWN, DEFAULT_EYE_HEIGHT, movementVector, moveWithCollisions, canStand, bodyAt } from './movement.js';
+import { SPAWN, BODY_RADIUS, DEFAULT_EYE_HEIGHT, movementVector, moveWithCollisions, canStand, bodyAt } from './movement.js';
+import { verticalFromHorizontal, horizontalFromVertical, screenHorizontalFov } from './view-calibration.js';
 import './style.css';
 import { stagingAssets } from './staging-assets.js';
 import { createStudio } from './studio.js';
@@ -22,6 +23,7 @@ const selected = {
   quality: ['light', 'high', 'ultra'].includes(params.get('quality')) ? params.get('quality') : 'high',
 };
 let eyeHeight = DEFAULT_EYE_HEIGHT, active = null, ready = false, busy = false, toastTimer;
+let bodyRadius=BODY_RADIUS,horizontalFov=85;
 const position = new THREE.Vector3(SPAWN.x, eyeHeight, SPAWN.z);
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(60, innerWidth / innerHeight, 0.04, 80);
@@ -40,7 +42,8 @@ function updateURL() {
   history.replaceState(null, '', url);
 }
 function setEnabled() {
-  for (const id of ['start', 'eye', 'fov', 'reset', 'grid', 'quality', 'lighting', 'finish']) $(id).disabled = !ready || busy;
+  for (const id of ['start', 'eye', 'fov', 'body-width', 'reset', 'grid', 'quality', 'lighting', 'finish']) $(id).disabled = !ready || busy;
+  if($('projection-mode').value==='screen')$('fov').disabled=true;
   $('variant').disabled = busy;
   $('living-view').disabled = !ready || busy || active?.key !== 'expanded';
   $('catalog-furniture').hidden = active?.key !== 'expanded';
@@ -140,11 +143,11 @@ async function boot() {
   function showLivingFurniture() {
     if (active?.key !== 'expanded') return;
     const next = new THREE.Vector3(6.35, eyeHeight, 6.4);
-    if (!canStand(active.world, next, eyeHeight)) {
+    if (!canStand(active.world, next, eyeHeight, bodyRadius)) {
       toast('이 위치로 이동할 수 없어요. 시작 위치에서 거실로 걸어가 주세요.'); return;
     }
     keys.clear(); controls.unlock();
-    position.copy(next); camera.position.copy(next); camera.lookAt(9.05, 0.55, 7.52);
+    position.copy(next); camera.position.copy(next); camera.lookAt(9.05, eyeHeight, 7.52);
     needsRender = true; updateRoom();
     const url = new URL(location.href); url.searchParams.set('view', 'living'); history.replaceState(null, '', url);
   }
@@ -224,7 +227,7 @@ async function boot() {
       if (sequence !== loadSequence) return;
       for (const door of next.doors) { door.setProgress(0); door.target = 0; }
       const spawn = new THREE.Vector3(SPAWN.x, eyeHeight, SPAWN.z);
-      if (!canStand(next.world, spawn, eyeHeight)) throw new Error('Spawn intersects selected model');
+      if (!canStand(next.world, spawn, eyeHeight, bodyRadius)) throw new Error('Spawn intersects selected model');
       if (active) scene.remove(active.model);
       active = next; selected.variant = key;
       scene.add(active.model); appearance.invalidateShadows();
@@ -280,21 +283,42 @@ async function boot() {
   });
   $('eye').addEventListener('input', (event) => {
     const proposed = Number(event.target.value);
-    if (!canStand(active.world, position, proposed)) { event.target.value = String(eyeHeight); toast('머리 위 장애물 때문에 더 높일 수 없어요.'); return; }
-    eyeHeight = proposed; position.y = eyeHeight; camera.position.copy(position); needsRender = true;
+    if (!canStand(active.world, position, proposed, bodyRadius)) { event.target.value = String(eyeHeight); toast('머리 위 장애물 때문에 더 높일 수 없어요.'); return; }
+    eyeHeight = proposed; position.y = eyeHeight;if(!studio||studio.mode==='tour')camera.position.copy(position); needsRender = true;
     $('eye-value').textContent = $('hud-eye').textContent = `${eyeHeight.toFixed(2)} m`;
+    syncProjection();
   });
   $('fov').addEventListener('input', (event) => {
-    camera.fov = Number(event.target.value); camera.updateProjectionMatrix(); needsRender = true;
-    $('fov-value').textContent = `${camera.fov}°`;
+    horizontalFov=Number(event.target.value);syncProjection();
   });
+  $('body-width').addEventListener('input',event=>{
+    const proposed=Number(event.target.value)/200;
+    if(!canStand(active.world,position,eyeHeight,proposed)){event.target.value=bodyRadius*200;toast('현재 위치에서는 이 몸체 폭이 주변 물체와 겹쳐요. 넓은 곳에서 바꿔 주세요.');return;}
+    bodyRadius=proposed;$('body-width-value').textContent=`${Math.round(bodyRadius*200)} cm`;syncProjection();
+  });
+  function syncProjection(){
+    const calibrated=$('projection-mode').value==='screen';$('screen-calibration').hidden=!calibrated;
+    $('fov').disabled=calibrated||!ready||busy;
+    let h=horizontalFov;
+    if(calibrated){
+      const width=Number($('display-width').value),distance=Number($('view-distance').value);
+      if(width<10||width>200||distance<20||distance>200){$('perception-metrics').textContent='모니터 너비 10–200cm, 시청 거리 20–200cm 범위로 입력해 주세요.';return;}
+      h=screenHorizontalFov(width,distance,$('viewport').getBoundingClientRect().width/window.screen.width);
+    }
+    const v=verticalFromHorizontal(h,camera.aspect);
+    camera.fov=!studio||studio.mode==='tour'?v:60;camera.updateProjectionMatrix();
+    $('fov').value=h;$('fov-value').textContent=`${h.toFixed(1)}°`;
+    $('perception-metrics').textContent=`보행 시 가로 ${h.toFixed(1)}° / 세로 ${v.toFixed(1)}° · 몸체 폭 ${Math.round(bodyRadius*200)}cm · 머리 위 ${(eyeHeight+.12).toFixed(2)}m`;
+    needsRender=true;
+  }
+  for(const id of ['projection-mode','display-width','view-distance'])$(id).addEventListener('input',syncProjection);
   $('reset').addEventListener('click', () => {
     keys.clear(); position.set(SPAWN.x, eyeHeight, SPAWN.z); camera.position.copy(position);
     camera.rotation.set(0, Math.PI, 0); needsRender = true;
   });
   function resizeViewport() {
     const rect=$('viewport').getBoundingClientRect();
-    camera.aspect = rect.width / rect.height; camera.updateProjectionMatrix();
+    camera.aspect = rect.width / rect.height;syncProjection();
     appearance.resize(); needsRender = true;
   }
   window.addEventListener('resize', resizeViewport);
@@ -302,10 +326,11 @@ async function boot() {
   function enterRoom(room) {
     const [x1,z1,x2,z2]=room.bounds_m;
     const cx=(x1+x2)/2,cz=(z1+z2)/2,candidates=[];
-    for(let z=z1+.32;z<z2-.3;z+=.18)for(let x=x1+.32;x<x2-.3;x+=.18)candidates.push(new THREE.Vector3(x,eyeHeight,z));
+    const margin=bodyRadius+.08;
+    for(let z=z1+margin;z<z2-margin;z+=.12)for(let x=x1+margin;x<x2-margin;x+=.12)candidates.push(new THREE.Vector3(x,eyeHeight,z));
     candidates.sort((a,b)=>Math.hypot(a.x-cx,a.z-cz)-Math.hypot(b.x-cx,b.z-cz));
-    const next=candidates.find(p=>canStand(active.world,p,eyeHeight));if(!next)return false;
-    keys.clear();position.copy(next);camera.position.copy(next);camera.lookAt(cx,1.2,cz+.8);needsRender=true;updateRoom();
+    const next=candidates.find(p=>canStand(active.world,p,eyeHeight,bodyRadius));if(!next)return false;
+    keys.clear();position.copy(next);camera.position.copy(next);camera.lookAt(cx,eyeHeight,cz+.8);syncProjection();needsRender=true;updateRoom();
     if(renderer.domElement.requestPointerLock&&!matchMedia('(pointer: coarse)').matches)controls.lock();
     else toast('1인칭 이동은 PC의 키보드와 마우스에서 지원해요.');
     return true;
@@ -322,12 +347,12 @@ async function boot() {
       const forward = Number(keys.has('KeyW') || keys.has('ArrowUp')) - Number(keys.has('KeyS') || keys.has('ArrowDown'));
       const right = Number(keys.has('KeyD') || keys.has('ArrowRight')) - Number(keys.has('KeyA') || keys.has('ArrowLeft'));
       if (forward || right) {
-        moveWithCollisions(active.world, position, movementVector(forward, right, camera.rotation.y, dt), eyeHeight);
+        moveWithCollisions(active.world, position, movementVector(forward, right, camera.rotation.y, dt), eyeHeight, bodyRadius);
         camera.position.copy(position); needsRender = true;
       }
     }
     if (active && !busy) for (const door of active.doors) {
-      const result = door.update(Math.min(elapsed, 0.25), bodyAt(position, eyeHeight));
+      const result = door.update(Math.min(elapsed, 0.25), bodyAt(position, eyeHeight, bodyRadius));
       if (result.changed) { appearance.invalidateShadows(); needsRender = true; }
       if (result.blocked) toast('문이 몸에 닿아 멈췄어요. 조금 물러나 다시 여닫아 주세요.');
     }
@@ -336,9 +361,9 @@ async function boot() {
   });
   if (import.meta.env.DEV && params.has('test')) {
     window.__walkthrough = {
-      getState: () => ({ position: position.toArray(), eyeHeight, fov: camera.fov,
+      getState: () => ({ position: position.toArray(), eyeHeight, fov: camera.fov,horizontalFov:horizontalFromVertical(camera.fov,camera.aspect),bodyRadius,headTop:eyeHeight+.12,pitch:camera.rotation.x,
         scale: active?.model.scale.toArray(), meshCount: active?.meshCount, locked: controls.isLocked,
-        standing: active ? canStand(active.world, position, eyeHeight) : false,
+        standing: active ? canStand(active.world, position, eyeHeight, bodyRadius) : false,
         loadingStage, variant: active?.key, finish: active?.model.userData.finish, lighting: appearance.lighting,
         quality: appearance.quality, resolution: appearance.resolution,
         doors: active?.doors.map((d) => d.getState()), triangles: renderer.info.render.triangles,
@@ -371,11 +396,11 @@ async function boot() {
         let object; active.model.traverse((item) => { if (item.userData.object_id === objectId) object = item; });
         return new THREE.Box3().setFromObject(object).getSize(new THREE.Vector3()).toArray();
       },
-      move: (dx, dz) => { moveWithCollisions(active.world, position, new THREE.Vector3(dx, 0, dz), eyeHeight); camera.position.copy(position); needsRender = true; },
+      move: (dx, dz) => { moveWithCollisions(active.world, position, new THREE.Vector3(dx, 0, dz), eyeHeight, bodyRadius); camera.position.copy(position); needsRender = true; },
       look: (yaw) => { camera.rotation.set(0, yaw, 0); needsRender = true; },
       place: (x, z, targetX, targetZ) => {
         const next = new THREE.Vector3(x, eyeHeight, z);
-        if (!canStand(active.world, next, eyeHeight)) throw new Error('Test position intersects geometry');
+        if (!canStand(active.world, next, eyeHeight, bodyRadius)) throw new Error('Test position intersects geometry');
         position.copy(next); camera.position.copy(next); camera.lookAt(targetX, 1.1, targetZ); needsRender = true;
       },
       pickDoor: () => pickDoor()?.definition.id, interact: () => interact(),

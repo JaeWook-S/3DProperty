@@ -1,0 +1,516 @@
+{
+  "revision": "dimensioned-v3",
+  "basis": "Supplied basic/expanded _0.jpg furnishing reference; existing dimensioned calibration retained",
+  "assumptions": [
+    "Desk 1200 x 600 x 740 mm and chair outer size 540 x 550 x 850 mm are design sizes, not extracted measurements.",
+    "Balcony enclosure follows the reference image; glazing height and profiles are assumed.",
+    "Expanded footprint retains the v2 inferred expansion scenario; no independent expanded dimension drawing supplied."
+  ],
+  "variants": {
+    "basic": {
+      "source_sha256": "63fc1d3d099c9ae6e635b1b88a4155d8e0f62e220bc7740ab93c0e469226696e",
+      "glb_sha256": "7253755b90269b38372c388a97be97cf43f49ebd6214fe0041a25098ee2742ac",
+      "floor_bounds_unchanged": true,
+      "floor_objects_checked": 18,
+      "removed_objects": [
+        "West balcony glass guard",
+        "West balcony handrail",
+        "Center balcony glass guard",
+        "Center balcony handrail",
+        "West staged frame",
+        "West staged mattress",
+        "West staged duvet",
+        "West staged headboard",
+        "West staged pillow",
+        "West staged nightstand",
+        "West staged nightstand.001",
+        "Center staged frame",
+        "Center staged mattress",
+        "Center staged duvet",
+        "Center staged headboard",
+        "Center staged pillow",
+        "Center staged nightstand",
+        "Center staged nightstand.001"
+      ],
+      "floors_blender_xyz_m": {
+        "Bedroom west floor": [
+          [
+            0.0,
+            -8.218846321105957,
+            -0.01590000092983246
+          ],
+          [
+            2.7669379711151123,
+            -5.625845909118652,
+            0.000100000761449337
+          ]
+        ],
+        "Bedroom center floor": [
+          [
+            2.9983339309692383,
+            -8.218846321105957,
+            -0.01590000092983246
+          ],
+          [
+            5.456334114074707,
+            -5.625845909118652,
+            0.000100000761449337
+          ]
+        ],
+        "Master bedroom floor": [
+          [
+            10.091065406799316,
+            -7.908520221710205,
+            -0.01590000092983246
+          ],
+          [
+            13.430096626281738,
+            -4.285520076751709,
+            0.000100000761449337
+          ]
+        ],
+        "Dressing floor": [
+          [
+            11.382176399230957,
+            -4.077759742736816,
+            -0.01590000092983246
+          ],
+          [
+            13.430096626281738,
+            -1.4877599477767944,
+            0.000100000761449337
+          ]
+        ],
+        "Master bathroom floor": [
+          [
+            9.77941608428955,
+            -4.077760219573975,
+            -0.01590000092983246
+          ],
+          [
+            11.174416542053223,
+            -2.035759925842285,
+            0.000100000761449337
+          ]
+        ],
+        "Common bathroom lower floor": [
+          [
+            4.41515588760376,
+            -4.077759742736816,
+            -0.01590000092983246
+          ],
+          [
+            5.955155849456787,
+            -2.8287599086761475,
+            0.000100000761449337
+          ]
+        ],
+        "Common shower floor": [
+          [
+            4.41515588760376,
+            -2.8287601470947266,
+            -0.01590000092983246
+          ],
+          [
+            5.344155788421631,
+            -1.9097599983215332,
+            0.000100000761449337
+          ]
+        ],
+        "Living front floor": [
+          [
+            5.673563003540039,
+            -7.908520221710205,
+            -0.01590000092983246
+          ],
+          [
+            9.890719413757324,
+            -5.6258463859558105,
+            0.000100000761449337
+          ]
+        ],
+        "West open balcony floor": [
+          [
+            0.0,
+            -9.91536808013916,
+            -0.01590000092983246
+          ],
+          [
+            2.4560000896453857,
+            -8.91736888885498,
+            0.000100000761449337
+          ]
+        ],
+        "Center open balcony floor": [
+          [
+            3.214156150817871,
+            -9.91536808013916,
+            -0.01590000092983246
+          ],
+          [
+            5.955156326293945,
+            -8.91736888885498,
+            0.000100000761449337
+          ]
+        ],
+        "Master balcony floor": [
+          [
+            10.091065406799316,
+            -9.260300636291504,
+            -0.01590000092983246
+          ],
+          [
+            12.035136222839355,
+            -8.115300178527832,
+            0.000100000761449337
+          ]
+        ],
+        "Master balcony utility floor": [
+          [
+            12.228055953979492,
+            -9.260300636291504,
+            -0.01590000092983246
+          ],
+          [
+            13.430095672607422,
+            -8.115300178527832,
+            0.000100000761449337
+          ]
+        ],
+        "Living balcony floor": [
+          [
+            5.673563003540039,
+            -9.260300636291504,
+            -0.01590000092983246
+          ],
+          [
+            9.890719413757324,
+            -8.115300178527832,
+            0.000100000761449337
+          ]
+        ],
+        "Kitchen balcony floor": [
+          [
+            6.904916286468506,
+            -1.2799999713897705,
+            -0.01590000092983246
+          ],
+          [
+            9.564236640930176,
+            0.0,
+            0.000100000761449337
+          ]
+        ],
+        "Dressing balcony floor": [
+          [
+            11.382176399230957,
+            -1.2799999713897705,
+            -0.01590000092983246
+          ],
+          [
+            13.430096626281738,
+            -0.4587283134460449,
+            0.000100000761449337
+          ]
+        ],
+        "West enclosed strip floor": [
+          [
+            0.0,
+            -8.709298133850098,
+            -0.01590000092983246
+          ],
+          [
+            2.7669379711151123,
+            -8.42691707611084,
+            0.000100000761449337
+          ]
+        ],
+        "Center enclosed strip floor": [
+          [
+            2.9983339309692383,
+            -8.709298133850098,
+            -0.01590000092983246
+          ],
+          [
+            5.456334114074707,
+            -8.42691707611084,
+            0.000100000761449337
+          ]
+        ],
+        "Service balcony floor": [
+          [
+            4.41515588760376,
+            -1.7024617195129395,
+            9.999999747378752e-05
+          ],
+          [
+            6.711996078491211,
+            0.0,
+            9.999999747378752e-05
+          ]
+        ]
+      },
+      "mattress_world_size_m": [
+        2.075000762939453,
+        1.6700000762939453,
+        0.24000000953674316
+      ],
+      "desk_nominal_m": [
+        1.2,
+        0.6,
+        0.74
+      ],
+      "chair_nominal_m": [
+        0.54,
+        0.55,
+        0.85
+      ],
+      "mattress_intrinsic_size_m": [
+        1.6699999570846558,
+        2.075000047683716,
+        0.23999999463558197
+      ],
+      "reference-study-desk_world_xyz_m": [
+        0.5999999046325684,
+        1.1999998092651367,
+        0.7400000095367432
+      ],
+      "reference-study-chair_world_xyz_m": [
+        0.5399999618530273,
+        0.5500001907348633,
+        0.8500000238418579
+      ],
+      "saved_blend_readback_passed": true,
+      "blend_sha256": "5a401d01f59c2d96e7f2c390fb69146db690dc053044d5896c9c3ae13bee1708"
+    },
+    "expanded": {
+      "source_sha256": "92ab3ace1ba8979cb147202f995a2e011a50d987c832795c2c60951a993e0bb6",
+      "glb_sha256": "838e29264dc218798413214be155910a6bbb504ce97074e588a8576b8c7efdf3",
+      "floor_bounds_unchanged": true,
+      "floor_objects_checked": 14,
+      "removed_objects": [
+        "West balcony glass guard",
+        "West balcony handrail",
+        "Center balcony glass guard",
+        "Center balcony handrail",
+        "West staged frame",
+        "West staged mattress",
+        "West staged duvet",
+        "West staged headboard",
+        "West staged pillow",
+        "West staged nightstand",
+        "West staged nightstand.001",
+        "Center staged frame",
+        "Center staged mattress",
+        "Center staged duvet",
+        "Center staged headboard",
+        "Center staged pillow",
+        "Center staged nightstand",
+        "Center staged nightstand.001"
+      ],
+      "floors_blender_xyz_m": {
+        "Bedroom west floor": [
+          [
+            0.0,
+            -8.709298133850098,
+            -0.01590000092983246
+          ],
+          [
+            2.7669379711151123,
+            -5.625845909118652,
+            0.000100000761449337
+          ]
+        ],
+        "Bedroom center floor": [
+          [
+            2.9983339309692383,
+            -8.709298133850098,
+            -0.01590000092983246
+          ],
+          [
+            5.456334114074707,
+            -5.625845909118652,
+            0.000100000761449337
+          ]
+        ],
+        "Master bedroom floor": [
+          [
+            10.091065406799316,
+            -7.908520221710205,
+            -0.01590000092983246
+          ],
+          [
+            13.430096626281738,
+            -4.285520076751709,
+            0.000100000761449337
+          ]
+        ],
+        "Dressing floor": [
+          [
+            11.382176399230957,
+            -4.077760219573975,
+            -0.01590000092983246
+          ],
+          [
+            13.430096626281738,
+            -0.4587284326553345,
+            0.000100000761449337
+          ]
+        ],
+        "Master bathroom floor": [
+          [
+            9.77941608428955,
+            -4.077760219573975,
+            -0.01590000092983246
+          ],
+          [
+            11.174416542053223,
+            -2.035759925842285,
+            0.000100000761449337
+          ]
+        ],
+        "Common bathroom lower floor": [
+          [
+            4.41515588760376,
+            -4.077759742736816,
+            -0.01590000092983246
+          ],
+          [
+            5.955155849456787,
+            -2.8287599086761475,
+            0.000100000761449337
+          ]
+        ],
+        "Common shower floor": [
+          [
+            4.41515588760376,
+            -2.8287601470947266,
+            -0.01590000092983246
+          ],
+          [
+            5.344155788421631,
+            -1.9097599983215332,
+            0.000100000761449337
+          ]
+        ],
+        "Living front floor": [
+          [
+            5.673563003540039,
+            -9.260300636291504,
+            -0.01590000092983246
+          ],
+          [
+            9.890719413757324,
+            -5.625845909118652,
+            0.000100000761449337
+          ]
+        ],
+        "West open balcony floor": [
+          [
+            0.0,
+            -9.91536808013916,
+            -0.01590000092983246
+          ],
+          [
+            2.4560000896453857,
+            -8.91736888885498,
+            0.000100000761449337
+          ]
+        ],
+        "Center open balcony floor": [
+          [
+            3.214156150817871,
+            -9.91536808013916,
+            -0.01590000092983246
+          ],
+          [
+            5.955156326293945,
+            -8.91736888885498,
+            0.000100000761449337
+          ]
+        ],
+        "Master balcony floor": [
+          [
+            10.091065406799316,
+            -9.260300636291504,
+            -0.01590000092983246
+          ],
+          [
+            12.035136222839355,
+            -8.115300178527832,
+            0.000100000761449337
+          ]
+        ],
+        "Master balcony utility floor": [
+          [
+            12.228055953979492,
+            -9.260300636291504,
+            -0.01590000092983246
+          ],
+          [
+            13.430095672607422,
+            -8.115300178527832,
+            0.000100000761449337
+          ]
+        ],
+        "Kitchen expanded strip floor": [
+          [
+            6.904916286468506,
+            -1.2799999713897705,
+            -0.01590000092983246
+          ],
+          [
+            9.564236640930176,
+            0.0,
+            0.000100000761449337
+          ]
+        ],
+        "Service balcony floor": [
+          [
+            4.41515588760376,
+            -1.7024617195129395,
+            9.999999747378752e-05
+          ],
+          [
+            6.711996078491211,
+            0.0,
+            9.999999747378752e-05
+          ]
+        ]
+      },
+      "mattress_world_size_m": [
+        2.075000762939453,
+        1.6700000762939453,
+        0.24000000953674316
+      ],
+      "desk_nominal_m": [
+        1.2,
+        0.6,
+        0.74
+      ],
+      "chair_nominal_m": [
+        0.54,
+        0.55,
+        0.85
+      ],
+      "mattress_intrinsic_size_m": [
+        1.6699999570846558,
+        2.075000047683716,
+        0.23999999463558197
+      ],
+      "reference-study-desk_world_xyz_m": [
+        0.5999999046325684,
+        1.1999998092651367,
+        0.7400000095367432
+      ],
+      "reference-study-chair_world_xyz_m": [
+        0.5399999618530273,
+        0.5500001907348633,
+        0.8500000238418579
+      ],
+      "saved_blend_readback_passed": true,
+      "blend_sha256": "71beb9ee3fe8ca533331e8bb60f122917fc205cace5c303111d5c4e3b7a5a6da"
+    }
+  },
+  "validation_scope": "Saved .blend readback; floor bounds unchanged; intrinsic and rotated mattress extents; desk/chair outer dimensions; browser verification recorded separately"
+}
