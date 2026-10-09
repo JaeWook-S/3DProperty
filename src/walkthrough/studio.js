@@ -1,6 +1,7 @@
 import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { corners, doorFootprints, placementWarnings } from './layout.js';
+import { navigationRooms } from './minimap-geometry.js';
 import { LOCATION, createFloorTower, createExterior } from './location.js';
 import './studio.css';
 import './location.css';
@@ -72,7 +73,7 @@ export function createStudio({scene,camera,renderer,getActive,loadVariant,resize
   const exterior=createExterior(scene,invalidate,ok=>{badge.textContent=ok?'외부 풍경: 공식 사진 참고 배경 · 실제 22층 조망 아님 / 현관 밖: 구조 예시':'외부 사진 로딩 실패 · 현관 밖은 구조 예시';});
   const raycaster=new THREE.Raycaster();
   const current=()=>getActive();
-  function rooms(){const a=current();if(!a)return [];const labels={'Living front':'거실','Bedroom west':'작은 방 1','Bedroom center':'작은 방 2','Common bathroom lower':'공용 욕실'};return [...a.definition.info.rooms.filter(r=>!r.id.includes('strip')&&r.id!=='Common shower').map(r=>({...r,name_ko:labels[r.id]||r.name_ko})),{id:'Kitchen',name_ko:'주방',bounds_m:[6.9049,1.28,9.5642,4.0777]},{id:'Entry',name_ko:'현관',bounds_m:[2.0,2.6,4.15,4.05]}];}
+  function rooms(){return current()?navigationRooms(current().definition.info):[];}
   const room=()=>rooms().find(r=>r.id===roomId)||rooms()[0];
   const item=()=>current()?.staging.items.find(i=>i.id===selection&&!i.deleted);
   const key=()=>`cortex-layout-v3:${current().key}:1`;

@@ -10,6 +10,7 @@ import { verticalFromHorizontal, horizontalFromVertical, screenHorizontalFov } f
 import './style.css';
 import { stagingAssets } from './staging-assets.js';
 import { createStudio } from './studio.js';
+import { createMinimap } from './minimap.js';
 // Phone/tablet walking (src/mobile). Imported last so its overrides follow the viewer styles.
 import { TouchWalkControls } from '../mobile/touch-walk-controls.js';
 
@@ -66,6 +67,7 @@ async function boot() {
   $('viewport').appendChild(renderer.domElement);
   const controls = new PointerLockControls(camera, renderer.domElement);
   let needsRender = true, studio = null;
+  const minimap = createMinimap();
   controls.addEventListener('change', () => { needsRender = true; });
   renderer.domElement.addEventListener('webglcontextlost', (event) => {
     event.preventDefault(); release();
@@ -368,6 +370,8 @@ async function boot() {
       if (result.changed) { appearance.invalidateShadows(); needsRender = true; }
       if (result.blocked) toast('문이 몸에 닿아 멈췄어요. 조금 물러나 다시 여닫아 주세요.');
     }
+    minimap.update({active,position,yaw:camera.rotation.y,horizontalFov:horizontalFromVertical(camera.fov,camera.aspect),
+      visible:ready&&!busy&&(studio?studio.mode==='tour':walking())});
     if (++frame % 6 === 0) { updateRoom(); updateInteraction(); }
     if (needsRender && active) { appearance.render(dt); needsRender = false; }
   });
