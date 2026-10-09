@@ -45,6 +45,8 @@ PC에서 터치 조작을 미리 보려면 주소에 `?input=touch`를 붙입니
 기존 파일의 연결 지점은 다음과 같습니다.
 
 - `src/walkthrough/main.js`: `TouchWalkControls` 생성, 시작 버튼과 스튜디오 방 이동에서 입력 방식 선택(`startWalking`), 이동 루프에 방향키 입력 합산(`movementVector`가 키보드와 합친 값도 보행 속도로 제한), 문 버튼 표시(`setAction`), 해제 시 두 조작 모두 해제(`release`). 테스트 상태에 `touchWalking`, `touchInput`, `yaw`, `pitch`를 추가했습니다.
+  - iPhone Safari에는 Pointer Lock API(`document.exitPointerLock`)가 없습니다. 뷰어는 모델을 불러오기 전과 창 포커스를 잃을 때마다 `controls.unlock()`을 호출하는데, 이 호출이 예외를 내 로딩이 중단됐습니다. 이 브라우저에서는 `unlock()`을 아무 동작도 하지 않게 했습니다.
+  - 불러오기에 실패하면 안내 문구 뒤에 실패 단계와 원인을 `(원인: …)`으로 표시합니다. 휴대폰에는 콘솔이 없어서 원인을 확인할 방법이 필요합니다.
 - `src/walkthrough/studio.js`: 기기에 맞는 조작 안내 문구.
 - `index.html`: 터치 기기에서 키보드 안내 대신 보이는 안내 한 줄.
 - `package.json`: `dev:mobile` 스크립트.
@@ -57,7 +59,8 @@ npx playwright test tests/mobile-walkthrough.browser.js
 ```
 
 - 단위 검사 19개(기존 11 + 터치 계산 8): 방향과 dead zone, 아날로그 세기, 끝까지 민 방향키가 1.20 m/s이고 키보드와 겹쳐도 더 빨라지지 않는지, 시선 회전량·상하 제한, 탭 판정.
-- 브라우저 검사 4개, Chromium 터치 에뮬레이션에 CDP로 실제 터치 이벤트를 보냈습니다.
+- 브라우저 검사 5개, Chromium 터치 에뮬레이션에 CDP로 실제 터치 이벤트를 보냈습니다.
+  - iPhone Safari 조건(Pointer Lock API 제거): 뷰어 로딩, 터치 이동, 포커스 해제·종료·평면 전환, 스튜디오 방 둘러보기가 예외 없이 동작함. 수정 전 코드에서는 iPhone 15 Pro와 같은 `exitPointerLock is not a function` 오류로 실패하는 것을 확인했습니다.
   - 휴대폰 세로 390×844: 방향키 전진과 손 뗀 뒤 정지, 방향키 옮겨 시작, 터치 취소 시 해제, 시선 회전량과 상하 제한, 두 손가락 동시 조작, 탭과 끌기 구분, 문 버튼과 문 탭으로 여닫기, 종료 후 패널 복귀.
   - 휴대폰 가로 844×390: 패널의 시작 버튼이 스크롤 없이 보이고, 방향키·문 버튼·상단 버튼·방 이름이 서로 겹치거나 화면 밖으로 나가지 않음.
   - 태블릿 1180×820 스튜디오: 방 둘러보기 시 전체 화면 터치 조작, 종료 후 스튜디오 화면 복귀.

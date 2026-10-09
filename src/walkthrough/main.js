@@ -51,10 +51,12 @@ function setEnabled() {
   $('living-view').disabled = !ready || busy || active?.key !== 'expanded';
   $('catalog-furniture').hidden = active?.key !== 'expanded';
 }
-function showError(error) {
+function showError(error, stage) {
   console.error(error);
   ready = false; busy = false; setEnabled();
-  $('status').textContent = '공간을 열지 못했습니다. 다른 평면을 선택하거나 새로고침해 주세요.';
+  // Name the cause on screen as well: a phone has no console to read it from.
+  const cause = [stage, error?.message].filter(Boolean).join(' · ');
+  $('status').textContent = `공간을 열지 못했습니다. 다른 평면을 선택하거나 새로고침해 주세요.${cause ? ` (원인: ${cause})` : ''}`;
   $('start').textContent = '불러오기 실패';
   document.body.dataset.loadState = 'error';
 }
@@ -66,6 +68,9 @@ async function boot() {
   renderer.shadowMap.type = THREE.PCFShadowMap;
   $('viewport').appendChild(renderer.domElement);
   const controls = new PointerLockControls(camera, renderer.domElement);
+  // iPhone Safari has no Pointer Lock API. unlock() runs before every load and on blur,
+  // so make it a no-op there instead of throwing; walking then uses the touch controls.
+  if (!document.exitPointerLock) controls.unlock = () => {};
   let needsRender = true, studio = null;
   const minimap = createMinimap();
   controls.addEventListener('change', () => { needsRender = true; });
@@ -264,7 +269,7 @@ async function boot() {
         $('variant').value = active.key;
         $('status').textContent = '선택한 평면을 불러오지 못해 이전 공간을 유지했어요. 다시 선택해 주세요.';
         document.body.dataset.loadState = 'ready';
-      } else showError(error);
+      } else showError(error, loadingStage);
     } finally {
       if (sequence === loadSequence) { busy = false; setEnabled(); }
     }

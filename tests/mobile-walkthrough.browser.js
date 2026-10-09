@@ -147,6 +147,50 @@ test.describe('phone', () => {
   });
 });
 
+test.describe('iPhone Safari without Pointer Lock', () => {
+  test.use(PHONE);
+
+  test('viewer and studio load, walk by touch and release without the Pointer Lock API', async ({ page }) => {
+    test.setTimeout(240000);
+    const errors = [];
+    page.on('pageerror', (error) => errors.push(error.message));
+    // iPhone Safari has neither document.exitPointerLock nor Element.requestPointerLock.
+    await page.addInitScript(() => { delete Document.prototype.exitPointerLock; delete Element.prototype.requestPointerLock; });
+    await page.goto('/?test=1&quality=light');
+    await expect(page.locator('body')).toHaveAttribute('data-load-state', /ready|error/, { timeout: 90000 });
+    expect(await page.locator('#status').textContent()).not.toContain('공간을 열지 못했습니다'); // shows the 원인 on failure
+    expect(await page.evaluate(() => [typeof document.exitPointerLock, typeof document.body.requestPointerLock])).toEqual(['undefined', 'undefined']);
+
+    await page.locator('#start').tap();
+    await expect.poll(async () => (await state(page)).touchWalking).toBe(true);
+    const touch = await fingers(page);
+    const stick = await stickCentre(page);
+    const start = await state(page);
+    await touch.down([stick.x, stick.y]);
+    await touch.move([stick.x, stick.y - 80]);
+    await expect.poll(async () => (await state(page)).position[2], { timeout: 15000 }).toBeGreaterThan(start.position[2] + 0.1);
+    await touch.up();
+    // Focus loss, exiting and a plan switch all unlock; none may throw without Pointer Lock.
+    await page.evaluate(() => window.dispatchEvent(new Event('blur')));
+    await page.locator('.touch-exit').tap();
+    await expect(page.locator('#panel')).toBeVisible();
+    await page.locator('#variant').selectOption('basic');
+    await expect.poll(async () => (await state(page)).variant, { timeout: 60000 }).toBe('basic');
+
+    // The studio unlocks on every mode change, starting with its first screen.
+    await page.goto('/?studio=1&test=1&quality=light');
+    await expect(page.locator('body')).toHaveAttribute('data-studio-mode', 'complex', { timeout: 90000 });
+    await page.locator('#select-building').tap();
+    await page.locator('#open-unit').tap();
+    await expect(page.locator('body')).toHaveAttribute('data-studio-mode', 'overview');
+    await page.locator('#room-walk').tap();
+    await expect.poll(async () => (await state(page)).touchWalking).toBe(true);
+    await page.locator('.touch-exit').tap();
+    await expect(page.locator('body')).toHaveAttribute('data-studio-mode', 'tour');
+    expect(errors).toEqual([]);
+  });
+});
+
 test.describe('phone landscape', () => {
   test.use({ ...PHONE, viewport: { width: 844, height: 390 } });
 
