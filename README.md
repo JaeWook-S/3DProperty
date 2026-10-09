@@ -8,6 +8,7 @@
 | --- | --- | --- |
 | `3DProperty_GUI/` | 재욱의 새 서비스 UI 프로토타입. 3D 렌더러는 아직 연결 전 | 해당 폴더에서 `python3 -m http.server 5186` |
 | `src/walkthrough/` | Three.js 공간 탐색·2D/3D 가구 편집 | 루트에서 `npm ci`, `npm run dev`; 5173의 `?studio=1` |
+| `src/mobile/` | 휴대폰·태블릿 터치 조작(왼쪽 아래 방향키·화면 끌어 시선). 같은 5173 뷰어에 연결 | 실기기는 `npm run dev:mobile` |
 | `apps/web/` | 기존 공간 선택·가구 JSON 검증 앱, 스튜디오 링크 포함 | 해당 폴더에서 `npm ci`, `npm run dev`; 5185 |
 | `assets/` | 공유 GLB·Blender 모델·텍스처·치수 근거 | 코드에서 상대 경로로 참조 |
 | `tools/blender/` | 모델 수정·내보내기 재현 스크립트 | 각 스크립트의 실행 안내 참고 |
@@ -32,7 +33,7 @@
 
 `http://localhost:5173/?studio=1`에서 시작합니다. 예시 동 A → 112A 기본형/확장형 → 방 선택 → 둘러보기 또는 인테리어로 이동합니다. 실제 단지 배치·동호수 자료는 아직 연결하지 않았고 외관은 흐름을 보여주는 예시입니다. 서비스 앱(5185)의 ‘단지에서 시작 · 공간 꾸미기’ 링크에서도 열 수 있습니다.
 
-인테리어 화면 왼쪽은 미터 좌표의 2D 평면, 오른쪽은 같은 상태를 사용하는 실시간 3D입니다. 소파·스툴·침대를 드래그/수치 이동하고 추가·회전·삭제할 수 있습니다. 벽/고정 집기/다른 가구와의 평면 겹침을 검사합니다. 조작 종료 후 보행 충돌 메시를 갱신합니다. 배치는 기본형/확장형별로 현재 브라우저에 저장·불러오기하며, 서버 저장이나 Blender로 편집 결과 역전송은 아직 없습니다. 1인칭 이동은 PC 키보드·마우스 기준입니다. 화장실 집기는 고정된 예시 형상입니다.
+인테리어 화면 왼쪽은 미터 좌표의 2D 평면, 오른쪽은 같은 상태를 사용하는 실시간 3D입니다. 소파·스툴·침대를 드래그/수치 이동하고 추가·회전·삭제할 수 있습니다. 벽/고정 집기/다른 가구와의 평면 겹침을 검사합니다. 조작 종료 후 보행 충돌 메시를 갱신합니다. 배치는 기본형/확장형별로 현재 브라우저에 저장·불러오기하며, 서버 저장이나 Blender로 편집 결과 역전송은 아직 없습니다. 1인칭 이동은 PC 키보드·마우스와 휴대폰·태블릿 터치를 지원합니다. 화장실 집기는 고정된 예시 형상입니다.
 
 웹의 현재 모델은 `dimensioned-v3`입니다. 천장고 2.6m는 [ACRO 공식 안내](https://www.acro.co.kr/Posm_main.action?commonMap.CD_BIZ_LND=010366) 기준입니다. 문 개구부 높이 2.1m는 이번 모델의 설계 가정이며 실제 단지 문 규격으로 검증하지 않았습니다. [한샘 도어 카탈로그](https://image2.hanssem.com/event/doc/catalog/Hanssem_Door_2601.pdf)는 제품별로 제작 높이 범위를 안내하며 모든 문에 단일 높이가 적용되는 것은 아닙니다.
 
@@ -97,6 +98,8 @@ npm run dev
 
 http://localhost:5173 에서 **공간에 들어가기** → WASD 이동·마우스 시선·Esc 해제. 서버 접속 방법, 설정 근거와 검증 범위는 [공간 체험 안내](docs/walkthrough.md)를 참고하세요.
 
+휴대폰·태블릿은 같은 Wi-Fi에서 `npm run dev:mobile`을 실행하고 터미널의 Network 주소를 엽니다. **공간에 들어가기**를 터치하면 왼쪽 아래 방향키로 걷고, 오른손으로 화면을 끌어 둘러보며, 문 앞에서는 오른쪽 아래 버튼으로 여닫습니다. 자세한 조작과 검증 범위는 [휴대폰·태블릿 공간 체험](docs/mobile-walkthrough.md)을 참고하세요.
+
 ## 현재 공유 모델
 
 최신 편집용 파일은 [기본형 v3](assets/models/acro-river-park/112a/dimensioned-v3/basic/acro112a-basic.blend), [확장형 v3 + 소파·스툴](assets/models/acro-river-park/112a/dimensioned-v3/expanded/acro112a-expanded-staged.blend)이며, [치수 검증 기록](assets/models/acro-river-park/112a/dimensioned-v3/verification.json)을 함께 제공합니다. 아래 v1 자료는 이전 도면 보정과 미리보기 기록입니다.
@@ -127,6 +130,7 @@ assets/
           expanded/    # 확장형 모델·미리보기·치수·검증
 src/
   walkthrough/          # 미터 기반 PC 1인칭 웹 체험
+  mobile/               # 휴대폰·태블릿 터치 조작 (walkthrough 뷰어에 연결)
 apps/
   web/                  # 공간 선택·가구 결과 확인 서비스 화면
 tests/                  # 이동·충돌·브라우저 검증

@@ -5,9 +5,13 @@ import { LOCATION, createFloorTower, createExterior } from './location.js';
 import './studio.css';
 import './location.css';
 import './workspace.css';
+import { isTouchFirst } from '../mobile/touch-walk-controls.js';
 
 const $=id=>document.getElementById(id);
 const NS='http://www.w3.org/2000/svg';
+// Control hints follow the device: on-screen stick and gestures on touch, keys and mouse on PC.
+const HINTS={touch:{walk:'왼쪽 아래 방향키 이동 · 화면을 밀어 시선 · 버튼으로 문 열기',tour:'방향키 이동 · 드래그 시선',orbit:'드래그 회전 · 두 손가락 확대'},pc:{walk:'WASD 이동 · E 문 열기 · Esc 해제',tour:'WASD 이동 · 마우스 시선',orbit:'드래그 회전 · 휠 확대'}};
+const hint=key=>HINTS[isTouchFirst()?'touch':'pc'][key];
 function svg(tag,attrs,text){const n=document.createElementNS(NS,tag);for(const [k,v]of Object.entries(attrs))n.setAttribute(k,v);if(text)n.textContent=text;return n;}
 export function createStudio({scene,camera,renderer,getActive,loadVariant,resize,invalidate,enterRoom,unlock}) {
   document.body.classList.add('studio');
@@ -112,9 +116,9 @@ export function createStudio({scene,camera,renderer,getActive,loadVariant,resize
     $('mode-edit').classList.toggle('selected',mode==='edit');$('mode-tour').classList.toggle('selected',mode==='tour');
     $('studio-step').textContent=mode==='complex'?'01 / SELECT A HOME':mode==='overview'?'02 / EXPLORE THE PLAN':mode==='edit'?'03 / DESIGN YOUR SPACE':'03 / WALK THROUGH';
     $('studio-title').textContent=mode==='complex'?'살아볼 공간을 선택하세요.':mode==='overview'?'우리 집을 한눈에.':mode==='edit'?`${room().name_ko} 꾸미기`:`${room().name_ko} 둘러보기`;
-    $('studio-description').textContent=mode==='complex'?'단지에서 세대를 고르고, 집 안으로 들어가 보세요.':mode==='overview'?'평면도나 3D에서 장소를 선택하세요.':mode==='edit'?'왼쪽에서 배치하면 오른쪽 공간에 바로 반영됩니다.':'방을 선택한 뒤 둘러보기를 시작하세요. WASD 이동 · E 문 열기 · Esc 해제';
+    $('studio-description').textContent=mode==='complex'?'단지에서 세대를 고르고, 집 안으로 들어가 보세요.':mode==='overview'?'평면도나 3D에서 장소를 선택하세요.':mode==='edit'?'왼쪽에서 배치하면 오른쪽 공간에 바로 반영됩니다.':`방을 선택한 뒤 둘러보기를 시작하세요. ${hint('walk')}`;
     $('three-label').querySelector('strong').textContent=mode==='complex'?(buildingSelected?'예시 동 A · 층 선택 입면':'아크로 리버파크'):mode==='overview'?'22층 시연 세대 · 3D':mode==='edit'?'실시간 3D':'1인칭 둘러보기';
-    $('orbit-help').textContent=mode==='tour'?'WASD 이동 · 마우스 시선':'드래그 회전 · 휠 확대';
+    $('orbit-help').textContent=hint(mode==='tour'?'tour':'orbit');
     requestAnimationFrame(()=>{resize();if(mode==='complex')selectFloor(floor);else if(mode==='overview')frame([-.2,0,13.7,10.2],true);else if(mode==='edit')frame(room().bounds_m);dirty();});
     if(mode==='edit'){selection=current().staging.items.find(i=>!i.deleted&&inside(i,room()))?.id||null;}
     renderPlan();refreshItems();showWarnings();status('');

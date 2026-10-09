@@ -10,6 +10,8 @@ import { verticalFromHorizontal, horizontalFromVertical, screenHorizontalFov } f
 import './style.css';
 import { stagingAssets } from './staging-assets.js';
 import { createStudio } from './studio.js';
+// Phone/tablet walking (src/mobile). Imported last so its overrides follow the viewer styles.
+import { TouchWalkControls } from '../mobile/touch-walk-controls.js';
 
 const $ = (id) => document.getElementById(id);
 const keys = new Set();
@@ -66,34 +68,42 @@ async function boot() {
   let needsRender = true, studio = null;
   controls.addEventListener('change', () => { needsRender = true; });
   renderer.domElement.addEventListener('webglcontextlost', (event) => {
-    event.preventDefault(); controls.unlock();
+    event.preventDefault(); release();
     renderer.setAnimationLoop(null);
     showError(new Error('WebGL context lost. Reload to recover.'));
   });
   controls.pointerSpeed = 0.6;
   controls.minPolarAngle = 0.2;
   controls.maxPolarAngle = Math.PI - 0.2;
-  controls.addEventListener('lock', () => {
+  // Touch walking: stick at bottom-left, drag elsewhere to look, tap or button for doors.
+  const touch = new TouchWalkControls(camera, {
+    surface: renderer.domElement, minPolarAngle: controls.minPolarAngle, maxPolarAngle: controls.maxPolarAngle,
+    onTap: ({ x, y }) => interact(new THREE.Vector2(x, y)), onAction: () => interact(),
+  });
+  touch.addEventListener('change', () => { needsRender = true; });
+  const walking = () => controls.isLocked || touch.isLocked;
+  const release = () => { controls.unlock(); touch.unlock(); };
+  // A touch (or a browser without Pointer Lock) walks with the on-screen controls; a mouse locks the pointer.
+  const startWalking = () => (touch.preferred() || !renderer.domElement.requestPointerLock ? touch.lock() : controls.lock());
+  const onLock = () => {
     keys.clear(); document.body.classList.add('walking'); $('pause').hidden = false;
     if (studio) requestAnimationFrame(resizeViewport);
-  });
-  controls.addEventListener('unlock', () => {
+  };
+  const onUnlock = () => {
     keys.clear(); document.body.classList.remove('walking');
     $('pause').hidden = true; $('interaction').hidden = true;
     $('start').innerHTML = '이어서 둘러보기 <span>↗</span>';
     if (studio) requestAnimationFrame(resizeViewport);
-  });
+  };
+  for (const source of [controls, touch]) { source.addEventListener('lock', onLock); source.addEventListener('unlock', onUnlock); }
   document.addEventListener('pointerlockerror', () => toast('마우스 잠금에 실패했습니다. 잠시 후 다시 눌러 주세요.'));
   $('start').addEventListener('click', () => {
     if (!ready || busy) return;
-    if (!renderer.domElement.requestPointerLock || matchMedia('(pointer: coarse)').matches) {
-      toast('이동은 키보드와 마우스를 사용하는 PC에서 이용해 주세요.'); return;
-    }
-    controls.lock();
+    startWalking();
   });
-  $('pause').addEventListener('click', () => controls.unlock());
+  $('pause').addEventListener('click', release);
   document.addEventListener('keydown', (event) => {
-    if (!controls.isLocked || busy) return;
+    if (!walking() || busy) return;
     if (event.code === 'KeyE' && !event.repeat) { event.preventDefault(); interact(); return; }
     if (!movementKeys.has(event.code)) return;
     event.preventDefault(); keys.add(event.code);
@@ -146,7 +156,7 @@ async function boot() {
     if (!canStand(active.world, next, eyeHeight, bodyRadius)) {
       toast('이 위치로 이동할 수 없어요. 시작 위치에서 거실로 걸어가 주세요.'); return;
     }
-    keys.clear(); controls.unlock();
+    keys.clear(); release();
     position.copy(next); camera.position.copy(next); camera.lookAt(9.05, eyeHeight, 7.52);
     needsRender = true; updateRoom();
     const url = new URL(location.href); url.searchParams.set('view', 'living'); history.replaceState(null, '', url);
@@ -214,7 +224,7 @@ async function boot() {
   let loadSequence = 0;
   async function loadVariant(key) {
     const sequence = ++loadSequence;
-    busy = true; keys.clear(); controls.unlock(); setEnabled();
+    busy = true; keys.clear(); release(); setEnabled();
     document.body.dataset.loadState = 'loading';
     $('status').textContent = `${VARIANTS[key].label} 공간을 불러오는 중…`;
     try {
@@ -271,9 +281,11 @@ async function boot() {
   }
   function interact(pointer) { const door = pickDoor(pointer); if (door) { door.toggle(); updateInteraction(); } }
   function updateInteraction() {
-    const door = controls.isLocked && pickDoor();
+    const door = walking() && pickDoor();
+    const label = door && `${door.definition.name} ${door.target >= 0.5 ? '닫기' : '열기'}`;
     $('interaction').hidden = !door;
-    if (door) $('interaction').textContent = `E / 클릭 · ${door.definition.name} ${door.target >= 0.5 ? '닫기' : '열기'}`;
+    if (door) $('interaction').textContent = `E / 클릭 · ${label}`;
+    touch.setAction(label);
   }
   renderer.domElement.addEventListener('pointerdown', (event) => {
     if (!ready || busy || event.button !== 0) return;
@@ -331,8 +343,7 @@ async function boot() {
     candidates.sort((a,b)=>Math.hypot(a.x-cx,a.z-cz)-Math.hypot(b.x-cx,b.z-cz));
     const next=candidates.find(p=>canStand(active.world,p,eyeHeight,bodyRadius));if(!next)return false;
     keys.clear();position.copy(next);camera.position.copy(next);camera.lookAt(cx,eyeHeight,cz+.8);syncProjection();needsRender=true;updateRoom();
-    if(renderer.domElement.requestPointerLock&&!matchMedia('(pointer: coarse)').matches)controls.lock();
-    else toast('1인칭 이동은 PC의 키보드와 마우스에서 지원해요.');
+    startWalking();
     return true;
   }
   function updateRoom() {
@@ -343,9 +354,10 @@ async function boot() {
   let previous = performance.now(), frame = 0;
   renderer.setAnimationLoop((now) => {
     const elapsed = Math.max((now - previous) / 1000, 0), dt = Math.min(elapsed, 0.05); previous = now;
-    if (controls.isLocked && ready && !busy) {
-      const forward = Number(keys.has('KeyW') || keys.has('ArrowUp')) - Number(keys.has('KeyS') || keys.has('ArrowDown'));
-      const right = Number(keys.has('KeyD') || keys.has('ArrowRight')) - Number(keys.has('KeyA') || keys.has('ArrowLeft'));
+    if (walking() && ready && !busy) {
+      // The touch stick adds analog input (0 when idle); movementVector caps the sum at walking speed.
+      const forward = Number(keys.has('KeyW') || keys.has('ArrowUp')) - Number(keys.has('KeyS') || keys.has('ArrowDown')) + touch.forward;
+      const right = Number(keys.has('KeyD') || keys.has('ArrowRight')) - Number(keys.has('KeyA') || keys.has('ArrowLeft')) + touch.right;
       if (forward || right) {
         moveWithCollisions(active.world, position, movementVector(forward, right, camera.rotation.y, dt), eyeHeight, bodyRadius);
         camera.position.copy(position); needsRender = true;
@@ -363,6 +375,7 @@ async function boot() {
     window.__walkthrough = {
       getState: () => ({ position: position.toArray(), eyeHeight, fov: camera.fov,horizontalFov:horizontalFromVertical(camera.fov,camera.aspect),bodyRadius,headTop:eyeHeight+.12,pitch:camera.rotation.x,
         scale: active?.model.scale.toArray(), meshCount: active?.meshCount, locked: controls.isLocked,
+        touchWalking: touch.isLocked, touchInput: [touch.forward, touch.right], yaw: camera.rotation.y,
         standing: active ? canStand(active.world, position, eyeHeight, bodyRadius) : false,
         loadingStage, variant: active?.key, finish: active?.model.userData.finish, lighting: appearance.lighting,
         quality: appearance.quality, resolution: appearance.resolution,
@@ -409,7 +422,7 @@ async function boot() {
   await loadVariant(selected.variant);
   if (params.has('studio') && active) {
     studio=createStudio({scene,camera,renderer,getActive:()=>active,loadVariant,resize:resizeViewport,
-      invalidate:()=>{appearance.invalidateShadows();needsRender=true;},enterRoom,unlock:()=>{keys.clear();controls.unlock();}});
+      invalidate:()=>{appearance.invalidateShadows();needsRender=true;},enterRoom,unlock:()=>{keys.clear();release();}});
     if(import.meta.env.DEV&&params.has('test'))window.__studio=studio;
   }
 }
