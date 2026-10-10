@@ -7,11 +7,11 @@
 | 경로 | 현재 역할 | 실행 |
 | --- | --- | --- |
 | `3DProperty_GUI/` | 재욱의 새 서비스 UI 프로토타입. 3D 렌더러는 아직 연결 전 | 해당 폴더에서 `python3 -m http.server 5186` |
-| `src/walkthrough/` | Three.js 공간 탐색·2D/3D 가구 편집 | 루트에서 `npm ci`, `npm run dev`; 5173의 `?studio=1` |
+| `src/walkthrough/` | Three.js 공간 탐색·2D/3D 가구 편집 | 루트에서 `npm ci`, `npm run dev`; 5173 기본 화면 |
 | `src/mobile/` | 휴대폰·태블릿 터치 조작(왼쪽 아래 방향키·화면 끌어 시선). 같은 5173 뷰어에 연결 | 실기기는 `npm run dev:mobile` |
 | `src/concepts/` | 112A 추천 컨셉 배치·색감, 둘러보기 중 테마 전환 (W7-06). 스튜디오에 연결 | 5173의 `?studio=1` → **컨셉 보기** 탭 |
 | `src/window-view/` | 창밖을 직접 찍은 360° 사진으로 바꿔 보는 기능 (W7-07). 둘러보기에 연결 | 5173의 `?studio=1` → 둘러보기 |
-| `apps/web/` | 기존 공간 선택·가구 JSON 검증 앱, 스튜디오 링크 포함 | 해당 폴더에서 `npm ci`, `npm run dev`; 5185 |
+| `apps/web/` | 서비스 시작 화면: 공간 선택·가구 JSON 확인·이미지 측정, 스튜디오 링크 포함 | 해당 폴더에서 `npm ci`, `npm run dev`; 5185 |
 | `assets/` | 공유 GLB·Blender 모델·텍스처·치수 근거 | 코드에서 상대 경로로 참조 |
 | `tools/blender/` | 모델 수정·내보내기 재현 스크립트 | 각 스크립트의 실행 안내 참고 |
 
@@ -31,11 +31,11 @@
 
 ## 웹 개발 시작하기
 
-이미지로 가구 치수를 측정하는 GPU 서버 연결은 [가구 측정 실행 안내](services/furniture_pipeline/README.md)를 따른다. Runyour 서버에서 설치/API를 실행하고 Mac에서 `npm run furniture:tunnel`과 `npm run dev`를 실행하면, 꾸미기 화면의 **가구 등록** 이미지가 SAM3·MoGe-3로 처리되고 서버 터미널에 치수가 출력된다.
+기존 시작 화면은 **http://localhost:5185 (`apps/web`)**다. 루트와 `apps/web`에서 최초 1회 `npm ci` 후, 루트에서 **`bash start.sh`** 하나로 웹과 3D 뷰어를 실행한다. GPU 서버 API가 준비돼 있으면 SSH 터널도 켜서 이미지 측정을 연결하고, 서버가 없으면 이미지 미리보기·JSON 확인·3D 기능만 사용한다. 서버 API 실행과 SSH 설정은 [가구 측정 실행 안내](services/furniture_pipeline/README.md)를 따른다. 5173은 서비스 시작 화면이 아니라 3D 공간 뷰어다. 기존처럼 두 폴더의 `npm run dev`와 `npm run furniture:tunnel`을 수동 실행해도 된다.
 
 ### 단지 → 세대 → 방 선택 및 꾸미기
 
-`http://localhost:5173/?studio=1`에서 시작합니다. A동 → 112A 기본형/확장형 → 상단 탭 **둘러보기 / 꾸미기 / 컨셉 보기**로 이동합니다. 장소 선택의 **전체 보기**는 처음 화면인 2D 평면과 3D를 함께 보여줍니다. 실제 단지 배치·동호수 자료는 아직 연결하지 않았고 외관은 흐름을 보여주는 예시입니다. 서비스 앱(5185)의 ‘단지에서 시작 · 공간 꾸미기’ 링크에서도 열 수 있습니다.
+`http://localhost:5173/`에서 시작합니다. 기본 주소, 설정 옵션만 붙인 주소, `?studio=1` 주소는 모두 같은 Studio 화면을 엽니다. 기존 단독 둘러보기 화면이 필요하면 `?studio=0`을 지정합니다. A동 → 112A 기본형/확장형 → 상단 탭 **둘러보기 / 꾸미기 / 컨셉 보기**로 이동합니다. 장소 선택의 **전체 보기**는 처음 화면인 2D 평면과 3D를 함께 보여줍니다. 실제 단지 배치·동호수 자료는 아직 연결하지 않았고 외관은 흐름을 보여주는 예시입니다. 서비스 앱(5185)의 ‘단지에서 시작 · 공간 꾸미기’ 링크에서도 열 수 있습니다.
 
 꾸미기 화면 왼쪽은 미터 좌표의 2D 평면, 오른쪽은 같은 상태를 사용하는 실시간 3D입니다. 소파·스툴·침대를 드래그/수치 이동하고 추가·회전·삭제할 수 있습니다. 벽/고정 집기/다른 가구와의 평면 겹침을 검사합니다. 조작 종료 후 보행 충돌 메시를 갱신합니다. 배치는 기본형/확장형별로 현재 브라우저에 저장·불러오기하며, 서버 저장이나 Blender로 편집 결과 역전송은 아직 없습니다. 1인칭 이동은 PC 키보드·마우스와 휴대폰·태블릿 터치를 지원합니다. 화장실 집기는 고정된 예시 형상입니다.
 
@@ -64,9 +64,9 @@ npm ci
 npm run dev
 ```
 
-- 서비스 화면: http://localhost:5185 — 공간 선택과 가구 JSON 확인. 웹 틀은 `apps/web/src/main.js`, `style.css`에서 이어 개발합니다.
-- 공간 뷰어: http://localhost:5173 — Three.js 이동·문 상호작용·마감·조명. 코드는 `src/walkthrough/`에 있습니다.
-- 거실 배치: http://localhost:5173/?variant=expanded&view=living — 확장형 거실에 상품 규격 소파·스툴을 고정 배치했습니다.
+- 서비스 시작 화면: http://localhost:5185 — 공간 선택·기존 가구 JSON 확인·이미지 등록과 측정. 웹 틀은 `apps/web/src/main.js`, `style.css`에서 이어 개발합니다.
+- 공간 Studio: http://localhost:5173 — 단지 탐색·꾸미기·가구 등록·둘러보기. 코드는 `src/walkthrough/`에 있습니다.
+- 기존 거실 뷰어: http://localhost:5173/?studio=0&variant=expanded&view=living — 확장형 거실에 상품 규격 소파·스툴을 고정 배치했습니다.
 
 두 화면은 직접 링크로 연결됩니다. 스튜디오의 가구 드래그 배치와 이미지 업로드·치수 측정 API는 구현했으며, 생성된 새 3D 가구를 뷰어에 등록하는 단계는 아직 구현하지 않았습니다. 측정 서버 실행은 [가구 측정 실행 안내](services/furniture_pipeline/README.md), 두 웹 화면의 후속 통합은 [웹 연동 문서](docs/web-integration.md)를 참고하세요.
 
@@ -104,7 +104,7 @@ npm ci
 npm run dev
 ```
 
-http://localhost:5173 에서 **공간에 들어가기** → WASD 이동·마우스 시선·Esc 해제. 서버 접속 방법, 설정 근거와 검증 범위는 [공간 체험 안내](docs/walkthrough.md)를 참고하세요.
+http://localhost:5173 에서 A동 → 22층 세대 보기 → 장소 선택 → **이곳에서 둘러보기**로 들어갑니다. 기존 단독 뷰어는 http://localhost:5173/?studio=0 에서 **공간에 들어가기**를 누릅니다. WASD 이동·마우스 시선·Esc 해제는 동일합니다. 서버 접속 방법, 설정 근거와 검증 범위는 [공간 체험 안내](docs/walkthrough.md)를 참고하세요.
 
 휴대폰·태블릿은 같은 Wi-Fi에서 `npm run dev:mobile`을 실행하고 터미널의 Network 주소를 엽니다. **공간에 들어가기**를 터치하면 왼쪽 아래 방향키로 걷고, 오른손으로 화면을 끌어 둘러보며, 문 앞에서는 오른쪽 아래 버튼으로 여닫습니다. 자세한 조작과 검증 범위는 [휴대폰·태블릿 공간 체험](docs/mobile-walkthrough.md)을 참고하세요.
 

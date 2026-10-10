@@ -14,7 +14,7 @@ async function capture(page, name, testInfo, fullPage = true) {
 }
 
 
-test('both service links open the actual selected GLB and permit PC entry and return', async ({ page, context }, testInfo) => {
+test('both selected service links open Studio with the actual GLB and permit PC entry and return', async ({ page, context }, testInfo) => {
  const errors=[];page.on('pageerror',e=>errors.push(e.message));
  await page.goto('/');
  await expect(page.locator('#open-viewer')).toHaveAttribute('href', /variant=expanded/);
@@ -26,22 +26,23 @@ test('both service links open the actual selected GLB and permit PC entry and re
    const modelResponse = context.waitForEvent('response', response => response.url().includes(`acro112a-${variant}.glb`));
    const popupWait=context.waitForEvent('page');await page.locator('#open-viewer').click();const viewer=await popupWait;
    viewer.on('pageerror',e=>errors.push(e.message));
-   await expect(viewer.locator('body')).toHaveAttribute('data-load-state','ready',{timeout:120000});
-   await expect(viewer.locator('#variant')).toHaveValue(variant);
+   await expect(viewer.locator('body')).toHaveAttribute('data-studio-mode','complex',{timeout:120000});
+   await expect(viewer.locator('#studio-variant')).toHaveValue(variant);
    expect((await modelResponse).status()).toBe(200);
    for (const [id, value] of Object.entries({ finish: 'original', lighting: 'day', quality: 'high' })) await expect(viewer.locator(`#${id}`)).toHaveValue(value);
    expect(await viewer.evaluate(() => typeof window.__walkthrough)).toBe('undefined');
    const resources=await viewer.evaluate(()=>performance.getEntriesByType('resource').map(x=>x.name));
    expect(resources.some(u=>u.includes(`acro112a-${variant}.glb`))).toBe(true);
-   await expect(viewer.locator('#start')).toBeEnabled();
-   await viewer.locator('#view-settings summary').click();
-   await viewer.locator('#quality').selectOption('light');
-   await viewer.locator('#start').click();
+   await viewer.locator('#select-building').click();
+   await viewer.locator('#open-unit').click();
+   await expect(viewer.locator('body')).toHaveAttribute('data-studio-mode','overview');
+   await viewer.locator('#studio-room').selectOption('Living front');
+   await viewer.locator('#room-walk').click();
    await expect(viewer.locator('body')).toHaveClass(/walking/);
    await viewer.keyboard.down('w');await viewer.waitForTimeout(200);await viewer.keyboard.up('w');
    // Headless exit API is tested here; a physical Esc key on a real device is not verified.
    await viewer.evaluate(()=>document.exitPointerLock());
-   await expect(viewer.locator('#panel')).toBeVisible();
+   await expect(viewer.locator('#studio-sidebar')).toBeVisible();
    await capture(viewer, `service-opened-${variant}.png`, testInfo, false);
    await viewer.close();await page.bringToFront();await expect(page.locator('#open-viewer')).toBeVisible();
  }

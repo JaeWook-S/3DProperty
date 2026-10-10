@@ -32,7 +32,7 @@ test.describe('phone', () => {
   test('left stick walks, right-hand drag looks, doors open by button or tap', async ({ page }, testInfo) => {
     const errors = [];
     page.on('pageerror', (error) => errors.push(error.message));
-    await page.goto('/?test=1&quality=light');
+    await page.goto('/?studio=0&test=1&quality=light');
     await ready(page);
     await expect(page.locator('.touch-help')).toBeVisible();
     await expect(page.locator('.controls-help:not(.touch-help)')).toBeHidden();
@@ -156,7 +156,7 @@ test.describe('iPhone Safari without Pointer Lock', () => {
     page.on('pageerror', (error) => errors.push(error.message));
     // iPhone Safari has neither document.exitPointerLock nor Element.requestPointerLock.
     await page.addInitScript(() => { delete Document.prototype.exitPointerLock; delete Element.prototype.requestPointerLock; });
-    await page.goto('/?test=1&quality=light');
+    await page.goto('/?studio=0&test=1&quality=light');
     await expect(page.locator('body')).toHaveAttribute('data-load-state', /ready|error/, { timeout: 90000 });
     expect(await page.locator('#status').textContent()).not.toContain('공간을 열지 못했습니다'); // shows the 원인 on failure
     expect(await page.evaluate(() => [typeof document.exitPointerLock, typeof document.body.requestPointerLock])).toEqual(['undefined', 'undefined']);
@@ -195,7 +195,7 @@ test.describe('phone landscape', () => {
   test.use({ ...PHONE, viewport: { width: 844, height: 390 } });
 
   test('panel and touch controls fit a low viewport without overlapping', async ({ page }, testInfo) => {
-    await page.goto('/?test=1&quality=light');
+    await page.goto('/?studio=0&test=1&quality=light');
     await ready(page);
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
     const panel = await page.locator('#panel').boundingBox();
@@ -259,7 +259,7 @@ test.describe('tablet', () => {
 
 test.describe('desktop', () => {
   test('a mouse keeps Pointer Lock walking; ?input=touch opens the touch controls with a mouse', async ({ page }) => {
-    await page.goto('/?test=1&quality=light');
+    await page.goto('/?studio=0&test=1&quality=light');
     await ready(page);
     await expect(page.locator('.controls-help:not(.touch-help)')).toBeVisible();
     await expect(page.locator('.touch-help')).toBeHidden();
@@ -270,7 +270,7 @@ test.describe('desktop', () => {
     await expect(page.locator('#touch-walk')).toBeHidden();
     await page.evaluate(() => document.exitPointerLock());
 
-    await page.goto('/?test=1&quality=light&input=touch');
+    await page.goto('/?studio=0&test=1&quality=light&input=touch');
     await ready(page);
     await page.locator('#start').click();
     await expect.poll(async () => (await state(page)).touchWalking).toBe(true);

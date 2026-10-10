@@ -27,7 +27,7 @@ test('register furniture uploads a selected image and handles measurement progre
     if (!['GET', 'HEAD'].includes(request.method())) writes.push(`${request.method()} ${request.url()}`);
   });
 
-  await page.goto('/?studio=1&test=1&quality=light');
+  await page.goto('/?test=1&quality=light');
   await expect(page.locator('body')).toHaveAttribute('data-studio-mode', 'complex', { timeout: 90000 });
   await page.locator('#select-building').click();
   await page.locator('#open-unit').click();

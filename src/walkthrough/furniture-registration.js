@@ -81,7 +81,11 @@ export async function measureFurnitureImage(file, {
   throw new Error(`측정 응답 대기 시간이 지났습니다. 서버 터미널에서 작업 ${accepted.job_id}을 확인해 주세요.`);
 }
 
-export function setupFurnitureImageRegistration({ button, input, panel, preview, name, metadata, status }) {
+export function setupFurnitureImageRegistration({
+  button, input, panel, preview, name, metadata, status,
+  onMeasurementStart = () => {}, onMeasurementComplete = () => {},
+  measurementEnabled = import.meta.env?.VITE_FURNITURE_MEASUREMENT_ENABLED !== '0',
+}) {
   let selectedFile = null;
   let previewUrl = null;
   let busy = false;
@@ -91,6 +95,8 @@ export function setupFurnitureImageRegistration({ button, input, panel, preview,
     status.textContent = text;
     status.dataset.state = state;
   }
+
+  if (!measurementEnabled) message('웹 전용 모드입니다. 이미지 미리보기는 가능하지만 GPU 모델 측정은 실행하지 않습니다.', 'offline');
 
   button.addEventListener('click', () => {
     // Reset only the native control so selecting the same file emits change.
@@ -131,6 +137,11 @@ export function setupFurnitureImageRegistration({ button, input, panel, preview,
       return;
     }
     try {
+      onMeasurementStart(selectedFile);
+      if (!measurementEnabled) {
+        message('이미지를 Mac에서 확인했어요. GPU 서버 미연결로 모델 측정·서버 전송은 하지 않습니다.', 'offline');
+        return;
+      }
       message('이미지를 전송하는 중…', 'loading');
       const job = await measureFurnitureImage(selectedFile, {
         signal: lifetime.signal,
@@ -141,6 +152,7 @@ export function setupFurnitureImageRegistration({ button, input, panel, preview,
       if (measured.length) message(`가구 ${measured.length}개를 측정했어요. 결과를 서버 터미널에 출력했습니다.`, 'ready');
       else if (!objects.length) message('가구를 찾지 못했어요. 가구가 잘 보이는 사진을 선택해 주세요.', 'error');
       else message('가구 영역은 찾았지만 치수를 계산하지 못했어요. 다른 각도의 사진을 선택해 주세요.', 'error');
+      onMeasurementComplete(job, selectedFile);
     } catch (error) {
       if (error.name !== 'AbortError') message(error.message || '측정 서버에 연결하지 못했습니다.', 'error');
     } finally {

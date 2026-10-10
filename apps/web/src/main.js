@@ -1,6 +1,8 @@
 import './style.css';
 import { parseFurniture, MAX_FILE_BYTES, formatDimension, BASIS_LABELS, SCALE_LABELS } from './furniture.js';
 import { VARIANTS, buildViewerUrl } from './viewer-url.js';
+import { setupFurnitureImageRegistration } from '../../../src/walkthrough/furniture-registration.js';
+import { renderMeasurementResult } from './measurement.js';
 const $ = (id) => document.getElementById(id);
 const node = (tag, text, className) => { const e = document.createElement(tag); if (text !== undefined) e.textContent = text; if (className) e.className = className; return e; };
 const defaultViewer = new URL('/', location.href); defaultViewer.port = '5173';
@@ -27,6 +29,18 @@ function showPanel(panel) {
 }
 $('space-tab').addEventListener('click', () => showPanel('space'));
 $('furniture-tab').addEventListener('click', () => showPanel('furniture'));
+setupFurnitureImageRegistration({
+  button: $('register-furniture'), input: $('furniture-image-file'), panel: $('furniture-image-preview'),
+  preview: $('furniture-image-preview').querySelector('img'), name: $('furniture-image-name'),
+  metadata: $('furniture-image-metadata'), status: $('furniture-image-status'),
+  onMeasurementStart() {
+    $('image-measurement-result').replaceChildren();
+    $('image-measurement-result').hidden = true;
+  },
+  onMeasurementComplete(job, file) {
+    renderMeasurementResult($('image-measurement-result'), job, file.name);
+  },
+});
 function pair(list, label, value) { list.append(node('dt', label), node('dd', value)); }
 const PROCESS_LABELS = { succeeded: '성공', failed: '실패', unresolved: '미정', pending: '진행 대기', not_run: '실행 안 됨' };
 const MISSING_LABELS = {

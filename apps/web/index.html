@@ -19,7 +19,14 @@
     <details class="source-note"><summary>공간이 열리지 않을 때</summary><p>뷰어 서버와 포트 전달을 확인하세요. 이 페이지는 공간 내부의 로딩 상태를 자동으로 감지하지 않습니다. 연결이 실패해도 현재 탭에서 다른 평면을 선택할 수 있습니다.</p><p>개발용 뷰어 주소: <code id="viewer-address"></code></p><p id="config-error" role="alert" hidden></p></details>
   </section>
   <section id="furniture-panel" aria-labelledby="furniture-title" hidden>
-    <div class="furniture-intro"><div><p class="eyebrow">YOUR FURNITURE</p><h2 id="furniture-title">내 가구의 크기를 확인하세요.</h2><p>치수 결과 파일을 가져와 폭·깊이·높이와 추정 근거를 살펴보세요.<br>현재는 결과 확인 단계이며, 공간에 가구를 배치하는 기능은 준비 중입니다.</p></div><span class="outline-badge">브라우저에서 파일 확인</span></div>
+    <div class="furniture-intro"><div><p class="eyebrow">YOUR FURNITURE</p><h2 id="furniture-title">내 가구의 크기를 확인하세요.</h2><p>가구 사진을 등록하면 서버에서 폭·깊이·높이를 측정합니다.<br>기존 치수 결과 JSON 파일도 아래에서 확인할 수 있습니다.</p></div><span class="outline-badge">이미지 측정 · JSON 확인</span></div>
+    <section class="measurement-card" aria-labelledby="measurement-title">
+      <div class="measurement-heading"><div><p class="eyebrow">IMAGE MEASUREMENT</p><h3 id="measurement-title">이미지로 가구 측정</h3><p class="muted">JPG, PNG, WebP · 최대 20MB · 선택하면 GPU 서버로 전송됩니다.</p></div><button id="register-furniture" class="primary" type="button" aria-controls="furniture-image-file">가구 등록 <span>＋</span></button></div>
+      <input id="furniture-image-file" type="file" accept="image/jpeg,image/png,image/webp,.jpg,.jpeg,.png,.webp" aria-label="측정할 가구 이미지 선택" hidden>
+      <figure id="furniture-image-preview" class="measurement-preview" hidden><img alt=""><figcaption><strong id="furniture-image-name"></strong><span id="furniture-image-metadata"></span></figcaption></figure>
+      <p id="furniture-image-status" class="measurement-status" role="status" aria-live="polite"></p>
+      <section id="image-measurement-result" class="measurement-results" aria-label="이미지 가구 측정 결과" aria-live="polite" hidden></section>
+    </section>
     <div class="furniture-layout"><aside class="import-card"><span class="file-icon" aria-hidden="true">↥</span><h3>가구 결과 가져오기</h3><p>한 가구의 JSON 파일을 선택하세요.<br>파일을 서버로 업로드하지 않습니다.</p><label class="primary file-button" for="asset-file">결과 파일 선택 <span>＋</span></label><input class="visually-hidden" type="file" id="asset-file" accept=".json,application/json"><small class="muted">cortex.furniture.v0 · 최대 1MB</small><div class="example-actions"><p>결과 파일이 없다면</p><button class="text-button" id="load-example">직접 입력한 예제 확인 →</button><a href="./examples/manual-table.json" download>예제 JSON 다운로드</a><button class="text-button" id="load-unresolved">척도 미정 예제 확인 →</button></div><div class="input-tip"><strong>사진을 준비할 때</strong><p>가구 전체가 보이는 사진을 사용하세요. 카메라 모서리나 화면 밖에서 잘린 가구는 제외합니다. 지금은 사용자가 확인하는 입력 기준입니다.</p></div></aside>
     <div id="result" class="result-card" aria-live="polite"><div class="empty-state"><span aria-hidden="true">□</span><h3>확인할 가구를 가져와 주세요.</h3><p>실측, 제품 규격, 모델 추정, 직접 입력을<br>구분해서 보여드립니다.</p></div></div></div>
   </section>

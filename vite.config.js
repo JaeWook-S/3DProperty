@@ -7,7 +7,7 @@ export default defineConfig(({ mode }) => {
     server: {
       watch: { ignored: ['**/dist/**', '**/*.blend', '**/*.blend1', '**/.envs/**', '**/runtime/**', '**/.tooling/**'] },
       proxy: {
-        '/api/furniture': { target: env.FURNITURE_API_TARGET || 'http://127.0.0.1:8000', changeOrigin: true },
+        '/api/furniture': { target: process.env.FURNITURE_API_TARGET || env.FURNITURE_API_TARGET || 'http://127.0.0.1:8000', changeOrigin: true },
       },
     },
   };

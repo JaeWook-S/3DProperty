@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { MAX_FURNITURE_IMAGE_BYTES, formatFileSize, validateFurnitureImageFile, measureFurnitureImage } from '../src/walkthrough/furniture-registration.js';
+import { MAX_FURNITURE_IMAGE_BYTES, formatFileSize, validateFurnitureImageFile, measureFurnitureImage, setupFurnitureImageRegistration } from '../src/walkthrough/furniture-registration.js';
 
 const file = (overrides = {}) => ({ name: 'chair.png', type: 'image/png', size: 2048, ...overrides });
 
@@ -53,4 +53,46 @@ test('measurement respects aborted polling and rejects invalid server job IDs', 
   controller.abort();
   await assert.rejects(measureFurnitureImage(imageFile(), { signal: controller.signal, pollIntervalMs: 0, fetchImpl: async () => reply({ job_id: jobId }, 202) }), { name: 'AbortError' });
   await assert.rejects(measureFurnitureImage(imageFile(), { fetchImpl: async () => reply({ job_id: '../unsafe' }, 202) }), /작업 ID/);
+});
+
+test('web-only registration previews the image and never sends it to the server', async t => {
+  const originalImage = globalThis.Image;
+  const originalWindow = globalThis.window;
+  globalThis.Image = class {
+    naturalWidth = 640;
+    naturalHeight = 480;
+    set src(value) { queueMicrotask(() => this.onload()); }
+  };
+  const pageListeners = {};
+  globalThis.window = { addEventListener: (event, callback) => { pageListeners[event] = callback; } };
+  t.after(() => {
+    pageListeners.pagehide?.();
+    if (originalImage === undefined) delete globalThis.Image; else globalThis.Image = originalImage;
+    if (originalWindow === undefined) delete globalThis.window; else globalThis.window = originalWindow;
+  });
+  let uploads = 0;
+  t.mock.method(globalThis, 'fetch', async () => { uploads += 1; throw new Error('Must not upload in web-only mode'); });
+  const element = () => ({ dataset: {}, listeners: {}, addEventListener(event, callback) { this.listeners[event] = callback; } });
+  const button = element(), input = element(), panel = element(), preview = element(), name = element(), metadata = element(), status = element();
+  const starts = [], completed = [];
+  setupFurnitureImageRegistration({ button, input, panel, preview, name, metadata, status, measurementEnabled: false,
+    onMeasurementStart: file => starts.push(file.name), onMeasurementComplete: job => completed.push(job),
+  });
+  assert.match(status.textContent, /웹 전용 모드/);
+  input.files = [imageFile()];
+  await input.listeners.change();
+  assert.equal(panel.hidden, false);
+  assert.equal(name.textContent, 'chair.png');
+  assert.match(metadata.textContent, /640 × 480px/);
+  assert.match(preview.src, /^blob:/);
+  assert.match(status.textContent, /서버 전송은 하지 않습니다/);
+  assert.equal(button.disabled, false);
+  assert.equal(uploads, 0);
+  assert.deepEqual(starts, ['chair.png']);
+  assert.deepEqual(completed, []);
+  // The file picker remains usable for another local preview.
+  input.files = [imageFile()];
+  await input.listeners.change();
+  assert.equal(starts.length, 2);
+  assert.equal(uploads, 0);
 });

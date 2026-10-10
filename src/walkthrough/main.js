@@ -451,7 +451,8 @@ async function boot() {
     };
   }
   await loadVariant(selected.variant);
-  if (params.has('studio') && active) {
+  // Studio is the default for every entry URL; the legacy viewer is opt-in.
+  if (params.get('studio') !== '0' && active) {
     studio=createStudio({scene,camera,renderer,getActive:()=>active,loadVariant,resize:resizeViewport,
       invalidate:()=>{appearance.invalidateShadows();needsRender=true;},enterRoom,unlock:()=>{keys.clear();release();},
       settle,standAt,resume:()=>{if(ready&&!busy&&!walking())startWalking();}});

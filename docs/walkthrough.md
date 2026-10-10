@@ -11,7 +11,7 @@ npm ci
 npm run dev
 ```
 
-브라우저에서 http://localhost:5173 을 엽니다. 서버의 VS Code Remote 환경이라면 **포트** 탭에 `5173`을 전달합니다. Mac 터미널에서 직접 연결할 수도 있습니다.
+브라우저에서 http://localhost:5173 을 열면 Studio가 시작됩니다. `?studio=1` 또는 평면·조명 등의 설정 옵션만 붙인 주소도 같은 Studio를 엽니다. 아래 단독 뷰어의 조작을 확인하려면 http://localhost:5173/?studio=0 을 사용합니다. 서버의 VS Code Remote 환경이라면 **포트** 탭에 `5173`을 전달합니다. Mac 터미널에서 직접 연결할 수도 있습니다.
 
 ```bash
 ssh -N -o ExitOnForwardFailure=yes -L 5173:127.0.0.1:5173 yj1-H200-kinamkim

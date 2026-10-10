@@ -3,7 +3,7 @@ import { test, expect } from '@playwright/test';
 test('expanded GLB retains meter scale, walkthrough controls and real mesh collisions', async ({ page }, testInfo) => {
   const errors = [];
   page.on('pageerror', (error) => errors.push(error.message));
-  await page.goto('/?test=1');
+  await page.goto('/?studio=0&test=1');
   await expect(page.locator('body')).toHaveAttribute('data-load-state', 'ready', { timeout: 90000 });
   const state = () => page.evaluate(() => window.__walkthrough.getState());
   const initial = await state();
@@ -83,7 +83,7 @@ test('missing model presents a usable failure message', async ({ page }) => {
 
 test('basic/expanded switch preserves presets and uses each model\'s true dimensions and collisions', async ({ page }, testInfo) => {
   await page.setViewportSize({ width: 1000, height: 800 });
-  await page.goto('/?test=1&quality=light');
+  await page.goto('/?studio=0&test=1&quality=light');
   const state = () => page.evaluate(() => window.__walkthrough.getState());
   await expect(page.locator('body')).toHaveAttribute('data-load-state', 'ready', { timeout: 90000 });
   await page.locator('#finish').selectOption('oak');
@@ -127,7 +127,7 @@ test('basic/expanded switch preserves presets and uses each model\'s true dimens
 });
 
 test('failed model or generated texture load keeps the current apartment usable', async ({ page }) => {
-  await page.goto('/?test=1&quality=light');
+  await page.goto('/?studio=0&test=1&quality=light');
   await expect(page.locator('body')).toHaveAttribute('data-load-state', 'ready', { timeout: 90000 });
   await page.route('**/acro112a-basic.glb', (route) => route.fulfill({ status: 404, body: 'missing' }));
   await page.locator('#variant').selectOption('basic');

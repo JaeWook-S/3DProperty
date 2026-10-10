@@ -68,7 +68,7 @@ test.describe('touch minimap',()=>{
  test('map controls coexist with phone movement and do not steal look gestures',async({page},info)=>{
   test.setTimeout(180000);
   const errors=[];page.on('pageerror',e=>errors.push(e.message));
-  await page.goto('/?test=1&quality=light');
+  await page.goto('/?studio=0&test=1&quality=light');
   await expect(page.locator('body')).toHaveAttribute('data-load-state','ready',{timeout:90000});
   await expect(page.locator('#walk-minimap')).toBeHidden();
   await page.locator('#start').tap();await expect.poll(async()=>(await state(page)).touchWalking).toBe(true);
@@ -104,7 +104,7 @@ test.describe('touch minimap',()=>{
 test.describe('short touch viewport',()=>{
  test.use({viewport:{width:844,height:390},isMobile:true,hasTouch:true});
  test('landscape map starts folded and fits clear of touch controls when opened',async({page},info)=>{
-  await page.goto('/?test=1&quality=light');
+  await page.goto('/?studio=0&test=1&quality=light');
   await expect(page.locator('body')).toHaveAttribute('data-load-state','ready',{timeout:90000});
   await page.locator('#start').tap();await expect(page.locator('#walk-minimap')).toBeVisible();
   await expect(page.locator('#minimap-content')).toBeHidden();

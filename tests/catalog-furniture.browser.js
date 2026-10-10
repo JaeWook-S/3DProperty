@@ -3,7 +3,7 @@ import { test, expect } from '@playwright/test';
 test('catalog sofa and stool preserve dimensions, living placement and real collisions', async ({ page }, testInfo) => {
   const errors = [];
   page.on('pageerror', (error) => errors.push(error.message));
-  await page.goto('/?test=1&variant=expanded&view=living&quality=light');
+  await page.goto('/?studio=0&test=1&variant=expanded&view=living&quality=light');
   await expect(page.locator('body')).toHaveAttribute('data-load-state', 'ready', { timeout: 90000 });
   const state = () => page.evaluate(() => window.__walkthrough.getState());
   const furniture = await page.evaluate(() => window.__walkthrough.inspectFurniture());
@@ -68,7 +68,7 @@ test('catalog sofa and stool preserve dimensions, living placement and real coll
 
 test('missing furniture preserves a previously loaded basic apartment', async ({ page }) => {
   await page.route('**/living-furniture.glb*', (route) => route.fulfill({ status: 404, body: 'Missing catalog furniture' }));
-  await page.goto('/?test=1&variant=basic&quality=light');
+  await page.goto('/?studio=0&test=1&variant=basic&quality=light');
   await expect(page.locator('body')).toHaveAttribute('data-load-state', 'ready', { timeout: 90000 });
   await page.locator('#variant').selectOption('expanded');
   await expect(page.locator('#status')).toContainText('이전 공간을 유지', { timeout: 60000 });
