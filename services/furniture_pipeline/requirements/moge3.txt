@@ -1,0 +1,7 @@
+-c torch.txt
+numpy==2.2.5
+Pillow==11.2.1
+scipy==1.15.2
+opencv-python-headless==4.11.0.86
+matplotlib==3.10.1
+moge @ git+https://github.com/microsoft/MoGe.git@74fbce054ebed49800de42d0ad0e83495065719a

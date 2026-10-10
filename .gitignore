@@ -7,6 +7,11 @@
 __pycache__/
 *.py[cod]
 .venv/
+.envs/
+.tooling/
+runtime/
+services/furniture_pipeline/runyour.env
+*.pem
 .env
 .env.*
 !.env.example

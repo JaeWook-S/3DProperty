@@ -1,0 +1,23 @@
+{
+  "prompts": ["chair", "sofa", "table", "cabinet", "bed", "desk", "shelves"],
+  "sam_score_threshold": 0.5,
+  "mask_nms_iou": 0.8,
+  "min_mask_pixels": 100,
+  "min_points": 100,
+  "moge_resolution_level": 9,
+  "moge_refine_steps": 3,
+  "moge_use_fp16": false,
+  "max_image_side": 1600,
+  "fov_x_degrees": null,
+  "up_vector_camera": [0.0, -1.0, 0.0],
+  "auto_estimate_up_from_ground": true,
+  "ground_lower_image_fraction": 0.45,
+  "ground_ransac_iterations": 256,
+  "ground_distance_ratio": 0.008,
+  "width_direction_camera": null,
+  "swap_width_depth": false,
+  "trim_percent": 1.0,
+  "erode_pixels": 2,
+  "knn_outlier_std": 2.0,
+  "scale_multiplier": 1.0
+}

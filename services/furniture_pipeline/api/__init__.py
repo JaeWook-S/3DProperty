@@ -1,0 +1,1 @@
+"""HTTP image upload bridge."""

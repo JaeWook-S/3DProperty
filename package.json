@@ -9,6 +9,8 @@
   "scripts": {
     "dev": "vite --host 127.0.0.1 --port 5173 --strictPort",
     "dev:mobile": "vite --host 0.0.0.0 --port 5173 --strictPort",
+    "furniture:tunnel": "bash services/furniture_pipeline/scripts/connect_runyour.sh",
+    "furniture:api": "bash services/furniture_pipeline/scripts/start_api.sh",
     "build": "vite build",
     "preview": "vite preview --host 127.0.0.1 --port 5173 --strictPort",
     "test": "node --test tests/*.test.js",

@@ -31,6 +31,8 @@
 
 ## 웹 개발 시작하기
 
+이미지로 가구 치수를 측정하는 GPU 서버 연결은 [가구 측정 실행 안내](services/furniture_pipeline/README.md)를 따른다. Runyour 서버에서 설치/API를 실행하고 Mac에서 `npm run furniture:tunnel`과 `npm run dev`를 실행하면, 꾸미기 화면의 **가구 등록** 이미지가 SAM3·MoGe-3로 처리되고 서버 터미널에 치수가 출력된다.
+
 ### 단지 → 세대 → 방 선택 및 꾸미기
 
 `http://localhost:5173/?studio=1`에서 시작합니다. A동 → 112A 기본형/확장형 → 상단 탭 **둘러보기 / 꾸미기 / 컨셉 보기**로 이동합니다. 장소 선택의 **전체 보기**는 처음 화면인 2D 평면과 3D를 함께 보여줍니다. 실제 단지 배치·동호수 자료는 아직 연결하지 않았고 외관은 흐름을 보여주는 예시입니다. 서비스 앱(5185)의 ‘단지에서 시작 · 공간 꾸미기’ 링크에서도 열 수 있습니다.
@@ -66,7 +68,7 @@ npm run dev
 - 공간 뷰어: http://localhost:5173 — Three.js 이동·문 상호작용·마감·조명. 코드는 `src/walkthrough/`에 있습니다.
 - 거실 배치: http://localhost:5173/?variant=expanded&view=living — 확장형 거실에 상품 규격 소파·스툴을 고정 배치했습니다.
 
-두 화면은 직접 링크로 연결됩니다. 스튜디오의 가구 드래그 배치는 구현했으며, 앱의 치수 추정 JSON에서 뷰어로 가구 전송, 추론 API와 서버 저장은 아직 구현하지 않았습니다. 주소 설정은 `apps/web/.env.example`, 인터페이스와 후속 작업은 [웹 연동 문서](docs/web-integration.md)를 참고하세요.
+두 화면은 직접 링크로 연결됩니다. 스튜디오의 가구 드래그 배치와 이미지 업로드·치수 측정 API는 구현했으며, 생성된 새 3D 가구를 뷰어에 등록하는 단계는 아직 구현하지 않았습니다. 측정 서버 실행은 [가구 측정 실행 안내](services/furniture_pipeline/README.md), 두 웹 화면의 후속 통합은 [웹 연동 문서](docs/web-integration.md)를 참고하세요.
 
 각 앱 폴더에서 `npm test`와 `npm run build`로 확인합니다. 브라우저 검사는 `npx playwright install chromium` 후 `npm run test:browser`로 실행합니다. 서비스 앱 브라우저 검사에는 5173 뷰어도 필요합니다. 비공개 S2 자료가 필요한 검사는 해당 환경 변수가 없으면 skip됩니다.
 
