@@ -22,6 +22,29 @@ bash services/furniture_pipeline/scripts/setup_gpu_envs.sh
 bash services/furniture_pipeline/scripts/login_hf.sh
 ```
 
+### Blender 설치 중 공유 라이브러리 오류
+
+아래 명령은 **Mac이 아니라 GPU 서버에서** 실행합니다. 테스트 중 `libXrender.so.1`과 `libSM.so.6` 누락 오류가 발생했습니다. 각각 `libxrender1`, `libsm6`가 필요하며, GUI 없이 실행해도 이 라이브러리들은 설치해야 합니다.
+
+필요 패키지를 한 번에 설치한 뒤 Blender 설치 확인을 다시 실행합니다. `setup_blender.sh`는 이미 받은 Blender를 다시 다운로드하지 않습니다.
+
+```bash
+sudo apt-get update
+sudo apt-get install -y \
+  libx11-6 libxi6 libxrender1 libxfixes3 \
+  libxxf86vm1 libxkbcommon0 libgl1 libsm6
+
+bash services/furniture_pipeline/scripts/setup_blender.sh
+```
+
+`sudo` 권한이 없으면 서버 관리자에게 위 패키지 설치를 요청합니다. 다른 라이브러리 오류가 남으면 다음으로 누락 목록을 확인합니다. 출력이 없으면 `ldd` 기준으로 누락된 공유 라이브러리는 없습니다.
+
+```bash
+ldd .tooling/blender/blender | grep 'not found'
+```
+
+`Blender 설치 완료`가 나오면 `bash services/furniture_pipeline/scripts/start_api.sh`를 실행합니다.
+
 ## 2. Mac
 
 최초 1회 연결 설정 파일을 만듭니다.
@@ -81,4 +104,4 @@ Blender 실패 시에도 측정 결과는 남습니다. 측정 치수가 없는 
 - Mac: `curl http://127.0.0.1:8000/health` → `ready: true`, `generate_3d: true`, `blender_ready: true` 확인.
 - Blender 없음: `setup_blender.sh` 실행 후 API 재시작. 별도 설치를 쓰면 서버 `.env`의 `PIPELINE_BLENDER_EXECUTABLE`에 실행 파일 경로를 지정합니다. `PIPELINE_GENERATE_3D=false`는 측정만 실행합니다.
 - 로그: 서버 API 터미널과 Mac `runtime/dev/run.*/` 확인. 없는 작업 ID를 조회한 404는 생성 실패가 아닙니다.
-- 첫 요청은 모델 다운로드로 오래 걸릴 수 있습니다. 공유 라이브러리 누락은 설치 스크립트가 안내하는 패키지를 서버 관리자에게 설치 요청합니다.
+- 첫 요청은 모델 다운로드로 오래 걸릴 수 있습니다. 공유 라이브러리 누락은 위 **Blender 설치 중 공유 라이브러리 오류**의 설치 명령을 따릅니다.
