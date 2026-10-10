@@ -1,4 +1,5 @@
 import { test, expect } from '@playwright/test';
+import { generatedFixture } from '../../../tests/fixtures/generated-asset.js';
 
 const image = {
   name: 'my-chair.png', mimeType: 'image/png',
@@ -126,4 +127,29 @@ test('web-only mode keeps the image preview and JSON tools without sending an AP
   await page.locator('#load-example').click();
   await expect(page.locator('#result')).toHaveAttribute('data-status', 'valid');
   expect(requests).toBe(0);
+});
+
+test('measured image shows the generated GLB preview, downloads and 3D placement link', async ({ page }, testInfo) => {
+  const { asset, bytes } = generatedFixture();
+  await page.route('**/api/furniture/**', route => {
+    const url = route.request().url();
+    if (url.endsWith('/model.glb')) return route.fulfill({ contentType: 'model/gltf-binary', body: bytes });
+    if (route.request().method() === 'POST') return route.fulfill({ status: 202, json: { job_id: jobId } });
+    return route.fulfill({ json: { status: 'completed', result: { outcome: 'measured',
+      objects: [{ status: 'ok', width_m: .8, depth_m: .6, height_m: .75 }],
+      generation: { status: 'completed', provider: 'stub-no-api', assets: [asset], errors: [], message: '테스트 테이블 · GPT 호출 없음' } } } });
+  });
+  await page.goto('/'); await page.locator('#furniture-tab').click();
+  await page.locator('#furniture-image-file').setInputFiles(image);
+  await expect(page.locator('.generated-preview')).toHaveAttribute('data-state', 'ready', { timeout: 15000 });
+  await expect(page.locator('.generated-preview canvas')).toBeVisible();
+  await expect(page.locator('.generated-actions a[download="model.glb"]')).toHaveAttribute('href', asset.model_uri);
+  await expect(page.locator('.generated-actions .primary')).toHaveAttribute('href', new RegExp(`5173.*furnitureAsset=${asset.asset_id}`));
+  await page.locator('.generated-preview').scrollIntoViewIfNeeded();
+  await page.screenshot({ path: testInfo.outputPath('generated-model-preview.png'), fullPage: true });
+  await page.setViewportSize({ width: 390, height: 844 });
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+  await page.screenshot({ path: testInfo.outputPath('generated-model-preview-mobile.png') });
+  await page.locator('#load-example').click();
+  await expect(page.locator('#result')).toHaveAttribute('data-status', 'valid');
 });

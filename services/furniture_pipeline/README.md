@@ -1,21 +1,25 @@
-# 가구 측정 실행 방법
+# 이미지 → 측정 → Blender → 웹 실행
 
-명령은 **`3DProperty` 루트 기준**입니다. Mac에서는 `bash start.sh` 하나로 기존 웹·3D 뷰어·필요한 SSH 터널을 실행합니다. GPU 서버가 없어도 웹을 사용할 수 있습니다.
+모든 명령은 **`3DProperty` 루트**에서 실행합니다. GPT API는 호출하지 않고, 측정 치수로 **고정 테스트 테이블**을 생성합니다. 사진을 재현한 모델은 아닙니다.
 
 ## 1. GPU 서버
 
-최초 1회 설치하고 Hugging Face 토큰으로 로그인합니다. SAM3 접근 권한이 있는 계정의 토큰을 입력하세요.
+**이미 측정이 되는 서버:** Mac 변경사항을 커밋·푸시한 뒤, 서버의 같은 `feat/image-to-3d-automation` 브랜치에서 반영합니다. 측정 중이 아닐 때 기존 API를 `Ctrl+C`로 종료합니다.
+
+```bash
+git pull --ff-only
+bash services/furniture_pipeline/scripts/setup_blender.sh  # 최초 1회
+bash services/furniture_pipeline/scripts/start_api.sh
+```
+
+SAM3/MoGe-3 환경 재설치·HF 재로그인은 필요 없습니다. Blender는 GUI 없이 실행합니다. API 터미널은 켜둡니다.
+
+**새 서버라면** 위 실행 전에 환경 설치와 SAM3 접근 권한이 있는 Hugging Face 계정 로그인을 합니다.
 
 ```bash
 cp -n services/furniture_pipeline/.env.example services/furniture_pipeline/.env
 bash services/furniture_pipeline/scripts/setup_gpu_envs.sh
 bash services/furniture_pipeline/scripts/login_hf.sh
-```
-
-서버 API를 실행하고 이 터미널을 켜둡니다.
-
-```bash
-bash services/furniture_pipeline/scripts/start_api.sh
 ```
 
 ## 2. Mac
@@ -28,30 +32,53 @@ cp -n services/furniture_pipeline/runyour.env.example services/furniture_pipelin
 
 `runyour.env`에 SSH 호스트(`RUNYOUR_HOST`), 사용자(`RUNYOUR_USER`), PEM 파일의 전체 경로(`RUNYOUR_PEM`)를 입력합니다. 기본 SSH 포트는 22, API 포트는 8000입니다. 새 서버는 먼저 일반 SSH로 접속해 호스트 키를 확인합니다.
 
-처음 사용하기 전 루트와 `apps/web`에서 각각 `npm ci`를 실행합니다. 이후 Mac 터미널 하나에서:
+이번 변경에는 웹 의존성이 추가됐으므로 다음을 실행합니다.
 
 ```bash
+npm ci
+npm --prefix apps/web ci
 bash start.sh
 ```
 
-- **서버 접속 가능 + API `ready: true`:** 터널·웹(5185)·3D(5173)를 켜고 모델 측정까지 사용합니다. 서버의 `start_api.sh`는 미리 실행돼 있어야 합니다.
-- **서버 꺼짐·API 미준비·SSH 설정 없음:** 터널 없이 웹·3D만 켭니다. 이미지 미리보기·가구 JSON 확인·공간 배치는 유지하고, 이미지 서버 전송·모델 측정만 건너뜁니다.
-- 이 터미널을 유지하고 **`Ctrl+C`로 종료**합니다. 로그는 `runtime/dev/run.*/`에 저장됩니다. 기존 실행 중인 서버는 재사용하며 종료하지 않습니다. 실행 모드가 반영되도록 처음에는 기존 수동 실행 터미널을 종료하세요.
-- GPU 서버를 나중에 켰다면 `Ctrl+C` 후 `bash start.sh`를 다시 실행합니다.
+- 서버 API 준비됨: SSH 터널 + 웹(5185) + 3D(5173), 측정·GLB 생성까지 사용합니다.
+- 서버 미준비: 웹·3D만 실행합니다. 이미지 미리보기·기존 JSON 확인·공간 편집은 가능하고 서버 측정·새 GLB 생성은 불가합니다.
+- 기존 수동 실행 웹은 먼저 종료해야 새 실행 모드가 반영됩니다. 종료는 `Ctrl+C`; GPU 서버를 나중에 켰으면 `start.sh`를 다시 실행합니다.
 
-## 3. 이미지 업로드
+## 3. 웹에서 테스트
 
 [기존 웹 열기](http://127.0.0.1:5185/) → **내 가구 확인 → 가구 등록**에서 이미지를 선택합니다. 기존 JSON 파일 확인 기능도 그대로 사용할 수 있습니다.
 
-3D 공간은 같은 웹의 **공간 둘러보기 → 공간 열기** 또는 **단지에서 시작 · 공간 꾸미기** 버튼으로 엽니다.
+자동으로 **SAM3 → MoGe-3 → 후처리 → 테스트 코드 생성기 → Blender → GLB**를 실행합니다. 서버 터미널에는 치수와 다음 문구가 출력됩니다.
 
-측정 연결 모드에서는 웹에 진행 상태와 치수가 표시되고, **서버 API 터미널**에도 이미지 수신, SAM3, MoGe-3, 너비·깊이·높이 결과가 출력됩니다. 결과 파일은 `runtime/furniture/<job-id>/`에 저장됩니다. 첫 요청은 모델 다운로드 때문에 오래 걸릴 수 있습니다.
+```text
+이미지 + 치수 받았습니다. 나중엔 GPT API를 연결하세요
+```
 
-현재는 이미지 측정까지 구현되어 있으며, 새 3D 가구 생성·배치는 아직 포함하지 않습니다.
+웹에 치수·테스트 테이블 미리보기·GLB/JSON 다운로드가 나타납니다. **3D 공간에서 배치**를 누르면 Studio에서 이동·회전·삭제·브라우저 저장/복원이 가능합니다. Studio의 꾸미기에서 직접 가구를 등록해도 측정 후 현재 방에 배치합니다.
 
-## 4. 변경사항 반영·연결 오류
+파일은 서버의 `runtime/furniture/<job-id>/`에 저장합니다.
 
-- 웹·실행 스크립트만 바꾼 경우 서버 `git pull`이나 환경 재설치는 필요 없습니다. Mac에서 `Ctrl+C` 후 `bash start.sh`로 재시작합니다.
-- 서버 API·모델 코드를 바꾼 경우에만, 변경을 커밋·푸시한 뒤 서버의 같은 브랜치에서 반영합니다. 측정 중이 아닐 때 API를 `Ctrl+C`로 종료하고 `git pull --ff-only` 후 `start_api.sh`를 다시 실행합니다. 설치 스크립트는 의존성이 바뀐 경우에만 다시 실행합니다.
-- **연결 오류:** `runtime/dev/run.*/gpu-check.log`와 `tunnel.log`, 서버 API 터미널을 확인합니다. `curl --fail --show-error --max-time 10 http://127.0.0.1:8000/health`로 기본 터널 연결을 확인할 수 있습니다. 별도 로컬 API 포트를 설정했다면 8000 대신 그 포트를 사용합니다.
-- `GET /api/furniture/jobs/00000000000000000000000000000000`의 **404는 없는 작업 ID로 보낸 연결 확인 요청**이며 측정 실패가 아닙니다. 재시도 후에도 실패하면 Mac의 `web.log`·`viewer.log`와 서버의 실제 `POST /api/furniture/measure` 로그를 확인합니다.
+- `gpt_input.json`: 원본 이미지 경로·해시와 치수; GPT 호출 없음
+- `assets/000/`: `generated_model.py`, `generation_input.json`, `model.glb`, `asset.json`, `export_report.json`
+- `result.json`: 측정 결과와 `generation` 상태
+
+Blender 실패 시에도 측정 결과는 남습니다. 측정 치수가 없는 가구는 모델을 만들지 않습니다. 서버 디스크가 사라지면 GLB도 사라지므로 저장한 배치의 생성 가구를 다시 불러오려면 원래 서버 파일과 API가 필요합니다.
+
+## 4. 기존 측정 결과로 2번만 테스트 (선택)
+
+서버에서 아래 `JOB_ID`를 실제 기존 작업 ID로 바꾸고 업로드 확장자를 맞춥니다. SAM3/MoGe-3를 다시 실행하지 않고 새 작업 폴더에 GLB를 생성합니다. API는 켜둡니다.
+
+```bash
+.envs/furniture-api/bin/python -m services.furniture_pipeline.scripts.export_saved_measurement \
+  --image runtime/furniture/JOB_ID/upload.png \
+  --measurements runtime/furniture/JOB_ID/result.json
+```
+
+출력된 `3D:` 주소를 Mac 브라우저에서 엽니다. 기존 측정 파일은 덮어쓰지 않습니다.
+
+## 연결·변환 오류
+
+- Mac: `curl http://127.0.0.1:8000/health` → `ready: true`, `generate_3d: true`, `blender_ready: true` 확인.
+- Blender 없음: `setup_blender.sh` 실행 후 API 재시작. 별도 설치를 쓰면 서버 `.env`의 `PIPELINE_BLENDER_EXECUTABLE`에 실행 파일 경로를 지정합니다. `PIPELINE_GENERATE_3D=false`는 측정만 실행합니다.
+- 로그: 서버 API 터미널과 Mac `runtime/dev/run.*/` 확인. 없는 작업 ID를 조회한 404는 생성 실패가 아닙니다.
+- 첫 요청은 모델 다운로드로 오래 걸릴 수 있습니다. 공유 라이브러리 누락은 설치 스크립트가 안내하는 패키지를 서버 관리자에게 설치 요청합니다.

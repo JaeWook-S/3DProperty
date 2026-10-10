@@ -3,6 +3,7 @@ from dataclasses import dataclass
 import json
 import math
 import os
+import shutil
 from pathlib import Path
 
 from dotenv import load_dotenv
@@ -73,6 +74,9 @@ class Settings:
     moge_checkpoint: str = "Ruicheng/moge-3-vitl"
     worker_timeout: int = 1800
     cors_origins: tuple = ("http://localhost:5173", "http://127.0.0.1:5173")
+    generate_3d: bool = True
+    blender_executable: Path = PROJECT_ROOT / ".tooling/blender/blender"
+    blender_timeout: int = 120
 
     @classmethod
     def from_env(cls):
@@ -91,9 +95,15 @@ class Settings:
             moge_checkpoint=moge,
             worker_timeout=int(os.getenv("PIPELINE_WORKER_TIMEOUT", "1800")),
             cors_origins=tuple(v.strip() for v in os.getenv("PIPELINE_CORS_ORIGINS", "http://localhost:5173,http://127.0.0.1:5173").split(",") if v.strip()),
+            generate_3d=os.getenv("PIPELINE_GENERATE_3D", "true").lower() not in {"false", "0", "no"},
+            blender_executable=project_path(os.getenv("PIPELINE_BLENDER_EXECUTABLE") or shutil.which("blender") or
+                ("/Applications/Blender.app/Contents/MacOS/Blender" if Path("/Applications/Blender.app/Contents/MacOS/Blender").is_file() else ".tooling/blender/blender")),
+            blender_timeout=int(os.getenv("PIPELINE_BLENDER_TIMEOUT", "120")),
         )
         if settings.worker_timeout <= 0:
             raise ValueError("PIPELINE_WORKER_TIMEOUT must be positive")
+        if settings.blender_timeout <= 0:
+            raise ValueError("PIPELINE_BLENDER_TIMEOUT must be positive")
         load_options(settings.settings_file)
         return settings
 

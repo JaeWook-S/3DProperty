@@ -38,6 +38,8 @@ const STAGES = {
   preprocessing: '이미지를 준비하는 중…',
   sam3: '가구 영역을 찾는 중…',
   moge3_postprocessing: '가구 치수를 계산하는 중…',
+  gpt_stub: '이미지와 치수를 테스트 코드 생성기에 전달하는 중… (GPT 호출 없음)',
+  blender_export: 'Blender 테스트 모델을 GLB로 변환하는 중…',
 };
 
 async function readResponse(response) {
@@ -152,7 +154,8 @@ export function setupFurnitureImageRegistration({
       if (measured.length) message(`가구 ${measured.length}개를 측정했어요. 결과를 서버 터미널에 출력했습니다.`, 'ready');
       else if (!objects.length) message('가구를 찾지 못했어요. 가구가 잘 보이는 사진을 선택해 주세요.', 'error');
       else message('가구 영역은 찾았지만 치수를 계산하지 못했어요. 다른 각도의 사진을 선택해 주세요.', 'error');
-      onMeasurementComplete(job, selectedFile);
+      await onMeasurementComplete(job, selectedFile);
+      if (job.result?.generation?.status === 'failed') message(`측정 결과는 보존했습니다. 3D 변환 실패: ${job.result.generation.message || '서버 Blender 로그를 확인하세요.'}`, 'error');
     } catch (error) {
       if (error.name !== 'AbortError') message(error.message || '측정 서버에 연결하지 못했습니다.', 'error');
     } finally {

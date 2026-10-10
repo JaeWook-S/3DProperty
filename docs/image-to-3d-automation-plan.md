@@ -14,16 +14,17 @@
 생성되었다고 가정한 Blender Python 코드 → Blender headless 실행 → GLB 변환 → 현재 웹에서 표시
 ```
 
-GPT API는 호출 비용이 있으므로 처음에는 호출하지 않는다. 두 구간이 각각 동작하는지 확인한 뒤 가운데에 GPT API를 끼운다.
+GPT API는 호출하지 않는다. 현재 두 구간 사이의 테스트 생성기가 이미지·치수를 받아 안내 문구를 출력하고 고정 Blender 코드를 반환한다.
 
 ## 현재 상태
 
 - 작업 브랜치: `feat/image-to-3d-automation`
 - 기존 시작 화면 `apps/web`(5185)의 **내 가구 확인 → 가구 등록**에서 이미지 선택·미리보기·측정 결과 표시가 가능하다. 공간 선택과 기존 JSON 확인은 유지한다. 3D Studio(5173)의 꾸미기에서도 같은 측정 API를 사용한다.
 - 1번의 코드 구현 완료: 이미지 선택 → 업로드 API → SAM3/MoGe-3 순차 실행 → 후처리 → 서버 터미널 출력·파일 저장.
-- 업로드·후처리는 Mac에서 테스트하며, 실제 CUDA 모델 추론은 Runyour 대여 후 검증한다.
-- 2번 Blender/GLB 변환은 아직 구현하지 않았다.
-- 대여 후 설정과 실행 명령은 [가구 측정 실행 안내](../services/furniture_pipeline/README.md)를 따른다.
+- 1번은 Runyour 서버와 웹에서 검증했다.
+- 2번 구현 완료: 측정 직후 테스트 코드 생성 → Blender headless → GLB·가구 JSON → 웹 미리보기·3D 공간 배치·이동·회전·브라우저 저장/복원.
+- 실제 Blender export와 웹 로더·편집 검사를 수행했다. Runyour 서버에는 변경 코드와 Blender 설치를 추가 반영해야 한다.
+- 설정과 실행 명령은 [실행 안내](../services/furniture_pipeline/README.md)를 따른다.
 
 ## 단일 저장소 원칙
 
@@ -37,8 +38,13 @@ GPT API는 호출 비용이 있으므로 처음에는 호출하지 않는다. �
     │   ├── sam3_infer.py
     │   ├── moge3_infer.py
     │   ├── postprocess.py
-    │   └── run_measurement.py
+    │   ├── run_measurement.py
+    │   ├── code_provider.py        # 현재 안내 로그 + 고정 코드 반환
+    │   ├── generated_model.py      # 치수를 적용한 테스트 테이블
+    │   ├── build_assets.py
+    │   └── blender_runner.py
     ├── scripts/setup_gpu_envs.sh
+    ├── scripts/setup_blender.sh
     ├── requirements/
     │   ├── api.txt
     │   ├── sam3.txt
@@ -52,7 +58,7 @@ GPT API는 호출 비용이 있으므로 처음에는 호출하지 않는다. �
 
 가져올 것은 SAM3/MoGe-3 추론 코드, 치수 후처리, 설정값, 패키지 버전과 최소 테스트 이미지다. `.venv-*`, `.cache`, `outputs`, `.DS_Store`, 기존 Omni3D 실험과 대용량 체크포인트는 복사하지 않는다. 모델 가중치는 설치 또는 최초 실행 시 영구 저장소에 내려받고 Git에는 포함하지 않는다.
 
-1번의 완료 기준은 `../furniture_measurement` 폴더가 없어도 `3DProperty`만 복제한 새 GPU 서버에서 환경 설치·이미지 측정이 동작하는 것이다. Blender export는 2번에서 추가한다.
+외부 `furniture_measurement` 폴더 없이 이 저장소만으로 설치·측정·Blender export를 실행한다.
 
 ## 구현 순서
 
@@ -79,30 +85,30 @@ GPT API는 호출 비용이 있으므로 처음에는 호출하지 않는다. �
 
 - 웹에서 선택한 이미지가 서버에 도착한다.
 - 터미널에서 파일 정보와 SAM3·MoGe-3 최종 치수를 확인할 수 있다.
-- 기존 웹에 측정 상태와 치수만 표시한다. DB, 작업 큐, 생성 3D 가구 배치는 아직 만들지 않는다.
+- 1번 구간은 측정 상태·치수를 표시하는 것까지다. 3D 생성·배치는 아래 2번이 이어서 처리한다. DB·작업 큐는 사용하지 않는다.
 
 ### 2. Blender 코드 → GLB → 웹
 
-처음에는 GPT 대신 테스트용 `generated_model.py`를 사용한다.
+웹에서 이미지를 등록하면 1번 완료 후 자동으로 실행한다.
 
-1. `generated_model.py`가 가구 모델을 생성한다.
-2. 서버가 Blender를 GUI 없이 실행한다.
+1. `build_assets.py`가 **업로드 원본 이미지 경로·SHA-256 + 정상 측정된 가구별 너비/깊이/높이(m)**를 `gpt_input.json`에 저장한다.
+2. `code_provider.py`가 입력을 받아 서버 터미널에 **“이미지 + 치수 받았습니다. 나중엔 GPT API를 연결하세요”**와 입력 JSON을 출력한다. 외부 API 호출은 없다.
+3. 고정 `generated_model.py`를 반환한다. 사진 속 형태와 관계없이 **측정 치수의 테스트 테이블**을 만든다.
+4. 서버의 `blender_runner.py`가 Blender를 GUI 없이 실행하고 미터 단위·크기·바닥 중심을 검사한 뒤 GLB를 export한다.
+5. `model.glb`와 기존 `cortex.furniture.v0` 형식의 `asset.json`을 API로 제공한다.
+6. `apps/web`에서 3D 미리보기·다운로드를 제공한다. **3D 공간에서 배치**를 누르면 5173 Studio에서 해당 가구를 불러와 편집한다. Studio에서 직접 등록하면 측정 후 현재 방에 배치한다.
 
-```bash
-blender --background --python blender_runner.py -- \
-  --script generated_model.py \
-  --output runtime-assets/<asset-id>/model.glb
-```
+산출물은 `runtime/furniture/<job-id>/gpt_input.json`, `assets/<가구 번호>/generated_model.py`, `generation_input.json`, `model.glb`, `asset.json`, `export_report.json`이다. `result.json`의 `generation`에 성공·부분 성공·실패를 기록한다. Blender 실패 시에도 측정 결과는 보존한다.
 
-3. `blender_runner.py`가 생성 코드를 실행하고 GLB를 export한다.
-4. 치수와 GLB 경로를 담은 `asset.json`을 만든다.
-5. 현재 웹의 Three.js `GLTFLoader`가 `model.glb`를 불러와 기존 가구처럼 배치한다.
+정상 치수가 없는 가구에는 임의 치수를 만들지 않는다. 고정 테스트 테이블은 사진 재현이나 GPT 생성 결과가 아니며, 치수 자체도 사진 기반 추정값이다.
 
 완료 기준:
 
 - Blender GUI 없이 `model.glb`가 생성된다.
 - 웹에서 새 가구가 보이고 이동·회전·배치할 수 있다.
 - 모델마다 별도 JS를 생성하지 않고 기존 로더를 재사용한다. 필요한 것은 `GLB + asset.json`이다.
+
+나중에는 `code_provider.py`의 반환 부분을 교체한다. 현재 코드 계약은 `create_model(dimensions)` 함수가 `bpy`로 가구만 생성하는 것이며 GLB export는 별도 runner가 맡는다. **현재는 저장소의 고정 코드만 실행한다. 외부 생성 코드 실행 전에는 별도 격리를 구현해야 한다.**
 
 ## 개발 환경
 

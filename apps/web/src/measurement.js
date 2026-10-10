@@ -1,4 +1,12 @@
 import { formatDimension } from './furniture.js';
+import { generatedViewerUrl, validateGeneratedAsset } from '../../../src/walkthrough/generated-furniture.js';
+import { previewGeneratedFurniture } from '../../../src/walkthrough/generated-furniture-preview.js';
+
+const previews = new WeakMap();
+export function disposeMeasurementResult(host) {
+  for (const dispose of previews.get(host) || []) dispose();
+  previews.delete(host);
+}
 
 const node = (tag, text, className) => {
   const element = document.createElement(tag);
@@ -15,8 +23,9 @@ export function measurementDimensions(record) {
   return dimensions;
 }
 
-export function renderMeasurementResult(host, job, imageName) {
+export function renderMeasurementResult(host, job, imageName, { viewerBase, variant } = {}) {
   const objects = Array.isArray(job.result?.objects) ? job.result.objects : [];
+  disposeMeasurementResult(host);
   host.replaceChildren();
   host.hidden = false;
   host.dataset.outcome = job.result?.outcome || 'unknown';
@@ -59,6 +68,33 @@ export function renderMeasurementResult(host, job, imageName) {
     host.append(unitLabel, cards);
   } else {
     host.append(node('p', '가구를 찾지 못했습니다. 가구 전체가 잘 보이는 사진을 선택해 주세요.', 'muted'));
+  }
+  const generation = job.result?.generation;
+  if (generation) {
+    host.append(node('h4', 'Blender → GLB 테스트 결과'), node('p', generation.message || 'GPT 호출 없이 고정 테스트 테이블을 생성했습니다.', 'example-banner'));
+    const disposers = [];
+    previews.set(host, disposers);
+    for (const rawAsset of generation.assets || []) {
+      try {
+        const asset = validateGeneratedAsset(rawAsset);
+        const card = node('article', undefined, 'generated-asset');
+        card.dataset.assetId = asset.asset_id;
+        card.append(node('h4', asset.title || '테스트 생성 가구'));
+        const preview = node('div', undefined, 'generated-preview');
+        card.append(preview);
+        const actions = node('div', undefined, 'generated-actions');
+        for (const [text, uri, filename] of [['GLB 받기', asset.model_uri, 'model.glb'], ['가구 JSON 받기', asset.manifest_uri, 'asset.json']]) {
+          const link = node('a', text); link.href = uri; link.download = filename; actions.append(link);
+        }
+        if (viewerBase) {
+          const link = node('a', '3D 공간에서 배치 ↗', 'primary');
+          link.href = generatedViewerUrl(viewerBase, asset, variant); link.target = '_blank'; link.rel = 'noopener noreferrer'; actions.append(link);
+        }
+        card.append(actions); host.append(card);
+        disposers.push(previewGeneratedFurniture(preview, asset));
+      } catch (error) { host.append(node('p', error.message, 'muted')); }
+    }
+    for (const failure of generation.errors || []) host.append(node('p', `가구 ${failure.object_index + 1} 변환 실패: ${failure.error}`, 'muted'));
   }
   const raw = node('details', undefined, 'raw-json');
   raw.append(node('summary', '서버 측정 결과 JSON 보기'), node('pre', JSON.stringify(job.result, null, 2)));

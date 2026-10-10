@@ -68,7 +68,7 @@ npm run dev
 - 공간 Studio: http://localhost:5173 — 단지 탐색·꾸미기·가구 등록·둘러보기. 코드는 `src/walkthrough/`에 있습니다.
 - 기존 거실 뷰어: http://localhost:5173/?studio=0&variant=expanded&view=living — 확장형 거실에 상품 규격 소파·스툴을 고정 배치했습니다.
 
-두 화면은 직접 링크로 연결됩니다. 스튜디오의 가구 드래그 배치와 이미지 업로드·치수 측정 API는 구현했으며, 생성된 새 3D 가구를 뷰어에 등록하는 단계는 아직 구현하지 않았습니다. 측정 서버 실행은 [가구 측정 실행 안내](services/furniture_pipeline/README.md), 두 웹 화면의 후속 통합은 [웹 연동 문서](docs/web-integration.md)를 참고하세요.
+두 화면은 직접 링크로 연결됩니다. 이미지 업로드·치수 측정 뒤 고정 Blender 테스트 테이블을 GLB로 생성하여 웹 미리보기와 Studio 배치·이동·회전·저장/복원을 지원합니다. GPT API는 호출하지 않으며 사진 속 형태를 재현한 모델은 아닙니다. 서버 Blender 설치와 실행은 [실행 안내](services/furniture_pipeline/README.md), 두 웹 화면의 통합 기록은 [웹 연동 문서](docs/web-integration.md)를 참고하세요.
 
 각 앱 폴더에서 `npm test`와 `npm run build`로 확인합니다. 브라우저 검사는 `npx playwright install chromium` 후 `npm run test:browser`로 실행합니다. 서비스 앱 브라우저 검사에는 5173 뷰어도 필요합니다. 비공개 S2 자료가 필요한 검사는 해당 환경 변수가 없으면 skip됩니다.
 

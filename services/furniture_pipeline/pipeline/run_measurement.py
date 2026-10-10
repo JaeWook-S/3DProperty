@@ -31,13 +31,13 @@ def stop_active_workers():
                 pass
 
 
-def run_worker(command, settings):
+def run_worker(command, settings, timeout=None):
     # Each worker owns a process group so a timeout also stops child processes.
     with subprocess.Popen(command, env=settings.worker_environment(), start_new_session=True) as process:
         with _PROCESS_LOCK:
             _ACTIVE_PROCESSES.add(process)
         try:
-            code = process.wait(timeout=settings.worker_timeout)
+            code = process.wait(timeout=timeout or settings.worker_timeout)
         except (subprocess.TimeoutExpired, KeyboardInterrupt):
             os.killpg(process.pid, signal.SIGTERM)
             try:
@@ -45,12 +45,12 @@ def run_worker(command, settings):
             except subprocess.TimeoutExpired:
                 os.killpg(process.pid, signal.SIGKILL)
                 process.wait()
-            raise WorkerError(f"Worker timed out or interrupted after {settings.worker_timeout}s")
+            raise WorkerError(f"Worker timed out or interrupted after {timeout or settings.worker_timeout}s")
         finally:
             with _PROCESS_LOCK:
                 _ACTIVE_PROCESSES.discard(process)
         if code:
-            raise WorkerError(f"Worker exited with code {code}; see server terminal traceback. Check HF access / CUDA / GPU memory.")
+            raise WorkerError(f"Worker exited with code {code}; see server terminal traceback.")
 
 
 def run_measurement(settings, image_path, run_dir, progress=lambda stage: None):

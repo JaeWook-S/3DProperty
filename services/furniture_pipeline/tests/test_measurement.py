@@ -20,7 +20,7 @@ from services.furniture_pipeline.pipeline.run_measurement import run_measurement
 
 
 def settings_for(directory):
-    return Settings(Path(directory), Path(directory) / "cache", Path(sys.executable), Path(sys.executable), SERVICE_ROOT / "settings.json")
+    return Settings(Path(directory), Path(directory) / "cache", Path(sys.executable), Path(sys.executable), SERVICE_ROOT / "settings.json", generate_3d=False)
 
 
 class MeasurementTests(unittest.TestCase):

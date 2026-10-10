@@ -12,6 +12,7 @@ test('register furniture uploads a selected image and handles measurement progre
   let pollCount = 0;
   let rejectUpload = false;
   await page.route('**/api/furniture/**', async (route) => {
+    if (route.request().url().endsWith('/assets')) { await route.fulfill({ json: { assets: [] } }); return; }
     if (route.request().method() === 'POST') {
       expect(route.request().headers()['content-type']).toContain('multipart/form-data');
       expect(route.request().postDataBuffer().toString()).toContain('my-chair.png');

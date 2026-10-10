@@ -4,6 +4,7 @@ from contextlib import asynccontextmanager
 import io
 import json
 import logging
+import os
 from pathlib import Path
 import re
 import shutil
@@ -13,10 +14,11 @@ import uuid
 from fastapi import BackgroundTasks, FastAPI, File, HTTPException, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
 from PIL import Image, UnidentifiedImageError
-from starlette.responses import JSONResponse
+from starlette.responses import FileResponse, JSONResponse
 
 from services.furniture_pipeline.config import MAX_UPLOAD_BYTES, Settings
 from services.furniture_pipeline.pipeline.run_measurement import run_measurement, stop_active_workers
+from services.furniture_pipeline.pipeline.build_assets import ASSET_ID, build_assets
 
 LOG = logging.getLogger("uvicorn.error")
 FORMATS = {"JPEG": ".jpg", "PNG": ".png", "WEBP": ".webp"}
@@ -45,9 +47,10 @@ def write_job(directory, payload):
     temporary.replace(directory / "job.json")
 
 
-def create_app(settings=None, runner=None):
+def create_app(settings=None, runner=None, asset_builder=None):
     settings = settings or Settings.from_env()
     runner = runner or run_measurement
+    asset_builder = asset_builder or build_assets
     @asynccontextmanager
     async def lifespan(app):
         yield
@@ -72,7 +75,9 @@ def create_app(settings=None, runner=None):
     @app.get("/health")
     def health():
         missing = settings.missing_environments()
-        return {"status": "ok", "ready": not missing, "busy": busy.locked(), "missing_environments": missing}
+        return {"status": "ok", "ready": not missing, "busy": busy.locked(), "missing_environments": missing,
+            "generate_3d": settings.generate_3d,
+            "blender_ready": settings.blender_executable.is_file() and os.access(settings.blender_executable, os.X_OK)}
 
     def execute(job, directory, image):
         def progress(stage):
@@ -81,6 +86,13 @@ def create_app(settings=None, runner=None):
             LOG.info("[measurement %s] stage=%s", job["job_id"], stage)
         try:
             result = runner(settings, image, directory, progress=progress)
+            if settings.generate_3d:
+                try:
+                    result["generation"] = asset_builder(settings, image, directory, result, progress=progress)
+                except Exception as error:
+                    LOG.exception("[generation %s] failed; measurement preserved", job["job_id"])
+                    result["generation"] = {"status": "failed", "provider": "stub-no-api", "assets": [], "errors": [], "message": str(error)}
+            (directory / "result.json").write_text(json.dumps(result, ensure_ascii=False, indent=2, allow_nan=False), encoding="utf-8")
             job.update(status="completed", stage="completed", result=result)
         except Exception as error:
             LOG.exception("[measurement %s] failed", job["job_id"])
@@ -147,6 +159,48 @@ def create_app(settings=None, runner=None):
         if job["status"] in {"accepted", "running"} and active["job_id"] != job_id:
             job.update(status="failed", stage="failed", error="서버 실행이 중단됐습니다. 이미지를 다시 선택해 주세요.")
         return job
+
+    def published_asset(asset_id):
+        match = ASSET_ID.fullmatch(asset_id)
+        if not match:
+            raise HTTPException(404, "가구 모델을 찾을 수 없습니다.")
+        directory = settings.runtime_dir / match[1]
+        try:
+            job = json.loads((directory / "job.json").read_text(encoding="utf-8"))
+        except (OSError, ValueError):
+            raise HTTPException(404, "가구 모델을 찾을 수 없습니다.")
+        assets = job.get("result", {}).get("generation", {}).get("assets", [])
+        if job.get("status") != "completed" or not any(asset.get("asset_id") == asset_id for asset in assets):
+            raise HTTPException(404, "생성이 완료된 가구 모델이 아닙니다.")
+        return directory / "assets" / match[2]
+
+    @app.get("/api/furniture/assets")
+    def list_assets():
+        assets = []
+        # Job records are the catalogue; no DB or separate service is needed.
+        directories = sorted(settings.runtime_dir.glob("*/job.json"), key=lambda path: path.stat().st_mtime, reverse=True)
+        for path in directories:
+            if not re.fullmatch(r"[a-f0-9]{32}", path.parent.name):
+                continue
+            try:
+                job = json.loads(path.read_text(encoding="utf-8"))
+                if job.get("status") == "completed":
+                    assets.extend(job.get("result", {}).get("generation", {}).get("assets", []))
+            except (OSError, ValueError):
+                continue
+            if len(assets) >= 100:
+                break
+        return {"assets": assets[:100]}
+
+    @app.get("/api/furniture/assets/{asset_id}/{filename}")
+    def asset_file(asset_id: str, filename: str):
+        if filename not in {"model.glb", "asset.json"}:
+            raise HTTPException(404, "이 파일은 제공하지 않습니다.")
+        path = published_asset(asset_id) / filename
+        if not path.is_file() or not path.resolve().is_relative_to(settings.runtime_dir.resolve()):
+            raise HTTPException(404, "가구 모델 파일이 없습니다.")
+        return FileResponse(path, media_type="model/gltf-binary" if filename == "model.glb" else "application/json",
+            headers={"Cache-Control": "private, max-age=31536000, immutable"})
 
     return app
 

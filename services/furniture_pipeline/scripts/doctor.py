@@ -24,6 +24,8 @@ def main():
         from pathlib import Path
         if not Path(settings.sam3_checkpoint).is_file():
             raise SystemExit("SAM3 체크포인트 경로가 없습니다: " + settings.sam3_checkpoint)
+    if settings.generate_3d and not settings.blender_executable.is_file():
+        print("Blender 미설치: 측정은 가능하지만 GLB 생성은 불가합니다. setup_blender.sh를 실행하세요.")
     for name, executable, module, numpy_major in (
         ("SAM3", settings.sam3_python, "sam3", 1),
         ("MoGe-3", settings.moge3_python, "moge.model.v3", 2),

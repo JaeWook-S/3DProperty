@@ -11,6 +11,7 @@ import { isTouchFirst } from '../mobile/touch-walk-controls.js';
 import { createConceptStudio } from '../concepts/concept-panel.js';
 import { createWindowView } from '../window-view/window-view.js';
 import { setupFurnitureImageRegistration } from './furniture-registration.js';
+import { fetchGeneratedAssets, generatedKind, installGeneratedTemplate, loadGeneratedModel } from './generated-furniture.js';
 
 const $=id=>document.getElementById(id);
 const NS='http://www.w3.org/2000/svg';
@@ -33,12 +34,17 @@ export function createStudio({scene,camera,renderer,getActive,loadVariant,resize
     button:$('register-furniture'),input:$('furniture-image-file'),panel:$('furniture-image-preview'),
     preview:$('furniture-image-preview').querySelector('img'),name:$('furniture-image-name'),
     metadata:$('furniture-image-metadata'),status:$('furniture-image-status'),
+    async onMeasurementComplete(job) {
+      const assets=job.result?.generation?.assets || [];
+      if(assets.length) await importGeneratedAssets(assets,true);
+    },
   });
   let mode='complex',roomId='Living front',selection=null,drag=null,ready=false;
   // The room select also offers the first unit screen: the whole 2D plan beside the 3D model.
   const WHOLE='whole';let whole=true;
   let floor=22,buildingSelected=false,allowOverlap=true,exteriorEnabled=true;
   const assignments=new Map();
+  const generatedModels=new Map();
   camera.far=1200;camera.updateProjectionMatrix();
   $('unit-picker').innerHTML=`<p class="location-address">${LOCATION.address}</p><p class="evidence-note">공식 단지 전경 · 15개동 · 최고 38층</p><a href="${LOCATION.map}" target="_blank" rel="noopener">네이버 지도에서 위치 확인 ↗</a><button id="select-building">A동 · 층 선택</button><div id="unit-options" hidden><p class="evidence-note">A동 22층 세대로 연결돼요.<br>실제 동별 층수·호수와 다를 수 있어요.</p><label for="floor-range">층 선택 · <strong id="floor-value">22층</strong></label><input id="floor-range" type="range" min="1" max="38" value="22"><p id="floor-availability"></p><label for="studio-variant">22층 시연 세대 · 112A</label><select id="studio-variant"><option value="expanded">확장형</option><option value="basic">기본형</option></select><button id="open-unit" class="studio-primary">22층 세대 보기 →</button></div>`;
   const hero=document.createElement('section');hero.id='location-hero';
@@ -202,7 +208,7 @@ export function createStudio({scene,camera,renderer,getActive,loadVariant,resize
   $('remove-item').onclick=()=>{current().staging.remove(selection);selection=null;refreshItems();renderPlan();showWarnings();dirty();status('가구를 제거했어요.');};
   $('add-item').onclick=()=>{const r=current().staging.add($('add-kind').value,room(),allowOverlap);if(r.error){status(r.error);return;}selection=r.item.id;assignments.set(`${current().key}:${selection}`,roomId);refreshItems();renderPlan();showWarnings();dirty();status('가구를 추가했어요.');};
   $('save-layout').onclick=()=>{try{localStorage.setItem(key(),JSON.stringify({revision:1,items:current().staging.snapshot().map(i=>({...i,roomId:placementRoom(i).id}))}));status('이 브라우저에 배치를 저장했어요.');}catch{status('브라우저 저장 공간을 사용할 수 없어요.');}};
-  $('restore-layout').onclick=()=>{try{const data=JSON.parse(localStorage.getItem(key()));if(data?.revision!==1||!Array.isArray(data.items))throw Error();current().staging.restore(data.items,rooms());for(const i of data.items)if(rooms().some(r=>r.id===i?.roomId))assignments.set(`${current().key}:${i.id}`,i.roomId);refreshRooms();refreshItems();renderPlan();showWarnings();dirty();status('저장한 배치를 불러왔어요.');}catch{status('이 평면에 저장된 유효한 배치가 없어요.');}};
+  $('restore-layout').onclick=async()=>{try{await generatedReady;const data=JSON.parse(localStorage.getItem(key()));if(data?.revision!==1||!Array.isArray(data.items))throw Error();if(data.items.some(i=>i?.kind?.startsWith('generated:')&&!current().staging.templates.has(i.kind)))throw Error('생성 가구를 불러오지 못했습니다. 모델이 저장된 서버 API·터널을 확인하세요.');current().staging.restore(data.items,rooms());for(const i of data.items)if(rooms().some(r=>r.id===i?.roomId))assignments.set(`${current().key}:${i.id}`,i.roomId);refreshRooms();refreshItems();renderPlan();showWarnings();dirty();status('저장한 배치를 불러왔어요.');}catch(error){status(error.message?.includes('생성 가구')?error.message:'이 평면에 저장된 유효한 배치가 없어요.');}};
   $('reset-layout').onclick=()=>{current().staging.reset();assignments.clear();refreshRooms();refreshItems();renderPlan();showWarnings();dirty();status('초기 배치로 되돌렸어요. 저장한 배치는 유지돼요.');};
   let pointerStart;
   renderer.domElement.addEventListener('pointerdown',e=>{pointerStart=[e.clientX,e.clientY];});
@@ -212,12 +218,55 @@ export function createStudio({scene,camera,renderer,getActive,loadVariant,resize
     if(mode==='complex'&&buildingSelected){const hit=tower.hitTest(raycaster);if(hit){const alreadySelected=hit.id===tower.selected.id;chooseBuilding(hit.id);selectFloor(hit.floor);if(alreadySelected&&hit.id==='A'&&floor===22)$('open-unit').click();}}
     if(mode==='overview'){const p=new THREE.Vector3();if(raycaster.ray.intersectPlane(new THREE.Plane(new THREE.Vector3(0,1,0),0),p)){const r=rooms().find(r=>inside({x:p.x,z:p.z},r));if(r)chooseRoom(r.id);}}
   });
+  function installGeneratedTemplates(){
+    for(const {asset,group} of generatedModels.values())installGeneratedTemplate(current().staging,asset,group);
+  }
+  async function importGeneratedAssets(assets,place=false){
+    const imported=[];
+    for(const asset of assets){
+      try{
+        const group=await loadGeneratedModel(asset);
+        generatedModels.set(asset.asset_id,{asset,group});imported.push(asset);
+      }catch(error){status(`측정 결과는 보존했습니다. GLB 연결 실패: ${error.message}`);}
+    }
+    installGeneratedTemplates();refreshItems();
+    if(place&&imported.length){
+      setMode('edit');
+      let placed=0;
+      const placementErrors=[];
+      for(const asset of imported){
+        const kind=generatedKind(asset);
+        const existing=current().staging.items.find(i=>i.kind===kind&&!i.deleted);
+        const result=existing?{item:existing}:current().staging.add(kind,room(),allowOverlap);
+        if(result.error){placementErrors.push(result.error);continue;}
+        selection=result.item.id;assignments.set(`${current().key}:${selection}`,roomId);
+        placed++;
+      }
+      refreshItems();renderPlan();showWarnings();dirty();
+      status(`테스트 모델 ${placed}개를 배치했어요. 사진 재현/GPT 생성 결과가 아닙니다.${placementErrors.length?` 배치 실패: ${placementErrors.join(' ')}`:''}`);
+    }
+    return imported;
+  }
+  async function initializeGeneratedAssets(){
+    const requested=new URLSearchParams(location.search).get('furnitureAsset');
+    if(import.meta.env.VITE_FURNITURE_MEASUREMENT_ENABLED==='0'&&!requested)return;
+    try{
+      const assets=await fetchGeneratedAssets();
+      await importGeneratedAssets(assets);
+      if(requested){
+        const asset=assets.find(a=>a.asset_id===requested);
+        if(!asset)throw Error('요청한 생성 가구가 없습니다. 서버 API와 모델 파일을 확인하세요.');
+        await importGeneratedAssets([asset],true);
+      }
+    }catch(error){if(requested)status(error.message);}
+  }
   const hooks={ui,current,rooms,frame,status,exterior,setMode,selectRoom:chooseRoom,invalidate:dirty,settle,standAt,resume,get mode(){return mode;},
     refreshLayout(){assignments.clear();refreshRooms();refreshItems();renderPlan();showWarnings();dirty();},
     warnings:()=>current().staging.items.filter(i=>!i.deleted).map(i=>({id:i.id,title:i.title,messages:warnings(i)}))};
   const extensions=[createConceptStudio(hooks),createWindowView(hooks)];
   refreshRooms();$('studio-variant').value=current().key;setMode('complex');ready=true;
-  return {onVariant(){if(!ready)return;refreshRooms();setMode(mode);for(const extension of extensions)extension.onVariant?.();},get mode(){return mode;},
+  const generatedReady=initializeGeneratedAssets();
+  return {onVariant(){if(!ready)return;installGeneratedTemplates();refreshRooms();setMode(mode);for(const extension of extensions)extension.onVariant?.();},get mode(){return mode;},
     inspect:()=>({mode,roomId,selection,floor,contextView,buildingId:tower.selected.id,buildingCount:tower.buildings.length,allowOverlap,exteriorVisible:exterior.group.visible,warnings:current().staging.items.filter(i=>!i.deleted).map(i=>({id:i.id,messages:warnings(i)})),items:current().staging.snapshot(),positions:current().staging.items.map(i=>({id:i.id,position:i.group.position.toArray(),rotation:i.group.rotation.y,visible:i.group.visible}))}),
     selectRoom:chooseRoom,setMode,moveSelected};
 }
