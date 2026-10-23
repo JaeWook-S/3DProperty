@@ -30,7 +30,7 @@ test('register furniture uploads a selected image and handles measurement progre
 
   await page.goto('/?test=1&quality=light');
   await expect(page.locator('body')).toHaveAttribute('data-studio-mode', 'complex', { timeout: 90000 });
-  await page.locator('#select-building').click();
+  await page.locator('#hero-building').click();
   await page.locator('#open-unit').click();
   await page.locator('#studio-room').selectOption('Living front');
   await page.locator('#room-edit').click();

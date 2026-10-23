@@ -368,10 +368,11 @@ async function boot() {
     return false;
   }
   // Stand at a chosen viewpoint (e.g. a corner that shows the furniture); false if the body does not fit.
-  function standAt(x, z, targetX, targetZ) {
+  // `drop` lowers the look target below eye level (0 looks level, as an interior photo would).
+  function standAt(x, z, targetX, targetZ, drop = 0.5) {
     const next = new THREE.Vector3(x, eyeHeight, z);
     if (!active || !canStand(active.world, next, eyeHeight, bodyRadius)) return false;
-    keys.clear(); position.copy(next); camera.position.copy(next); camera.lookAt(targetX, eyeHeight - 0.5, targetZ);
+    keys.clear(); position.copy(next); camera.position.copy(next); camera.lookAt(targetX, eyeHeight - drop, targetZ);
     needsRender = true; updateRoom();
     return true;
   }

@@ -5,7 +5,7 @@ async function readyStudio(page) {
  await page.goto('/?studio=1&test=1&quality=light');
  await expect(page.locator('body')).toHaveAttribute('data-studio-mode','complex',{timeout:90000});
  await expect(page.locator('#walk-minimap')).toBeHidden();
- await page.locator('#select-building').click();await page.locator('#open-unit').click();
+ await page.locator('#hero-building').click();await page.locator('#open-unit').click();
  await expect(page.locator('body')).toHaveAttribute('data-studio-mode','overview');
  await expect(page.locator('#walk-minimap')).toBeHidden();
 }
@@ -53,7 +53,7 @@ test('minimap follows real position, heading, furniture edits and the active flo
  })).toBeCloseTo(initial.x-.35,4);
  await page.evaluate(()=>document.exitPointerLock());
  await page.locator('#nav-complex').click();await expect(page.locator('#walk-minimap')).toBeHidden();
- await page.locator('#select-building').click();await page.locator('#studio-variant').selectOption('basic');await page.locator('#open-unit').click();
+ await page.locator('#studio-variant').selectOption('basic');await page.locator('#open-unit').click();
  await expect(page.locator('body')).toHaveAttribute('data-studio-mode','overview',{timeout:90000});
  await page.locator('#studio-room').selectOption('Bedroom center');await page.locator('#room-walk').click();
  await expect(page.locator('#walk-minimap')).toHaveAttribute('data-variant','basic');

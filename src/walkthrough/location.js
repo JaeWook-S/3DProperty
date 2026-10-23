@@ -17,11 +17,21 @@ export function createFloorTower(scene) {
 
 // Reference photographs supply visual context only, not calibrated 22F views.
 // Keeping this in the viewer leaves the surveyed room geometry unchanged.
+// The photo follows the lighting: the riverside daytime photo for day (warmed for
+// sunset) and the night photo for night.
+const EXTERIOR_PHOTOS={day:{url:LOCATION.riverside,tint:0xffffff},sunset:{url:LOCATION.riverside,tint:0xffc9a6},night:{url:LOCATION.night,tint:0xffffff}};
 export function createExterior(scene,invalidate,onLoad) {
   const group=new THREE.Group();group.name='Uncalibrated ACRO exterior reference';scene.add(group);
-  const map=new THREE.TextureLoader().load(LOCATION.night,()=>{onLoad?.(true);invalidate();},undefined,()=>onLoad?.(false));
-  map.colorSpace=THREE.SRGBColorSpace;
-  const material=new THREE.MeshBasicMaterial({map,side:THREE.BackSide,toneMapped:false});
+  const loader=new THREE.TextureLoader(),maps={};
+  const load=url=>maps[url]??=loader.load(url,()=>{onLoad?.(true);invalidate();},undefined,()=>onLoad?.(false));
+  const material=new THREE.MeshBasicMaterial({side:THREE.BackSide,toneMapped:false});
+  function setLighting(value){
+    const photo=EXTERIOR_PHOTOS[value]??EXTERIOR_PHOTOS.day,map=load(photo.url);
+    map.colorSpace=THREE.SRGBColorSpace;
+    if(material.map!==map){material.map=map;material.needsUpdate=true;}
+    material.color.setHex(photo.tint);invalidate();
+  }
+  setLighting('day');
   const walls=new THREE.Mesh(new THREE.BoxGeometry(160,90,160),[material,material,new THREE.MeshBasicMaterial({visible:false}),new THREE.MeshBasicMaterial({visible:false}),material,material]);
   walls.position.set(7,-10,5);group.add(walls);
   // A small inferred shared landing is visible through the entry door. It is
@@ -35,5 +45,5 @@ export function createExterior(scene,invalidate,onLoad) {
   box([.12,2.6,1.9],[4.8,1.3,1.46],wall);
   group.visible=false;
   // `photo` lets src/window-view swap the photograph for a calibrated backdrop.
-  return {group,photo:walls};
+  return {group,photo:walls,setLighting};
 }

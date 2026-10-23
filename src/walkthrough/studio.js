@@ -7,9 +7,11 @@ import './studio.css';
 import './location.css';
 import './workspace.css';
 import { isTouchFirst } from '../mobile/touch-walk-controls.js';
-// S3 extensions: recommended concepts (W7-06) and window views (W7-07), wired through `hooks` below.
+// S3 extensions: recommended concepts (W7-06), window views (W7-07) and house tours, wired through `hooks` below.
 import { createConceptStudio } from '../concepts/concept-panel.js';
 import { createWindowView } from '../window-view/window-view.js';
+import { createHouseTours } from '../house-tours/house-tours.js';
+import { readHome, saveHome } from './my-home.js';
 import { setupFurnitureImageRegistration } from './furniture-registration.js';
 import { fetchGeneratedAssets, generatedKind, installGeneratedTemplate, loadGeneratedModel } from './generated-furniture.js';
 
@@ -22,7 +24,7 @@ function svg(tag,attrs,text){const n=document.createElementNS(NS,tag);for(const 
 export function createStudio({scene,camera,renderer,getActive,loadVariant,resize,invalidate,enterRoom,unlock,settle=()=>true,standAt=()=>false,resume=()=>{}}) {
   document.body.classList.add('studio');
   const ui=document.createElement('section');ui.id='studio-ui';
-  ui.innerHTML=`<header class="studio-header"><a href="?studio=1" class="studio-brand">CORTEX <small>SPATIAL STUDIO</small></a><nav aria-label="공간 탐색"><button id="nav-complex">단지</button><span>/</span><button id="nav-plan">112A 세대</button></nav><div class="mode-switch"><button id="mode-tour">둘러보기</button><button id="mode-edit">꾸미기</button></div></header>
+  ui.innerHTML=`<header class="studio-header"><a href="?studio=1" class="studio-brand">CORTEX <small>SPATIAL STUDIO</small></a><nav aria-label="주요 메뉴"><button id="nav-plan">우리 집</button><button id="nav-complex"><span class="nav-long">새로운 </span>집 찾기</button></nav><div class="mode-switch"><button id="mode-tour">둘러보기</button><button id="mode-edit">꾸미기</button></div></header>
   <aside id="studio-sidebar"><p class="studio-eyebrow" id="studio-step"></p><h1 id="studio-title"></h1><p id="studio-description"></p>
   <section id="unit-picker"><p class="evidence-note">단지 배치는 실제 동·호수 및 위치와 다를 수 있어요.</p><button id="select-building">A동 선택</button><div id="unit-options" hidden><label for="studio-variant">구현된 세대 · 112A</label><select id="studio-variant"><option value="expanded">확장형</option><option value="basic">기본형</option></select><button id="open-unit" class="studio-primary">이 세대 보기 →</button></div></section>
   <section id="room-picker" hidden><label for="studio-room">장소 선택</label><select id="studio-room"></select><div class="room-actions"><button id="room-walk" class="studio-primary">이곳에서 둘러보기</button><button id="room-edit">이곳 꾸미기</button></div><p class="evidence-note">천장고 2.6m · 문 개구부 2.1m 가정<br>안방 킹 167×207.5cm · 작은 방은 빈 방/서재<br>책상·의자·욕실 집기 세부 치수는 가정입니다.</p></section>
@@ -88,6 +90,7 @@ export function createStudio({scene,camera,renderer,getActive,loadVariant,resize
   $('frame-room').onclick=()=>frame(room().bounds_m);
   const originalWalkHost=$('room-walk').parentElement;
   const exterior=createExterior(scene,invalidate,ok=>{badge.textContent=ok?'창밖: 아크로 리버파크 공식 사진 · 실제 22층 조망과 다를 수 있어요':'창밖 사진을 불러오지 못했어요.';});
+  const syncExterior=()=>exterior.setLighting($('lighting')?.value);$('lighting')?.addEventListener('change',syncExterior);syncExterior();
   const raycaster=new THREE.Raycaster();
   const current=()=>getActive();
   function rooms(){return current()?navigationRooms(current().definition.info):[];}
@@ -197,9 +200,12 @@ export function createStudio({scene,camera,renderer,getActive,loadVariant,resize
   rail.addEventListener('wheel',e=>{e.preventDefault();selectFloor(floor+(e.deltaY<0?1:-1));rail.querySelector(`[data-floor="${floor}"]`).scrollIntoView({block:'nearest'});},{passive:false});
   $('allow-overlap').onchange=e=>{allowOverlap=e.target.checked;status(allowOverlap?'겹침을 허용하고 경고로 안내합니다.':'이후 이동에서 겹침과 문 개방 간섭을 제한합니다. 기존 배치는 유지됩니다.');showWarnings();};
   $('exterior-enabled').onchange=e=>{exteriorEnabled=e.target.checked;exterior.group.visible=mode==='tour'&&exteriorEnabled;badge.hidden=!exterior.group.visible;dirty();};
-  $('open-unit').onclick=async()=>{if(floor!==22||tower.selected.id!=='A')return;const button=$('open-unit');button.disabled=true;try{await loadVariant($('studio-variant').value);if(current().key!==$('studio-variant').value){status('세대 로딩에 실패했습니다. 다시 시도해 주세요.');return;}refreshRooms();setMode('overview');}finally{button.disabled=floor!==22||tower.selected.id!=='A';}};
+  $('open-unit').onclick=async()=>{if(floor!==22||tower.selected.id!=='A')return;const button=$('open-unit');button.disabled=true;try{await loadVariant($('studio-variant').value);if(current().key!==$('studio-variant').value){status('세대 로딩에 실패했습니다. 다시 시도해 주세요.');return;}saveHome(current().key);refreshRooms();setMode('overview');}finally{button.disabled=floor!==22||tower.selected.id!=='A';}};
   $('studio-room').onchange=e=>chooseRoom(e.target.value);
-  $('nav-complex').onclick=()=>{buildingSelected=false;$('unit-options').hidden=true;setMode('complex');};$('nav-plan').onclick=()=>{if(mode==='complex'){status('A동 22층을 선택해 주세요.');return;}setMode('overview');};$('back-plan').onclick=()=>setMode('overview');
+  // Header: 우리 집 (the saved home), 새로운 집 찾기 (complex, building and floor); the brand goes back to the first screen.
+  async function goHome(){const home=readHome(current().key);if(current().key!==home){await loadVariant(home);$('studio-variant').value=current().key;refreshRooms();}setMode('overview');}
+  ui.querySelector('.studio-brand').onclick=e=>{e.preventDefault();buildingSelected=false;$('unit-options').hidden=true;setMode('complex');};
+  $('nav-complex').onclick=()=>$('select-building').click();$('nav-plan').onclick=goHome;$('back-plan').onclick=()=>setMode('overview');
   function walk(){setMode('tour');if(!enterRoom(room()))status('이 공간에서 안전한 시작 위치를 찾지 못했어요. 다른 장소를 선택해 주세요.');}
   $('room-walk').onclick=walk;$('mode-tour').onclick=walk;$('mode-edit').onclick=()=>setMode('edit');$('room-edit').onclick=()=>setMode('edit');
   $('selected-item').onchange=e=>{selection=e.target.value;refreshItems();renderPlan();};
@@ -260,10 +266,12 @@ export function createStudio({scene,camera,renderer,getActive,loadVariant,resize
       }
     }catch(error){if(requested)status(error.message);}
   }
-  const hooks={ui,current,rooms,frame,status,exterior,setMode,selectRoom:chooseRoom,invalidate:dirty,settle,standAt,resume,get mode(){return mode;},
+  const hooks={ui,current,rooms,frame,status,exterior,setMode,selectRoom:chooseRoom,invalidate:dirty,settle,standAt,resume,goHome,get mode(){return mode;},get buildingSelected(){return buildingSelected;},
+    async loadVariant(key){if(current()?.key!==key)await loadVariant(key);$('studio-variant').value=current().key;return current().key===key;},
     refreshLayout(){assignments.clear();refreshRooms();refreshItems();renderPlan();showWarnings();dirty();},
     warnings:()=>current().staging.items.filter(i=>!i.deleted).map(i=>({id:i.id,title:i.title,messages:warnings(i)}))};
-  const extensions=[createConceptStudio(hooks),createWindowView(hooks)];
+  const concepts=createConceptStudio(hooks);
+  const extensions=[concepts,createWindowView(hooks),createHouseTours(hooks,concepts.api)];
   refreshRooms();$('studio-variant').value=current().key;setMode('complex');ready=true;
   const generatedReady=initializeGeneratedAssets();
   return {onVariant(){if(!ready)return;installGeneratedTemplates();refreshRooms();setMode(mode);for(const extension of extensions)extension.onVariant?.();},get mode(){return mode;},

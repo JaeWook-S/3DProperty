@@ -180,7 +180,7 @@ test.describe('iPhone Safari without Pointer Lock', () => {
     // The studio unlocks on every mode change, starting with its first screen.
     await page.goto('/?studio=1&test=1&quality=light');
     await expect(page.locator('body')).toHaveAttribute('data-studio-mode', 'complex', { timeout: 90000 });
-    await page.locator('#select-building').tap();
+    await page.locator('#hero-building').tap();
     await page.locator('#open-unit').tap();
     await expect(page.locator('body')).toHaveAttribute('data-studio-mode', 'overview');
     await page.locator('#room-walk').tap();
@@ -225,7 +225,7 @@ test.describe('tablet', () => {
     page.on('pageerror', (error) => errors.push(error.message));
     await page.goto('/?studio=1&test=1&quality=light');
     await expect(page.locator('body')).toHaveAttribute('data-studio-mode', 'complex', { timeout: 90000 });
-    await page.locator('#select-building').tap();
+    await page.locator('#hero-building').tap();
     await page.locator('#open-unit').tap();
     await expect(page.locator('body')).toHaveAttribute('data-studio-mode', 'overview');
     await expect(page.locator('#orbit-help')).toHaveText('드래그 회전 · 두 손가락 확대');

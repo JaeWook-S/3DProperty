@@ -16,7 +16,7 @@ test('Studio image registration automatically places the resulting GLB in the se
   });
   await page.goto('/?test=1&quality=light');
   await expect(page.locator('body')).toHaveAttribute('data-studio-mode', 'complex', { timeout: 90000 });
-  await page.locator('#select-building').click(); await page.locator('#open-unit').click();
+  await page.locator('#hero-building').click(); await page.locator('#open-unit').click();
   await page.locator('#studio-room').selectOption('Living front'); await page.locator('#room-edit').click();
   await page.locator('#furniture-image-file').setInputFiles({ name: 'table.png', mimeType: 'image/png',
     buffer: Buffer.from('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNk+A8AAQUBAScY42YAAAAASUVORK5CYII=', 'base64') });

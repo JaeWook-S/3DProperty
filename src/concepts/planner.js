@@ -29,6 +29,9 @@ export function resolveSpec(spec, room) {
 /**
  * Places a concept on one plan. `existing` lists model furniture the concept keeps
  * (studio staging items), so new pieces keep their distance from it too.
+ * Each placement records its spec `index`, the `option` used (0 = the first spec,
+ * n = candidate n) and whether a plan override replaced it, so two plans of the same
+ * concept can be compared piece by piece (src/house-tours/fit.js).
  */
 export function planConcept(concept, { variant, rooms, doors = [], existing = [] }) {
   const doorAreas = doorFootprints(doors);
@@ -39,23 +42,26 @@ export function planConcept(concept, { variant, rooms, doors = [], existing = []
     if (base.variants && Object.hasOwn(base.variants, variant)) {
       const override = base.variants[variant];
       if (override?.note) notes.push(override.note);
-      if (override === null) { skipped.push({ kind: base.kind, room: base.room, reason: '이 평면에서는 생략해요.' }); return; }
+      if (override === null) { skipped.push({ index, kind: base.kind, room: base.room, reason: '이 평면에서는 생략해요.' }); return; }
       spec = { ...base, ...override };
     }
-    const room = rooms.find((r) => r.id === spec.room);
-    if (!room) { skipped.push({ kind: spec.kind, room: spec.room, reason: '이 평면에 없는 공간이에요.' }); return; }
+    const overridden = spec !== base;
+    // `room` may list rooms in order of preference (e.g. a basic-plan balcony, else the living room).
+    const room = [].concat(spec.room).map((id) => rooms.find((r) => r.id === id)).find(Boolean);
+    if (!room) { skipped.push({ index, kind: spec.kind, room: [].concat(spec.room)[0], reason: '이 평면에 없는 공간이에요.' }); return; }
     const options = [spec, ...(spec.candidates ?? []).map((candidate) => ({ ...spec, ...candidate }))];
-    for (const option of options) {
+    for (const [optionIndex, option] of options.entries()) {
       const item = { id: `${concept.id}-${index}`, ...resolveSpec(option, room) };
       const issues = placementWarnings(item, room, placed, [], doorAreas)
         .filter((message) => !(option.allowClose && message === CLEARANCE_WARNING));
       if (issues.length) continue;
       placed.push(item);
-      placements.push({ ...item, room: room.id, face: option.face, title: FURNITURE[option.kind].title,
+      placements.push({ ...item, index, option: optionIndex, overridden, note: overridden ? spec.note : undefined,
+        room: room.id, face: option.face, title: FURNITURE[option.kind].title,
         allowClose: Boolean(option.allowClose), why: option.why });
       return;
     }
-    if (!spec.optional) skipped.push({ kind: spec.kind, room: spec.room, reason: '이 평면에서는 공간이 부족해요.' });
+    skipped.push({ index, kind: spec.kind, room: room.id, optional: Boolean(spec.optional), reason: '이 평면에서는 공간이 부족해요.' });
   });
   return { placements, skipped, notes };
 }

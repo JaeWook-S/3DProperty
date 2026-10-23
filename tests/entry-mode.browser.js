@@ -13,7 +13,10 @@ for (const [name, url] of [
     await page.goto(url);
     await expect(page.locator('body')).toHaveAttribute('data-studio-mode', 'complex', { timeout: 90000 });
     await expect(page.locator('.studio-brand')).toContainText('CORTEX');
-    await expect(page.locator('#select-building')).toBeVisible();
+    // The first screen offers three ways in: 우리 집, 새로운 집 찾기 and 집들이.
+    await expect(page.locator('#open-my-home')).toBeVisible();
+    await expect(page.locator('#hero-building')).toBeVisible();
+    await expect(page.locator('#open-tours')).toBeVisible();
     await expect(page.locator('#panel')).toBeHidden();
     await expect(page.locator('#studio-variant')).toHaveValue('expanded');
     for (const [id, value] of Object.entries({ lighting: 'day', finish: 'original', quality: 'high' })) {

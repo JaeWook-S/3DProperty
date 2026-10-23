@@ -19,7 +19,7 @@ const KING = { id: 'king-bed', kind: 'king', x: 11.34, z: 6.32, width: 2.16, dep
 const plan = (concept, variant) => planConcept(concept, { variant, ...PLANS[variant], existing: [KING] });
 
 test('catalog references only known furniture, palettes, households and moods', () => {
-  assert.equal(CONCEPTS.length, 4);
+  assert.equal(CONCEPTS.length, 8);
   for (const concept of CONCEPTS) {
     for (const item of concept.items) assert.ok(FURNITURE[item.kind], `${concept.id}: ${item.kind}`);
     for (const id of concept.palettes) assert.ok(PALETTES[id], id);
@@ -37,7 +37,7 @@ for (const variant of ['expanded', 'basic']) {
     const doorAreas = doorFootprints(PLANS[variant].doors);
     for (const concept of CONCEPTS) {
       const result = plan(concept, variant);
-      assert.deepEqual(result.skipped, [], `${concept.id} skipped ${JSON.stringify(result.skipped)}`);
+      assert.deepEqual(result.skipped.filter((s) => !s.optional), [], `${concept.id} skipped ${JSON.stringify(result.skipped)}`);
       const placed = [KING, ...result.placements];
       for (const item of result.placements) {
         const room = PLANS[variant].rooms.find((r) => r.id === item.room);

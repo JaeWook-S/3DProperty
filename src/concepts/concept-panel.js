@@ -3,6 +3,7 @@ import { FURNITURE } from './furniture-spec.js';
 import { planConcept, summarize, rankConcepts, checkNeeds, pickPalette, CLEARANCE_WARNING } from './planner.js';
 import { buildFurniture, applyPalette, KIT_KINDS, MATERIALS } from './kit.js';
 import { createWalkThemes } from './walk-themes.js';
+import { planDressing, createDressing } from './dressing.js';
 import { corners } from '../walkthrough/layout.js';
 import './concepts.css';
 
@@ -16,8 +17,9 @@ const UNIT_BOUNDS = [-0.2, -0.2, 13.8, 10.3];
 const STORAGE_KEY = (variant) => `cortex-concept-v1:${variant}`;
 const LIGHTING_LABELS = { day: '낮', sunset: '해질녘', night: '밤' };
 const FIT_LABELS = { best: '가장 잘 맞아요', good: '함께 고려해 볼 만해요' };
-// Model furniture tinted with the palette when a concept keeps it (material names from the GLB).
-const MODEL_TINTS = [[/Oatmeal textile/, 'fabric2'], [/Warm greige panels/, 'fabric']];
+// Model materials repainted with the palette (names from the GLB): kept furniture fabrics
+// and the plaster walls.
+const MODEL_TINTS = [[/Oatmeal textile/, 'fabric2'], [/Warm greige panels/, 'fabric'], [/Warm ivory plaster/, 'wall']];
 const params = new URLSearchParams(location.search);
 
 const templates = new Map();
@@ -116,14 +118,27 @@ export function createConceptStudio(hooks) {
         const match = MODEL_TINTS.find(([pattern]) => pattern.test(material.name));
         if (!match) continue;
         if (!originalTints.has(material)) originalTints.set(material, material.color.clone());
-        if (colors) material.color.set(colors[match[1]]); else material.color.copy(originalTints.get(material));
+        const color = colors?.[match[1]];
+        if (color) material.color.set(color); else material.color.copy(originalTints.get(material));
       }
     });
+  }
+  // Styling props (art, curtains, lamps) follow the applied concept and its palette.
+  const dressing = createDressing();
+  const seedOf = (id) => [...id].reduce((n, ch) => (n * 31 + ch.charCodeAt(0)) % 997, 7);
+  function dress(applied) {
+    const active = hooks.current();
+    if (!applied) { dressing.clear(active.model); return; }
+    const concept = CONCEPTS.find((c) => c.id === applied.concept);
+    const kept = active.staging.items.filter((i) => !i.id.startsWith('added-') && concept.keep.includes(i.kind)).map((i) => ({ ...i, ...i.initial }));
+    const props = planDressing(plan(concept).placements, hooks.rooms(), { kept, doors: active.definition.doors, seed: seedOf(concept.id) });
+    dressing.build(active.model, props, PALETTES[applied.palette].colors);
   }
   function paint() {
     const applied = appliedHere();
     if (applied) applyPalette(PALETTES[applied.palette].colors);
-    tintModel(applied ? PALETTES[applied.palette].colors : null);
+    dress(applied);
+    tintModel(applied ? { ...PALETTES[applied.palette].colors, wall: PALETTES[applied.palette].wall } : null);
     hooks.invalidate();
   }
   // The viewer's finish presets reset material colors; repaint once a finish settles.
@@ -146,7 +161,9 @@ export function createConceptStudio(hooks) {
   }
 
   // --- apply / clear -----------------------------------------------------------------
-  function apply(conceptId, paletteId) {
+  // `url: false` leaves the address alone and `frame: false` the camera (house tours stage a
+  // concept and then place the walker themselves).
+  function apply(conceptId, paletteId, { url = true, frame = true } = {}) {
     const concept = CONCEPTS.find((c) => c.id === conceptId);
     if (!concept) return false;
     const staging = hooks.current().staging;
@@ -167,9 +184,9 @@ export function createConceptStudio(hooks) {
     if (state.matchFloor) setFinish(PALETTES[palette].finish);
     hooks.refreshLayout();
     paint();
-    if (!walking()) frameUnit();
+    if (frame && !walking()) frameUnit();
     hooks.status(`'${concept.title}' 컨셉을 적용했어요. 2D와 3D에 함께 반영됐어요.`);
-    writeURL();
+    if (url) writeURL();
     if (state.open && compact.matches) setSheet('peek');
     render();
     revealCard(concept.id);
@@ -194,7 +211,7 @@ export function createConceptStudio(hooks) {
     if (resetLayout && walking()) hooks.settle();
     const applied = appliedHere();
     state.applied.delete(variant());
-    tintModel(null);
+    paint();
     if (applied && state.matchFloor) setFinish('original');
     if (resetLayout) hooks.refreshLayout();
     hooks.invalidate();
@@ -362,7 +379,7 @@ export function createConceptStudio(hooks) {
             element('span', { text: hard.length ? `겹침·경계·문 개방 확인 ${hard.length}건` : '가구 겹침 · 방 경계 · 문 개방 간섭 없음' })),
           element('li', { class: close60.length ? 'note' : 'ok' }, element('span', { 'aria-hidden': 'true', text: close60.length ? 'i' : '✓' }),
             element('span', { text: close60.length ? `60cm 미만 여유 안내 ${close60.length}건${result.placements.some((p) => p.why) ? ` · ${result.placements.find((p) => p.why).why}` : ''}` : '가구 사이 60cm 여유 확보' }))),
-        [...result.notes, ...result.skipped.map((s) => `${FURNITURE[s.kind]?.title ?? s.kind}: ${s.reason}`)].map((note) => element('p', { class: 'concept-note', text: note }))),
+        [...result.notes, ...result.skipped.filter((s) => !s.optional).map((s) => `${FURNITURE[s.kind]?.title ?? s.kind}: ${s.reason}`)].map((note) => element('p', { class: 'concept-note', text: note }))),
       element('div', { class: 'concept-actions' },
         element('button', { type: 'button', class: 'studio-primary', onclick: walk, text: '이 집에서 걸어보기' }),
         element('button', { type: 'button', onclick: edit, text: '가구 직접 다듬기' })),
@@ -487,5 +504,24 @@ export function createConceptStudio(hooks) {
       colors: () => Object.fromEntries(Object.entries(MATERIALS).map(([slot, material]) => [slot, `#${material.color.getHexString()}`])),
     };
   }
+  // Used by house tours (src/house-tours): stage a concept, then hand the plan back exactly
+  // as it was — furniture, applied concept and floor finish of the loaded plan.
+  hooksApi.api = {
+    apply,
+    applied: (key = variant()) => state.applied.get(key) ?? null,
+    snapshot: () => ({ variant: variant(), items: hooks.current().staging.snapshot(), applied: appliedHere() && { ...appliedHere() }, finish: $('finish')?.value ?? 'original' }),
+    restore(snap, { url = true } = {}) {
+      if (!snap || snap.variant !== variant()) return false;
+      ensureTemplates();
+      hooks.current().staging.restore(snap.items, hooks.rooms());
+      if (snap.applied) state.applied.set(variant(), { ...snap.applied }); else state.applied.delete(variant());
+      paint();
+      setFinish(snap.finish);
+      hooks.refreshLayout();
+      if (url) writeURL();
+      render();
+      return true;
+    },
+  };
   return hooksApi;
 }

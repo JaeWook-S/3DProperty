@@ -1,5 +1,5 @@
 // Theme switcher shown while walking (W7-06): try the recommended concepts and their
-// colors from inside the unit. A bar along the bottom on PC (number keys 1–5, C for
+// colors from inside the unit. A bar along the bottom on PC (number keys, C for
 // colors), a small "테마" button that opens a list while walking by touch.
 
 function element(tag, attrs = {}, ...children) {
@@ -70,7 +70,7 @@ export function createWalkThemes({ hooks, concepts, palettes, applied, recommend
     body.replaceChildren(
       element('div', { class: 'wt-head' },
         element('strong', { text: '추천 테마' }),
-        element('span', { class: 'wt-keys', text: '숫자키 1–5 · C 색감' }),
+        element('span', { class: 'wt-keys', text: `숫자키 1–${concepts.length + 1} · C 색감` }),
         element('button', { type: 'button', class: 'wt-close', 'aria-label': '테마 닫기', onclick: () => setOpen(false), text: '✕' })),
       element('div', { class: 'wt-themes', role: 'radiogroup', 'aria-label': '테마' }, options),
       element('div', { class: 'wt-palettes', role: 'radiogroup', 'aria-label': '색감' },

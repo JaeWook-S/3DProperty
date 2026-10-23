@@ -39,7 +39,7 @@ test('three tabs and a whole-unit place; the concept tab ranks by household and 
   await expect(page.locator('body')).toHaveAttribute('data-concepts', 'open');
   await expect(page.locator('#mode-concepts')).toHaveClass(/selected/);
   await expect(page.locator('#concept-heading')).toHaveText('우리 가족에 맞춘 배치');
-  await expect(page.locator('.concept-card')).toHaveCount(4);
+  await expect(page.locator('.concept-card')).toHaveCount(8);
   for (const [household, first] of [['family4', 'family-lounge'], ['baby', 'kids-play'], ['couple', 'newlywed'], ['solo', 'wfh-studio']]) {
     await page.locator(`.concept-chip[data-value=${household}]`).click();
     await expect(page.locator('.concept-card').first()).toHaveAttribute('data-concept', first);
@@ -167,6 +167,7 @@ test('a shared link applies its concept; walking, number keys and C switch theme
   await page.locator('.wt-theme[data-theme=wfh-studio]').click();
   expect((await concepts(page)).applied.concept).toBe('wfh-studio');
 
+  await page.evaluate(() => document.exitPointerLock?.()); // the sidebar shows once walking stops
   await page.locator('#studio-room').selectOption('whole');
   await expect(page.locator('body')).toHaveAttribute('data-studio-mode', 'overview');
   await expect(page.locator('#walk-themes')).toBeHidden();

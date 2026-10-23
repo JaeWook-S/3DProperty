@@ -18,7 +18,7 @@ export const MATERIALS = {
 // Fixed materials that read the same in every palette.
 const FIXED = {
   leaf: standard('#58744b', 0.82), leafLight: standard('#7a9466', 0.82), screen: standard('#101317', 0.22, { metalness: 0.25 }),
-  mattress: standard('#f6f4ee', 0.9), soil: standard('#4a3a2c', 1),
+  mattress: standard('#f6f4ee', 0.9), soil: standard('#4a3a2c', 1), mirror: standard('#dfe6e8', 0.08, { metalness: 0.15 }), sisal: standard('#c9b28b', 1),
   lamp: new THREE.MeshStandardMaterial({ color: '#fff1d6', emissive: '#ffd9a0', emissiveIntensity: 0.55, roughness: 0.8, side: THREE.DoubleSide }),
   book1: standard('#8b5e4a', 0.85), book2: standard('#d8cba9', 0.85), book3: standard('#4f6a7a', 0.85), book4: standard('#a9a59b', 0.85),
   toy1: standard('#f1a796', 0.8), toy2: standard('#f5d27f', 0.8), toy3: standard('#9fc6dc', 0.8), toy4: standard('#a9d1a2', 0.8),
@@ -45,7 +45,7 @@ class Parts {
     this.list.push({ geometry, material, matrix });
     return this;
   }
-  build(kind, { castShadow = true } = {}) {
+  build(kind, { castShadow = true, center = true } = {}) {
     const group = new THREE.Group();
     const byMaterial = new Map();
     for (const part of this.list) {
@@ -62,10 +62,12 @@ class Parts {
       group.add(mesh);
     }
     // Center the footprint on the origin so the staging position is the plan center.
-    const bounds = new THREE.Box3().setFromObject(group);
-    const center = bounds.getCenter(new THREE.Vector3());
-    for (const mesh of group.children) mesh.position.set(-center.x, -bounds.min.y, -center.z);
-    group.name = FURNITURE[kind].title;
+    if (center) {
+      const bounds = new THREE.Box3().setFromObject(group);
+      const middle = bounds.getCenter(new THREE.Vector3());
+      for (const mesh of group.children) mesh.position.set(-middle.x, -bounds.min.y, -middle.z);
+    }
+    group.name = FURNITURE[kind]?.title ?? kind;
     group.userData.kitKind = kind;
     return group;
   }
@@ -348,6 +350,124 @@ const BUILDERS = {
     p.add(ball(0.08), FIXED.leafLight, [0, 0.9, 0]);
     return p;
   },
+  // Low, boxy modular sofa on a recessed plinth: deep seats, no visible legs.
+  sofaLow() {
+    const p = new Parts(), w = 2.6, d = 1.02, seats = 3, plinth = 0.06, base = 0.24;
+    p.add(box(w - 0.08, plinth, d - 0.08), MATERIALS.woodDark, [0, plinth / 2, 0]);
+    p.add(rbox(w, base, d, 0.03), MATERIALS.fabric, [0, plinth + base / 2, 0]);
+    const cushion = w / seats;
+    for (let i = 0; i < seats; i++) {
+      const x = -w / 2 + cushion * (i + 0.5);
+      p.add(rbox(cushion - 0.014, 0.14, d - 0.3, 0.06), MATERIALS.fabric, [x, plinth + base + 0.07, 0.12]);
+      p.add(rbox(cushion - 0.03, 0.3, 0.24, 0.1), MATERIALS.fabric, [x, plinth + base + 0.17, -d / 2 + 0.2], [-0.1, 0, 0]);
+    }
+    p.add(rbox(w, 0.68 - plinth - base, 0.12, 0.04), MATERIALS.fabric, [0, plinth + base + (0.68 - plinth - base) / 2, -d / 2 + 0.06]);
+    p.add(rbox(0.46, 0.3, 0.12, 0.06), MATERIALS.accent, [-w / 2 + 0.4, plinth + base + 0.27, -d / 2 + 0.3], [-0.2, 0.2, 0]);
+    p.add(rbox(0.34, 0.025, 0.24, 0.008), MATERIALS.fabric2, [w / 2 - 0.5, plinth + base + 0.155, 0.2], [0, 0.15, 0]);
+    return p;
+  },
+  sideboard() {
+    const p = new Parts(), w = 1.8, d = 0.45;
+    for (const sx of [-1, 1]) for (const sz of [-1, 1]) p.add(cyl(0.018, 0.014, 0.12, 10), MATERIALS.metal, [sx * (w / 2 - 0.08), 0.06, sz * (d / 2 - 0.07)]);
+    p.add(rbox(w, 0.46, d, 0.012), MATERIALS.wood, [0, 0.12 + 0.23, 0]);
+    for (const x of [-0.6, 0, 0.6]) p.add(rbox(0.58, 0.4, 0.012, 0.004), MATERIALS.woodDark, [x, 0.35, d / 2 + 0.002]);
+    for (const x of [-0.36, 0.36]) p.add(box(0.12, 0.012, 0.02), MATERIALS.metal, [x, 0.48, d / 2 + 0.012]);
+    p.add(cyl(0.07, 0.05, 0.22, 18), MATERIALS.white, [-0.6, 0.69, 0]);
+    p.add(rbox(0.28, 0.06, 0.2, 0.01), FIXED.book2, [0.15, 0.61, 0.02], [0, 0.2, 0]);
+    p.add(rbox(0.24, 0.04, 0.18, 0.01), FIXED.book3, [0.15, 0.66, 0.02], [0, -0.1, 0]);
+    p.add(ball(0.06), MATERIALS.accent, [0.6, 0.64, 0]);
+    return p;
+  },
+  queenBed: () => bed(1.65, 2.15, { headboard: 1.0, frameMaterial: MATERIALS.woodDark }),
+  dresser() {
+    const p = new Parts(), w = 1.0;
+    // Table against the wall (back at -Z), mirror above, stool in front.
+    legs(p, w, 0.42, 0.72, MATERIALS.wood, 0.05, 0.016);
+    p.add(rbox(w, 0.04, 0.42, 0.01), MATERIALS.white, [0, 0.74, -0.215]);
+    p.add(rbox(w - 0.1, 0.12, 0.38, 0.008), MATERIALS.white, [0, 0.66, -0.215]);
+    p.add(cyl(0.3, 0.3, 0.02, 40), MATERIALS.metal, [0, 1.14, -0.41], [Math.PI / 2, 0, 0]);
+    p.add(cyl(0.28, 0.28, 0.022, 40), FIXED.mirror, [0, 1.14, -0.4], [Math.PI / 2, 0, 0]);
+    p.add(cyl(0.035, 0.035, 0.12, 14), MATERIALS.pot, [0.3, 0.82, -0.25]);
+    p.add(cyl(0.025, 0.03, 0.08, 14), MATERIALS.accent, [0.38, 0.8, -0.2]);
+    p.add(cyl(0.2, 0.2, 0.06, 28), MATERIALS.fabric2, [0, 0.45, 0.2]);
+    p.add(cyl(0.018, 0.018, 0.42, 10), MATERIALS.metal, [0, 0.21, 0.2]);
+    p.add(cyl(0.16, 0.16, 0.012, 24), MATERIALS.metal, [0, 0.006, 0.2]);
+    return p;
+  },
+  piano() {
+    const p = new Parts(), w = 1.5, case_ = 0.6, h = 1.25;
+    const back = -0.95 / 2 + case_ / 2;
+    p.add(rbox(w, h - 0.04, 0.32, 0.012), MATERIALS.woodDark, [0, (h - 0.04) / 2 + 0.04, back - 0.14]);
+    p.add(rbox(w, 0.04, case_, 0.01), MATERIALS.woodDark, [0, h - 0.02, back]);
+    p.add(rbox(w - 0.12, 0.1, 0.3, 0.01), MATERIALS.woodDark, [0, 0.68, back + 0.12]);
+    p.add(box(w - 0.18, 0.02, 0.16), MATERIALS.white, [0, 0.74, back + 0.17]);
+    for (let i = 0; i < 36; i++) if ([1, 2, 4, 5, 6].includes(i % 7)) p.add(box(0.016, 0.018, 0.09), FIXED.screen, [-(w - 0.18) / 2 + 0.02 + i * 0.0365, 0.755, back + 0.13]);
+    for (const s of [-1, 1]) p.add(rbox(0.06, 0.66, case_ - 0.08, 0.01), MATERIALS.woodDark, [s * (w / 2 - 0.03), 0.37, back + 0.02]);
+    p.add(box(0.04, 0.04, 0.04), MATERIALS.metal, [-0.12, 0.06, back + 0.1]);
+    p.add(box(0.04, 0.04, 0.04), MATERIALS.metal, [0.12, 0.06, back + 0.1]);
+    p.add(rbox(0.36, 0.26, 0.012, 0.004), FIXED.book2, [0.05, 0.96, back + 0.05], [-0.25, 0, 0]);
+    // Bench in front.
+    p.add(rbox(0.7, 0.06, 0.32, 0.015), MATERIALS.fabric, [0, 0.48, 0.95 / 2 - 0.17]);
+    legs(p, 0.66, 0.3, 0.45, MATERIALS.woodDark, 0.04, 0.016);
+    for (const part of p.list.slice(-4)) part.matrix.premultiply(new THREE.Matrix4().makeTranslation(0, 0, 0.95 / 2 - 0.17));
+    p.add(cyl(0.05, 0.04, 0.12, 14), MATERIALS.pot, [w / 2 - 0.2, h + 0.06, back]);
+    p.add(ball(0.07), FIXED.leafLight, [w / 2 - 0.2, h + 0.15, back]);
+    return p;
+  },
+  catTower() {
+    const p = new Parts(), sisal = FIXED.sisal;
+    p.add(rbox(0.6, 0.05, 0.5, 0.02), MATERIALS.fabric2, [0, 0.025, 0]);
+    for (const [x, z, h] of [[-0.18, -0.14, 1.45], [0.18, 0.12, 0.95], [-0.18, 0.14, 0.6]]) p.add(cyl(0.055, 0.055, h, 16), sisal, [x, h / 2 + 0.05, z]);
+    p.add(rbox(0.46, 0.04, 0.4, 0.02), MATERIALS.fabric2, [-0.05, 0.62, 0.02]);
+    p.add(rbox(0.42, 0.04, 0.36, 0.02), MATERIALS.fabric2, [0.06, 0.98, 0.04]);
+    p.add(cyl(0.2, 0.19, 0.1, 24), MATERIALS.fabric2, [-0.1, 1.53, -0.05]);
+    p.add(cyl(0.16, 0.16, 0.04, 24), MATERIALS.fabric, [-0.1, 1.58, -0.05]);
+    p.add(rbox(0.3, 0.26, 0.28, 0.06), MATERIALS.fabric2, [0.12, 0.25, -0.08]);
+    p.add(cyl(0.07, 0.07, 0.02, 16), FIXED.screen, [0.12, 0.25, 0.061], [Math.PI / 2, 0, 0]);
+    return p;
+  },
+  petBed() {
+    const p = new Parts();
+    p.add(cyl(0.4, 0.4, 0.08, 36), MATERIALS.fabric2, [0, 0.04, 0]);
+    p.add(new THREE.TorusGeometry(0.33, 0.07, 10, 36), MATERIALS.fabric2, [0, 0.13, 0], [Math.PI / 2, 0, 0]);
+    p.add(cyl(0.3, 0.3, 0.05, 32), MATERIALS.fabric, [0, 0.105, 0]);
+    p.add(ball(0.05), FIXED.toy2, [0.14, 0.17, 0.08]);
+    return p;
+  },
+  yogaMat() {
+    const p = new Parts();
+    p.add(rbox(0.65, 0.006, 1.85, 0.003), MATERIALS.accent, [0, 0.003, 0]);
+    return p;
+  },
+  exerciseBike() {
+    const p = new Parts();
+    for (const z of [-0.45, 0.45]) p.add(rbox(0.55, 0.05, 0.08, 0.02), MATERIALS.metal, [0, 0.025, z]);
+    p.add(box(0.06, 0.06, 0.95), MATERIALS.metal, [0, 0.1, 0]);
+    p.add(cyl(0.22, 0.22, 0.05, 32), MATERIALS.metal, [0, 0.36, 0.33], [0, 0, Math.PI / 2]);
+    p.add(box(0.05, 0.75, 0.05), MATERIALS.metal, [0, 0.5, -0.12], [0.18, 0, 0]);
+    p.add(box(0.05, 0.85, 0.05), MATERIALS.metal, [0, 0.55, 0.38], [-0.25, 0, 0]);
+    p.add(rbox(0.22, 0.06, 0.28, 0.03), MATERIALS.fabric2, [0, 0.9, -0.2]);
+    p.add(cyl(0.015, 0.015, 0.45, 10), MATERIALS.metal, [0, 1.1, 0.5], [0, 0, Math.PI / 2]);
+    p.add(rbox(0.16, 0.1, 0.03, 0.01), FIXED.screen, [0, 1.2, 0.48], [-0.5, 0, 0]);
+    return p;
+  },
+  dumbbellRack() {
+    const p = new Parts();
+    for (const sx of [-1, 1]) p.add(box(0.04, 0.8, 0.36), MATERIALS.metal, [sx * 0.35, 0.4, 0]);
+    for (const [y, r] of [[0.25, 0.05], [0.52, 0.045], [0.76, 0.04]]) {
+      p.add(box(0.7, 0.025, 0.3), MATERIALS.metal, [0, y - 0.07, 0], [0.25, 0, 0]);
+      for (const x of [-0.22, 0, 0.22]) for (const s of [-1, 1]) p.add(cyl(r, r, 0.05, 14), FIXED.screen, [x + s * 0.07, y, 0], [0, 0, Math.PI / 2]);
+      for (const x of [-0.22, 0, 0.22]) p.add(cyl(0.014, 0.014, 0.1, 8), MATERIALS.metal, [x, y, 0], [0, 0, Math.PI / 2]);
+    }
+    return p;
+  },
+  floorMirror() {
+    const p = new Parts();
+    p.add(rbox(0.6, 1.75, 0.04, 0.02), MATERIALS.woodDark, [0, 0.875, -0.12], [-0.1, 0, 0]);
+    p.add(box(0.52, 1.66, 0.01), FIXED.mirror, [0, 0.88, -0.095], [-0.1, 0, 0]);
+    for (const sx of [-1, 1]) p.add(box(0.03, 0.03, 0.3), MATERIALS.woodDark, [sx * 0.25, 0.015, 0.02]);
+    return p;
+  },
   plant() {
     const p = new Parts();
     p.add(cyl(0.2, 0.16, 0.38, 24), MATERIALS.pot, [0, 0.19, 0]);
@@ -374,6 +494,121 @@ function rug(w, d) {
     p.add(box(b, 0.004, d - 2 * inset), MATERIALS.rugPattern, [s * (w / 2 - inset), 0.0095, 0]);
   }
   return p;
+}
+
+// --- styling props (src/concepts/dressing.js places them) -------------------------------
+// Decoration only: wall art, curtains, lamps and shelves. Not staging items or colliders.
+
+/** Abstract print for wall art, drawn in the palette's colors (seeded, so it is stable). */
+function artTexture(w, h, colors, seed) {
+  const scale = 320, canvas = Object.assign(document.createElement('canvas'), { width: Math.round(w * scale), height: Math.round(h * scale) });
+  const c = canvas.getContext('2d'), W = canvas.width, H = canvas.height, r = random(seed);
+  c.fillStyle = '#f3efe7'; c.fillRect(0, 0, W, H);
+  const tones = [colors.accent, colors.fabric2, colors.wood, colors.rugPattern, colors.woodDark];
+  const pick = () => tones[Math.floor(r() * tones.length)];
+  const style = seed % 4;
+  c.globalAlpha = 0.92;
+  if (style === 0) { // arches
+    for (let i = 0; i < 2; i++) {
+      const aw = W * (0.34 + r() * 0.16), ax = W * (0.18 + i * 0.36 + r() * 0.06), ay = H * (0.3 + r() * 0.1);
+      c.fillStyle = pick(); c.beginPath(); c.moveTo(ax, H * 0.86); c.lineTo(ax, ay + aw / 2); c.arc(ax + aw / 2, ay + aw / 2, aw / 2, Math.PI, 0); c.lineTo(ax + aw, H * 0.86); c.fill();
+    }
+    c.fillStyle = colors.wood; c.beginPath(); c.arc(W * 0.78, H * 0.22, Math.min(W, H) * 0.09, 0, Math.PI * 2); c.fill();
+  } else if (style === 1) { // soft color blocks
+    const cols = 3 + Math.floor(r() * 2);
+    for (let i = 0; i < cols; i++) { c.fillStyle = pick(); c.fillRect(W * (0.1 + i * 0.8 / cols), H * (0.15 + r() * 0.25), W * 0.8 / cols - W * 0.03, H * (0.35 + r() * 0.3)); }
+  } else if (style === 2) { // horizon
+    c.fillStyle = colors.fabric; c.fillRect(0, H * 0.58, W, H * 0.42);
+    c.fillStyle = pick(); c.beginPath(); c.ellipse(W * 0.35, H * 0.62, W * 0.42, H * 0.2, 0, Math.PI, 0); c.fill();
+    c.fillStyle = pick(); c.beginPath(); c.ellipse(W * 0.8, H * 0.64, W * 0.32, H * 0.14, 0, Math.PI, 0); c.fill();
+    c.fillStyle = colors.accent; c.beginPath(); c.arc(W * 0.66, H * 0.3, Math.min(W, H) * 0.08, 0, Math.PI * 2); c.fill();
+  } else { // leaves
+    for (let i = 0; i < 9; i++) {
+      c.save(); c.translate(W * (0.2 + r() * 0.6), H * (0.2 + r() * 0.6)); c.rotate(r() * Math.PI);
+      c.fillStyle = r() < 0.5 ? colors.accent : '#6f8c5f'; c.beginPath(); c.ellipse(0, 0, W * 0.05, H * 0.17, 0, 0, Math.PI * 2); c.fill(); c.restore();
+    }
+  }
+  c.globalAlpha = 0.08; c.fillStyle = '#000';
+  for (let i = 0; i < 1400; i++) c.fillRect(r() * W, r() * H, 1, 1); // paper grain
+  const texture = new THREE.CanvasTexture(canvas);
+  texture.colorSpace = THREE.SRGBColorSpace;
+  return texture;
+}
+
+const DRESSING = {
+  // Framed print, centered on the origin, facing +Z.
+  art({ w = 0.9, h = 0.65, colors, seed = 1 }) {
+    const p = new Parts(), t = 0.035, d = 0.03;
+    p.add(box(w, t, d), MATERIALS.woodDark, [0, h / 2 - t / 2, 0]); p.add(box(w, t, d), MATERIALS.woodDark, [0, -h / 2 + t / 2, 0]);
+    p.add(box(t, h - 2 * t, d), MATERIALS.woodDark, [-w / 2 + t / 2, 0, 0]); p.add(box(t, h - 2 * t, d), MATERIALS.woodDark, [w / 2 - t / 2, 0, 0]);
+    p.add(box(w - 2 * t, h - 2 * t, 0.006), MATERIALS.white, [0, 0, -0.008]);
+    const group = p.build('art', { center: false });
+    const print = new THREE.Mesh(new THREE.PlaneGeometry(w - 2 * t - 0.07, h - 2 * t - 0.07), new THREE.MeshStandardMaterial({ map: artTexture(w, h, colors, seed), roughness: 0.85 }));
+    print.position.z = -0.004;
+    group.add(print);
+    return group;
+  },
+  // Linen panel gathered in pleats, standing on the floor.
+  curtain() {
+    const p = new Parts(), pleats = 6, w = 0.5, h = 2.36;
+    for (let i = 0; i < pleats; i++) p.add(rbox(w / pleats + 0.02, h, 0.07, 0.03), MATERIALS.bedding, [-w / 2 + (i + 0.5) * w / pleats, h / 2 + 0.02, i % 2 ? 0.035 : -0.015]);
+    return p.build('curtain', { center: false });
+  },
+  rod({ length = 3 }) {
+    const p = new Parts();
+    p.add(cyl(0.012, 0.012, length, 10), MATERIALS.metal, [0, 0, 0], [0, 0, Math.PI / 2]);
+    for (const s of [-1, 1]) p.add(ball(0.022), MATERIALS.metal, [s * length / 2, 0, 0]);
+    return p.build('rod', { center: false });
+  },
+  // Hangs from the 2.6 m ceiling; origin on the floor below.
+  pendant() {
+    const p = new Parts();
+    p.add(cyl(0.004, 0.004, 0.7, 6), MATERIALS.metal, [0, 2.25, 0]);
+    p.add(cyl(0.05, 0.05, 0.02, 16), MATERIALS.metal, [0, 2.59, 0]);
+    p.add(cyl(0.06, 0.22, 0.2, 32, true), MATERIALS.woodDark, [0, 1.8, 0]);
+    p.add(ball(0.05), FIXED.lamp, [0, 1.74, 0]);
+    return p.build('pendant', { center: false });
+  },
+  // Round side table with a lamp and a book.
+  sideLamp() {
+    const p = new Parts();
+    p.add(cyl(0.22, 0.22, 0.03, 32), MATERIALS.wood, [0, 0.52, 0]);
+    p.add(cyl(0.025, 0.025, 0.5, 10), MATERIALS.woodDark, [0, 0.26, 0]);
+    p.add(cyl(0.14, 0.14, 0.02, 24), MATERIALS.woodDark, [0, 0.01, 0]);
+    p.add(cyl(0.05, 0.07, 0.2, 18), MATERIALS.pot, [0.04, 0.635, -0.03]);
+    p.add(cyl(0.1, 0.14, 0.16, 24, true), FIXED.lamp, [0.04, 0.82, -0.03]);
+    p.add(rbox(0.18, 0.03, 0.13, 0.006), FIXED.book1, [-0.07, 0.55, 0.08], [0, 0.4, 0]);
+    return p.build('sideLamp', { center: false });
+  },
+  // Nightstand with a lamp.
+  nightLamp() {
+    const p = new Parts();
+    p.add(rbox(0.42, 0.46, 0.38, 0.012), MATERIALS.white, [0, 0.27, 0]);
+    p.add(box(0.36, 0.004, 0.004), MATERIALS.woodDark, [0, 0.3, 0.191]);
+    for (const sx of [-1, 1]) p.add(cyl(0.012, 0.012, 0.06, 8), MATERIALS.woodDark, [sx * 0.17, 0.03, 0]);
+    p.add(cyl(0.045, 0.06, 0.16, 18), MATERIALS.pot, [0.06, 0.58, -0.04]);
+    p.add(cyl(0.09, 0.12, 0.15, 24, true), FIXED.lamp, [0.06, 0.74, -0.04]);
+    return p.build('nightLamp', { center: false });
+  },
+  // Floating shelf with books and a small plant; origin at the shelf, back at -Z.
+  wallShelf({ w = 0.9 }) {
+    const p = new Parts();
+    p.add(rbox(w, 0.025, 0.22, 0.004), MATERIALS.wood, [0, 0, 0]);
+    shelfBooks(p, -w / 2 + 0.05, w / 2 - 0.3, 0.0125, 0.16, Math.round(w * 97));
+    p.add(cyl(0.05, 0.04, 0.09, 14), MATERIALS.pot, [w / 2 - 0.14, 0.057, 0]);
+    p.add(ball(0.07), FIXED.leafLight, [w / 2 - 0.14, 0.14, 0]);
+    return p.build('wallShelf', { center: false });
+  },
+};
+
+/** Builds one styling prop (see DRESSING); positions come from src/concepts/dressing.js. */
+export function buildDressing(kind, options = {}) {
+  const make = DRESSING[kind];
+  if (!make) throw new Error(`No builder for dressing: ${kind}`);
+  const group = make(options);
+  group.name = `Dressing ${kind}`;
+  group.userData.dressing = kind;
+  return group;
 }
 
 /** Builds one kit piece as a Group centered on the origin, front facing +Z. */

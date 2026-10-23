@@ -45,6 +45,6 @@ test('official location, floor selection, advisory placement and exterior contex
  await expect.poll(()=>page.evaluate(()=>window.__walkthrough.getState().locked)).toBe(true);
  expect(await page.evaluate(()=>window.__walkthrough.getState().standing)).toBe(true);
  await page.evaluate(()=>document.exitPointerLock());
- await page.locator('#nav-complex').click();await expect(page.locator('#location-hero')).toBeVisible();
+ await page.locator('.studio-brand').click();await expect(page.locator('#location-hero')).toBeVisible();
  expect(errors).toEqual([]);
 });

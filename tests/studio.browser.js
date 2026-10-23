@@ -5,7 +5,7 @@ test('complex to unit, live 2D/3D placement, persistence and room walkthrough',a
  await page.goto('/?studio=1&test=1&quality=light');
  await expect(page.locator('body')).toHaveAttribute('data-studio-mode','complex',{timeout:90000});
  await page.screenshot({path:testInfo.outputPath('01-complex.png')});
- await page.locator('#select-building').click();await page.locator('#open-unit').click();
+ await page.locator('#hero-building').click();await page.locator('#open-unit').click();
  await expect(page.locator('body')).toHaveAttribute('data-studio-mode','overview');
  await page.screenshot({path:testInfo.outputPath('02-unit-plan.png')});
  await page.locator('#studio-room').selectOption('Living front');await page.locator('#room-edit').click();
@@ -41,7 +41,7 @@ test('complex to unit, live 2D/3D placement, persistence and room walkthrough',a
  }
  await page.locator('#nav-plan').click();await expect(page.locator('body')).toHaveAttribute('data-studio-mode','overview');
  await page.reload();await expect(page.locator('body')).toHaveAttribute('data-studio-mode','complex',{timeout:90000});
- await page.locator('#select-building').click();await page.locator('#open-unit').click();await page.locator('#room-edit').click();await page.locator('#restore-layout').click();
+ await page.locator('#hero-building').click();await page.locator('#open-unit').click();await page.locator('#room-edit').click();await page.locator('#restore-layout').click();
  expect((await page.evaluate(()=>window.__studio.inspect())).items.find(i=>i.id===stool.id).x).toBe(placed.x);
  expect(errors).toEqual([]);
 });

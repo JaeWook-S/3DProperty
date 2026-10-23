@@ -5,7 +5,7 @@ test('reference furnishings, metric rooms, balcony access and calibrated human v
  await page.setViewportSize({width:1440,height:960});
  await page.goto('/?studio=1&test=1&variant=basic&quality=light');
  await expect(page.locator('body')).toHaveAttribute('data-studio-mode','complex',{timeout:90000});
- await page.locator('#select-building').click();await page.locator('#open-unit').click();
+ await page.locator('#hero-building').click();await page.locator('#open-unit').click();
  const items=(await page.evaluate(()=>window.__studio.inspect())).items;
  expect(items.some(i=>i.kind==='single')).toBe(false);
  expect(items.filter(i=>i.kind==='king')).toHaveLength(1);
@@ -41,7 +41,7 @@ test('reference furnishings, metric rooms, balcony access and calibrated human v
  await page.screenshot({path:info.outputPath('03-study-edit.png')});
  const warnings=(await page.evaluate(()=>window.__studio.inspect())).warnings;
  expect(warnings.filter(i=>['king-bed','reference-study-desk','reference-study-chair'].includes(i.id)).flatMap(i=>i.messages).some(s=>s.includes('개방 범위'))).toBe(false);
- await page.locator('#nav-complex').click();await page.locator('#select-building').click();await page.locator('#studio-variant').selectOption('expanded');await page.locator('#open-unit').click();
+ await page.locator('#nav-complex').click();await page.locator('#studio-variant').selectOption('expanded');await page.locator('#open-unit').click();
  await expect(page.locator('body')).toHaveAttribute('data-studio-mode','overview',{timeout:90000});
  await expect.poll(()=>page.evaluate(()=>window.__walkthrough.getState().variant),{timeout:90000}).toBe('expanded');
  const expanded=await page.evaluate(()=>window.__walkthrough.inspectRoom('Bedroom center'));
