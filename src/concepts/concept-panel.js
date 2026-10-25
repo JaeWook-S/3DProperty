@@ -5,6 +5,7 @@ import { buildFurniture, applyPalette, KIT_KINDS, MATERIALS } from './kit.js';
 import { createWalkThemes } from './walk-themes.js';
 import { planDressing, createDressing } from './dressing.js';
 import { corners } from '../walkthrough/layout.js';
+import { rememberTheme } from '../walkthrough/my-home.js';
 import './concepts.css';
 
 // Recommended concepts for the 112A unit (W7-06): the "컨셉 보기" tab ranks concepts by
@@ -162,8 +163,9 @@ export function createConceptStudio(hooks) {
 
   // --- apply / clear -----------------------------------------------------------------
   // `url: false` leaves the address alone and `frame: false` the camera (house tours stage a
-  // concept and then place the walker themselves).
-  function apply(conceptId, paletteId, { url = true, frame = true } = {}) {
+  // concept and then place the walker themselves); staged previews stay out of the theme
+  // history. `tour` is the 집들이 the theme was taken from.
+  function apply(conceptId, paletteId, { url = true, frame = true, tour = null } = {}) {
     const concept = CONCEPTS.find((c) => c.id === conceptId);
     if (!concept) return false;
     const staging = hooks.current().staging;
@@ -179,7 +181,8 @@ export function createConceptStudio(hooks) {
     staging.rebuild();
     if (walking()) hooks.settle();
     const palette = paletteId ?? pickPalette(concept, state.mood);
-    state.applied.set(variant(), { concept: concept.id, palette });
+    state.applied.set(variant(), { concept: concept.id, palette, tour });
+    if (url) rememberTheme({ concept: concept.id, palette, plan: variant(), tour });
     applyPalette(PALETTES[palette].colors);
     if (state.matchFloor) setFinish(PALETTES[palette].finish);
     hooks.refreshLayout();
@@ -197,6 +200,7 @@ export function createConceptStudio(hooks) {
     const applied = appliedHere();
     if (!applied) return;
     applied.palette = paletteId;
+    rememberTheme({ concept: applied.concept, palette: paletteId, plan: variant(), tour: applied.tour ?? null });
     applyPalette(PALETTES[paletteId].colors);
     if (state.matchFloor) setFinish(PALETTES[paletteId].finish);
     paint();

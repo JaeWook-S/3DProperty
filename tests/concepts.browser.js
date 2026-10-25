@@ -147,6 +147,12 @@ test('a shared link applies its concept; walking, number keys and C switch theme
   expect(start.position[0]).toBeCloseTo(6.52, 1);
   expect(start.position[2]).toBeCloseTo(6.08, 1);
   await expect(page.locator('#walk-themes')).toBeVisible();
+  // A small bar with the current theme; the list stays closed until T or a click.
+  await expect(page.locator('.wt-toggle')).toContainText('키즈 플레이');
+  await expect(page.locator('.wt-body')).toBeHidden();
+  const bar = await page.locator('.wt-bar').boundingBox();
+  expect(bar.height).toBeLessThanOrEqual(44);
+  expect(bar.width).toBeLessThan(520);
   await expect(page.locator('.wt-theme[data-theme=kids-play]')).toHaveAttribute('aria-checked', 'true');
   await page.screenshot({ path: testInfo.outputPath('walk-kids.png') });
 
@@ -164,8 +170,13 @@ test('a shared link applies its concept; walking, number keys and C switch theme
   expect((await concepts(page)).applied).toBe(null);
   expect((await inspect(page)).items.find((i) => i.id === 'catalog-sofa-2790').deleted).toBe(false);
   expect(await page.evaluate(() => window.__walkthrough.getState().standing)).toBe(true);
+  await page.keyboard.press('KeyT');
+  await expect(page.locator('.wt-body')).toBeVisible();
+  await page.screenshot({ path: testInfo.outputPath('walk-theme-list.png') });
   await page.locator('.wt-theme[data-theme=wfh-studio]').click();
   expect((await concepts(page)).applied.concept).toBe('wfh-studio');
+  await page.keyboard.press('KeyT');
+  await expect(page.locator('.wt-body')).toBeHidden();
 
   await page.evaluate(() => document.exitPointerLock?.()); // the sidebar shows once walking stops
   await page.locator('#studio-room').selectOption('whole');
@@ -218,7 +229,7 @@ test('window: the official photo is the main view; an own 360° photo can replac
   const view = () => page.evaluate(() => window.__windowView.state());
   const official = (await view()).badge;
   expect(await view()).toMatchObject({ custom: false, sphereVisible: false, photoVisible: true });
-  expect(official).toContain('공식 사진');
+  expect(official).toContain('한강 사진');
   expect(official).not.toContain('예시');
 
   await page.locator('#window-view summary').click();

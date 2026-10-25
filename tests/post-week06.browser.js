@@ -5,7 +5,7 @@ test('official location, floor selection, advisory placement and exterior contex
  await page.goto('/?studio=1&test=1&quality=light');
  await expect(page.locator('body')).toHaveAttribute('data-studio-mode','complex',{timeout:90000});
  await expect(page.locator('#location-hero')).toBeVisible();
- await expect.poll(()=>page.locator('#location-hero img').evaluate(i=>i.naturalWidth)).toBe(1920);
+ await expect.poll(()=>page.locator('#location-hero img.official-photo').evaluate(i=>i.naturalWidth)).toBe(1920);
  await page.screenshot({path:testInfo.outputPath('01-official-location.png')});
  await page.locator('#hero-building').click();
  await expect(page.locator('#floor-rail')).toBeVisible();

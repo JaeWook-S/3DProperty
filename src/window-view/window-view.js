@@ -46,7 +46,7 @@ export function createWindowView(hooks) {
     <p class="wv-hint" id="wv-file-status">창가에서 찍은 2:1 파노라마를 권장해요. 사진은 이 브라우저 안에서만 쓰고 업로드하지 않아요.</p>
     <div class="wv-heading" hidden><label class="wv-label" for="wv-photo-heading">사진 방향 맞추기 <output id="wv-photo-heading-value">0°</output></label>
     <input id="wv-photo-heading" type="range" min="0" max="359" step="1" value="0"></div>
-    <button type="button" id="wv-reset" hidden>공식 사진으로 돌아가기</button>`;
+    <button type="button" id="wv-reset" hidden>기본 창밖 풍경으로 돌아가기</button>`;
   const anchor = $('exterior-enabled')?.closest('label');
   (anchor ?? $('room-picker')).after(section);
   const heading = $('wv-photo-heading'), reset = $('wv-reset');
@@ -60,7 +60,7 @@ export function createWindowView(hooks) {
     state.texture?.dispose();
     state.texture = null;
     $('wv-file').value = '';
-    $('wv-file-status').textContent = '공식 사진 배경으로 돌아왔어요.';
+    $('wv-file-status').textContent = '기본 창밖 풍경으로 돌아왔어요.';
     sync();
   });
   $('wv-file').addEventListener('change', (event) => {

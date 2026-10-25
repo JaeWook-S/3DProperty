@@ -106,6 +106,12 @@ export function refineMaterials(model, renderer) {
       if (material.name.includes('Calacatta')) material.roughness = 0.34;
       if (material.name.includes('nickel')) material.roughness = 0.3;
       if (material.emissiveIntensity > 1) material.emissiveIntensity = 1.4;
+      // Window glass: a thin clear pane instead of a transmission pass, so the view outside is
+      // drawn at full resolution and ceiling lights do not mirror in it as bright discs.
+      if (material.name.includes('Window glass')) {
+        material.transmission = 0; material.transparent = true; material.opacity = 0.06; material.depthWrite = false;
+        material.roughness = 0.35; if ('specularIntensity' in material) material.specularIntensity = 0.04;
+      }
       material.needsUpdate = true;
     }
   });
