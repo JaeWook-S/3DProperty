@@ -21,21 +21,21 @@ from PIL import Image
 
 from services.furniture_pipeline.config import MAX_UPLOAD_BYTES
 from services.furniture_pipeline.pipeline.code_provider import validate_blender_code
-from services.furniture_pipeline.pipeline.supermat_prompt import blender_contract, validate_dimensions
+from services.furniture_pipeline.pipeline.supermat_prompt import GLB_MATERIAL_CONTRACT, blender_contract, validate_dimensions
 
 INSTRUCTIONS = """Create one furniture model from the supplied photographs and material estimates.
 Return only executable Blender 4.5 LTS Python source, with exactly one module-level
 def create_model(dimensions): function. Follow the pipeline contract in the input.
 Model only the selected foreground furniture, using the full photograph as context.
 Use the estimated dimensions supplied at runtime; do not replace them with guesses.
-Use built-in bpy/mathutils/math and procedural materials; no external assets,
+Use built-in bpy/mathutils/math and GLB-compatible constant PBR materials; no external assets,
 downloads, file I/O, subprocesses, scene clearing, cameras, lights or export calls.
 Create geometry only inside create_model; do not call it at module scope.
 At the end of create_model, update transforms, calculate the entire furniture's
 world-space mesh bounding box, and fit it to the specified width/depth/height with
 the bottom-center at the origin. The existing runner checks these exact bounds.
 Use material socket names available in Blender 4.5. Assumptions belong in comments.
-"""
+""" + "\n" + GLB_MATERIAL_CONTRACT
 
 
 @dataclass(frozen=True)

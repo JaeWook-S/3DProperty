@@ -12,6 +12,15 @@ from pathlib import Path
 
 SUPERMAT_SUMMARIZER = Path(__file__).resolve().parents[3] / "SuperMat" / "supermat_to_prompt.py"
 
+GLB_MATERIAL_CONTRACT = """[GLB 재질 규약 — 앞의 셰이더 무늬·미세 요철 구현 요청보다 우선]
+- 이번 단계는 웹 GLB에 색상과 기본 PBR 재질을 보존하는 것이 우선이야. 천 짜임·목결·미세 Bump와 텍스처 베이크는 생략해.
+- 사진과 SuperMat 통계를 참고해 부품별 색상·거칠기·금속성을 정하고, 부품마다 필요한 재질을 실제 메시/면에 할당해. 통계가 있는데 흰색 기본 재질로 대체하지 마.
+- mat.use_nodes = True로 설정하고 Principled BSDF의 Base Color, Roughness, Metallic을 각각 default_value 상수로 직접 지정해. 이 세 입력 소켓은 반드시 연결되지 않은 상태(unlinked)로 유지해.
+- Base Color는 0~1 범위의 선형 RGB와 알파 1로 지정해. albedo_rgb_8bit_median의 0~255 값을 그대로 넣지 마. sRGB를 가정할 경우 255로 나눈 뒤 sRGB→선형 RGB 변환을 정확히 한 번 수행하고 가정을 주석으로 밝혀.
+- mat.diffuse_color도 같은 RGBA로 맞추되, 이것만 설정하지 말고 Principled BSDF의 Base Color도 반드시 설정해. Roughness와 Metallic은 0~1 범위의 상수로 지정해.
+- ShaderNodeBsdfPrincipled의 BSDF 출력을 ShaderNodeOutputMaterial의 Surface에 직접 연결해. Noise, ColorRamp(ShaderNodeValToRGB), Math, MapRange, Bump 등 절차형 노드로 재질 입력을 구동하지 마. 이 구성은 현재 GLB 내보내기에서 색상·거칠기·요철이 유실될 수 있어.
+"""
+
 
 def _load_summarizer():
     spec = importlib.util.spec_from_file_location("furniture_supermat_to_prompt", SUPERMAT_SUMMARIZER)
@@ -46,6 +55,7 @@ def blender_contract(dimensions_m):
 - 씬 삭제/초기화, 파일 입출력, 외부 명령 실행, GLB 내보내기를 하지 마. 파이프라인의 blender_runner.py가 씬 초기화, 함수 호출, 치수 검증, GLB export를 담당해.
 - 위 일반 요청의 조명과 카메라 설정은 생략해. 가구 메시와 해당 재질만 생성해.
 
+""" + GLB_MATERIAL_CONTRACT + """
 [런타임 치수 dimensions_m — meters]
 """ + json.dumps(dimensions_m, ensure_ascii=False, indent=2, allow_nan=False) + "\n"
 

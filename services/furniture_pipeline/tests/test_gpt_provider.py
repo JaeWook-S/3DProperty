@@ -7,6 +7,7 @@ import json
 import os
 from pathlib import Path
 import shutil
+import struct
 import sys
 import tempfile
 import traceback
@@ -38,6 +39,17 @@ def create_model(dimensions):
     obj.name = "GPT response fixture, one mesh"
     obj.dimensions = (width, depth, height)
     bpy.ops.object.transform_apply(location=False, rotation=False, scale=True)
+    # Constant, unlinked PBR inputs must survive the production GLB exporter.
+    rgb = (160, 90, 40)
+    color = tuple(((value / 255.0 + 0.055) / 1.055) ** 2.4 for value in rgb)
+    material = bpy.data.materials.new("GPT constant PBR fixture")
+    material.use_nodes = True
+    material.diffuse_color = (*color, 1.0)
+    shader = material.node_tree.nodes.get("Principled BSDF")
+    shader.inputs["Base Color"].default_value = (*color, 1.0)
+    shader.inputs["Roughness"].default_value = 0.786
+    shader.inputs["Metallic"].default_value = 0.006
+    obj.data.materials.append(material)
 '''
 
 
@@ -104,6 +116,7 @@ class GPTProviderTests(unittest.TestCase):
             self.assertFalse(body["store"])
             self.assertNotIn("temperature", body)
             self.assertNotIn("top_p", body)
+            self.assertIn(gpt_provider.GLB_MATERIAL_CONTRACT, body["instructions"])
             self.assertEqual(constructor[0]["timeout"], 900)
             self.assertEqual(constructor[0]["max_retries"], 0)
             content = body["input"][0]["content"]
@@ -111,6 +124,7 @@ class GPTProviderTests(unittest.TestCase):
             self.assertIn(handoff["prompt"], texts)
             self.assertIn('"width": 0.8', texts)
             self.assertIn("create_model(dimensions)", texts)
+            self.assertIn(gpt_provider.GLB_MATERIAL_CONTRACT, texts)
             images = [part for part in content if part["type"] == "input_image"]
             self.assertEqual(len(images), 2)
             for part, file in zip(images, (handoff["reference_image_path"], handoff["objects"][0]["material"]["image_path"])):
@@ -238,7 +252,15 @@ class GPTProviderTests(unittest.TestCase):
                 self.assertEqual(asset["generation_provider"], PROVIDER)
                 self.assertEqual(asset["export"]["mesh_count"], 1)  # Stub table has five.
                 self.assertEqual(asset["dimensions_m"], DIMENSIONS)
-                self.assertEqual(client.get(asset["model_uri"]).content[:4], b"glTF")
+                glb = client.get(asset["model_uri"]).content
+                self.assertEqual(glb[:4], b"glTF")
+                document = json.loads(glb[20:20 + struct.unpack_from("<I", glb, 12)[0]])
+                material = document["materials"][0]["pbrMetallicRoughness"]
+                expected_color = [((value / 255.0 + .055) / 1.055) ** 2.4 for value in (160, 90, 40)]
+                for actual, expected in zip(material["baseColorFactor"], [*expected_color, 1]):
+                    self.assertAlmostEqual(actual, expected, places=5)
+                self.assertAlmostEqual(material["roughnessFactor"], .786, places=5)
+                self.assertAlmostEqual(material["metallicFactor"], .006, places=5)
                 self.assertEqual(client.get(asset["manifest_uri"]).json(), asset)
                 directory = Path(temporary) / accepted["job_id"]
                 self.assertEqual((directory / "assets/000/generated_model.py").read_text(), SOURCE)

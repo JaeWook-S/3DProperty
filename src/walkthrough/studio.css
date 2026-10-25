@@ -21,3 +21,7 @@ body.studio{background:#f4f4ef;color:#1c4038}body.studio .topbar,body.studio .bo
 #studio-sidebar .register-furniture-button:disabled{opacity:.55;cursor:wait}
 
 @media(max-width:650px){.furniture-registration{margin:10px 0;padding:9px}.furniture-registration-help{display:block}#furniture-image-preview img{height:86px}}
+
+#layout-plan text {
+  letter-spacing: 0;
+}
