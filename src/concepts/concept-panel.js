@@ -181,7 +181,7 @@ export function createConceptStudio(hooks) {
     staging.rebuild();
     if (walking()) hooks.settle();
     const palette = paletteId ?? pickPalette(concept, state.mood);
-    state.applied.set(variant(), { concept: concept.id, palette, tour });
+    state.applied.set(variant(), tour ? { concept: concept.id, palette, tour } : { concept: concept.id, palette });
     if (url) rememberTheme({ concept: concept.id, palette, plan: variant(), tour });
     applyPalette(PALETTES[palette].colors);
     if (state.matchFloor) setFinish(PALETTES[palette].finish);

@@ -15,7 +15,7 @@ function svg(tag, attributes = {}, text) {
 export function createMinimap() {
   const host = document.createElement('aside');
   host.id = 'walk-minimap'; host.hidden = true; host.setAttribute('aria-label','둘러보기 미니맵');
-  host.innerHTML = `<header><span id="minimap-variant"></span><button id="minimap-toggle" type="button" aria-controls="minimap-content" aria-expanded="true">미니맵 접기 <kbd>M</kbd></button></header><div id="minimap-content"><svg id="minimap-plan" role="img" aria-label="도면 위 현재 위치와 시선 방향"></svg><footer><strong id="minimap-room" aria-live="polite"></strong><span>도면 상단 고정</span></footer></div>`;
+  host.innerHTML = `<header><span id="minimap-variant"></span><button id="minimap-toggle" type="button" aria-controls="minimap-content" aria-expanded="true">미니맵 접기 <kbd>M</kbd></button></header><div id="minimap-content"><svg id="minimap-plan" role="img" aria-label="도면 위 현재 위치와 시선 방향"></svg><footer><strong id="minimap-room" aria-live="polite"></strong></footer></div>`;
   document.body.append(host);
   const button = host.querySelector('button'), content = host.querySelector('#minimap-content');
   const plan = host.querySelector('svg'), label = host.querySelector('#minimap-room');
