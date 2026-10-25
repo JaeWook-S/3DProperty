@@ -1,0 +1,141 @@
+/* Home page (src/house-tours/home.js) inside the studio's #location-hero. */
+
+#location-hero.has-home{inset:72px 0 0 0;background:var(--bg);color:var(--ink);overflow-y:auto;overscroll-behavior:contain}
+#location-hero.has-home:after{display:none}
+#location-hero.has-home img:not(.official-photo){filter:none}
+body.studio:has(#location-hero.has-home:not([hidden])) #studio-sidebar{display:none}
+.home-wrap{max-width:1136px;margin:0 auto;padding:24px 24px 0}
+.home h2,.home h3{margin:0}
+
+/* --- top: featured 집들이, 우리 집, 새로운 집 찾기 ------------------------------------------ */
+.home-top{display:grid;grid-template-columns:minmax(0,2fr) minmax(300px,1fr);gap:16px;height:456px}
+.home-feature{position:relative;border-radius:6px;overflow:hidden;background:var(--surface)}
+.hf-slides{list-style:none;margin:0;padding:0;height:100%}
+.hf-slide{position:absolute;inset:0}
+.hf-slide[hidden]{display:none}
+.hf-slide a{display:block;height:100%;color:#fff;text-decoration:none}
+.hf-slide .tp-picture{height:100%}
+.hf-slide a:after{content:'';position:absolute;left:0;right:0;bottom:0;height:50%;background:linear-gradient(rgba(0,0,0,0),rgba(0,0,0,.42));pointer-events:none}
+.hf-caption{position:absolute;left:28px;right:120px;bottom:26px;z-index:1}
+.hf-kicker{margin:0 0 8px;font-size:13px;font-weight:600;opacity:.92}
+.hf-caption h2{font-size:28px;line-height:1.32;letter-spacing:-.8px;font-weight:700;max-width:640px;text-wrap:balance}
+.hf-meta{margin:8px 0 0;font-size:14px;opacity:.86}
+.hf-nav{position:absolute;right:16px;bottom:18px;z-index:2;display:flex;align-items:center;height:28px;padding:0 2px;border-radius:14px;background:rgba(20,24,28,.48);color:#fff;font-size:12px;font-variant-numeric:tabular-nums}
+.hf-nav button{display:grid;place-items:center;width:26px;height:26px;padding:0;border:0;background:none;color:inherit;cursor:pointer}
+.hf-count{padding:0 2px}
+
+.home-side{display:flex;flex-direction:column;gap:16px;min-height:0}
+.home-mine{flex:1;min-height:0;display:flex;flex-direction:column;border:1px solid var(--line);border-radius:6px;overflow:hidden}
+.hm-art{flex:1;min-height:110px;background:center/cover no-repeat var(--surface)}
+.hm-body{padding:16px 18px 18px}
+.hm-label{margin:0 0 4px;font-size:13px;font-weight:600;color:var(--brand)}
+.hm-name{font-size:18px;font-weight:700;letter-spacing:-.5px}
+.hm-meta{margin:4px 0 0;font-size:13px;color:var(--sub)}
+.hm-actions{display:flex;gap:8px;margin-top:14px}
+.hm-actions .btn{flex:1}
+.home-find{padding:18px;border:1px solid var(--line);border-radius:6px}
+.home-find h2{font-size:17px;font-weight:700;letter-spacing:-.4px}
+.hf-lede{margin:4px 0 12px;font-size:13px;color:var(--sub)}
+.hfm-search{display:flex;align-items:center;gap:8px;height:42px;padding:0 4px 0 12px;border-radius:6px;background:var(--surface);color:var(--sub)}
+.hfm-search:focus-within{background:#fff;box-shadow:0 0 0 1px var(--line-strong)}
+#home-find-search{flex:1;min-width:0;height:100%;border:0;background:none;font-size:14px;color:var(--ink);outline:none}
+#home-find-search::placeholder{color:var(--faint)}
+.hfm-hint{margin:8px 0 0;font-size:12px;color:var(--sub)}
+.hfm-hint.is-empty{color:var(--warn)}
+
+/* --- shortcuts ---------------------------------------------------------------------------- */
+.home-quick{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:8px;margin:28px 0 0;padding:4px 0}
+.hq-item{display:flex;flex-direction:column;align-items:center;gap:8px;padding:6px 0;border:0;background:none;color:var(--text);cursor:pointer}
+.hq-icon{display:grid;place-items:center;width:60px;height:60px;border-radius:18px;background:var(--surface);color:var(--ink);transition:background-color .15s}
+.hq-item:hover .hq-icon{background:var(--brand-soft)}
+.hq-label{font-size:13px;font-weight:500}
+.hq-item:hover .hq-label{color:var(--brand)}
+.hq-item:focus-visible{outline:2px solid var(--brand);outline-offset:2px;border-radius:8px}
+
+/* --- sections ----------------------------------------------------------------------------- */
+.home-section{margin-top:52px}
+.hs-head{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin-bottom:16px}
+.hs-head h2{font-size:20px;font-weight:700;letter-spacing:-.5px}
+.hs-head p{margin:4px 0 0;font-size:14px;color:var(--sub)}
+.hs-more{flex:none;padding:4px 0;border:0;background:none;color:var(--brand);font-size:14px;font-weight:600;cursor:pointer}
+.hs-more:hover{text-decoration:underline;text-underline-offset:3px}
+.tp-grid.home-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:32px 16px}
+.tp-grid.home-grid .tp-card h3{font-size:15px;font-weight:600}
+
+.home-photos{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.photos-space{grid-template-columns:repeat(6,minmax(0,1fr))}
+.photos-style{grid-template-columns:repeat(5,minmax(0,1fr))}
+.hp-tile{display:block;width:100%;padding:0;border:0;background:none;text-align:left;color:var(--ink);cursor:pointer}
+.hp-photo{display:block;aspect-ratio:1;border-radius:6px;overflow:hidden;background:var(--surface)}
+.photos-style .hp-photo{aspect-ratio:3/4}
+#location-hero.has-home .hp-photo img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .4s ease}
+.hp-tile:hover img{transform:scale(1.03)}
+.hp-tile strong{display:block;margin-top:10px;font-size:15px;font-weight:600}
+.hp-tile small{display:block;margin-top:2px;font-size:13px;color:var(--sub)}
+.hp-tile:focus-visible{outline:2px solid var(--brand);outline-offset:3px;border-radius:6px}
+
+/* --- 새로운 집 찾기: registered complexes ---------------------------------------------------- */
+.home-complexes{display:block}
+.hc-card{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);border:1px solid var(--line);border-radius:6px;overflow:hidden}
+.hc-photo{position:relative;margin:0;min-height:260px;background:var(--surface)}
+#location-hero.has-home .hc-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+#location-hero.has-home .hc-photo .photo-credit{display:none}
+#location-hero.has-home #photo-error{position:absolute;left:12px;right:12px;top:12px;margin:0;padding:10px 12px;border-radius:6px;background:#fff;color:var(--text);font-size:13px}
+#location-hero.has-home #photo-error[hidden]{display:none}
+.hc-body{display:flex;flex-direction:column;padding:22px 22px 20px}
+.hc-body h3{font-size:19px;font-weight:700;letter-spacing:-.5px;margin-bottom:8px}
+.hc-meta{margin:2px 0 0;font-size:13px;color:var(--sub)}
+.hc-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:auto;padding-top:20px}
+#location-hero.has-home #hero-building{margin:0;height:40px;padding:0 16px;border:1px solid var(--brand);border-radius:6px;background:var(--brand);color:#fff;font-size:14px;font-weight:600;cursor:pointer}
+#location-hero.has-home #hero-building:hover{background:var(--brand-hover)}
+
+/* 최근 적용한 테마: the sidebar rows as cards. */
+.home .th-list{grid-template-columns:repeat(4,minmax(0,1fr));gap:24px 16px}
+.home .th-item{grid-template-columns:minmax(0,1fr) auto;grid-template-rows:auto auto;align-items:start;gap:10px 8px}
+.home .th-picture{grid-column:1/-1;border-radius:6px}
+.home .th-swatches{left:10px;bottom:10px}
+.home .th-swatches i{width:12px;height:12px;border-width:2px}
+.home .th-body strong{font-size:15px}
+.home .th-body small{font-size:13px}
+.home .th-apply,.home .th-current{height:32px;font-size:13px}
+.home .th-apply{padding:0 12px}
+
+.home-foot{margin-top:72px;padding:28px 0 40px;border-top:1px solid var(--line)}
+.home-foot strong{font-size:15px;font-weight:800;letter-spacing:-.3px}
+
+/* --- responsive -------------------------------------------------------------------------- */
+@media(max-width:1100px){
+  .tp-grid.home-grid,.home .th-list{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .photos-space,.photos-style{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+@media(max-width:900px){
+  .home-top{grid-template-columns:1fr;height:auto}
+  .home-feature{aspect-ratio:16/10}
+  .home-side{display:grid;grid-template-columns:1fr 1fr}
+  .hm-art{min-height:140px}
+  .home-complexes{grid-template-columns:1fr}
+}
+@media(max-width:650px){
+  .home-wrap{padding:12px 16px 0}
+  .home-feature{aspect-ratio:4/3;border-radius:6px}
+  .hf-caption{left:18px;right:18px;bottom:48px}
+  .hf-caption h2{font-size:21px;letter-spacing:-.5px}
+  .hf-meta{display:none}
+  .hf-nav{right:12px;bottom:14px}
+  .home-side{grid-template-columns:1fr}
+  .home-quick{display:flex;gap:4px;overflow-x:auto;margin:20px -16px 0;padding:4px 16px;scrollbar-width:none}
+  .home-quick::-webkit-scrollbar{display:none}
+  .hq-item{flex:0 0 72px}
+  .hq-icon{width:54px;height:54px;border-radius:16px}
+  .hq-label{font-size:12px}
+  .home-section{margin-top:40px}
+  .hs-head h2{font-size:18px}
+  .tp-grid.home-grid{gap:24px 12px}
+  .tp-grid.home-grid .tp-card h3{font-size:14px}
+  .photos-space,.photos-style,.home .th-list{display:flex;overflow-x:auto;margin:0 -16px;padding:0 16px;scrollbar-width:none}
+  .home .th-item{flex:0 0 62%}
+  .photos-space li{flex:0 0 38%}
+  .photos-style li{flex:0 0 42%}
+  .hc-card{grid-template-columns:1fr}
+  .hc-photo{min-height:200px}
+}
