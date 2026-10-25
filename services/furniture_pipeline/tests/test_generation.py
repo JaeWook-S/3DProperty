@@ -1,4 +1,4 @@
-"""Trusted test-code export tests. No model downloads or GPT calls."""
+"""Material handoff and trusted Blender export tests; no GPU or GPT calls."""
 import contextlib
 from dataclasses import replace
 import hashlib
@@ -8,7 +8,9 @@ import os
 from pathlib import Path
 import shutil
 import struct
+import sys
 import tempfile
+import types
 import unittest
 from unittest.mock import patch
 
@@ -36,32 +38,49 @@ def fake_export(command, settings, timeout):
     Path(command[command.index('--report') + 1]).write_text(json.dumps({"blender_version": "test-only"}))
 
 
+def fake_material(settings, image, directory, record, index, dimensions, measurement, progress=lambda stage: None):
+    """Keep export tests independent of model inference and PNG statistics."""
+    prompt = "Measured furniture material prompt; create_model(dimensions)."
+    return {"image_path": str(image), "mask_path": str(Path(directory) / f"mask_{index:03d}.png"),
+        "maps": {name: str(Path(directory) / "supermat" / f"{name}.png") for name in ("albedo", "roughness", "metallic")},
+        "summary_path": str(Path(directory) / "material_summary.json"),
+        "prompt_path": str(Path(directory) / "blender_prompt.txt"), "prompt": prompt}
+
+
 class GenerationTests(unittest.TestCase):
+    def setUp(self):
+        self.enterContext(contextlib.redirect_stdout(io.StringIO()))
+        self.enterContext(patch.dict(os.environ, {'PIPELINE_CODE_PROVIDER': 'stub'}))
+
     def test_failed_null_or_invalid_dimensions_are_not_fabricated(self):
         self.assertEqual(dimensions_for(RECORD), {"width": .8, "depth": .6, "height": .75})
         for update in ({"status": "insufficient_geometry"}, {"width_m": None}, {"height_m": False}, {"depth_m": float('nan')}, {"width_m": 51}):
             self.assertIsNone(dimensions_for(RECORD | update))
 
-    def test_stub_receives_original_image_and_dimensions_and_writes_manifest(self):
+    def test_stub_receives_material_prompt_and_dimensions_and_exports_one_test_asset(self):
         with tempfile.TemporaryDirectory() as temporary:
             directory = Path(temporary) / JOB_ID
             directory.mkdir()
             image = directory / 'upload.png'
             image.write_bytes(image_bytes())
             settings = replace(settings_for(temporary), generate_3d=True, blender_executable=Path(shutil.which('true')))
-            output = io.StringIO()
-            with contextlib.redirect_stdout(output), patch('services.furniture_pipeline.pipeline.build_assets.run_worker', side_effect=fake_export) as worker:
-                result = build_assets(settings, image, directory, {"objects": [RECORD, RECORD | {"status": "insufficient_geometry"}]})
-            self.assertIn('이미지 + 치수 받았습니다. 나중엔 GPT API를 연결하세요', output.getvalue())
+            with patch('services.furniture_pipeline.pipeline.build_assets.prepare_material_prompt', side_effect=fake_material) as material, \
+                    patch('services.furniture_pipeline.pipeline.build_assets.run_worker', side_effect=fake_export) as worker:
+                result = build_assets(settings, image, directory, {"objects": [RECORD | {"status": "insufficient_geometry"}, RECORD, RECORD]})
             handoff = json.loads((directory / 'gpt_input.json').read_text())
             self.assertEqual(handoff['image_path'], str(image))
             self.assertEqual(handoff['image_sha256'], hashlib.sha256(image_bytes()).hexdigest())
+            self.assertEqual(len(handoff['objects']), 1)
+            self.assertEqual(handoff['objects'][0]['object_index'], 1)
             self.assertEqual(handoff['objects'][0]['dimensions_m']['height'], .75)
+            self.assertEqual(handoff['prompt'], 'Measured furniture material prompt; create_model(dimensions).')
+            self.assertEqual(material.call_count, 1)
             self.assertEqual(worker.call_count, 1)
             self.assertEqual(result['status'], 'completed')
+            self.assertEqual(len(result['assets']), 1)
             self.assertEqual(result['assets'][0]['revision'], 'stub-blender-v1')
-            self.assertTrue((directory / 'assets/000/generated_model.py').is_file())
-            self.assertEqual(result['assets'][0], json.loads((directory / 'assets/000/asset.json').read_text()))
+            self.assertTrue((directory / 'assets/001/generated_model.py').is_file())
+            self.assertEqual(result['assets'][0], json.loads((directory / 'assets/001/asset.json').read_text()))
 
     def test_no_detection_skips_blender_and_failed_exports_publish_no_assets(self):
         with tempfile.TemporaryDirectory() as temporary:
@@ -70,14 +89,43 @@ class GenerationTests(unittest.TestCase):
             image = directory / 'upload.png'
             image.write_bytes(image_bytes())
             settings = replace(settings_for(temporary), generate_3d=True, blender_executable=Path(shutil.which('true')))
-            with patch('services.furniture_pipeline.pipeline.build_assets.run_worker') as worker:
+            with patch('services.furniture_pipeline.pipeline.build_assets.prepare_material_prompt') as material, \
+                    patch('services.furniture_pipeline.pipeline.build_assets.run_worker') as worker:
                 self.assertEqual(build_assets(settings, image, directory, {"objects": []})['status'], 'skipped')
+                material.assert_not_called()
                 worker.assert_not_called()
-            with patch('services.furniture_pipeline.pipeline.build_assets.run_worker', side_effect=RuntimeError('export timeout')):
+            with patch('services.furniture_pipeline.pipeline.build_assets.prepare_material_prompt', side_effect=fake_material), \
+                    patch('services.furniture_pipeline.pipeline.build_assets.run_worker', side_effect=RuntimeError('export timeout')):
                 result = build_assets(settings, image, directory, {"objects": [RECORD]})
             self.assertEqual(result['status'], 'failed')
             self.assertEqual(result['assets'], [])
             self.assertFalse((directory / 'assets/000/asset.json').exists())
+
+    def test_external_provider_can_replace_stub_without_pipeline_changes(self):
+        provider = types.ModuleType('test_furniture_provider')
+        received = []
+        source = 'def create_model(dimensions):\n    return None\n'
+        def provide(handoff):
+            received.append(handoff)
+            return source
+        provider.provide = provide
+        with tempfile.TemporaryDirectory() as temporary:
+            directory = Path(temporary) / JOB_ID
+            directory.mkdir()
+            image = directory / 'upload.png'
+            image.write_bytes(image_bytes())
+            settings = replace(settings_for(temporary), generate_3d=True, blender_executable=Path(shutil.which('true')))
+            with patch.dict(sys.modules, {'test_furniture_provider': provider}), \
+                    patch.dict(os.environ, {'PIPELINE_CODE_PROVIDER': 'test_furniture_provider:provide'}), \
+                    patch('services.furniture_pipeline.pipeline.build_assets.prepare_material_prompt', side_effect=fake_material), \
+                    patch('services.furniture_pipeline.pipeline.build_assets.run_worker', side_effect=fake_export):
+                result = build_assets(settings, image, directory, {"objects": [RECORD]})
+            self.assertEqual(result['status'], 'completed')
+            self.assertEqual(len(received), 1)
+            self.assertEqual(received[0]['dimensions_m'], {"width": .8, "depth": .6, "height": .75})
+            self.assertIn('create_model(dimensions)', received[0]['prompt'])
+            self.assertEqual((directory / 'assets/000/generated_model.py').read_text(), source)
+            self.assertEqual(result['assets'][0]['generation_provider'], 'test_furniture_provider:provide')
 
     def test_bad_or_external_resource_glb_is_rejected(self):
         with tempfile.TemporaryDirectory() as temporary:
@@ -99,11 +147,32 @@ class GenerationTests(unittest.TestCase):
                 self.assertEqual(job['result']['generation']['status'], 'failed')
                 self.assertEqual(client.get('/api/furniture/assets').json()['assets'], [])
 
+    def test_api_preserves_dimensions_and_releases_slot_when_supermat_fails(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            settings = replace(settings_for(temporary), generate_3d=True)
+            def runner(*args, **kwargs): return {"outcome": "measured", "objects": [RECORD]}
+            with patch('services.furniture_pipeline.pipeline.build_assets.prepare_material_prompt', side_effect=RuntimeError('SuperMat unavailable')), \
+                    patch('services.furniture_pipeline.pipeline.build_assets.run_worker') as blender, \
+                    TestClient(create_app(settings, runner)) as client, self.assertLogs('uvicorn.error', level='ERROR'):
+                for _ in range(2):
+                    response = client.post('/api/furniture/measure', files={'image': ('chair.png', image_bytes(), 'image/png')})
+                    self.assertEqual(response.status_code, 202)
+                    job = client.get(response.json()['status_url']).json()
+                    self.assertEqual(job['status'], 'completed')
+                    self.assertEqual(job['result']['objects'][0]['width_m'], .8)
+                    self.assertEqual(job['result']['generation']['status'], 'failed')
+                    self.assertIn('SuperMat unavailable', job['result']['generation']['message'])
+                    self.assertFalse(client.get('/health').json()['busy'])
+                blender.assert_not_called()
+                self.assertEqual(client.get('/api/furniture/assets').json()['assets'], [])
+
     def test_api_serves_only_published_glb_and_manifest_and_survives_restart(self):
         with tempfile.TemporaryDirectory() as temporary:
             settings = replace(settings_for(temporary), generate_3d=True, blender_executable=Path(shutil.which('true')))
             def runner(*args, **kwargs): return {"outcome": "measured", "objects": [RECORD]}
-            with patch('services.furniture_pipeline.pipeline.build_assets.run_worker', side_effect=fake_export), TestClient(create_app(settings, runner)) as client:
+            with patch('services.furniture_pipeline.pipeline.build_assets.prepare_material_prompt', side_effect=fake_material), \
+                    patch('services.furniture_pipeline.pipeline.build_assets.run_worker', side_effect=fake_export), \
+                    TestClient(create_app(settings, runner)) as client:
                 accepted = client.post('/api/furniture/measure', files={'image': ('chair.png', image_bytes(), 'image/png')}).json()
                 assets = client.get('/api/furniture/assets').json()['assets']
                 self.assertEqual(len(assets), 1)
@@ -125,7 +194,8 @@ class GenerationTests(unittest.TestCase):
             image = directory / 'upload.png'
             Image.new('RGB', (40, 32), 'white').save(image)
             settings = replace(settings_for(temporary), generate_3d=True, blender_executable=Path(executable))
-            result = build_assets(settings, image, directory, {"objects": [RECORD]})
+            with patch('services.furniture_pipeline.pipeline.build_assets.prepare_material_prompt', side_effect=fake_material):
+                result = build_assets(settings, image, directory, {"objects": [RECORD]})
             self.assertEqual(result['status'], 'completed', result)
             report = result['assets'][0]['export']
             self.assertEqual(report['mesh_count'], 5)

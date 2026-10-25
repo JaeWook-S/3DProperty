@@ -1,0 +1,446 @@
+첨부한 원본 가구 사진과 아래 재질 추정 자료를 참고해 Blender Python 코드를 작성해 줘.
+
+[가구 치수]
+아래 dimensions_cm에 값이 없으면, 내가 함께 제공하는 MoGe3 추정 너비·높이·깊이를 사용해.
+치수를 아직 제공하지 않았다면 임의의 실측값을 만들지 말고 코드 상단 변수로 남겨 줘.
+MoGe3 추정 수치 : 너비 1.05m, 높이 0.75m, 깊이 0.5m
+
+[자료 해석]
+- SuperMat의 albedo, roughness, metallic PNG를 Python으로 요약한 통계야.
+- roughness와 metallic은 0~1 범위의 예측값이야. 검증된 실측값은 아니야.
+- region_hint는 호출자가 붙인 위치 힌트이며 SuperMat이 판별한 재질명이 아니야.
+- 좌표는 원본 사진의 왼쪽 위가 (0,0), 오른쪽 아래가 (1,1)이야. 입력과 맵이 같은 구도로 정렬되었다고 가정해.
+- 사진을 보고 해당 영역이 어느 부품인지 연결해. 배경이 섞이거나 여러 재질이 섞인 영역은 가구의 대표값으로 쓰지 마.
+- 격자는 통계 추출용이야. 격자마다 별도 재질을 만들거나 사진을 격자처럼 입히지 마.
+- albedo_rgb_8bit_median은 PNG 색상값이야. 선형 RGB로 검증되지 않았어. sRGB를 가정한다면 그 가정을 주석으로 밝히고, 셰이더 입력에 맞게 색공간을 변환해.
+
+[모델링과 재질 구현]
+- 원본 사진의 부품 구성·비율·윤곽·모서리·쿠션 곡률·봉제선을 관찰해서 재현해.
+- 부품별 Principled BSDF의 Base Color, Roughness, Metallic에 위 통계를 참고해 적용해.
+- 천·목재·가죽 등의 재질 종류와 무늬는 원본 사진에서 판단해. 통계만으로 재질 종류가 확정된다고 가정하지 마.
+- 원본에서 보이는 표면의 미세한 무늬와 방향성을 실제 셰이더 노드로 구현해. 필요하면 물리적 크기를 고려한 약한 Bump를 사용해.
+- 무늬·요철·Sheen 같은 추가 설정은 원본을 참고한 추정임을 주석에 밝혀. 아래 자료에 normal/height/UV 또는 보이지 않는 뒷면 정보가 있다고 가정하지 마.
+- 사진 전체를 가구 표면에 그대로 투영해서 원본의 조명과 그림자를 재질에 굳히지 마.
+- 재질을 평가하기 쉽도록 중립적인 조명과 카메라도 설정해.
+- 실행 가능한 전체 Blender Python 코드와 사용한 가정을 제공해.
+
+[재질 추정 자료 JSON]
+{
+  "source": "SuperMat exported PNG statistics; predictions, not measurements",
+  "map_size_px": [
+    512,
+    512
+  ],
+  "dimensions_cm": {
+    "width": null,
+    "height": null,
+    "depth": null
+  },
+  "coordinates": "normalized original image frame; origin top-left; x right, y down",
+  "selection": "uniform_grid",
+  "foreground_mask_sources": [],
+  "background_warning": "No foreground mask. Background pixels are included wherever a region overlaps them.",
+  "color_encoding": "raw exported 8-bit PNG RGB; linear/sRGB encoding not verified",
+  "regions": [
+    {
+      "region_hint": "row_1_col_1",
+      "xyxy_normalized": [
+        0.0,
+        0.0,
+        0.25,
+        0.25
+      ],
+      "selected_pixels": 16384,
+      "albedo_rgb_8bit_median": [
+        197,
+        196,
+        197
+      ],
+      "roughness": {
+        "p10": 0.424,
+        "median": 0.565,
+        "p90": 0.584
+      },
+      "metallic": {
+        "p10": 0.02,
+        "median": 0.576,
+        "p90": 0.604
+      }
+    },
+    {
+      "region_hint": "row_1_col_2",
+      "xyxy_normalized": [
+        0.25,
+        0.0,
+        0.5,
+        0.25
+      ],
+      "selected_pixels": 16384,
+      "albedo_rgb_8bit_median": [
+        51,
+        48,
+        47
+      ],
+      "roughness": {
+        "p10": 0.431,
+        "median": 0.439,
+        "p90": 0.58
+      },
+      "metallic": {
+        "p10": 0.02,
+        "median": 0.027,
+        "p90": 0.592
+      }
+    },
+    {
+      "region_hint": "row_1_col_3",
+      "xyxy_normalized": [
+        0.5,
+        0.0,
+        0.75,
+        0.25
+      ],
+      "selected_pixels": 16384,
+      "albedo_rgb_8bit_median": [
+        195,
+        194,
+        195
+      ],
+      "roughness": {
+        "p10": 0.431,
+        "median": 0.561,
+        "p90": 0.58
+      },
+      "metallic": {
+        "p10": 0.02,
+        "median": 0.576,
+        "p90": 0.592
+      }
+    },
+    {
+      "region_hint": "row_1_col_4",
+      "xyxy_normalized": [
+        0.75,
+        0.0,
+        1.0,
+        0.25
+      ],
+      "selected_pixels": 16384,
+      "albedo_rgb_8bit_median": [
+        197,
+        197,
+        198
+      ],
+      "roughness": {
+        "p10": 0.435,
+        "median": 0.573,
+        "p90": 0.58
+      },
+      "metallic": {
+        "p10": 0.024,
+        "median": 0.584,
+        "p90": 0.592
+      }
+    },
+    {
+      "region_hint": "row_2_col_1",
+      "xyxy_normalized": [
+        0.0,
+        0.25,
+        0.25,
+        0.5
+      ],
+      "selected_pixels": 16384,
+      "albedo_rgb_8bit_median": [
+        50,
+        47,
+        45
+      ],
+      "roughness": {
+        "p10": 0.427,
+        "median": 0.431,
+        "p90": 0.447
+      },
+      "metallic": {
+        "p10": 0.016,
+        "median": 0.024,
+        "p90": 0.055
+      }
+    },
+    {
+      "region_hint": "row_2_col_2",
+      "xyxy_normalized": [
+        0.25,
+        0.25,
+        0.5,
+        0.5
+      ],
+      "selected_pixels": 16384,
+      "albedo_rgb_8bit_median": [
+        46,
+        43,
+        42
+      ],
+      "roughness": {
+        "p10": 0.424,
+        "median": 0.431,
+        "p90": 0.573
+      },
+      "metallic": {
+        "p10": 0.02,
+        "median": 0.024,
+        "p90": 0.596
+      }
+    },
+    {
+      "region_hint": "row_2_col_3",
+      "xyxy_normalized": [
+        0.5,
+        0.25,
+        0.75,
+        0.5
+      ],
+      "selected_pixels": 16384,
+      "albedo_rgb_8bit_median": [
+        199,
+        198,
+        199
+      ],
+      "roughness": {
+        "p10": 0.439,
+        "median": 0.58,
+        "p90": 0.584
+      },
+      "metallic": {
+        "p10": 0.02,
+        "median": 0.592,
+        "p90": 0.596
+      }
+    },
+    {
+      "region_hint": "row_2_col_4",
+      "xyxy_normalized": [
+        0.75,
+        0.25,
+        1.0,
+        0.5
+      ],
+      "selected_pixels": 16384,
+      "albedo_rgb_8bit_median": [
+        50,
+        47,
+        46
+      ],
+      "roughness": {
+        "p10": 0.439,
+        "median": 0.455,
+        "p90": 0.576
+      },
+      "metallic": {
+        "p10": 0.024,
+        "median": 0.053,
+        "p90": 0.592
+      }
+    },
+    {
+      "region_hint": "row_3_col_1",
+      "xyxy_normalized": [
+        0.0,
+        0.5,
+        0.25,
+        0.75
+      ],
+      "selected_pixels": 16384,
+      "albedo_rgb_8bit_median": [
+        48,
+        45,
+        44
+      ],
+      "roughness": {
+        "p10": 0.427,
+        "median": 0.431,
+        "p90": 0.439
+      },
+      "metallic": {
+        "p10": 0.016,
+        "median": 0.02,
+        "p90": 0.031
+      }
+    },
+    {
+      "region_hint": "row_3_col_2",
+      "xyxy_normalized": [
+        0.25,
+        0.5,
+        0.5,
+        0.75
+      ],
+      "selected_pixels": 16384,
+      "albedo_rgb_8bit_median": [
+        46,
+        44,
+        42
+      ],
+      "roughness": {
+        "p10": 0.424,
+        "median": 0.431,
+        "p90": 0.58
+      },
+      "metallic": {
+        "p10": 0.016,
+        "median": 0.024,
+        "p90": 0.596
+      }
+    },
+    {
+      "region_hint": "row_3_col_3",
+      "xyxy_normalized": [
+        0.5,
+        0.5,
+        0.75,
+        0.75
+      ],
+      "selected_pixels": 16384,
+      "albedo_rgb_8bit_median": [
+        199,
+        198,
+        199
+      ],
+      "roughness": {
+        "p10": 0.584,
+        "median": 0.584,
+        "p90": 0.584
+      },
+      "metallic": {
+        "p10": 0.592,
+        "median": 0.592,
+        "p90": 0.592
+      }
+    },
+    {
+      "region_hint": "row_3_col_4",
+      "xyxy_normalized": [
+        0.75,
+        0.5,
+        1.0,
+        0.75
+      ],
+      "selected_pixels": 16384,
+      "albedo_rgb_8bit_median": [
+        199,
+        198,
+        199
+      ],
+      "roughness": {
+        "p10": 0.443,
+        "median": 0.569,
+        "p90": 0.58
+      },
+      "metallic": {
+        "p10": 0.031,
+        "median": 0.588,
+        "p90": 0.596
+      }
+    },
+    {
+      "region_hint": "row_4_col_1",
+      "xyxy_normalized": [
+        0.0,
+        0.75,
+        0.25,
+        1.0
+      ],
+      "selected_pixels": 16384,
+      "albedo_rgb_8bit_median": [
+        200,
+        199,
+        200
+      ],
+      "roughness": {
+        "p10": 0.443,
+        "median": 0.584,
+        "p90": 0.592
+      },
+      "metallic": {
+        "p10": 0.02,
+        "median": 0.592,
+        "p90": 0.612
+      }
+    },
+    {
+      "region_hint": "row_4_col_2",
+      "xyxy_normalized": [
+        0.25,
+        0.75,
+        0.5,
+        1.0
+      ],
+      "selected_pixels": 16384,
+      "albedo_rgb_8bit_median": [
+        199,
+        198,
+        199
+      ],
+      "roughness": {
+        "p10": 0.561,
+        "median": 0.584,
+        "p90": 0.588
+      },
+      "metallic": {
+        "p10": 0.588,
+        "median": 0.592,
+        "p90": 0.596
+      }
+    },
+    {
+      "region_hint": "row_4_col_3",
+      "xyxy_normalized": [
+        0.5,
+        0.75,
+        0.75,
+        1.0
+      ],
+      "selected_pixels": 16384,
+      "albedo_rgb_8bit_median": [
+        199,
+        198,
+        199
+      ],
+      "roughness": {
+        "p10": 0.584,
+        "median": 0.584,
+        "p90": 0.588
+      },
+      "metallic": {
+        "p10": 0.592,
+        "median": 0.592,
+        "p90": 0.592
+      }
+    },
+    {
+      "region_hint": "row_4_col_4",
+      "xyxy_normalized": [
+        0.75,
+        0.75,
+        1.0,
+        1.0
+      ],
+      "selected_pixels": 16384,
+      "albedo_rgb_8bit_median": [
+        199,
+        198,
+        200
+      ],
+      "roughness": {
+        "p10": 0.451,
+        "median": 0.58,
+        "p90": 0.588
+      },
+      "metallic": {
+        "p10": 0.035,
+        "median": 0.592,
+        "p90": 0.596
+      }
+    }
+  ]
+}

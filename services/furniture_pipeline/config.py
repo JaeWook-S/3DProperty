@@ -77,6 +77,11 @@ class Settings:
     generate_3d: bool = True
     blender_executable: Path = PROJECT_ROOT / ".tooling/blender/blender"
     blender_timeout: int = 120
+    supermat_python: Path = PROJECT_ROOT / ".envs/furniture-supermat/bin/python"
+    supermat_checkpoint: Path = PROJECT_ROOT / "SuperMat/checkpoints/supermat.pth"
+    supermat_base_model: str = "sd2-community/stable-diffusion-2-1"
+    supermat_device: str = "cuda"
+    supermat_image_size: int = 512
 
     @classmethod
     def from_env(cls):
@@ -85,6 +90,12 @@ class Settings:
         moge = os.getenv("PIPELINE_MOGE_CHECKPOINT", "Ruicheng/moge-3-vitl")
         if moge.endswith(".pt"):
             moge = str(project_path(moge))
+        supermat_base_model = os.getenv("PIPELINE_SUPERMAT_BASE_MODEL", "sd2-community/stable-diffusion-2-1").strip()
+        if supermat_base_model and (
+            supermat_base_model.startswith(("/", "~", "./", "../"))
+            or (PROJECT_ROOT / supermat_base_model).is_dir()
+        ):
+            supermat_base_model = str(project_path(supermat_base_model))
         settings = cls(
             runtime_dir=project_path(os.getenv("PIPELINE_RUNTIME_DIR", "runtime/furniture")),
             hf_home=project_path(os.getenv("PIPELINE_HF_HOME", "runtime/model-cache")),
@@ -99,11 +110,22 @@ class Settings:
             blender_executable=project_path(os.getenv("PIPELINE_BLENDER_EXECUTABLE") or shutil.which("blender") or
                 ("/Applications/Blender.app/Contents/MacOS/Blender" if Path("/Applications/Blender.app/Contents/MacOS/Blender").is_file() else ".tooling/blender/blender")),
             blender_timeout=int(os.getenv("PIPELINE_BLENDER_TIMEOUT", "120")),
+            supermat_python=project_path(os.getenv("PIPELINE_SUPERMAT_PYTHON", ".envs/furniture-supermat/bin/python")),
+            supermat_checkpoint=project_path(os.getenv("PIPELINE_SUPERMAT_CHECKPOINT", "SuperMat/checkpoints/supermat.pth")),
+            supermat_base_model=supermat_base_model,
+            supermat_device=os.getenv("PIPELINE_SUPERMAT_DEVICE", "cuda").strip(),
+            supermat_image_size=int(os.getenv("PIPELINE_SUPERMAT_IMAGE_SIZE", "512")),
         )
         if settings.worker_timeout <= 0:
             raise ValueError("PIPELINE_WORKER_TIMEOUT must be positive")
         if settings.blender_timeout <= 0:
             raise ValueError("PIPELINE_BLENDER_TIMEOUT must be positive")
+        if not settings.supermat_base_model:
+            raise ValueError("PIPELINE_SUPERMAT_BASE_MODEL must not be empty")
+        if not settings.supermat_device:
+            raise ValueError("PIPELINE_SUPERMAT_DEVICE must not be empty")
+        if not 64 <= settings.supermat_image_size <= 2048 or settings.supermat_image_size % 8:
+            raise ValueError("PIPELINE_SUPERMAT_IMAGE_SIZE must be a multiple of 8 between 64 and 2048")
         load_options(settings.settings_file)
         return settings
 

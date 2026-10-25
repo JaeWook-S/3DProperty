@@ -91,7 +91,9 @@ def create_app(settings=None, runner=None, asset_builder=None):
                     result["generation"] = asset_builder(settings, image, directory, result, progress=progress)
                 except Exception as error:
                     LOG.exception("[generation %s] failed; measurement preserved", job["job_id"])
-                    result["generation"] = {"status": "failed", "provider": "stub-no-api", "assets": [], "errors": [], "message": str(error)}
+                    provider = os.getenv("PIPELINE_CODE_PROVIDER", "stub").strip()
+                    result["generation"] = {"status": "failed", "provider": "stub-no-api" if provider == "stub" else provider,
+                        "assets": [], "errors": [], "message": str(error)}
             (directory / "result.json").write_text(json.dumps(result, ensure_ascii=False, indent=2, allow_nan=False), encoding="utf-8")
             job.update(status="completed", stage="completed", result=result)
         except Exception as error:

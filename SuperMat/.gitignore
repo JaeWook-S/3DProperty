@@ -1,0 +1,3 @@
+# Local model weights are copied with the package, transferred separately from Git.
+checkpoints/*.pth
+checkpoints/*.ckpt
