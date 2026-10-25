@@ -1,12 +1,14 @@
 # 이미지 → 측정·SuperMat → 프롬프트 → Blender → 웹
 
-모든 명령은 **`3DProperty` 루트**에서 실행합니다. SAM3+MoGe-3의 **깊이·높이·너비**와 SuperMat의 **재질 프롬프트**를 자동으로 준비하고, GPT API 호출 대신 측정 치수로 **고정 테스트 테이블 1개**를 생성합니다. 사진을 재현한 모델은 아닙니다. 측정에 성공한 첫 가구를 사용하며, 다른 가구의 측정 결과도 그대로 보존합니다.
+모든 명령은 **`3DProperty` 루트**에서 실행합니다. SAM3+MoGe-3의 **깊이·높이·너비**와 SuperMat의 **재질 프롬프트**를 준비하고, 선택한 코드 생성기를 통해 가구 1개를 Blender에서 생성합니다. 측정에 성공한 첫 가구를 사용하며, 다른 가구의 측정 결과도 그대로 보존합니다.
+
+**`feat/gpt-astra-furniture` 브랜치는 GPT-6 Astra / `xhigh` 연결을 제공합니다.** 기존 서버의 API SDK 설치와 `.env` 전환 절차는 [GPT API 가이드](GPT_API.md)를 따릅니다. 아래의 고정 테스트 테이블 설명은 `PIPELINE_CODE_PROVIDER=stub` 모드에 해당합니다.
 
 기존 `start.sh`, 서버 `start_api.sh`, SSH 터널 및 웹 코드는 수정하지 않았습니다. 새 SuperMat 환경만 최초 1회 설치합니다.
 
 ## 1. GPU 서버
 
-**이미 측정이 되는 서버:** Mac 변경사항을 커밋·푸시한 뒤, 서버의 같은 `feat/image-to-3d-automation` 브랜치에서 반영합니다. 측정 중이 아닐 때 기존 API를 `Ctrl+C`로 종료합니다.
+**이미 측정이 되는 서버:** Mac 변경사항을 커밋·푸시한 뒤, 서버의 같은 작업 브랜치에서 반영합니다. 측정 중이 아닐 때 기존 API를 `Ctrl+C`로 종료합니다. GPT 브랜치에서는 위의 GPT API 가이드에 따라 API 의존성과 `.env`도 갱신합니다.
 
 ```bash
 git pull --ff-only
@@ -79,11 +81,11 @@ bash start.sh
 
 [기존 웹 열기](http://127.0.0.1:5185/) → **내 가구 확인 → 가구 등록**에서 이미지를 선택합니다. 기존 JSON 파일 확인 기능도 그대로 사용할 수 있습니다.
 
-자동으로 **SAM3 → MoGe-3 → 후처리 → SuperMat → 치수·재질 프롬프트 → 테스트 코드 생성기 → Blender → GLB**를 실행합니다. 각 모델은 별도 프로세스로 순서대로 실행합니다. SuperMat 입력은 측정 단계의 EXIF 정렬·리사이즈가 끝난 `input_rgb.png`에 해당 가구의 SAM3 마스크를 알파로 적용한 RGBA 이미지입니다. 같은 좌표계의 알파 마스크로 재질 통계를 추출하므로 배경을 제외합니다.
+자동으로 **SAM3 → MoGe-3 → 후처리 → SuperMat → 치수·재질 프롬프트 → 선택한 코드 생성기(GPT 또는 stub) → Blender → GLB**를 실행합니다. 각 로컬 모델은 별도 프로세스로 순서대로 실행합니다. SuperMat 입력은 측정 단계의 EXIF 정렬·리사이즈가 끝난 `input_rgb.png`에 해당 가구의 SAM3 마스크를 알파로 적용한 RGBA 이미지입니다. 같은 좌표계의 알파 마스크로 재질 통계를 추출하므로 배경을 제외합니다.
 
 서버 터미널에 미터 단위 치수, SuperMat 단계 및 생성된 `prompt.txt` 경로가 출력됩니다. 프롬프트는 패키지 내부 `SuperMat/supermat_to_prompt.py`의 요약·생성 함수를 사용하며, 미터 치수를 센티미터로 변환해 재질 JSON에 채우고 Blender 실행 규약을 추가합니다.
 
-웹에 치수·테스트 테이블 미리보기·GLB/JSON 다운로드가 나타납니다. **3D 공간에서 배치**를 누르면 Studio에서 이동·회전·삭제·브라우저 저장/복원이 가능합니다. Studio의 꾸미기에서 직접 가구를 등록해도 측정 후 현재 방에 배치합니다.
+웹에 치수·생성 가구 미리보기·GLB/JSON 다운로드가 나타납니다. stub 모드에서는 고정 테스트 테이블을 생성합니다. **3D 공간에서 배치**를 누르면 Studio에서 이동·회전·삭제·브라우저 저장/복원이 가능합니다. Studio의 꾸미기에서 직접 가구를 등록해도 측정 후 현재 방에 배치합니다.
 
 파일은 서버의 `runtime/furniture/<job-id>/`에 저장합니다.
 
@@ -92,27 +94,28 @@ bash start.sh
 - `supermat/000/maps/foreground/`: `albedo.png`, `roughness.png`, `metallic.png`
 - `supermat/000/material_summary.json`: 배경을 제외한 재질 통계와 `dimensions_cm`
 - `supermat/000/prompt.txt`: 치수·재질 자료와 Blender 함수·좌표 규약을 합친 자동 프롬프트
-- `gpt_input.json`: 원본 이미지 경로·해시, 정렬된 참조 이미지, `dimensions_m`, 프롬프트·재질 파일 경로 및 코드 생성 규약; GPT 호출 없음
+- `gpt_input.json`: 원본 이미지 경로·해시, 정렬된 참조 이미지, `dimensions_m`, 프롬프트·재질 파일 경로 및 코드 생성 규약
+- `gpt_response.json`, `gpt_output.py`: GPT 모드의 응답 정보와 검증된 코드. 세부 내용은 GPT API 가이드 참고
 - `assets/000/`: `generated_model.py`, `generation_input.json`, `model.glb`, `asset.json`, `export_report.json`
 - `result.json`: 측정 결과와 `generation` 상태
 
 `000`은 선택된 가구의 원래 측정 인덱스입니다. 앞 가구의 측정에 실패했다면 `001` 등으로 저장됩니다. SuperMat 또는 Blender 실패 시에도 측정 결과는 남고 `generation.status=failed`와 오류가 반환됩니다. 측정 치수가 없는 가구는 모델을 만들지 않습니다. 서버 디스크가 사라지면 GLB도 사라지므로 저장한 배치의 생성 가구를 다시 불러오려면 원래 서버 파일과 API가 필요합니다.
 
-## 향후 GPT API 연결 경계
+## 코드 생성기 선택
 
-`pipeline/code_provider.py`만 코드 생성기를 선택합니다. 기본 `.env` 설정은 다음과 같으며, 현재 네트워크/API 호출은 없습니다.
+`pipeline/code_provider.py`가 코드 생성기를 선택합니다. 기존 임의 테이블 테스트 모드는 다음 설정이며, 이 모드에서는 GPT API를 호출하지 않습니다.
 
 ```dotenv
 PIPELINE_CODE_PROVIDER=stub
 ```
 
-향후 API 어댑터 모듈을 추가한 뒤 다음처럼 설정합니다. 예시 모듈은 아직 구현하지 않았습니다.
+구현된 GPT API 어댑터는 다음 설정으로 선택합니다. 이 브랜치의 `.env.example`은 이 모드를 기본으로 안내하며, 서버 API 키 설정이 필요합니다.
 
 ```dotenv
 PIPELINE_CODE_PROVIDER=services.furniture_pipeline.pipeline.gpt_provider:generate
 ```
 
-어댑터의 계약은 `generate(handoff: dict) -> str`입니다. `handoff`는 저장된 `gpt_input.json`과 같은 데이터이며, `prompt`, `dimensions_m`, `reference_image_path`와 원본 `image_path`를 제공합니다. 어댑터는 이미지 파일을 API가 요구하는 형식으로 전달하고, 응답에서 **Blender Python 소스 문자열**을 반환하면 됩니다. API 키 처리도 이 어댑터에서 담당합니다. 설정이 어댑터를 가리키면 임의 테이블 템플릿을 읽지 않습니다. 측정·SuperMat·Blender 실행·웹 코드는 수정할 필요가 없습니다.
+어댑터의 계약은 `generate(handoff: dict) -> str`입니다. `handoff`는 저장된 `gpt_input.json`과 같은 데이터이며, `prompt`, `dimensions_m`, `reference_image_path`와 원본 `image_path`를 제공합니다. `pipeline/gpt_provider.py`가 이미지와 프롬프트를 OpenAI Responses API로 전달하고 **Blender Python 소스 문자열**을 반환합니다. 설정이 어댑터를 가리키면 임의 테이블 템플릿을 읽지 않습니다. 측정·SuperMat·Blender 실행·웹 코드는 그대로 사용합니다. 설정·필요 권한·응답 파일·오류 처리는 [GPT API 가이드](GPT_API.md)를 참고합니다.
 
 반환 코드는 `def create_model(dimensions):`를 정의해야 합니다. 치수는 미터 단위 `width/depth/height`이며 Blender X/Y/Z에 대응하고, 바닥 중앙이 원점이어야 합니다. 초기화·함수 호출·GLB 내보내기는 기존 `blender_runner.py`가 담당합니다. 이 규약은 자동 프롬프트와 `gpt_input.json`의 `code_contract`에 포함되며, 코드 구문·함수 형식과 실제 내보낸 치수도 검증합니다. 현재 테스트로 외부 생성기로 교체했을 때 임의 코드 대신 반환 코드가 사용되는 것을 확인합니다.
 
