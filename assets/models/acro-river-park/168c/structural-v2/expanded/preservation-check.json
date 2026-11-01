@@ -1,0 +1,39 @@
+{
+  "passed": true,
+  "preserved_revisions": [
+    "structural-v0",
+    "structural-v1"
+  ],
+  "unchanged_file_count": 29,
+  "sha256_before": {
+    "assets/models/acro-river-park/168c/structural-v0/expanded/dimension-checks.csv": "25a5f474eacd5d0163abffa0bcac20a9b7f92976df94060343990b681007eb48",
+    "assets/models/acro-river-park/168c/structural-v0/expanded/room-dimensions.csv": "595a7a5d3489765133d1dc951d61212634d6b5beda950cdf1e20d31d31e44a0f",
+    "assets/models/acro-river-park/168c/structural-v0/expanded/rooms.json": "d262b60f81f8f446903c0b9087cf2b8e9aac7ba5e2e3497d84ed7835f0b8635c",
+    "assets/models/acro-river-park/168c/structural-v0/expanded/openings.json": "2af57806440f12b5467824626a0900e275a6f8fca69c40d2d4ef5541327b2380",
+    "assets/models/acro-river-park/168c/structural-v0/expanded/assumptions.json": "459ad8e22b669fc34bcd2226a7c2dc009abcee2b7be4bb2a68a44d51adc88ee7",
+    "assets/models/acro-river-park/168c/structural-v0/expanded/geometry-checks.json": "550c5be932bd5d63605d70c95d8f5e5b6a06ed66c09b1824f52f8829f55e54e5",
+    "assets/models/acro-river-park/168c/structural-v0/expanded/acro168c-expanded-structure.glb": "ef210842060faedd9dab969c0d6ecc40f1eaf2b160638a93b66b62f97b7cf3c9",
+    "assets/models/acro-river-park/168c/structural-v0/expanded/acro168c-expanded-structure.blend": "e67d0ee3988a40918b760905c0f60998c9d182c1b7ce6b4bd6923ee8f97d5397",
+    "assets/models/acro-river-park/168c/structural-v0/expanded/top-view.png": "14bd6c0e79ed2671178e6c698f310483ba35d6efadffd7f06821c578ebfc75c2",
+    "assets/models/acro-river-park/168c/structural-v0/expanded/isometric.png": "fc89f3c060b84a05bbabbaa8bd925aab225bc266f519d5bc57e862f648b0e64a",
+    "assets/models/acro-river-park/168c/structural-v0/expanded/model-info.json": "2f430b799360719793adb020fcb9925c0e63fad4492801fb6920edfca85ad679",
+    "assets/models/acro-river-park/168c/structural-v0/expanded/review-geometry.json": "bfd92961205871b7ce634a7bead54c0ae5ddd2d72a9645adc7d6d059a1225d60",
+    "assets/models/acro-river-park/168c/structural-v0/expanded/verification.json": "5d448d251bfd57b45a4bf55461eebdfb9cda97d9cc8f2fcc6f14fc72bf0cd1e3",
+    "assets/models/acro-river-park/168c/structural-v0/expanded/floorplan-review.svg": "cece5be38bfb82c0df2cc50365a52584264e2fc607d77d032b23fb2ac197734f",
+    "assets/models/acro-river-park/168c/structural-v1/expanded/dimension-checks.csv": "25a5f474eacd5d0163abffa0bcac20a9b7f92976df94060343990b681007eb48",
+    "assets/models/acro-river-park/168c/structural-v1/expanded/room-dimensions.csv": "2da13bb7a198f35719f57fc4e8f8234ec6c0c070701d99cb8ec37c22cdee7880",
+    "assets/models/acro-river-park/168c/structural-v1/expanded/excluded-zones.json": "6c1caf8c8435f945ca5693edb5dbd4ffec0a658d72f1709c8ff76adcc2f3140d",
+    "assets/models/acro-river-park/168c/structural-v1/expanded/fixtures.json": "9ed442e3e5d0291f4d08215e2cd9ab6f68654a36fb29ed0ef3893b5caa0646b0",
+    "assets/models/acro-river-park/168c/structural-v1/expanded/rooms.json": "0e91b3b25bbf386949b8c33ee79ab9b8006ae666e6612f73cbd484c9bde7b135",
+    "assets/models/acro-river-park/168c/structural-v1/expanded/openings.json": "4d5f12e10130bad58ab2031c61066f658ea7dae5b251e8dca52e9ec92408888d",
+    "assets/models/acro-river-park/168c/structural-v1/expanded/assumptions.json": "bde09cf00cf60e0d2be097c335ca28251baa0e9ecfc66a17a471e73b9067d15a",
+    "assets/models/acro-river-park/168c/structural-v1/expanded/geometry-checks.json": "4ffedc9f122ecae5d75ec9ba2479300ba18cbdb22b68459b2a02b445ca30aa83",
+    "assets/models/acro-river-park/168c/structural-v1/expanded/acro168c-expanded-structure.glb": "0e9af48328e3cfec3fdbb1f5288dbd8b4dbd9daebe6736f5d5f6307b1c210e02",
+    "assets/models/acro-river-park/168c/structural-v1/expanded/acro168c-expanded-structure.blend": "2904ddb49cd71ab920f0dae9e891b44f312ac1f399a2242415926c5bb61999f9",
+    "assets/models/acro-river-park/168c/structural-v1/expanded/top-view.png": "2b8276a3ee6e3d301bd7bac0c25d2dfa9506b3fc963f9c4ffe28998ddd8822ea",
+    "assets/models/acro-river-park/168c/structural-v1/expanded/isometric.png": "adfa6012c38c85491c9502670703b9d37e5fc5d1da219d72e2f67cf715e70b97",
+    "assets/models/acro-river-park/168c/structural-v1/expanded/model-info.json": "cf3ce8d00f70407945820293a1a5afd217d50ddb3a737a8d17975a77a711131a",
+    "assets/models/acro-river-park/168c/structural-v1/expanded/review-geometry.json": "910f134aabcbed4503f7aa260d082e1dae0257d9a9ce01926ca1413f8301d832",
+    "assets/models/acro-river-park/168c/structural-v1/expanded/verification.json": "1ec00832f839abc55fcd3d1414e14276c6755d717712b6f1860050d91a6304c5"
+  }
+}

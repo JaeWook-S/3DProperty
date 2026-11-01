@@ -1,0 +1,23 @@
+{
+  "updated_at": "2026-10-25T13:53:43.242821+00:00",
+  "status": "S1 integration complete and verified",
+  "coordination": "Earlier S3 implementation request was superseded by queue 01a17349-66c7-7c80-aba7-a8ca258c0cd7; no concurrent S3 edits requested. S1 now owns integration, S3 follow-up read-only review only.",
+  "files": [
+    "src/property/unit-catalog.js",
+    "src/property/unit-layout-state.js",
+    "src/property/service-selection.js",
+    "src/walkthrough/main.js",
+    "src/walkthrough/studio.js",
+    "src/concepts/concept-panel.js",
+    "src/walkthrough/site-tour.js",
+    "src/walkthrough/site-tour.css",
+    "apps/web/src/map-service.js",
+    "apps/web/src/map-service.css",
+    "apps/web/src/viewer-url.js"
+  ],
+  "source": "user-provided CSV, canonical normalized release2026-10-25-unit-catalog-v1",
+  "actual_expansion": "unknown",
+  "model_replication": 0,
+  "public_deployment": false,
+  "final_handoff": "/home/nas5/kinamkim/Repos/geonwoo/3DProperty/docs/service-readiness/2026-10-25/unit-selection-ready.json"
+}

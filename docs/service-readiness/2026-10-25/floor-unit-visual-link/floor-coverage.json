@@ -1,0 +1,183 @@
+{
+  "checkedAt": "2026-10-25T15:43:18.830303+00:00",
+  "source": "/home/nas5/kinamkim/Repos/geonwoo/3DProperty/src/property/acro-unit-catalog.json",
+  "sha256": "ea625416ba0dfeaf094440d662b33f2ed610a35d43e4923e9f6b8a4243fc2c68",
+  "registeredBuildingFloors": 399,
+  "floorsWithSupportedModels": 133,
+  "fullyModelSupportedFloors": 0,
+  "examples": [
+    {
+      "building": "105",
+      "floor": 3,
+      "units": [
+        {
+          "unit": "301",
+          "line": 1,
+          "type": "112.83B",
+          "modelType": null
+        },
+        {
+          "unit": "302",
+          "line": 2,
+          "type": "112.74A",
+          "modelType": "112A"
+        },
+        {
+          "unit": "303",
+          "line": 3,
+          "type": "112.74A",
+          "modelType": "112A"
+        },
+        {
+          "unit": "304",
+          "line": 4,
+          "type": "112.83B",
+          "modelType": null
+        },
+        {
+          "unit": "305",
+          "line": 5,
+          "type": "114.2F",
+          "modelType": null
+        },
+        {
+          "unit": "306",
+          "line": 6,
+          "type": "114.2F",
+          "modelType": null
+        },
+        {
+          "unit": "307",
+          "line": 7,
+          "type": "114.2F",
+          "modelType": null
+        }
+      ],
+      "supported": 2
+    },
+    {
+      "building": "112",
+      "floor": 3,
+      "units": [
+        {
+          "unit": "301",
+          "line": 1,
+          "type": "112.83B",
+          "modelType": null
+        },
+        {
+          "unit": "302",
+          "line": 2,
+          "type": "112.74A",
+          "modelType": "112A"
+        },
+        {
+          "unit": "303",
+          "line": 3,
+          "type": "112.83B",
+          "modelType": null
+        },
+        {
+          "unit": "304",
+          "line": 4,
+          "type": "112.74A",
+          "modelType": "112A"
+        },
+        {
+          "unit": "305",
+          "line": 5,
+          "type": "112.74A",
+          "modelType": "112A"
+        },
+        {
+          "unit": "306",
+          "line": 6,
+          "type": "112.74A",
+          "modelType": "112A"
+        }
+      ],
+      "supported": 4
+    },
+    {
+      "building": "104",
+      "floor": 16,
+      "units": [
+        {
+          "unit": "1601",
+          "line": 1,
+          "type": "152.9B",
+          "modelType": null
+        },
+        {
+          "unit": "1602",
+          "line": 2,
+          "type": "205.35A",
+          "modelType": null
+        },
+        {
+          "unit": "1603",
+          "line": 3,
+          "type": "148.8A",
+          "modelType": null
+        },
+        {
+          "unit": "1604",
+          "line": 4,
+          "type": "112.74A",
+          "modelType": "112A"
+        },
+        {
+          "unit": "1605",
+          "line": 5,
+          "type": "112.83B",
+          "modelType": null
+        },
+        {
+          "unit": "1606",
+          "line": 6,
+          "type": "80.25C",
+          "modelType": null
+        }
+      ],
+      "supported": 1
+    },
+    {
+      "building": "100",
+      "floor": 3,
+      "units": [
+        {
+          "unit": "301",
+          "line": 1,
+          "type": "168.66D",
+          "modelType": null
+        },
+        {
+          "unit": "302",
+          "line": 2,
+          "type": "145.95F",
+          "modelType": null
+        },
+        {
+          "unit": "303",
+          "line": 3,
+          "type": "145.95F",
+          "modelType": null
+        },
+        {
+          "unit": "304",
+          "line": 4,
+          "type": "211.99A",
+          "modelType": null
+        },
+        {
+          "unit": "305",
+          "line": 5,
+          "type": "168.95C",
+          "modelType": "168C"
+        }
+      ],
+      "supported": 1
+    }
+  ],
+  "basis": "User-provided CSV, physical placement/adjacency/orientation not verified."
+}

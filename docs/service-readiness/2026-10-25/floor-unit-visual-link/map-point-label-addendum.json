@@ -1,0 +1,12 @@
+{
+  "at": "2026-10-25T15:48:21.138448+00:00",
+  "finding": "Map click adds ready:false location under unchanged Ready spaces heading.",
+  "source": "apps/web/src/map-service.js:73,110",
+  "request": "Distinguish temporary map coordinate from prepared 3D location without losing selection and URL restore.",
+  "queue": {
+    "returncode": 0,
+    "stdout": "Queued message 01a173bf-a0b1-71b0-b75d-24ce5bef540c for thread 01a0eb21-9413-7271-9d76-4cd9a7d1863a.\n",
+    "stderr": ""
+  },
+  "implemented": false
+}

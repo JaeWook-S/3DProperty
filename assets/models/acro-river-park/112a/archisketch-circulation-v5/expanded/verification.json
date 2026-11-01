@@ -1,0 +1,86 @@
+{
+  "passed": true,
+  "variant": "expanded",
+  "unchanged_meshes": 415,
+  "changed_meshes": [
+    "dining-chair-0/back",
+    "dining-chair-0/leg",
+    "dining-chair-0/leg.001",
+    "dining-chair-0/leg.002",
+    "dining-chair-0/leg.003",
+    "dining-chair-0/seat",
+    "dining-chair-1/back",
+    "dining-chair-1/leg",
+    "dining-chair-1/leg.001",
+    "dining-chair-1/leg.002",
+    "dining-chair-1/leg.003",
+    "dining-chair-1/seat",
+    "dining-chair-2/back",
+    "dining-chair-2/leg",
+    "dining-chair-2/leg.001",
+    "dining-chair-2/leg.002",
+    "dining-chair-2/leg.003",
+    "dining-chair-2/seat",
+    "dining-chair-3/back",
+    "dining-chair-3/leg",
+    "dining-chair-3/leg.001",
+    "dining-chair-3/leg.002",
+    "dining-chair-3/leg.003",
+    "dining-chair-3/seat",
+    "dining-table/leg",
+    "dining-table/leg.001",
+    "dining-table/leg.002",
+    "dining-table/leg.003",
+    "dining-table/top",
+    "living-coffee-table/leg",
+    "living-coffee-table/leg.001",
+    "living-coffee-table/leg.002",
+    "living-coffee-table/leg.003",
+    "living-coffee-table/top",
+    "sliding-10/glass-0",
+    "sliding-10/glass-1",
+    "sliding-10/mullion"
+  ],
+  "unexpected_changes": [],
+  "rooms_and_zones_unchanged": true,
+  "source_opening_dimensions_unchanged": true,
+  "sliding": [
+    {
+      "id": "sliding-10",
+      "width_m": 1.015,
+      "previous_effective_clear_m": 0.4375,
+      "new_clear_m": 0.915,
+      "operation": {
+        "kind": "biparting_surface_slide",
+        "axis": "x",
+        "panel_groups": [
+          {
+            "objects": [
+              "sliding-10/glass-0",
+              "sliding-10/mullion"
+            ],
+            "travel_m": -0.4825
+          },
+          {
+            "objects": [
+              "sliding-10/glass-1"
+            ],
+            "travel_m": 0.4825
+          }
+        ],
+        "clear_opening_m": 0.915,
+        "closed_panel_plane_offset_m": 0.14,
+        "basis": "design_proposal_keep_source_opening_dimensions",
+        "as_built_hardware_verified": false,
+        "reason": "generic half-opening blocked adult-width capsule in narrow source-scaled opening"
+      }
+    }
+  ],
+  "dining_translation_m": [
+    -0.25,
+    0.55
+  ],
+  "coffee_table_height_m": 0.45,
+  "render_performed": false,
+  "passage_requires_browser_validation": true
+}

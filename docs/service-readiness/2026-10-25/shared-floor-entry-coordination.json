@@ -1,0 +1,38 @@
+{
+  "at": "2026-10-25T09:17:45.070585+00:00",
+  "state": "s3_entry_return_integration_verified_locally_not_published",
+  "s1_owned": [
+    "src/floor-access/main.js",
+    "src/floor-access/fixture.js",
+    "src/floor-access/scene.js",
+    "src/floor-access/transport.js"
+  ],
+  "s3_entry_scope": [
+    "apps/web explicit prototype link",
+    "src/floor-access-entry.js entry wrapper",
+    "floor-access-review.html script entry only"
+  ],
+  "rules": [
+    "reuse existing service endpoint helper for arbitrary local ports",
+    "preserve service selection only in return state; do not assert actual floor or unit mapping",
+    "keep label 가구 반입 검토 · 가정 배치",
+    "do not modify calculation, fixture, scene, models or variants",
+    "do not republish frozen public designer Site"
+  ],
+  "verification_scope": [
+    "arbitrary-port entry and return",
+    "initial GLB fetch count zero",
+    "source calculation and models unchanged"
+  ],
+  "previous_evidence": "runtime/floor-access/2026-10-25/verification.json is the original verified prototype snapshot; expected later HTML entry hash change belongs to S3 integration evidence, not a retroactive rewrite",
+  "integration_complete": true,
+  "delivery": {
+    "returncode": 0,
+    "stdout": "Queued message 01a1725a-081b-79f2-bf2f-6fc45c1a4ff6 for thread 01a0eb21-9413-7271-9d76-4cd9a7d1863a.\n",
+    "stderr": "",
+    "accepted_is_not_completed": true
+  },
+  "updated_at": "2026-10-25T09:29:58.264073+00:00",
+  "completion_receipt": "docs/service-readiness/2026-10-25/shared-floor-s1-integration-receipt.json",
+  "completion_evidence": "runtime/service-readiness/2026-10-25/floor-access-link/verification.json"
+}

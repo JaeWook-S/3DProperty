@@ -1,0 +1,65 @@
+{
+  "task": "PLAN-ROOM-UX-20261026",
+  "updatedAt": "2026-10-26T06:05:24.763668+00:00",
+  "product_files": [
+    "apps/web/src/map-service.js",
+    "apps/web/src/map-service.css"
+  ],
+  "test_files": [
+    "apps/web/tests/plan-room-ux.browser.js",
+    "apps/web/tests/plan-measurements.browser.js"
+  ],
+  "hashes": {
+    "apps/web/src/map-service.js": "b5dd9ad02e370008922aa20d0f8d3af419ad3d6b6c691e50dfd47587a78953cc",
+    "apps/web/src/map-service.css": "308abcfcecd8fd79f5a5aa7f8ef04b368c4b9ad1ba96ad8120a7d5564fc40aea",
+    "apps/web/tests/plan-room-ux.browser.js": "7858194b19f69846a3887a3e19f8bced8d530c1abdf6e8d5e46cd3be872d4c94",
+    "apps/web/tests/plan-measurements.browser.js": "3bfc5a8dfa6bf58d5ace433764b32a7c71f2122c8a8a4c2d1387011fa09ed30f"
+  },
+  "local_browser": "browser.log: 2/2 PASS",
+  "unit": "25/25 PASS",
+  "build": "PASS",
+  "measurement_regression": "measurement-verified.log: 2/2 PASS",
+  "reproduction": {
+    "public_v8_chromium_desktop_mobile": "ordinary selection circles 0; explicit measurement diameter 6.389px desktop / 2.709px mobile",
+    "local_studio": "ordinary selection circles 0",
+    "reported_large_blue_dot": "not reproduced; not claimed resolved",
+    "webkit": "binary obtained under workspace, launch failed missing host libraries; no system install"
+  },
+  "change": [
+    "2D comparison/room-selection purpose text",
+    "selected-room CTA next to plan uses existing 3D overview and preserves room/unit",
+    "SVG-specific transparent tap highlight; existing green selected polygon + keyboard outline",
+    "explicit measurement help; calculations/markers unchanged"
+  ],
+  "scope": {
+    "models_modified": false,
+    "measurement_helper_modified": false,
+    "gpu": false,
+    "public_status": "v9 published and anonymous browser verified"
+  },
+  "test_fixture_note": "Existing Oct23 measurement URL lacked previewMode=sample after Oct25 unit integration; corrected the test URL only, no measurement product changes. Initial source wait conditions and wrong-cwd retry logs retained.",
+  "status": "ui_improvement_published_reported_dot_unreproduced",
+  "public_version": 9,
+  "public_url": "https://cortex-design-preview-20261024.spunky-note-2434.chatgpt.site",
+  "public_verification": "/home/nas5/kinamkim/Repos/geonwoo/3DProperty/runtime/plan-room-ux/2026-10-26/public/verification.json",
+  "static_verification": "/home/nas5/kinamkim/Repos/geonwoo/3DProperty/runtime/plan-room-ux/2026-10-26/static/verification.json",
+  "package_audit": "/home/nas5/kinamkim/Repos/geonwoo/3DProperty/startup/07_팀미팅/2026-10-24_designer-demo/hosting-plan-room-ux-20261026/package-audit.json",
+  "deployment": {
+    "id": "appgdep_6adeed040cb08191acc41c0f1d8809e7",
+    "project_id": "appgprj_6adc181c49708191a65db8c32f5dc69d",
+    "title": "Cortex 디자인 리뷰 데모",
+    "version_id": "appgprj_6adc181c49708191a65db8c32f5dc69d~appgver_174e1fead4448191a86dbc10f6567870",
+    "type": "publish",
+    "status": "succeeded",
+    "url": "https://cortex-design-preview-20261024.spunky-note-2434.chatgpt.site",
+    "has_mcp": false,
+    "screenshot_asset_pointer": null,
+    "provider_deployment_id": "site---6adc181c49708191a65db8c32f5dc69d",
+    "failure_message": null,
+    "env_set_revision": 0,
+    "updated_at": "2026-10-26T06:03:00.017522+00:00"
+  },
+  "source_commit_sha": "c6057d3216c6d77dbd0408588595aab6b3e62799",
+  "all_related_checks_passed": true,
+  "reported_dot_resolved": false
+}

@@ -76,7 +76,7 @@ def create_app(settings=None, runner=None, asset_builder=None):
     def health():
         missing = settings.missing_environments()
         return {"status": "ok", "ready": not missing, "busy": busy.locked(), "missing_environments": missing,
-            "generate_3d": settings.generate_3d,
+            "generate_3d": settings.generate_3d, "supermat_enabled": settings.supermat_enabled,
             "blender_ready": settings.blender_executable.is_file() and os.access(settings.blender_executable, os.X_OK)}
 
     def execute(job, directory, image):

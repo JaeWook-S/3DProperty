@@ -1,0 +1,81 @@
+{
+  "passed": true,
+  "candidate_revision": "archisketch-uv-p0-v1",
+  "variant": "basic",
+  "source_files_sha256": {
+    "assets/models/acro-river-park/112a/archisketch-circulation-v5/basic/acro112a-basic.blend": "8b8214034c81f24be6c17b18715baba167f27b102fd22b9be09cdbe253e60ec4",
+    "assets/models/acro-river-park/112a/archisketch-circulation-v5/basic/acro112a-basic.glb": "31aea39235f6a65c668ecf2754e18859679a6d24e8da93a8925eded8d2621354",
+    "assets/models/acro-river-park/112a/archisketch-circulation-v5/basic/model-info.json": "71c56eacdc6a5fed35442c4d358419fbe324fa24e0e8120f3a72f6ee56d6ecf2"
+  },
+  "source_files_unchanged": true,
+  "geometry_meshes_equal": 466,
+  "object_metadata_transforms_equal": 508,
+  "material_names_properties_equal": true,
+  "unmodified_mesh_uv_equal": 462,
+  "changes": [
+    {
+      "name": "Entry wall correction/00",
+      "operation": "add_uv0_metric_dominant_plane",
+      "faces": 8,
+      "meters_per_uv_tile": 1.2,
+      "scale_basis": "existing design UV convention, not measured surface sample",
+      "unique_atlas": false
+    },
+    {
+      "name": "Entry wall correction/01",
+      "operation": "add_uv0_metric_dominant_plane",
+      "faces": 14,
+      "meters_per_uv_tile": 1.2,
+      "scale_basis": "existing design UV convention, not measured surface sample",
+      "unique_atlas": false
+    },
+    {
+      "name": "Sink detail / recessed bowl",
+      "operation": "add_uv0_metric_dominant_plane",
+      "faces": 84,
+      "meters_per_uv_tile": 1.2,
+      "scale_basis": "existing design UV convention, not measured surface sample",
+      "unique_atlas": false
+    },
+    {
+      "name": "Sink detail / curved faucet",
+      "operation": "repair_degenerate_end_caps_only",
+      "polygon_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "loops_changed": 48,
+      "degenerate_triangles_before": 16,
+      "degenerate_triangles_after": 0,
+      "preserved": "all non-cap UV loops and all other UV layers",
+      "meters_per_uv_tile": 1.2,
+      "scale_basis": "assumed metric cap projection; no material map currently uses this UV"
+    }
+  ],
+  "metadata_identity_fields_changed": [
+    "blend_sha256",
+    "finish_revision",
+    "glb_sha256"
+  ],
+  "protected_metadata_sha256": "e9a8bcc3dffdffb9798950758e6c9ce30767173f1ea01581806e78e9cc5ebd30",
+  "protected_geometry_sha256": "3b01a62b93d432196dbe7d34fef3691eaf7219274b77dc576581d0f5bdeaa732",
+  "modeling_metadata_including_rooms_fixtures_openings_collision_equal": true,
+  "new_texture_assets": 0,
+  "active_web_changed": false,
+  "scene_revision_changed_only_for_candidate_identity": true,
+  "render_performed": false
+}

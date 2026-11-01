@@ -1,0 +1,461 @@
+{
+  "variant": "basic",
+  "units": "m",
+  "scale": 1,
+  "basis": "two_source_units_plus_assumed_core",
+  "actual_building_floor_verified": false,
+  "actual_opposite_doors_verified": false,
+  "unit_count": 2,
+  "not_modeled": [
+    "remaining units of100 building floor",
+    "stairs",
+    "vertical elevator travel",
+    "actual core dimensions"
+  ],
+  "fixture_sha256": "be64db2c95f2b5b481802c957aa7074a1c1462e31f0cbf9d5cb21e78972a4200",
+  "sources": [
+    {
+      "unit": "211a",
+      "source_glb": "assets/models/acro-river-park/211a/archisketch-structure-v1/basic/acro211a-basic-archisketch.glb",
+      "source_glb_sha256": "0424ad064d7f354db1594a5ba39039bea8627fe423f219fe5e949ad3da28ff20",
+      "rigid_transform": {
+        "id": "211a",
+        "label": "211A",
+        "lineLabel": "4호 라인 타입",
+        "translation": [
+          13.514,
+          0,
+          -0.023999999999998245
+        ],
+        "rotationYRadians": 3.141592653589793,
+        "scale": 1,
+        "entryLocal": [
+          13.514,
+          3.976
+        ],
+        "targetEntryWorld": [
+          0,
+          -4
+        ],
+        "spawnLocal": [
+          12.814,
+          3.976
+        ],
+        "sourceMetadata": "assets/models/acro-river-park/211a/archisketch-structure-v1/basic/model-info.json",
+        "sourceGlbSha256": "0424ad064d7f354db1594a5ba39039bea8627fe423f219fe5e949ad3da28ff20"
+      },
+      "max_rigid_transform_corner_error_m": 0,
+      "imported_meshes": 254
+    },
+    {
+      "unit": "168c",
+      "source_glb": "assets/models/acro-river-park/168c/archisketch-details-v2/basic/acro168c-basic.glb",
+      "source_glb_sha256": "6f4d10277720adfc043040b725ac736a679504faf4c4e9a1c26f541d222ce046",
+      "rigid_transform": {
+        "id": "168c",
+        "label": "168C",
+        "lineLabel": "5호 라인 타입",
+        "translation": [
+          -8.065,
+          0,
+          1.15
+        ],
+        "rotationYRadians": 0,
+        "scale": 1,
+        "entryLocal": [
+          8.065,
+          2.85
+        ],
+        "targetEntryWorld": [
+          0,
+          4
+        ],
+        "spawnLocal": [
+          8.764999999999999,
+          2.85
+        ],
+        "sourceMetadata": "assets/models/acro-river-park/168c/archisketch-details-v2/basic/model-info.json",
+        "sourceGlbSha256": "6f4d10277720adfc043040b725ac736a679504faf4c4e9a1c26f541d222ce046"
+      },
+      "max_rigid_transform_corner_error_m": 0,
+      "imported_meshes": 557
+    }
+  ],
+  "common_area": {
+    "slabs": [
+      {
+        "center": [
+          -0.85,
+          0
+        ],
+        "size": [
+          1.7,
+          9.2
+        ]
+      },
+      {
+        "center": [
+          -2,
+          0
+        ],
+        "size": [
+          0.6,
+          1.2
+        ]
+      },
+      {
+        "center": [
+          -3.35,
+          0
+        ],
+        "size": [
+          2.1,
+          1.6
+        ]
+      },
+      {
+        "center": [
+          0.05,
+          -4
+        ],
+        "size": [
+          0.3,
+          1.0
+        ]
+      },
+      {
+        "center": [
+          0.05,
+          4
+        ],
+        "size": [
+          0.3,
+          0.84
+        ]
+      }
+    ],
+    "walls": [
+      {
+        "id": "Corridor west -4.6",
+        "center": [
+          -1.76,
+          -2.5999999999999996
+        ],
+        "size": [
+          0.12,
+          3.9999999999999996
+        ],
+        "height": 2.5,
+        "bottom": 0,
+        "component": "wall"
+      },
+      {
+        "id": "Corridor west 0.6",
+        "center": [
+          -1.76,
+          2.5999999999999996
+        ],
+        "size": [
+          0.12,
+          3.9999999999999996
+        ],
+        "height": 2.5,
+        "bottom": 0,
+        "component": "wall"
+      },
+      {
+        "id": "Corridor east -4",
+        "center": [
+          0.06,
+          -4.55
+        ],
+        "size": [
+          0.12,
+          0.09999999999999964
+        ],
+        "height": 2.5,
+        "bottom": 0,
+        "component": "wall"
+      },
+      {
+        "id": "Entrance lintel -4",
+        "center": [
+          0.06,
+          -4
+        ],
+        "size": [
+          0.12,
+          1.0
+        ],
+        "height": 0.20000000000000018,
+        "bottom": 2.3,
+        "component": "wall"
+      },
+      {
+        "id": "Corridor east 4",
+        "center": [
+          0.06,
+          0.040000000000000036
+        ],
+        "size": [
+          0.12,
+          7.08
+        ],
+        "height": 2.5,
+        "bottom": 0,
+        "component": "wall"
+      },
+      {
+        "id": "Entrance lintel 4",
+        "center": [
+          0.06,
+          4
+        ],
+        "size": [
+          0.12,
+          0.84
+        ],
+        "height": 0.08000000000000007,
+        "bottom": 2.42,
+        "component": "wall"
+      },
+      {
+        "id": "Corridor east end",
+        "center": [
+          0.06,
+          4.51
+        ],
+        "size": [
+          0.12,
+          0.17999999999999972
+        ],
+        "height": 2.5,
+        "bottom": 0,
+        "component": "wall"
+      },
+      {
+        "id": "Corridor end -1",
+        "center": [
+          -0.85,
+          -4.66
+        ],
+        "size": [
+          1.94,
+          0.12
+        ],
+        "height": 2.5,
+        "bottom": 0,
+        "component": "wall"
+      },
+      {
+        "id": "Elevator connector -1",
+        "center": [
+          -2,
+          -0.66
+        ],
+        "size": [
+          0.6,
+          0.12
+        ],
+        "height": 2.5,
+        "bottom": 0,
+        "component": "wall"
+      },
+      {
+        "id": "Elevator side -1",
+        "center": [
+          -3.35,
+          -0.86
+        ],
+        "size": [
+          2.34,
+          0.12
+        ],
+        "height": 2.3,
+        "bottom": 0,
+        "component": "wall"
+      },
+      {
+        "id": "Elevator jamb -1",
+        "center": [
+          -2.3,
+          -0.625
+        ],
+        "size": [
+          0.12,
+          0.35
+        ],
+        "height": 2.5,
+        "bottom": 0,
+        "component": "wall"
+      },
+      {
+        "id": "Corridor end 1",
+        "center": [
+          -0.85,
+          4.66
+        ],
+        "size": [
+          1.94,
+          0.12
+        ],
+        "height": 2.5,
+        "bottom": 0,
+        "component": "wall"
+      },
+      {
+        "id": "Elevator connector 1",
+        "center": [
+          -2,
+          0.66
+        ],
+        "size": [
+          0.6,
+          0.12
+        ],
+        "height": 2.5,
+        "bottom": 0,
+        "component": "wall"
+      },
+      {
+        "id": "Elevator side 1",
+        "center": [
+          -3.35,
+          0.86
+        ],
+        "size": [
+          2.34,
+          0.12
+        ],
+        "height": 2.3,
+        "bottom": 0,
+        "component": "wall"
+      },
+      {
+        "id": "Elevator jamb 1",
+        "center": [
+          -2.3,
+          0.625
+        ],
+        "size": [
+          0.12,
+          0.35
+        ],
+        "height": 2.5,
+        "bottom": 0,
+        "component": "wall"
+      },
+      {
+        "id": "Elevator back",
+        "center": [
+          -4.46,
+          0
+        ],
+        "size": [
+          0.12,
+          1.84
+        ],
+        "height": 2.3,
+        "bottom": 0,
+        "component": "wall"
+      },
+      {
+        "id": "Elevator head",
+        "center": [
+          -2.3,
+          0
+        ],
+        "size": [
+          0.12,
+          0.9
+        ],
+        "height": 0.4,
+        "bottom": 2.1,
+        "component": "wall"
+      },
+      {
+        "id": "Corridor ceiling",
+        "center": [
+          -0.85,
+          0
+        ],
+        "size": [
+          1.7,
+          9.2
+        ],
+        "height": 0.1,
+        "bottom": 2.5,
+        "component": "ceiling"
+      },
+      {
+        "id": "Connector ceiling",
+        "center": [
+          -2,
+          0
+        ],
+        "size": [
+          0.6,
+          1.2
+        ],
+        "height": 0.1,
+        "bottom": 2.5,
+        "component": "ceiling"
+      },
+      {
+        "id": "Elevator ceiling",
+        "center": [
+          -3.35,
+          0
+        ],
+        "size": [
+          2.1,
+          1.6
+        ],
+        "height": 0.1,
+        "bottom": 2.3,
+        "component": "ceiling"
+      }
+    ],
+    "elevator": {
+      "center": [
+        -3.35,
+        0
+      ],
+      "size": [
+        2.1,
+        1.6
+      ],
+      "height": 2.3,
+      "doorCenter": [
+        -2.3,
+        0
+      ],
+      "doorWidth": 0.9,
+      "doorHeight": 2.1,
+      "doorNormal": [
+        1,
+        0
+      ]
+    },
+    "dimensionsBasis": "editable visual assumptions; no source building core plan",
+    "hallClearWidth_m": 1.7,
+    "hallLength_m": 9.2,
+    "connectorClearWidth_m": 1.2
+  },
+  "bounds_blender_xyz": [
+    [
+      -8.0649995803833,
+      -13.047999382019043,
+      -0.15000000596046448
+    ],
+    [
+      13.513999938964844,
+      14.597000122070312,
+      2.6700000762939453
+    ]
+  ],
+  "blend_sha256": "50928a894aef4885cfc9d1d584cf78fa75ae037a868ce1e75ae9884ea5fa1a27",
+  "glb_sha256": "56acbadf530b7b872a758a33691b3cfce5072f13bb456189bbd4039d9a9b1626",
+  "render_device": "CPU",
+  "source_geometry_scaled": false
+}

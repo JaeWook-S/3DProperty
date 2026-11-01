@@ -1,0 +1,75 @@
+{
+  "status": "complete_public_v8_verified",
+  "at": "2026-10-25T17:38:44.745454+00:00",
+  "sourceChanged": [
+    "src/walkthrough/site-tour.js"
+  ],
+  "tests": [
+    "tests/site-camera.browser.js"
+  ],
+  "camera": {
+    "oldCenterDistanceM": 177.63445611704955,
+    "newMeasuredCenterDistanceM": [
+      63.51194781220712,
+      73.9602426888513
+    ],
+    "newMeasuredEnvelopeClearanceM": [
+      32.311167303271475,
+      35.02486203783293
+    ],
+    "beforeFloorSelected": "45 percent of building height",
+    "afterFloorSelected": "centre of selected storey; outside-OSM floor still has no cutaway",
+    "viewScope": "service complex tour focus only; overview/river/street and legacy studio poses unchanged"
+  },
+  "devBrowserCases": 2,
+  "staticBrowserCases": 2,
+  "staticAudit": "/home/nas5/kinamkim/Repos/geonwoo/3DProperty/startup/07_팀미팅/2026-10-24_designer-demo/hosting-close-building-camera-20261025/package-audit.json",
+  "rendering": "Chromium SwiftShader CPU, viewport1440x1000 and390x844; physical mobile FPS not measured",
+  "protectedUnchanged": {
+    "src/walkthrough/main.js": true,
+    "src/walkthrough/studio.js": true,
+    "src/walkthrough/complex-context.js": true,
+    "src/walkthrough/variants.js": true,
+    "src/walkthrough/appearance.js": true,
+    "src/walkthrough/finishes.js": true,
+    "src/walkthrough/site-tour.css": true,
+    "apps/web/src/map-service.js": true,
+    "apps/web/src/map-service.css": true,
+    "package.json": true,
+    "package-lock.json": true,
+    "vite.config.js": true,
+    "assets/models/acro-river-park/112a/archisketch-metric-v1/basic/acro112a-basic.glb": true,
+    "assets/models/acro-river-park/112a/archisketch-metric-v1/expanded/acro112a-expanded.glb": true,
+    "assets/models/acro-river-park/168c/archisketch-metric-v1/expanded/acro168c-expanded.glb": true,
+    "assets/models/acro-river-park/168c/archisketch-details-v2/basic/acro168c-basic.glb": true
+  },
+  "GLBCount": 8,
+  "GLBsUnchanged": true,
+  "publicStatus": "published_and_anonymous_verified",
+  "publicURL": "https://cortex-design-preview-20261024.spunky-note-2434.chatgpt.site",
+  "GPU": "No H200/CUDA; SwiftShader CPU",
+  "sourceSHA256": "68ce5cc00f40aca0380e7c6f9a6f7f08996fc6394801a279111b0c31d7149836",
+  "staticBrowser": "/home/nas5/kinamkim/Repos/geonwoo/3DProperty/startup/07_팀미팅/2026-10-24_designer-demo/hosting-close-building-camera-20261025/static-browser/verification.json",
+  "staticFiles": 53,
+  "staticBytes": 65414198,
+  "sourceAndGLBPreservation": "Only site-tour source changed; controlled previous-camera build matches all public v7 files. Other JS names differ only through shared export alias renaming.",
+  "publicVersion": 8,
+  "versionId": "appgprj_6adc181c49708191a65db8c32f5dc69d~appgver_36da13b0a4788191a936ebf7bd86b8a4",
+  "deploymentId": "appgdep_6ade3d601b508191a9028f1b23e36a01",
+  "publicVerifiedAt": "2026-10-25T17:36:13.763Z",
+  "publicBrowser": "/home/nas5/kinamkim/Repos/geonwoo/3DProperty/startup/07_팀미팅/2026-10-24_designer-demo/hosting-close-building-camera-20261025/public-browser/verification.json",
+  "publicCameraBundleMatchesStaging": [
+    {
+      "path": "viewer/assets/site-tour-C6MI8Fha.js",
+      "sha256": "23f176f77848cbd06fd0a62d976a8a40491b072845daa975039dda38d4f673ab",
+      "bytes": 17838
+    }
+  ],
+  "publicScreenshotEqualsStaticScreenshot": true,
+  "publicAnonymousCases": 1,
+  "initialPublicCheck": "First public test stopped at default 5s ready assertion before asset load completed. Preserved separately; final test uses explicit 90s CPU startup allowance. No product change or republish.",
+  "publicationEvidence": "/home/nas5/kinamkim/Repos/geonwoo/3DProperty/startup/07_팀미팅/2026-10-24_designer-demo/hosting-close-building-camera-20261025/verification.json",
+  "existingServers": "5173/5185 reused without restart; test-only loopback static server closed",
+  "mainRepositoryCommitPush": false,
+  "hostingOnlyCommit": "b55cf9ceea678b00adc55abd0767278c6280f35a"
+}

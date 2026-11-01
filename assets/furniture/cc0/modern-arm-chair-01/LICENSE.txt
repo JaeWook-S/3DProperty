@@ -1,0 +1,9 @@
+Modern Arm Chair 01 by Vibrant Nordic / Poly Haven
+License: CC0-1.0
+Source: https://polyhaven.com/a/modern_arm_chair_01
+License: https://polyhaven.com/license
+https://creativecommons.org/publicdomain/zero/1.0/
+
+Geometry and textures retain original dimensions and image bytes.
+Derived package only adds material runtime-preservation metadata.
+Dimensions describe the 3D model; no independent physical measurement is claimed.

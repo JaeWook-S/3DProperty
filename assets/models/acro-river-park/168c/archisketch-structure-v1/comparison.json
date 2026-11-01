@@ -1,0 +1,83 @@
+{
+  "revision": "archisketch-structure-v1",
+  "stage": "structure_review",
+  "default_studio_replaced": false,
+  "independent_as_built_validation": false,
+  "room_comparison": [
+    {
+      "room": "침실 1",
+      "basic_bbox_width_m": 3.648,
+      "expanded_bbox_width_m": 3.743,
+      "width_difference_mm": 95.0,
+      "basic_bbox_depth_m": 2.875,
+      "expanded_bbox_depth_m": 4.418,
+      "basic_polygon_area_m2": 10.475063,
+      "expanded_polygon_area_m2": 16.536574
+    },
+    {
+      "room": "침실 2",
+      "basic_bbox_width_m": 2.686,
+      "expanded_bbox_width_m": 2.744,
+      "width_difference_mm": 58.0,
+      "basic_bbox_depth_m": 2.875,
+      "expanded_bbox_depth_m": 4.418,
+      "basic_polygon_area_m2": 7.499481,
+      "expanded_polygon_area_m2": 11.50541
+    },
+    {
+      "room": "침실 3",
+      "basic_bbox_width_m": 3.165,
+      "expanded_bbox_width_m": 3.297,
+      "width_difference_mm": 132.0,
+      "basic_bbox_depth_m": 2.875,
+      "expanded_bbox_depth_m": 4.418,
+      "basic_polygon_area_m2": 9.099375,
+      "expanded_polygon_area_m2": 14.093673
+    },
+    {
+      "room": "안방",
+      "basic_bbox_width_m": 5.948,
+      "expanded_bbox_width_m": 6.065,
+      "width_difference_mm": 117.0,
+      "basic_bbox_depth_m": 4.418,
+      "expanded_bbox_depth_m": 4.526,
+      "basic_polygon_area_m2": 22.916976,
+      "expanded_polygon_area_m2": 23.8575
+    }
+  ],
+  "variants": {
+    "basic": {
+      "mesh_count": 232,
+      "verification_passed": true,
+      "check_count": 304,
+      "max_source_boundary_difference_m": 6.283092719047317e-07,
+      "review_issues": []
+    },
+    "expanded": {
+      "mesh_count": 215,
+      "verification_passed": true,
+      "check_count": 282,
+      "max_source_boundary_difference_m": 7.781982418464395e-07,
+      "review_issues": [
+        {
+          "source_id": "5905AA58-984F-40A9-A5EA-FCE2EFB5EFB3",
+          "reason": "Source sliding door center lies beyond both kitchen pantry and living balcony usable boundaries; connection is unresolved.",
+          "source_position_mm": [
+            6087,
+            990,
+            7219
+          ]
+        },
+        {
+          "source_id": "BEE5F6D3-A5B7-4CAF-ADA5-A08A73F33A9F",
+          "reason": "Same X/Z window as ABB7B018 with another vertical center. Use one user-sized window; do not stack duplicate windows.",
+          "source_position_mm": [
+            -3606,
+            1300,
+            6062
+          ]
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,4223 @@
+{
+  "variant": "basic",
+  "passed": true,
+  "checks": [
+    {
+      "name": "model metadata artifact hashes",
+      "passed": true
+    },
+    {
+      "name": "saved Archisketch source SHA",
+      "passed": true
+    },
+    {
+      "name": "spec SHA",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / Base/00",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / Floor/bedroom-balcony",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / Floor/kitchen-balcony",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / Floor/living-kitchen-hall",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / Floor/living-balcony",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / Floor/bedroom-3",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / Floor/entry-storage",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / Floor/bedroom-1",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / Floor/bathroom-1",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / Floor/hall-pantry",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / Floor/dressing",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / Floor/primary-bath",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / Floor/primary",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / Floor/hall-storage",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / Floor/primary-balcony-storage",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / Floor/living-east-balcony",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / Floor/bedroom-2",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / Floor/primary-balcony",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / Wall/layer-00/00",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / Wall/layer-00/01",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / Wall/layer-00/02",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / Wall/layer-00/03",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / Wall/layer-01/00",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / Wall/layer-01/01",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / Wall/layer-01/02",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / Wall/layer-01/03",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / Wall/layer-01/04",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / Wall/layer-01/05",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / Wall/layer-01/06",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / Wall/layer-01/07",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / Wall/layer-01/08",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / Wall/layer-01/09",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / Wall/layer-01/10",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / Wall/layer-02/00",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / Wall/layer-02/01",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / Wall/layer-02/02",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / Wall/layer-02/03",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / Wall/layer-03/00",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / door-00/jamb-left",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / door-00/jamb-right",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / door-00/head",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / door-00/leaf",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / door-01/jamb-left",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / door-01/jamb-right",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / door-01/head",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / door-01/leaf",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / door-02/jamb-left",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / door-02/jamb-right",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / door-02/head",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / door-02/leaf",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / door-03/jamb-left",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / door-03/jamb-right",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / door-03/head",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / door-03/leaf",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / door-04/jamb-left",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / door-04/jamb-right",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / door-04/head",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / door-04/leaf",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / door-05/jamb-left",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / door-05/jamb-right",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / door-05/head",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / door-05/leaf",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / door-06/jamb-left",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / door-06/jamb-right",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / door-06/head",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / door-06/leaf",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / kitchen-balcony-door/jamb-left",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / kitchen-balcony-door/jamb-right",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / kitchen-balcony-door/head",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / kitchen-balcony-door/leaf",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / door-08/jamb-left",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / door-08/jamb-right",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / door-08/head",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / door-08/leaf",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / sliding-09/frame-left",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / sliding-09/frame-right",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / sliding-09/frame-bottom",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / sliding-09/frame-top",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / sliding-09/glass-0",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / sliding-09/glass-1",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / sliding-10/frame-left",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / sliding-10/frame-right",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / sliding-10/frame-bottom",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / sliding-10/frame-top",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / sliding-10/glass-0",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / sliding-10/glass-1",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / sliding-11/frame-left",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / sliding-11/frame-right",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / sliding-11/frame-bottom",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / sliding-11/frame-top",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / sliding-11/glass-0",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / sliding-11/glass-1",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / window-12/frame-left",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / window-12/frame-right",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / window-12/frame-bottom",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / window-12/frame-top",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / window-12/glass-0",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / window-12/glass-1",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / window-12/mullion",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / window-13/frame-left",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / window-13/frame-right",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / window-13/frame-bottom",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / window-13/frame-top",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / window-13/glass-0",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / window-13/glass-1",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / window-13/mullion",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / window-14/frame-left",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / window-14/frame-right",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / window-14/frame-bottom",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / window-14/frame-top",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / window-14/glass-0",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / window-14/glass-1",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / window-14/mullion",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / window-15/frame-left",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / window-15/frame-right",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / window-15/frame-bottom",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / window-15/frame-top",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / window-15/glass-0",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / window-15/glass-1",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / window-15/mullion",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / window-16/frame-left",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / window-16/frame-right",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / window-16/frame-bottom",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / window-16/frame-top",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / window-16/glass-0",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / window-16/glass-1",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / window-16/mullion",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / living-east-balcony-door/frame-left",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / living-east-balcony-door/frame-right",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / living-east-balcony-door/frame-bottom",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / living-east-balcony-door/frame-top",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / living-east-balcony-door/glass-0",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / living-east-balcony-door/glass-1",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / sliding-18/frame-left",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / sliding-18/frame-right",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / sliding-18/frame-bottom",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / sliding-18/frame-top",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / sliding-18/glass-0",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / sliding-18/glass-1",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / sliding-18/mullion",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / living-balcony-door/frame-left",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / living-balcony-door/frame-right",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / living-balcony-door/frame-bottom",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / living-balcony-door/frame-top",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / living-balcony-door/glass-0",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / living-balcony-door/glass-1",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / sliding-20/frame-left",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / sliding-20/frame-right",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / sliding-20/frame-bottom",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / sliding-20/frame-top",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / sliding-21/frame-left",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / sliding-21/frame-right",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / sliding-21/frame-bottom",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / sliding-21/frame-top",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / sliding-21/glass-0",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / sliding-21/glass-1",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / sliding-22/frame-left",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / sliding-22/frame-right",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / sliding-22/frame-bottom",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / sliding-22/frame-top",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / primary-balcony-door/frame-left",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / primary-balcony-door/frame-right",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / primary-balcony-door/frame-bottom",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / primary-balcony-door/frame-top",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / primary-balcony-door/glass-0",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / primary-balcony-door/glass-1",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / window-24/frame-left",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / window-24/frame-right",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / window-24/frame-bottom",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / window-24/frame-top",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / window-24/glass-0",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / window-24/glass-1",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / window-24/mullion",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / window-25/frame-left",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / window-25/frame-right",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / window-25/frame-bottom",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / window-25/frame-top",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / window-25/glass-0",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / window-25/glass-1",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / window-25/mullion",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / sliding-26/frame-left",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / sliding-26/frame-right",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / sliding-26/frame-bottom",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / sliding-26/frame-top",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / Non-occupiable/00",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / Non-occupiable/01",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / Non-occupiable/02",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / Non-occupiable/03",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / Non-occupiable/04",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / Non-occupiable/05",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / Non-occupiable/06",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / Non-occupiable/07",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / Non-occupiable/08",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / Non-occupiable/09",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / Non-occupiable/10",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / Non-occupiable/11",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / Non-occupiable/12",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / Non-occupiable/13",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / Non-occupiable/14",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / Ceiling/00",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / Ceiling/01",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / Ceiling/02",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / Ceiling/03",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / Ceiling/04",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / Ceiling/05",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / Ceiling/06",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / Ceiling/07",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / Ceiling/08",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / Ceiling/09",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / Ceiling/10",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / Ceiling/11",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / Ceiling/12",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / Ceiling/13",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / Ceiling/14",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / Ceiling/15",
+      "passed": true
+    },
+    {
+      "name": "protected geometry / Ceiling/16",
+      "passed": true
+    },
+    {
+      "name": "moving stile and fixed pane tracks / sliding-09",
+      "passed": true,
+      "normal_separation_m": 0.01999950408935547
+    },
+    {
+      "name": "moving stile and fixed pane tracks / sliding-10",
+      "passed": true,
+      "normal_separation_m": 0.01999950408935547
+    },
+    {
+      "name": "moving stile and fixed pane tracks / sliding-11",
+      "passed": true,
+      "normal_separation_m": 0.01999950408935547
+    },
+    {
+      "name": "moving stile and fixed pane tracks / living-east-balcony-door",
+      "passed": true,
+      "normal_separation_m": 0.019998550415039062
+    },
+    {
+      "name": "moving stile and fixed pane tracks / living-balcony-door",
+      "passed": true,
+      "normal_separation_m": 0.01999950408935547
+    },
+    {
+      "name": "moving stile and fixed pane tracks / sliding-20",
+      "passed": true,
+      "normal_separation_m": 0.019999980926513672
+    },
+    {
+      "name": "moving stile and fixed pane tracks / sliding-21",
+      "passed": true,
+      "normal_separation_m": 0.019999980926513672
+    },
+    {
+      "name": "moving stile and fixed pane tracks / sliding-22",
+      "passed": true,
+      "normal_separation_m": 0.019999980926513672
+    },
+    {
+      "name": "moving stile and fixed pane tracks / primary-balcony-door",
+      "passed": true,
+      "normal_separation_m": 0.020000457763671875
+    },
+    {
+      "name": "moving stile and fixed pane tracks / sliding-26",
+      "passed": true,
+      "normal_separation_m": 0.01999950408935547
+    },
+    {
+      "name": "meters / no unit scaling",
+      "passed": true
+    },
+    {
+      "name": "raw source room polygon / bedroom-balcony",
+      "passed": true,
+      "symmetric_difference_m2": 2.5874200891256276e-06,
+      "hausdorff_m": 4.947354987700279e-07
+    },
+    {
+      "name": "raw source room polygon / kitchen-balcony",
+      "passed": true,
+      "symmetric_difference_m2": 2.307967846263763e-06,
+      "hausdorff_m": 3.8146972691777137e-07
+    },
+    {
+      "name": "raw source room polygon / living-kitchen-hall",
+      "passed": true,
+      "symmetric_difference_m2": 9.953519441883401e-06,
+      "hausdorff_m": 4.425048842904289e-07
+    },
+    {
+      "name": "raw source room polygon / living-balcony",
+      "passed": true,
+      "symmetric_difference_m2": 2.563781444165755e-06,
+      "hausdorff_m": 6.098268167821968e-07
+    },
+    {
+      "name": "raw source room polygon / bedroom-3",
+      "passed": true,
+      "symmetric_difference_m2": 1.5509986908757156e-06,
+      "hausdorff_m": 3.614916304691853e-07
+    },
+    {
+      "name": "raw source room polygon / entry-storage",
+      "passed": true,
+      "symmetric_difference_m2": 2.3492431136045162e-07,
+      "hausdorff_m": 8.14819693098023e-08
+    },
+    {
+      "name": "raw source room polygon / bedroom-1",
+      "passed": true,
+      "symmetric_difference_m2": 4.84348979158073e-07,
+      "hausdorff_m": 6.473755987545437e-08
+    },
+    {
+      "name": "raw source room polygon / bathroom-1",
+      "passed": true,
+      "symmetric_difference_m2": 8.852720414509463e-07,
+      "hausdorff_m": 2.3899009835859927e-07
+    },
+    {
+      "name": "raw source room polygon / hall-pantry",
+      "passed": true,
+      "symmetric_difference_m2": 3.3880233693101763e-07,
+      "hausdorff_m": 1.369577256821777e-07
+    },
+    {
+      "name": "raw source room polygon / dressing",
+      "passed": true,
+      "symmetric_difference_m2": 8.507950130302744e-07,
+      "hausdorff_m": 2.3872355950824153e-07
+    },
+    {
+      "name": "raw source room polygon / primary-bath",
+      "passed": true,
+      "symmetric_difference_m2": 1.6345405602996442e-06,
+      "hausdorff_m": 4.3185759713371815e-07
+    },
+    {
+      "name": "raw source room polygon / primary",
+      "passed": true,
+      "symmetric_difference_m2": 1.8634409765339528e-06,
+      "hausdorff_m": 3.433227533378158e-07
+    },
+    {
+      "name": "raw source room polygon / hall-storage",
+      "passed": true,
+      "symmetric_difference_m2": 8.358439973891728e-07,
+      "hausdorff_m": 3.902940538336301e-07
+    },
+    {
+      "name": "raw source room polygon / primary-balcony-storage",
+      "passed": true,
+      "symmetric_difference_m2": 1.0772365253387925e-06,
+      "hausdorff_m": 6.256174495342458e-07
+    },
+    {
+      "name": "raw source room polygon / living-east-balcony",
+      "passed": true,
+      "symmetric_difference_m2": 3.2997129652116543e-06,
+      "hausdorff_m": 3.2043456954511385e-07
+    },
+    {
+      "name": "raw source room polygon / bedroom-2",
+      "passed": true,
+      "symmetric_difference_m2": 1.1940117023563345e-06,
+      "hausdorff_m": 2.49709744653527e-07
+    },
+    {
+      "name": "raw source room polygon / primary-balcony",
+      "passed": true,
+      "symmetric_difference_m2": 2.033011375513104e-06,
+      "hausdorff_m": 6.283092719047317e-07
+    },
+    {
+      "name": "door dimensions / door-00",
+      "passed": true,
+      "width_m": 0.7999999523162842,
+      "height_m": 2.4000000953674316
+    },
+    {
+      "name": "door dimensions / door-01",
+      "passed": true,
+      "width_m": 0.7999992370605469,
+      "height_m": 2.4000000953674316
+    },
+    {
+      "name": "door dimensions / door-02",
+      "passed": true,
+      "width_m": 0.7999992370605469,
+      "height_m": 2.4000000953674316
+    },
+    {
+      "name": "door dimensions / door-03",
+      "passed": true,
+      "width_m": 0.8000001907348633,
+      "height_m": 2.4000000953674316
+    },
+    {
+      "name": "door dimensions / door-04",
+      "passed": true,
+      "width_m": 0.8000001907348633,
+      "height_m": 2.4000000953674316
+    },
+    {
+      "name": "door dimensions / door-05",
+      "passed": true,
+      "width_m": 0.7999997138977051,
+      "height_m": 2.4000000953674316
+    },
+    {
+      "name": "door dimensions / door-06",
+      "passed": true,
+      "width_m": 0.7999999523162842,
+      "height_m": 2.4000000953674316
+    },
+    {
+      "name": "door dimensions / kitchen-balcony-door",
+      "passed": true,
+      "width_m": 0.7999992370605469,
+      "height_m": 2.4000000953674316
+    },
+    {
+      "name": "door dimensions / door-08",
+      "passed": true,
+      "width_m": 0.8000001907348633,
+      "height_m": 2.4000000953674316
+    },
+    {
+      "name": "fixture metadata / living-sofa",
+      "passed": true
+    },
+    {
+      "name": "fixture contained / living-sofa",
+      "passed": true,
+      "outside_room_m2": 0.0
+    },
+    {
+      "name": "fixture metadata / living-coffee-table",
+      "passed": true
+    },
+    {
+      "name": "fixture contained / living-coffee-table",
+      "passed": true,
+      "outside_room_m2": 0.0
+    },
+    {
+      "name": "fixture metadata / Bedroom 3 wardrobe",
+      "passed": true
+    },
+    {
+      "name": "fixture contained / Bedroom 3 wardrobe",
+      "passed": true,
+      "outside_room_m2": 0.0
+    },
+    {
+      "name": "fixture metadata / Kitchen west base",
+      "passed": true
+    },
+    {
+      "name": "fixture contained / Kitchen west base",
+      "passed": true,
+      "outside_room_m2": 0.0
+    },
+    {
+      "name": "fixture metadata / Kitchen upper 0",
+      "passed": true
+    },
+    {
+      "name": "fixture contained / Kitchen upper 0",
+      "passed": true,
+      "outside_room_m2": 0.0
+    },
+    {
+      "name": "fixture metadata / Kitchen upper 1",
+      "passed": true
+    },
+    {
+      "name": "fixture contained / Kitchen upper 1",
+      "passed": true,
+      "outside_room_m2": 0.0
+    },
+    {
+      "name": "fixture metadata / Kitchen hood and backsplash",
+      "passed": true
+    },
+    {
+      "name": "fixture contained / Kitchen hood and backsplash",
+      "passed": true,
+      "outside_room_m2": 0.0
+    },
+    {
+      "name": "fixture metadata / Living kitchen island",
+      "passed": true
+    },
+    {
+      "name": "fixture contained / Living kitchen island",
+      "passed": true,
+      "outside_room_m2": 0.0
+    },
+    {
+      "name": "fixture metadata / Refrigerator housing",
+      "passed": true
+    },
+    {
+      "name": "fixture contained / Refrigerator housing",
+      "passed": true,
+      "outside_room_m2": 0.0
+    },
+    {
+      "name": "fixture metadata / Utility shelves",
+      "passed": true
+    },
+    {
+      "name": "fixture contained / Utility shelves",
+      "passed": true,
+      "outside_room_m2": 0.0
+    },
+    {
+      "name": "fixture metadata / Utility drain",
+      "passed": true
+    },
+    {
+      "name": "fixture contained / Utility drain",
+      "passed": true,
+      "outside_room_m2": 0.0
+    },
+    {
+      "name": "fixture metadata / bathroom-1-fixtures",
+      "passed": true
+    },
+    {
+      "name": "fixture contained / bathroom-1-fixtures",
+      "passed": true,
+      "outside_room_m2": 0.0
+    },
+    {
+      "name": "fixture metadata / primary-bath-fixtures",
+      "passed": true
+    },
+    {
+      "name": "fixture contained / primary-bath-fixtures",
+      "passed": true,
+      "outside_room_m2": 0.0
+    },
+    {
+      "name": "fixture metadata / entry-storage built-in",
+      "passed": true
+    },
+    {
+      "name": "fixture contained / entry-storage built-in",
+      "passed": true,
+      "outside_room_m2": 0.0
+    },
+    {
+      "name": "fixture metadata / hall-pantry built-in",
+      "passed": true
+    },
+    {
+      "name": "fixture contained / hall-pantry built-in",
+      "passed": true,
+      "outside_room_m2": 0.0
+    },
+    {
+      "name": "fixture metadata / Dressing deep wardrobe",
+      "passed": true
+    },
+    {
+      "name": "fixture contained / Dressing deep wardrobe",
+      "passed": true,
+      "outside_room_m2": 0.0
+    },
+    {
+      "name": "fixture metadata / Dressing vanity",
+      "passed": true
+    },
+    {
+      "name": "fixture contained / Dressing vanity",
+      "passed": true,
+      "outside_room_m2": 0.0
+    },
+    {
+      "name": "fixture metadata / Skirting living-kitchen-hall",
+      "passed": true
+    },
+    {
+      "name": "fixture contained / Skirting living-kitchen-hall",
+      "passed": true,
+      "outside_room_m2": 0.0
+    },
+    {
+      "name": "fixture metadata / Skirting bedroom-3",
+      "passed": true
+    },
+    {
+      "name": "fixture contained / Skirting bedroom-3",
+      "passed": true,
+      "outside_room_m2": 0.0
+    },
+    {
+      "name": "fixture metadata / Skirting entry-storage",
+      "passed": true
+    },
+    {
+      "name": "fixture contained / Skirting entry-storage",
+      "passed": true,
+      "outside_room_m2": 0.0
+    },
+    {
+      "name": "fixture metadata / Skirting bedroom-1",
+      "passed": true
+    },
+    {
+      "name": "fixture contained / Skirting bedroom-1",
+      "passed": true,
+      "outside_room_m2": 0.0
+    },
+    {
+      "name": "fixture metadata / Skirting hall-pantry",
+      "passed": true
+    },
+    {
+      "name": "fixture contained / Skirting hall-pantry",
+      "passed": true,
+      "outside_room_m2": 0.0
+    },
+    {
+      "name": "fixture metadata / Skirting dressing",
+      "passed": true
+    },
+    {
+      "name": "fixture contained / Skirting dressing",
+      "passed": true,
+      "outside_room_m2": 0.0
+    },
+    {
+      "name": "fixture metadata / Skirting primary",
+      "passed": true
+    },
+    {
+      "name": "fixture contained / Skirting primary",
+      "passed": true,
+      "outside_room_m2": 0.0
+    },
+    {
+      "name": "fixture metadata / Skirting hall-storage",
+      "passed": true
+    },
+    {
+      "name": "fixture contained / Skirting hall-storage",
+      "passed": true,
+      "outside_room_m2": 0.0
+    },
+    {
+      "name": "fixture metadata / Skirting bedroom-2",
+      "passed": true
+    },
+    {
+      "name": "fixture contained / Skirting bedroom-2",
+      "passed": true,
+      "outside_room_m2": 0.0
+    },
+    {
+      "name": "independent fixture solid envelopes",
+      "passed": true,
+      "overlaps": []
+    },
+    {
+      "name": "GLB mesh identities",
+      "passed": true,
+      "missing": [],
+      "extra": []
+    },
+    {
+      "name": "GLB roundtrip / Base/00",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Floor/bedroom-balcony",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Floor/kitchen-balcony",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Floor/living-kitchen-hall",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Floor/living-balcony",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Floor/bedroom-3",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Floor/entry-storage",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Floor/bedroom-1",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Floor/bathroom-1",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Floor/hall-pantry",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Floor/dressing",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Floor/primary-bath",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Floor/primary",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Floor/hall-storage",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Floor/primary-balcony-storage",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Floor/living-east-balcony",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Floor/bedroom-2",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Floor/primary-balcony",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Wall/layer-00/00",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Wall/layer-00/01",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Wall/layer-00/02",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Wall/layer-00/03",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Wall/layer-01/00",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Wall/layer-01/01",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Wall/layer-01/02",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Wall/layer-01/03",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Wall/layer-01/04",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Wall/layer-01/05",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Wall/layer-01/06",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Wall/layer-01/07",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Wall/layer-01/08",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Wall/layer-01/09",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Wall/layer-01/10",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Wall/layer-02/00",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Wall/layer-02/01",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Wall/layer-02/02",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Wall/layer-02/03",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Wall/layer-03/00",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / door-00/jamb-left",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / door-00/jamb-right",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / door-00/head",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / door-00/leaf",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / door-01/jamb-left",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / door-01/jamb-right",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / door-01/head",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / door-01/leaf",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / door-02/jamb-left",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / door-02/jamb-right",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / door-02/head",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / door-02/leaf",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / door-03/jamb-left",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / door-03/jamb-right",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / door-03/head",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / door-03/leaf",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / door-04/jamb-left",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / door-04/jamb-right",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / door-04/head",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / door-04/leaf",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / door-05/jamb-left",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / door-05/jamb-right",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / door-05/head",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / door-05/leaf",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / door-06/jamb-left",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / door-06/jamb-right",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / door-06/head",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / door-06/leaf",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / kitchen-balcony-door/jamb-left",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / kitchen-balcony-door/jamb-right",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / kitchen-balcony-door/head",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / kitchen-balcony-door/leaf",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / door-08/jamb-left",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / door-08/jamb-right",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / door-08/head",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / door-08/leaf",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / sliding-09/frame-left",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / sliding-09/frame-right",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / sliding-09/frame-bottom",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / sliding-09/frame-top",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / sliding-09/glass-0",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / sliding-09/glass-1",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / sliding-09/mullion",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / sliding-10/frame-left",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / sliding-10/frame-right",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / sliding-10/frame-bottom",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / sliding-10/frame-top",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / sliding-10/glass-0",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / sliding-10/glass-1",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / sliding-10/mullion",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / sliding-11/frame-left",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / sliding-11/frame-right",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / sliding-11/frame-bottom",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / sliding-11/frame-top",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / sliding-11/glass-0",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / sliding-11/glass-1",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / sliding-11/mullion",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / window-12/frame-left",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / window-12/frame-right",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / window-12/frame-bottom",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / window-12/frame-top",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / window-12/glass-0",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / window-12/glass-1",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / window-12/mullion",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / window-13/frame-left",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / window-13/frame-right",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / window-13/frame-bottom",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / window-13/frame-top",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / window-13/glass-0",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / window-13/glass-1",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / window-13/mullion",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / window-14/frame-left",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / window-14/frame-right",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / window-14/frame-bottom",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / window-14/frame-top",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / window-14/glass-0",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / window-14/glass-1",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / window-14/mullion",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / window-15/frame-left",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / window-15/frame-right",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / window-15/frame-bottom",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / window-15/frame-top",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / window-15/glass-0",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / window-15/glass-1",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / window-15/mullion",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / window-16/frame-left",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / window-16/frame-right",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / window-16/frame-bottom",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / window-16/frame-top",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / window-16/glass-0",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / window-16/glass-1",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / window-16/mullion",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / living-east-balcony-door/frame-left",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / living-east-balcony-door/frame-right",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / living-east-balcony-door/frame-bottom",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / living-east-balcony-door/frame-top",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / living-east-balcony-door/glass-0",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / living-east-balcony-door/glass-1",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / living-east-balcony-door/mullion",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / sliding-18/frame-left",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / sliding-18/frame-right",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / sliding-18/frame-bottom",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / sliding-18/frame-top",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / sliding-18/glass-0",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / sliding-18/glass-1",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / sliding-18/mullion",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / living-balcony-door/frame-left",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / living-balcony-door/frame-right",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / living-balcony-door/frame-bottom",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / living-balcony-door/frame-top",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / living-balcony-door/glass-0",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / living-balcony-door/glass-1",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / living-balcony-door/mullion",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / sliding-20/frame-left",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / sliding-20/frame-right",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / sliding-20/frame-bottom",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / sliding-20/frame-top",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / sliding-20/glass-0",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / sliding-20/glass-1",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / sliding-20/mullion",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / sliding-21/frame-left",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / sliding-21/frame-right",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / sliding-21/frame-bottom",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / sliding-21/frame-top",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / sliding-21/glass-0",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / sliding-21/glass-1",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / sliding-21/mullion",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / sliding-22/frame-left",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / sliding-22/frame-right",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / sliding-22/frame-bottom",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / sliding-22/frame-top",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / sliding-22/glass-0",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / sliding-22/glass-1",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / sliding-22/mullion",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / primary-balcony-door/frame-left",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / primary-balcony-door/frame-right",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / primary-balcony-door/frame-bottom",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / primary-balcony-door/frame-top",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / primary-balcony-door/glass-0",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / primary-balcony-door/glass-1",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / primary-balcony-door/mullion",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / window-24/frame-left",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / window-24/frame-right",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / window-24/frame-bottom",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / window-24/frame-top",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / window-24/glass-0",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / window-24/glass-1",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / window-24/mullion",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / window-25/frame-left",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / window-25/frame-right",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / window-25/frame-bottom",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / window-25/frame-top",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / window-25/glass-0",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / window-25/glass-1",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / window-25/mullion",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / sliding-26/frame-left",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / sliding-26/frame-right",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / sliding-26/frame-bottom",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / sliding-26/frame-top",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / sliding-26/glass-0",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / sliding-26/glass-1",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / sliding-26/mullion",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Non-occupiable/00",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Non-occupiable/01",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Non-occupiable/02",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Non-occupiable/03",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Non-occupiable/04",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Non-occupiable/05",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Non-occupiable/06",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Non-occupiable/07",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Non-occupiable/08",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Non-occupiable/09",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Non-occupiable/10",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Non-occupiable/11",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Non-occupiable/12",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Non-occupiable/13",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Non-occupiable/14",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Ceiling/00",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Ceiling/01",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Ceiling/02",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Ceiling/03",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Ceiling/04",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Ceiling/05",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Ceiling/06",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Ceiling/07",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Ceiling/08",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Ceiling/09",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Ceiling/10",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Ceiling/11",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Ceiling/12",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Ceiling/13",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Ceiling/14",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Ceiling/15",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Ceiling/16",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Sofa / Arm tailored seam -1",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Sofa / Arm tailored seam 1",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Sofa / Back cushion 1",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Sofa / Back cushion 2",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Sofa / Back cushion 3",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Sofa / Back cushion 4",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Sofa / Folded headrest 1",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Sofa / Folded headrest 2",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Sofa / Folded headrest 3",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Sofa / Folded headrest 4",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Sofa / Loose lumbar cushion",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Sofa / Loose lumbar cushion.001",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Sofa / Seat cushion 1",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Sofa / Seat cushion 2",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Sofa / Seat cushion 3",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Sofa / Seat cushion 4",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Sofa / Seat piping 1",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Sofa / Seat piping 2",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Sofa / Seat piping 3",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Sofa / Seat piping 4",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Sofa / Sofa arm -1",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Sofa / Sofa arm 1",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Sofa / Sofa leg",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Sofa / Sofa leg foot pad",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Sofa / Sofa leg foot pad.001",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Sofa / Sofa leg foot pad.002",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Sofa / Sofa leg foot pad.003",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Sofa / Sofa leg foot pad.004",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Sofa / Sofa leg foot pad.005",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Sofa / Sofa leg.001",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Sofa / Sofa leg.002",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Sofa / Sofa leg.003",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Sofa / Sofa leg.004",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Sofa / Sofa leg.005",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Sofa / Sofa rear panel",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Sofa / Sofa upholstered lower frame",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Coffee / top",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Coffee / leg",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Coffee / leg.001",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Coffee / leg.002",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Coffee / leg.003",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Bedroom 3 wardrobe/carcass",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Bedroom 3 wardrobe/plinth",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Bedroom 3 wardrobe/cap",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Bedroom 3 wardrobe/front-0-0",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Bedroom 3 wardrobe/front-1-0",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Bedroom 3 wardrobe/front-2-0",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Bedroom 3 wardrobe/front-3-0",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / door-00/lever--1",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / door-00/lever-1",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / door-01/lever--1",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / door-01/lever-1",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / door-02/lever--1",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / door-02/lever-1",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / door-03/lever--1",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / door-03/lever-1",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / door-04/lever--1",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / door-04/lever-1",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / door-05/lever--1",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / door-05/lever-1",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / door-06/lever--1",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / door-06/lever-1",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / kitchen-balcony-door/lever--1",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / kitchen-balcony-door/lever-1",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / door-08/lever--1",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / door-08/lever-1",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Tile / fine joint",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Tile / fine joint.001",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Tile / fine joint.002",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Tile / fine joint.003",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Tile / fine joint.004",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Tile / fine joint.005",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Tile / fine joint.006",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Tile / fine joint.007",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Tile / fine joint.008",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Tile / fine joint.009",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Tile / fine joint.010",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Tile / fine joint.011",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Tile / fine joint.012",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Tile / fine joint.013",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Tile / fine joint.014",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Tile / fine joint.015",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Tile / fine joint.016",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Tile / fine joint.017",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Tile / fine joint.018",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Tile / fine joint.019",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Tile / fine joint.020",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Tile / fine joint.021",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Tile / fine joint.022",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Tile / fine joint.023",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Tile / fine joint.024",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Tile / fine joint.025",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Tile / fine joint.026",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Tile / fine joint.027",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Tile / fine joint.028",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Tile / fine joint.029",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Tile / fine joint.030",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Tile / fine joint.031",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Tile / fine joint.032",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Tile / fine joint.033",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Tile / fine joint.034",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Tile / fine joint.035",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Tile / fine joint.036",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Tile / fine joint.037",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Tile / fine joint.038",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Tile / fine joint.039",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Tile / fine joint.040",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Tile / fine joint.041",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Tile / fine joint.042",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Ceiling / light panel",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Ceiling / light panel.001",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Ceiling / light panel.002",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Ceiling / light panel.003",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Tile / fine joint.043",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Tile / fine joint.044",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Tile / fine joint.045",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Tile / fine joint.046",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Tile / fine joint.047",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Tile / fine joint.048",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Ceiling / light panel.004",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Ceiling / light panel.005",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Ceiling / light panel.006",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Tile / fine joint.049",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Tile / fine joint.050",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Tile / fine joint.051",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Tile / fine joint.052",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Tile / fine joint.053",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Tile / fine joint.054",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Tile / fine joint.055",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Ceiling / light panel.007",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Ceiling / light panel.008",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Ceiling / light panel.009",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Ceiling / light panel.010",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Living / pendant ring 0",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Living / pendant ring 1",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Living / pendant ring 2",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Living / ceiling cove",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Living / cove strip",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Living / ceiling cove.001",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Living / cove strip.001",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Living / ceiling cove.002",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Living / cove strip.002",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Living / ceiling cove.003",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Living / cove strip.003",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Kitchen west base/carcass",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Kitchen west base/plinth",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Kitchen west base/countertop",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Kitchen west base/front-0-0",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Kitchen west base/front-1-0",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Kitchen west base/front-2-0",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Kitchen west base/front-3-0",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Kitchen west base/front-4-0",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Kitchen west base/recessed sink",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Kitchen west base/drain",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Kitchen west base/tap column",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Kitchen west base/tap spout",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Kitchen west base/induction",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Kitchen west base/burner",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Kitchen west base/burner.001",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Kitchen west base/burner.002",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Kitchen west base/burner.003",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Kitchen west base/oven glass",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Kitchen west base/oven handle",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Kitchen upper 0/carcass",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Kitchen upper 0/cap",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Kitchen upper 0/front-0-0",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Kitchen upper 1/carcass",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Kitchen upper 1/cap",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Kitchen upper 1/front-0-0",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Kitchen upper 1/front-1-0",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Kitchen upper 1/front-2-0",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Kitchen hood and backsplash/hood",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Kitchen hood and backsplash/hood chimney",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Kitchen hood and backsplash/splashback",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Kitchen hood and backsplash/under cabinet light",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Living kitchen island/carcass",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Living kitchen island/plinth",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Living kitchen island/countertop",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Living kitchen island/front-0-0",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Living kitchen island/front-1-0",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Living kitchen island/front-2-0",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Refrigerator housing/body",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Refrigerator housing/steel door 0",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Refrigerator housing/handle 0",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Refrigerator housing/steel door 1",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Refrigerator housing/handle 1",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Utility shelves/shelf",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Utility shelves/shelf.001",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Utility shelves/shelf.002",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Utility drain/floor drain",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / bathroom-1-fixtures/shower tray",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / bathroom-1-fixtures/shower screen",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / bathroom-1-fixtures/shower rail",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / bathroom-1-fixtures/shower head",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / bathroom-1-fixtures/shower riser",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / bathroom-1-fixtures/vanity cabinet",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / bathroom-1-fixtures/porcelain basin",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / bathroom-1-fixtures/drain",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / bathroom-1-fixtures/basin tap",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / bathroom-1-fixtures/mirror",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / bathroom-1-fixtures/mirror light",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / bathroom-1-fixtures/stone shelf",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / bathroom-1-fixtures/wc pedestal",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / bathroom-1-fixtures/wc bowl",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / bathroom-1-fixtures/wc lid",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / bathroom-1-fixtures/wc tank",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / primary-bath-fixtures/tub apron",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / primary-bath-fixtures/tub west apron",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / primary-bath-fixtures/tub end",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / primary-bath-fixtures/tub end.001",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / primary-bath-fixtures/recessed bathtub",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / primary-bath-fixtures/drain",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / primary-bath-fixtures/tub mixer",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / primary-bath-fixtures/vanity cabinet",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / primary-bath-fixtures/porcelain basin",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / primary-bath-fixtures/drain.001",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / primary-bath-fixtures/basin tap",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / primary-bath-fixtures/mirror",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / primary-bath-fixtures/mirror light",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / primary-bath-fixtures/stone shelf",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / primary-bath-fixtures/wc pedestal",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / primary-bath-fixtures/wc bowl",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / primary-bath-fixtures/wc lid",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / primary-bath-fixtures/wc tank",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / entry-storage built-in/carcass",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / entry-storage built-in/plinth",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / entry-storage built-in/cap",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / entry-storage built-in/front-0-0",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / entry-storage built-in/front-1-0",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / entry-storage built-in/front-2-0",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / hall-pantry built-in/carcass",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / hall-pantry built-in/plinth",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / hall-pantry built-in/cap",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / hall-pantry built-in/front-0-0",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / hall-pantry built-in/front-1-0",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / hall-pantry built-in/front-2-0",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Dressing deep wardrobe/carcass",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Dressing deep wardrobe/plinth",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Dressing deep wardrobe/cap",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Dressing deep wardrobe/front-0-0",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Dressing deep wardrobe/front-1-0",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Dressing deep wardrobe/front-2-0",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Dressing vanity/carcass",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Dressing vanity/plinth",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Dressing vanity/countertop",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Dressing vanity/front-0-0",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Dressing vanity/front-1-0",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Dressing vanity/front-2-0",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Dressing vanity/mirror",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Dressing vanity/vanity light",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Skirting living-kitchen-hall/profile",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Skirting living-kitchen-hall/profile.001",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Skirting living-kitchen-hall/profile.002",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Skirting living-kitchen-hall/profile.003",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Skirting living-kitchen-hall/profile.004",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Skirting living-kitchen-hall/profile.005",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Skirting living-kitchen-hall/profile.006",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Skirting living-kitchen-hall/profile.007",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Skirting living-kitchen-hall/profile.008",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Skirting living-kitchen-hall/profile.009",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Skirting living-kitchen-hall/profile.010",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Skirting living-kitchen-hall/profile.011",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Skirting living-kitchen-hall/profile.012",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Skirting living-kitchen-hall/profile.013",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Skirting living-kitchen-hall/profile.014",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Skirting living-kitchen-hall/profile.015",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Skirting living-kitchen-hall/profile.016",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Skirting living-kitchen-hall/profile.017",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Skirting living-kitchen-hall/profile.018",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Skirting living-kitchen-hall/profile.019",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Skirting living-kitchen-hall/profile.020",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Skirting living-kitchen-hall/profile.021",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Skirting living-kitchen-hall/profile.022",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Skirting living-kitchen-hall/profile.023",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Skirting living-kitchen-hall/profile.024",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Skirting living-kitchen-hall/profile.025",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Skirting bedroom-3/profile",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Skirting bedroom-3/profile.001",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Skirting bedroom-3/profile.002",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Skirting bedroom-3/profile.003",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Skirting bedroom-3/profile.004",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Skirting bedroom-3/profile.005",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Skirting entry-storage/profile",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Skirting entry-storage/profile.001",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Skirting entry-storage/profile.002",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Skirting entry-storage/profile.003",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Skirting entry-storage/profile.004",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Skirting bedroom-1/profile",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Skirting bedroom-1/profile.001",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Skirting bedroom-1/profile.002",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Skirting bedroom-1/profile.003",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Skirting hall-pantry/profile",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Skirting hall-pantry/profile.001",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Skirting hall-pantry/profile.002",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Skirting hall-pantry/profile.003",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Skirting hall-pantry/profile.004",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Skirting dressing/profile",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Skirting dressing/profile.001",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Skirting dressing/profile.002",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Skirting dressing/profile.003",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Skirting dressing/profile.004",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Skirting dressing/profile.005",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Skirting primary/profile",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Skirting primary/profile.001",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Skirting primary/profile.002",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Skirting primary/profile.003",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Skirting primary/profile.004",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Skirting primary/profile.005",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Skirting primary/profile.006",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Skirting primary/profile.007",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Skirting primary/profile.008",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Skirting hall-storage/profile",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Skirting hall-storage/profile.001",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Skirting hall-storage/profile.002",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Skirting hall-storage/profile.003",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Skirting hall-storage/profile.004",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Skirting hall-storage/profile.005",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Skirting bedroom-2/profile",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Skirting bedroom-2/profile.001",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Skirting bedroom-2/profile.002",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Skirting bedroom-2/profile.003",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Skirting bedroom-2/profile.004",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Skirting bedroom-2/profile.005",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Skirting bedroom-2/profile.006",
+      "passed": true,
+      "max_m": 0.0
+    },
+    {
+      "name": "GLB roundtrip / Skirting bedroom-2/profile.007",
+      "passed": true,
+      "max_m": 0.0
+    }
+  ],
+  "check_count": 867,
+  "max_glb_roundtrip_m": 0,
+  "room_boundaries": [
+    {
+      "id": "bedroom-balcony",
+      "max_boundary_difference_m": 4.947354987700279e-07
+    },
+    {
+      "id": "kitchen-balcony",
+      "max_boundary_difference_m": 3.8146972691777137e-07
+    },
+    {
+      "id": "living-kitchen-hall",
+      "max_boundary_difference_m": 4.425048842904289e-07
+    },
+    {
+      "id": "living-balcony",
+      "max_boundary_difference_m": 6.098268167821968e-07
+    },
+    {
+      "id": "bedroom-3",
+      "max_boundary_difference_m": 3.614916304691853e-07
+    },
+    {
+      "id": "entry-storage",
+      "max_boundary_difference_m": 8.14819693098023e-08
+    },
+    {
+      "id": "bedroom-1",
+      "max_boundary_difference_m": 6.473755987545437e-08
+    },
+    {
+      "id": "bathroom-1",
+      "max_boundary_difference_m": 2.3899009835859927e-07
+    },
+    {
+      "id": "hall-pantry",
+      "max_boundary_difference_m": 1.369577256821777e-07
+    },
+    {
+      "id": "dressing",
+      "max_boundary_difference_m": 2.3872355950824153e-07
+    },
+    {
+      "id": "primary-bath",
+      "max_boundary_difference_m": 4.3185759713371815e-07
+    },
+    {
+      "id": "primary",
+      "max_boundary_difference_m": 3.433227533378158e-07
+    },
+    {
+      "id": "hall-storage",
+      "max_boundary_difference_m": 3.902940538336301e-07
+    },
+    {
+      "id": "primary-balcony-storage",
+      "max_boundary_difference_m": 6.256174495342458e-07
+    },
+    {
+      "id": "living-east-balcony",
+      "max_boundary_difference_m": 3.2043456954511385e-07
+    },
+    {
+      "id": "bedroom-2",
+      "max_boundary_difference_m": 2.49709744653527e-07
+    },
+    {
+      "id": "primary-balcony",
+      "max_boundary_difference_m": 6.283092719047317e-07
+    }
+  ],
+  "projected_overlaps": [
+    {
+      "a": "Kitchen west base",
+      "b": "Kitchen upper 0",
+      "area_m2": 0.23973191296408913
+    },
+    {
+      "a": "Kitchen west base",
+      "b": "Kitchen upper 1",
+      "area_m2": 0.7143416509688905
+    },
+    {
+      "a": "Kitchen west base",
+      "b": "Kitchen hood and backsplash",
+      "area_m2": 0.5010157254796468
+    },
+    {
+      "a": "Kitchen upper 0",
+      "b": "Kitchen hood and backsplash",
+      "area_m2": 0.015295554641852505
+    },
+    {
+      "a": "Kitchen upper 1",
+      "b": "Kitchen hood and backsplash",
+      "area_m2": 0.04550068363914761
+    }
+  ],
+  "solid_envelope_overlaps": [],
+  "independent_as_built_validation": false
+}

@@ -44,7 +44,11 @@ test('broken JSON, huge JSON, arrays and empty root report parse/shape errors', 
 });
 test('viewer URL preserves configured base path and fixes only supported defaults', () => {
  const a = new URL(buildViewerUrl('https://example.org/viewer/?old=1#anchor','basic'));
- assert.equal(a.pathname,'/viewer/');assert.equal(a.searchParams.get('variant'),'basic');assert.equal(a.searchParams.get('quality'),'high');assert.equal(a.hash,'');
+ assert.equal(a.pathname,'/viewer/');assert.equal(a.searchParams.get('variant'),'112a-basic-archisketch');assert.equal(a.searchParams.get('quality'),'balanced');assert.equal(a.hash,'');
+ assert.equal(a.searchParams.get('studio'),'1');assert.equal(a.searchParams.get('entry'),'overview');
+ const complex = new URL(buildViewerUrl('https://example.org/?studio=0&entry=overview','168c-expanded-archisketch',{entry:'complex'}));
+ assert.equal(complex.searchParams.get('entry'),'complex');assert.equal(complex.searchParams.get('studio'),'1');assert.equal(complex.searchParams.get('variant'),'168c-expanded-archisketch');
+ assert.throws(()=>buildViewerUrl('https://example.org/','basic',{entry:'invalid'}));
  assert.throws(()=>buildViewerUrl('javascript:alert(1)','basic'));assert.throws(()=>buildViewerUrl('http://localhost:5173/','unknown'));
 });
 

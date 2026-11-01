@@ -1,0 +1,61 @@
+{
+  "passed": true,
+  "candidate": "112a-expanded",
+  "revision": "archisketch-metric-v1",
+  "source_files": {
+    "assets/models/acro-river-park/112a/archisketch-uv-p0-v1/expanded/acro112a-expanded.blend": "bd35c45c323a3462b1b187e0bc65aa0a910a1f56251be28a3f94decddf32fee3",
+    "assets/models/acro-river-park/112a/archisketch-uv-p0-v1/expanded/acro112a-expanded.glb": "de207887a32eef9ebf1fa3af39d137011a085cae79ec8caf75976495855e81d3",
+    "assets/models/acro-river-park/112a/archisketch-uv-p0-v1/expanded/model-info.json": "e8b0d9c7e98d2c7063c46a11b79355e34a0397045e485264b89d93f3ddf0eeab"
+  },
+  "files": {
+    "acro112a-expanded.blend": "d5cdaaf2f7fcfa09b6e913d822bc1981ea40c22b668d513433f993a8ab977cc2",
+    "acro112a-expanded.glb": "dcc18d11b24a3f404f9bae635935b55bbb0001fb8c8c69e1fb7277eb83c79a31",
+    "model-info.json": "90347af25f14ced7618a3a5177113643698f24bbc4789807adc1273c50f6b446"
+  },
+  "changed_meshes": [
+    "door-07/head",
+    "door-07/jamb-left",
+    "door-07/jamb-right",
+    "door-07/leaf",
+    "door-07/lever--1",
+    "door-07/lever-1"
+  ],
+  "new_wall_meshes": [
+    "Metric wall correction/door-07/00",
+    "Metric wall correction/door-07/01",
+    "Metric wall correction/door-07/02",
+    "Metric wall correction/door-07/03",
+    "Metric wall correction/door-07/04",
+    "Metric wall correction/door-07/05",
+    "Metric wall correction/door-07/06"
+  ],
+  "unchanged_meshes": 446,
+  "protected_rooms_fixtures_metadata": true,
+  "material_names_and_extras_preserved": true,
+  "opening_reviews": [
+    {
+      "id": "door-07",
+      "old_width_m": 1.047,
+      "new_width_m": 0.9,
+      "source_id": "7B7D0E17-8794-4E69-B3D1-F5E4D1E72164",
+      "source_layout_sha256": "524720f66a77db8baaa7abcddb6f5cb150bd22a52541cbb31c489b5a86ab13ef",
+      "removed_wall_volume_m3": 0,
+      "restored_wall_volume_m3": 0.06559100000000255,
+      "added_wall_meshes": [
+        "Metric wall correction/door-07/00",
+        "Metric wall correction/door-07/01",
+        "Metric wall correction/door-07/02",
+        "Metric wall correction/door-07/03",
+        "Metric wall correction/door-07/04",
+        "Metric wall correction/door-07/05",
+        "Metric wall correction/door-07/06"
+      ],
+      "height_center_axis_unchanged": true,
+      "expected_removed_wall_volume_m3": 0.0
+    }
+  ],
+  "GPU_used": false,
+  "render_performed": false,
+  "browser_validation": "pending",
+  "active_web_changed": false
+}

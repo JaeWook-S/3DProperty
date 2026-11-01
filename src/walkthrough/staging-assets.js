@@ -36,7 +36,7 @@ export function stagingAssets(model,info) {
     if(b.min.y>1.4||b.max.y<.10)return;
     obstacles.push({x:c.x,z:c.z,width:s.x,depth:s.z,angle:0});
   });
-  function apply(item) {item.group.position.set(item.x,0,item.z);item.group.rotation.y=item.angle;item.group.visible=!item.deleted;model.updateMatrixWorld(true);}
+  function apply(item) {item.group.position.set(item.x,0,item.z);item.group.rotation.y=item.angle;item.group.visible=!item.deleted;item.group.updateWorldMatrix(true,true);}
   function rebuild(){tree=collisionTree(model,o=>{let p=o;while(p){if(p.userData.stagingId)return p.visible;p=p.parent;}return false;});}
   function snapshot(){return items.map(({id,title,kind,width,depth,height,x,z,angle,deleted})=>({id,title,kind,width,depth,height,x,z,angle,deleted}));}
   function add(kind,room,allowOverlap=false) {

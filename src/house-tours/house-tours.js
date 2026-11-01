@@ -1,8 +1,9 @@
 import { TOURS, TAG_GROUPS, LIGHTING, PLANS, MY_HOME, HOME_TYPES, tourById, tagLabel, matchTours, similarity, isSimilar, homeLine, photoPage } from './tours.js';
-import { compareFit, verdictText, keptFor } from './fit.js';
+import { compareFit, verdictText } from './fit.js';
+import { tourPlanInput } from './plan-input.js';
 import { CONCEPTS, PALETTES } from '../concepts/catalog.js';
 import { FURNITURE } from '../concepts/furniture-spec.js';
-import { VARIANTS } from '../walkthrough/variants.js';
+import { VARIANTS, resolveVariant } from '../walkthrough/variants.js';
 import { navigationRooms } from '../walkthrough/minimap-geometry.js';
 import { corners } from '../walkthrough/layout.js';
 import { HOMES, readHome, saveHome } from '../walkthrough/my-home.js';
@@ -24,7 +25,7 @@ const STATS_KEY = 'cortex-tour-stats';
 // Complexes with 3D plans. 새로운 집 찾기 searches this list; more complexes and homes
 // registered by viewers will join it.
 const COMPLEXES = [
-  { id: 'acro-river-park', name: '아크로 리버파크', region: '서울 서초구 반포동', address: LOCATION.address, map: LOCATION.map, units: '112A 기본형 · 확장형', keywords: ['아크로', 'acro', '리버파크', '반포', '서초', '서울', '한강'] },
+  { id: 'acro-river-park', name: '아크로 리버파크', region: '서울 서초구 반포동', address: LOCATION.address, map: LOCATION.map, units: '112A · 168C 기본형 / 확장형', keywords: ['아크로', 'acro', '리버파크', '반포', '서초', '서울', '한강'] },
 ];
 const findComplexes = (text) => {
   const query = text.trim().toLowerCase();
@@ -43,12 +44,12 @@ const plain = (event) => !(event.metaKey || event.ctrlKey || event.shiftKey || e
 // The rooms of the 112A plan a preview can walk, labelled by what the theme makes of them.
 const WALK_ROOMS = ['Living front', 'Bedroom west', 'Bedroom center', 'Master bedroom'];
 
-const PLAN_INPUTS = Object.fromEntries(Object.entries(VARIANTS).map(([key, v]) => [key, { variant: key, rooms: navigationRooms(v.info), doors: v.doors }]));
+const PLAN_INPUTS = Object.fromEntries(Object.keys(PLANS).map(key => {const definition=VARIANTS[resolveVariant(key)];return [key,{definition,variant:key,rooms:navigationRooms(definition.info),doors:definition.doors}];}));
 const fits = new Map();
 /** The tour's theme, laid out in full, compared with the theme laid out in 우리 집. */
 function fitFor(tour, home) {
   const key = `${tour.concept}>${home}`;
-  if (!fits.has(key)) fits.set(key, compareFit(conceptOf(tour), PLAN_INPUTS[THEME_PLAN], PLAN_INPUTS[home]));
+  if (!fits.has(key)) fits.set(key, compareFit(conceptOf(tour), tourPlanInput(conceptOf(tour),PLAN_INPUTS[THEME_PLAN].definition), tourPlanInput(conceptOf(tour),PLAN_INPUTS[home].definition)));
   return fits.get(key);
 }
 
@@ -62,14 +63,14 @@ const PLAN_FILL = {
 /** 2D plan with furniture in the tour's colors; `marks` maps placement index → status class. */
 function planDrawing(tour, plan, placements, marks = new Map(), label) {
   const colors = { ...PALETTES[tour.palette].colors, leaf: '#6f8c5f' };
-  const [x0, z0, x1, z1] = UNIT_BOUNDS;
+  const [x0, z0, x1, z1] = PLAN_INPUTS[plan].definition.info.bounds_m || UNIT_BOUNDS;
   const node = svg('svg', { viewBox: `${x0} ${z0} ${x1 - x0} ${z1 - z0}`, class: 'tp-plan', role: 'img', 'aria-label': label });
   for (const room of PLAN_INPUTS[plan].rooms) {
     const [rx0, rz0, rx1, rz1] = room.bounds_m;
     const balcony = room.kind === 'balcony' || room.kind === 'open_balcony';
-    node.append(svg('rect', { x: rx0, y: rz0, width: rx1 - rx0, height: rz1 - rz0, class: balcony ? 'pl-balcony' : 'pl-room' }));
+    node.append(room.polygon_m ? svg('polygon',{points:room.polygon_m.map(p=>p.join(',')).join(' '),class:balcony?'pl-balcony':'pl-room'}) : svg('rect', { x: rx0, y: rz0, width: rx1 - rx0, height: rz1 - rz0, class: balcony ? 'pl-balcony' : 'pl-room' }));
   }
-  for (const p of [...keptFor(conceptOf(tour)), ...placements]) {
+  for (const p of [...tourPlanInput(conceptOf(tour),PLAN_INPUTS[plan].definition).existing, ...placements]) {
     const flat = FURNITURE[p.kind]?.flat;
     const status = marks.get(p.index) ?? '';
     node.append(svg('polygon', { points: corners(p).map((c) => c.join(',')).join(' '), fill: colors[PLAN_FILL[p.kind] ?? 'wood'] ?? '#bbb', class: `pl-item ${flat ? 'pl-flat' : ''} ${status}` }));
@@ -126,7 +127,7 @@ export function createHouseTours(hooks, concepts) {
   const results = element('ul', { class: 'find-results' });
   function renderComplexes() {
     const found = findComplexes(search.value);
-    results.replaceChildren(...(found.length ? found.map((c) => element('li', {}, element('button', { type: 'button', 'aria-pressed': 'true', onclick: () => $('select-building').click() },
+    results.replaceChildren(...(found.length ? found.map((c) => element('li', {}, element('button', { type: 'button', 'aria-pressed': 'true', onclick: () => hooks.findHome(c.name) },
       element('strong', { text: c.name }), element('small', { text: `${c.address} · ${c.units}` })),
       element('a', { class: 'find-map', href: c.map, target: '_blank', rel: 'noopener', text: '지도에서 위치 보기' })))
       : [element('li', { class: 'find-empty', text: `‘${search.value.trim()}’에 맞는 단지가 없어요.` })]));
@@ -419,9 +420,13 @@ export function createHouseTours(hooks, concepts) {
   };
   // `view` ([x, z, targetX, targetZ, drop] as room fractions) tries a spot first; used while tuning renders.
   function walkRoom(roomId, view = null, drop = 0.5) {
-    hooks.selectRoom(roomId);
-    $('room-walk').click();
-    const room = hooks.rooms().find((r) => r.id === roomId);
+    const modelRoomId=concepts.roomId(roomId);
+    const room = hooks.rooms().find((r) => r.id === modelRoomId);
+    if(!room)return false;
+    hooks.selectRoom(modelRoomId);
+    // Desktop previews keep the cursor free for room switches, apply and exit.
+    // Walking starts only when requested; touch previews retain their joystick.
+    if(!hooks.previewRoom())return false;
     const [x1, z1, x2, z2] = room.bounds_m;
     const views = [view && [x1 + view[0] * (x2 - x1), z1 + view[1] * (z2 - z1), x1 + view[2] * (x2 - x1), z1 + view[3] * (z2 - z1), view[4] ?? drop],
       ...(VIEWS[roomId]?.(room.bounds_m) ?? []).map((v) => [...v, drop])];
@@ -438,7 +443,7 @@ export function createHouseTours(hooks, concepts) {
     const prev = { variant: hooks.current().key, mode: hooks.mode, lighting: $('lighting')?.value };
     if (!(await hooks.loadVariant(plan))) return null;
     const snap = concepts.snapshot();
-    concepts.apply(tour.concept, tour.palette, { url: false, frame: false });
+    if(!concepts.apply(tour.concept, tour.palette, { url: false, frame: false }))return null;
     setLighting(tour.lighting);
     return { tour, prev, snap };
   }
@@ -477,6 +482,7 @@ export function createHouseTours(hooks, concepts) {
     session.replaceChildren(
       element('span', { class: 'ts-label' }, element('i', { text: '미리보기' }), concept.short),
       element('div', { class: 'ts-rooms' }, rooms),
+      element('button', { type: 'button', class: 'ts-resume', onclick: () => hooks.resume(), title: 'WASD 이동 · 마우스 시선 · Esc로 메뉴 돌아가기', text: '직접 걷기' }),
       element('button', { type: 'button', class: 'ts-apply', onclick: () => openSheet(tour), text: '우리 집에 적용' }),
       element('button', { type: 'button', class: 'ts-exit', onclick: () => endTour(), text: '나가기' }));
     floatBar.replaceChildren(
@@ -498,7 +504,7 @@ export function createHouseTours(hooks, concepts) {
       if (!(await hooks.loadVariant(plan))) { hooks.status('우리 집 평면을 불러오지 못했어요.'); return; }
       const before = concepts.snapshot();
       hooks.setMode('overview');
-      concepts.apply(concept, palette, { tour });
+      if(!concepts.apply(concept, palette, { tour }))return;
       saveHome(plan);
       done(before);
     } finally { state.busy = false; }
@@ -524,7 +530,7 @@ export function createHouseTours(hooks, concepts) {
   function showToast(title, detail, before) {
     toast.replaceChildren(
       element('div', { class: 'tt-text' }, element('strong', { text: title }), element('small', { text: detail })),
-      element('button', { type: 'button', class: 'tt-walk', onclick: () => { closeToast(); hooks.selectRoom('Living front'); $('room-walk').click(); }, text: '걸어보기' }),
+      element('button', { type: 'button', class: 'tt-walk', onclick: () => { closeToast(); hooks.selectRoom(concepts.roomId('Living front')); $('room-walk').click(); }, text: '걸어보기' }),
       element('button', { type: 'button', class: 'tt-undo', onclick: () => { concepts.restore(before); hooks.setMode('overview'); closeToast(); renderHistory(); hooks.status('적용 전 배치로 되돌렸어요.'); }, text: '되돌리기' }),
       element('button', { type: 'button', class: 'tt-close', 'aria-label': '알림 닫기', onclick: closeToast }, icon('close', 16)));
     toast.hidden = false;

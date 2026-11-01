@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "unit_type": "168C",
+  "variant": "expanded",
+  "stage": "02 kitchen and balcony connectivity correction",
+  "revision": "structural-v2",
+  "units": "m",
+  "blender_version": "4.5.3 LTS",
+  "web_integration_status": "not_integrated",
+  "ceiling_height_m": 2.5,
+  "architecture_mesh_count": 299,
+  "excluded_zone_count": 7,
+  "source_plan_sha256": "d50961aa15f6cd577878730c1e44f4ecfa5d81f63b15fa2d481283ab5238853e",
+  "dimension_spec_sha256": "f6bfa271f57e590a9fe22a02c1691315d61504f772be6908f0ad4524cee77696",
+  "layout_spec_sha256": "d25fb07db9d9e1dce69a0bcaad11df9563bb6c9176c85c4449d5bbb28a937759",
+  "blend_sha256": "c95a46cdf54b1e7b16986939abdb1a38d522256c558a00f7c8fdb6ecd971e699",
+  "glb_sha256": "7d8e8cfb26b60ff3cfdff603a3c143a205d026bd657ac877d421e5d729d9116a",
+  "geometry_check_count": 45,
+  "geometry_checks_passed": true,
+  "ceiling_visibility": "hidden in blend review; present in GLB with component=ceiling",
+  "source_screenshot_textures_included": false,
+  "limitation": "Reference lines, wall thicknesses, unmeasured openings and sill levels are draft interpretations. Not a certified as-built model."
+}

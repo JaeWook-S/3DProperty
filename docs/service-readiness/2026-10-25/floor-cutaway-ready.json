@@ -1,0 +1,51 @@
+{
+  "requestId": "CORTEX-FLOOR-CUTAWAY-S3-20261025",
+  "at": "2026-10-25T15:33:31.393784+00:00",
+  "owner": "Cortex-S3",
+  "status": "implemented_verified_public_v5",
+  "url": "https://cortex-design-preview-20261024.spunky-note-2434.chatgpt.site",
+  "project_id": "appgprj_6adc181c49708191a65db8c32f5dc69d",
+  "version_id": "appgprj_6adc181c49708191a65db8c32f5dc69d~appgver_abc07dc75560819182f2b896b90624f9",
+  "version_number": 5,
+  "deployment_id": "appgdep_6ade2087917c81918b12d8942e3fb361",
+  "site_source_commit": "6e9b51533d3128c5bb7a5cea8bd757d97ae936d5",
+  "public_audience": "unchanged public; anonymous browser initial cookies0",
+  "implementation": "Selected building upper floors clipped, footprint-only plate, other14buildings retained; on/off and floor synchronization; outside-envelope/no selection no-cut; actual layouts not invented.",
+  "local_evidence": "/home/nas5/kinamkim/Repos/geonwoo/3DProperty/runtime/service-map/2026-10-25/floor-cutaway/verification.json",
+  "local_tests": {
+    "unit": 12,
+    "browser": 4,
+    "static_viewport_cases": 2,
+    "interior_pixels_restored": true
+  },
+  "publication": {
+    "native_status": "succeeded",
+    "anonymous_passed": true,
+    "scope": "Anonymous production cutaway toggle and household→2D return; no repeated indoor GLB tour.",
+    "errors": [],
+    "request_failures": [],
+    "api_requests": [],
+    "GLB_requests_in_public_smoke": [],
+    "static_explicit_indoor_GLB": 1
+  },
+  "package": {
+    "public_files": 52,
+    "public_bytes": 65080300,
+    "previous_public_bytes": 65074953,
+    "delta_bytes": 5347,
+    "public_GLB_count": 8,
+    "GLB_SHA_set_unchanged": true
+  },
+  "limits": [
+    "Footprint and equalized floor height are OSM visualization, not actual apartment/corridor/elevator layout.",
+    "Actual household expansion remains unknown.",
+    "Mac/mobile hardware performance remains unmeasured.",
+    "90-second guide video remains explicitly labeled 2026-10-24 version; text guide updated."
+  ],
+  "GPU_compute": 0,
+  "new_paid_calls": 0,
+  "main_repository_commit_push": false,
+  "only_site_repository_commit_push": true,
+  "developer_servers_restarted": false,
+  "approval_review": "Initial old-scope rejection resolved through latest-request evidence and approved re-review; no alternative execution route."
+}

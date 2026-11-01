@@ -1,0 +1,17 @@
+{
+  "at": "2026-10-25T16:09:09.955760+00:00",
+  "pendingUserRequests": [
+    "floor household previews",
+    "single temporary map point without accumulating list items",
+    "surroundings improvements delegated directly to S3"
+  ],
+  "note": "Latest surroundings request is additive, not cancellation of single-map-point request.",
+  "S1ProductEdits": 0,
+  "queue": {
+    "returncode": 0,
+    "stdout": "Queued message 01a173d2-af48-7360-bf33-14c5d86c9e1c for thread 01a0eb21-9413-7271-9d76-4cd9a7d1863a.\n",
+    "stderr": ""
+  },
+  "receiptConfirmed": false,
+  "publicVersionAtS3Report": 5
+}

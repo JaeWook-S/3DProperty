@@ -10,11 +10,20 @@ from PIL import Image
 
 from services.furniture_pipeline.config import PROJECT_ROOT, SERVICE_ROOT
 from services.furniture_pipeline.pipeline.run_measurement import run_worker
+from services.furniture_pipeline.pipeline.supermat_prompt import blender_contract
 
 
 def prepare_material_prompt(settings, image_path, run_dir, record, index, dimensions,
                             measurement, progress=lambda stage: None):
     run_dir = Path(run_dir).resolve()
+    if not settings.supermat_enabled:
+        progress("supermat_disabled")
+        return {"status": "disabled", "enabled": False,
+                "reason": "PIPELINE_SUPERMAT_ENABLED is false; no material inference was run.",
+                "image_path": str(image_path), "reference_image_path": str(image_path), "maps": {},
+                "prompt": "SuperMat inference is disabled. No inferred material maps are available. "
+                          "Use only the reference photo and dimensions; do not claim measured materials.\n" +
+                          blender_contract(dimensions)}
     if not settings.supermat_python.is_file():
         raise RuntimeError("SuperMat 환경이 없습니다. GPU 서버에서 bash services/furniture_pipeline/scripts/setup_supermat.sh를 실행하세요.")
     if not settings.supermat_checkpoint.is_file():
@@ -72,6 +81,6 @@ def prepare_material_prompt(settings, image_path, run_dir, record, index, dimens
     if not prompt.strip() or not summary.get("regions"):
         raise ValueError("SuperMat prompt or material summary is empty")
     print(f"[SuperMat {run_dir.name}] object={index} dimensions_m={json.dumps(dimensions)} prompt={prompt_path}", flush=True)
-    return {"image_path": str(foreground), "reference_image_path": str(reference),
+    return {"status": "completed", "enabled": True, "image_path": str(foreground), "reference_image_path": str(reference),
             "mask_path": str(mask_file), "maps": maps,
             "summary_path": str(summary_path), "prompt_path": str(prompt_path), "prompt": prompt}

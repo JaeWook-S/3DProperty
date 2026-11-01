@@ -1,0 +1,63 @@
+import {test,expect} from '@playwright/test';
+import {writeFileSync} from 'node:fs';
+const state=page=>page.evaluate(()=>window.__walkthrough.getState());
+test('finished interiors: four selectable models, real wall contours, textures and attached door handles',async({page},info)=>{
+  test.setTimeout(240000);
+  const cameraViews={tourEntries:[]};
+  const saveCameraViews=()=>writeFileSync(info.outputPath('camera-views.json'),JSON.stringify(cameraViews,null,2));
+  const view=s=>({variant:s.variant,position:s.position,pitch:s.pitch,yaw:s.yaw,locked:s.locked});
+  const errors=[],loadedModels=[];page.on('pageerror',e=>errors.push(e.message));
+  page.on('response',response=>{if(response.ok()&&new URL(response.url()).pathname.endsWith('.glb'))loadedModels.push(new URL(response.url()).pathname);});
+  await page.goto('/?studio=1&variant=112a-basic-archisketch&test=1&quality=light');
+  await expect(page.locator('body')).toHaveAttribute('data-studio-mode','complex',{timeout:90000});
+  await page.locator('#select-building').click();await page.locator('#open-unit').click();
+  for(const key of ['112a-basic-archisketch','112a-expanded-archisketch','168c-basic-archisketch','168c-expanded-archisketch']){
+    await page.locator('#studio-model').selectOption(key);
+    await expect.poll(async()=>(await state(page)).variant,{timeout:60000}).toBe(key);
+    await expect(page.locator('body')).toHaveAttribute('data-load-state','ready');
+    await expect(page.locator('body')).toHaveAttribute('data-studio-mode','overview');
+    const [type,form]=key.split('-'),revision=type==='112a'?'archisketch-metric-v1':form==='expanded'?'archisketch-metric-v1':'archisketch-details-v2';
+    expect(loadedModels.some(path=>path.endsWith(`/${type}/${revision}/${form}/acro${type}-${form}.glb`))).toBe(true);
+    const interior=await page.evaluate(()=>window.__walkthrough.inspectInterior());
+    expect(interior.finishRevision).toBe(revision);expect(interior.fixtures).toBeGreaterThanOrEqual(13);
+    expect(interior.textures).toBeGreaterThanOrEqual(2);
+    expect(interior.handles.length).toBeGreaterThan(0);expect(interior.handles.every(h=>h.door?.startsWith('archisketch:'))).toBe(true);
+    expect(await page.locator('.plan-walls path').count()).toBeGreaterThan(0);
+    expect(await page.locator('.plan-fixed').count()).toBeGreaterThan(10);
+    expect((await page.evaluate(()=>window.__studio.inspect())).items.filter(i=>!i.deleted)).toHaveLength(key.startsWith('112a')?11:2);
+    expect((await state(page)).scale).toEqual([1,1,1]);
+    await page.evaluate(()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve))));
+    await page.screenshot({path:info.outputPath(key+'-finished.png')});
+    await page.locator('#studio-room').selectOption(type==='112a'?'living':'living-kitchen-hall');
+    await page.locator('#room-walk').click();
+    await expect(page.locator('body')).toHaveAttribute('data-studio-mode','tour');
+    await expect.poll(async()=>(await state(page)).locked,{timeout:20000}).toBe(true);
+    const walking=await state(page);expect(walking.standing).toBe(true);expect(walking.bodyRadius).toBe(.22);expect(walking.eyeHeight).toBe(1.6);
+    cameraViews.tourEntries.push(view(walking));saveCameraViews();
+    expect(Math.abs(walking.pitch),'tour entry should start level before any camera correction').toBeLessThan(1e-6);
+    await page.screenshot({path:info.outputPath(key+'-tour.png')});
+    await page.evaluate(()=>document.exitPointerLock());
+    await expect.poll(async()=>(await state(page)).locked).toBe(false);
+    await page.locator('#nav-plan').click();
+    await expect(page.locator('body')).toHaveAttribute('data-studio-mode','overview');
+  }
+  await page.locator('#studio-room').selectOption('living-kitchen-hall');await page.locator('#room-walk').click();
+  await expect.poll(async()=>(await state(page)).locked,{timeout:20000}).toBe(true);
+  cameraViews.finalTourEntry=view(await state(page));saveCameraViews();
+  expect(Math.abs(cameraViews.finalTourEntry.pitch),'final tour entry should be level before capture setup').toBeLessThan(1e-6);
+  await page.evaluate(()=>document.exitPointerLock());
+  await expect.poll(async()=>(await state(page)).locked).toBe(false);
+  // Fix the evidence camera after releasing mouse look; place alone aims at y=1.1.
+  await page.evaluate(()=>{
+    window.__walkthrough.place(15,6.5,12.2,8.5);
+    window.__walkthrough.look(Math.atan2(15-12.2,6.5-8.5));
+  });
+  await page.evaluate(()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve))));
+  cameraViews.beforeKitchenCapture=view(await state(page));saveCameraViews();
+  expect(cameraViews.beforeKitchenCapture.locked).toBe(false);
+  expect(Math.abs(cameraViews.beforeKitchenCapture.pitch)).toBeLessThan(1e-6);
+  await page.screenshot({path:info.outputPath('168c-expanded-kitchen.png')});
+  cameraViews.afterKitchenCapture=view(await state(page));saveCameraViews();
+  expect(cameraViews.afterKitchenCapture).toEqual(cameraViews.beforeKitchenCapture);
+  expect(errors).toEqual([]);
+});

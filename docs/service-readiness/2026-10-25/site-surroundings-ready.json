@@ -1,0 +1,87 @@
+{
+  "status": "implemented_verified_published_v6",
+  "at": "2026-10-25T16:28:17.940643+00:00",
+  "owners": [
+    "existing Cortex-S3"
+  ],
+  "requests": [
+    "CORTEX-FLOOR-UNIT-VISUAL-LINK-20261025",
+    "user requested natural surroundings around complex/area"
+  ],
+  "url": "https://cortex-design-preview-20261024.spunky-note-2434.chatgpt.site",
+  "project_id": "appgprj_6adc181c49708191a65db8c32f5dc69d",
+  "version_id": "appgprj_6adc181c49708191a65db8c32f5dc69d~appgver_0aac153d7d8081919d88be7a80e9988f",
+  "version_number": 6,
+  "deployment_id": "appgdep_6ade2d69d9a88191a037fd56f3e3d19e",
+  "site_source_commit": "c941ab238b5230caa82bac6cb7ae3ee10808d829",
+  "access": "existing public audience unchanged",
+  "new_behavior": [
+    "Selected-floor catalog cards and112A/168C PNG previews with direct basic/expanded,2D and explicit3D. Unsupported households remain listed.",
+    "Preview-capable floors indicated on rail and jump menu. Actual unit placement/orientation/renovation remains unknown.",
+    "Real OSM Han River/island holes,parks,roads and neighbour footprints replace rectangular water/blank context; decorative foliage and normal-mapped reflective water.",
+    "Site iframe selectionRevision rejects late parent/child updates after indoor return."
+  ],
+  "verification": {
+    "unit_passed": 14,
+    "final_dev_floor_preview_cases": 2,
+    "environment_ready_idle_and_failure_cases": 2,
+    "indoor_restore_pixels_identical": true,
+    "preview404_path_passed": true,
+    "static_viewport_cases": 2,
+    "anonymous_public_passed": true,
+    "JS_errors": [],
+    "API_requests": [],
+    "dev_ports_in_static": [],
+    "map_first_GLB_and_surroundings_requests": 0,
+    "before_explicit_interior_GLB": 0,
+    "explicit_interior_first_model": 1,
+    "same_type_household_reload": 0,
+    "visited_variant_cache_preserved": true
+  },
+  "package": {
+    "files": 53,
+    "bytes": 65412466,
+    "delta_bytes": 332166,
+    "GLBs": 8,
+    "all_prior_GLB_SHA_unchanged": true,
+    "video_SHA_unchanged": true,
+    "measurement_enabled": false
+  },
+  "surroundings": {
+    "json_bytes": 313246,
+    "water": 4,
+    "green": 93,
+    "neighbour_buildings": 407,
+    "road_paths": 672,
+    "decorative_trees": 1350,
+    "draw_objects": 11,
+    "source": "https://www.openstreetmap.org/copyright",
+    "license": "ODbL-1.0",
+    "height_basis": {
+      "OSM_height": 98,
+      "OSM_levels_times_assumed_3_1m": 40,
+      "assumed_12m": 269
+    },
+    "continuous_animation": false
+  },
+  "limitations": [
+    "Decorative vegetation/materials and unsurveyed height/width assumptions.",
+    "OSM/community geometry and user CSV are not independent as-built measurements.",
+    "No physical household placement/corridor/elevator inferred.",
+    "Actual Mac/mobile hardware FPS remains unmeasured.",
+    "90-second guide video retains 2026-10-24 contents."
+  ],
+  "evidence": {
+    "floor_preview": "/home/nas5/kinamkim/Repos/geonwoo/3DProperty/runtime/service-map/2026-10-25/floor-unit-visual-link/verification.json",
+    "surroundings": "/home/nas5/kinamkim/Repos/geonwoo/3DProperty/runtime/site-surroundings/2026-10-25/verification.json",
+    "comparison": "/home/nas5/kinamkim/Repos/geonwoo/3DProperty/runtime/site-surroundings/2026-10-25/comparison.html",
+    "static": "/home/nas5/kinamkim/Repos/geonwoo/3DProperty/startup/07_팀미팅/2026-10-24_designer-demo/hosting-floor-unit-preview-20261025/static-browser/verification.json",
+    "public": "/home/nas5/kinamkim/Repos/geonwoo/3DProperty/startup/07_팀미팅/2026-10-24_designer-demo/hosting-floor-unit-preview-20261025/public-browser/verification.json"
+  },
+  "H200": 0,
+  "paid_calls": 0,
+  "main_repository_commit_push": false,
+  "site_repository_commit_push_only": true,
+  "developer_servers_restarted": false,
+  "resolved_failure": "Initial static/desktop stale selection regression fixed with monotonic site-only ordering; earlier failed logs retained."
+}

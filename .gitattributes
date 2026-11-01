@@ -8,3 +8,6 @@
 *.png binary
 *.jpg binary
 *.zip binary
+
+# Keep upstream font license text byte-for-byte.
+src/paired-floor/fonts/OFL.txt -whitespace

@@ -72,6 +72,7 @@ def build_assets(settings, image_path, run_dir, measurement, progress=lambda sta
                                        measurement, progress=progress)
     outcome["material"] = {key: value for key, value in material.items() if key != "prompt"}
     outcome["material"].update(object_index=index, dimensions_m=dimensions)
+    material_inferred = material.get("status") != "disabled"
     handoff = {"schema_version": "3dproperty.blender-input.v1", "provider": info["provider"],
         "image_path": str(image_path), "image_sha256": hashlib.sha256(image_path.read_bytes()).hexdigest(),
         "reference_image_path": material.get("reference_image_path", material["image_path"]),
@@ -107,8 +108,8 @@ def build_assets(settings, image_path, run_dir, measurement, progress=lambda sta
             "manifest_uri": f"/api/furniture/assets/{asset_id}/asset.json", "object_index": index,
             "title": f"{'테스트 테이블' if stub else '생성 가구'} · {record.get('label') or '가구'}", "generation_provider": info["provider"],
             "provenance": {"sample_id": run_dir.name,
-                "method": "SAM3+MoGe-3 dimensions / SuperMat material prompt / " + ("fixed Blender test table (GPT not called)" if stub else info["provider"]),
-                "implementation_revision": revision, "weights_id": "SAM3 + MoGe-3 + SuperMat",
+                "method": "SAM3+MoGe-3 dimensions / " + ("SuperMat material prompt / " if material_inferred else "material inference disabled / ") + ("fixed Blender test table (GPT not called)" if stub else info["provider"]),
+                "implementation_revision": revision, "weights_id": "SAM3 + MoGe-3" + (" + SuperMat" if material_inferred else ""),
                 "scale_reference_used": False, "scale_reference_description": None}, "export": export}
         (directory / "asset.json").write_text(json.dumps(asset, ensure_ascii=False, indent=2, allow_nan=False), encoding="utf-8")
         outcome["assets"].append(asset)

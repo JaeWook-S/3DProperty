@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "id": "cc0-sofa-02",
+  "title": "클래식 쿠션 소파",
+  "kind": "catalog:sofa-02",
+  "role": "sofa",
+  "geometry_kind": "glb",
+  "model_file": "model.glb",
+  "model_sha256": "7001dc05581ec750ae1591f7a0fea975e36a299d8d4517d9627cf4294adf65cd",
+  "model_bytes": 425628,
+  "source_model_sha256": "7001dc05581ec750ae1591f7a0fea975e36a299d8d4517d9627cf4294adf65cd",
+  "dimensions_m": {
+    "width": 1.8071673512458801,
+    "depth": 0.8177513778209686,
+    "height": 0.7094889283180237
+  },
+  "dimension_basis": "source_model_bounds_not_physical_measurement",
+  "physical_measurement_verified": false,
+  "unit": "m",
+  "scale": [
+    1,
+    1,
+    1
+  ],
+  "original_bounds_xyz": {
+    "min": [
+      -0.903316353505943,
+      0.00020572543144226074,
+      -0.4776984825730324
+    ],
+    "max": [
+      0.9038509977399372,
+      0.7096946537494659,
+      0.34005289524793625
+    ]
+  },
+  "front_direction": {
+    "direction_gltf": "+Z",
+    "basis": "S2 visually inspected delivered-GLB front CPU render; not a physical survey",
+    "table_note": null
+  },
+  "dimension_note": "원본 모델의 가로·깊이·전체 높이입니다. 좌면 높이나 제품 실측이 아닙니다.",
+  "runtime_normalization": "translation only: center X/Z and ground minimum Y; preserve original node transforms and scale",
+  "source": {
+    "official_page": "https://polyhaven.com/a/sofa_02",
+    "author": "Kirill Sannikov",
+    "license": "CC0-1.0",
+    "license_url": "https://polyhaven.com/license",
+    "license_deed": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "official_info": "https://api.polyhaven.com/info/sofa_02",
+    "official_files": "https://api.polyhaven.com/files/sofa_02",
+    "api_attribution": "Poly Haven; offline asset package, no production API integration",
+    "physical_sku_reference": null,
+    "field_measurement_reference": null
+  },
+  "triangles": 2728,
+  "materials": [
+    "sofa_02"
+  ],
+  "appearance_policy": "authored-pbr-v1",
+  "original_BIN_and_images_preserved": true,
+  "candidate_copied_byte_identical": true,
+  "preview_file": "preview.png",
+  "preview_basis": "CPU render of the delivered GLB; not a product photograph",
+  "integration_source_manifest_sha256": "5eeceabb101fcc4f619021d31d0222a04cc820592e1f3cd739ebdb44d553f41e",
+  "GPU_used": false
+}

@@ -1,0 +1,1635 @@
+{
+  "schema_version": 1,
+  "stage": "02 kitchen and balcony connectivity correction",
+  "unit_type": "168C",
+  "variant": "expanded",
+  "source_image_size_px": [
+    923,
+    676
+  ],
+  "source_plan_sha256": "d50961aa15f6cd577878730c1e44f4ecfa5d81f63b15fa2d481283ab5238853e",
+  "coordinate_convention": "plan coordinates x right,y down; Blender=(x,-y,height); glTF=(x,height,y)",
+  "calibration": {
+    "method": "piecewise monotone mapping; lower horizontal and left vertical dimension chain treated as draft reference stations; all endpoints visually interpreted",
+    "x_px": [
+      87,
+      237,
+      334,
+      458,
+      784,
+      837
+    ],
+    "x_m": [
+      0,
+      3.84,
+      6.7,
+      10.16,
+      19.0,
+      20.5
+    ],
+    "y_px": [
+      124,
+      251,
+      276,
+      341,
+      453,
+      506,
+      549
+    ],
+    "y_m": [
+      0,
+      3.34,
+      4.015,
+      5.765,
+      8.8,
+      10.3,
+      11.51
+    ],
+    "held_out_top_px": [
+      91,
+      191,
+      374,
+      443,
+      594,
+      781,
+      837
+    ],
+    "held_out_top_mm": [
+      2680,
+      4910,
+      1970,
+      4010,
+      4730,
+      1500
+    ],
+    "held_out_right_px": [
+      124,
+      291,
+      495,
+      549
+    ],
+    "held_out_right_mm": [
+      4430,
+      5630,
+      1450
+    ],
+    "note": "Held-out endpoints are tentative source-line interpretations; residuals are not measured building errors. Top total19800 and bottom20500 may describe distinct reference extents."
+  },
+  "outline_px": [
+    [
+      87,
+      251
+    ],
+    [
+      374,
+      251
+    ],
+    [
+      374,
+      159
+    ],
+    [
+      406,
+      159
+    ],
+    [
+      406,
+      124
+    ],
+    [
+      817,
+      124
+    ],
+    [
+      817,
+      277
+    ],
+    [
+      837,
+      277
+    ],
+    [
+      837,
+      495
+    ],
+    [
+      784,
+      495
+    ],
+    [
+      784,
+      543
+    ],
+    [
+      632,
+      543
+    ],
+    [
+      632,
+      549
+    ],
+    [
+      451,
+      549
+    ],
+    [
+      451,
+      506
+    ],
+    [
+      87,
+      506
+    ]
+  ],
+  "walls": [
+    {
+      "id": "outer-00",
+      "axis": "h",
+      "constant_px": 251,
+      "start_px": 87,
+      "end_px": 374,
+      "thickness_m": 0.18,
+      "source": "outer wall line interpreted from supplied plan; 180mm thickness is a draft assumption"
+    },
+    {
+      "id": "outer-01",
+      "axis": "v",
+      "constant_px": 374,
+      "start_px": 159,
+      "end_px": 251,
+      "thickness_m": 0.18,
+      "source": "outer wall line interpreted from supplied plan; 180mm thickness is a draft assumption"
+    },
+    {
+      "id": "outer-02",
+      "axis": "h",
+      "constant_px": 159,
+      "start_px": 374,
+      "end_px": 406,
+      "thickness_m": 0.18,
+      "source": "outer wall line interpreted from supplied plan; 180mm thickness is a draft assumption"
+    },
+    {
+      "id": "outer-03",
+      "axis": "v",
+      "constant_px": 406,
+      "start_px": 124,
+      "end_px": 159,
+      "thickness_m": 0.18,
+      "source": "outer wall line interpreted from supplied plan; 180mm thickness is a draft assumption"
+    },
+    {
+      "id": "outer-04",
+      "axis": "h",
+      "constant_px": 124,
+      "start_px": 406,
+      "end_px": 817,
+      "thickness_m": 0.18,
+      "source": "outer wall line interpreted from supplied plan; 180mm thickness is a draft assumption"
+    },
+    {
+      "id": "outer-05",
+      "axis": "v",
+      "constant_px": 817,
+      "start_px": 124,
+      "end_px": 277,
+      "thickness_m": 0.18,
+      "source": "outer wall line interpreted from supplied plan; 180mm thickness is a draft assumption"
+    },
+    {
+      "id": "outer-07",
+      "axis": "v",
+      "constant_px": 837,
+      "start_px": 277,
+      "end_px": 495,
+      "thickness_m": 0.18,
+      "source": "outer wall line interpreted from supplied plan; 180mm thickness is a draft assumption"
+    },
+    {
+      "id": "outer-08",
+      "axis": "h",
+      "constant_px": 495,
+      "start_px": 784,
+      "end_px": 837,
+      "thickness_m": 0.18,
+      "source": "outer wall line interpreted from supplied plan; 180mm thickness is a draft assumption"
+    },
+    {
+      "id": "outer-09",
+      "axis": "v",
+      "constant_px": 784,
+      "start_px": 495,
+      "end_px": 543,
+      "thickness_m": 0.18,
+      "source": "outer wall line interpreted from supplied plan; 180mm thickness is a draft assumption"
+    },
+    {
+      "id": "outer-10",
+      "axis": "h",
+      "constant_px": 543,
+      "start_px": 632,
+      "end_px": 784,
+      "thickness_m": 0.18,
+      "source": "outer wall line interpreted from supplied plan; 180mm thickness is a draft assumption"
+    },
+    {
+      "id": "outer-11",
+      "axis": "v",
+      "constant_px": 632,
+      "start_px": 543,
+      "end_px": 549,
+      "thickness_m": 0.18,
+      "source": "outer wall line interpreted from supplied plan; 180mm thickness is a draft assumption"
+    },
+    {
+      "id": "outer-12",
+      "axis": "h",
+      "constant_px": 549,
+      "start_px": 451,
+      "end_px": 632,
+      "thickness_m": 0.18,
+      "source": "outer wall line interpreted from supplied plan; 180mm thickness is a draft assumption"
+    },
+    {
+      "id": "outer-13",
+      "axis": "v",
+      "constant_px": 451,
+      "start_px": 506,
+      "end_px": 549,
+      "thickness_m": 0.18,
+      "source": "outer wall line interpreted from supplied plan; 180mm thickness is a draft assumption"
+    },
+    {
+      "id": "outer-14",
+      "axis": "h",
+      "constant_px": 506,
+      "start_px": 87,
+      "end_px": 451,
+      "thickness_m": 0.18,
+      "source": "outer wall line interpreted from supplied plan; 180mm thickness is a draft assumption"
+    },
+    {
+      "id": "outer-15",
+      "axis": "v",
+      "constant_px": 87,
+      "start_px": 251,
+      "end_px": 506,
+      "thickness_m": 0.18,
+      "source": "outer wall line interpreted from supplied plan; 180mm thickness is a draft assumption"
+    },
+    {
+      "id": "bedrooms-north",
+      "axis": "h",
+      "constant_px": 341,
+      "start_px": 87,
+      "end_px": 451,
+      "thickness_m": 0.12,
+      "source": "wall line interpreted from plan; thickness is a draft assumption"
+    },
+    {
+      "id": "bedroom-1-2",
+      "axis": "v",
+      "constant_px": 237,
+      "start_px": 341,
+      "end_px": 506,
+      "thickness_m": 0.12,
+      "source": "wall line interpreted from plan; thickness is a draft assumption"
+    },
+    {
+      "id": "bedroom-2-3",
+      "axis": "v",
+      "constant_px": 334,
+      "start_px": 341,
+      "end_px": 506,
+      "thickness_m": 0.12,
+      "source": "wall line interpreted from plan; thickness is a draft assumption"
+    },
+    {
+      "id": "bedroom-3-kitchen",
+      "axis": "v",
+      "constant_px": 451,
+      "start_px": 341,
+      "end_px": 506,
+      "thickness_m": 0.12,
+      "source": "wall line interpreted from plan; thickness is a draft assumption"
+    },
+    {
+      "id": "bathroom-1-east",
+      "axis": "v",
+      "constant_px": 192,
+      "start_px": 273,
+      "end_px": 341,
+      "thickness_m": 0.12,
+      "source": "wall line interpreted from plan; thickness is a draft assumption"
+    },
+    {
+      "id": "bathroom-1-north",
+      "axis": "h",
+      "constant_px": 273,
+      "start_px": 87,
+      "end_px": 192,
+      "thickness_m": 0.12,
+      "source": "wall line interpreted from plan; thickness is a draft assumption"
+    },
+    {
+      "id": "service-south",
+      "axis": "h",
+      "constant_px": 291,
+      "start_px": 192,
+      "end_px": 374,
+      "thickness_m": 0.12,
+      "source": "wall line interpreted from plan; thickness is a draft assumption"
+    },
+    {
+      "id": "entry-east",
+      "axis": "v",
+      "constant_px": 443,
+      "start_px": 124,
+      "end_px": 291,
+      "thickness_m": 0.12,
+      "source": "wall line interpreted from plan; thickness is a draft assumption"
+    },
+    {
+      "id": "service-east",
+      "axis": "v",
+      "constant_px": 544,
+      "start_px": 124,
+      "end_px": 194,
+      "thickness_m": 0.12,
+      "source": "wall line interpreted from plan; thickness is a draft assumption"
+    },
+    {
+      "id": "primary-bathroom-north",
+      "axis": "h",
+      "constant_px": 194,
+      "start_px": 493,
+      "end_px": 589,
+      "thickness_m": 0.12,
+      "source": "wall line interpreted from plan; thickness is a draft assumption"
+    },
+    {
+      "id": "primary-bathroom-west",
+      "axis": "v",
+      "constant_px": 493,
+      "start_px": 194,
+      "end_px": 259,
+      "thickness_m": 0.12,
+      "source": "wall line interpreted from plan; thickness is a draft assumption"
+    },
+    {
+      "id": "primary-bathroom-east",
+      "axis": "v",
+      "constant_px": 589,
+      "start_px": 194,
+      "end_px": 291,
+      "thickness_m": 0.12,
+      "source": "wall line interpreted from plan; thickness is a draft assumption"
+    },
+    {
+      "id": "primary-service-south",
+      "axis": "h",
+      "constant_px": 259,
+      "start_px": 443,
+      "end_px": 589,
+      "thickness_m": 0.12,
+      "source": "wall line interpreted from plan; thickness is a draft assumption"
+    },
+    {
+      "id": "primary-south",
+      "axis": "h",
+      "constant_px": 291,
+      "start_px": 443,
+      "end_px": 763,
+      "thickness_m": 0.12,
+      "source": "wall line interpreted from plan; thickness is a draft assumption"
+    },
+    {
+      "id": "primary-balcony-divider",
+      "axis": "v",
+      "constant_px": 763,
+      "start_px": 124,
+      "end_px": 291,
+      "thickness_m": 0.12,
+      "source": "wall line interpreted from plan; thickness is a draft assumption"
+    },
+    {
+      "id": "primary-balcony-service",
+      "axis": "h",
+      "constant_px": 180,
+      "start_px": 763,
+      "end_px": 817,
+      "thickness_m": 0.12,
+      "source": "wall line interpreted from plan; thickness is a draft assumption"
+    },
+    {
+      "id": "pantry-north",
+      "axis": "h",
+      "constant_px": 475,
+      "start_px": 544,
+      "end_px": 650,
+      "thickness_m": 0.12,
+      "source": "wall line interpreted from plan; thickness is a draft assumption"
+    },
+    {
+      "id": "pantry-east",
+      "axis": "v",
+      "constant_px": 632,
+      "start_px": 475,
+      "end_px": 543,
+      "thickness_m": 0.12,
+      "source": "wall line interpreted from plan; thickness is a draft assumption"
+    },
+    {
+      "id": "pantry-west",
+      "axis": "v",
+      "constant_px": 544,
+      "start_px": 475,
+      "end_px": 549,
+      "thickness_m": 0.12,
+      "source": "wall line interpreted from plan; thickness is a draft assumption"
+    },
+    {
+      "id": "living-balcony-return",
+      "axis": "v",
+      "constant_px": 650,
+      "start_px": 475,
+      "end_px": 495,
+      "thickness_m": 0.12,
+      "source": "wall line interpreted from plan; thickness is a draft assumption"
+    },
+    {
+      "id": "living-balcony-divider",
+      "axis": "h",
+      "constant_px": 495,
+      "start_px": 650,
+      "end_px": 784,
+      "thickness_m": 0.12,
+      "source": "wall line interpreted from plan; thickness is a draft assumption"
+    },
+    {
+      "id": "dressing-inner-south",
+      "axis": "h",
+      "constant_px": 211,
+      "start_px": 443,
+      "end_px": 493,
+      "thickness_m": 0.12,
+      "source": "provisional plan trace / user structural feedback"
+    },
+    {
+      "id": "hall-pantry-west",
+      "axis": "v",
+      "constant_px": 247,
+      "start_px": 251,
+      "end_px": 291,
+      "thickness_m": 0.12,
+      "source": "provisional plan trace / user structural feedback"
+    },
+    {
+      "id": "hall-pantry-east",
+      "axis": "v",
+      "constant_px": 325,
+      "start_px": 251,
+      "end_px": 291,
+      "thickness_m": 0.12,
+      "source": "provisional plan trace / user structural feedback"
+    },
+    {
+      "id": "utility-shaft-north",
+      "axis": "h",
+      "constant_px": 516,
+      "start_px": 594,
+      "end_px": 632,
+      "thickness_m": 0.12,
+      "source": "provisional plan trace / user structural feedback"
+    },
+    {
+      "id": "utility-shaft-west",
+      "axis": "v",
+      "constant_px": 594,
+      "start_px": 516,
+      "end_px": 549,
+      "thickness_m": 0.12,
+      "source": "provisional plan trace / user structural feedback"
+    },
+    {
+      "id": "kitchen-shaft-north",
+      "axis": "h",
+      "constant_px": 341,
+      "start_px": 451,
+      "end_px": 491,
+      "thickness_m": 0.12,
+      "source": "provisional plan trace / user structural feedback"
+    },
+    {
+      "id": "kitchen-shaft-east",
+      "axis": "v",
+      "constant_px": 491,
+      "start_px": 341,
+      "end_px": 365,
+      "thickness_m": 0.12,
+      "source": "provisional plan trace / user structural feedback"
+    },
+    {
+      "id": "kitchen-shaft-south",
+      "axis": "h",
+      "constant_px": 365,
+      "start_px": 451,
+      "end_px": 491,
+      "thickness_m": 0.12,
+      "source": "provisional plan trace / user structural feedback"
+    },
+    {
+      "id": "bathroom-1-shower-divider",
+      "axis": "v",
+      "constant_px": 131,
+      "start_px": 273,
+      "end_px": 341,
+      "thickness_m": 0.012,
+      "source": "provisional plan trace / user structural feedback",
+      "height_m": 2.12,
+      "material": "glass",
+      "component": "glass_partition"
+    },
+    {
+      "id": "primary-balcony-south-closure",
+      "axis": "h",
+      "constant_px": 284,
+      "start_px": 763,
+      "end_px": 837,
+      "thickness_m": 0.376923077,
+      "source": "continuous dark solid band x763..837,y277..291 in source plan; user confirms no balcony-to-living access; thickness is plan trace, not survey"
+    }
+  ],
+  "openings": [
+    {
+      "id": "bedroom-1-door",
+      "kind": "door",
+      "wall_id": "bedrooms-north",
+      "center_px": 214,
+      "swing_degrees": -90,
+      "dimension_source": "user specified nominal 0.8 x 2.4m; rough opening adds provisional 20mm jamb allowance",
+      "leaf_width_m": 0.8,
+      "leaf_height_m": 2.4,
+      "cut_width_m": 0.84,
+      "cut_height_m": 2.42,
+      "bottom_m": 0.0,
+      "role": "nominal_door_not_clear_passage"
+    },
+    {
+      "id": "bedroom-2-door",
+      "kind": "door",
+      "wall_id": "bedrooms-north",
+      "center_px": 314,
+      "swing_degrees": -90,
+      "dimension_source": "user specified nominal 0.8 x 2.4m; rough opening adds provisional 20mm jamb allowance",
+      "leaf_width_m": 0.8,
+      "leaf_height_m": 2.4,
+      "cut_width_m": 0.84,
+      "cut_height_m": 2.42,
+      "bottom_m": 0.0,
+      "role": "nominal_door_not_clear_passage"
+    },
+    {
+      "id": "bedroom-3-door",
+      "kind": "door",
+      "wall_id": "bedrooms-north",
+      "center_px": 358,
+      "swing_degrees": -90,
+      "dimension_source": "user specified nominal 0.8 x 2.4m; rough opening adds provisional 20mm jamb allowance",
+      "leaf_width_m": 0.8,
+      "leaf_height_m": 2.4,
+      "cut_width_m": 0.84,
+      "cut_height_m": 2.42,
+      "bottom_m": 0.0,
+      "role": "nominal_door_not_clear_passage"
+    },
+    {
+      "id": "bathroom-1-door",
+      "kind": "door",
+      "wall_id": "bathroom-1-east",
+      "center_px": 312,
+      "swing_degrees": -90,
+      "dimension_source": "user specified nominal 0.8 x 2.4m; rough opening adds provisional 20mm jamb allowance",
+      "leaf_width_m": 0.8,
+      "leaf_height_m": 2.4,
+      "cut_width_m": 0.84,
+      "cut_height_m": 2.42,
+      "bottom_m": 0.0,
+      "role": "nominal_door_not_clear_passage"
+    },
+    {
+      "id": "primary-door",
+      "kind": "door",
+      "wall_id": "primary-south",
+      "center_px": 630,
+      "swing_degrees": 90,
+      "dimension_source": "user specified nominal 0.8 x 2.4m; rough opening adds provisional 20mm jamb allowance",
+      "leaf_width_m": 0.8,
+      "leaf_height_m": 2.4,
+      "cut_width_m": 0.84,
+      "cut_height_m": 2.42,
+      "bottom_m": 0.0,
+      "role": "nominal_door_not_clear_passage"
+    },
+    {
+      "id": "primary-bathroom-door",
+      "kind": "door",
+      "wall_id": "primary-bathroom-north",
+      "center_px": 565,
+      "swing_degrees": -90,
+      "dimension_source": "user specified nominal 0.8 x 2.4m; rough opening adds provisional 20mm jamb allowance",
+      "leaf_width_m": 0.8,
+      "leaf_height_m": 2.4,
+      "cut_width_m": 0.84,
+      "cut_height_m": 2.42,
+      "bottom_m": 0.0,
+      "role": "nominal_door_not_clear_passage"
+    },
+    {
+      "id": "entry-door",
+      "kind": "door",
+      "wall_id": "outer-01",
+      "center_px": 226,
+      "swing_degrees": 90,
+      "dimension_source": "user specified nominal 0.8 x 2.4m; rough opening adds provisional 20mm jamb allowance",
+      "leaf_width_m": 0.8,
+      "leaf_height_m": 2.4,
+      "cut_width_m": 0.84,
+      "cut_height_m": 2.42,
+      "bottom_m": 0.0,
+      "role": "nominal_door_not_clear_passage"
+    },
+    {
+      "id": "pantry-door",
+      "kind": "door",
+      "wall_id": "pantry-west",
+      "center_px": 496,
+      "swing_degrees": 90,
+      "dimension_source": "user 0.80 x 2.40m nominal leaf; west-side access confirmed by feedback and kitchen/pantry VR; exact hinge and position provisional",
+      "leaf_width_m": 0.8,
+      "leaf_height_m": 2.4,
+      "cut_width_m": 0.84,
+      "cut_height_m": 2.42,
+      "bottom_m": 0.0,
+      "role": "nominal_door_not_clear_passage",
+      "hinge_side": "start"
+    },
+    {
+      "id": "bedroom-1-window",
+      "kind": "window",
+      "wall_id": "outer-14",
+      "center_px": 160,
+      "cut_width_m": 2.1,
+      "cut_height_m": 2.1,
+      "bottom_m": 0.25,
+      "window_span_m": [
+        2.0,
+        2.0
+      ],
+      "dimension_source": "inner span VR 2.0x2.0; outer width VR2.1; outer height2.1 assumed",
+      "provisional": true,
+      "sill_source": "draft placement, not measured",
+      "clear_opening_m": null
+    },
+    {
+      "id": "bedroom-2-window",
+      "kind": "window",
+      "wall_id": "outer-14",
+      "center_px": 284,
+      "cut_width_m": 1.6,
+      "cut_height_m": 1.4,
+      "bottom_m": 0.8,
+      "window_span_m": [
+        1.4,
+        1.2
+      ],
+      "dimension_source": "user specified frame and window span",
+      "provisional": false,
+      "sill_source": "draft placement, not measured",
+      "clear_opening_m": null
+    },
+    {
+      "id": "bedroom-3-window",
+      "kind": "window",
+      "wall_id": "outer-14",
+      "center_px": 392,
+      "cut_width_m": 1.6,
+      "cut_height_m": 1.4,
+      "bottom_m": 0.8,
+      "window_span_m": [
+        1.4,
+        1.2
+      ],
+      "dimension_source": "user specified frame and window span",
+      "provisional": false,
+      "sill_source": "draft placement, not measured",
+      "clear_opening_m": null
+    },
+    {
+      "id": "living-window-1",
+      "kind": "window",
+      "wall_id": "outer-07",
+      "center_px": 385,
+      "cut_width_m": 3.6,
+      "cut_height_m": 2.0,
+      "bottom_m": 0.25,
+      "window_span_m": [
+        3.4,
+        1.8
+      ],
+      "dimension_source": "frame VR3.6x2.0; user window span3.4x1.8",
+      "provisional": false,
+      "sill_source": "draft placement, not measured",
+      "clear_opening_m": null
+    },
+    {
+      "id": "living-window-2",
+      "kind": "sliding_door",
+      "wall_id": "living-balcony-divider",
+      "center_px": 716,
+      "cut_width_m": 3.2,
+      "cut_height_m": 2.2,
+      "bottom_m": 0.05,
+      "window_span_m": null,
+      "dimension_source": "user confirms sliding access to living balcony; draft3.20 x2.20m envelope retained; VR3.1/3.2m width conflict unresolved",
+      "provisional": true,
+      "sill_source": "draft placement, not measured",
+      "clear_opening_m": null,
+      "opening_fraction": 1.0,
+      "motion_type": "sliding",
+      "connection_rooms": [
+        "living",
+        "living-balcony"
+      ]
+    },
+    {
+      "id": "primary-balcony-opening",
+      "kind": "sliding_door",
+      "wall_id": "primary-balcony-divider",
+      "center_px": 233,
+      "cut_width_m": 1.7,
+      "cut_height_m": 2.2,
+      "bottom_m": 0.05,
+      "window_span_m": null,
+      "dimension_source": "sliding balcony assembly confirmed by primary-room VR; existing 1.70 x 2.20m envelope remains provisional",
+      "provisional": true,
+      "sill_source": "draft placement, not measured",
+      "clear_opening_m": null,
+      "opening_fraction": 1.0,
+      "motion_type": "sliding",
+      "connection_rooms": [
+        "primary-bedroom",
+        "primary-balcony"
+      ]
+    },
+    {
+      "id": "primary-exterior-window",
+      "kind": "window",
+      "wall_id": "outer-05",
+      "center_px": 230,
+      "cut_width_m": 1.8,
+      "cut_height_m": 2.2,
+      "bottom_m": 0.05,
+      "window_span_m": null,
+      "dimension_source": "unmeasured placeholder glazing",
+      "provisional": true,
+      "sill_source": "draft placement, not measured",
+      "clear_opening_m": null
+    },
+    {
+      "id": "kitchen-window",
+      "kind": "window",
+      "wall_id": "outer-12",
+      "center_px": 500,
+      "cut_width_m": 1.6,
+      "cut_height_m": 1.1,
+      "bottom_m": 1.05,
+      "window_span_m": null,
+      "dimension_source": "unmeasured placeholder; location from plan/VR",
+      "provisional": true,
+      "sill_source": "draft placement, not measured",
+      "clear_opening_m": null
+    },
+    {
+      "id": "hall-pantry-door",
+      "kind": "door",
+      "wall_id": "service-south",
+      "center_px": 286,
+      "swing_degrees": 45,
+      "leaf_width_m": 0.8,
+      "leaf_height_m": 2.4,
+      "cut_width_m": 0.84,
+      "cut_height_m": 2.42,
+      "bottom_m": 0.0,
+      "role": "nominal_door_not_clear_passage",
+      "dimension_source": "user nominal door size; placement and swing provisional",
+      "hinge_side": "start"
+    },
+    {
+      "id": "primary-balcony-service-door",
+      "kind": "door",
+      "wall_id": "primary-balcony-service",
+      "center_px": 790,
+      "swing_degrees": 90,
+      "leaf_width_m": 0.8,
+      "leaf_height_m": 2.4,
+      "cut_width_m": 0.84,
+      "cut_height_m": 2.42,
+      "bottom_m": 0.0,
+      "role": "nominal_door_not_clear_passage",
+      "dimension_source": "user nominal door size; placement and swing provisional",
+      "hinge_side": "end"
+    },
+    {
+      "id": "bathroom-1-shower-door",
+      "kind": "door",
+      "wall_id": "bathroom-1-shower-divider",
+      "center_px": 314,
+      "swing_degrees": -60,
+      "leaf_width_m": 0.7,
+      "leaf_height_m": 2.1,
+      "cut_width_m": 0.74,
+      "cut_height_m": 2.12,
+      "bottom_m": 0.0,
+      "role": "shower_enclosure_door",
+      "dimension_source": "unmeasured shower enclosure placeholder 0.70 x 2.10m; not the user-specified ordinary room door",
+      "leaf_material": "glass"
+    },
+    {
+      "id": "dressing-inner-passage",
+      "kind": "passage",
+      "wall_id": "service-east",
+      "center_px": 166,
+      "cut_width_m": 1.1,
+      "cut_height_m": 2.4,
+      "bottom_m": 0.0,
+      "window_span_m": null,
+      "provisional": true,
+      "dimension_source": "open connection inferred from plan and VR; width/height provisional"
+    }
+  ],
+  "rooms": [
+    {
+      "id": "bedroom-1",
+      "name_ko": "침실 1",
+      "name": "Bedroom 1",
+      "reference_bounds_px": [
+        87,
+        341,
+        237,
+        506
+      ],
+      "kind": "interior",
+      "bounds_basis": "provisional room boundary lines; clear-size report subtracts assumed wall thickness only for enclosed rectangles"
+    },
+    {
+      "id": "bedroom-2",
+      "name_ko": "침실 2",
+      "name": "Bedroom 2",
+      "reference_bounds_px": [
+        237,
+        341,
+        334,
+        506
+      ],
+      "kind": "interior",
+      "bounds_basis": "provisional room boundary lines; clear-size report subtracts assumed wall thickness only for enclosed rectangles"
+    },
+    {
+      "id": "bedroom-3",
+      "name_ko": "침실 3",
+      "name": "Bedroom 3",
+      "reference_bounds_px": [
+        334,
+        341,
+        451,
+        506
+      ],
+      "kind": "interior",
+      "bounds_basis": "provisional room boundary lines; clear-size report subtracts assumed wall thickness only for enclosed rectangles"
+    },
+    {
+      "id": "primary-bedroom",
+      "name_ko": "안방",
+      "name": "Primary bedroom",
+      "reference_bounds_px": [
+        589,
+        124,
+        763,
+        291
+      ],
+      "kind": "interior",
+      "bounds_basis": "provisional room boundary lines; clear-size report subtracts assumed wall thickness only for enclosed rectangles"
+    },
+    {
+      "id": "bathroom-1",
+      "name_ko": "화장실 1",
+      "name": "Bathroom 1",
+      "reference_bounds_px": [
+        87,
+        273,
+        192,
+        341
+      ],
+      "kind": "wet",
+      "bounds_basis": "provisional room boundary lines; clear-size report subtracts assumed wall thickness only for enclosed rectangles",
+      "subzones": [
+        "bathroom-1-shower"
+      ]
+    },
+    {
+      "id": "primary-bathroom",
+      "name_ko": "안방 화장실",
+      "name": "Primary bathroom",
+      "reference_bounds_px": [
+        493,
+        194,
+        589,
+        259
+      ],
+      "kind": "wet",
+      "bounds_basis": "provisional room boundary lines; clear-size report subtracts assumed wall thickness only for enclosed rectangles"
+    },
+    {
+      "id": "dressing-room",
+      "name_ko": "드레스룸",
+      "name": "Dressing",
+      "reference_bounds_px": [
+        544,
+        124,
+        589,
+        194
+      ],
+      "kind": "interior",
+      "bounds_basis": "provisional room boundary lines; clear-size report subtracts assumed wall thickness only for enclosed rectangles"
+    },
+    {
+      "id": "entry",
+      "name_ko": "현관",
+      "name": "Entry",
+      "reference_bounds_px": [
+        374,
+        198,
+        443,
+        291
+      ],
+      "kind": "entry",
+      "bounds_basis": "provisional room boundary lines; clear-size report subtracts assumed wall thickness only for enclosed rectangles"
+    },
+    {
+      "id": "hall",
+      "name_ko": "복도",
+      "name": "Hall",
+      "reference_bounds_px": [
+        192,
+        291,
+        451,
+        341
+      ],
+      "kind": "circulation",
+      "bounds_basis": "provisional room boundary lines; clear-size report subtracts assumed wall thickness only for enclosed rectangles"
+    },
+    {
+      "id": "living",
+      "name_ko": "거실",
+      "name": "Living",
+      "reference_bounds_px": [
+        544,
+        291,
+        837,
+        475
+      ],
+      "kind": "open_zone",
+      "bounds_basis": "provisional room boundary lines; clear-size report subtracts assumed wall thickness only for enclosed rectangles",
+      "polygon_px": [
+        [
+          568,
+          291
+        ],
+        [
+          837,
+          291
+        ],
+        [
+          837,
+          495
+        ],
+        [
+          650,
+          495
+        ],
+        [
+          650,
+          475
+        ],
+        [
+          628,
+          475
+        ],
+        [
+          628,
+          432
+        ],
+        [
+          568,
+          432
+        ]
+      ],
+      "label_position_px": [
+        704,
+        383
+      ]
+    },
+    {
+      "id": "kitchen",
+      "name_ko": "주방",
+      "name": "Kitchen",
+      "reference_bounds_px": [
+        451,
+        341,
+        628,
+        549
+      ],
+      "kind": "open_zone",
+      "bounds_basis": "functional review zone includes cabinets; not a net free floor area or independent measured room",
+      "polygon_px": [
+        [
+          451,
+          365
+        ],
+        [
+          491,
+          365
+        ],
+        [
+          491,
+          341
+        ],
+        [
+          568,
+          341
+        ],
+        [
+          568,
+          432
+        ],
+        [
+          628,
+          432
+        ],
+        [
+          628,
+          475
+        ],
+        [
+          544,
+          475
+        ],
+        [
+          544,
+          549
+        ],
+        [
+          451,
+          549
+        ]
+      ],
+      "label_position_px": [
+        511,
+        438
+      ]
+    },
+    {
+      "id": "pantry",
+      "name_ko": "주방 팬트리·다용도실",
+      "name": "Kitchen utility",
+      "reference_bounds_px": [
+        544,
+        475,
+        632,
+        549
+      ],
+      "kind": "utility",
+      "bounds_basis": "provisional room boundary lines; clear-size report subtracts assumed wall thickness only for enclosed rectangles",
+      "polygon_px": [
+        [
+          544,
+          475
+        ],
+        [
+          632,
+          475
+        ],
+        [
+          632,
+          516
+        ],
+        [
+          594,
+          516
+        ],
+        [
+          594,
+          549
+        ],
+        [
+          544,
+          549
+        ]
+      ],
+      "excluded_zone_ids": [
+        "shaft-utility"
+      ]
+    },
+    {
+      "id": "primary-balcony",
+      "name_ko": "안방 발코니",
+      "name": "Primary balcony",
+      "reference_bounds_px": [
+        763,
+        180,
+        817,
+        277
+      ],
+      "kind": "balcony",
+      "bounds_basis": "provisional room boundary lines; clear-size report subtracts assumed wall thickness only for enclosed rectangles",
+      "access_from": [
+        "primary-bedroom"
+      ],
+      "blocked_adjacent_room": "living"
+    },
+    {
+      "id": "living-balcony",
+      "name_ko": "거실 발코니",
+      "name": "Living balcony",
+      "reference_bounds_px": [
+        632,
+        495,
+        784,
+        543
+      ],
+      "kind": "balcony",
+      "bounds_basis": "provisional room boundary lines; clear-size report subtracts assumed wall thickness only for enclosed rectangles",
+      "access_from": [
+        "living"
+      ]
+    },
+    {
+      "id": "hall-pantry",
+      "name_ko": "복도 팬트리·수납",
+      "name": "Hall pantry",
+      "reference_bounds_px": [
+        247,
+        251,
+        325,
+        291
+      ],
+      "kind": "utility",
+      "bounds_basis": "provisional plan reference; not certified usable bounds"
+    },
+    {
+      "id": "dressing-inner",
+      "name_ko": "드레스룸 안쪽",
+      "name": "Inner dressing",
+      "reference_bounds_px": [
+        443,
+        124,
+        544,
+        211
+      ],
+      "kind": "interior",
+      "bounds_basis": "provisional plan reference; not certified usable bounds",
+      "polygon_px": [
+        [
+          443,
+          124
+        ],
+        [
+          544,
+          124
+        ],
+        [
+          544,
+          194
+        ],
+        [
+          493,
+          194
+        ],
+        [
+          493,
+          211
+        ],
+        [
+          443,
+          211
+        ]
+      ],
+      "label_position_px": [
+        490,
+        173
+      ]
+    },
+    {
+      "id": "primary-balcony-service",
+      "name_ko": "발코니 안쪽 공간",
+      "name": "Balcony service",
+      "reference_bounds_px": [
+        763,
+        124,
+        817,
+        180
+      ],
+      "kind": "utility",
+      "bounds_basis": "provisional plan reference; not certified usable bounds"
+    }
+  ],
+  "assumptions": [
+    "Exterior wall thickness180mm and interior120mm are draft values, not surveyed.",
+    "Wall reference is interpreted as centerline for this first draft; original drawing convention is unresolved.",
+    "Room zones labeled open_zone are navigation/review zones, not measured room rectangles.",
+    "Window sill elevations are provisional and do not imply access clearance.",
+    "Nominal door leaf800x2400mm is user supplied; openings840x2420mm and 20mm jambs are draft construction allowances.",
+    "Primary balcony and kitchen openings are placeholders; living window2 width remains unresolved.",
+    "Bedroom3 built-in wardrobe is intentionally not represented as a structural wall.",
+    "No room area in this model is a certified exclusive/supply area.",
+    "This is an unfurnished structure review model, not an as-built or construction drawing.",
+    "Bedroom2 west-side piers are traced from the plan; pixel bounds and structural function are provisional.",
+    "X-marked regions are non-occupiable blocks; their exact function (shaft/structure/etc.) is not established.",
+    "Hall pantry and deeper dressing connectivity follow user feedback and qualitative VR; shelf depth, opening sizes and internal fittings are provisional.",
+    "Shower glazing top 2.12m and leaf0.70x2.10m are unmeasured placeholders, separate from ordinary0.80x2.40m room doors.",
+    "Primary balcony contains both a sliding assembly from the bedroom and a hinged door to its upper service bay; assembly dimensions and function of bay remain provisional.",
+    "v2: Pantry access is on its west wall; former north-wall opening is filled. Door nominal dimensions unchanged; hinge remains indicative.",
+    "v2: Primary balcony south dark strip is closed full-height. Entry is via primary-bedroom sliding assembly, not living room.",
+    "v2: Both balcony sliders have two separate panels, shown fully open in the draft; nominal frames are not certified clear openings. Web interaction not implemented.",
+    "v2: Kitchen fixed cabinet footprints follow plan and qualitative VR direction. Base0.90m, island0.92m, tall storage2.32m and cabinet depths are unmeasured placeholders.",
+    "v2: Kitchen materials are schematic dark cabinet/stone/metal colors, not photogrammetry or sampled VR textures. Fixed volumes reserve space for later placement checks."
+  ],
+  "piers": [
+    {
+      "id": "bedroom-2-west-north-pier",
+      "bounds_px": [
+        237,
+        341,
+        249,
+        365
+      ]
+    },
+    {
+      "id": "bedroom-2-west-south-pier",
+      "bounds_px": [
+        237,
+        453,
+        249,
+        478
+      ]
+    }
+  ],
+  "revision": "structural-v2",
+  "parent_layout_sha256": "18d3ebebdbef11ab678b5162e1d46af7c71f251e78516bd729474c1c9cfc4f52",
+  "excluded_zones": [
+    {
+      "id": "shaft-bathroom-1-north",
+      "name_ko": "화장실1 상부 X구역",
+      "bounds_px": [
+        87,
+        251,
+        192,
+        273
+      ],
+      "source": "X marking in supplied expanded plan",
+      "function": "unresolved service/structure space",
+      "occupiable": false,
+      "furniture_placeable": false,
+      "dimension_status": "plan_trace_not_surveyed"
+    },
+    {
+      "id": "shaft-hall-west",
+      "name_ko": "복도 수납 왼쪽 X구역",
+      "bounds_px": [
+        192,
+        251,
+        247,
+        291
+      ],
+      "source": "X marking in supplied expanded plan",
+      "function": "unresolved service/structure space",
+      "occupiable": false,
+      "furniture_placeable": false,
+      "dimension_status": "plan_trace_not_surveyed"
+    },
+    {
+      "id": "shaft-hall-east",
+      "name_ko": "복도 수납 오른쪽 X구역",
+      "bounds_px": [
+        325,
+        251,
+        374,
+        291
+      ],
+      "source": "X marking in supplied expanded plan",
+      "function": "unresolved service/structure space",
+      "occupiable": false,
+      "furniture_placeable": false,
+      "dimension_status": "plan_trace_not_surveyed"
+    },
+    {
+      "id": "shaft-entry-north",
+      "name_ko": "현관 위 X구역",
+      "bounds_px": [
+        406,
+        124,
+        443,
+        159
+      ],
+      "source": "X marking in supplied expanded plan",
+      "function": "unresolved service/structure space",
+      "occupiable": false,
+      "furniture_placeable": false,
+      "dimension_status": "plan_trace_not_surveyed"
+    },
+    {
+      "id": "shaft-primary-bathroom",
+      "name_ko": "안방 욕실 옆 X구역",
+      "bounds_px": [
+        443,
+        211,
+        493,
+        259
+      ],
+      "source": "X marking in supplied expanded plan",
+      "function": "unresolved service/structure space",
+      "occupiable": false,
+      "furniture_placeable": false,
+      "dimension_status": "plan_trace_not_surveyed"
+    },
+    {
+      "id": "shaft-kitchen",
+      "name_ko": "주방·침실3 사이 X구역",
+      "bounds_px": [
+        451,
+        341,
+        491,
+        365
+      ],
+      "source": "X marking in supplied expanded plan",
+      "function": "unresolved service/structure space",
+      "occupiable": false,
+      "furniture_placeable": false,
+      "dimension_status": "plan_trace_not_surveyed"
+    },
+    {
+      "id": "shaft-utility",
+      "name_ko": "주방 다용도실 X구역",
+      "bounds_px": [
+        594,
+        516,
+        632,
+        549
+      ],
+      "source": "X marking in supplied expanded plan",
+      "function": "unresolved service/structure space",
+      "occupiable": false,
+      "furniture_placeable": false,
+      "dimension_status": "plan_trace_not_surveyed"
+    }
+  ],
+  "fixtures": [
+    {
+      "id": "hall-pantry-shelves",
+      "kind": "shelving",
+      "bounds_px": [
+        250,
+        254,
+        322,
+        264
+      ],
+      "height_m": 2.25,
+      "levels": 5,
+      "dimension_status": "unmeasured placeholder",
+      "source": "VR/plan shows function; precise fixture size is not measured"
+    },
+    {
+      "id": "dressing-inner-shelves",
+      "kind": "shelving",
+      "bounds_px": [
+        446,
+        127,
+        535,
+        136
+      ],
+      "height_m": 2.3,
+      "levels": 5,
+      "dimension_status": "unmeasured placeholder",
+      "source": "VR/plan shows function; precise fixture size is not measured"
+    },
+    {
+      "id": "bathroom-1-shower",
+      "kind": "shower_tray",
+      "bounds_px": [
+        91,
+        278,
+        130,
+        337
+      ],
+      "height_m": 0.035,
+      "dimension_status": "unmeasured placeholder",
+      "source": "VR/plan shows function; precise fixture size is not measured"
+    },
+    {
+      "id": "bathroom-1-shower-rail",
+      "kind": "shower_rail",
+      "bounds_px": [
+        91,
+        284,
+        94,
+        286
+      ],
+      "bottom_m": 0.85,
+      "height_m": 1.2,
+      "dimension_status": "unmeasured placeholder",
+      "source": "VR/plan shows function; precise fixture size is not measured"
+    },
+    {
+      "id": "kitchen-west-base",
+      "name_ko": "주방 벽면 하부장·조리대",
+      "kind": "kitchen_cabinet",
+      "bounds_m": [
+        10.064677,
+        6.686339,
+        10.714677,
+        10.76
+      ],
+      "height_m": 0.9,
+      "source": "Plan furniture symbols and VR minimaps (living-kitchen, kitchen, kitchen interior); dimensions/finish indicative, not measured",
+      "dimension_status": "unmeasured_placeholder",
+      "furniture_placeable": false,
+      "collision": true,
+      "front": "east",
+      "modules": 6,
+      "countertop": true
+    },
+    {
+      "id": "kitchen-south-sink",
+      "name_ko": "창 아래 싱크대",
+      "kind": "kitchen_cabinet",
+      "bounds_m": [
+        10.064677,
+        10.76,
+        12.412025,
+        11.41
+      ],
+      "height_m": 0.9,
+      "source": "Plan furniture symbols and VR minimaps (living-kitchen, kitchen, kitchen interior); dimensions/finish indicative, not measured",
+      "dimension_status": "unmeasured_placeholder",
+      "furniture_placeable": false,
+      "collision": true,
+      "front": "north",
+      "modules": 4,
+      "countertop": true,
+      "sink": true
+    },
+    {
+      "id": "kitchen-west-upper-a",
+      "name_ko": "주방 상부장 1",
+      "kind": "kitchen_cabinet",
+      "bounds_m": [
+        10.064677,
+        6.686339,
+        10.424677,
+        8.285134
+      ],
+      "height_m": 0.86,
+      "source": "Plan furniture symbols and VR minimaps (living-kitchen, kitchen, kitchen interior); dimensions/finish indicative, not measured",
+      "dimension_status": "unmeasured_placeholder",
+      "furniture_placeable": false,
+      "collision": true,
+      "bottom_m": 1.54,
+      "front": "east",
+      "modules": 3,
+      "countertop": false
+    },
+    {
+      "id": "kitchen-west-upper-b",
+      "name_ko": "주방 상부장 2",
+      "kind": "kitchen_cabinet",
+      "bounds_m": [
+        10.064677,
+        9.39434,
+        10.424677,
+        10.76
+      ],
+      "height_m": 0.86,
+      "source": "Plan furniture symbols and VR minimaps (living-kitchen, kitchen, kitchen interior); dimensions/finish indicative, not measured",
+      "dimension_status": "unmeasured_placeholder",
+      "furniture_placeable": false,
+      "collision": true,
+      "bottom_m": 1.54,
+      "front": "east",
+      "modules": 2,
+      "countertop": false
+    },
+    {
+      "id": "kitchen-hob-hood",
+      "name_ko": "쿡탑·후드",
+      "kind": "kitchen_hob_hood",
+      "bounds_m": [
+        10.064677,
+        8.393527,
+        10.674677,
+        9.281132
+      ],
+      "height_m": 2.36,
+      "source": "Plan furniture symbols and VR minimaps (living-kitchen, kitchen, kitchen interior); dimensions/finish indicative, not measured",
+      "dimension_status": "unmeasured_placeholder",
+      "furniture_placeable": false,
+      "collision": true,
+      "cooktop_z_m": 0.904,
+      "hood_bottom_m": 1.78
+    },
+    {
+      "id": "kitchen-island",
+      "name_ko": "거실 쪽 아일랜드·수납장",
+      "kind": "kitchen_cabinet",
+      "bounds_m": [
+        12.329325,
+        5.927589,
+        13.142822,
+        7.472188
+      ],
+      "height_m": 0.92,
+      "source": "Plan furniture symbols and VR minimaps (living-kitchen, kitchen, kitchen interior); dimensions/finish indicative, not measured",
+      "dimension_status": "unmeasured_placeholder",
+      "furniture_placeable": false,
+      "collision": true,
+      "front": "west",
+      "modules": 3,
+      "countertop": true,
+      "drawer_rows": 3
+    },
+    {
+      "id": "kitchen-fridge-storage",
+      "name_ko": "냉장고·키큰 수납장",
+      "kind": "kitchen_fridge",
+      "bounds_m": [
+        12.519141,
+        8.512642,
+        14.769816,
+        9.362642
+      ],
+      "height_m": 2.32,
+      "source": "Plan furniture symbols and VR minimaps (living-kitchen, kitchen, kitchen interior); dimensions/finish indicative, not measured",
+      "dimension_status": "unmeasured_placeholder",
+      "furniture_placeable": false,
+      "collision": true,
+      "front": "north"
+    }
+  ],
+  "detail_evidence": [
+    {
+      "filename": "168C_VR_확장형_드레스룸.png",
+      "sha256": "6c17a84891de133b100d9966d6601d6d666402d8df4f6e8006d3eae704f2f68d",
+      "use": "qualitative plan/minimap correspondence; no texture extraction"
+    },
+    {
+      "filename": "168C_VR_확장형_화장실1.png",
+      "sha256": "95d550aadf4c36a4863c99e190fd33b97816a25320f2b82bdee8e1ab4964fa0a",
+      "use": "qualitative plan/minimap correspondence; no texture extraction"
+    },
+    {
+      "filename": "168C_VR_확장형_안방.png",
+      "sha256": "42d443c1c44a2023f1177dc19ce91b3895bbe25f95dd93797fb35979401687f0",
+      "use": "qualitative plan/minimap correspondence; no texture extraction"
+    },
+    {
+      "filename": "168C_VR_확장형_복도 좌측 뷰.png",
+      "sha256": "63a60203b4b23ef371748d78ff72fcb63783dbb752c4b8de428b836850774857",
+      "use": "qualitative plan/minimap correspondence; no texture extraction"
+    },
+    {
+      "filename": "168C_VR_확장형_복도 우측 뷰.png",
+      "sha256": "ba8537a0d31e428c4964eaa49cfec8f8634eeb087cd3a1c2bb35ac25d91e1a06",
+      "use": "qualitative plan/minimap correspondence; no texture extraction"
+    },
+    {
+      "filename": "168C_VR_확장형_부엌내부_펜트리.png",
+      "sha256": "fa2c5bbd9dfe7982dbf571907f5ab9352e68f1e47c9825c58676ebc2b972b945",
+      "use": "qualitative plan/minimap correspondence; no texture extraction"
+    },
+    {
+      "filename": "168C_VR_확장형_거실부엌.png",
+      "sha256": "1a992f5691dfc584916388dd8c46123ecb0bedefce11a52d00fbcef0a902e3cb",
+      "use": "kitchen relative positions and front orientations from VR/minimap; no metric extraction or texture inclusion"
+    },
+    {
+      "filename": "168C_VR_확장형_부엌내부.png",
+      "sha256": "364aea65b1579ccaa0f955f3356ef3d8496ea04e4db402e16bc24ba291ec66df",
+      "use": "kitchen relative positions and front orientations from VR/minimap; no metric extraction or texture inclusion"
+    },
+    {
+      "filename": "168C_VR_확장형_부엌.png",
+      "sha256": "757f0f90c7b017d5bab9eae1b21e9001ae8ce5952b82f1b737234631d98bd42f",
+      "use": "kitchen relative positions and front orientations from VR/minimap; no metric extraction or texture inclusion"
+    }
+  ]
+}

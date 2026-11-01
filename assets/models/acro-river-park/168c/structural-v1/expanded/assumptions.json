@@ -1,0 +1,21 @@
+{
+  "assumptions": [
+    "Exterior wall thickness180mm and interior120mm are draft values, not surveyed.",
+    "Wall reference is interpreted as centerline for this first draft; original drawing convention is unresolved.",
+    "Room zones labeled open_zone are navigation/review zones, not measured room rectangles.",
+    "Window sill elevations are provisional and do not imply access clearance.",
+    "Nominal door leaf800x2400mm is user supplied; openings840x2420mm and 20mm jambs are draft construction allowances.",
+    "Primary balcony and kitchen openings are placeholders; living window2 width remains unresolved.",
+    "Bedroom3 built-in wardrobe is intentionally not represented as a structural wall.",
+    "No room area in this model is a certified exclusive/supply area.",
+    "This is an unfurnished structure review model, not an as-built or construction drawing.",
+    "Bedroom2 west-side piers are traced from the plan; pixel bounds and structural function are provisional.",
+    "X-marked regions are non-occupiable blocks; their exact function (shaft/structure/etc.) is not established.",
+    "Hall pantry and deeper dressing connectivity follow user feedback and qualitative VR; shelf depth, opening sizes and internal fittings are provisional.",
+    "Shower glazing top 2.12m and leaf0.70x2.10m are unmeasured placeholders, separate from ordinary0.80x2.40m room doors.",
+    "Primary balcony contains both a sliding assembly from the bedroom and a hinged door to its upper service bay; assembly dimensions and function of bay remain provisional."
+  ],
+  "all_sill_heights_provisional": true,
+  "clearance_checked": false,
+  "source_plan_sha256": "d50961aa15f6cd577878730c1e44f4ecfa5d81f63b15fa2d481283ab5238853e"
+}

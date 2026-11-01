@@ -1,0 +1,53 @@
+{
+  "schema": "cortex-shared-floor-ready-v1",
+  "at": "2026-10-25T09:11:01.973744+00:00",
+  "owner": "S1",
+  "status": "integrated_locally_verified_not_published",
+  "entry": "/floor-access-review.html",
+  "existing_public_demo": "unchanged",
+  "prototype_scope": "2 x 168C expanded scale 1 with assumed common hall and lift; no verified building/floor/line correspondence",
+  "files_owned_by_s1": [
+    "floor-access-review.html",
+    "src/floor-access/main.js",
+    "src/floor-access/style.css",
+    "src/floor-access/scene.js",
+    "src/floor-access/fixture.js",
+    "src/floor-access/transport.js",
+    "tests/floor-access.browser.js",
+    "tests/floor-fixture.test.js",
+    "tests/floor-transport.test.js",
+    "tools/build-floor-access-review.mjs"
+  ],
+  "source_glb_sha256": "d9f31a482095a6b4b98177978f9e269f9dc3bb38ad8c194166407e7905b94dce",
+  "data_contract": {
+    "coordinate_system": "meter, Y up, x/z plan, positive yaw rotates local +X toward world -Z",
+    "source_entrance": "door-00 anchor; frame/clear passage remains provisional",
+    "results": [
+      "static car fit",
+      "current pose",
+      "recorded common-area route"
+    ],
+    "route_status": [
+      "clear",
+      "blocked",
+      "unresolved"
+    ],
+    "model_policy": "load original unit only on explicit toggle; one fetch reused for two copies; no resizing",
+    "catalog": "reuse current four CC0 manifests and lazy loader, no API"
+  },
+  "verification": "runtime/floor-access/2026-10-25/verification.json",
+  "s3_next_scope": "Completed: explicit entry and service return verified. No pending duplicate integration or public deployment.",
+  "needs_user_input_now": false,
+  "needed_before_real_building_claim": "one verified common-floor plan and measured elevator interior/open-door clear dimensions; existing USER-ACTIONS item 7",
+  "GPU": false,
+  "updated_at": "2026-10-25T09:29:58.264073+00:00",
+  "integration_verification": "runtime/service-readiness/2026-10-25/floor-access-link/verification.json",
+  "entry_ownership_note": "S1 prototype modules preserved; S3 owns src/floor-access-entry.js and the HTML script hook.",
+  "publication": {
+    "status": "live_public_verified",
+    "at": "2026-10-25T14:35:28.712921+00:00",
+    "url": "https://cortex-design-preview-20261024.spunky-note-2434.chatgpt.site",
+    "evidence": "/home/nas5/kinamkim/Repos/geonwoo/3DProperty/startup/07_팀미팅/2026-10-24_designer-demo/hosting-refresh-20261025-latest/verification.json",
+    "note": "후속 공개 배포. 이전 로컬 검증 범위/시점은 보존."
+  }
+}

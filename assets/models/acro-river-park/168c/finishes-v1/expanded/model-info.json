@@ -1,0 +1,12 @@
+{
+  "unit_type": "168C",
+  "variant": "expanded",
+  "revision": "finishes-v1",
+  "structure_revision": "structural-v2",
+  "source_blend_sha256": "c95a46cdf54b1e7b16986939abdb1a38d522256c558a00f7c8fdb6ecd971e699",
+  "blend_sha256": "9298779fa1dba588e4ba1d29254a2a4e0be4eb9faef11f82b8db4e37a8b32fc3",
+  "glb_sha256": "025ab977a44ed8dd7b3e1ede18bbddbd606779c899a7075c82daf667a5cdfaaf",
+  "architecture_meshes": 336,
+  "source_vr_textures_embedded": false,
+  "finish_basis": "qualitative VR appearance + existing project-generated oak/limestone; finish dimensions and light positions are draft"
+}

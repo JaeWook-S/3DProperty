@@ -1,0 +1,35 @@
+{
+  "passed": true,
+  "variant": "expanded",
+  "unchanged_meshes": 444,
+  "unexpected_changes": [],
+  "changed_meshes": [
+    "door-00/head",
+    "door-00/jamb-left",
+    "door-00/jamb-right",
+    "door-00/leaf",
+    "door-00/lever--1",
+    "door-00/lever-1"
+  ],
+  "restored_wall_meshes": [
+    "Entry wall correction/00",
+    "Entry wall correction/01"
+  ],
+  "restored_wall_area_m2": 0.18647500000000025,
+  "room_geometry_unchanged": true,
+  "navigation_zones_cover_source_room": true,
+  "navigation_zones_overlap_m2": 0,
+  "entrance": {
+    "opening_width_m": 1.0,
+    "leaf_width_m": 0.96,
+    "frame_allowance_each_m": 0.02,
+    "left_wall_m": 0.454,
+    "right_wall_m": 0.469,
+    "previous_width_m": 1.923,
+    "basis": "live Archisketch scaled entrance instance1000mm; side offsets from room inner faces",
+    "as_built_verified": false
+  },
+  "render_max_samples": 2048,
+  "preview_max_samples": 128,
+  "render_performed": false
+}

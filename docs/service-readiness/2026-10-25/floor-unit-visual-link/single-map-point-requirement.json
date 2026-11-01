@@ -1,0 +1,27 @@
+{
+  "at": "2026-10-25T15:50:44.238854+00:00",
+  "userFeedback": "선택한 위치가 클릭한 만큼 계속 생기며 용도를 모르겠음",
+  "scope": "현재 S3 UI 보완에 포함",
+  "requestedBehavior": [
+    "지도 빈 곳 클릭 시 임시 위치는 마지막 1개만 표시/갱신",
+    "임시 좌표를 준비된 공간이나 검색결과 목록에 append/unshift 하지 않음",
+    "준비된 공간 목록에는 실제 준비된 단지만 유지",
+    "선택 좌표는 별도 핀/간결한 선택정보로 표시하고 해제 가능",
+    "새 클릭이전 임시핀 교체, 기존 아크로핀·검색결과는 보존",
+    "지도 이동/새로고침/URL 복원 시 임시좌표 목록이 다시 누적되지 않음",
+    "도면요청 초안은 사용자가 명시 선택했을 때만 저장; 단순 지도 클릭이 요청/등록을 뜻하지 않도록",
+    "기존 층별 호수미리보기 진행은 유지"
+  ],
+  "implementationOwner": "existing Cortex-S3",
+  "S1ProductEdits": 0,
+  "implemented": true,
+  "executionStatus": "implemented_verified_published_v7",
+  "completionEvidence": "/home/nas5/kinamkim/Repos/geonwoo/3DProperty/docs/service-readiness/2026-10-25/map-point-classification-ready.json",
+  "additionalVerification": "/home/nas5/kinamkim/Repos/geonwoo/3DProperty/runtime/service-map/2026-10-25/map-point-classification/three-click-reselect/verification.json",
+  "additionalVerifiedAt": "2026-10-25T16:59:01.652Z",
+  "statusNote": "Original implemented:false was stale; existing public v7 already implements one transient point. This update records the requested consecutive-three-click and Acro-reselection check; no product edit or redeployment.",
+  "completion_status": "implemented_verified_published_v7",
+  "completion_evidence": "docs/service-readiness/2026-10-25/map-point-classification-ready.json",
+  "accepted_at_utc": "2026-10-25T17:13:46.003341+00:00",
+  "S1_repeated_browser_tests": false
+}

@@ -1,75 +1,234 @@
 import * as THREE from 'three';
+import {createFloorCutaway, floorCutawayState} from './floor-cutaway.js';
+import { createFacade, createStoneMap, createGlazingMaps } from './site-facade.js';
+import { installSiteAppearance } from './site-appearance.js';
+import site from '../../assets/location/acro-river-park/site-context.json';
+import {createSiteSurroundings} from './site-surroundings.js';
 
-// Visual neighborhood for exploring the demo. Positions, heights and waterways
-// are illustrative, not a surveyed reconstruction or an actual view analysis.
-export function createComplexContext(scene) {
-  const group=new THREE.Group();group.name='Illustrative neighborhood context';scene.add(group);
-  const boxGeometry=new THREE.BoxGeometry(1,1,1);
-  const shell=new THREE.MeshStandardMaterial({color:0xe6e2d9,roughness:.75});
-  const stone=new THREE.MeshStandardMaterial({color:0x6c797c,roughness:.6});
-  const glass=new THREE.MeshStandardMaterial({color:0x527580,roughness:.3,metalness:.35});
-  const concrete=new THREE.MeshStandardMaterial({color:0xc8c8b9,roughness:.9});
-  function box(parent,size,position,material){const mesh=new THREE.Mesh(boxGeometry,material);mesh.scale.set(...size);mesh.position.set(...position);parent.add(mesh);return mesh;}
-  function instances(parent,material,transforms){const mesh=new THREE.InstancedMesh(boxGeometry,material,transforms.length),dummy=new THREE.Object3D();transforms.forEach((t,i)=>{dummy.position.set(...t.p);dummy.scale.set(...t.s);dummy.updateMatrix();mesh.setMatrixAt(i,dummy.matrix);});mesh.computeBoundingSphere();parent.add(mesh);return mesh;}
+const FLOOR_MARKER_COLOR = 0xf3be4d;
 
-  const sky=new THREE.Mesh(new THREE.SphereGeometry(650,32,16),new THREE.ShaderMaterial({
-    side:THREE.BackSide,depthWrite:false,
-    vertexShader:'varying vec3 vDirection; void main(){vDirection=position; gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.0);}',
-    fragmentShader:'varying vec3 vDirection; void main(){float h=normalize(vDirection).y; vec3 horizon=vec3(.53,.74,.87); vec3 zenith=vec3(.18,.42,.68); gl_FragColor=vec4(mix(horizon,zenith,smoothstep(-.08,.75,h)),1.0);}',
-  }));group.add(sky);
-  group.add(new THREE.HemisphereLight(0xe5f2ff,0x8f9477,1.5));
-  const sun=new THREE.DirectionalLight(0xfff4db,1.6);sun.position.set(-80,160,100);group.add(sun);
-  box(group,[700,.3,600],[0,-.35,-50],new THREE.MeshStandardMaterial({color:0x8d9f8a,roughness:1}));
-  box(group,[350,.2,205],[0,-.08,-32],new THREE.MeshStandardMaterial({color:0xb4be9d,roughness:1}));
-  box(group,[700,.15,120],[0,-.05,-205],new THREE.MeshStandardMaterial({color:0x668f9e,metalness:.35,roughness:.3}));
-  box(group,[700,.15,12],[0,.05,-137],concrete);
-  const road=new THREE.MeshStandardMaterial({color:0x697773,roughness:1});
-  for(const z of [85,-115]){
-    box(group,[700,.12,14],[0,.02,z],road);
-    instances(group,concrete,Array.from({length:60},(_,i)=>({s:[5,.03,.22],p:[i*12-350,.1,z]})));
+function shapeFrom(points) {
+  const shape = new THREE.Shape();
+  points.forEach(([x, z], index) => (index ? shape.lineTo(x, -z) : shape.moveTo(x, -z)));
+  shape.closePath();
+  return shape;
+}
+
+function horizontalShape(points) {
+  const geometry = new THREE.ShapeGeometry(shapeFrom(points));
+  geometry.rotateX(-Math.PI / 2);
+  return geometry;
+}
+
+function extrudedShape(points, height) {
+  const geometry = new THREE.ExtrudeGeometry(shapeFrom(points), {
+    depth: height,
+    bevelEnabled: false,
+    curveSegments: 1,
+  });
+  geometry.rotateX(-Math.PI / 2);
+  geometry.computeVertexNormals();
+  return geometry;
+}
+
+function boundsOf(points) {
+  const xs = points.map(([x]) => x), zs = points.map(([, z]) => z);
+  return {
+    minX: Math.min(...xs), maxX: Math.max(...xs),
+    minZ: Math.min(...zs), maxZ: Math.max(...zs),
+  };
+}
+
+function labelSprite(text, highlighted = false) {
+  const canvas = document.createElement('canvas');
+  canvas.width = 256; canvas.height = 112;
+  const context = canvas.getContext('2d');
+  const texture = new THREE.CanvasTexture(canvas); texture.colorSpace = THREE.SRGBColorSpace;
+  const setText = (value) => {
+    context.clearRect(0, 0, canvas.width, canvas.height);
+    context.fillStyle = highlighted ? '#f3be4d' : 'rgba(249,248,240,.94)';
+    context.beginPath(); context.roundRect(7, 7, 242, 98, 22); context.fill();
+    context.strokeStyle = highlighted ? '#8a5817' : '#294c41'; context.lineWidth = 5; context.stroke();
+    context.fillStyle = '#173d35'; context.font = '700 54px sans-serif';
+    context.textAlign = 'center'; context.textBaseline = 'middle'; context.fillText(value, 128, 58);
+    texture.needsUpdate = true;
+  };
+  setText(text);
+  const sprite = new THREE.Sprite(new THREE.SpriteMaterial({ map: texture, depthTest: false }));
+  sprite.scale.set(19, 8.3, 1); sprite.renderOrder = 10;
+  sprite.userData.setText = setText;
+  return sprite;
+}
+
+function floorDivisions(points, height, storeyHeight, material) {
+  const vertices = [];
+  for (let y = storeyHeight; y < height - .05; y += storeyHeight) {
+    points.forEach(([x, z], index) => {
+      const [nextX, nextZ] = points[(index + 1) % points.length];
+      vertices.push(x, y, z, nextX, y, nextZ);
+    });
   }
-  for(const x of [-155,155])box(group,[10,.12,200],[x,.03,-18],road);
-  const buildings=[],pickMeshes=[];
-  const positions=[[0,0,38],[-34,-25,32],[35,-28,29],[-70,-56,36],[0,-65,31],[72,-62,35],[-108,-10,28],[105,-15,33],[-64,30,26],[66,30,30],[-118,-80,24],[-36,-96,34],[39,-96,28],[120,-90,32],[117,49,25]];
-  for(const [index,[x,z,floors]] of positions.entries()){
-    const id=String.fromCharCode(65+index),tower=new THREE.Group();tower.position.set(x,0,z);tower.rotation.y=index%3===1?-.15:index%3===2?.16:0;group.add(tower);
-    const height=floors*2;
-    const body=box(tower,[12,height,8],[0,height/2,0],shell);body.userData.buildingId=id;pickMeshes.push(body);
-    box(tower,[2.1,height+2,8.3],[0,(height+2)/2,0],stone);
-    box(tower,[13.2,.7,9.2],[0,height+.35,0],concrete);
-    box(tower,[6,1.8,4.5],[0,height+1.6,0],stone);
-    box(tower,[15,1,11],[0,.5,0],stone);
-    const windows=[],bands=[];
-    for(let floor=1;floor<=floors;floor++){
-      for(const wx of [-4.4,-2.2,2.2,4.4])for(const side of [-1,1])windows.push({s:[1.72,1.48,.12],p:[wx,(floor-.5)*2,side*4.06]});
-      for(const wx of [-6.06,6.06])for(const wz of [-2.5,0,2.5])windows.push({s:[.12,1.48,1.7],p:[wx,(floor-.5)*2,wz]});
-      bands.push({s:[12.15,.1,8.15],p:[0,floor*2,0]});
+  const geometry = new THREE.BufferGeometry();
+  geometry.setAttribute('position', new THREE.Float32BufferAttribute(vertices, 3));
+  return new THREE.LineSegments(geometry, material);
+}
+
+function roadMesh(record, material) {
+  const group = new THREE.Group();
+  const width = record.kind === 'trunk' ? 13 : record.kind === 'secondary' ? 10 : 6;
+  for (let i = 1; i < record.path_m.length; i++) {
+    const [ax, az] = record.path_m[i - 1], [bx, bz] = record.path_m[i];
+    const length = Math.hypot(bx - ax, bz - az);
+    const road = new THREE.Mesh(new THREE.BoxGeometry(length + .3, .035, width), material);
+    road.rotation.y = -Math.atan2(bz - az, bx - ax); road.position.set((ax + bx) / 2, .01, (az + bz) / 2);
+    road.receiveShadow = true; group.add(road);
+  }
+  return group;
+}
+
+// OSM supplies the footprint, part levels and overall height. The separate
+// labelled site plan is used only to cross-check the 100–114 building labels.
+export function createComplexContext(scene, invalidate) {
+  const group = new THREE.Group(); group.name = 'ACRO site context · OSM derived'; scene.add(group);
+  const stoneMap = createStoneMap();
+  const ground = new THREE.MeshStandardMaterial({ color: 0xa3aca1, roughness: .95 });
+  const road = new THREE.MeshStandardMaterial({ color: 0x565e60, roughness: .92 });
+  const siteGround = new THREE.MeshStandardMaterial({ color: 0x95a484, roughness: .95 });
+  const shellColor = 0xe8e5dd;
+  const glazing = createGlazingMaps();
+  const glass = new THREE.MeshPhysicalMaterial({ color: 0x8aadc1, map: glazing.color, normalMap: glazing.normal, normalScale: new THREE.Vector2(.15, .15), metalness: .3, roughness: .12, clearcoat: 1, clearcoatRoughness: .08, envMapIntensity: 1.6 });
+  const frame = new THREE.MeshStandardMaterial({ color: 0x59696b, metalness: .55, roughness: .32 });
+  const slab = new THREE.MeshStandardMaterial({ color: 0xe2ded5, roughness: .73, map: stoneMap });
+  const edge = new THREE.LineBasicMaterial({ color: 0x78847f, transparent: true, opacity: .68 });
+  const floorLine = new THREE.LineBasicMaterial({ color: 0x78847f, transparent: true, opacity: .55 });
+  const bandMaterial = new THREE.MeshBasicMaterial({
+    color: FLOOR_MARKER_COLOR, transparent: true, opacity: .27, depthWrite: false, depthTest: false,
+    polygonOffset: true, polygonOffsetFactor: -2, polygonOffsetUnits: -2,
+  });
+  const bandEdge = new THREE.LineBasicMaterial({ color: 0xe9ac30, transparent: true, opacity: .85, depthTest: true, depthWrite: false });
+
+  const allBoundary = site.site_boundary_m;
+  const siteBounds = boundsOf(allBoundary);
+  const siteCenter = [(siteBounds.minX + siteBounds.maxX) / 2, (siteBounds.minZ + siteBounds.maxZ) / 2];
+  const plane = new THREE.Mesh(new THREE.PlaneGeometry(4200, 4000), ground);
+  plane.rotation.x = -Math.PI / 2; plane.position.set(siteCenter[0], -.2, siteCenter[1] - 35); plane.receiveShadow = true; group.add(plane);
+  const parcel = new THREE.Mesh(horizontalShape(allBoundary), siteGround); parcel.position.y = -.08; parcel.receiveShadow = true; group.add(parcel);
+
+  // The mapped, cached neighbourhood replaces the former rectangular water plane.
+  const surroundings=createSiteSurroundings(group,site,()=>{invalidate();});
+
+  const buildings = [], pickMeshes = [];
+  for (const record of site.buildings) {
+    const building = new THREE.Group(); building.name = `${record.title} · OSM massing`; group.add(building);
+    const material = new THREE.MeshStandardMaterial({ color: shellColor, map: stoneMap, roughness: .78, metalness: 0, emissive: 0x000000,
+      polygonOffset: true, polygonOffsetFactor: 1, polygonOffsetUnits: 1 });
+    const edgeMaterial = edge.clone(), floorLineMaterial = floorLine.clone();
+    edgeMaterial.depthWrite = floorLineMaterial.depthWrite = false;
+    const markerParts = [], shells = [];
+    const points = record.parts.flatMap((part) => part.footprint_m);
+    const bounds = boundsOf(points);
+    const center = [(bounds.minX + bounds.maxX) / 2, (bounds.minZ + bounds.maxZ) / 2];
+    for (const part of record.parts) {
+      const geometry = extrudedShape(part.footprint_m, part.height_m);
+      const mesh = new THREE.Mesh(geometry, material);
+      mesh.userData.buildingId = record.id; mesh.userData.partLevels = part.levels;
+      mesh.castShadow = mesh.receiveShadow = true;
+      building.add(mesh); pickMeshes.push(mesh); shells.push(mesh);
+      building.add(new THREE.LineSegments(new THREE.EdgesGeometry(geometry, 24), edgeMaterial));
+      building.add(floorDivisions(part.footprint_m, part.height_m, record.height_m / record.levels, floorLineMaterial));
+      // A full storey wraps the facade; a horizontal slice is hidden inside the shell.
+      const marker = new THREE.Group(); marker.name = 'selected-floor-facade';
+      const bandGeometry = extrudedShape(part.footprint_m, 1);
+      const band = new THREE.Mesh(bandGeometry, bandMaterial); band.renderOrder = 5;
+      const outline = new THREE.LineSegments(new THREE.EdgesGeometry(bandGeometry, 24), bandEdge); outline.renderOrder = 6;
+      marker.add(band, outline);
+      marker.visible = false; building.add(marker);
+      markerParts.push({ mesh: marker, levels: part.levels, height_m: part.height_m });
     }
-    instances(tower,glass,windows);instances(tower,concrete,bands);
-    box(group,[21,.08,18],[x,.06,z],concrete);
-    buildings.push({id,title:`${id}동`,floors,x,z,tower});
+    const facade = createFacade(record, { glass:glass.clone(), frame:frame.clone(), slab:slab.clone() }); building.add(facade);
+    const label = labelSprite(record.id); label.position.set(center[0], record.height_m + 8, center[1]);
+    label.userData.buildingId = record.id; label.material.depthWrite = false; building.add(label);
+    buildings.push({
+      ...record, floors: record.levels, x: center[0], z: center[1], center,
+      bounds, tower: building, material, edgeMaterial, floorLineMaterial, label, markerParts, facade, shells,
+      cutawayMaterials:[material,edgeMaterial,floorLineMaterial,...facade.children.map(mesh=>mesh.material)],
+    });
   }
-  // Instancing keeps the landscaped context inexpensive while orbiting.
-  const treePositions=[];
-  for(let i=0;i<130;i++){
-    const x=((i*53)%300)-150,z=((i*71)%178)-97;
-    if(buildings.some(b=>Math.abs(x-b.x)<14&&Math.abs(z-b.z)<12))continue;
-    treePositions.push([x,z]);
+
+  group.add(new THREE.HemisphereLight(0xdcecff, 0x7a806b, .65));
+  const sun = new THREE.DirectionalLight(0xfff0db, 3.2);
+  sun.position.set(siteCenter[0] - 180, 330, siteCenter[1] + 160);
+  sun.target.position.set(siteCenter[0], 0, siteCenter[1]);
+  sun.castShadow = true; sun.shadow.mapSize.set(2048, 2048);
+  Object.assign(sun.shadow.camera, { left: -280, right: 280, top: 280, bottom: -280, near: 10, far: 800 });
+  sun.shadow.normalBias = .18; sun.shadow.bias = -.0002;
+  group.add(sun, sun.target);
+  const appearance = installSiteAppearance(scene, group, invalidate);
+
+  const cutaway=createFloorCutaway(buildings);
+  let cutawayEnabled=true;
+  const floorLabel = labelSprite('1F', true); floorLabel.scale.set(16, 7, 1); group.add(floorLabel);
+  let selected = buildings.find((building) => building.id === '109') || buildings[0], floor = 1, view = 'focus', selectionVisible = true;
+  function floorHeight(building, number) { return Math.min(building.height_m, number * building.height_m / building.floors); }
+  function updateSelection() {
+    const supported=floorCutawayState(selected,floor,{selected:selectionVisible}).supported;
+    cutaway.update(selected,floor,{enabled:cutawayEnabled,selected:selectionVisible});
+    group.userData.floorCutawayActive=cutaway.state.active;
+    for (const building of buildings) {
+      const subdued = view === 'focus' && building !== selected;
+      building.tower.visible = true;
+      building.material.color.setHex(subdued ? 0xaebdb8 : shellColor);
+      building.material.transparent = subdued;
+      building.material.opacity = subdued ? .16 : 1;
+      building.material.depthWrite = !subdued;
+      building.edgeMaterial.opacity = subdued ? .14 : .07;
+      building.floorLineMaterial.opacity = subdued ? .055 : .035;
+      building.facade.visible = !subdued;
+      building.shells.forEach(mesh => { mesh.castShadow = !subdued; });
+      building.label.material.opacity = subdued ? .48 : 1;
+      building.material.emissive.setHex(building === selected ? 0x3b3114 : 0x000000);
+      building.material.emissiveIntensity = building === selected ? .05 : 0;
+      for (const marker of building.markerParts) {
+        marker.mesh.visible = selectionVisible && supported && building === selected && marker.levels >= floor;
+        const bottom = floorHeight(building, floor - 1) + .04;
+        const top = Math.min(marker.height_m, floorHeight(building, floor)) - .04;
+        marker.mesh.position.y = bottom;
+        marker.mesh.scale.y = Math.max(.01, top - bottom);
+      }
+    }
+    floorLabel.visible = selectionVisible && supported;
+    floorLabel.userData.setText(`${floor}F`);
+    floorLabel.position.set(selected.bounds.maxX + 12, floorHeight(selected, floor - .5), selected.z);
   }
-  const crowns=new THREE.InstancedMesh(new THREE.IcosahedronGeometry(1,1),new THREE.MeshStandardMaterial({color:0x5d795c,roughness:1}),treePositions.length);
-  const dummy=new THREE.Object3D();treePositions.forEach(([x,z],i)=>{dummy.position.set(x,3.1,z);dummy.scale.set(2.1,2.6,2.1);dummy.updateMatrix();crowns.setMatrixAt(i,dummy.matrix);});crowns.computeBoundingSphere();group.add(crowns);
-  instances(group,stone,treePositions.map(([x,z])=>({s:[.3,2,.3],p:[x,1,z]})));
-  const marker=box(group,[13,1.9,9],[0,43,0],new THREE.MeshBasicMaterial({color:0xe6b75c,transparent:true,opacity:.48,depthWrite:false}));
-  let selected=buildings[0],floor=22;
-  function setFloor(n){floor=n;marker.position.set(selected.x,(n-.5)*2,selected.z);marker.rotation.y=selected.tower.rotation.y;}
-  function selectBuilding(id){selected=buildings.find(b=>b.id===id)||buildings[0];setFloor(Math.min(floor,selected.floors));return selected;}
-  function hitTest(raycaster){const hit=raycaster.intersectObjects(pickMeshes,false)[0];return hit?{id:hit.object.userData.buildingId,floor:Math.max(1,Math.ceil(hit.point.y/2))}:null;}
-  function viewpoint(view){
-    if(view==='site')return {target:[0,24,-35],position:[190,175,210]};
-    if(view==='river')return {target:[0,28,-30],position:[130,100,-270]};
-    if(view==='street')return {target:[0,28,-20],position:[-155,50,145]};
-    return {target:[selected.x,(floor-.5)*2,selected.z],position:[selected.x+26,(floor-.5)*2+10,selected.z+63]};
+  function setFloor(number) { floor = number===null?null:Number(number); updateSelection(); }
+  function selectBuilding(id) { selected = buildings.find((building) => building.id === String(id)) || buildings[0]; updateSelection(); return selected; }
+  function setView(next) { view = next; updateSelection(); }
+  function hitTest(raycaster) {
+    const labelHit = raycaster.intersectObjects(buildings.map((building) => building.label), false)[0];
+    if (labelHit) {
+      const building = buildings.find((candidate) => candidate.id === labelHit.object.userData.buildingId);
+      return { id: building.id, floor: Math.min(floor, building.floors) };
+    }
+    const hits = raycaster.intersectObjects(pickMeshes, false).filter(cutaway.acceptsHit);
+    // A translucent neighbour must not intercept clicks on the focused facade.
+    const hit = (view === 'focus' && hits.find((candidate) => candidate.object.userData.buildingId === selected.id)) || hits[0];
+    if (!hit) return null;
+    const building = buildings.find((candidate) => candidate.id === hit.object.userData.buildingId);
+    const storeyHeight = building.height_m / building.floors;
+    return { id: building.id, floor: Math.max(1, Math.min(building.floors, Math.ceil(hit.point.y / storeyHeight))) };
   }
-  group.visible=false;
-  return {group,buildings,setFloor,selectBuilding,hitTest,viewpoint,get selected(){return selected;}};
+  function viewpoint(view) {
+    const y = floorHeight(selected, floor);
+    if (view === 'site') return { target: [siteCenter[0], 38, siteCenter[1]], position: [siteCenter[0] + 295, 265, siteCenter[1] + 300] };
+    if (view === 'river') return { target: [siteCenter[0], 42, siteCenter[1] - 25], position: [siteCenter[0] + 25, 145, siteBounds.minZ - 310] };
+    if (view === 'street') return { target: [siteCenter[0], 36, siteCenter[1]], position: [siteCenter[0] - 235, 105, siteBounds.maxZ + 245] };
+    return { target: [selected.x, y, selected.z], position: [selected.x + 105, y + 48, selected.z + 135] };
+  }
+  updateSelection(); group.visible = false;
+  return { group, buildings, surroundings,
+    setCutawayEnabled(value){cutawayEnabled=Boolean(value);updateSelection();},
+    get cutawayEnabled(){return cutawayEnabled;},get cutawayState(){return cutaway.state;},
+    inspectCutaway:()=>({...cutaway.inspect(),floorMarkerVisible:floorLabel.visible}),
+    inspectRay(raycaster){group.updateMatrixWorld(true);return {raw:raycaster.intersectObjects(pickMeshes,false).map(h=>({id:h.object.userData.buildingId,y:h.point.y,accepted:cutaway.acceptsHit(h)})),hit:hitTest(raycaster)};},
+    setSelectionVisible(value){selectionVisible=Boolean(value);updateSelection();}, setFloor, selectBuilding, setView, hitTest, viewpoint, floorHeight, site, appearance, get selected() { return selected; } };
 }

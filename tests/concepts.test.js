@@ -114,3 +114,22 @@ test('rugs and mats lie under furniture, and walls separate rooms for the 60 cm 
   assert.deepEqual(placementWarnings(shelf, left, [neighbour], []), []);
   assert.ok(placementWarnings(shelf, room, [neighbour], []).includes(CLEARANCE_WARNING));
 });
+
+
+test('searched placements retain fallback option and plan override metadata for house-tour comparisons', () => {
+  const room = { id: 'room', bounds_m: [0, 0, 4, 4] };
+  const obstacle = { id: 'fixed', x: 2, z: 2, width: 0.5, depth: 0.5, height: 1, angle: 0 };
+  const concept = { id: 'search-provenance', items: [{ kind: 'plant', room: ['missing', 'room'], face: 'south',
+    x: ['at', 2], z: ['at', 2], candidates: [{ x: ['at', -1] }],
+    variants: { basic: { note: 'Use the available floor area.' } } }] };
+  const result = planConcept(concept, { variant: 'basic', rooms: [room], obstacles: [obstacle], search: true });
+  assert.equal(result.placements.length, 1);
+  const [placement] = result.placements;
+  assert.equal(placement.index, 0);
+  assert.equal(placement.option, 0);
+  assert.equal(placement.overridden, true);
+  assert.equal(placement.note, 'Use the available floor area.');
+  assert.equal(placement.room, 'room');
+  assert.notDeepEqual([placement.x, placement.z], [2, 2]);
+  assert.equal(placementError(placement, room, [], [obstacle]), null);
+});

@@ -5,7 +5,7 @@ export function collisionTree(root, include = () => true) {
   root.updateWorldMatrix(true, true);
   const graph = new Group();
   root.traverse((object) => {
-    if (!object.isMesh || !include(object)) return;
+    if (!object.isMesh || object.userData.renderBatch || !include(object)) return;
     const copy = new Mesh(object.geometry);
     copy.matrixAutoUpdate = false;
     copy.matrix.copy(object.matrixWorld);
@@ -79,6 +79,34 @@ export function createDoors(model, definitions) {
     return mesh;
   };
   for (const definition of definitions) {
+    if (definition.adapter === 'exported') {
+      const pivot=new Group();pivot.name=definition.name;model.add(pivot);
+      if(definition.type==='hinged') {
+        const original=objects.get(definition.objectId);
+        if(!original?.isMesh)throw new Error(`Door mesh missing: ${definition.objectId}`);
+        pivot.position.set(...definition.hinge);pivot.updateWorldMatrix(true,true);pivot.attach(original);
+        for(const id of definition.accessories ?? []) {
+          const accessory=objects.get(id);if(!accessory?.isMesh)throw new Error(`Door accessory missing: ${id}`);pivot.attach(accessory);
+        }
+        doors.push(new MovingDoor(definition,pivot,pivot,p=>{pivot.rotation.y=(p-(definition.exportedPose==='closed'?0:1))*definition.swingRadians;}));
+      } else {
+        const moving=new Group();pivot.add(moving);pivot.updateWorldMatrix(true,true);
+        const groups=definition.panelGroups ?? [{objects:definition.movingObjects,travel_m:definition.travel}];
+        const panels=groups.map(group=>{
+          const carrier=new Group();moving.add(carrier);carrier.updateWorldMatrix(true,true);
+          for(const id of group.objects) {
+            const panel=objects.get(id);if(!panel?.isMesh)throw new Error(`Sliding panel missing: ${id}`);
+            carrier.attach(panel);
+          }
+          return {carrier,travel:group.travel_m};
+        });
+        doors.push(new MovingDoor(definition,pivot,moving,p=>{
+          const progress=definition.exportedPose==='closed'?p:1-p;
+          for(const {carrier,travel} of panels)carrier.position[definition.translationAxis]=progress*travel;
+        }));
+      }
+      continue;
+    }
     const original = objects.get(definition.id);
     if (!original?.isMesh) throw new Error(`Door mesh missing: ${definition.id}`);
     const pivot = new Group();

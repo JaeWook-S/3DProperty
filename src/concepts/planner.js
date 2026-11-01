@@ -4,7 +4,7 @@
 // only exist in the GLB are checked by the browser tests.
 import { FURNITURE, MODEL_FURNITURE, FACING, footprint } from './furniture-spec.js';
 import { CONCEPTS, NEEDS, PALETTES } from './catalog.js';
-import { placementWarnings, doorFootprints } from '../walkthrough/layout.js';
+import { placementWarnings, placementError, doorFootprints } from '../walkthrough/layout.js';
 
 export const CLEARANCE_WARNING = '가구 사이 여유가 60cm 미만일 수 있어요.';
 
@@ -33,7 +33,7 @@ export function resolveSpec(spec, room) {
  * n = candidate n) and whether a plan override replaced it, so two plans of the same
  * concept can be compared piece by piece (src/house-tours/fit.js).
  */
-export function planConcept(concept, { variant, rooms, doors = [], existing = [] }) {
+export function planConcept(concept, { variant, rooms, doors = [], existing = [], obstacles = [], search = false }) {
   const doorAreas = doorFootprints(doors);
   const placed = existing.map((item) => ({ ...item }));
   const placements = [], skipped = [], notes = [];
@@ -50,12 +50,32 @@ export function planConcept(concept, { variant, rooms, doors = [], existing = []
     const room = [].concat(spec.room).map((id) => rooms.find((r) => r.id === id)).find(Boolean);
     if (!room) { skipped.push({ index, kind: spec.kind, room: [].concat(spec.room)[0], reason: '이 평면에 없는 공간이에요.' }); return; }
     const options = [spec, ...(spec.candidates ?? []).map((candidate) => ({ ...spec, ...candidate }))];
-    for (const [optionIndex, option] of options.entries()) {
-      const item = { id: `${concept.id}-${index}`, ...resolveSpec(option, room) };
-      const issues = placementWarnings(item, room, placed, [], doorAreas)
+    // Search near catalog poses against the actual cupboards and hinges. Keep the
+    // original option index when moving a candidate so house tours can compare it.
+    const candidates = options.map((option, optionIndex) => ({
+      option, optionIndex, item: { id: `${concept.id}-${index}`, ...resolveSpec(option, room) },
+    }));
+    if (search && !spec.optional) {
+      for (const [optionIndex, option] of options.entries()) {
+        const preferred = resolveSpec(option, room), extent = footprint(option.kind, option.face);
+        const [x1, z1, x2, z2] = room.bounds_m, nearby = [];
+        for (let z = z1 + extent.z / 2 + .04; z <= z2 - extent.z / 2 - .04; z += .15) {
+          for (let x = x1 + extent.x / 2 + .04; x <= x2 - extent.x / 2 - .04; x += .15) {
+            nearby.push({ option, optionIndex, item: { id: `${concept.id}-${index}`, ...preferred, x, z } });
+          }
+        }
+        const distance = ({item}) => Math.hypot(item.x - preferred.x, item.z - preferred.z);
+        nearby.sort((a, b) => distance(a) - distance(b));
+        candidates.push(...nearby);
+      }
+    }
+    for (const {option, optionIndex, item} of candidates) {
+      if (placementError(item, room, placed, obstacles)) continue;
+      const issues = placementWarnings(item, room.validationRoom || room, placed, obstacles, doorAreas)
         .filter((message) => !(option.allowClose && message === CLEARANCE_WARNING));
       if (issues.length) continue;
       placed.push(item);
+      if(option.kind!==spec.kind)notes.push(FURNITURE[spec.kind].title+' 대신 '+FURNITURE[option.kind].title+'으로 공간에 맞췄어요.');
       placements.push({ ...item, index, option: optionIndex, overridden, note: overridden ? spec.note : undefined,
         room: room.id, face: option.face, title: FURNITURE[option.kind].title,
         allowClose: Boolean(option.allowClose), why: option.why });

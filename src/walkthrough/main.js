@@ -2,28 +2,35 @@ import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { PointerLockControls } from 'three/addons/controls/PointerLockControls.js';
 import { createDoors, collisionTree, combinedWorld } from './doors.js';
+import { createEntryCommonArea } from './entry-common-area.js';
+import { batchStaticMeshes } from './static-batches.js';
 import { setupAppearance, refineMaterials, LIGHTING } from './appearance.js';
 import { FinishLibrary, FINISHES } from './finishes.js';
-import { VARIANTS } from './variants.js';
+import { VARIANTS, resolveVariant, variantTitle, populateVariantSelect } from './variants.js';
+import {readSelection} from '../property/service-selection.js';
+import {lookupUnit,getUnitModelVariants,variantForUnit} from '../property/unit-catalog.js';
+import { renderAreaSummary } from '../property/area-summary.js';
 import { SPAWN, BODY_RADIUS, DEFAULT_EYE_HEIGHT, movementVector, moveWithCollisions, canStand, bodyAt } from './movement.js';
 import { verticalFromHorizontal, horizontalFromVertical, screenHorizontalFov } from './view-calibration.js';
 import './style.css';
 import { stagingAssets } from './staging-assets.js';
 import { createStudio } from './studio.js';
 import { createMinimap } from './minimap.js';
+import {pointInRoom,roomAt,navigationPlaces} from './minimap-geometry.js';
 // Phone/tablet walking (src/mobile). Imported last so its overrides follow the viewer styles.
 import { TouchWalkControls } from '../mobile/touch-walk-controls.js';
 
 const $ = (id) => document.getElementById(id);
+populateVariantSelect($('variant'));
 const keys = new Set();
 const movementKeys = new Set(['KeyW', 'KeyA', 'KeyS', 'KeyD', 'ArrowUp', 'ArrowLeft', 'ArrowDown', 'ArrowRight']);
 const params = new URLSearchParams(location.search);
 const catalogFurnitureURL = new URL('../../assets/furniture/catalog-sofa2790-stool980-v1/living-furniture.glb', import.meta.url).href;
 const selected = {
-  variant: Object.hasOwn(VARIANTS, params.get('variant')) ? params.get('variant') : 'expanded',
+  variant: resolveVariant(params.get('variant')),
   lighting: Object.hasOwn(LIGHTING, params.get('lighting')) ? params.get('lighting') : 'day',
   finish: Object.hasOwn(FINISHES, params.get('finish')) ? params.get('finish') : 'original',
-  quality: ['light', 'high', 'ultra'].includes(params.get('quality')) ? params.get('quality') : 'high',
+  quality: ['light', 'balanced', 'high', 'ultra'].includes(params.get('quality')) ? params.get('quality') : 'balanced',
 };
 let eyeHeight = DEFAULT_EYE_HEIGHT, active = null, ready = false, busy = false, toastTimer;
 let bodyRadius=BODY_RADIUS,horizontalFov=85;
@@ -46,6 +53,7 @@ function updateURL() {
 }
 function setEnabled() {
   for (const id of ['start', 'eye', 'fov', 'body-width', 'reset', 'grid', 'quality', 'lighting', 'finish']) $(id).disabled = !ready || busy;
+  $('finish').disabled ||= active?.definition.structureOnly === true;
   if($('projection-mode').value==='screen')$('fov').disabled=true;
   $('variant').disabled = busy;
   $('living-view').disabled = !ready || busy || active?.key !== 'expanded';
@@ -53,6 +61,7 @@ function setEnabled() {
 }
 function showError(error, stage) {
   console.error(error);
+  if(parent!==window)parent.postMessage({type:'cortex:viewer-error',message:'공간을 불러오지 못했습니다. 별도 창에서 다시 시도해 주세요.'},new URL(document.referrer||location.href).origin);
   ready = false; busy = false; setEnabled();
   // Name the cause on screen as well: a phone has no console to read it from.
   const cause = [stage, error?.message].filter(Boolean).join(' · ');
@@ -71,7 +80,40 @@ async function boot() {
   // iPhone Safari has no Pointer Lock API. unlock() runs before every load and on blur,
   // so make it a no-op there instead of throwing; walking then uses the touch controls.
   if (!document.exitPointerLock) controls.unlock = () => {};
-  let needsRender = true, studio = null;
+  let needsRender = true, studio = null, commonArea = null, commonWorld = null;
+  // The original world is returned unchanged until the explicit outside tour.
+  const walkingWorld = () => commonWorld ?? active?.world;
+  const walkingDoors = () => [...(active?.doors ?? []), ...(commonArea?.doors ?? [])];
+  function clearCommonArea() {
+    if (!commonArea) return;
+    commonArea.dispose(); commonArea = null; commonWorld = null;
+    appearance.invalidateShadows(); needsRender = true;
+  }
+  function openCommonArea() {
+    if (!active || busy || studio?.mode !== 'tour') return false;
+    const entrance = active.doors.find(d => d.definition.sourceOpening === 'door-00');
+    if (!entrance) return false;
+    const added = commonArea ?? createEntryCommonArea(active.definition.info);
+    if (!added) return false;
+    let safe = null;
+    // A safe indoor position is checked against the unchanged apartment world.
+    for (const distance of [1.2, 1, .8, 1.4, .6]) {
+      for (const offset of [0, -.12, .12, -.24, .24]) {
+        const [x,z] = added.layout.point(offset,-distance), candidate = new THREE.Vector3(x,eyeHeight,z);
+        if (active.definition.info.rooms.some(r=>pointInRoom(r,x,z)) && canStand(active.world,candidate,eyeHeight,bodyRadius)) { safe=candidate; break; }
+      }
+      if (safe) break;
+    }
+    if (!safe) { if (!commonArea) added.dispose(); return false; }
+    if (!commonArea) {
+      commonArea=added;scene.add(added.group);
+      commonWorld={capsuleIntersect(body){const a=active.world.capsuleIntersect(body),b=added.world.capsuleIntersect(body);return b&&(!a||b.depth>a.depth)?b:a;}};
+    }
+    keys.clear();position.copy(safe);camera.position.copy(position);
+    const [x,z]=added.layout.point(0,2);camera.lookAt(x,eyeHeight,z);
+    entrance.target=1;syncProjection();appearance.invalidateShadows();needsRender=true;updateRoom();
+    return true;
+  }
   const minimap = createMinimap();
   controls.addEventListener('change', () => { needsRender = true; });
   renderer.domElement.addEventListener('webglcontextlost', (event) => {
@@ -122,20 +164,27 @@ async function boot() {
   const appearance = setupAppearance(renderer, scene, camera);
   appearance.setQuality(selected.quality); appearance.setLighting(selected.lighting);
   const finishes = new FinishLibrary(renderer);
+  let loadSequence=0,finishSequence=0,finishWork=Promise.resolve();
+  // A late texture download must finish before the next household's material restore.
+  function applyFinish(model,preset){
+    const work=finishWork.catch(()=>{}).then(()=>finishes.apply(model,preset));
+    finishWork=work;return work;
+  }
   for (const [key, value] of Object.entries(selected)) $(key).value = value;
   $('quality').addEventListener('change', (event) => {
     selected.quality = event.target.value; appearance.setQuality(selected.quality); needsRender = true; updateURL();
   });
   $('lighting').addEventListener('change', (event) => {
-    selected.lighting = event.target.value; appearance.setLighting(selected.lighting); needsRender = true; updateURL();
+    selected.lighting = event.target.value; appearance.setLighting(selected.lighting); studio?.setLighting(selected.lighting); needsRender = true; updateURL();
   });
   $('finish').addEventListener('change', async (event) => {
-    const requested = event.target.value;
+    const requested = event.target.value,target=active,sequence=++finishSequence,loadAtStart=loadSequence;
     busy = true; keys.clear(); setEnabled();
     document.body.dataset.finishState = 'loading';
     $('status').textContent = '선택한 마감을 적용하는 중…';
     try {
-      await finishes.apply(active.model, requested);
+      await applyFinish(target.model, requested);
+      if(sequence!==finishSequence||loadAtStart!==loadSequence||active!==target)return;
       selected.finish = requested; needsRender = true; updateURL();
       $('status').textContent = '마감이 적용됐어요. 공간 치수는 그대로입니다.';
       document.body.dataset.finishState = 'ready';
@@ -154,13 +203,13 @@ async function boot() {
     $('grid').setAttribute('aria-pressed', String(grid.visible));
   });
 
-  // Cache at most these two models; a failed load never replaces the active world.
+  // Cache the registered models; a failed load never replaces the active world.
   const cache = new Map();
   let loadingStage = 'idle';
   function showLivingFurniture() {
     if (active?.key !== 'expanded') return;
     const next = new THREE.Vector3(6.35, eyeHeight, 6.4);
-    if (!canStand(active.world, next, eyeHeight, bodyRadius)) {
+    if (!canStand(walkingWorld(), next, eyeHeight, bodyRadius)) {
       toast('이 위치로 이동할 수 없어요. 시작 위치에서 거실로 걸어가 주세요.'); return;
     }
     keys.clear(); release();
@@ -173,6 +222,7 @@ async function boot() {
     const definition = VARIANTS[key];
     loadingStage = `fetch:${key}`;
     const gltf = await new GLTFLoader().loadAsync(definition.url);
+    definition.prepareModel?.(gltf, definition.info);
     loadingStage = `prepare:${key}`;
     const model = gltf.scene;
     model.userData.variant = key;
@@ -211,6 +261,7 @@ async function boot() {
       if (info?.category === 'Doors_Windows' && /rail|sill cap/.test(info.name)) {
         if (new THREE.Box3().setFromObject(object).max.y < 0.1) return false;
       }
+      if (definition.unitType==='168C' && ['window_frame','wall'].includes(object.userData.component) && /frame-bottom|\/sill$/.test(info?.name||'') && new THREE.Box3().setFromObject(object).max.y<.15) return false;
       return true;
     });
     const pickMeshes = [];
@@ -220,16 +271,26 @@ async function boot() {
       while (parent) { if (!parent.visible) return; parent = parent.parent; }
       pickMeshes.push(object);
     });
+    const batching = batchStaticMeshes(model);
     const architectureWorld = combinedWorld(staticTree, doors);
     const world = { capsuleIntersect(body) {
       const a=architectureWorld.capsuleIntersect(body), b=staging.capsuleIntersect(body);
       return b && (!a || b.depth>a.depth) ? b : a;
     } };
-    return { key, model, doors, pickMeshes, definition, meshCount, catalogFurniture, staging,
+    return { key, model, doors, pickMeshes, definition, meshCount, catalogFurniture, staging, batching,
       world, doorById: new Map(doors.map((d) => [d.definition.id, d])) };
   }
-  let loadSequence = 0;
   async function loadVariant(key) {
+    const context=studio?.getSelection()??readSelection(location.href);
+    if(context.locationId==='acro-river-park'&&context.unit){
+      const unit=lookupUnit(context.building,context.floor,context.unit);
+      if(!unit||!getUnitModelVariants(unit).length){
+        if(!active)showError(new Error('선택한 호수의 실내 모델은 아직 준비되지 않았습니다.'),'unit');
+        return;
+      }
+      key=variantForUnit(unit,key);
+    }
+    if(!Object.hasOwn(VARIANTS,key))return;
     const sequence = ++loadSequence;
     busy = true; keys.clear(); release(); setEnabled();
     document.body.dataset.loadState = 'loading';
@@ -239,22 +300,28 @@ async function boot() {
       const next = await cache.get(key);
       if (sequence !== loadSequence) return;
       loadingStage = `finish:${key}`;
-      await finishes.apply(next.model, selected.finish);
+      await applyFinish(next.model, next.definition.structureOnly ? 'original' : selected.finish);
       loadingStage = `activate:${key}`;
       if (sequence !== loadSequence) return;
       for (const door of next.doors) { door.setProgress(0); door.target = 0; }
-      const spawn = new THREE.Vector3(SPAWN.x, eyeHeight, SPAWN.z);
-      if (!canStand(next.world, spawn, eyeHeight, bodyRadius)) throw new Error('Spawn intersects selected model');
+      const [sx,sz]=next.definition.info.spawn || [SPAWN.x,SPAWN.z];
+      const spawn = new THREE.Vector3(sx, eyeHeight, sz);
+      if (!studio && !canStand(next.world, spawn, eyeHeight, bodyRadius)) throw new Error('Spawn intersects selected model');
+      clearCommonArea();
       if (active) scene.remove(active.model);
       active = next; selected.variant = key;
-      scene.add(active.model); appearance.invalidateShadows();
+      if (next.definition.structureOnly) selected.finish = 'original';
+      $('finish').value = selected.finish;
+      scene.add(active.model); appearance.setModel(active.definition.info); appearance.invalidateShadows();
       position.copy(spawn); camera.position.copy(position); camera.rotation.set(0, Math.PI, 0);
       if (params.get('view') === 'living' && key === 'expanded') showLivingFurniture();
       ready = true; needsRender = true;
       $('variant').value = key;
-      $('project-variant').textContent = `112A · ${VARIANTS[key].label}`;
-      const bedroom = active.definition.info.rooms.find((r) => r.id === 'Bedroom center');
-      $('reference-size').textContent = `가운데 침실 기준 ${bedroom.width_m.toFixed(3)} × ${bedroom.depth_m.toFixed(3)} m`;
+      $('project-variant').textContent = variantTitle(VARIANTS[key]);
+      renderAreaSummary($('viewer-area'), active.definition.unitType);
+      const bedroom = active.definition.info.rooms.find((r) => r.id === 'Bedroom center' || r.id === 'bedroom-2');
+      $('reference-size').textContent = `${bedroom.name_ko} 최대 외곽 범위 ${bedroom.width_m.toFixed(3)} × ${bedroom.depth_m.toFixed(3)} m · 모델 경계 기준. 가구 배치 가능 폭·실측 확인값이 아닙니다.`;
+      document.querySelector('.model-note').textContent = (active.definition.structureOnly || active.definition.coordinateBased) ? active.definition.note : active.definition.unitType==='168C' ? '천장고 2.50m · 일반 문짝 0.80×2.40m. 마감·주방 집기 및 미측정 창호는 참고 재현입니다.' : '천장고 2.6m는 공식 안내 기준입니다. 확장부·문 높이·일부 집기에는 가정이 포함됩니다.';
       $('variant-note').textContent = VARIANTS[key].note;
       $('start').innerHTML = '공간에 들어가기 <span>↗</span>';
       $('status').textContent = key === 'expanded'
@@ -262,6 +329,7 @@ async function boot() {
         : '문 가까이에서 E 또는 클릭으로 여닫을 수 있어요';
       document.body.dataset.loadState = 'ready'; document.body.dataset.finishState = 'ready';
       loadingStage = 'idle'; updateRoom(); updateURL(); studio?.onVariant();
+      return true;
     } catch (error) {
       if (sequence !== loadSequence) return;
       console.error(error);
@@ -281,10 +349,10 @@ async function boot() {
     if (!active || busy) return;
     scene.updateMatrixWorld(true); camera.updateMatrixWorld(true);
     raycaster.setFromCamera(pointer, camera);
-    const hit = raycaster.intersectObjects(active.pickMeshes, false)[0];
+    const hit = raycaster.intersectObjects(commonArea ? [...active.pickMeshes, ...commonArea.pickMeshes] : active.pickMeshes, false)[0];
     let object = hit?.object;
     while (object && !object.userData.doorId) object = object.parent;
-    return active.doorById.get(object?.userData.doorId);
+    return active.doorById.get(object?.userData.doorId) ?? commonArea?.doorById.get(object?.userData.doorId);
   }
   function interact(pointer) { const door = pickDoor(pointer); if (door) { door.toggle(); updateInteraction(); } }
   function updateInteraction() {
@@ -302,7 +370,7 @@ async function boot() {
   });
   $('eye').addEventListener('input', (event) => {
     const proposed = Number(event.target.value);
-    if (!canStand(active.world, position, proposed, bodyRadius)) { event.target.value = String(eyeHeight); toast('머리 위 장애물 때문에 더 높일 수 없어요.'); return; }
+    if (!canStand(walkingWorld(), position, proposed, bodyRadius)) { event.target.value = String(eyeHeight); toast('머리 위 장애물 때문에 더 높일 수 없어요.'); return; }
     eyeHeight = proposed; position.y = eyeHeight;if(!studio||studio.mode==='tour')camera.position.copy(position); needsRender = true;
     $('eye-value').textContent = $('hud-eye').textContent = `${eyeHeight.toFixed(2)} m`;
     syncProjection();
@@ -312,7 +380,7 @@ async function boot() {
   });
   $('body-width').addEventListener('input',event=>{
     const proposed=Number(event.target.value)/200;
-    if(!canStand(active.world,position,eyeHeight,proposed)){event.target.value=bodyRadius*200;toast('현재 위치에서는 이 몸체 폭이 주변 물체와 겹쳐요. 넓은 곳에서 바꿔 주세요.');return;}
+    if(!canStand(walkingWorld(),position,eyeHeight,proposed)){event.target.value=bodyRadius*200;toast('현재 위치에서는 이 몸체 폭이 주변 물체와 겹쳐요. 넓은 곳에서 바꿔 주세요.');return;}
     bodyRadius=proposed;$('body-width-value').textContent=`${Math.round(bodyRadius*200)} cm`;syncProjection();
   });
   function syncProjection(){
@@ -332,7 +400,7 @@ async function boot() {
   }
   for(const id of ['projection-mode','display-width','view-distance'])$(id).addEventListener('input',syncProjection);
   $('reset').addEventListener('click', () => {
-    keys.clear(); position.set(SPAWN.x, eyeHeight, SPAWN.z); camera.position.copy(position);
+    keys.clear(); const [sx,sz]=active.definition.info.spawn || [SPAWN.x,SPAWN.z]; position.set(sx, eyeHeight, sz); camera.position.copy(position);
     camera.rotation.set(0, Math.PI, 0); needsRender = true;
   });
   function resizeViewport() {
@@ -342,26 +410,31 @@ async function boot() {
   }
   window.addEventListener('resize', resizeViewport);
   new ResizeObserver(resizeViewport).observe($('viewport'));
-  function enterRoom(room) {
+  function enterRoom(room, { capture = true } = {}) {
     const [x1,z1,x2,z2]=room.bounds_m;
     const cx=(x1+x2)/2,cz=(z1+z2)/2,candidates=[];
     const margin=bodyRadius+.08;
     for(let z=z1+margin;z<z2-margin;z+=.12)for(let x=x1+margin;x<x2-margin;x+=.12)candidates.push(new THREE.Vector3(x,eyeHeight,z));
     candidates.sort((a,b)=>Math.hypot(a.x-cx,a.z-cz)-Math.hypot(b.x-cx,b.z-cz));
-    const next=candidates.find(p=>canStand(active.world,p,eyeHeight,bodyRadius));if(!next)return false;
-    keys.clear();position.copy(next);camera.position.copy(next);camera.lookAt(cx,eyeHeight,cz+.8);syncProjection();needsRender=true;updateRoom();
-    startWalking();
+    const next=candidates.find(p=>pointInRoom(room,p.x,p.z)&&canStand(walkingWorld(),p,eyeHeight,bodyRadius));if(!next)return false;
+    keys.clear();position.copy(next);camera.position.copy(next);
+    let [tx,tz]=room.viewTarget ?? [cx,cz+.8];
+    // A target at the standing point makes tiny coordinate differences decide
+    // the initial direction. Prefer a view across the room in that case.
+    if(Math.hypot(tx-next.x,tz-next.z)<.6){tx=x2-.35;tz=z2-.35;}
+    camera.lookAt(tx,eyeHeight,tz);syncProjection();needsRender=true;updateRoom();
+    if (capture) startWalking();
     return true;
   }
   // Furniture can change while walking (concept themes): step out of anything that now
   // overlaps the body, preferring a spot in the same room so walls are never crossed.
   function settle() {
-    if (!active || canStand(active.world, position, eyeHeight, bodyRadius)) return true;
-    const here = active.definition.info.rooms.find(({ bounds_m: [x1, z1, x2, z2] }) => position.x > x1 && position.x < x2 && position.z > z1 && position.z < z2);
-    const inRoom = (p) => !here || (p.x > here.bounds_m[0] && p.x < here.bounds_m[2] && p.z > here.bounds_m[1] && p.z < here.bounds_m[3]);
+    if (!active || canStand(walkingWorld(), position, eyeHeight, bodyRadius)) return true;
+    const here = roomAt(active.definition.info.rooms,position.x,position.z);
+    const inRoom = (p) => !here || pointInRoom(here,p.x,p.z);
     for (const sameRoom of [true, false]) for (let r = 0.1; r <= 2.4; r += 0.1) for (let a = 0; a < 16; a++) {
       const p = new THREE.Vector3(position.x + Math.cos(a * Math.PI / 8) * r, eyeHeight, position.z + Math.sin(a * Math.PI / 8) * r);
-      if ((sameRoom && !inRoom(p)) || !canStand(active.world, p, eyeHeight, bodyRadius)) continue;
+      if ((sameRoom && !inRoom(p)) || !canStand(walkingWorld(), p, eyeHeight, bodyRadius)) continue;
       position.copy(p); camera.position.copy(p); needsRender = true; updateRoom();
       return true;
     }
@@ -371,36 +444,41 @@ async function boot() {
   // `drop` lowers the look target below eye level (0 looks level, as an interior photo would).
   function standAt(x, z, targetX, targetZ, drop = 0.5) {
     const next = new THREE.Vector3(x, eyeHeight, z);
-    if (!active || !canStand(active.world, next, eyeHeight, bodyRadius)) return false;
+    if (!active || !canStand(walkingWorld(), next, eyeHeight, bodyRadius)) return false;
     keys.clear(); position.copy(next); camera.position.copy(next); camera.lookAt(targetX, eyeHeight - drop, targetZ);
     needsRender = true; updateRoom();
     return true;
   }
   function updateRoom() {
     if (!active) return;
-    const room = active.definition.info.rooms.find(({ bounds_m: [x1, z1, x2, z2] }) => position.x > x1 && position.x < x2 && position.z > z1 && position.z < z2);
-    $('room').textContent = room?.name_ko ?? '복도 · 주방 연결 공간';
+    const room = roomAt(navigationPlaces(active.definition.info),position.x,position.z);
+    $('room').textContent = commonArea?.contains(position.x,position.z) ? '예시 공용부 · 실제 동·층 배치 아님' : room?.name_ko ?? '복도 · 주방 연결 공간';
   }
-  let previous = performance.now(), frame = 0;
+  let serviceVisible=true;
+  window.addEventListener('message',event=>{if(parent===window||event.source!==parent||event.origin!==new URL(document.referrer||location.href).origin||event.data?.type!=='cortex:visibility')return;serviceVisible=event.data.visible===true;document.body.dataset.serviceVisible=String(serviceVisible);if(!serviceVisible){keys.clear();release();}else{resizeViewport();needsRender=true;}});
+  let previous = performance.now(), lastHUD = 0;
   renderer.setAnimationLoop((now) => {
     const elapsed = Math.max((now - previous) / 1000, 0), dt = Math.min(elapsed, 0.05); previous = now;
+    if (document.hidden || !serviceVisible) return;
     if (walking() && ready && !busy) {
       // The touch stick adds analog input (0 when idle); movementVector caps the sum at walking speed.
       const forward = Number(keys.has('KeyW') || keys.has('ArrowUp')) - Number(keys.has('KeyS') || keys.has('ArrowDown')) + touch.forward;
       const right = Number(keys.has('KeyD') || keys.has('ArrowRight')) - Number(keys.has('KeyA') || keys.has('ArrowLeft')) + touch.right;
       if (forward || right) {
-        moveWithCollisions(active.world, position, movementVector(forward, right, camera.rotation.y, dt), eyeHeight, bodyRadius);
+        moveWithCollisions(walkingWorld(), position, movementVector(forward, right, camera.rotation.y, dt), eyeHeight, bodyRadius);
         camera.position.copy(position); needsRender = true;
       }
     }
-    if (active && !busy) for (const door of active.doors) {
-      const result = door.update(Math.min(elapsed, 0.25), bodyAt(position, eyeHeight, bodyRadius));
+    const movingDoors = active && !busy ? walkingDoors().filter(d => Math.abs(d.target-d.progress)>1e-6) : [];
+    const body = movingDoors.length ? bodyAt(position, eyeHeight, bodyRadius) : null;
+    for (const door of movingDoors) {
+      const result = door.update(Math.min(elapsed, 0.25), body);
       if (result.changed) { appearance.invalidateShadows(); needsRender = true; }
       if (result.blocked) toast('문이 몸에 닿아 멈췄어요. 조금 물러나 다시 여닫아 주세요.');
     }
     minimap.update({active,position,yaw:camera.rotation.y,horizontalFov:horizontalFromVertical(camera.fov,camera.aspect),
-      visible:ready&&!busy&&(studio?studio.mode==='tour':walking())});
-    if (++frame % 6 === 0) { updateRoom(); updateInteraction(); }
+      visible:ready&&!busy&&!commonArea?.contains(position.x,position.z)&&(studio?studio.mode==='tour':walking())});
+    if (now-lastHUD >= 100) { if (walking()) { updateRoom(); updateInteraction(); } lastHUD=now; }
     if (needsRender && active) { appearance.render(dt); needsRender = false; }
   });
   if (import.meta.env.DEV && params.has('test')) {
@@ -408,11 +486,24 @@ async function boot() {
       getState: () => ({ position: position.toArray(), eyeHeight, fov: camera.fov,horizontalFov:horizontalFromVertical(camera.fov,camera.aspect),bodyRadius,headTop:eyeHeight+.12,pitch:camera.rotation.x,
         scale: active?.model.scale.toArray(), meshCount: active?.meshCount, locked: controls.isLocked,
         touchWalking: touch.isLocked, touchInput: [touch.forward, touch.right], yaw: camera.rotation.y,
-        standing: active ? canStand(active.world, position, eyeHeight, bodyRadius) : false,
+        standing: active ? canStand(walkingWorld(), position, eyeHeight, bodyRadius) : false,
         loadingStage, variant: active?.key, finish: active?.model.userData.finish, lighting: appearance.lighting,
         quality: appearance.quality, resolution: appearance.resolution,
-        doors: active?.doors.map((d) => d.getState()), triangles: renderer.info.render.triangles,
+        renderStats: appearance.stats, batching: active && {sourceMeshes:active.batching.sourceMeshes,drawMeshes:active.batching.drawMeshes,savedDraws:active.batching.savedDraws},
+        doors: walkingDoors().map((d) => d.getState()), commonArea:commonArea?.inspect()??null, triangles: renderer.info.render.triangles,
         visibleVariants: scene.children.filter((o) => o.userData.variant).length }),
+      inspectInterior: () => {
+        const materials=new Set(),textures=new Set(),handles=[];
+        active.model.traverse(o=>{
+          if(!o.isMesh)return;
+          for(const m of Array.isArray(o.material)?o.material:[o.material]){
+            materials.add(m.name);if(m.map)textures.add(m.map.uuid);
+          }
+          if(o.userData.component==='door_accessory')handles.push({id:o.userData.object_id,door:o.userData.doorId,hinge:o.parent.name});
+        });
+        return {finishRevision:active.definition.info.finishRevision,fixtures:active.definition.info.fixtures.length,
+          materials:[...materials],textures:textures.size,handles};
+      },
       inspectFurniture: () => {
         const items = [];
         active?.model?.traverse((object) => {
@@ -441,22 +532,23 @@ async function boot() {
         let object; active.model.traverse((item) => { if (item.userData.object_id === objectId) object = item; });
         return new THREE.Box3().setFromObject(object).getSize(new THREE.Vector3()).toArray();
       },
-      move: (dx, dz) => { moveWithCollisions(active.world, position, new THREE.Vector3(dx, 0, dz), eyeHeight, bodyRadius); camera.position.copy(position); needsRender = true; },
-      look: (yaw) => { camera.rotation.set(0, yaw, 0); needsRender = true; },
+      move: (dx, dz) => { moveWithCollisions(walkingWorld(), position, new THREE.Vector3(dx, 0, dz), eyeHeight, bodyRadius); camera.position.copy(position); needsRender = true; },
+      look: (yaw, pitch = 0) => { camera.rotation.set(pitch, yaw, 0); needsRender = true; },
       place: (x, z, targetX, targetZ) => {
         const next = new THREE.Vector3(x, eyeHeight, z);
-        if (!canStand(active.world, next, eyeHeight, bodyRadius)) throw new Error('Test position intersects geometry');
+        if (!canStand(walkingWorld(), next, eyeHeight, bodyRadius)) throw new Error('Test position intersects geometry');
         position.copy(next); camera.position.copy(next); camera.lookAt(targetX, 1.1, targetZ); needsRender = true;
       },
       pickDoor: () => pickDoor()?.definition.id, interact: () => interact(),
+      commonPoint:(t,s)=>commonArea?.layout.point(t,s),
     };
   }
   await loadVariant(selected.variant);
   // Studio is the default for every entry URL; the legacy viewer is opt-in.
   if (params.get('studio') !== '0' && active) {
-    studio=createStudio({scene,camera,renderer,getActive:()=>active,loadVariant,resize:resizeViewport,
-      invalidate:()=>{appearance.invalidateShadows();needsRender=true;},enterRoom,unlock:()=>{keys.clear();release();},
-      settle,standAt,resume:()=>{if(ready&&!busy&&!walking())startWalking();}});
+    studio=createStudio({scene,camera,renderer,initialMode:params.get('entry'),lighting:selected.lighting,getActive:()=>active,loadVariant,resize:resizeViewport,
+      invalidate:(shadows=false)=>{if(shadows)appearance.invalidateShadows();needsRender=true;},enterRoom,unlock:()=>{keys.clear();release();},
+      settle,standAt,openCommonArea,onModeChange:mode=>{if(mode!=='tour')clearCommonArea();},resume:()=>{if(ready&&!busy&&!walking())startWalking();}});
     if(import.meta.env.DEV&&params.has('test'))window.__studio=studio;
   }
 }

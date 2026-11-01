@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<osm version="0.6" generator="openstreetmap-cgimap 2.1.0 (1308 spike-06.openstreetmap.org)" copyright="OpenStreetMap and contributors" attribution="http://www.openstreetmap.org/copyright" license="http://opendatacommons.org/licenses/odbl/1-0/">
+ <node id="5255383495" visible="true" version="1" changeset="54199555" timestamp="2017-11-30T09:07:46Z" user="Lantian" uid="1765666" lat="37.5075906" lon="126.9952194"/>
+ <node id="5255383502" visible="true" version="1" changeset="54199555" timestamp="2017-11-30T09:07:46Z" user="Lantian" uid="1765666" lat="37.5076347" lon="126.9953288"/>
+ <node id="5255383503" visible="true" version="1" changeset="54199555" timestamp="2017-11-30T09:07:46Z" user="Lantian" uid="1765666" lat="37.5076193" lon="126.9952935"/>
+ <node id="5255383504" visible="true" version="1" changeset="54199555" timestamp="2017-11-30T09:07:46Z" user="Lantian" uid="1765666" lat="37.5076115" lon="126.9952989"/>
+ <node id="5255383505" visible="true" version="1" changeset="54199555" timestamp="2017-11-30T09:07:46Z" user="Lantian" uid="1765666" lat="37.5075888" lon="126.9952467"/>
+ <node id="5255383506" visible="true" version="1" changeset="54199555" timestamp="2017-11-30T09:07:46Z" user="Lantian" uid="1765666" lat="37.5075793" lon="126.9952532"/>
+ <node id="5255383507" visible="true" version="1" changeset="54199555" timestamp="2017-11-30T09:07:46Z" user="Lantian" uid="1765666" lat="37.5075706" lon="126.9952332"/>
+ <node id="5255383508" visible="true" version="1" changeset="54199555" timestamp="2017-11-30T09:07:46Z" user="Lantian" uid="1765666" lat="37.5076132" lon="126.9950813"/>
+ <node id="5255383509" visible="true" version="1" changeset="54199555" timestamp="2017-11-30T09:07:46Z" user="Lantian" uid="1765666" lat="37.5077010" lon="126.9952829"/>
+ <node id="5255383510" visible="true" version="1" changeset="54199555" timestamp="2017-11-30T09:07:46Z" user="Lantian" uid="1765666" lat="37.5075497" lon="126.9951253"/>
+ <way id="543646531" visible="true" version="1" changeset="54199555" timestamp="2017-11-30T09:07:47Z" user="Lantian" uid="1765666">
+  <nd ref="5255383502"/>
+  <nd ref="5255383503"/>
+  <nd ref="5255383504"/>
+  <nd ref="5255383505"/>
+  <nd ref="5255383506"/>
+  <nd ref="5255383507"/>
+  <nd ref="5255383495"/>
+  <nd ref="5255383510"/>
+  <nd ref="5255383508"/>
+  <nd ref="5255383509"/>
+  <nd ref="5255383502"/>
+  <tag k="building:levels" v="14"/>
+  <tag k="building:part" v="yes"/>
+ </way>
+</osm>

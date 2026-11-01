@@ -1,0 +1,9 @@
+Modern Coffee Table 01 by Amin / Poly Haven
+License: CC0-1.0
+Source: https://polyhaven.com/a/modern_coffee_table_01
+License: https://polyhaven.com/license
+https://creativecommons.org/publicdomain/zero/1.0/
+
+Original model scale, geometry, UV and image bytes preserved.
+Source candidate adds authored-pbr-v1 metadata; this package copies it unchanged.
+Dimensions describe model bounds, not verified physical product measurements.

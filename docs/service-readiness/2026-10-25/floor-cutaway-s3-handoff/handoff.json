@@ -1,0 +1,63 @@
+{
+  "requestId": "CORTEX-FLOOR-CUTAWAY-S3-20261025",
+  "createdAt": "2026-10-25T15:09:45.631623+00:00",
+  "owner": "existing Cortex-S3-웹 사이트 연동 및 개발",
+  "thread": "01a0eb21-9413-7271-9d76-4cd9a7d1863a",
+  "status": "ready_to_queue_not_implemented",
+  "userRequest": "단지투어에서 층수를 선택하면 선택층 3D를 보이고 위층은 숨기기; 사용자가 기존 S3 담당으로 변경함.",
+  "implementationScope": [
+    "선택 동만 선택층 위를 가리는 단면; 아래층/다른14동 유지",
+    "층 변경 시 단면 높이 동기화; 위층 숨기기 on/off로 전체 외형 원복",
+    "실제 층별 세대/엘리베이터 배치는 미확보이므로 내부벽 임의 생성 금지; 필요시 외곽 기반 층판만 표시",
+    "단지 전용 site-tour와 기존 studio 연결, service↔2D 상태 유지",
+    "단지 localClipping은 실제 render frame에서만 활성 후 원복; 실내 영향 금지"
+  ],
+  "sourceBaseline": {
+    "publishedUI": "startup/07_팀미팅/2026-10-24_designer-demo/hosting-ui-cleanup-20261025/verification.json",
+    "publicVersion": 4,
+    "url": "https://cortex-design-preview-20261024.spunky-note-2434.chatgpt.site",
+    "liveCommit": "13563bc272668353ec62fb44fee9c3685e361d06",
+    "liveSiteId": "appgprj_6adc181c49708191a65db8c32f5dc69d",
+    "note": "직전 동·층·호수 UI 정리는 완료·게시됨. 이 단면 기능은 미구현/미게시. 혼동 금지."
+  },
+  "partialWork": {
+    "sourceRestored": true,
+    "restoreRecord": "restore-record.json",
+    "patch": "partial-ui-only.patch",
+    "sourceCopies": "partial-ui-source/",
+    "warning": "이 패치는 UI/renderer 연결 초안만. setCutawayEnabled/cutawayState/inspectCutaway core API 없음. 그대로 적용하면 오류이므로 core 완료 후 통합할 것.",
+    "coreFilesWritten": false,
+    "testsWritten": false,
+    "testsRun": false,
+    "allTemporarySubagentsStopped": true
+  },
+  "proposedCore": {
+    "files": [
+      "src/walkthrough/complex-context.js",
+      "new src/walkthrough/floor-cutaway.js",
+      "new tests/floor-cutaway.test.js"
+    ],
+    "materials": "선택동 shell/edge/floorline/facade에만 동별 복제 재질과 clippingPlane. shared texture/geometry 보존, clipShadows. source materials 전역변경 금지.",
+    "state": "setCutawayEnabled, cutawayEnabled, cutawayState 또는 inspectCutaway. 실제 material planes/cap/label/요청층과 지원여부 노출.",
+    "cutPlane": "nominal top=floor*height/floors, normal [0,-1,0]. 최상층 roof 제거시 표시 offset 0.01m 별도 명시. 실제 층고 변경 아님.",
+    "floorPlate": "선택층 bottom+0.02m 표시용 층판, 실제 세대배치 아님.",
+    "unsupported": "선택층 없음/자료층>외관층수이면 단면과 층띠 끔. 외관 최상층으로 거짓 표시 금지.",
+    "raycast": "절단 위 shell hit 제외, toggle off 원복. 라벨도 잘린층 부근으로 이동."
+  },
+  "neededVerification": [
+    "desktop1440/mobile390: 104동16→7층, toggle off/on,100동3층305호→2D",
+    "선택동 clipping/cap/label, 주변15동 보존, 다른동 전환 시 이전동 plane 제거",
+    "실제 Raycaster raw shell hit가 있는 위/아래 ray로 clip hit 제외와 off원복 확인",
+    "실내 진입 전 GLB0, API0, 기존2D 상태 보존",
+    "단지→실내 렌더 설정/픽셀 복원은 새 전역 renderer hook에 대한 제한검증",
+    "최종 별도 정적 패키지 검증 후 같은 공개 Site 반영; 게시 완료와 로컬 완료 구분"
+  ],
+  "constraints": [
+    "H200/GPU 연산 사전 사용자 허락 필수; CUDA_VISIBLE_DEVICES 빈 값과 SwiftShader CPU만",
+    "기존 모델/variants/치수/catalog/dataset 변경0",
+    "기존 dirty tree 보존; main Git commit/push 없음",
+    "5173/5185 재시작 필요없음; 기존 공개 v4 유지 중",
+    "모든 신규 파일 /home/nas5/kinamkim/Repos/geonwoo 아래"
+  ],
+  "S1State": "추가 구현과 검증 중지. 중복 구현하지 않음. 완료 결과만 회신해 주세요."
+}

@@ -5,7 +5,7 @@
 // complex photo and #hero-building button. Also adds the header search.
 import { TOURS, TAG_GROUPS, HOME_TYPES, MY_HOME, tagLabel, photoURL, homeLine } from './tours.js';
 import { HOMES, readHome } from '../walkthrough/my-home.js';
-import { VARIANTS } from '../walkthrough/variants.js';
+import { VARIANTS, resolveVariant } from '../walkthrough/variants.js';
 import { navigationRooms } from '../walkthrough/minimap-geometry.js';
 import { LOCATION } from '../walkthrough/location.js';
 import { CONCEPTS, PALETTES } from '../concepts/catalog.js';
@@ -35,10 +35,10 @@ function quickIcon(name) {
 
 // "방 3 · 욕실 2 · 거실 15.3㎡" from the plan's rooms.
 function planFacts(plan) {
-  const rooms = navigationRooms(VARIANTS[plan].info).filter((r) => r.kind === 'interior');
-  const beds = rooms.filter((r) => /방$|방 \d$/.test(r.name_ko)).length;
-  const baths = rooms.filter((r) => r.name_ko.includes('욕실')).length;
-  const living = rooms.find((r) => r.name_ko === '거실');
+  const rooms = navigationRooms(VARIANTS[resolveVariant(plan)].info);
+  const beds = rooms.filter((r) => /^(primary|bedroom-\d+)$/.test(r.id)).length;
+  const baths = rooms.filter((r) => /bath/.test(r.id)).length;
+  const living = rooms.find((r) => r.id === 'living-kitchen-hall');
   return `방 ${beds} · 욕실 ${baths}${living?.area_m2 ? ` · 거실 ${living.area_m2.toFixed(1)}㎡` : ''}`;
 }
 
@@ -57,9 +57,12 @@ export function createHome({ hooks, concepts, tours }) {
   findButton.textContent = '동·층 골라 보기';
   findButton.className = 'btn btn-primary';
 
+  const pairedFloorURL=new URL(import.meta.env.VITE_PAIRED_FLOOR_URL || 'paired-floor-review.html',location.href);
+  const pairedLink=element('a',{id:'nav-paired-floor',href:pairedFloorURL.href,text:'한 층 보기',class:'paired-floor-link'});
+  hooks.ui.querySelector('.studio-header nav')?.append(pairedLink);
   const goHome = () => hooks.goHome();
-  async function homeThen(action) { await hooks.goHome(); action(); }
-  const walkHome = () => homeThen(() => { hooks.selectRoom('Living front'); $('room-walk').click(); });
+  async function homeThen(action) { if(await hooks.goHome()!==false)action(); }
+  const walkHome = () => homeThen(() => { hooks.selectRoom(concepts.roomId('Living front')); $('room-walk').click(); });
   const editHome = () => homeThen(() => $('mode-edit')?.click());
   const conceptsHome = () => homeThen(() => $('mode-concepts')?.click());
 
@@ -116,22 +119,16 @@ export function createHome({ hooks, concepts, tours }) {
     const form = element('form', { class: 'hfm-search', role: 'search', onsubmit: (event) => {
       event.preventDefault();
       const query = findInput.value.trim();
-      const found = tours.findComplexes(query);
-      if (query && !found.length) { findHint.textContent = `‘${query}’에 맞는 단지가 없어요.`; findHint.classList.add('is-empty'); return; }
       openFind(query);
     } }, icon('search', 18), findInput, element('button', { type: 'submit', class: 'btn btn-small', text: '찾기' }));
     findHint.classList.remove('is-empty');
     findHint.textContent = '';
     return element('article', { class: 'home-find' },
       element('h2', { text: '새로운 집 찾기' }),
-      element('p', { class: 'hf-lede', text: '단지와 동·층을 고르면 그 집 안을 미리 걸어볼 수 있어요.' }),
+      element('p', { class: 'hf-lede', text: '지도에서 단지와 동·호수를 찾고, 준비된 평면을 살펴보세요.' }),
       form, findHint);
   }
-  function openFind(query = '') {
-    findButton.click();
-    const search = $('find-complex-search');
-    if (search && query) { search.value = query; search.dispatchEvent(new Event('input')); }
-  }
+  function openFind(query = '') { hooks.findHome(query); }
 
   // --- shortcuts ------------------------------------------------------------------------
   function quick() {
@@ -142,6 +139,7 @@ export function createHome({ hooks, concepts, tours }) {
       { id: 'quick-walk', icon: 'walk', label: '3D로 걷기', run: walkHome },
       { id: 'quick-edit', icon: 'edit', label: '가구 배치', run: editHome },
       { id: 'quick-concepts', icon: 'concepts', label: '컨셉 추천', run: conceptsHome },
+      { id: 'quick-paired-floor', icon: 'walk', label: '211A · 168C 한 층', run: () => location.assign(pairedFloorURL.href) },
     ];
     return element('nav', { class: 'home-quick', 'aria-label': '바로 가기' }, items.map((item) => element('button', { type: 'button', id: item.id, class: 'hq-item', onclick: item.run },
       element('span', { class: 'hq-icon' }, quickIcon(item.icon)),
@@ -202,7 +200,7 @@ export function createHome({ hooks, concepts, tours }) {
       section('새로 올라온 집들이', { more: () => tours.openGallery({ sort: 'recent' }) }, grid(tours.byRecent().slice(0, 4))),
       section('이런 공간 찾고 있나요?', { sub: '공간을 고르면 그 공간을 꾸민 집들이를 모아 보여드려요.' }, photoTiles(spaces, 'space')),
       section('취향으로 고르기', {}, photoTiles(styles, 'style')),
-      section('새로운 집 찾기', { id: 'home-find', sub: '등록된 단지에서 동과 층을 고르면, 그 세대를 3D로 열어요.' }, complexes()),
+      section('새로운 집 찾기', { id: 'home-find', sub: '지도에서 실제 동·호수를 찾고, 지원하는 평면을 3D로 열어요.' }, complexes()),
       element('footer', { class: 'home-foot' }, element('strong', { text: 'CORTEX' }))));
   }
   render();

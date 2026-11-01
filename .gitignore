@@ -27,3 +27,9 @@ node_modules/
 dist/
 test-results/
 playwright-report/
+
+# Local deployment archives, business documents and generated diagnostics
+/startup/
+/.vite/
+/test-results-*/
+.nfs*

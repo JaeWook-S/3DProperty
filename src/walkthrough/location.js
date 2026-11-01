@@ -1,5 +1,6 @@
 import * as THREE from 'three';
 import { createComplexContext } from './complex-context.js';
+import site from '../../assets/location/acro-river-park/site-context.json';
 
 export const LOCATION = {
   name: '아크로 리버파크', address: '서울 서초구 신반포로15길 19',
@@ -7,12 +8,29 @@ export const LOCATION = {
   map: 'https://map.naver.com/p/search/'+encodeURIComponent('서울 서초구 신반포로15길 19 아크로리버파크'),
   riverside: new URL('../../assets/location/acro-river-park/official-riverside.jpg',import.meta.url).href,
   night: new URL('../../assets/location/acro-river-park/official-night.jpg',import.meta.url).href,
-  demoFloor: 22, maxFloor: 38,
+  initialFloor: 1, maxFloor: 38,
+  osm: 'https://www.openstreetmap.org/copyright',
+  osmAttribution: '© OpenStreetMap contributors · ODbL 1.0',
 };
 
-// Detailed selection facade, not a reconstruction of a particular surveyed tower.
-export function createFloorTower(scene) {
-  return createComplexContext(scene);
+// Site massing derived from OSM footprints, part levels and height tags.
+export function createFloorTower(scene, invalidate, {lazy=false}={}) {
+  if(!lazy)return createComplexContext(scene,invalidate);
+  // Keep only catalog records until the user actually opens the site visualization.
+  let live=null,selectedId='109',floor=1,cutawayEnabled=true,selectionVisible=true;
+  const empty=new THREE.Group();
+  const records=site.buildings.map(b=>({...b,floors:b.levels,tower:{visible:false},material:{opacity:1,depthWrite:true},facade:{userData:{windowCount:0}}}));
+  const ensure=()=>{if(!live){live=createComplexContext(scene,invalidate);live.selectBuilding(selectedId);live.setFloor(floor);live.setCutawayEnabled(cutawayEnabled);live.setSelectionVisible(selectionVisible);}return live;};
+  return {ensure,get built(){return Boolean(live);},get group(){return live?.group??empty;},get buildings(){return live?.buildings??records;},get selected(){return live?.selected??records.find(b=>b.id===selectedId)??records[0];},get appearance(){return live?.appearance??{state:'not-loaded'};},
+    selectBuilding(id){selectedId=records.some(b=>b.id===String(id))?String(id):records[0].id;return live?live.selectBuilding(selectedId):this.selected;},
+    setFloor(n){floor=n===null?null:Number(n);live?.setFloor(floor);},
+    setCutawayEnabled(v){cutawayEnabled=Boolean(v);live?.setCutawayEnabled(v);},
+    get cutawayEnabled(){return live?.cutawayEnabled??cutawayEnabled;},
+    get cutawayState(){return live?.cutawayState??{enabled:cutawayEnabled,active:false};},
+    inspectCutaway:()=>live?.inspectCutaway()??{active:false},
+    setSelectionVisible(v){selectionVisible=Boolean(v);live?.setSelectionVisible(v);},
+    floorHeight:(b,n)=>Math.min(b.height_m,n*b.height_m/b.floors),
+    setView:v=>ensure().setView(v),viewpoint:v=>ensure().viewpoint(v),hitTest:r=>ensure().hitTest(r)};
 }
 
 // Window views: real photographs set far outside the windows so they read like a view, not a
@@ -57,48 +75,64 @@ function gradient(stops){
   const texture=new THREE.CanvasTexture(c);texture.colorSpace=THREE.SRGBColorSpace;return texture;
 }
 
-export function createExterior(scene,invalidate,onLoad) {
-  const group=new THREE.Group();group.name='Exterior window views';scene.add(group);
+export function createExterior(scene,invalidate,onChange,initialLighting='day') {
+  const group=new THREE.Group();group.name='Uncalibrated exterior window views';scene.add(group);
   const view=new THREE.Group();view.name='Window view photographs';group.add(view);
   const loader=new THREE.TextureLoader();loader.setCrossOrigin('anonymous');
-  const fade=edgeFade();
+  const fade=edgeFade(),references=new Map(),domes={};
+  let lighting=initialLighting,reference=initialLighting==='night'?'night':'day',overrideNote=null;
   const dome=new THREE.Mesh(new THREE.SphereGeometry(DOME_RADIUS,48,24),new THREE.MeshBasicMaterial({side:THREE.BackSide,toneMapped:false,depthWrite:false,fog:false}));
   dome.position.set(7,EYE,5);dome.renderOrder=-2;view.add(dome);
-  const domes={};
-  // One arc per photo, centred on the unit and facing outward from it (south +z, north −z).
+  function referenceState(){
+    const entries=references.get(reference)||[];
+    const status=entries.some(e=>e.status==='loading')?'loading':entries.some(e=>e.status==='ready')?'ready':'error';
+    const label=lighting==='night'?'밤 참고 사진':lighting==='sunset'?'낮 참고 사진 · 저녁 촬영본 없음':'낮 참고 사진';
+    const note=overrideNote??(status==='ready'?`${VIEW_CREDIT} · ${label} · 실제 세대 조망이 아닙니다.`:status==='error'?'창밖 사진을 불러오지 못해 하늘 배경을 표시해요.':'창밖 참고 사진을 불러오는 중…');
+    return {lighting,reference,status,custom:Boolean(overrideNote),note};
+  }
+  function syncReference(){
+    view.visible=!overrideNote;
+    for(const [key,entries] of references)for(const entry of entries){
+      entry.mesh.visible=key===reference&&entry.status==='ready';
+      entry.mesh.material.color.setHex(TINT[lighting]??0xffffff);
+    }
+    domes[reference]??=gradient(VIEWS[reference].sky);
+    dome.material.map=domes[reference];dome.material.color.setHex(TINT[lighting]??0xffffff);dome.material.needsUpdate=true;
+    onChange?.(referenceState());invalidate();
+  }
   function arc(photo,facing){
     const span=THREE.MathUtils.degToRad(photo.span),height=ARC_RADIUS*span/photo.aspect;
     const geometry=new THREE.CylinderGeometry(ARC_RADIUS,ARC_RADIUS,height,96,1,true,-span/2,span);
     const material=new THREE.MeshBasicMaterial({side:THREE.BackSide,toneMapped:false,transparent:true,depthWrite:false,alphaMap:fade,fog:false});
-    const mesh=new THREE.Mesh(geometry,material);
-    mesh.position.set(7,EYE+photo.horizon*height-height/2,5);mesh.rotation.y=facing;mesh.renderOrder=-1;mesh.visible=false;
-    const show=(texture)=>{texture.colorSpace=THREE.SRGBColorSpace;texture.anisotropy=8;
-      // Seen from inside the arc the image would read mirrored; flip it back.
-      texture.repeat.x=-1;texture.offset.x=1;material.map=texture;material.needsUpdate=true;invalidate();};
-    loader.load(photo.url,(texture)=>{show(texture);onLoad?.(true);},undefined,()=>{
-      if(photo.fallback)loader.load(photo.fallback,show);else onLoad?.(false);});
-    view.add(mesh);return mesh;
+    const mesh=new THREE.Mesh(geometry,material);mesh.position.set(7,EYE+photo.horizon*height-height/2,5);mesh.rotation.y=facing;mesh.renderOrder=-1;mesh.visible=false;view.add(mesh);
+    const entry={mesh,status:'loading'};
+    const show=texture=>{
+      texture.colorSpace=THREE.SRGBColorSpace;texture.anisotropy=8;
+      texture.repeat.x=-1;texture.offset.x=1;material.map=texture;material.needsUpdate=true;
+      entry.status='ready';syncReference();
+    };
+    const failed=()=>{entry.status='error';syncReference();};
+    loader.load(photo.url,show,undefined,()=>{if(photo.fallback)loader.load(photo.fallback,show,undefined,failed);else failed();});
+    return entry;
   }
-  const arcs={};
-  for(const [key,v] of Object.entries(VIEWS))arcs[key]=[arc(v.south,0),arc(v.north,Math.PI)];
   function setLighting(value){
-    const key=value==='night'?'night':'day';
-    for(const [name,meshes] of Object.entries(arcs))for(const mesh of meshes){mesh.visible=name===key;mesh.material.color.setHex(TINT[value]??0xffffff);}
-    domes[key]??=gradient(VIEWS[key].sky);
-    dome.material.map=domes[key];dome.material.color.setHex(TINT[value]??0xffffff);dome.material.needsUpdate=true;
-    invalidate();
+    lighting=value;reference=value==='night'?'night':'day';
+    if(!references.has(reference)){
+      const photos=VIEWS[reference];references.set(reference,[arc(photos.south,0),arc(photos.north,Math.PI)]);
+    }
+    // Recompute from current lighting; late previous requests cannot replace it.
+    syncReference();
   }
-  setLighting('day');
-  // A small inferred shared landing is visible through the entry door. It is
-  // visual context only: the existing apartment traversal boundary is retained.
+  // Inferred shared landing is hidden for coordinate models with their own entry geometry.
   const wall=new THREE.MeshStandardMaterial({color:0xe4dfd3,roughness:.8});
   const floor=new THREE.MeshStandardMaterial({color:0x9d998c,roughness:.65});
-  function box(size,p,m){const o=new THREE.Mesh(new THREE.BoxGeometry(...size),m);o.position.set(...p);group.add(o);}
+  function box(size,p,m){const o=new THREE.Mesh(new THREE.BoxGeometry(...size),m);o.position.set(...p);o.userData.unitType='112A';group.add(o);}
   box([4,.08,1.9],[2.8,-.04,1.46],floor);
   box([4,2.6,.12],[2.8,1.3,.52],wall);
   box([.12,2.6,1.9],[.8,1.3,1.46],wall);
   box([.12,2.6,1.9],[4.8,1.3,1.46],wall);
-  group.visible=false;
-  // `photo` lets src/window-view swap the photographs for a viewer's own 360° panorama.
-  return {group,photo:view,setLighting,credit:VIEW_CREDIT};
+  group.visible=false;setLighting(initialLighting);
+  return {group,photo:view,setLighting,referenceState,credit:VIEW_CREDIT,
+    setReferenceOverride(note=null){overrideNote=note;syncReference();},
+    setUnit(unitType){for(const o of group.children)if(o.userData.unitType)o.visible=o.userData.unitType===unitType;}};
 }

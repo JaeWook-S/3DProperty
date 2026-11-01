@@ -1,0 +1,28 @@
+{
+  "passed": true,
+  "structural_meshes_checked": 212,
+  "structural_changed": [],
+  "other_unexpected_geometry_changes": [],
+  "intentional_changed_or_removed": [
+    "Kitchen east counter/carcass",
+    "Kitchen east counter/countertop",
+    "Sink / basin",
+    "Sink / rim",
+    "Sink / spout",
+    "Sink / tap"
+  ],
+  "new_meshes": [
+    "Sink detail / recessed bowl",
+    "Sink detail / drain inset",
+    "Sink detail / drain cross X",
+    "Sink detail / drain cross Y",
+    "Sink detail / faucet base",
+    "Sink detail / curved faucet"
+  ],
+  "source_blend_sha256": "a27a29b43ffb989ee17a203d0f04cd6ed27919ba0e423a73d877dc13e9ac2617",
+  "notes": [
+    "Cabinet footprint, apartment structure and movable furniture placements are preserved.",
+    "Sink/faucet are illustrative modeled details, not independently measured catalog geometry.",
+    "No runtime light or collision architecture changes."
+  ]
+}

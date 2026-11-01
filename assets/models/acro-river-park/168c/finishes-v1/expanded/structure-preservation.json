@@ -1,0 +1,1502 @@
+{
+  "passed": true,
+  "checked_meshes": 299,
+  "checks": [
+    {
+      "name": "Floor / footprint is not certified area",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "outer-00/after",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "outer-01/entry-door/before",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "outer-01/entry-door/lintel",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "outer-01/after",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "outer-02/after",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "outer-03/after",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "outer-04/after",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "outer-05/primary-exterior-window/before",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "outer-05/primary-exterior-window/sill",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "outer-05/primary-exterior-window/lintel",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "outer-05/after",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "outer-07/living-window-1/before",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "outer-07/living-window-1/sill",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "outer-07/living-window-1/lintel",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "outer-07/after",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "outer-08/after",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "outer-09/after",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "outer-10/after",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "outer-11/after",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "outer-12/kitchen-window/before",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "outer-12/kitchen-window/sill",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "outer-12/kitchen-window/lintel",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "outer-12/after",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "outer-13/after",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "outer-14/bedroom-1-window/before",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "outer-14/bedroom-1-window/sill",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "outer-14/bedroom-1-window/lintel",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "outer-14/bedroom-2-window/before",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "outer-14/bedroom-2-window/sill",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "outer-14/bedroom-2-window/lintel",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "outer-14/bedroom-3-window/before",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "outer-14/bedroom-3-window/sill",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "outer-14/bedroom-3-window/lintel",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "outer-14/after",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "outer-15/after",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "bedrooms-north/bedroom-1-door/before",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "bedrooms-north/bedroom-1-door/lintel",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "bedrooms-north/bedroom-2-door/before",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "bedrooms-north/bedroom-2-door/lintel",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "bedrooms-north/bedroom-3-door/before",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "bedrooms-north/bedroom-3-door/lintel",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "bedrooms-north/after",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "bedroom-1-2/after",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "bedroom-2-3/after",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "bedroom-3-kitchen/after",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "bathroom-1-east/bathroom-1-door/before",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "bathroom-1-east/bathroom-1-door/lintel",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "bathroom-1-east/after",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "bathroom-1-north/after",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "service-south/hall-pantry-door/before",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "service-south/hall-pantry-door/lintel",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "service-south/after",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "entry-east/after",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "service-east/dressing-inner-passage/before",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "service-east/dressing-inner-passage/lintel",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "service-east/after",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "primary-bathroom-north/primary-bathroom-door/before",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "primary-bathroom-north/primary-bathroom-door/lintel",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "primary-bathroom-north/after",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "primary-bathroom-west/after",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "primary-bathroom-east/after",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "primary-service-south/after",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "primary-south/primary-door/before",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "primary-south/primary-door/lintel",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "primary-south/after",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "primary-balcony-divider/primary-balcony-opening/before",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "primary-balcony-divider/primary-balcony-opening/sill",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "primary-balcony-divider/primary-balcony-opening/lintel",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "primary-balcony-divider/after",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "primary-balcony-service/primary-balcony-service-door/before",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "primary-balcony-service/primary-balcony-service-door/lintel",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "primary-balcony-service/after",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "pantry-north/after",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "pantry-east/after",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "pantry-west/pantry-door/before",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "pantry-west/pantry-door/lintel",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "pantry-west/after",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "living-balcony-return/after",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "living-balcony-divider/living-window-2/before",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "living-balcony-divider/living-window-2/sill",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "living-balcony-divider/living-window-2/lintel",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "living-balcony-divider/after",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "dressing-inner-south/after",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "hall-pantry-west/after",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "hall-pantry-east/after",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "utility-shaft-north/after",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "utility-shaft-west/after",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "kitchen-shaft-north/after",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "kitchen-shaft-east/after",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "kitchen-shaft-south/after",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "bathroom-1-shower-divider/bathroom-1-shower-door/before",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "bathroom-1-shower-divider/after",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "primary-balcony-south-closure/after",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "bedroom-2-west-north-pier",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "bedroom-2-west-south-pier",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "entry-door/jamb-left",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "entry-door/jamb-right",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "entry-door/head",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "entry-door/leaf",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "entry-door/handle",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "bedroom-1-door/jamb-left",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "bedroom-1-door/jamb-right",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "bedroom-1-door/head",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "bedroom-1-door/leaf",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "bedroom-1-door/handle",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "bedroom-2-door/jamb-left",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "bedroom-2-door/jamb-right",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "bedroom-2-door/head",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "bedroom-2-door/leaf",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "bedroom-2-door/handle",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "bedroom-3-door/jamb-left",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "bedroom-3-door/jamb-right",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "bedroom-3-door/head",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "bedroom-3-door/leaf",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "bedroom-3-door/handle",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "bathroom-1-door/jamb-left",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "bathroom-1-door/jamb-right",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "bathroom-1-door/head",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "bathroom-1-door/leaf",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "bathroom-1-door/handle",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "hall-pantry-door/jamb-left",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "hall-pantry-door/jamb-right",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "hall-pantry-door/head",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "hall-pantry-door/leaf",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "hall-pantry-door/handle",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "dressing-inner-passage/frame-left",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "dressing-inner-passage/frame-right",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "dressing-inner-passage/frame-top",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "primary-bathroom-door/jamb-left",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "primary-bathroom-door/jamb-right",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "primary-bathroom-door/head",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "primary-bathroom-door/leaf",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "primary-bathroom-door/handle",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "primary-door/jamb-left",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "primary-door/jamb-right",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "primary-door/head",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "primary-door/leaf",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "primary-door/handle",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "primary-balcony-service-door/jamb-left",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "primary-balcony-service-door/jamb-right",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "primary-balcony-service-door/head",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "primary-balcony-service-door/leaf",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "primary-balcony-service-door/handle",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "pantry-door/jamb-left",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "pantry-door/jamb-right",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "pantry-door/head",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "pantry-door/leaf",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "pantry-door/handle",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "bathroom-1-shower-door/jamb-left",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "bathroom-1-shower-door/jamb-right",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "bathroom-1-shower-door/head",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "bathroom-1-shower-door/leaf",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "bathroom-1-shower-door/handle",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "primary-exterior-window/frame-left",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "primary-exterior-window/frame-right",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "primary-exterior-window/frame-bottom",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "primary-exterior-window/frame-top",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "primary-exterior-window/full-window-span",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "living-window-1/frame-left",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "living-window-1/frame-right",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "living-window-1/frame-bottom",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "living-window-1/frame-top",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "living-window-1/full-window-span",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "kitchen-window/frame-left",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "kitchen-window/frame-right",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "kitchen-window/frame-bottom",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "kitchen-window/frame-top",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "kitchen-window/full-window-span",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "bedroom-1-window/frame-left",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "bedroom-1-window/frame-right",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "bedroom-1-window/frame-bottom",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "bedroom-1-window/frame-top",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "bedroom-1-window/full-window-span",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "bedroom-2-window/frame-left",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "bedroom-2-window/frame-right",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "bedroom-2-window/frame-bottom",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "bedroom-2-window/frame-top",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "bedroom-2-window/full-window-span",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "bedroom-3-window/frame-left",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "bedroom-3-window/frame-right",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "bedroom-3-window/frame-bottom",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "bedroom-3-window/frame-top",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "bedroom-3-window/full-window-span",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "primary-balcony-opening/frame-left",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "primary-balcony-opening/frame-right",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "primary-balcony-opening/frame-bottom",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "primary-balcony-opening/frame-top",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "primary-balcony-opening/panel-0",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "primary-balcony-opening/panel-0-left",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "primary-balcony-opening/panel-0-right",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "primary-balcony-opening/panel-0-bottom",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "primary-balcony-opening/panel-0-top",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "primary-balcony-opening/panel-1",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "primary-balcony-opening/panel-1-left",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "primary-balcony-opening/panel-1-right",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "primary-balcony-opening/panel-1-bottom",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "primary-balcony-opening/panel-1-top",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "living-window-2/frame-left",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "living-window-2/frame-right",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "living-window-2/frame-bottom",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "living-window-2/frame-top",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "living-window-2/panel-0",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "living-window-2/panel-0-left",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "living-window-2/panel-0-right",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "living-window-2/panel-0-bottom",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "living-window-2/panel-0-top",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "living-window-2/panel-1",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "living-window-2/panel-1-left",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "living-window-2/panel-1-right",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "living-window-2/panel-1-bottom",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "living-window-2/panel-1-top",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "Ceiling / underside 2.500m / hidden for review",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "shaft-bathroom-1-north/blocked-volume",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "shaft-hall-west/blocked-volume",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "shaft-hall-east/blocked-volume",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "shaft-entry-north/blocked-volume",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "shaft-primary-bathroom/blocked-volume",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "shaft-kitchen/blocked-volume",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "shaft-utility/blocked-volume",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "hall-pantry-shelves/left-side",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "hall-pantry-shelves/right-side",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "hall-pantry-shelves/back",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "hall-pantry-shelves/shelf-0",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "hall-pantry-shelves/shelf-1",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "hall-pantry-shelves/shelf-2",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "hall-pantry-shelves/shelf-3",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "hall-pantry-shelves/shelf-4",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "dressing-inner-shelves/left-side",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "dressing-inner-shelves/right-side",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "dressing-inner-shelves/back",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "dressing-inner-shelves/shelf-0",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "dressing-inner-shelves/shelf-1",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "dressing-inner-shelves/shelf-2",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "dressing-inner-shelves/shelf-3",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "dressing-inner-shelves/shelf-4",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "bathroom-1-shower/base",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "bathroom-1-shower/drain",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "bathroom-1-shower-rail/rail",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "bathroom-1-shower-rail/head",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "bathroom-1-shower-rail/control",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "kitchen-west-base/carcass",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "kitchen-west-base/plinth",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "kitchen-west-base/countertop",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "kitchen-west-base/front-0-0",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "kitchen-west-base/front-1-0",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "kitchen-west-base/front-2-0",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "kitchen-west-base/front-3-0",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "kitchen-west-base/front-4-0",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "kitchen-west-base/front-5-0",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "kitchen-south-sink/carcass",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "kitchen-south-sink/plinth",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "kitchen-south-sink/countertop",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "kitchen-south-sink/front-0-0",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "kitchen-south-sink/front-1-0",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "kitchen-south-sink/front-2-0",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "kitchen-south-sink/front-3-0",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "kitchen-south-sink/sink-rim",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "kitchen-south-sink/sink-basin-indication",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "kitchen-south-sink/tap-upright",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "kitchen-south-sink/tap-spout",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "kitchen-west-upper-a/carcass",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "kitchen-west-upper-a/cap",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "kitchen-west-upper-a/front-0-0",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "kitchen-west-upper-a/front-1-0",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "kitchen-west-upper-a/front-2-0",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "kitchen-west-upper-b/carcass",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "kitchen-west-upper-b/cap",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "kitchen-west-upper-b/front-0-0",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "kitchen-west-upper-b/front-1-0",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "kitchen-hob-hood/hob",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "kitchen-hob-hood/burner-0-0",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "kitchen-hob-hood/burner-0-1",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "kitchen-hob-hood/burner-1-0",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "kitchen-hob-hood/burner-1-1",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "kitchen-hob-hood/hood",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "kitchen-hob-hood/hood-underside",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "kitchen-hob-hood/hood-stack",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "kitchen-island/carcass",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "kitchen-island/plinth",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "kitchen-island/countertop",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "kitchen-island/front-0-0",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "kitchen-island/front-0-1",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "kitchen-island/front-0-2",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "kitchen-island/front-1-0",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "kitchen-island/front-1-1",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "kitchen-island/front-1-2",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "kitchen-island/front-2-0",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "kitchen-island/front-2-1",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "kitchen-island/front-2-2",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "kitchen-fridge-storage/body",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "kitchen-fridge-storage/plinth",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "kitchen-fridge-storage/storage-left",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "kitchen-fridge-storage/storage-right",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "kitchen-fridge-storage/fridge-header",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "kitchen-fridge-storage/fridge-door-left",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "kitchen-fridge-storage/fridge-door-right",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "kitchen-fridge-storage/fridge-handle--1",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "kitchen-fridge-storage/fridge-handle-1",
+      "bounds_preserved": true,
+      "max_difference_m": 0.0
+    }
+  ],
+  "scope": "v2 structural world bounds and transforms preserved; floor top remains z=0; new surface meshes and light fixtures added"
+}

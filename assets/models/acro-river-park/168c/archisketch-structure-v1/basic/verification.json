@@ -1,0 +1,1660 @@
+{
+  "variant": "basic",
+  "passed": true,
+  "scope": "source_coordinate_transfer_user_dimensions_and_saved_file_roundtrip",
+  "independent_as_built_validation": false,
+  "checks": [
+    {
+      "name": "meters / scale_length",
+      "passed": true
+    },
+    {
+      "name": "source room polygon / bedroom-balcony",
+      "passed": true,
+      "symmetric_difference_m2": 2.587420088474067e-06,
+      "hausdorff_m": 4.947354987700279e-07
+    },
+    {
+      "name": "source room polygon / kitchen-balcony",
+      "passed": true,
+      "symmetric_difference_m2": 2.3079678461047867e-06,
+      "hausdorff_m": 3.8146972691777137e-07
+    },
+    {
+      "name": "source room polygon / living-kitchen-hall",
+      "passed": true,
+      "symmetric_difference_m2": 9.9535194421375e-06,
+      "hausdorff_m": 4.425048842904289e-07
+    },
+    {
+      "name": "source room polygon / living-balcony",
+      "passed": true,
+      "symmetric_difference_m2": 2.5637814442634543e-06,
+      "hausdorff_m": 6.098268167821968e-07
+    },
+    {
+      "name": "source room polygon / bedroom-3",
+      "passed": true,
+      "symmetric_difference_m2": 1.5509986895401013e-06,
+      "hausdorff_m": 3.614916304691853e-07
+    },
+    {
+      "name": "source room polygon / entry-storage",
+      "passed": true,
+      "symmetric_difference_m2": 2.3492431140039124e-07,
+      "hausdorff_m": 8.14819693098023e-08
+    },
+    {
+      "name": "source room polygon / bedroom-1",
+      "passed": true,
+      "symmetric_difference_m2": 4.843489789620506e-07,
+      "hausdorff_m": 6.473755987545437e-08
+    },
+    {
+      "name": "source room polygon / bathroom-1",
+      "passed": true,
+      "symmetric_difference_m2": 8.852720414509463e-07,
+      "hausdorff_m": 2.3899009835859927e-07
+    },
+    {
+      "name": "source room polygon / hall-pantry",
+      "passed": true,
+      "symmetric_difference_m2": 3.3880233698635467e-07,
+      "hausdorff_m": 1.369577256821777e-07
+    },
+    {
+      "name": "source room polygon / dressing",
+      "passed": true,
+      "symmetric_difference_m2": 8.507950130560885e-07,
+      "hausdorff_m": 2.3872355950824153e-07
+    },
+    {
+      "name": "source room polygon / primary-bath",
+      "passed": true,
+      "symmetric_difference_m2": 1.6345405598300288e-06,
+      "hausdorff_m": 4.3185759713371815e-07
+    },
+    {
+      "name": "source room polygon / primary",
+      "passed": true,
+      "symmetric_difference_m2": 1.8634409765293776e-06,
+      "hausdorff_m": 3.433227533378158e-07
+    },
+    {
+      "name": "source room polygon / hall-storage",
+      "passed": true,
+      "symmetric_difference_m2": 8.358439972186993e-07,
+      "hausdorff_m": 3.902940538336301e-07
+    },
+    {
+      "name": "source room polygon / primary-balcony-storage",
+      "passed": true,
+      "symmetric_difference_m2": 1.0772365254076321e-06,
+      "hausdorff_m": 6.256174495342458e-07
+    },
+    {
+      "name": "source room polygon / living-east-balcony",
+      "passed": true,
+      "symmetric_difference_m2": 3.2997129652116535e-06,
+      "hausdorff_m": 3.2043456954511385e-07
+    },
+    {
+      "name": "source room polygon / bedroom-2",
+      "passed": true,
+      "symmetric_difference_m2": 1.1940117034665575e-06,
+      "hausdorff_m": 2.49709744653527e-07
+    },
+    {
+      "name": "source room polygon / primary-balcony",
+      "passed": true,
+      "symmetric_difference_m2": 2.033011375474173e-06,
+      "hausdorff_m": 6.283092719047317e-07
+    },
+    {
+      "name": "user door leaf / door-00/leaf",
+      "passed": true,
+      "width_m": 0.7999999523162842,
+      "height_m": 2.4000000953674316
+    },
+    {
+      "name": "user door leaf / door-01/leaf",
+      "passed": true,
+      "width_m": 0.7999992370605469,
+      "height_m": 2.4000000953674316
+    },
+    {
+      "name": "user door leaf / door-02/leaf",
+      "passed": true,
+      "width_m": 0.7999992370605469,
+      "height_m": 2.4000000953674316
+    },
+    {
+      "name": "user door leaf / door-03/leaf",
+      "passed": true,
+      "width_m": 0.8000001907348633,
+      "height_m": 2.4000000953674316
+    },
+    {
+      "name": "user door leaf / door-04/leaf",
+      "passed": true,
+      "width_m": 0.8000001907348633,
+      "height_m": 2.4000000953674316
+    },
+    {
+      "name": "user door leaf / door-05/leaf",
+      "passed": true,
+      "width_m": 0.7999997138977051,
+      "height_m": 2.4000000953674316
+    },
+    {
+      "name": "user door leaf / door-06/leaf",
+      "passed": true,
+      "width_m": 0.7999999523162842,
+      "height_m": 2.4000000953674316
+    },
+    {
+      "name": "user door leaf / kitchen-balcony-door/leaf",
+      "passed": true,
+      "width_m": 0.7999992370605469,
+      "height_m": 2.4000000953674316
+    },
+    {
+      "name": "user door leaf / door-08/leaf",
+      "passed": true,
+      "width_m": 0.8000001907348633,
+      "height_m": 2.4000000953674316
+    },
+    {
+      "name": "ceiling underside / Ceiling/00",
+      "passed": true
+    },
+    {
+      "name": "ceiling underside / Ceiling/01",
+      "passed": true
+    },
+    {
+      "name": "ceiling underside / Ceiling/02",
+      "passed": true
+    },
+    {
+      "name": "ceiling underside / Ceiling/03",
+      "passed": true
+    },
+    {
+      "name": "ceiling underside / Ceiling/04",
+      "passed": true
+    },
+    {
+      "name": "ceiling underside / Ceiling/05",
+      "passed": true
+    },
+    {
+      "name": "ceiling underside / Ceiling/06",
+      "passed": true
+    },
+    {
+      "name": "ceiling underside / Ceiling/07",
+      "passed": true
+    },
+    {
+      "name": "ceiling underside / Ceiling/08",
+      "passed": true
+    },
+    {
+      "name": "ceiling underside / Ceiling/09",
+      "passed": true
+    },
+    {
+      "name": "ceiling underside / Ceiling/10",
+      "passed": true
+    },
+    {
+      "name": "ceiling underside / Ceiling/11",
+      "passed": true
+    },
+    {
+      "name": "ceiling underside / Ceiling/12",
+      "passed": true
+    },
+    {
+      "name": "ceiling underside / Ceiling/13",
+      "passed": true
+    },
+    {
+      "name": "ceiling underside / Ceiling/14",
+      "passed": true
+    },
+    {
+      "name": "ceiling underside / Ceiling/15",
+      "passed": true
+    },
+    {
+      "name": "ceiling underside / Ceiling/16",
+      "passed": true
+    },
+    {
+      "name": "aperture not blocked by structure / door-00",
+      "passed": true,
+      "blockers": []
+    },
+    {
+      "name": "aperture not blocked by structure / door-01",
+      "passed": true,
+      "blockers": []
+    },
+    {
+      "name": "aperture not blocked by structure / door-02",
+      "passed": true,
+      "blockers": []
+    },
+    {
+      "name": "aperture not blocked by structure / door-03",
+      "passed": true,
+      "blockers": []
+    },
+    {
+      "name": "aperture not blocked by structure / door-04",
+      "passed": true,
+      "blockers": []
+    },
+    {
+      "name": "aperture not blocked by structure / door-05",
+      "passed": true,
+      "blockers": []
+    },
+    {
+      "name": "aperture not blocked by structure / door-06",
+      "passed": true,
+      "blockers": []
+    },
+    {
+      "name": "aperture not blocked by structure / kitchen-balcony-door",
+      "passed": true,
+      "blockers": []
+    },
+    {
+      "name": "aperture not blocked by structure / door-08",
+      "passed": true,
+      "blockers": []
+    },
+    {
+      "name": "aperture not blocked by structure / sliding-09",
+      "passed": true,
+      "blockers": []
+    },
+    {
+      "name": "aperture not blocked by structure / sliding-10",
+      "passed": true,
+      "blockers": []
+    },
+    {
+      "name": "aperture not blocked by structure / sliding-11",
+      "passed": true,
+      "blockers": []
+    },
+    {
+      "name": "aperture not blocked by structure / window-12",
+      "passed": true,
+      "blockers": []
+    },
+    {
+      "name": "aperture not blocked by structure / window-13",
+      "passed": true,
+      "blockers": []
+    },
+    {
+      "name": "aperture not blocked by structure / window-14",
+      "passed": true,
+      "blockers": []
+    },
+    {
+      "name": "aperture not blocked by structure / window-15",
+      "passed": true,
+      "blockers": []
+    },
+    {
+      "name": "aperture not blocked by structure / window-16",
+      "passed": true,
+      "blockers": []
+    },
+    {
+      "name": "aperture not blocked by structure / living-east-balcony-door",
+      "passed": true,
+      "blockers": []
+    },
+    {
+      "name": "aperture not blocked by structure / sliding-18",
+      "passed": true,
+      "blockers": []
+    },
+    {
+      "name": "aperture not blocked by structure / living-balcony-door",
+      "passed": true,
+      "blockers": []
+    },
+    {
+      "name": "aperture not blocked by structure / sliding-20",
+      "passed": true,
+      "blockers": []
+    },
+    {
+      "name": "aperture not blocked by structure / sliding-21",
+      "passed": true,
+      "blockers": []
+    },
+    {
+      "name": "aperture not blocked by structure / sliding-22",
+      "passed": true,
+      "blockers": []
+    },
+    {
+      "name": "aperture not blocked by structure / primary-balcony-door",
+      "passed": true,
+      "blockers": []
+    },
+    {
+      "name": "aperture not blocked by structure / window-24",
+      "passed": true,
+      "blockers": []
+    },
+    {
+      "name": "aperture not blocked by structure / window-25",
+      "passed": true,
+      "blockers": []
+    },
+    {
+      "name": "aperture not blocked by structure / sliding-26",
+      "passed": true,
+      "blockers": []
+    },
+    {
+      "name": "mesh names survive GLB",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds and metadata / Base/00",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / Floor/bedroom-balcony",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / Floor/kitchen-balcony",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / Floor/living-kitchen-hall",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / Floor/living-balcony",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / Floor/bedroom-3",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / Floor/entry-storage",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / Floor/bedroom-1",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / Floor/bathroom-1",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / Floor/hall-pantry",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / Floor/dressing",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / Floor/primary-bath",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / Floor/primary",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / Floor/hall-storage",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / Floor/primary-balcony-storage",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / Floor/living-east-balcony",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / Floor/bedroom-2",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / Floor/primary-balcony",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / Wall/layer-00/00",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / Wall/layer-00/01",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / Wall/layer-00/02",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / Wall/layer-00/03",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / Wall/layer-01/00",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / Wall/layer-01/01",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / Wall/layer-01/02",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / Wall/layer-01/03",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / Wall/layer-01/04",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / Wall/layer-01/05",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / Wall/layer-01/06",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / Wall/layer-01/07",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / Wall/layer-01/08",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / Wall/layer-01/09",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / Wall/layer-01/10",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / Wall/layer-02/00",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / Wall/layer-02/01",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / Wall/layer-02/02",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / Wall/layer-02/03",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / Wall/layer-03/00",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / door-00/jamb-left",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / door-00/jamb-right",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / door-00/head",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / door-00/leaf",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / door-01/jamb-left",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / door-01/jamb-right",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / door-01/head",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / door-01/leaf",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / door-02/jamb-left",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / door-02/jamb-right",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / door-02/head",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / door-02/leaf",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / door-03/jamb-left",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / door-03/jamb-right",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / door-03/head",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / door-03/leaf",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / door-04/jamb-left",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / door-04/jamb-right",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / door-04/head",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / door-04/leaf",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / door-05/jamb-left",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / door-05/jamb-right",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / door-05/head",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / door-05/leaf",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / door-06/jamb-left",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / door-06/jamb-right",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / door-06/head",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / door-06/leaf",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / kitchen-balcony-door/jamb-left",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / kitchen-balcony-door/jamb-right",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / kitchen-balcony-door/head",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / kitchen-balcony-door/leaf",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / door-08/jamb-left",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / door-08/jamb-right",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / door-08/head",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / door-08/leaf",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / sliding-09/frame-left",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / sliding-09/frame-right",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / sliding-09/frame-bottom",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / sliding-09/frame-top",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / sliding-09/glass-0",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / sliding-09/glass-1",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / sliding-09/mullion",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / sliding-10/frame-left",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / sliding-10/frame-right",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / sliding-10/frame-bottom",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / sliding-10/frame-top",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / sliding-10/glass-0",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / sliding-10/glass-1",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / sliding-10/mullion",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / sliding-11/frame-left",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / sliding-11/frame-right",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / sliding-11/frame-bottom",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / sliding-11/frame-top",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / sliding-11/glass-0",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / sliding-11/glass-1",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / sliding-11/mullion",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / window-12/frame-left",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / window-12/frame-right",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / window-12/frame-bottom",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / window-12/frame-top",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / window-12/glass-0",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / window-12/glass-1",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / window-12/mullion",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / window-13/frame-left",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / window-13/frame-right",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / window-13/frame-bottom",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / window-13/frame-top",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / window-13/glass-0",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / window-13/glass-1",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / window-13/mullion",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / window-14/frame-left",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / window-14/frame-right",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / window-14/frame-bottom",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / window-14/frame-top",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / window-14/glass-0",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / window-14/glass-1",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / window-14/mullion",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / window-15/frame-left",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / window-15/frame-right",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / window-15/frame-bottom",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / window-15/frame-top",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / window-15/glass-0",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / window-15/glass-1",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / window-15/mullion",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / window-16/frame-left",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / window-16/frame-right",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / window-16/frame-bottom",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / window-16/frame-top",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / window-16/glass-0",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / window-16/glass-1",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / window-16/mullion",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / living-east-balcony-door/frame-left",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / living-east-balcony-door/frame-right",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / living-east-balcony-door/frame-bottom",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / living-east-balcony-door/frame-top",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / living-east-balcony-door/glass-0",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / living-east-balcony-door/glass-1",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / living-east-balcony-door/mullion",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / sliding-18/frame-left",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / sliding-18/frame-right",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / sliding-18/frame-bottom",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / sliding-18/frame-top",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / sliding-18/glass-0",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / sliding-18/glass-1",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / sliding-18/mullion",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / living-balcony-door/frame-left",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / living-balcony-door/frame-right",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / living-balcony-door/frame-bottom",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / living-balcony-door/frame-top",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / living-balcony-door/glass-0",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / living-balcony-door/glass-1",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / living-balcony-door/mullion",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / sliding-20/frame-left",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / sliding-20/frame-right",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / sliding-20/frame-bottom",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / sliding-20/frame-top",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / sliding-20/glass-0",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / sliding-20/glass-1",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / sliding-20/mullion",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / sliding-21/frame-left",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / sliding-21/frame-right",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / sliding-21/frame-bottom",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / sliding-21/frame-top",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / sliding-21/glass-0",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / sliding-21/glass-1",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / sliding-21/mullion",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / sliding-22/frame-left",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / sliding-22/frame-right",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / sliding-22/frame-bottom",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / sliding-22/frame-top",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / sliding-22/glass-0",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / sliding-22/glass-1",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / sliding-22/mullion",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / primary-balcony-door/frame-left",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / primary-balcony-door/frame-right",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / primary-balcony-door/frame-bottom",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / primary-balcony-door/frame-top",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / primary-balcony-door/glass-0",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / primary-balcony-door/glass-1",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / primary-balcony-door/mullion",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / window-24/frame-left",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / window-24/frame-right",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / window-24/frame-bottom",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / window-24/frame-top",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / window-24/glass-0",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / window-24/glass-1",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / window-24/mullion",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / window-25/frame-left",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / window-25/frame-right",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / window-25/frame-bottom",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / window-25/frame-top",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / window-25/glass-0",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / window-25/glass-1",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / window-25/mullion",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / sliding-26/frame-left",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / sliding-26/frame-right",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / sliding-26/frame-bottom",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / sliding-26/frame-top",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / sliding-26/glass-0",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / sliding-26/glass-1",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / sliding-26/mullion",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / Non-occupiable/00",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / Non-occupiable/01",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / Non-occupiable/02",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / Non-occupiable/03",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / Non-occupiable/04",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / Non-occupiable/05",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / Non-occupiable/06",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / Non-occupiable/07",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / Non-occupiable/08",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / Non-occupiable/09",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / Non-occupiable/10",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / Non-occupiable/11",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / Non-occupiable/12",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / Non-occupiable/13",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / Non-occupiable/14",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / Ceiling/00",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / Ceiling/01",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / Ceiling/02",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / Ceiling/03",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / Ceiling/04",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / Ceiling/05",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / Ceiling/06",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / Ceiling/07",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / Ceiling/08",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / Ceiling/09",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / Ceiling/10",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / Ceiling/11",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / Ceiling/12",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / Ceiling/13",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / Ceiling/14",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / Ceiling/15",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB bounds and metadata / Ceiling/16",
+      "passed": true,
+      "max_difference_m": 0.0
+    }
+  ],
+  "check_count": 304,
+  "max_glb_difference_m": 0,
+  "rooms": [
+    {
+      "id": "bedroom-balcony",
+      "source_area_m2": 12.45,
+      "mesh_area_m2": 12.443279232869699,
+      "source_coordinate_area_m2": 12.443276999999993,
+      "max_boundary_difference_m": 4.947354987700279e-07
+    },
+    {
+      "id": "kitchen-balcony",
+      "source_area_m2": 5.38,
+      "mesh_area_m2": 5.384076875350729,
+      "source_coordinate_area_m2": 5.384077,
+      "max_boundary_difference_m": 3.8146972691777137e-07
+    },
+    {
+      "id": "living-kitchen-hall",
+      "source_area_m2": 57.76,
+      "mesh_area_m2": 57.75801108025553,
+      "source_coordinate_area_m2": 57.75801000000001,
+      "max_boundary_difference_m": 4.425048842904289e-07
+    },
+    {
+      "id": "living-balcony",
+      "source_area_m2": 4.46,
+      "mesh_area_m2": 4.455710801422356,
+      "source_coordinate_area_m2": 4.455712999999998,
+      "max_boundary_difference_m": 6.098268167821968e-07
+    },
+    {
+      "id": "bedroom-3",
+      "source_area_m2": 9.1,
+      "mesh_area_m2": 9.099376261234283,
+      "source_coordinate_area_m2": 9.099375,
+      "max_boundary_difference_m": 3.614916304691853e-07
+    },
+    {
+      "id": "entry-storage",
+      "source_area_m2": 1.52,
+      "mesh_area_m2": 1.5189679302520744,
+      "source_coordinate_area_m2": 1.5189680000000008,
+      "max_boundary_difference_m": 8.14819693098023e-08
+    },
+    {
+      "id": "bedroom-1",
+      "source_area_m2": 10.47,
+      "mesh_area_m2": 10.475062372162938,
+      "source_coordinate_area_m2": 10.475062500000003,
+      "max_boundary_difference_m": 6.473755987545437e-08
+    },
+    {
+      "id": "bathroom-1",
+      "source_area_m2": 4.12,
+      "mesh_area_m2": 4.116800885272042,
+      "source_coordinate_area_m2": 4.1168000000000005,
+      "max_boundary_difference_m": 2.3899009835859927e-07
+    },
+    {
+      "id": "hall-pantry",
+      "source_area_m2": 1.73,
+      "mesh_area_m2": 1.7312961149253852,
+      "source_coordinate_area_m2": 1.7312960000000004,
+      "max_boundary_difference_m": 1.369577256821777e-07
+    },
+    {
+      "id": "dressing",
+      "source_area_m2": 5.02,
+      "mesh_area_m2": 5.022984487709763,
+      "source_coordinate_area_m2": 5.022984000000001,
+      "max_boundary_difference_m": 2.3872355950824153e-07
+    },
+    {
+      "id": "primary-bath",
+      "source_area_m2": 3.84,
+      "mesh_area_m2": 3.8408802581977852,
+      "source_coordinate_area_m2": 3.840879999999997,
+      "max_boundary_difference_m": 4.3185759713371815e-07
+    },
+    {
+      "id": "primary",
+      "source_area_m2": 22.92,
+      "mesh_area_m2": 22.916974759232033,
+      "source_coordinate_area_m2": 22.916976000000002,
+      "max_boundary_difference_m": 3.433227533378158e-07
+    },
+    {
+      "id": "hall-storage",
+      "source_area_m2": 2.04,
+      "mesh_area_m2": 2.0449182820148053,
+      "source_coordinate_area_m2": 2.044918000000002,
+      "max_boundary_difference_m": 3.902940538336301e-07
+    },
+    {
+      "id": "primary-balcony-storage",
+      "source_area_m2": 1.6,
+      "mesh_area_m2": 1.5972433635917866,
+      "source_coordinate_area_m2": 1.5972439999999992,
+      "max_boundary_difference_m": 6.256174495342458e-07
+    },
+    {
+      "id": "living-east-balcony",
+      "source_area_m2": 7.11,
+      "mesh_area_m2": 7.113297499847249,
+      "source_coordinate_area_m2": 7.113299999999993,
+      "max_boundary_difference_m": 3.2043456954511385e-07
+    },
+    {
+      "id": "bedroom-2",
+      "source_area_m2": 7.5,
+      "mesh_area_m2": 7.49948198170091,
+      "source_coordinate_area_m2": 7.499481,
+      "max_boundary_difference_m": 2.49709744653527e-07
+    },
+    {
+      "id": "primary-balcony",
+      "source_area_m2": 2.9,
+      "mesh_area_m2": 2.9029077949915063,
+      "source_coordinate_area_m2": 2.9029089999999984,
+      "max_boundary_difference_m": 6.283092719047317e-07
+    }
+  ],
+  "review_issues": [],
+  "source_sha256": "af5a3f07c8f4c970effe92ceef086a95e0ac917142fa52ee04567f9525bb631c"
+}

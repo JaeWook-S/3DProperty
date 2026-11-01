@@ -1,0 +1,9 @@
+{
+  "passed": true,
+  "structural_meshes_checked": 212,
+  "comparison": "exact world vertex and polygon index lists",
+  "changed": [],
+  "source_blend_sha256": "ffb46c2929c35b00cbaadaf9853599375a2ae4b6f20fe127307211bdd3e16371",
+  "source_glb_sha256": "91dd2d0d43f44d87eb4417716d2fa4958fd7144c5898b6078b2b11401b9d8c77",
+  "outside_fixture_footprints": []
+}

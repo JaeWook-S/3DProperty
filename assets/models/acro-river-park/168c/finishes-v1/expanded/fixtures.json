@@ -1,0 +1,366 @@
+[
+  {
+    "id": "hall-pantry-shelves",
+    "kind": "shelving",
+    "bounds_px": [
+      250,
+      254,
+      322,
+      264
+    ],
+    "height_m": 2.25,
+    "levels": 5,
+    "dimension_status": "unmeasured placeholder",
+    "source": "VR/plan shows function; precise fixture size is not measured",
+    "reference_bounds_m": [
+      4.2232989690721645,
+      3.421,
+      6.346185567010309,
+      3.691
+    ],
+    "mesh_names": [
+      "hall-pantry-shelves/left-side",
+      "hall-pantry-shelves/right-side",
+      "hall-pantry-shelves/back",
+      "hall-pantry-shelves/shelf-0",
+      "hall-pantry-shelves/shelf-1",
+      "hall-pantry-shelves/shelf-2",
+      "hall-pantry-shelves/shelf-3",
+      "hall-pantry-shelves/shelf-4"
+    ],
+    "furniture_placeable": false,
+    "collision": true
+  },
+  {
+    "id": "dressing-inner-shelves",
+    "kind": "shelving",
+    "bounds_px": [
+      446,
+      127,
+      535,
+      136
+    ],
+    "height_m": 2.3,
+    "levels": 5,
+    "dimension_status": "unmeasured placeholder",
+    "source": "VR/plan shows function; precise fixture size is not measured",
+    "reference_bounds_m": [
+      9.825161290322582,
+      0.07889763779527559,
+      12.2479754601227,
+      0.31559055118110235
+    ],
+    "mesh_names": [
+      "dressing-inner-shelves/left-side",
+      "dressing-inner-shelves/right-side",
+      "dressing-inner-shelves/back",
+      "dressing-inner-shelves/shelf-0",
+      "dressing-inner-shelves/shelf-1",
+      "dressing-inner-shelves/shelf-2",
+      "dressing-inner-shelves/shelf-3",
+      "dressing-inner-shelves/shelf-4"
+    ],
+    "furniture_placeable": false,
+    "collision": true
+  },
+  {
+    "id": "bathroom-1-shower",
+    "kind": "shower_tray",
+    "bounds_px": [
+      91,
+      278,
+      130,
+      337
+    ],
+    "height_m": 0.035,
+    "dimension_status": "unmeasured placeholder",
+    "source": "VR/plan shows function; precise fixture size is not measured",
+    "reference_bounds_m": [
+      0.10239999999999999,
+      4.068846153846153,
+      1.1008,
+      5.657307692307692
+    ],
+    "mesh_names": [
+      "bathroom-1-shower/base",
+      "bathroom-1-shower/drain"
+    ],
+    "furniture_placeable": false,
+    "collision": true
+  },
+  {
+    "id": "bathroom-1-shower-rail",
+    "kind": "shower_rail",
+    "bounds_px": [
+      91,
+      284,
+      94,
+      286
+    ],
+    "bottom_m": 0.85,
+    "height_m": 1.2,
+    "dimension_status": "unmeasured placeholder",
+    "source": "VR/plan shows function; precise fixture size is not measured",
+    "reference_bounds_m": [
+      0.10239999999999999,
+      4.230384615384615,
+      0.17919999999999997,
+      4.284230769230769
+    ],
+    "mesh_names": [
+      "bathroom-1-shower-rail/rail",
+      "bathroom-1-shower-rail/head",
+      "bathroom-1-shower-rail/control"
+    ],
+    "furniture_placeable": false,
+    "collision": true
+  },
+  {
+    "id": "kitchen-west-base",
+    "name_ko": "주방 벽면 하부장·조리대",
+    "kind": "kitchen_cabinet",
+    "bounds_m": [
+      10.064677,
+      6.686339,
+      10.714677,
+      10.76
+    ],
+    "height_m": 0.9,
+    "source": "Plan furniture symbols and VR minimaps (living-kitchen, kitchen, kitchen interior); dimensions/finish indicative, not measured",
+    "dimension_status": "unmeasured_placeholder",
+    "furniture_placeable": false,
+    "collision": true,
+    "front": "east",
+    "modules": 6,
+    "countertop": true,
+    "reference_bounds_m": [
+      10.064677,
+      6.686339,
+      10.714677,
+      10.76
+    ],
+    "mesh_names": [
+      "kitchen-west-base/carcass",
+      "kitchen-west-base/plinth",
+      "kitchen-west-base/countertop",
+      "kitchen-west-base/front-0-0",
+      "kitchen-west-base/front-1-0",
+      "kitchen-west-base/front-2-0",
+      "kitchen-west-base/front-3-0",
+      "kitchen-west-base/front-4-0",
+      "kitchen-west-base/front-5-0"
+    ]
+  },
+  {
+    "id": "kitchen-south-sink",
+    "name_ko": "창 아래 싱크대",
+    "kind": "kitchen_cabinet",
+    "bounds_m": [
+      10.064677,
+      10.76,
+      12.412025,
+      11.41
+    ],
+    "height_m": 0.9,
+    "source": "Plan furniture symbols and VR minimaps (living-kitchen, kitchen, kitchen interior); dimensions/finish indicative, not measured",
+    "dimension_status": "unmeasured_placeholder",
+    "furniture_placeable": false,
+    "collision": true,
+    "front": "north",
+    "modules": 4,
+    "countertop": true,
+    "sink": true,
+    "reference_bounds_m": [
+      10.064677,
+      10.76,
+      12.412025,
+      11.41
+    ],
+    "mesh_names": [
+      "kitchen-south-sink/carcass",
+      "kitchen-south-sink/plinth",
+      "kitchen-south-sink/countertop",
+      "kitchen-south-sink/front-0-0",
+      "kitchen-south-sink/front-1-0",
+      "kitchen-south-sink/front-2-0",
+      "kitchen-south-sink/front-3-0",
+      "kitchen-south-sink/sink-rim",
+      "kitchen-south-sink/sink-basin-indication",
+      "kitchen-south-sink/tap-upright",
+      "kitchen-south-sink/tap-spout"
+    ]
+  },
+  {
+    "id": "kitchen-west-upper-a",
+    "name_ko": "주방 상부장 1",
+    "kind": "kitchen_cabinet",
+    "bounds_m": [
+      10.064677,
+      6.686339,
+      10.424677,
+      8.285134
+    ],
+    "height_m": 0.86,
+    "source": "Plan furniture symbols and VR minimaps (living-kitchen, kitchen, kitchen interior); dimensions/finish indicative, not measured",
+    "dimension_status": "unmeasured_placeholder",
+    "furniture_placeable": false,
+    "collision": true,
+    "bottom_m": 1.54,
+    "front": "east",
+    "modules": 3,
+    "countertop": false,
+    "reference_bounds_m": [
+      10.064677,
+      6.686339,
+      10.424677,
+      8.285134
+    ],
+    "mesh_names": [
+      "kitchen-west-upper-a/carcass",
+      "kitchen-west-upper-a/cap",
+      "kitchen-west-upper-a/front-0-0",
+      "kitchen-west-upper-a/front-1-0",
+      "kitchen-west-upper-a/front-2-0"
+    ]
+  },
+  {
+    "id": "kitchen-west-upper-b",
+    "name_ko": "주방 상부장 2",
+    "kind": "kitchen_cabinet",
+    "bounds_m": [
+      10.064677,
+      9.39434,
+      10.424677,
+      10.76
+    ],
+    "height_m": 0.86,
+    "source": "Plan furniture symbols and VR minimaps (living-kitchen, kitchen, kitchen interior); dimensions/finish indicative, not measured",
+    "dimension_status": "unmeasured_placeholder",
+    "furniture_placeable": false,
+    "collision": true,
+    "bottom_m": 1.54,
+    "front": "east",
+    "modules": 2,
+    "countertop": false,
+    "reference_bounds_m": [
+      10.064677,
+      9.39434,
+      10.424677,
+      10.76
+    ],
+    "mesh_names": [
+      "kitchen-west-upper-b/carcass",
+      "kitchen-west-upper-b/cap",
+      "kitchen-west-upper-b/front-0-0",
+      "kitchen-west-upper-b/front-1-0"
+    ]
+  },
+  {
+    "id": "kitchen-hob-hood",
+    "name_ko": "쿡탑·후드",
+    "kind": "kitchen_hob_hood",
+    "bounds_m": [
+      10.064677,
+      8.393527,
+      10.674677,
+      9.281132
+    ],
+    "height_m": 2.36,
+    "source": "Plan furniture symbols and VR minimaps (living-kitchen, kitchen, kitchen interior); dimensions/finish indicative, not measured",
+    "dimension_status": "unmeasured_placeholder",
+    "furniture_placeable": false,
+    "collision": true,
+    "cooktop_z_m": 0.904,
+    "hood_bottom_m": 1.78,
+    "reference_bounds_m": [
+      10.064677,
+      8.393527,
+      10.674677,
+      9.281132
+    ],
+    "mesh_names": [
+      "kitchen-hob-hood/hob",
+      "kitchen-hob-hood/burner-0-0",
+      "kitchen-hob-hood/burner-0-1",
+      "kitchen-hob-hood/burner-1-0",
+      "kitchen-hob-hood/burner-1-1",
+      "kitchen-hob-hood/hood",
+      "kitchen-hob-hood/hood-underside",
+      "kitchen-hob-hood/hood-stack"
+    ]
+  },
+  {
+    "id": "kitchen-island",
+    "name_ko": "거실 쪽 아일랜드·수납장",
+    "kind": "kitchen_cabinet",
+    "bounds_m": [
+      12.329325,
+      5.927589,
+      13.142822,
+      7.472188
+    ],
+    "height_m": 0.92,
+    "source": "Plan furniture symbols and VR minimaps (living-kitchen, kitchen, kitchen interior); dimensions/finish indicative, not measured",
+    "dimension_status": "unmeasured_placeholder",
+    "furniture_placeable": false,
+    "collision": true,
+    "front": "west",
+    "modules": 3,
+    "countertop": true,
+    "drawer_rows": 3,
+    "reference_bounds_m": [
+      12.329325,
+      5.927589,
+      13.142822,
+      7.472188
+    ],
+    "mesh_names": [
+      "kitchen-island/carcass",
+      "kitchen-island/plinth",
+      "kitchen-island/countertop",
+      "kitchen-island/front-0-0",
+      "kitchen-island/front-0-1",
+      "kitchen-island/front-0-2",
+      "kitchen-island/front-1-0",
+      "kitchen-island/front-1-1",
+      "kitchen-island/front-1-2",
+      "kitchen-island/front-2-0",
+      "kitchen-island/front-2-1",
+      "kitchen-island/front-2-2"
+    ]
+  },
+  {
+    "id": "kitchen-fridge-storage",
+    "name_ko": "냉장고·키큰 수납장",
+    "kind": "kitchen_fridge",
+    "bounds_m": [
+      12.519141,
+      8.512642,
+      14.769816,
+      9.362642
+    ],
+    "height_m": 2.32,
+    "source": "Plan furniture symbols and VR minimaps (living-kitchen, kitchen, kitchen interior); dimensions/finish indicative, not measured",
+    "dimension_status": "unmeasured_placeholder",
+    "furniture_placeable": false,
+    "collision": true,
+    "front": "north",
+    "reference_bounds_m": [
+      12.519141,
+      8.512642,
+      14.769816,
+      9.362642
+    ],
+    "mesh_names": [
+      "kitchen-fridge-storage/body",
+      "kitchen-fridge-storage/plinth",
+      "kitchen-fridge-storage/storage-left",
+      "kitchen-fridge-storage/storage-right",
+      "kitchen-fridge-storage/fridge-header",
+      "kitchen-fridge-storage/fridge-door-left",
+      "kitchen-fridge-storage/fridge-door-right",
+      "kitchen-fridge-storage/fridge-handle--1",
+      "kitchen-fridge-storage/fridge-handle-1"
+    ]
+  }
+]

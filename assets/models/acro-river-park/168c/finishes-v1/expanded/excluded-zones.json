@@ -1,0 +1,156 @@
+[
+  {
+    "id": "shaft-bathroom-1-north",
+    "name_ko": "화장실1 상부 X구역",
+    "bounds_px": [
+      87,
+      251,
+      192,
+      273
+    ],
+    "source": "X marking in supplied expanded plan",
+    "function": "unresolved service/structure space",
+    "occupiable": false,
+    "furniture_placeable": false,
+    "dimension_status": "plan_trace_not_surveyed",
+    "reference_bounds_m": [
+      0.0,
+      3.34,
+      2.6879999999999997,
+      3.9339999999999997
+    ],
+    "mesh_name": "shaft-bathroom-1-north/blocked-volume"
+  },
+  {
+    "id": "shaft-hall-west",
+    "name_ko": "복도 수납 왼쪽 X구역",
+    "bounds_px": [
+      192,
+      251,
+      247,
+      291
+    ],
+    "source": "X marking in supplied expanded plan",
+    "function": "unresolved service/structure space",
+    "occupiable": false,
+    "furniture_placeable": false,
+    "dimension_status": "plan_trace_not_surveyed",
+    "reference_bounds_m": [
+      2.6879999999999997,
+      3.34,
+      4.134845360824742,
+      4.418846153846154
+    ],
+    "mesh_name": "shaft-hall-west/blocked-volume"
+  },
+  {
+    "id": "shaft-hall-east",
+    "name_ko": "복도 수납 오른쪽 X구역",
+    "bounds_px": [
+      325,
+      251,
+      374,
+      291
+    ],
+    "source": "X marking in supplied expanded plan",
+    "function": "unresolved service/structure space",
+    "occupiable": false,
+    "furniture_placeable": false,
+    "dimension_status": "plan_trace_not_surveyed",
+    "reference_bounds_m": [
+      6.4346391752577325,
+      3.34,
+      7.816129032258065,
+      4.418846153846154
+    ],
+    "mesh_name": "shaft-hall-east/blocked-volume"
+  },
+  {
+    "id": "shaft-entry-north",
+    "name_ko": "현관 위 X구역",
+    "bounds_px": [
+      406,
+      124,
+      443,
+      159
+    ],
+    "source": "X marking in supplied expanded plan",
+    "function": "unresolved service/structure space",
+    "occupiable": false,
+    "furniture_placeable": false,
+    "dimension_status": "plan_trace_not_surveyed",
+    "reference_bounds_m": [
+      8.709032258064516,
+      0.0,
+      9.741451612903226,
+      0.9204724409448819
+    ],
+    "mesh_name": "shaft-entry-north/blocked-volume"
+  },
+  {
+    "id": "shaft-primary-bathroom",
+    "name_ko": "안방 욕실 옆 X구역",
+    "bounds_px": [
+      443,
+      211,
+      493,
+      259
+    ],
+    "source": "X marking in supplied expanded plan",
+    "function": "unresolved service/structure space",
+    "occupiable": false,
+    "furniture_placeable": false,
+    "dimension_status": "plan_trace_not_surveyed",
+    "reference_bounds_m": [
+      9.741451612903226,
+      2.288031496062992,
+      11.109079754601227,
+      3.5559999999999996
+    ],
+    "mesh_name": "shaft-primary-bathroom/blocked-volume"
+  },
+  {
+    "id": "shaft-kitchen",
+    "name_ko": "주방·침실3 사이 X구역",
+    "bounds_px": [
+      451,
+      341,
+      491,
+      365
+    ],
+    "source": "X marking in supplied expanded plan",
+    "function": "unresolved service/structure space",
+    "occupiable": false,
+    "furniture_placeable": false,
+    "dimension_status": "plan_trace_not_surveyed",
+    "reference_bounds_m": [
+      9.964677419354839,
+      5.765,
+      11.05484662576687,
+      6.415357142857143
+    ],
+    "mesh_name": "shaft-kitchen/blocked-volume"
+  },
+  {
+    "id": "shaft-utility",
+    "name_ko": "주방 다용도실 X구역",
+    "bounds_px": [
+      594,
+      516,
+      632,
+      549
+    ],
+    "source": "X marking in supplied expanded plan",
+    "function": "unresolved service/structure space",
+    "occupiable": false,
+    "furniture_placeable": false,
+    "dimension_status": "plan_trace_not_surveyed",
+    "reference_bounds_m": [
+      13.847852760736195,
+      10.58139534883721,
+      14.878282208588956,
+      11.51
+    ],
+    "mesh_name": "shaft-utility/blocked-volume"
+  }
+]

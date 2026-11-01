@@ -1,0 +1,52 @@
+{
+  "status": "data_and_local_runtime_integrated",
+  "created_at_utc": "2026-10-25T13:03:47.779370+00:00",
+  "source": "user-provided Naver CSV; consistency checked and screenshot examples matched; original response not received",
+  "canonical_root": "/home/nas5/kinamkim/Repos/geonwoo/AisideProject/datasets/acro-river-park",
+  "unit_catalog": {
+    "revision": "2026-10-25-unit-catalog-v1",
+    "data": "releases/2026-10-25-unit-catalog-v1/data/units.json",
+    "raw": "raw/naver/unit-mapping/2026-10-25",
+    "validation": "releases/2026-10-25-unit-catalog-v1/data/validation.json",
+    "summary": "releases/2026-10-25-unit-catalog-v1/data/building-summary.json",
+    "raw_json_verified": false,
+    "price_unit_verified": false
+  },
+  "counts": {
+    "passed": true,
+    "source_rows": 1723,
+    "residential_units": 1612,
+    "non_residential_cells": 111,
+    "buildings": 15,
+    "distinct_exact_types": 33,
+    "duplicate_unit_keys": 0,
+    "duplicate_grid_cells": 0,
+    "type_attribute_conflicts": 0,
+    "prepared_model_matches": {
+      "168C": 19,
+      "112A": 190
+    },
+    "scope": "CSV consistency and explicit model crosswalk only; not original API/currency/field verification"
+  },
+  "source_csv_sha256": "389a05160eee9f4b892a6ebc7d03b6ac1db5bf1e55d675c998cc299db230c2c6",
+  "unit_json_sha256": "9c5913de785c5d019b2410fe4558503cf694b42da0562362d45b251ae75a25d6",
+  "consumer_rules": [
+    "Read only residential units for unit selection;111nonresidential cells are separate.",
+    "Keep exact type labels including318.75B-2 versus318.75B-3; do not merge by area.",
+    "Use explicit floor and line columns; no unit-number inference.",
+    "112A190 and168C19 map to exact type+two-area crosswalk; basic/expanded remains unknown and model options are separate.",
+    "Other1403units have no currently prepared matching interior3D;101동 has no112A/168C units.",
+    "Do not use assessments in price UI until original price unit is checked.",
+    "User-export quality and unknown acquisition time remain explicit; no independent source/currentness claim.",
+    "Unit grid does not define physical elevator/corridor/door adjacency."
+  ],
+  "organization_verification": "/home/nas5/kinamkim/Repos/geonwoo/3DProperty/runtime/service-data/2026-10-25-unit-catalog/organization-verification.json",
+  "central_index": "/home/nas5/kinamkim/Repos/geonwoo/AisideProject/datasets/catalog.json",
+  "user_action": "No repeat screenshots; original JSON path/capture time optional for provenance and price-unit review.",
+  "runtime_integration": {
+    "verified_at": "2026-10-25T13:53:43.242821+00:00",
+    "handoff": "/home/nas5/kinamkim/Repos/geonwoo/3DProperty/docs/service-readiness/2026-10-25/unit-selection-ready.json",
+    "actual_expansion": "unknown",
+    "public_site_updated": false
+  }
+}

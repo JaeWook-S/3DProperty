@@ -109,7 +109,8 @@ body.studio:has(#location-hero.has-home:not([hidden])) #studio-sidebar{display:n
   .photos-space,.photos-style{grid-template-columns:repeat(3,minmax(0,1fr))}
 }
 @media(max-width:900px){
-  .home-top{grid-template-columns:1fr;height:auto}
+  .home-top{grid-template-columns:minmax(0,1fr);height:auto}
+  .home-top>*,.home-side>*{min-width:0}
   .home-feature{aspect-ratio:16/10}
   .home-side{display:grid;grid-template-columns:1fr 1fr}
   .hm-art{min-height:140px}
@@ -122,7 +123,7 @@ body.studio:has(#location-hero.has-home:not([hidden])) #studio-sidebar{display:n
   .hf-caption h2{font-size:21px;letter-spacing:-.5px}
   .hf-meta{display:none}
   .hf-nav{right:12px;bottom:14px}
-  .home-side{grid-template-columns:1fr}
+  .home-side{grid-template-columns:minmax(0,1fr)}
   .home-quick{display:flex;gap:4px;overflow-x:auto;margin:20px -16px 0;padding:4px 16px;scrollbar-width:none}
   .home-quick::-webkit-scrollbar{display:none}
   .hq-item{flex:0 0 72px}
@@ -139,3 +140,10 @@ body.studio:has(#location-hero.has-home:not([hidden])) #studio-sidebar{display:n
   .hc-card{grid-template-columns:1fr}
   .hc-photo{min-height:200px}
 }
+
+.studio-header nav .paired-floor-link{padding:8px 10px;font-size:15px;font-weight:700;color:var(--ink);white-space:nowrap;text-decoration:none}.studio-header nav .paired-floor-link:hover{color:var(--brand)}
+
+@media(min-width:651px){.home-quick{grid-template-columns:repeat(7,minmax(0,1fr))}}
+/* Keep model measurements and photo provenance visible within the shared design. */
+body.studio #studio-room-dimensions:not([hidden]),body.studio #catalog-add-note:not([hidden]),body.studio #exterior-note:not([hidden]){display:block!important}
+@media(max-width:650px){.studio-header nav .paired-floor-link{font-size:12px;padding:7px 4px}#service-map-link{display:none}}

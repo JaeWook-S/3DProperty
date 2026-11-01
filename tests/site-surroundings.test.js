@@ -1,0 +1,11 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import {previewFloorCounts} from '../src/walkthrough/floor-unit-preview.js';
+const data=JSON.parse(fs.readFileSync(new URL('../assets/location/acro-river-park/surroundings-context.json',import.meta.url)));
+const site=JSON.parse(fs.readFileSync(new URL('../assets/location/acro-river-park/site-context.json',import.meta.url)));
+function inside([x,z],p){let hit=false;for(let i=0,j=p.length-1;i<p.length;j=i++){const a=p[i],b=p[j];if((a[1]>z)!==(b[1]>z)&&x<(b[0]-a[0])*(z-a[1])/(b[1]-a[1])+a[0])hit=!hit;}return hit;}
+test('mapped surroundings share the original metre frame and complete river island holes',()=>{assert.deepEqual(data.reference_wgs84,site.reference_wgs84);assert.equal(data.provenance.license,'ODbL-1.0');const river=data.water.find(w=>w.id==='relation/152336');assert.equal(river.name,'한강');assert.ok(river.holes.length>=1);assert.ok(data.green.some(p=>p.name==='서래섬'));assert.ok(data.green.some(p=>p.name==='반포한강공원'));});
+test('all derived points are finite and clipped, with traceable source IDs',()=>{const [a,b,c,d]=data.bounds_m;for(const records of [data.water,data.green,data.buildings,data.roads])for(const r of records){assert.match(r.id,/^(way|relation)\/\d+$/);const points=r.polygon||r.outer||r.segments.flat();for(const [x,z] of points){assert.ok(Number.isFinite(x)&&Number.isFinite(z));assert.ok(x>=a-.01&&x<=c+.01&&z>=b-.01&&z<=d+.01);}}});
+test('neighbour masses do not replace the 15 existing site buildings and unknown heights remain assumptions',()=>{for(const b of data.buildings){const centroid=[0,1].map(i=>b.polygon.reduce((n,p)=>n+p[i],0)/b.polygon.length);assert.equal(inside(centroid,site.site_boundary_m),false);assert.ok(b.height_m>=3&&b.height_m<=180);assert.ok(['OSM height','OSM levels × assumed 3.1m','assumed 12m'].includes(b.height_basis));}assert.ok(data.buildings.some(b=>b.height_basis==='assumed 12m'));assert.equal(site.buildings.length,15);});
+test('preview floor markers count supported households, never mark the whole floor as complete',()=>{assert.equal(previewFloorCounts('112').get(3),4);assert.equal(previewFloorCounts('105').get(3),2);assert.equal(previewFloorCounts('104').get(16),1);assert.equal(previewFloorCounts('100').get(3),1);assert.equal(previewFloorCounts('101').size,0);});

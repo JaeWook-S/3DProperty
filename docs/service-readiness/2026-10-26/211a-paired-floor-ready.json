@@ -1,0 +1,23 @@
+{
+  "status": "published_and_anonymous_browser_verified",
+  "passed": true,
+  "verification": "runtime/paired-floor/2026-10-26/verification.json",
+  "local_entry": "/paired-floor-review.html",
+  "implementation_scope": "211A source-coordinate shells and 168C units with illustrative shared-floor walk, publicly available as standalone review; existing apartment/variant source unchanged",
+  "model_paths": [
+    "211a-basic",
+    "paired-basic",
+    "211a-expanded",
+    "paired-expanded"
+  ],
+  "assumptions": [
+    "211A furniture/kitchen/interior finish details",
+    "Actual core dimensions/placement and other100-building lines",
+    "Elevator verticaltravel",
+    "Mac/device performance remains unmeasured"
+  ],
+  "dataset_manifest": "AisideProject/datasets/acro-river-park/derived/2026-10-26-211a-paired-floor-v1/manifest.json",
+  "local_completion_status": "local_models_and_walkthrough_verified_not_published",
+  "public_url": "https://cortex-design-preview-20261024.spunky-note-2434.chatgpt.site/paired-floor/",
+  "public_verification": "/home/nas5/kinamkim/Repos/geonwoo/3DProperty/startup/07_팀미팅/2026-10-24_designer-demo/hosting-paired-floor-20261026/verification.json"
+}

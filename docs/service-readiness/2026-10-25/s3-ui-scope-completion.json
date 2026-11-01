@@ -1,0 +1,50 @@
+{
+  "at": "2026-10-25T17:02:56.708203+00:00",
+  "status": "all_three_scopes_implemented_verified_published",
+  "currentSiteReadback": {
+    "project_id": "appgprj_6adc181c49708191a65db8c32f5dc69d",
+    "status": "active",
+    "latest_version_number": 7,
+    "access_mode": "public",
+    "live_url": "https://cortex-design-preview-20261024.spunky-note-2434.chatgpt.site",
+    "updated_at": "2026-10-25T16:48:14.009635+00:00"
+  },
+  "currentPublicVersion": 7,
+  "scopes": {
+    "floorUnitCards": {
+      "status": "complete_in_v6_retained_in_v7",
+      "evidence": "/home/nas5/kinamkim/Repos/geonwoo/3DProperty/docs/service-readiness/2026-10-25/floor-unit-visual-link/ready.json",
+      "behavior": "All floor households listed; supported112A/168C previews and basic/expanded→2D/explicit3D; actual spatial arrangement remains unknown."
+    },
+    "surroundings": {
+      "status": "complete_in_v6_retained_in_v7",
+      "evidence": "/home/nas5/kinamkim/Repos/geonwoo/3DProperty/docs/service-readiness/2026-10-25/site-surroundings-ready.json",
+      "behavior": "OSM river/park/road/neighbour footprints, decorative trees and reflective water. Source details remain collapsed.",
+      "basisLimits": "Tree placement/materials/road-width defaults and some heights are visualization assumptions; not surveyed or an actual shared-floor reproduction."
+    },
+    "temporaryPoint": {
+      "status": "complete_in_v7_and_additional_three_click_test_passed",
+      "evidence": "/home/nas5/kinamkim/Repos/geonwoo/3DProperty/docs/service-readiness/2026-10-25/map-point-classification-ready.json",
+      "additionalEvidence": "/home/nas5/kinamkim/Repos/geonwoo/3DProperty/runtime/service-map/2026-10-25/map-point-classification/three-click-reselect/verification.json",
+      "behavior": "One current transient pin, no list accumulation, ready-only list, Acro/search results/URL restoration retained; explicit local request only."
+    }
+  },
+  "notClaimed": [
+    "Actual internal unit orientation or shared-floor arrangement",
+    "Surveyed surrounding geometry",
+    "Physical Mac/mobile FPS"
+  ],
+  "reuse": "Prior CPU/SwiftShader tests and public checks reused; no duplicate rendering or publishing.",
+  "thisTurn": {
+    "productChanges": 0,
+    "browserRuns": 0,
+    "deployments": 0,
+    "GPU": 0,
+    "mainCommitPush": 0
+  },
+  "S1Delivery": {
+    "state": "queued_once",
+    "receipt": "Queued message 01a17403-ede5-78d0-b0c9-69e034a41148 for thread 01a09bea-3ac9-7a80-8db6-4816d901f9f8.",
+    "processedByS1": "not confirmed"
+  }
+}

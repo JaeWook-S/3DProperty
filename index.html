@@ -21,7 +21,8 @@
         <h1>공간을 걸어보세요.</h1>
         <p class="intro">도면을 바탕으로 구성한 집을<br />내 눈높이에서 둘러보세요.</p>
         <label class="setting" for="variant">평면 선택</label>
-        <select id="variant" disabled><option value="expanded">112A · 확장형</option><option value="basic">112A · 기본형</option></select>
+        <select id="variant" disabled><option value="expanded">112A · 확장형</option><option value="basic">112A · 기본형</option><option value="168c-expanded">168C · 확장형</option></select>
+        <section id="viewer-area" aria-label="공급면적과 전용면적"></section>
         <div class="preset-row">
           <div><label class="setting" for="lighting">조명</label><select id="lighting" disabled><option value="day">낮 · 자연광</option><option value="sunset">해질녘</option><option value="night">밤 · 실내조명</option></select></div>
           <div><label class="setting" for="finish">마감</label><select id="finish" disabled><option value="original">원본 마감</option><option value="oak">라이트 오크</option><option value="stone">웜 스톤</option></select></div>
@@ -50,7 +51,7 @@
         <p id="perception-metrics" class="setting-note"></p>
         <p class="setting-note">카메라에는 크기가 없고, 몸체 폭은 충돌에만 사용합니다. 화면 보정은 원근 투영을 맞추며 실제 거리감을 완전히 재현하지는 않습니다.</p>
         <label class="setting" for="quality">화면 품질</label>
-        <select id="quality" disabled><option value="high">높음 · 접촉 그림자</option><option value="ultra">울트라 · 고해상도</option><option value="light">가벼움 · 그림자 효과 축소</option></select>
+        <select id="quality" disabled><option value="balanced">균형 · 부드러운 조작</option><option value="high">높음 · 접촉 그림자</option><option value="ultra">울트라 · 고해상도</option><option value="light">가벼움 · 그림자 효과 축소</option></select>
         </details>
         <div class="actions">
           <button id="reset" disabled>시작 위치로</button>
@@ -68,6 +69,6 @@
       </footer>
       <div id="toast" role="status" hidden></div>
     </main>
-    <script type="module" src="/src/walkthrough/main.js"></script>
+    <script type="module" src="/src/service-entry.js"></script>
   </body>
 </html>

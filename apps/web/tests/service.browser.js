@@ -1,3 +1,4 @@
+import {mockMap} from './map-fixtures.js';
 import { test, expect } from '@playwright/test';
 import { readFileSync, mkdirSync } from 'node:fs';
 import { createHash } from 'node:crypto';
@@ -10,43 +11,14 @@ async function capture(page, name, testInfo, fullPage = true) {
   await Promise.all([...document.images].map(image => image.decode().catch(() => {})));
   await new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve)));
  });
- await page.screenshot({ path: capturePath(name, testInfo), fullPage });
+ await page.screenshot({ path: capturePath(name, testInfo), fullPage, animations: 'disabled' });
 }
 
 
-test('both selected service links open Studio with the actual GLB and permit PC entry and return', async ({ page, context }, testInfo) => {
- const errors=[];page.on('pageerror',e=>errors.push(e.message));
- await page.goto('/');
- await expect(page.locator('#open-viewer')).toHaveAttribute('href', /variant=expanded/);
- await capture(page, 'service-space.png', testInfo);
- for(const variant of ['expanded','basic']) {
-   await page.locator(`[name="variant"][value="${variant}"]`).check();
-   const href = await page.locator('#open-viewer').getAttribute('href');
-   expect(new URL(href).searchParams.get('variant')).toBe(variant);
-   const modelResponse = context.waitForEvent('response', response => response.url().includes(`acro112a-${variant}.glb`));
-   const popupWait=context.waitForEvent('page');await page.locator('#open-viewer').click();const viewer=await popupWait;
-   viewer.on('pageerror',e=>errors.push(e.message));
-   await expect(viewer.locator('body')).toHaveAttribute('data-studio-mode','complex',{timeout:120000});
-   await expect(viewer.locator('#studio-variant')).toHaveValue(variant);
-   expect((await modelResponse).status()).toBe(200);
-   for (const [id, value] of Object.entries({ finish: 'original', lighting: 'day', quality: 'high' })) await expect(viewer.locator(`#${id}`)).toHaveValue(value);
-   expect(await viewer.evaluate(() => typeof window.__walkthrough)).toBe('undefined');
-   const resources=await viewer.evaluate(()=>performance.getEntriesByType('resource').map(x=>x.name));
-   expect(resources.some(u=>u.includes(`acro112a-${variant}.glb`))).toBe(true);
-   await viewer.locator('#select-building').click();
-   await viewer.locator('#open-unit').click();
-   await expect(viewer.locator('body')).toHaveAttribute('data-studio-mode','overview');
-   await viewer.locator('#studio-room').selectOption('Living front');
-   await viewer.locator('#room-walk').click();
-   await expect(viewer.locator('body')).toHaveClass(/walking/);
-   await viewer.keyboard.down('w');await viewer.waitForTimeout(200);await viewer.keyboard.up('w');
-   // Headless exit API is tested here; a physical Esc key on a real device is not verified.
-   await viewer.evaluate(()=>document.exitPointerLock());
-   await expect(viewer.locator('#studio-sidebar')).toBeVisible();
-   await capture(viewer, `service-opened-${variant}.png`, testInfo, false);
-   await viewer.close();await page.bringToFront();await expect(page.locator('#open-viewer')).toBeVisible();
- }
- expect(errors).toEqual([]);
+test.beforeEach(async({page})=>mockMap(page));
+for(const [variant,revision] of [['112a-basic-archisketch','archisketch-metric-v1'],['112a-expanded-archisketch','archisketch-metric-v1'],['168c-basic-archisketch','archisketch-details-v2'],['168c-expanded-archisketch','archisketch-metric-v1']])test('ready sample opens current model: '+variant,async({page})=>{
+ const errors=[];page.on('pageerror',e=>errors.push(e.message));await page.goto('/?locationId=acro-river-park&building=100&floor=7');await page.locator('#sample-variant').selectOption(variant);
+ const response=page.waitForResponse(r=>r.url().includes(revision)&&r.url().endsWith('.glb'));await page.locator('#open-3d').click();const viewer=page.frameLocator('#service-viewer');await expect(viewer.locator('body')).toHaveAttribute('data-load-state','ready',{timeout:90000});expect((await response).status()).toBe(200);await expect(viewer.locator('#studio-model')).toHaveValue(variant);await expect(viewer.locator('#finish')).toHaveValue('original');expect(new URL(await page.locator('#service-viewer').getAttribute('src')).searchParams.get('unitType')).toBe('unknown');expect(errors).toEqual([]);
 });
 
 test('local JSON has explicit provenance, converts units, rejects errors and does not send it to an API', async ({ page },testInfo) => {
@@ -69,9 +41,9 @@ test('local JSON has explicit provenance, converts units, rejects errors and doe
  expect(outbound).toEqual([]);
 });
 
-test('mobile service layout fits without claiming mobile walkthrough controls',async({page},testInfo)=>{
+test('mobile service layout fits and explains touch walkthrough controls',async({page},testInfo)=>{
  await page.setViewportSize({width:390,height:844});await page.goto('/');
- await expect(page.locator('.mobile-note')).toContainText('PC에서 지원');
+ await expect(page.locator('#location-map')).toBeVisible();
  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
  await capture(page, 'service-mobile-layout.png', testInfo);
  await page.locator('#furniture-tab').click();await page.locator('#load-example').click();await expect(page.locator('#result')).toHaveAttribute('data-status','valid');
@@ -126,29 +98,7 @@ test('failed dimensions with stale numbers remain review-only and diagnostic tex
  await expect(page.locator('#result img')).toHaveCount(0);
 });
 
-test('GLB failure and unreachable viewer leave the service tab usable', async ({ page, context }) => {
- await page.goto('/');
- const viewerOrigin = new URL(await page.locator('#open-viewer').getAttribute('href')).origin;
- for (const failure of ['glb', 'server']) {
-  let intercepted = false;
-  const handler = async route => {
-   if (failure === 'server' && route.request().isNavigationRequest()) { intercepted = true; await route.abort('connectionrefused'); }
-   else if (failure === 'glb' && route.request().url().endsWith('.glb')) { intercepted = true; await route.fulfill({ status: 404, body: 'Controlled missing model' }); }
-   else await route.continue();
-  };
-  await context.route(`${viewerOrigin}/**`, handler);
-  const popupWait = context.waitForEvent('page'); await page.locator('#open-viewer').click(); const viewer = await popupWait;
-  if (failure === 'glb') {
-   await expect(viewer.locator('body')).toHaveAttribute('data-load-state', 'error', { timeout: 30000 });
-   await expect(viewer.locator('#status')).toContainText('공간을 열지 못했습니다');
-   await expect(viewer.locator('#start')).toBeDisabled();
-  }
-  await expect.poll(() => intercepted).toBe(true);
-  await viewer.close(); await context.unroute(`${viewerOrigin}/**`, handler); await page.bringToFront();
-  await page.locator('[name="variant"][value="basic"]').check();
-  await expect(page.locator('#open-viewer')).toHaveAttribute('href', /variant=basic/);
-  await page.locator('#furniture-tab').click(); await page.locator('#load-example').click();
-  await expect(page.locator('#result')).toHaveAttribute('data-status', 'valid');
-  await page.locator('#space-tab').click();
- }
+test('GLB failure leaves map and local furniture tools usable',async({page})=>{
+ await page.route('**/*.glb',route=>route.fulfill({status:404,body:'Controlled missing model'}));await page.goto('/?locationId=acro-river-park&building=100&floor=7');await page.locator('#open-3d').click();
+ await expect(page.frameLocator('#service-viewer').locator('body')).toHaveAttribute('data-load-state','error',{timeout:30000});await expect(page.locator('#viewer-load-status')).toContainText('공간을 불러오지 못했습니다');await page.locator('[data-service-view="map"]').click();await expect(page.locator('#location-map')).toBeVisible();await page.locator('#furniture-tab').click();await page.locator('#load-example').click();await expect(page.locator('#result')).toHaveAttribute('data-status','valid');
 });

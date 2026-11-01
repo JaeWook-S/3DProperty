@@ -6,6 +6,44 @@ const urls = {
   oak: new URL('../../assets/materials/generated-v1/oak.png', import.meta.url).href,
 };
 
+// Keep complete surface sets together. Texture identity and shared ORM maps are
+// retained; UV transforms may include a GLTFLoader-authored manual matrix.
+const SURFACE_MAPS = ['map', 'normalMap', 'roughnessMap', 'metalnessMap', 'aoMap'];
+const SURFACE_SCALARS = ['roughness', 'metalness', 'normalMapType', 'aoMapIntensity'];
+const TEXTURE_FIELDS = ['channel', 'rotation', 'matrixAutoUpdate', 'wrapS', 'wrapT', 'flipY', 'colorSpace'];
+const TEXTURE_VECTORS = ['repeat', 'offset', 'center', 'matrix'];
+
+function snapshotSurface(material) {
+  return {
+    color: material.color.clone(), normalScale: material.normalScale?.clone(),
+    scalars: Object.fromEntries(SURFACE_SCALARS.map(key => [key, material[key]])),
+    maps: Object.fromEntries(SURFACE_MAPS.map(key => {
+      const texture = material[key];
+      return [key, { texture, state: texture ? {
+        ...Object.fromEntries(TEXTURE_FIELDS.map(field => [field, texture[field]])),
+        ...Object.fromEntries(TEXTURE_VECTORS.map(field => [field, texture[field].clone()])),
+      } : null }];
+    })),
+  };
+}
+
+function restoreSurface(material, saved) {
+  material.color.copy(saved.color);
+  if (saved.normalScale) material.normalScale.copy(saved.normalScale);
+  Object.assign(material, saved.scalars);
+  for (const [key, { texture, state }] of Object.entries(saved.maps)) {
+    material[key] = texture;
+    if (!texture) continue;
+    let changed = false;
+    for (const field of TEXTURE_FIELDS) {
+      changed ||= texture[field] !== state[field];
+      texture[field] = state[field];
+    }
+    for (const field of TEXTURE_VECTORS) texture[field].copy(state[field]);
+    if (changed) texture.needsUpdate = true;
+  }
+}
+
 export class FinishLibrary {
   constructor(renderer) {
     this.anisotropy = Math.min(8, renderer.capabilities.getMaxAnisotropy());
@@ -47,24 +85,23 @@ export class FinishLibrary {
       for (const material of Array.isArray(object.material) ? object.material : [object.material]) {
         if (seen.has(material)) continue;
         seen.add(material);
-        if (!this.originals.has(material)) this.originals.set(material, {
-          color: material.color.clone(), map: material.map, normalMap: material.normalMap,
-          roughness: material.roughness, normalScale: material.normalScale?.clone(),
-        });
-        const saved = this.originals.get(material);
-        material.color.copy(saved.color); material.map = saved.map;
-        material.normalMap = saved.normalMap; material.roughness = saved.roughness;
-        if (saved.normalScale) material.normalScale.copy(saved.normalScale);
+        if (!this.originals.has(material)) this.originals.set(material, snapshotSurface(material));
+        restoreSurface(material, this.originals.get(material));
         if (assets) {
           const name = material.name;
           let texture;
-          if (/limestone floor|Bedroom light oak/.test(name)) texture = preset === 'oak' ? 'oak' : 'limestone';
+          if (/limestone floor|VR polished stone floor|Bedroom light oak/.test(name)) texture = preset === 'oak' ? 'oak' : 'limestone';
           if (/Smoked oak cabinet/.test(name)) texture = 'oak';
           if (/Calacatta bronze stone|Travertine bathroom/.test(name)) texture = 'limestone';
           if (texture) {
             material.map = this.texture(assets, texture, material.userData.texture_repeat_m ?? 1);
             material.color.setHex(0xffffff);
-            material.normalMap = null; // the old procedural normals do not describe these images
+            // These legacy presets contain color only. A different surface's
+            // normal, roughness, metallic or AO texture would be inconsistent.
+            for (const key of SURFACE_MAPS.slice(1)) material[key] = null;
+            material.metalness = 0;
+            material.aoMapIntensity = 1;
+            material.normalScale?.set(1, 1);
             material.roughness = texture === 'oak' ? 0.58 : /stone/.test(name) ? 0.4 : 0.65;
           }
           if (/Warm ivory plaster/.test(name)) material.color.setHex(preset === 'oak' ? 0xeee8dd : 0xded8cc);

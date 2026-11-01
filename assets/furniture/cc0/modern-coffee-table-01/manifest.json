@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "id": "cc0-modern-coffee-table-01",
+  "title": "낮은 거실 테이블",
+  "kind": "catalog:modern-coffee-table-01",
+  "role": "coffee_table",
+  "geometry_kind": "glb",
+  "model_file": "model.glb",
+  "model_sha256": "ae5bc9ae00b0070f78d91592d99037f5592e084b5b4ac0a1380936d6b3fe378b",
+  "model_bytes": 1330332,
+  "source_model_sha256": "ae5bc9ae00b0070f78d91592d99037f5592e084b5b4ac0a1380936d6b3fe378b",
+  "dimensions_m": {
+    "width": 0.6000000238418579,
+    "depth": 1.2018300294876099,
+    "height": 0.38999998569488525
+  },
+  "dimension_basis": "source_model_bounds_not_physical_measurement",
+  "physical_measurement_verified": false,
+  "unit": "m",
+  "scale": [
+    1,
+    1,
+    1
+  ],
+  "original_bounds_xyz": {
+    "min": [
+      -0.2999998927116394,
+      -0.00011512637138366699,
+      -0.6006690263748169
+    ],
+    "max": [
+      0.3000001311302185,
+      0.3898848593235016,
+      0.601161003112793
+    ]
+  },
+  "front_direction": {
+    "direction_gltf": null,
+    "basis": "S2 visually inspected delivered-GLB front CPU render; not a physical survey",
+    "table_note": "Undirected table; long axis is glTF Z. Official BLEND long axis is X. No rotation applied."
+  },
+  "dimension_note": "긴 변은 모델 Z축입니다. 60.0 × 120.2 × 39.0cm는 모델 가로·깊이·높이이며 제품 실측이 아닙니다.",
+  "runtime_normalization": "translation only: center X/Z and ground minimum Y; preserve original node transforms and scale",
+  "source": {
+    "official_page": "https://polyhaven.com/a/modern_coffee_table_01",
+    "author": "Amin",
+    "license": "CC0-1.0",
+    "license_url": "https://polyhaven.com/license",
+    "license_deed": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "official_info": "https://api.polyhaven.com/info/modern_coffee_table_01",
+    "official_files": "https://api.polyhaven.com/files/modern_coffee_table_01",
+    "api_attribution": "Poly Haven; offline asset package, no production API integration",
+    "physical_sku_reference": null,
+    "field_measurement_reference": null
+  },
+  "triangles": 4504,
+  "materials": [
+    "modern_coffee_table_01"
+  ],
+  "appearance_policy": "authored-pbr-v1",
+  "original_BIN_and_images_preserved": true,
+  "candidate_copied_byte_identical": true,
+  "preview_file": "preview.png",
+  "preview_basis": "CPU render of the delivered GLB; not a product photograph",
+  "integration_source_manifest_sha256": "81cf29e12b570882f24904f23d5df82fedf3bc4e42a5b33f6c52e094294a7dfc",
+  "GPU_used": false
+}

@@ -1,4 +1,5 @@
 import { test, expect } from '@playwright/test';
+import {mockMap} from './map-fixtures.js';
 import { generatedFixture } from '../../../tests/fixtures/generated-asset.js';
 
 const image = {
@@ -6,6 +7,18 @@ const image = {
   buffer: Buffer.from('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNk+A8AAQUBAScY42YAAAAASUVORK5CYII=', 'base64'),
 };
 const jobId = 'a'.repeat(32);
+
+// These tests supply a simulated API, independent of whether a real GPU is online.
+test.beforeEach(async({page},testInfo)=>{
+  await mockMap(page);
+  if(testInfo.title.startsWith('web-only mode'))return;
+  await page.route('**/furniture-registration.js*',async route=>{
+    const response=await route.fetch(),source=await response.text();
+    const body=source.replace("measurementEnabled = import.meta.env?.VITE_FURNITURE_MEASUREMENT_ENABLED !== '0'",'measurementEnabled = true');
+    expect(body).not.toBe(source);await route.fulfill({response,body});
+  });
+});
+
 
 test('existing service uploads an image, displays dimensions and retains the JSON tools', async ({ page }, testInfo) => {
   const errors = [], uploads = [];
@@ -115,7 +128,7 @@ test('web-only mode keeps the image preview and JSON tools without sending an AP
   });
   await page.goto('/');
   await expect(page.locator('#space-panel')).toBeVisible();
-  await expect(page.locator('#open-viewer')).toHaveAttribute('href', /5173/);
+  await expect(page.locator('#map-service')).toBeAttached();
   await page.locator('#furniture-tab').click();
   await expect(page.locator('#furniture-image-status')).toContainText('웹 전용 모드');
   await page.locator('#furniture-image-file').setInputFiles(image);

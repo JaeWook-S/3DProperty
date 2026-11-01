@@ -1,0 +1,933 @@
+{
+  "schema_version": 1,
+  "stage": "01 structural draft",
+  "unit_type": "168C",
+  "variant": "expanded",
+  "source_image_size_px": [
+    923,
+    676
+  ],
+  "source_plan_sha256": "d50961aa15f6cd577878730c1e44f4ecfa5d81f63b15fa2d481283ab5238853e",
+  "coordinate_convention": "plan coordinates x right,y down; Blender=(x,-y,height); glTF=(x,height,y)",
+  "calibration": {
+    "method": "piecewise monotone mapping; lower horizontal and left vertical dimension chain treated as draft reference stations; all endpoints visually interpreted",
+    "x_px": [
+      87,
+      237,
+      334,
+      458,
+      784,
+      837
+    ],
+    "x_m": [
+      0,
+      3.84,
+      6.7,
+      10.16,
+      19.0,
+      20.5
+    ],
+    "y_px": [
+      124,
+      251,
+      276,
+      341,
+      453,
+      506,
+      549
+    ],
+    "y_m": [
+      0,
+      3.34,
+      4.015,
+      5.765,
+      8.8,
+      10.3,
+      11.51
+    ],
+    "held_out_top_px": [
+      91,
+      191,
+      374,
+      443,
+      594,
+      781,
+      837
+    ],
+    "held_out_top_mm": [
+      2680,
+      4910,
+      1970,
+      4010,
+      4730,
+      1500
+    ],
+    "held_out_right_px": [
+      124,
+      291,
+      495,
+      549
+    ],
+    "held_out_right_mm": [
+      4430,
+      5630,
+      1450
+    ],
+    "note": "Held-out endpoints are tentative source-line interpretations; residuals are not measured building errors. Top total19800 and bottom20500 may describe distinct reference extents."
+  },
+  "outline_px": [
+    [
+      87,
+      251
+    ],
+    [
+      374,
+      251
+    ],
+    [
+      374,
+      159
+    ],
+    [
+      406,
+      159
+    ],
+    [
+      406,
+      124
+    ],
+    [
+      817,
+      124
+    ],
+    [
+      817,
+      277
+    ],
+    [
+      837,
+      277
+    ],
+    [
+      837,
+      495
+    ],
+    [
+      784,
+      495
+    ],
+    [
+      784,
+      543
+    ],
+    [
+      632,
+      543
+    ],
+    [
+      632,
+      549
+    ],
+    [
+      451,
+      549
+    ],
+    [
+      451,
+      506
+    ],
+    [
+      87,
+      506
+    ]
+  ],
+  "walls": [
+    {
+      "id": "outer-00",
+      "axis": "h",
+      "constant_px": 251,
+      "start_px": 87,
+      "end_px": 374,
+      "thickness_m": 0.18,
+      "source": "outer wall line interpreted from supplied plan; 180mm thickness is a draft assumption"
+    },
+    {
+      "id": "outer-01",
+      "axis": "v",
+      "constant_px": 374,
+      "start_px": 159,
+      "end_px": 251,
+      "thickness_m": 0.18,
+      "source": "outer wall line interpreted from supplied plan; 180mm thickness is a draft assumption"
+    },
+    {
+      "id": "outer-02",
+      "axis": "h",
+      "constant_px": 159,
+      "start_px": 374,
+      "end_px": 406,
+      "thickness_m": 0.18,
+      "source": "outer wall line interpreted from supplied plan; 180mm thickness is a draft assumption"
+    },
+    {
+      "id": "outer-03",
+      "axis": "v",
+      "constant_px": 406,
+      "start_px": 124,
+      "end_px": 159,
+      "thickness_m": 0.18,
+      "source": "outer wall line interpreted from supplied plan; 180mm thickness is a draft assumption"
+    },
+    {
+      "id": "outer-04",
+      "axis": "h",
+      "constant_px": 124,
+      "start_px": 406,
+      "end_px": 817,
+      "thickness_m": 0.18,
+      "source": "outer wall line interpreted from supplied plan; 180mm thickness is a draft assumption"
+    },
+    {
+      "id": "outer-05",
+      "axis": "v",
+      "constant_px": 817,
+      "start_px": 124,
+      "end_px": 277,
+      "thickness_m": 0.18,
+      "source": "outer wall line interpreted from supplied plan; 180mm thickness is a draft assumption"
+    },
+    {
+      "id": "outer-06",
+      "axis": "h",
+      "constant_px": 277,
+      "start_px": 817,
+      "end_px": 837,
+      "thickness_m": 0.18,
+      "source": "outer wall line interpreted from supplied plan; 180mm thickness is a draft assumption"
+    },
+    {
+      "id": "outer-07",
+      "axis": "v",
+      "constant_px": 837,
+      "start_px": 277,
+      "end_px": 495,
+      "thickness_m": 0.18,
+      "source": "outer wall line interpreted from supplied plan; 180mm thickness is a draft assumption"
+    },
+    {
+      "id": "outer-08",
+      "axis": "h",
+      "constant_px": 495,
+      "start_px": 784,
+      "end_px": 837,
+      "thickness_m": 0.18,
+      "source": "outer wall line interpreted from supplied plan; 180mm thickness is a draft assumption"
+    },
+    {
+      "id": "outer-09",
+      "axis": "v",
+      "constant_px": 784,
+      "start_px": 495,
+      "end_px": 543,
+      "thickness_m": 0.18,
+      "source": "outer wall line interpreted from supplied plan; 180mm thickness is a draft assumption"
+    },
+    {
+      "id": "outer-10",
+      "axis": "h",
+      "constant_px": 543,
+      "start_px": 632,
+      "end_px": 784,
+      "thickness_m": 0.18,
+      "source": "outer wall line interpreted from supplied plan; 180mm thickness is a draft assumption"
+    },
+    {
+      "id": "outer-11",
+      "axis": "v",
+      "constant_px": 632,
+      "start_px": 543,
+      "end_px": 549,
+      "thickness_m": 0.18,
+      "source": "outer wall line interpreted from supplied plan; 180mm thickness is a draft assumption"
+    },
+    {
+      "id": "outer-12",
+      "axis": "h",
+      "constant_px": 549,
+      "start_px": 451,
+      "end_px": 632,
+      "thickness_m": 0.18,
+      "source": "outer wall line interpreted from supplied plan; 180mm thickness is a draft assumption"
+    },
+    {
+      "id": "outer-13",
+      "axis": "v",
+      "constant_px": 451,
+      "start_px": 506,
+      "end_px": 549,
+      "thickness_m": 0.18,
+      "source": "outer wall line interpreted from supplied plan; 180mm thickness is a draft assumption"
+    },
+    {
+      "id": "outer-14",
+      "axis": "h",
+      "constant_px": 506,
+      "start_px": 87,
+      "end_px": 451,
+      "thickness_m": 0.18,
+      "source": "outer wall line interpreted from supplied plan; 180mm thickness is a draft assumption"
+    },
+    {
+      "id": "outer-15",
+      "axis": "v",
+      "constant_px": 87,
+      "start_px": 251,
+      "end_px": 506,
+      "thickness_m": 0.18,
+      "source": "outer wall line interpreted from supplied plan; 180mm thickness is a draft assumption"
+    },
+    {
+      "id": "bedrooms-north",
+      "axis": "h",
+      "constant_px": 341,
+      "start_px": 87,
+      "end_px": 451,
+      "thickness_m": 0.12,
+      "source": "wall line interpreted from plan; thickness is a draft assumption"
+    },
+    {
+      "id": "bedroom-1-2",
+      "axis": "v",
+      "constant_px": 237,
+      "start_px": 341,
+      "end_px": 506,
+      "thickness_m": 0.12,
+      "source": "wall line interpreted from plan; thickness is a draft assumption"
+    },
+    {
+      "id": "bedroom-2-3",
+      "axis": "v",
+      "constant_px": 334,
+      "start_px": 341,
+      "end_px": 506,
+      "thickness_m": 0.12,
+      "source": "wall line interpreted from plan; thickness is a draft assumption"
+    },
+    {
+      "id": "bedroom-3-kitchen",
+      "axis": "v",
+      "constant_px": 451,
+      "start_px": 341,
+      "end_px": 506,
+      "thickness_m": 0.12,
+      "source": "wall line interpreted from plan; thickness is a draft assumption"
+    },
+    {
+      "id": "bathroom-1-east",
+      "axis": "v",
+      "constant_px": 192,
+      "start_px": 273,
+      "end_px": 341,
+      "thickness_m": 0.12,
+      "source": "wall line interpreted from plan; thickness is a draft assumption"
+    },
+    {
+      "id": "bathroom-1-north",
+      "axis": "h",
+      "constant_px": 273,
+      "start_px": 87,
+      "end_px": 192,
+      "thickness_m": 0.12,
+      "source": "wall line interpreted from plan; thickness is a draft assumption"
+    },
+    {
+      "id": "service-south",
+      "axis": "h",
+      "constant_px": 291,
+      "start_px": 192,
+      "end_px": 374,
+      "thickness_m": 0.12,
+      "source": "wall line interpreted from plan; thickness is a draft assumption"
+    },
+    {
+      "id": "entry-east",
+      "axis": "v",
+      "constant_px": 443,
+      "start_px": 124,
+      "end_px": 291,
+      "thickness_m": 0.12,
+      "source": "wall line interpreted from plan; thickness is a draft assumption"
+    },
+    {
+      "id": "service-east",
+      "axis": "v",
+      "constant_px": 544,
+      "start_px": 124,
+      "end_px": 194,
+      "thickness_m": 0.12,
+      "source": "wall line interpreted from plan; thickness is a draft assumption"
+    },
+    {
+      "id": "primary-bathroom-north",
+      "axis": "h",
+      "constant_px": 194,
+      "start_px": 493,
+      "end_px": 589,
+      "thickness_m": 0.12,
+      "source": "wall line interpreted from plan; thickness is a draft assumption"
+    },
+    {
+      "id": "primary-bathroom-west",
+      "axis": "v",
+      "constant_px": 493,
+      "start_px": 194,
+      "end_px": 259,
+      "thickness_m": 0.12,
+      "source": "wall line interpreted from plan; thickness is a draft assumption"
+    },
+    {
+      "id": "primary-bathroom-east",
+      "axis": "v",
+      "constant_px": 589,
+      "start_px": 194,
+      "end_px": 291,
+      "thickness_m": 0.12,
+      "source": "wall line interpreted from plan; thickness is a draft assumption"
+    },
+    {
+      "id": "primary-service-south",
+      "axis": "h",
+      "constant_px": 259,
+      "start_px": 443,
+      "end_px": 589,
+      "thickness_m": 0.12,
+      "source": "wall line interpreted from plan; thickness is a draft assumption"
+    },
+    {
+      "id": "primary-south",
+      "axis": "h",
+      "constant_px": 291,
+      "start_px": 443,
+      "end_px": 763,
+      "thickness_m": 0.12,
+      "source": "wall line interpreted from plan; thickness is a draft assumption"
+    },
+    {
+      "id": "primary-balcony-divider",
+      "axis": "v",
+      "constant_px": 763,
+      "start_px": 124,
+      "end_px": 291,
+      "thickness_m": 0.12,
+      "source": "wall line interpreted from plan; thickness is a draft assumption"
+    },
+    {
+      "id": "primary-balcony-service",
+      "axis": "h",
+      "constant_px": 180,
+      "start_px": 763,
+      "end_px": 817,
+      "thickness_m": 0.12,
+      "source": "wall line interpreted from plan; thickness is a draft assumption"
+    },
+    {
+      "id": "pantry-north",
+      "axis": "h",
+      "constant_px": 475,
+      "start_px": 544,
+      "end_px": 650,
+      "thickness_m": 0.12,
+      "source": "wall line interpreted from plan; thickness is a draft assumption"
+    },
+    {
+      "id": "pantry-east",
+      "axis": "v",
+      "constant_px": 632,
+      "start_px": 475,
+      "end_px": 543,
+      "thickness_m": 0.12,
+      "source": "wall line interpreted from plan; thickness is a draft assumption"
+    },
+    {
+      "id": "pantry-west",
+      "axis": "v",
+      "constant_px": 544,
+      "start_px": 475,
+      "end_px": 549,
+      "thickness_m": 0.12,
+      "source": "wall line interpreted from plan; thickness is a draft assumption"
+    },
+    {
+      "id": "living-balcony-return",
+      "axis": "v",
+      "constant_px": 650,
+      "start_px": 475,
+      "end_px": 495,
+      "thickness_m": 0.12,
+      "source": "wall line interpreted from plan; thickness is a draft assumption"
+    },
+    {
+      "id": "living-balcony-divider",
+      "axis": "h",
+      "constant_px": 495,
+      "start_px": 650,
+      "end_px": 784,
+      "thickness_m": 0.12,
+      "source": "wall line interpreted from plan; thickness is a draft assumption"
+    }
+  ],
+  "openings": [
+    {
+      "id": "bedroom-1-door",
+      "kind": "door",
+      "wall_id": "bedrooms-north",
+      "center_px": 214,
+      "swing_degrees": -90,
+      "dimension_source": "user specified nominal 0.8 x 2.4m; rough opening adds provisional 20mm jamb allowance",
+      "leaf_width_m": 0.8,
+      "leaf_height_m": 2.4,
+      "cut_width_m": 0.84,
+      "cut_height_m": 2.42,
+      "bottom_m": 0.0,
+      "role": "nominal_door_not_clear_passage"
+    },
+    {
+      "id": "bedroom-2-door",
+      "kind": "door",
+      "wall_id": "bedrooms-north",
+      "center_px": 314,
+      "swing_degrees": -90,
+      "dimension_source": "user specified nominal 0.8 x 2.4m; rough opening adds provisional 20mm jamb allowance",
+      "leaf_width_m": 0.8,
+      "leaf_height_m": 2.4,
+      "cut_width_m": 0.84,
+      "cut_height_m": 2.42,
+      "bottom_m": 0.0,
+      "role": "nominal_door_not_clear_passage"
+    },
+    {
+      "id": "bedroom-3-door",
+      "kind": "door",
+      "wall_id": "bedrooms-north",
+      "center_px": 358,
+      "swing_degrees": -90,
+      "dimension_source": "user specified nominal 0.8 x 2.4m; rough opening adds provisional 20mm jamb allowance",
+      "leaf_width_m": 0.8,
+      "leaf_height_m": 2.4,
+      "cut_width_m": 0.84,
+      "cut_height_m": 2.42,
+      "bottom_m": 0.0,
+      "role": "nominal_door_not_clear_passage"
+    },
+    {
+      "id": "bathroom-1-door",
+      "kind": "door",
+      "wall_id": "bathroom-1-east",
+      "center_px": 312,
+      "swing_degrees": -90,
+      "dimension_source": "user specified nominal 0.8 x 2.4m; rough opening adds provisional 20mm jamb allowance",
+      "leaf_width_m": 0.8,
+      "leaf_height_m": 2.4,
+      "cut_width_m": 0.84,
+      "cut_height_m": 2.42,
+      "bottom_m": 0.0,
+      "role": "nominal_door_not_clear_passage"
+    },
+    {
+      "id": "primary-door",
+      "kind": "door",
+      "wall_id": "primary-south",
+      "center_px": 630,
+      "swing_degrees": 90,
+      "dimension_source": "user specified nominal 0.8 x 2.4m; rough opening adds provisional 20mm jamb allowance",
+      "leaf_width_m": 0.8,
+      "leaf_height_m": 2.4,
+      "cut_width_m": 0.84,
+      "cut_height_m": 2.42,
+      "bottom_m": 0.0,
+      "role": "nominal_door_not_clear_passage"
+    },
+    {
+      "id": "primary-bathroom-door",
+      "kind": "door",
+      "wall_id": "primary-bathroom-north",
+      "center_px": 565,
+      "swing_degrees": -90,
+      "dimension_source": "user specified nominal 0.8 x 2.4m; rough opening adds provisional 20mm jamb allowance",
+      "leaf_width_m": 0.8,
+      "leaf_height_m": 2.4,
+      "cut_width_m": 0.84,
+      "cut_height_m": 2.42,
+      "bottom_m": 0.0,
+      "role": "nominal_door_not_clear_passage"
+    },
+    {
+      "id": "entry-door",
+      "kind": "door",
+      "wall_id": "outer-01",
+      "center_px": 226,
+      "swing_degrees": 90,
+      "dimension_source": "user specified nominal 0.8 x 2.4m; rough opening adds provisional 20mm jamb allowance",
+      "leaf_width_m": 0.8,
+      "leaf_height_m": 2.4,
+      "cut_width_m": 0.84,
+      "cut_height_m": 2.42,
+      "bottom_m": 0.0,
+      "role": "nominal_door_not_clear_passage"
+    },
+    {
+      "id": "pantry-door",
+      "kind": "door",
+      "wall_id": "pantry-north",
+      "center_px": 563,
+      "swing_degrees": -90,
+      "dimension_source": "user specified nominal 0.8 x 2.4m; rough opening adds provisional 20mm jamb allowance",
+      "leaf_width_m": 0.8,
+      "leaf_height_m": 2.4,
+      "cut_width_m": 0.84,
+      "cut_height_m": 2.42,
+      "bottom_m": 0.0,
+      "role": "nominal_door_not_clear_passage"
+    },
+    {
+      "id": "bedroom-1-window",
+      "kind": "window",
+      "wall_id": "outer-14",
+      "center_px": 160,
+      "cut_width_m": 2.1,
+      "cut_height_m": 2.1,
+      "bottom_m": 0.25,
+      "window_span_m": [
+        2.0,
+        2.0
+      ],
+      "dimension_source": "inner span VR 2.0x2.0; outer width VR2.1; outer height2.1 assumed",
+      "provisional": true,
+      "sill_source": "draft placement, not measured",
+      "clear_opening_m": null
+    },
+    {
+      "id": "bedroom-2-window",
+      "kind": "window",
+      "wall_id": "outer-14",
+      "center_px": 284,
+      "cut_width_m": 1.6,
+      "cut_height_m": 1.4,
+      "bottom_m": 0.8,
+      "window_span_m": [
+        1.4,
+        1.2
+      ],
+      "dimension_source": "user specified frame and window span",
+      "provisional": false,
+      "sill_source": "draft placement, not measured",
+      "clear_opening_m": null
+    },
+    {
+      "id": "bedroom-3-window",
+      "kind": "window",
+      "wall_id": "outer-14",
+      "center_px": 392,
+      "cut_width_m": 1.6,
+      "cut_height_m": 1.4,
+      "bottom_m": 0.8,
+      "window_span_m": [
+        1.4,
+        1.2
+      ],
+      "dimension_source": "user specified frame and window span",
+      "provisional": false,
+      "sill_source": "draft placement, not measured",
+      "clear_opening_m": null
+    },
+    {
+      "id": "living-window-1",
+      "kind": "window",
+      "wall_id": "outer-07",
+      "center_px": 385,
+      "cut_width_m": 3.6,
+      "cut_height_m": 2.0,
+      "bottom_m": 0.25,
+      "window_span_m": [
+        3.4,
+        1.8
+      ],
+      "dimension_source": "frame VR3.6x2.0; user window span3.4x1.8",
+      "provisional": false,
+      "sill_source": "draft placement, not measured",
+      "clear_opening_m": null
+    },
+    {
+      "id": "living-window-2",
+      "kind": "window",
+      "wall_id": "living-balcony-divider",
+      "center_px": 716,
+      "cut_width_m": 3.2,
+      "cut_height_m": 2.2,
+      "bottom_m": 0.05,
+      "window_span_m": null,
+      "dimension_source": "provisional uses lower VR width3.2; upper VR width3.1 unresolved; no clear-opening claim",
+      "provisional": true,
+      "sill_source": "draft placement, not measured",
+      "clear_opening_m": null
+    },
+    {
+      "id": "primary-balcony-opening",
+      "kind": "window",
+      "wall_id": "primary-balcony-divider",
+      "center_px": 233,
+      "cut_width_m": 1.7,
+      "cut_height_m": 2.2,
+      "bottom_m": 0.05,
+      "window_span_m": null,
+      "dimension_source": "unmeasured placeholder opening; location from plan/VR",
+      "provisional": true,
+      "sill_source": "draft placement, not measured",
+      "clear_opening_m": null
+    },
+    {
+      "id": "primary-exterior-window",
+      "kind": "window",
+      "wall_id": "outer-05",
+      "center_px": 230,
+      "cut_width_m": 1.8,
+      "cut_height_m": 2.2,
+      "bottom_m": 0.05,
+      "window_span_m": null,
+      "dimension_source": "unmeasured placeholder glazing",
+      "provisional": true,
+      "sill_source": "draft placement, not measured",
+      "clear_opening_m": null
+    },
+    {
+      "id": "kitchen-window",
+      "kind": "window",
+      "wall_id": "outer-12",
+      "center_px": 500,
+      "cut_width_m": 1.6,
+      "cut_height_m": 1.1,
+      "bottom_m": 1.05,
+      "window_span_m": null,
+      "dimension_source": "unmeasured placeholder; location from plan/VR",
+      "provisional": true,
+      "sill_source": "draft placement, not measured",
+      "clear_opening_m": null
+    }
+  ],
+  "rooms": [
+    {
+      "id": "bedroom-1",
+      "name_ko": "침실 1",
+      "name": "Bedroom 1",
+      "reference_bounds_px": [
+        87,
+        341,
+        237,
+        506
+      ],
+      "kind": "interior",
+      "bounds_basis": "provisional room boundary lines; clear-size report subtracts assumed wall thickness only for enclosed rectangles"
+    },
+    {
+      "id": "bedroom-2",
+      "name_ko": "침실 2",
+      "name": "Bedroom 2",
+      "reference_bounds_px": [
+        237,
+        341,
+        334,
+        506
+      ],
+      "kind": "interior",
+      "bounds_basis": "provisional room boundary lines; clear-size report subtracts assumed wall thickness only for enclosed rectangles"
+    },
+    {
+      "id": "bedroom-3",
+      "name_ko": "침실 3",
+      "name": "Bedroom 3",
+      "reference_bounds_px": [
+        334,
+        341,
+        451,
+        506
+      ],
+      "kind": "interior",
+      "bounds_basis": "provisional room boundary lines; clear-size report subtracts assumed wall thickness only for enclosed rectangles"
+    },
+    {
+      "id": "primary-bedroom",
+      "name_ko": "안방",
+      "name": "Primary bedroom",
+      "reference_bounds_px": [
+        589,
+        124,
+        763,
+        291
+      ],
+      "kind": "interior",
+      "bounds_basis": "provisional room boundary lines; clear-size report subtracts assumed wall thickness only for enclosed rectangles"
+    },
+    {
+      "id": "bathroom-1",
+      "name_ko": "화장실 1",
+      "name": "Bathroom 1",
+      "reference_bounds_px": [
+        87,
+        273,
+        192,
+        341
+      ],
+      "kind": "wet",
+      "bounds_basis": "provisional room boundary lines; clear-size report subtracts assumed wall thickness only for enclosed rectangles"
+    },
+    {
+      "id": "primary-bathroom",
+      "name_ko": "안방 화장실",
+      "name": "Primary bathroom",
+      "reference_bounds_px": [
+        493,
+        194,
+        589,
+        259
+      ],
+      "kind": "wet",
+      "bounds_basis": "provisional room boundary lines; clear-size report subtracts assumed wall thickness only for enclosed rectangles"
+    },
+    {
+      "id": "dressing-room",
+      "name_ko": "드레스룸",
+      "name": "Dressing",
+      "reference_bounds_px": [
+        544,
+        124,
+        589,
+        194
+      ],
+      "kind": "interior",
+      "bounds_basis": "provisional room boundary lines; clear-size report subtracts assumed wall thickness only for enclosed rectangles"
+    },
+    {
+      "id": "entry",
+      "name_ko": "현관",
+      "name": "Entry",
+      "reference_bounds_px": [
+        374,
+        198,
+        443,
+        291
+      ],
+      "kind": "entry",
+      "bounds_basis": "provisional room boundary lines; clear-size report subtracts assumed wall thickness only for enclosed rectangles"
+    },
+    {
+      "id": "hall",
+      "name_ko": "복도",
+      "name": "Hall",
+      "reference_bounds_px": [
+        192,
+        291,
+        451,
+        341
+      ],
+      "kind": "circulation",
+      "bounds_basis": "provisional room boundary lines; clear-size report subtracts assumed wall thickness only for enclosed rectangles"
+    },
+    {
+      "id": "living",
+      "name_ko": "거실",
+      "name": "Living",
+      "reference_bounds_px": [
+        544,
+        291,
+        837,
+        475
+      ],
+      "kind": "open_zone",
+      "bounds_basis": "provisional room boundary lines; clear-size report subtracts assumed wall thickness only for enclosed rectangles"
+    },
+    {
+      "id": "kitchen",
+      "name_ko": "주방",
+      "name": "Kitchen",
+      "reference_bounds_px": [
+        451,
+        341,
+        544,
+        475
+      ],
+      "kind": "open_zone",
+      "bounds_basis": "provisional room boundary lines; clear-size report subtracts assumed wall thickness only for enclosed rectangles"
+    },
+    {
+      "id": "pantry",
+      "name_ko": "팬트리·다용도 공간",
+      "name": "Utility",
+      "reference_bounds_px": [
+        544,
+        475,
+        632,
+        549
+      ],
+      "kind": "utility",
+      "bounds_basis": "provisional room boundary lines; clear-size report subtracts assumed wall thickness only for enclosed rectangles"
+    },
+    {
+      "id": "primary-balcony",
+      "name_ko": "안방 발코니",
+      "name": "Primary balcony",
+      "reference_bounds_px": [
+        763,
+        180,
+        817,
+        277
+      ],
+      "kind": "balcony",
+      "bounds_basis": "provisional room boundary lines; clear-size report subtracts assumed wall thickness only for enclosed rectangles"
+    },
+    {
+      "id": "living-balcony",
+      "name_ko": "거실 발코니",
+      "name": "Living balcony",
+      "reference_bounds_px": [
+        632,
+        495,
+        784,
+        543
+      ],
+      "kind": "balcony",
+      "bounds_basis": "provisional room boundary lines; clear-size report subtracts assumed wall thickness only for enclosed rectangles"
+    }
+  ],
+  "assumptions": [
+    "Exterior wall thickness180mm and interior120mm are draft values, not surveyed.",
+    "Wall reference is interpreted as centerline for this first draft; original drawing convention is unresolved.",
+    "Room zones labeled open_zone are navigation/review zones, not measured room rectangles.",
+    "Window sill elevations are provisional and do not imply access clearance.",
+    "Nominal door leaf800x2400mm is user supplied; openings840x2420mm and 20mm jambs are draft construction allowances.",
+    "Primary balcony and kitchen openings are placeholders; living window2 width remains unresolved.",
+    "Bedroom3 built-in wardrobe is intentionally not represented as a structural wall.",
+    "No room area in this model is a certified exclusive/supply area.",
+    "This is an unfurnished structure review model, not an as-built or construction drawing.",
+    "Bedroom2 west-side piers are traced from the plan; pixel bounds and structural function are provisional."
+  ],
+  "piers": [
+    {
+      "id": "bedroom-2-west-north-pier",
+      "bounds_px": [
+        237,
+        341,
+        249,
+        365
+      ]
+    },
+    {
+      "id": "bedroom-2-west-south-pier",
+      "bounds_px": [
+        237,
+        453,
+        249,
+        478
+      ]
+    }
+  ]
+}

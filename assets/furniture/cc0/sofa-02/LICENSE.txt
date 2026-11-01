@@ -1,0 +1,9 @@
+Sofa 02 by Kirill Sannikov / Poly Haven
+License: CC0-1.0
+Source: https://polyhaven.com/a/sofa_02
+License: https://polyhaven.com/license
+https://creativecommons.org/publicdomain/zero/1.0/
+
+Original model scale, geometry, UV and image bytes preserved.
+Source candidate adds authored-pbr-v1 metadata; this package copies it unchanged.
+Dimensions describe model bounds, not verified physical product measurements.

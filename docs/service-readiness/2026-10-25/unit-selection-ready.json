@@ -1,0 +1,44 @@
+{
+  "status": "local_web_integrated_verified",
+  "passed": true,
+  "verified_at": "2026-10-25T13:53:43.242821+00:00",
+  "evidence": "/home/nas5/kinamkim/Repos/geonwoo/3DProperty/runtime/service-map/2026-10-25/unit-selection/verification.json",
+  "data": {
+    "residential_units": 1612,
+    "buildings": 15,
+    "types": 33,
+    "112A_units": 190,
+    "168C_units": 19,
+    "unsupported_units": 1403,
+    "actual_expansion": "unknown",
+    "catalog_bytes": 28680,
+    "gzip_estimate_bytes": 4700,
+    "new_GLB_copies": 0
+  },
+  "behavior": [
+    "Map/site building/floor/unit selection uses catalog lookup, not supplied URL unitType.",
+    "Supported household exposes only its type basic/expanded previews; real expansion, orientation/mirror and installed interior remain unverified.",
+    "Unsupported types remain visible as not ready. Explicit sample mode clears household binding.",
+    "Both service sidebar and 3D-site controls open the matching 2D plan and interior.",
+    "One shared iframe, model asset cache per canonical variant; same type different households reuse model and isolate furniture snapshots/storage.",
+    "Async model, CC0 and finish completion cannot overwrite a later household selection.",
+    "Saved layout keys include building, floor, household and preview variant; prior sample keys retain compatibility.",
+    "OSM exterior heights unchanged; CSV floors above OSM envelope stay selectable with a clear note."
+  ],
+  "limits": [
+    "Source data capture time/original API identifiers not supplied; price data excluded.",
+    "Existing 4 models are type-reference models, not independent scans of each dwelling.",
+    "Mac/mobile real-device FPS and memory not measured.",
+    "Existing large bundle warning remains.",
+    "Public designer Site unchanged; this integration is in local development services."
+  ],
+  "scope": "S1 completed integration; earlier S3 implementation queue superseded. No duplicate activation or browser repetition needed.",
+  "public_site_updated": false,
+  "publication": {
+    "status": "live_public_verified",
+    "at": "2026-10-25T14:35:28.712921+00:00",
+    "url": "https://cortex-design-preview-20261024.spunky-note-2434.chatgpt.site",
+    "evidence": "/home/nas5/kinamkim/Repos/geonwoo/3DProperty/startup/07_팀미팅/2026-10-24_designer-demo/hosting-refresh-20261025-latest/verification.json",
+    "note": "후속 공개 배포. 이전 로컬 검증 범위/시점은 보존."
+  }
+}

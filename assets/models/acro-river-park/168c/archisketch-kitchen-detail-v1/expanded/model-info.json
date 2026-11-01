@@ -1,0 +1,6719 @@
+{
+  "schema_version": 1,
+  "variant": "expanded",
+  "revision": "archisketch-structure-v1",
+  "units": "m",
+  "ceiling_height_m": 2.5,
+  "source_snapshot_kind": "live_mcp_read",
+  "source_project_updated_at": "2026-10-12T07:40:46.358437",
+  "spec_sha256": "61e54eb693dd7aa462a845f9aca5cbc26937a1b3d95e5be3e49fd26174f3beea",
+  "source_summary_sha256": "d47959d73839a1f74f75cb38174a972d73981bcd676e1a8be213fec2157dfc0d",
+  "unit_area": {
+    "areaType": "확장형",
+    "exclusiveArea": "129.96",
+    "supplyArea": "168.95"
+  },
+  "bounds_m": [
+    -2.7755575615628914e-17,
+    0.0,
+    21.482,
+    12.350999999999999
+  ],
+  "rooms": [
+    {
+      "id": "entry-storage",
+      "name": "현관 수납 공간",
+      "kind": "storage",
+      "source_id": "67B71A03-843F-4333-992D-74DD9A959823",
+      "source_type": "NONE",
+      "source_polygon_mm": [
+        [
+          -1102,
+          -2725
+        ],
+        [
+          -715,
+          -2725
+        ],
+        [
+          212,
+          -2725
+        ],
+        [
+          598,
+          -2725
+        ],
+        [
+          597,
+          -3598
+        ],
+        [
+          -206,
+          -3598
+        ],
+        [
+          -206,
+          -3598
+        ],
+        [
+          -1102,
+          -3598
+        ]
+      ],
+      "polygon_m": [
+        [
+          8.343,
+          2.21
+        ],
+        [
+          8.73,
+          2.21
+        ],
+        [
+          9.657,
+          2.21
+        ],
+        [
+          10.043,
+          2.21
+        ],
+        [
+          10.042,
+          1.337
+        ],
+        [
+          9.239,
+          1.337
+        ],
+        [
+          9.239,
+          1.337
+        ],
+        [
+          8.343,
+          1.337
+        ]
+      ],
+      "source_area_m2": 1.48,
+      "source_ceiling_value": 2.3,
+      "ceiling_height_m": 2.5,
+      "room_boundary_status": "source_model_coordinates_not_as_built",
+      "classification_basis": "source_type_and_user_plan_review",
+      "polygon_area_m2": 1.483663,
+      "bounds_m": [
+        8.343,
+        1.337,
+        10.043,
+        2.21
+      ],
+      "bbox_width_m": 1.7,
+      "bbox_depth_m": 0.873,
+      "representative_point_m": [
+        9.19275,
+        1.7734999999999999
+      ],
+      "walk_start_m": [
+        9.19284,
+        1.9235
+      ],
+      "viewTarget": [
+        9.19275,
+        1.7734999999999999
+      ]
+    },
+    {
+      "id": "bedroom-1",
+      "name": "침실 1",
+      "kind": "bedroom",
+      "source_id": "8312D54E-0F26-4636-900E-915098ADEF4E",
+      "source_type": "침실",
+      "source_polygon_mm": [
+        [
+          -8973,
+          1544
+        ],
+        [
+          -8973,
+          5962
+        ],
+        [
+          -8297,
+          5962
+        ],
+        [
+          -8297,
+          5962
+        ],
+        [
+          -6108,
+          5962
+        ],
+        [
+          -6108,
+          5962
+        ],
+        [
+          -5230,
+          5962
+        ],
+        [
+          -5230,
+          5233
+        ],
+        [
+          -5230,
+          4629
+        ],
+        [
+          -5230,
+          2063
+        ],
+        [
+          -5230,
+          1544
+        ],
+        [
+          -6346,
+          1544
+        ]
+      ],
+      "polygon_m": [
+        [
+          0.472,
+          6.479
+        ],
+        [
+          0.472,
+          10.897
+        ],
+        [
+          1.148,
+          10.897
+        ],
+        [
+          1.148,
+          10.897
+        ],
+        [
+          3.337,
+          10.897
+        ],
+        [
+          3.337,
+          10.897
+        ],
+        [
+          4.215,
+          10.897
+        ],
+        [
+          4.215,
+          10.168
+        ],
+        [
+          4.215,
+          9.564
+        ],
+        [
+          4.215,
+          6.998
+        ],
+        [
+          4.215,
+          6.479
+        ],
+        [
+          3.099,
+          6.479
+        ]
+      ],
+      "source_area_m2": 16.54,
+      "source_ceiling_value": 2.3,
+      "ceiling_height_m": 2.5,
+      "room_boundary_status": "source_model_coordinates_not_as_built",
+      "classification_basis": "source_type_and_user_plan_review",
+      "polygon_area_m2": 16.536574,
+      "bounds_m": [
+        0.472,
+        6.479,
+        4.215,
+        10.897
+      ],
+      "bbox_width_m": 3.743,
+      "bbox_depth_m": 4.418,
+      "representative_point_m": [
+        2.3434999999999997,
+        8.281
+      ],
+      "walk_start_m": [
+        2.3435,
+        8.281
+      ],
+      "viewTarget": [
+        2.3434999999999997,
+        8.281
+      ]
+    },
+    {
+      "id": "bathroom-1",
+      "name": "화장실 1",
+      "kind": "wet",
+      "source_id": "2AEA58E4-7B68-4296-BB39-94CCD16BE0B2",
+      "source_type": "욕실",
+      "source_polygon_mm": [
+        [
+          -8973,
+          1344
+        ],
+        [
+          -6446,
+          1344
+        ],
+        [
+          -6446,
+          -9
+        ],
+        [
+          -6446,
+          -435
+        ],
+        [
+          -8973,
+          -435
+        ]
+      ],
+      "polygon_m": [
+        [
+          0.472,
+          6.279
+        ],
+        [
+          2.999,
+          6.279
+        ],
+        [
+          2.999,
+          4.926
+        ],
+        [
+          2.999,
+          4.5
+        ],
+        [
+          0.472,
+          4.5
+        ]
+      ],
+      "source_area_m2": 4.49,
+      "source_ceiling_value": 2.3,
+      "ceiling_height_m": 2.5,
+      "room_boundary_status": "source_model_coordinates_not_as_built",
+      "classification_basis": "source_type_and_user_plan_review",
+      "polygon_area_m2": 4.495533,
+      "bounds_m": [
+        0.472,
+        4.5,
+        2.999,
+        6.279
+      ],
+      "bbox_width_m": 2.527,
+      "bbox_depth_m": 1.779,
+      "representative_point_m": [
+        1.7355,
+        5.6025
+      ],
+      "walk_start_m": [
+        1.8885,
+        5.38564
+      ],
+      "viewTarget": [
+        1.7355,
+        5.6025
+      ]
+    },
+    {
+      "id": "living-kitchen-hall",
+      "name": "거실 · 주방 · 복도",
+      "kind": "living",
+      "source_id": "9169F56C-32BD-4C7E-88D7-19B654F64B73",
+      "source_type": "거실&다이닝",
+      "source_polygon_mm": [
+        [
+          10414,
+          5703
+        ],
+        [
+          11837,
+          5703
+        ],
+        [
+          11837,
+          4629
+        ],
+        [
+          11837,
+          4629
+        ],
+        [
+          11837,
+          581
+        ],
+        [
+          11837,
+          91
+        ],
+        [
+          9874,
+          91
+        ],
+        [
+          9874,
+          91
+        ],
+        [
+          4906,
+          91
+        ],
+        [
+          4582,
+          91
+        ],
+        [
+          4582,
+          91
+        ],
+        [
+          3875,
+          91
+        ],
+        [
+          3875,
+          91
+        ],
+        [
+          1917,
+          91
+        ],
+        [
+          1248,
+          91
+        ],
+        [
+          598,
+          91
+        ],
+        [
+          598,
+          -889
+        ],
+        [
+          598,
+          -889
+        ],
+        [
+          598,
+          -2191
+        ],
+        [
+          598,
+          -2191
+        ],
+        [
+          598,
+          -2525
+        ],
+        [
+          212,
+          -2525
+        ],
+        [
+          -715,
+          -2525
+        ],
+        [
+          -715,
+          -2525
+        ],
+        [
+          -1102,
+          -2525
+        ],
+        [
+          -1100,
+          -1173
+        ],
+        [
+          -1100,
+          -1173
+        ],
+        [
+          -1102,
+          91
+        ],
+        [
+          -2583,
+          91
+        ],
+        [
+          -3217,
+          91
+        ],
+        [
+          -3217,
+          91
+        ],
+        [
+          -4234,
+          91
+        ],
+        [
+          -4746,
+          91
+        ],
+        [
+          -6246,
+          91
+        ],
+        [
+          -6246,
+          1344
+        ],
+        [
+          -5130,
+          1344
+        ],
+        [
+          -4696,
+          1344
+        ],
+        [
+          -2186,
+          1344
+        ],
+        [
+          1311,
+          1344
+        ],
+        [
+          1311,
+          1344
+        ],
+        [
+          2181,
+          1344
+        ],
+        [
+          2181,
+          2163
+        ],
+        [
+          1411,
+          2163
+        ],
+        [
+          1411,
+          4523
+        ],
+        [
+          1411,
+          7216
+        ],
+        [
+          1574,
+          7216
+        ],
+        [
+          1574,
+          7216
+        ],
+        [
+          2214,
+          7216
+        ],
+        [
+          2214,
+          7216
+        ],
+        [
+          3445,
+          7216
+        ],
+        [
+          3445,
+          7216
+        ],
+        [
+          3509,
+          7216
+        ],
+        [
+          3509,
+          5037
+        ],
+        [
+          6087,
+          5037
+        ],
+        [
+          6745,
+          5037
+        ],
+        [
+          6745,
+          5703
+        ],
+        [
+          6909,
+          5703
+        ],
+        [
+          10001,
+          5703
+        ]
+      ],
+      "polygon_m": [
+        [
+          19.859,
+          10.638
+        ],
+        [
+          21.282,
+          10.638
+        ],
+        [
+          21.282,
+          9.564
+        ],
+        [
+          21.282,
+          9.564
+        ],
+        [
+          21.282,
+          5.516
+        ],
+        [
+          21.282,
+          5.026
+        ],
+        [
+          19.319,
+          5.026
+        ],
+        [
+          19.319,
+          5.026
+        ],
+        [
+          14.351,
+          5.026
+        ],
+        [
+          14.027,
+          5.026
+        ],
+        [
+          14.027,
+          5.026
+        ],
+        [
+          13.32,
+          5.026
+        ],
+        [
+          13.32,
+          5.026
+        ],
+        [
+          11.362,
+          5.026
+        ],
+        [
+          10.693,
+          5.026
+        ],
+        [
+          10.043,
+          5.026
+        ],
+        [
+          10.043,
+          4.046
+        ],
+        [
+          10.043,
+          4.046
+        ],
+        [
+          10.043,
+          2.744
+        ],
+        [
+          10.043,
+          2.744
+        ],
+        [
+          10.043,
+          2.41
+        ],
+        [
+          9.657,
+          2.41
+        ],
+        [
+          8.73,
+          2.41
+        ],
+        [
+          8.73,
+          2.41
+        ],
+        [
+          8.343,
+          2.41
+        ],
+        [
+          8.345,
+          3.762
+        ],
+        [
+          8.345,
+          3.762
+        ],
+        [
+          8.343,
+          5.026
+        ],
+        [
+          6.862,
+          5.026
+        ],
+        [
+          6.228,
+          5.026
+        ],
+        [
+          6.228,
+          5.026
+        ],
+        [
+          5.211,
+          5.026
+        ],
+        [
+          4.699,
+          5.026
+        ],
+        [
+          3.199,
+          5.026
+        ],
+        [
+          3.199,
+          6.279
+        ],
+        [
+          4.315,
+          6.279
+        ],
+        [
+          4.749,
+          6.279
+        ],
+        [
+          7.259,
+          6.279
+        ],
+        [
+          10.756,
+          6.279
+        ],
+        [
+          10.756,
+          6.279
+        ],
+        [
+          11.626,
+          6.279
+        ],
+        [
+          11.626,
+          7.098
+        ],
+        [
+          10.856,
+          7.098
+        ],
+        [
+          10.856,
+          9.458
+        ],
+        [
+          10.856,
+          12.151
+        ],
+        [
+          11.019,
+          12.151
+        ],
+        [
+          11.019,
+          12.151
+        ],
+        [
+          11.659,
+          12.151
+        ],
+        [
+          11.659,
+          12.151
+        ],
+        [
+          12.89,
+          12.151
+        ],
+        [
+          12.89,
+          12.151
+        ],
+        [
+          12.954,
+          12.151
+        ],
+        [
+          12.954,
+          9.972
+        ],
+        [
+          15.532,
+          9.972
+        ],
+        [
+          16.19,
+          9.972
+        ],
+        [
+          16.19,
+          10.638
+        ],
+        [
+          16.354,
+          10.638
+        ],
+        [
+          19.446,
+          10.638
+        ]
+      ],
+      "source_area_m2": 72.93,
+      "source_ceiling_value": 2.3,
+      "ceiling_height_m": 2.5,
+      "room_boundary_status": "source_model_coordinates_not_as_built",
+      "classification_basis": "source_type_and_user_plan_review",
+      "polygon_area_m2": 72.937985,
+      "bounds_m": [
+        3.199,
+        2.41,
+        21.282,
+        12.151
+      ],
+      "bbox_width_m": 18.083,
+      "bbox_depth_m": 9.741,
+      "representative_point_m": [
+        16.069,
+        8.278
+      ],
+      "walk_start_m": [
+        16.069,
+        8.278
+      ],
+      "viewTarget": [
+        12.4,
+        9.0
+      ]
+    },
+    {
+      "id": "hall-pantry",
+      "name": "침실 2 앞 팬트리",
+      "kind": "storage",
+      "source_id": "E1D606F2-3B75-426A-8743-DF7C0843BD92",
+      "source_type": "저장고",
+      "source_polygon_mm": [
+        [
+          -4234,
+          -109
+        ],
+        [
+          -4234,
+          -109
+        ],
+        [
+          -3217,
+          -109
+        ],
+        [
+          -3217,
+          -109
+        ],
+        [
+          -2683,
+          -109
+        ],
+        [
+          -2683,
+          -1073
+        ],
+        [
+          -4646,
+          -1073
+        ],
+        [
+          -4646,
+          -109
+        ]
+      ],
+      "polygon_m": [
+        [
+          5.211,
+          4.826
+        ],
+        [
+          5.211,
+          4.826
+        ],
+        [
+          6.228,
+          4.826
+        ],
+        [
+          6.228,
+          4.826
+        ],
+        [
+          6.762,
+          4.826
+        ],
+        [
+          6.762,
+          3.862
+        ],
+        [
+          4.799,
+          3.862
+        ],
+        [
+          4.799,
+          4.826
+        ]
+      ],
+      "source_area_m2": 1.89,
+      "source_ceiling_value": 2.3,
+      "ceiling_height_m": 2.5,
+      "room_boundary_status": "source_model_coordinates_not_as_built",
+      "classification_basis": "source_type_and_user_plan_review",
+      "polygon_area_m2": 1.892332,
+      "bounds_m": [
+        4.799,
+        3.862,
+        6.762,
+        4.826
+      ],
+      "bbox_width_m": 1.963,
+      "bbox_depth_m": 0.964,
+      "representative_point_m": [
+        5.7805,
+        4.343999999999999
+      ],
+      "walk_start_m": [
+        5.7805,
+        4.484
+      ],
+      "viewTarget": [
+        5.7805,
+        4.343999999999999
+      ]
+    },
+    {
+      "id": "bedroom-3",
+      "name": "침실 3",
+      "kind": "bedroom",
+      "source_id": "0B732D6C-7E01-43E0-949D-8A6680EF2A46",
+      "source_type": "침실",
+      "source_polygon_mm": [
+        [
+          -2086,
+          1544
+        ],
+        [
+          -2086,
+          5962
+        ],
+        [
+          -1347,
+          5962
+        ],
+        [
+          -1347,
+          5962
+        ],
+        [
+          567,
+          5962
+        ],
+        [
+          567,
+          5962
+        ],
+        [
+          904,
+          5962
+        ],
+        [
+          904,
+          4423
+        ],
+        [
+          1211,
+          4423
+        ],
+        [
+          1211,
+          2063
+        ],
+        [
+          1211,
+          1544
+        ]
+      ],
+      "polygon_m": [
+        [
+          7.359,
+          6.479
+        ],
+        [
+          7.359,
+          10.897
+        ],
+        [
+          8.098,
+          10.897
+        ],
+        [
+          8.098,
+          10.897
+        ],
+        [
+          10.012,
+          10.897
+        ],
+        [
+          10.012,
+          10.897
+        ],
+        [
+          10.349,
+          10.897
+        ],
+        [
+          10.349,
+          9.358
+        ],
+        [
+          10.656,
+          9.358
+        ],
+        [
+          10.656,
+          6.998
+        ],
+        [
+          10.656,
+          6.479
+        ]
+      ],
+      "source_area_m2": 14.09,
+      "source_ceiling_value": 2.3,
+      "ceiling_height_m": 2.5,
+      "room_boundary_status": "source_model_coordinates_not_as_built",
+      "classification_basis": "source_type_and_user_plan_review",
+      "polygon_area_m2": 14.093673,
+      "bounds_m": [
+        7.359,
+        6.479,
+        10.656,
+        10.897
+      ],
+      "bbox_width_m": 3.297,
+      "bbox_depth_m": 4.418,
+      "representative_point_m": [
+        9.0075,
+        8.178
+      ],
+      "walk_start_m": [
+        9.0075,
+        8.178
+      ],
+      "viewTarget": [
+        9.0075,
+        8.178
+      ]
+    },
+    {
+      "id": "living-balcony",
+      "name": "거실 남쪽 발코니",
+      "kind": "balcony",
+      "source_id": "23F8D7EE-D5AD-43E8-9C2D-B488698913D5",
+      "source_type": "발코니",
+      "source_polygon_mm": [
+        [
+          10001,
+          5903
+        ],
+        [
+          10001,
+          5903
+        ],
+        [
+          6909,
+          5903
+        ],
+        [
+          6909,
+          5903
+        ],
+        [
+          6645,
+          5903
+        ],
+        [
+          6187,
+          5903
+        ],
+        [
+          6187,
+          6289
+        ],
+        [
+          6187,
+          7022
+        ],
+        [
+          10314,
+          7022
+        ],
+        [
+          10314,
+          5903
+        ]
+      ],
+      "polygon_m": [
+        [
+          19.446,
+          10.838
+        ],
+        [
+          19.446,
+          10.838
+        ],
+        [
+          16.354,
+          10.838
+        ],
+        [
+          16.354,
+          10.838
+        ],
+        [
+          16.09,
+          10.838
+        ],
+        [
+          15.632,
+          10.838
+        ],
+        [
+          15.632,
+          11.224
+        ],
+        [
+          15.632,
+          11.957
+        ],
+        [
+          19.759,
+          11.957
+        ],
+        [
+          19.759,
+          10.838
+        ]
+      ],
+      "source_area_m2": 4.62,
+      "source_ceiling_value": 2.3,
+      "ceiling_height_m": 2.5,
+      "room_boundary_status": "source_model_coordinates_not_as_built",
+      "classification_basis": "source_type_and_user_plan_review",
+      "polygon_area_m2": 4.618113,
+      "bounds_m": [
+        15.632,
+        10.838,
+        19.759,
+        11.957
+      ],
+      "bbox_width_m": 4.127,
+      "bbox_depth_m": 1.119,
+      "representative_point_m": [
+        17.6955,
+        11.5905
+      ],
+      "walk_start_m": [
+        17.6955,
+        11.5905
+      ],
+      "viewTarget": [
+        17.6955,
+        11.5905
+      ]
+    },
+    {
+      "id": "kitchen-pantry",
+      "name": "주방 팬트리",
+      "kind": "utility",
+      "source_id": "F7C2E58D-10B9-4ED1-A7E7-B3886C14C035",
+      "source_type": "NONE",
+      "source_polygon_mm": [
+        [
+          3709,
+          7216
+        ],
+        [
+          3928,
+          7216
+        ],
+        [
+          3928,
+          7216
+        ],
+        [
+          4792,
+          7216
+        ],
+        [
+          4792,
+          7216
+        ],
+        [
+          4806,
+          7216
+        ],
+        [
+          4806,
+          6189
+        ],
+        [
+          5987,
+          6189
+        ],
+        [
+          5987,
+          5803
+        ],
+        [
+          5987,
+          5237
+        ],
+        [
+          3709,
+          5237
+        ]
+      ],
+      "polygon_m": [
+        [
+          13.154,
+          12.151
+        ],
+        [
+          13.373,
+          12.151
+        ],
+        [
+          13.373,
+          12.151
+        ],
+        [
+          14.237,
+          12.151
+        ],
+        [
+          14.237,
+          12.151
+        ],
+        [
+          14.251,
+          12.151
+        ],
+        [
+          14.251,
+          11.124
+        ],
+        [
+          15.432,
+          11.124
+        ],
+        [
+          15.432,
+          10.738
+        ],
+        [
+          15.432,
+          10.172
+        ],
+        [
+          13.154,
+          10.172
+        ]
+      ],
+      "source_area_m2": 3.3,
+      "source_ceiling_value": 2.3,
+      "ceiling_height_m": 2.5,
+      "room_boundary_status": "source_model_coordinates_not_as_built",
+      "classification_basis": "source_type_and_user_plan_review",
+      "polygon_area_m2": 3.295275,
+      "bounds_m": [
+        13.154,
+        10.172,
+        15.432,
+        12.151
+      ],
+      "bbox_width_m": 2.278,
+      "bbox_depth_m": 1.979,
+      "representative_point_m": [
+        13.7025,
+        11.6375
+      ],
+      "walk_start_m": [
+        13.75718,
+        10.9074
+      ],
+      "viewTarget": [
+        13.7025,
+        11.6375
+      ]
+    },
+    {
+      "id": "primary",
+      "name": "안방",
+      "kind": "bedroom",
+      "source_id": "0A2B77A0-7BA4-4F50-BBAD-F62D8F90CD35",
+      "source_type": "침실",
+      "source_polygon_mm": [
+        [
+          9774,
+          -109
+        ],
+        [
+          9774,
+          -383
+        ],
+        [
+          9774,
+          -785
+        ],
+        [
+          9774,
+          -2779
+        ],
+        [
+          9774,
+          -3111
+        ],
+        [
+          9774,
+          -4635
+        ],
+        [
+          3709,
+          -4635
+        ],
+        [
+          3709,
+          -3909
+        ],
+        [
+          3709,
+          -2975
+        ],
+        [
+          3709,
+          -2975
+        ],
+        [
+          3709,
+          -2879
+        ],
+        [
+          5006,
+          -2879
+        ],
+        [
+          5006,
+          -889
+        ],
+        [
+          5006,
+          -889
+        ],
+        [
+          5006,
+          -109
+        ]
+      ],
+      "polygon_m": [
+        [
+          19.219,
+          4.826
+        ],
+        [
+          19.219,
+          4.552
+        ],
+        [
+          19.219,
+          4.15
+        ],
+        [
+          19.219,
+          2.156
+        ],
+        [
+          19.219,
+          1.824
+        ],
+        [
+          19.219,
+          0.3
+        ],
+        [
+          13.154,
+          0.3
+        ],
+        [
+          13.154,
+          1.026
+        ],
+        [
+          13.154,
+          1.96
+        ],
+        [
+          13.154,
+          1.96
+        ],
+        [
+          13.154,
+          2.056
+        ],
+        [
+          14.451,
+          2.056
+        ],
+        [
+          14.451,
+          4.046
+        ],
+        [
+          14.451,
+          4.046
+        ],
+        [
+          14.451,
+          4.826
+        ]
+      ],
+      "source_area_m2": 23.86,
+      "source_ceiling_value": 2.3,
+      "ceiling_height_m": 2.5,
+      "room_boundary_status": "source_model_coordinates_not_as_built",
+      "classification_basis": "source_type_and_user_plan_review",
+      "polygon_area_m2": 23.8575,
+      "bounds_m": [
+        13.154,
+        0.3,
+        19.219,
+        4.826
+      ],
+      "bbox_width_m": 6.065,
+      "bbox_depth_m": 4.526,
+      "representative_point_m": [
+        16.835,
+        3.101
+      ],
+      "walk_start_m": [
+        16.835,
+        3.101
+      ],
+      "viewTarget": [
+        16.835,
+        3.101
+      ]
+    },
+    {
+      "id": "primary-bath",
+      "name": "안방 화장실",
+      "kind": "wet",
+      "source_id": "BB02F161-E61E-44D7-B10E-B08FEA9559AD",
+      "source_type": "욕실",
+      "source_polygon_mm": [
+        [
+          3609,
+          -2679
+        ],
+        [
+          2314,
+          -2679
+        ],
+        [
+          2314,
+          -2191
+        ],
+        [
+          2314,
+          -989
+        ],
+        [
+          4582,
+          -989
+        ],
+        [
+          4806,
+          -989
+        ],
+        [
+          4806,
+          -2679
+        ]
+      ],
+      "polygon_m": [
+        [
+          13.054,
+          2.256
+        ],
+        [
+          11.759,
+          2.256
+        ],
+        [
+          11.759,
+          2.744
+        ],
+        [
+          11.759,
+          3.946
+        ],
+        [
+          14.027,
+          3.946
+        ],
+        [
+          14.251,
+          3.946
+        ],
+        [
+          14.251,
+          2.256
+        ]
+      ],
+      "source_area_m2": 4.21,
+      "source_ceiling_value": 2.3,
+      "ceiling_height_m": 2.5,
+      "room_boundary_status": "source_model_coordinates_not_as_built",
+      "classification_basis": "source_type_and_user_plan_review",
+      "polygon_area_m2": 4.21148,
+      "bounds_m": [
+        11.759,
+        2.256,
+        14.251,
+        3.946
+      ],
+      "bbox_width_m": 2.492,
+      "bbox_depth_m": 1.69,
+      "representative_point_m": [
+        13.004999999999999,
+        3.345
+      ],
+      "walk_start_m": [
+        13.1525,
+        2.896
+      ],
+      "viewTarget": [
+        13.004999999999999,
+        3.345
+      ]
+    },
+    {
+      "id": "dressing",
+      "name": "드레스룸 안쪽 공간",
+      "kind": "storage",
+      "source_id": "49802525-339A-4F39-951A-7416718CA400",
+      "source_type": "저장고",
+      "source_polygon_mm": [
+        [
+          798,
+          -2625
+        ],
+        [
+          798,
+          -2625
+        ],
+        [
+          798,
+          -2291
+        ],
+        [
+          2114,
+          -2291
+        ],
+        [
+          2114,
+          -2879
+        ],
+        [
+          3509,
+          -2879
+        ],
+        [
+          3509,
+          -2975
+        ],
+        [
+          3509,
+          -2975
+        ],
+        [
+          3509,
+          -3909
+        ],
+        [
+          3509,
+          -3909
+        ],
+        [
+          3509,
+          -4635
+        ],
+        [
+          798,
+          -4635
+        ]
+      ],
+      "polygon_m": [
+        [
+          10.243,
+          2.31
+        ],
+        [
+          10.243,
+          2.31
+        ],
+        [
+          10.243,
+          2.644
+        ],
+        [
+          11.559,
+          2.644
+        ],
+        [
+          11.559,
+          2.056
+        ],
+        [
+          12.954,
+          2.056
+        ],
+        [
+          12.954,
+          1.96
+        ],
+        [
+          12.954,
+          1.96
+        ],
+        [
+          12.954,
+          1.026
+        ],
+        [
+          12.954,
+          1.026
+        ],
+        [
+          12.954,
+          0.3
+        ],
+        [
+          10.243,
+          0.3
+        ]
+      ],
+      "source_area_m2": 5.53,
+      "source_ceiling_value": 2.3,
+      "ceiling_height_m": 2.5,
+      "room_boundary_status": "source_model_coordinates_not_as_built",
+      "classification_basis": "source_type_and_user_plan_review",
+      "polygon_area_m2": 5.534324,
+      "bounds_m": [
+        10.243,
+        0.3,
+        12.954,
+        2.644
+      ],
+      "bbox_width_m": 2.711,
+      "bbox_depth_m": 2.344,
+      "representative_point_m": [
+        11.598500000000001,
+        1.4929999999999999
+      ],
+      "walk_start_m": [
+        11.5985,
+        1.493
+      ],
+      "viewTarget": [
+        11.598500000000001,
+        1.4929999999999999
+      ]
+    },
+    {
+      "id": "primary-balcony-storage",
+      "name": "안방 발코니 안쪽 공간",
+      "kind": "utility",
+      "source_id": "10F036B7-271C-4007-AB67-1645662AB971",
+      "source_type": "NONE",
+      "source_polygon_mm": [
+        [
+          9974,
+          -3211
+        ],
+        [
+          11256,
+          -3211
+        ],
+        [
+          11256,
+          -3357
+        ],
+        [
+          11256,
+          -3357
+        ],
+        [
+          11256,
+          -4453
+        ],
+        [
+          11256,
+          -4635
+        ],
+        [
+          9974,
+          -4635
+        ]
+      ],
+      "polygon_m": [
+        [
+          19.419,
+          1.724
+        ],
+        [
+          20.701,
+          1.724
+        ],
+        [
+          20.701,
+          1.578
+        ],
+        [
+          20.701,
+          1.578
+        ],
+        [
+          20.701,
+          0.482
+        ],
+        [
+          20.701,
+          0.3
+        ],
+        [
+          19.419,
+          0.3
+        ]
+      ],
+      "source_area_m2": 1.83,
+      "source_ceiling_value": 2.3,
+      "ceiling_height_m": 2.5,
+      "room_boundary_status": "source_model_coordinates_not_as_built",
+      "classification_basis": "source_type_and_user_plan_review",
+      "polygon_area_m2": 1.825568,
+      "bounds_m": [
+        19.419,
+        0.3,
+        20.701,
+        1.724
+      ],
+      "bbox_width_m": 1.282,
+      "bbox_depth_m": 1.424,
+      "representative_point_m": [
+        20.060000000000002,
+        1.03
+      ],
+      "walk_start_m": [
+        20.06,
+        1.03
+      ],
+      "viewTarget": [
+        20.060000000000002,
+        1.03
+      ]
+    },
+    {
+      "id": "hall-storage",
+      "name": "복도 붙박이 수납",
+      "kind": "storage",
+      "source_id": "0EDDD5AD-45E0-4497-9C65-9E94E9D214AF",
+      "source_type": "저장고",
+      "source_polygon_mm": [
+        [
+          2214,
+          -789
+        ],
+        [
+          2214,
+          -789
+        ],
+        [
+          1348,
+          -789
+        ],
+        [
+          1348,
+          -109
+        ],
+        [
+          1917,
+          -109
+        ],
+        [
+          3875,
+          -109
+        ],
+        [
+          3875,
+          -109
+        ],
+        [
+          4482,
+          -109
+        ],
+        [
+          4482,
+          -789
+        ]
+      ],
+      "polygon_m": [
+        [
+          11.659,
+          4.146
+        ],
+        [
+          11.659,
+          4.146
+        ],
+        [
+          10.793,
+          4.146
+        ],
+        [
+          10.793,
+          4.826
+        ],
+        [
+          11.362,
+          4.826
+        ],
+        [
+          13.32,
+          4.826
+        ],
+        [
+          13.32,
+          4.826
+        ],
+        [
+          13.927,
+          4.826
+        ],
+        [
+          13.927,
+          4.146
+        ]
+      ],
+      "source_area_m2": 2.13,
+      "source_ceiling_value": 2.3,
+      "ceiling_height_m": 2.5,
+      "room_boundary_status": "source_model_coordinates_not_as_built",
+      "classification_basis": "source_type_and_user_plan_review",
+      "polygon_area_m2": 2.13112,
+      "bounds_m": [
+        10.793,
+        4.146,
+        13.927,
+        4.826
+      ],
+      "bbox_width_m": 3.134,
+      "bbox_depth_m": 0.68,
+      "representative_point_m": [
+        12.36,
+        4.486
+      ],
+      "walk_start_m": [
+        12.36,
+        4.486
+      ],
+      "viewTarget": [
+        12.36,
+        4.486
+      ]
+    },
+    {
+      "id": "bedroom-2",
+      "name": "침실 2",
+      "kind": "bedroom",
+      "source_id": "0E90B9C9-8326-4666-89E2-788A354B4D76",
+      "source_type": "침실",
+      "source_polygon_mm": [
+        [
+          -5030,
+          5962
+        ],
+        [
+          -4746,
+          5962
+        ],
+        [
+          -4505,
+          5962
+        ],
+        [
+          -2711,
+          5962
+        ],
+        [
+          -2286,
+          5962
+        ],
+        [
+          -2286,
+          1544
+        ],
+        [
+          -4596,
+          1544
+        ],
+        [
+          -4596,
+          2163
+        ],
+        [
+          -5030,
+          2163
+        ],
+        [
+          -5030,
+          4529
+        ],
+        [
+          -4596,
+          4529
+        ],
+        [
+          -4596,
+          5333
+        ],
+        [
+          -5030,
+          5333
+        ]
+      ],
+      "polygon_m": [
+        [
+          4.415,
+          10.897
+        ],
+        [
+          4.699,
+          10.897
+        ],
+        [
+          4.94,
+          10.897
+        ],
+        [
+          6.734,
+          10.897
+        ],
+        [
+          7.159,
+          10.897
+        ],
+        [
+          7.159,
+          6.479
+        ],
+        [
+          4.849,
+          6.479
+        ],
+        [
+          4.849,
+          7.098
+        ],
+        [
+          4.415,
+          7.098
+        ],
+        [
+          4.415,
+          9.464
+        ],
+        [
+          4.849,
+          9.464
+        ],
+        [
+          4.849,
+          10.268
+        ],
+        [
+          4.415,
+          10.268
+        ]
+      ],
+      "source_area_m2": 11.51,
+      "source_ceiling_value": 2.3,
+      "ceiling_height_m": 2.5,
+      "room_boundary_status": "source_model_coordinates_not_as_built",
+      "classification_basis": "source_type_and_user_plan_review",
+      "polygon_area_m2": 11.50541,
+      "bounds_m": [
+        4.415,
+        6.479,
+        7.159,
+        10.897
+      ],
+      "bbox_width_m": 2.744,
+      "bbox_depth_m": 4.418,
+      "representative_point_m": [
+        5.787,
+        8.281
+      ],
+      "walk_start_m": [
+        5.787,
+        8.281
+      ],
+      "viewTarget": [
+        5.787,
+        8.281
+      ]
+    },
+    {
+      "id": "primary-balcony",
+      "name": "안방 발코니",
+      "kind": "balcony",
+      "source_id": "775D4C31-676D-40A2-8B26-129521FA4A26",
+      "source_type": "발코니",
+      "source_polygon_mm": [
+        [
+          11256,
+          -785
+        ],
+        [
+          11256,
+          -785
+        ],
+        [
+          11256,
+          -2779
+        ],
+        [
+          11256,
+          -3011
+        ],
+        [
+          9974,
+          -3011
+        ],
+        [
+          9974,
+          -2779
+        ],
+        [
+          9974,
+          -2779
+        ],
+        [
+          9974,
+          -785
+        ],
+        [
+          9974,
+          -483
+        ],
+        [
+          11256,
+          -483
+        ]
+      ],
+      "polygon_m": [
+        [
+          20.701,
+          4.15
+        ],
+        [
+          20.701,
+          4.15
+        ],
+        [
+          20.701,
+          2.156
+        ],
+        [
+          20.701,
+          1.924
+        ],
+        [
+          19.419,
+          1.924
+        ],
+        [
+          19.419,
+          2.156
+        ],
+        [
+          19.419,
+          2.156
+        ],
+        [
+          19.419,
+          4.15
+        ],
+        [
+          19.419,
+          4.452
+        ],
+        [
+          20.701,
+          4.452
+        ]
+      ],
+      "source_area_m2": 3.24,
+      "source_ceiling_value": 2.3,
+      "ceiling_height_m": 2.5,
+      "room_boundary_status": "source_model_coordinates_not_as_built",
+      "classification_basis": "source_type_and_user_plan_review",
+      "polygon_area_m2": 3.240896,
+      "bounds_m": [
+        19.419,
+        1.924,
+        20.701,
+        4.452
+      ],
+      "bbox_width_m": 1.282,
+      "bbox_depth_m": 2.528,
+      "representative_point_m": [
+        20.060000000000002,
+        3.1530000000000005
+      ],
+      "walk_start_m": [
+        20.06,
+        3.153
+      ],
+      "viewTarget": [
+        20.060000000000002,
+        3.1530000000000005
+      ]
+    }
+  ],
+  "openings": [
+    {
+      "id": "door-00",
+      "label": "Archisketch Entrance Door",
+      "source_id": "44044155-5CA7-4754-B244-CC58A34D5EDE",
+      "kind": "door",
+      "axis": "z",
+      "center_m": [
+        8.244,
+        3.035
+      ],
+      "width_m": 0.84,
+      "height_m": 2.42,
+      "bottom_m": 0,
+      "dimension_basis": "user_door_leaf_0.8x2.4m_plus_provisional_frame",
+      "source_position_mm": [
+        -1201,
+        1150,
+        -1900
+      ],
+      "source_product_name": "Archisketch Entrance Door",
+      "source_catalog_dimensions": {
+        "width": 1000,
+        "height": 2300,
+        "depth": 200,
+        "unit": "mm"
+      },
+      "vertical_placement_status": "user_height_or_provisional_sill",
+      "source_rotation_degrees": -89.9,
+      "source_endpoint_span_m": 1.352,
+      "clear_passage_verified": false,
+      "mesh_names": [
+        "door-00/jamb-left",
+        "door-00/jamb-right",
+        "door-00/head",
+        "door-00/leaf"
+      ]
+    },
+    {
+      "id": "door-01",
+      "label": "Archisketch Door 9",
+      "source_id": "B8615AA8-1992-46CA-9B01-CEAC834D3FA4",
+      "kind": "door",
+      "axis": "x",
+      "center_m": [
+        15.492,
+        4.926
+      ],
+      "width_m": 0.84,
+      "height_m": 2.42,
+      "bottom_m": 0,
+      "dimension_basis": "user_door_leaf_0.8x2.4m_plus_provisional_frame",
+      "source_position_mm": [
+        6047,
+        1062,
+        -9
+      ],
+      "source_product_name": "Archisketch Door 9",
+      "source_catalog_dimensions": {
+        "width": 900,
+        "height": 2120,
+        "depth": 770,
+        "unit": "mm"
+      },
+      "vertical_placement_status": "user_height_or_provisional_sill",
+      "source_rotation_degrees": -180,
+      "source_endpoint_span_m": null,
+      "clear_passage_verified": false,
+      "mesh_names": [
+        "door-01/jamb-left",
+        "door-01/jamb-right",
+        "door-01/head",
+        "door-01/leaf"
+      ]
+    },
+    {
+      "id": "door-02",
+      "label": "Archisketch Door 9",
+      "source_id": "938EF36B-11D2-4AAE-9664-4AAE6F297FB7",
+      "kind": "door",
+      "axis": "x",
+      "center_m": [
+        13.785,
+        2.156
+      ],
+      "width_m": 0.84,
+      "height_m": 2.42,
+      "bottom_m": 0,
+      "dimension_basis": "user_door_leaf_0.8x2.4m_plus_provisional_frame",
+      "source_position_mm": [
+        4340,
+        1062,
+        -2779
+      ],
+      "source_product_name": "Archisketch Door 9",
+      "source_catalog_dimensions": {
+        "width": 900,
+        "height": 2120,
+        "depth": 770,
+        "unit": "mm"
+      },
+      "vertical_placement_status": "user_height_or_provisional_sill",
+      "source_rotation_degrees": 0,
+      "source_endpoint_span_m": null,
+      "clear_passage_verified": false,
+      "mesh_names": [
+        "door-02/jamb-left",
+        "door-02/jamb-right",
+        "door-02/head",
+        "door-02/leaf"
+      ],
+      "hinge_end": "positive",
+      "swing_sign": 1,
+      "operation_basis": "VR_plan_review_provisional_hinge_not_surveyed"
+    },
+    {
+      "id": "door-03",
+      "label": "Archisketch Door 9",
+      "source_id": "A073A691-528F-412D-9DB6-87D38F815039",
+      "kind": "door",
+      "axis": "x",
+      "center_m": [
+        20.102,
+        1.824
+      ],
+      "width_m": 0.84,
+      "height_m": 2.42,
+      "bottom_m": 0,
+      "dimension_basis": "user_door_leaf_0.8x2.4m_plus_provisional_frame",
+      "source_position_mm": [
+        10657,
+        1062,
+        -3111
+      ],
+      "source_product_name": "Archisketch Door 9",
+      "source_catalog_dimensions": {
+        "width": 900,
+        "height": 2120,
+        "depth": 770,
+        "unit": "mm"
+      },
+      "vertical_placement_status": "user_height_or_provisional_sill",
+      "source_rotation_degrees": 0,
+      "source_endpoint_span_m": 1.282,
+      "clear_passage_verified": false,
+      "mesh_names": [
+        "door-03/jamb-left",
+        "door-03/jamb-right",
+        "door-03/head",
+        "door-03/leaf"
+      ],
+      "hinge_end": "positive",
+      "swing_sign": -1,
+      "operation_basis": "VR_plan_review_provisional_hinge_not_surveyed"
+    },
+    {
+      "id": "door-04",
+      "label": "Archisketch Door 9",
+      "source_id": "1285D139-CDED-443D-9241-B8CDD4B4309A",
+      "kind": "door",
+      "axis": "x",
+      "center_m": [
+        7.901,
+        6.379
+      ],
+      "width_m": 0.84,
+      "height_m": 2.42,
+      "bottom_m": 0,
+      "dimension_basis": "user_door_leaf_0.8x2.4m_plus_provisional_frame",
+      "source_position_mm": [
+        -1544,
+        1062,
+        1444
+      ],
+      "source_product_name": "Archisketch Door 9",
+      "source_catalog_dimensions": {
+        "width": 900,
+        "height": 2120,
+        "depth": 770,
+        "unit": "mm"
+      },
+      "vertical_placement_status": "user_height_or_provisional_sill",
+      "source_rotation_degrees": 0,
+      "source_endpoint_span_m": null,
+      "clear_passage_verified": false,
+      "mesh_names": [
+        "door-04/jamb-left",
+        "door-04/jamb-right",
+        "door-04/head",
+        "door-04/leaf"
+      ]
+    },
+    {
+      "id": "door-05",
+      "label": "Archisketch Door 9",
+      "source_id": "B004C7B4-2411-46C1-B040-436DBB41AF72",
+      "kind": "door",
+      "axis": "x",
+      "center_m": [
+        6.645,
+        6.379
+      ],
+      "width_m": 0.84,
+      "height_m": 2.42,
+      "bottom_m": 0,
+      "dimension_basis": "user_door_leaf_0.8x2.4m_plus_provisional_frame",
+      "source_position_mm": [
+        -2800,
+        1062,
+        1444
+      ],
+      "source_product_name": "Archisketch Door 9",
+      "source_catalog_dimensions": {
+        "width": 900,
+        "height": 2120,
+        "depth": 770,
+        "unit": "mm"
+      },
+      "vertical_placement_status": "user_height_or_provisional_sill",
+      "source_rotation_degrees": 0,
+      "source_endpoint_span_m": null,
+      "clear_passage_verified": false,
+      "mesh_names": [
+        "door-05/jamb-left",
+        "door-05/jamb-right",
+        "door-05/head",
+        "door-05/leaf"
+      ],
+      "hinge_end": "positive",
+      "swing_sign": 1,
+      "operation_basis": "VR_plan_review_provisional_hinge_not_surveyed"
+    },
+    {
+      "id": "door-06",
+      "label": "Archisketch Door 9",
+      "source_id": "06794405-2810-409D-BB68-91A5B494E362",
+      "kind": "door",
+      "axis": "x",
+      "center_m": [
+        3.727,
+        6.379
+      ],
+      "width_m": 0.84,
+      "height_m": 2.42,
+      "bottom_m": 0,
+      "dimension_basis": "user_door_leaf_0.8x2.4m_plus_provisional_frame",
+      "source_position_mm": [
+        -5718,
+        1062,
+        1444
+      ],
+      "source_product_name": "Archisketch Door 9",
+      "source_catalog_dimensions": {
+        "width": 900,
+        "height": 2120,
+        "depth": 770,
+        "unit": "mm"
+      },
+      "vertical_placement_status": "user_height_or_provisional_sill",
+      "source_rotation_degrees": 0,
+      "source_endpoint_span_m": 1.016,
+      "clear_passage_verified": false,
+      "mesh_names": [
+        "door-06/jamb-left",
+        "door-06/jamb-right",
+        "door-06/head",
+        "door-06/leaf"
+      ],
+      "hinge_end": "positive",
+      "swing_sign": 1,
+      "operation_basis": "VR_plan_review_provisional_hinge_not_surveyed"
+    },
+    {
+      "id": "door-07",
+      "label": "Archisketch Door 9",
+      "source_id": "FA8917CC-FCF2-4D84-BC6D-03D66B47F4E4",
+      "kind": "door",
+      "axis": "z",
+      "center_m": [
+        3.099,
+        5.737
+      ],
+      "width_m": 0.84,
+      "height_m": 2.42,
+      "bottom_m": 0,
+      "dimension_basis": "user_door_leaf_0.8x2.4m_plus_provisional_frame",
+      "source_position_mm": [
+        -6346,
+        1062,
+        802
+      ],
+      "source_product_name": "Archisketch Door 9",
+      "source_catalog_dimensions": {
+        "width": 900,
+        "height": 2120,
+        "depth": 770,
+        "unit": "mm"
+      },
+      "vertical_placement_status": "user_height_or_provisional_sill",
+      "source_rotation_degrees": -90,
+      "source_endpoint_span_m": null,
+      "clear_passage_verified": false,
+      "mesh_names": [
+        "door-07/jamb-left",
+        "door-07/jamb-right",
+        "door-07/head",
+        "door-07/leaf"
+      ],
+      "hinge_end": "positive",
+      "swing_sign": 1,
+      "operation_basis": "VR_plan_review_provisional_hinge_not_surveyed"
+    },
+    {
+      "id": "kitchen-pantry-door",
+      "label": "주방 팬트리 서쪽 문",
+      "source_id": "94C8CE62-127E-4CFE-8D95-793A29B86AD1",
+      "kind": "door",
+      "axis": "z",
+      "center_m": [
+        13.054,
+        10.676
+      ],
+      "width_m": 0.84,
+      "height_m": 2.42,
+      "bottom_m": 0,
+      "dimension_basis": "user_door_leaf_0.8x2.4m_plus_provisional_frame",
+      "source_position_mm": [
+        3609,
+        1062,
+        5741
+      ],
+      "source_product_name": "Archisketch Door 9",
+      "source_catalog_dimensions": {
+        "width": 900,
+        "height": 2120,
+        "depth": 770,
+        "unit": "mm"
+      },
+      "vertical_placement_status": "user_height_or_provisional_sill",
+      "source_rotation_degrees": 90,
+      "source_endpoint_span_m": null,
+      "clear_passage_verified": false,
+      "mesh_names": [
+        "kitchen-pantry-door/jamb-left",
+        "kitchen-pantry-door/jamb-right",
+        "kitchen-pantry-door/head",
+        "kitchen-pantry-door/leaf"
+      ]
+    },
+    {
+      "id": "sliding-09",
+      "label": "ReliaBilt300 Sliding Door",
+      "source_id": "5AF6AE6D-579C-49FB-BECC-44C9E4CB9BC0",
+      "kind": "sliding",
+      "axis": "x",
+      "center_m": [
+        9.193,
+        2.31
+      ],
+      "width_m": 0.927,
+      "height_m": 2.42,
+      "bottom_m": 0,
+      "dimension_basis": "source_polygon_opening_breakpoints",
+      "source_position_mm": [
+        -252,
+        990,
+        -2625
+      ],
+      "source_product_name": "ReliaBilt300 Sliding Door",
+      "source_catalog_dimensions": {
+        "width": 1795,
+        "height": 1977,
+        "depth": 193,
+        "unit": "mm"
+      },
+      "vertical_placement_status": "user_height_or_provisional_sill",
+      "source_rotation_degrees": 0,
+      "source_endpoint_span_m": 0.927,
+      "clear_passage_verified": false,
+      "mesh_names": [
+        "sliding-09/frame-left",
+        "sliding-09/frame-right",
+        "sliding-09/frame-bottom",
+        "sliding-09/frame-top",
+        "sliding-09/glass-0",
+        "sliding-09/glass-1",
+        "sliding-09/mullion"
+      ],
+      "sliding_operation": {
+        "kind": "biparting_surface_slide",
+        "axis": "x",
+        "panel_groups": [
+          {
+            "objects": [
+              "sliding-09/glass-0",
+              "sliding-09/mullion"
+            ],
+            "travel_m": -0.4385
+          },
+          {
+            "objects": [
+              "sliding-09/glass-1"
+            ],
+            "travel_m": 0.4385
+          }
+        ],
+        "clear_opening_m": 0.827,
+        "closed_panel_plane_offset_m": 0.14,
+        "basis": "design_proposal_keep_source_opening_dimensions",
+        "as_built_hardware_verified": false
+      }
+    },
+    {
+      "id": "sliding-10",
+      "label": "ReliaBilt300 Sliding Door",
+      "source_id": "1DD814A5-7C4A-47A1-89F4-0E40D653DE0A",
+      "kind": "sliding",
+      "axis": "x",
+      "center_m": [
+        5.719,
+        4.926
+      ],
+      "width_m": 1.017,
+      "height_m": 2.42,
+      "bottom_m": 0,
+      "dimension_basis": "source_polygon_opening_breakpoints",
+      "source_position_mm": [
+        -3726,
+        990,
+        -9
+      ],
+      "source_product_name": "ReliaBilt300 Sliding Door",
+      "source_catalog_dimensions": {
+        "width": 1795,
+        "height": 1977,
+        "depth": 193,
+        "unit": "mm"
+      },
+      "vertical_placement_status": "user_height_or_provisional_sill",
+      "source_rotation_degrees": 0,
+      "source_endpoint_span_m": 1.017,
+      "clear_passage_verified": false,
+      "mesh_names": [
+        "sliding-10/frame-left",
+        "sliding-10/frame-right",
+        "sliding-10/frame-bottom",
+        "sliding-10/frame-top",
+        "sliding-10/glass-0",
+        "sliding-10/glass-1",
+        "sliding-10/mullion"
+      ],
+      "sliding_operation": {
+        "kind": "biparting_surface_slide",
+        "axis": "x",
+        "panel_groups": [
+          {
+            "objects": [
+              "sliding-10/glass-0",
+              "sliding-10/mullion"
+            ],
+            "travel_m": -0.4835
+          },
+          {
+            "objects": [
+              "sliding-10/glass-1"
+            ],
+            "travel_m": 0.4835
+          }
+        ],
+        "clear_opening_m": 0.917,
+        "closed_panel_plane_offset_m": 0.14,
+        "basis": "design_proposal_keep_source_opening_dimensions",
+        "as_built_hardware_verified": false
+      }
+    },
+    {
+      "id": "sliding-11",
+      "label": "ReliaBilt300 Sliding Door",
+      "source_id": "AD3F7697-0773-492B-91A8-6FD50F3F3E76",
+      "kind": "sliding",
+      "axis": "x",
+      "center_m": [
+        12.419,
+        4.926
+      ],
+      "width_m": 1.958,
+      "height_m": 2.42,
+      "bottom_m": 0,
+      "dimension_basis": "source_polygon_opening_breakpoints",
+      "source_position_mm": [
+        2974,
+        990,
+        -9
+      ],
+      "source_product_name": "ReliaBilt300 Sliding Door",
+      "source_catalog_dimensions": {
+        "width": 1795,
+        "height": 1977,
+        "depth": 193,
+        "unit": "mm"
+      },
+      "vertical_placement_status": "user_height_or_provisional_sill",
+      "source_rotation_degrees": -180,
+      "source_endpoint_span_m": 1.958,
+      "clear_passage_verified": false,
+      "mesh_names": [
+        "sliding-11/frame-left",
+        "sliding-11/frame-right",
+        "sliding-11/frame-bottom",
+        "sliding-11/frame-top",
+        "sliding-11/glass-0",
+        "sliding-11/glass-1",
+        "sliding-11/mullion"
+      ]
+    },
+    {
+      "id": "dressing-door",
+      "label": "드레스룸 출입구",
+      "source_id": "DDDEC4B6-888E-467B-8599-924FAF428263",
+      "kind": "sliding",
+      "axis": "z",
+      "center_m": [
+        13.054,
+        1.493
+      ],
+      "width_m": 0.934,
+      "height_m": 2.42,
+      "bottom_m": 0,
+      "dimension_basis": "source_polygon_opening_breakpoints",
+      "source_position_mm": [
+        3609,
+        990,
+        -3442
+      ],
+      "source_product_name": "ReliaBilt300 Sliding Door",
+      "source_catalog_dimensions": {
+        "width": 1795,
+        "height": 1977,
+        "depth": 193,
+        "unit": "mm"
+      },
+      "vertical_placement_status": "user_height_or_provisional_sill",
+      "source_rotation_degrees": 90,
+      "source_endpoint_span_m": 0.934,
+      "clear_passage_verified": false,
+      "mesh_names": [
+        "dressing-door/frame-left",
+        "dressing-door/frame-right",
+        "dressing-door/frame-bottom",
+        "dressing-door/frame-top",
+        "dressing-door/glass-0",
+        "dressing-door/glass-1",
+        "dressing-door/mullion"
+      ],
+      "sliding_operation": {
+        "kind": "biparting_surface_slide",
+        "axis": "z",
+        "panel_groups": [
+          {
+            "objects": [
+              "dressing-door/glass-0",
+              "dressing-door/mullion"
+            ],
+            "travel_m": -0.442
+          },
+          {
+            "objects": [
+              "dressing-door/glass-1"
+            ],
+            "travel_m": 0.442
+          }
+        ],
+        "clear_opening_m": 0.834,
+        "closed_panel_plane_offset_m": 0.14,
+        "basis": "design_proposal_keep_source_opening_dimensions",
+        "as_built_hardware_verified": false
+      }
+    },
+    {
+      "id": "primary-balcony-door",
+      "label": "안방 발코니 미닫이문",
+      "source_id": "1E50A480-9FAD-4A31-A4B0-3DC3986EC0BE",
+      "kind": "sliding",
+      "axis": "z",
+      "center_m": [
+        19.319,
+        3.153
+      ],
+      "width_m": 1.994,
+      "height_m": 2.42,
+      "bottom_m": 0,
+      "dimension_basis": "source_polygon_opening_breakpoints",
+      "source_position_mm": [
+        9874,
+        990,
+        -1782
+      ],
+      "source_product_name": "ReliaBilt300 Sliding Door",
+      "source_catalog_dimensions": {
+        "width": 1795,
+        "height": 1977,
+        "depth": 193,
+        "unit": "mm"
+      },
+      "vertical_placement_status": "user_height_or_provisional_sill",
+      "source_rotation_degrees": 90,
+      "source_endpoint_span_m": 1.994,
+      "clear_passage_verified": false,
+      "mesh_names": [
+        "primary-balcony-door/frame-left",
+        "primary-balcony-door/frame-right",
+        "primary-balcony-door/frame-bottom",
+        "primary-balcony-door/frame-top",
+        "primary-balcony-door/glass-0",
+        "primary-balcony-door/glass-1",
+        "primary-balcony-door/mullion"
+      ]
+    },
+    {
+      "id": "window-15",
+      "label": "Archisketch Sliding Window 04",
+      "source_id": "0BD6AC56-DF0E-416E-B004-16207C1777F0",
+      "kind": "window",
+      "axis": "x",
+      "center_m": [
+        13.805,
+        12.251
+      ],
+      "width_m": 0.864,
+      "height_m": 1.4,
+      "bottom_m": 0.8,
+      "dimension_basis": "source_polygon_opening_breakpoints",
+      "source_position_mm": [
+        4360,
+        1300,
+        7316
+      ],
+      "source_product_name": "Archisketch Sliding Window 04",
+      "source_catalog_dimensions": {
+        "width": 1995,
+        "height": 1750,
+        "depth": 194,
+        "unit": "mm"
+      },
+      "vertical_placement_status": "user_height_or_provisional_sill",
+      "source_rotation_degrees": 0,
+      "source_endpoint_span_m": 0.864,
+      "clear_passage_verified": false,
+      "mesh_names": [
+        "window-15/frame-left",
+        "window-15/frame-right",
+        "window-15/frame-bottom",
+        "window-15/frame-top",
+        "window-15/glass-0",
+        "window-15/glass-1",
+        "window-15/mullion"
+      ]
+    },
+    {
+      "id": "window-16",
+      "label": "Archisketch Sliding Window 04",
+      "source_id": "219E02C7-FE92-4F54-952D-40395595CBC6",
+      "kind": "window",
+      "axis": "z",
+      "center_m": [
+        20.801,
+        3.155
+      ],
+      "width_m": 1.994,
+      "height_m": 1.4,
+      "bottom_m": 0.8,
+      "dimension_basis": "source_polygon_opening_breakpoints",
+      "source_position_mm": [
+        11356,
+        1300,
+        -1780
+      ],
+      "source_product_name": "Archisketch Sliding Window 04",
+      "source_catalog_dimensions": {
+        "width": 1995,
+        "height": 1750,
+        "depth": 194,
+        "unit": "mm"
+      },
+      "vertical_placement_status": "user_height_or_provisional_sill",
+      "source_rotation_degrees": -90,
+      "source_endpoint_span_m": 1.994,
+      "clear_passage_verified": false,
+      "mesh_names": [
+        "window-16/frame-left",
+        "window-16/frame-right",
+        "window-16/frame-bottom",
+        "window-16/frame-top",
+        "window-16/glass-0",
+        "window-16/glass-1",
+        "window-16/mullion"
+      ]
+    },
+    {
+      "id": "bedroom-3-window",
+      "label": "침실 3 창",
+      "source_id": "7704EFC6-61AD-4202-8724-5D80658E05B0",
+      "kind": "window",
+      "axis": "x",
+      "center_m": [
+        9.055,
+        10.997
+      ],
+      "width_m": 1.6,
+      "height_m": 1.4,
+      "bottom_m": 0.9,
+      "dimension_basis": "user_confirmed_frame_and_window_span",
+      "source_position_mm": [
+        -390,
+        1600,
+        6062
+      ],
+      "source_product_name": "Archisketch Sliding Window 04",
+      "source_catalog_dimensions": {
+        "width": 1995,
+        "height": 1750,
+        "depth": 194,
+        "unit": "mm"
+      },
+      "vertical_placement_status": "user_height_or_provisional_sill",
+      "source_rotation_degrees": 180,
+      "source_endpoint_span_m": 1.914,
+      "clear_passage_verified": false,
+      "clear_span_m": [
+        1.4,
+        1.2
+      ],
+      "mesh_names": [
+        "bedroom-3-window/frame-left",
+        "bedroom-3-window/frame-right",
+        "bedroom-3-window/frame-bottom",
+        "bedroom-3-window/frame-top",
+        "bedroom-3-window/glass-0",
+        "bedroom-3-window/glass-1",
+        "bedroom-3-window/mullion"
+      ]
+    },
+    {
+      "id": "bedroom-2-window",
+      "label": "침실 2 창",
+      "source_id": "ABB7B018-1654-4C9E-B71D-4A7A4F9AAACC",
+      "kind": "window",
+      "axis": "x",
+      "center_m": [
+        5.839,
+        10.997
+      ],
+      "width_m": 1.6,
+      "height_m": 1.4,
+      "bottom_m": 0.9,
+      "dimension_basis": "user_confirmed_frame_and_window_span",
+      "source_position_mm": [
+        -3606,
+        1600,
+        6062
+      ],
+      "source_product_name": "Archisketch Sliding Window 04",
+      "source_catalog_dimensions": {
+        "width": 1995,
+        "height": 1750,
+        "depth": 194,
+        "unit": "mm"
+      },
+      "vertical_placement_status": "user_height_or_provisional_sill",
+      "source_rotation_degrees": -180,
+      "source_endpoint_span_m": 1.794,
+      "clear_passage_verified": false,
+      "clear_span_m": [
+        1.4,
+        1.2
+      ],
+      "mesh_names": [
+        "bedroom-2-window/frame-left",
+        "bedroom-2-window/frame-right",
+        "bedroom-2-window/frame-bottom",
+        "bedroom-2-window/frame-top",
+        "bedroom-2-window/glass-0",
+        "bedroom-2-window/glass-1",
+        "bedroom-2-window/mullion"
+      ]
+    },
+    {
+      "id": "window-20",
+      "label": "Archisketch Sliding Window 04",
+      "source_id": "3D3B30DF-F219-4A31-9750-BE7D04E3AE30",
+      "kind": "window",
+      "axis": "x",
+      "center_m": [
+        2.243,
+        10.997
+      ],
+      "width_m": 2.189,
+      "height_m": 1.4,
+      "bottom_m": 0.8,
+      "dimension_basis": "source_polygon_opening_breakpoints",
+      "source_position_mm": [
+        -7202,
+        1600,
+        6062
+      ],
+      "source_product_name": "Archisketch Sliding Window 04",
+      "source_catalog_dimensions": {
+        "width": 1995,
+        "height": 1750,
+        "depth": 194,
+        "unit": "mm"
+      },
+      "vertical_placement_status": "user_height_or_provisional_sill",
+      "source_rotation_degrees": -180,
+      "source_endpoint_span_m": 2.189,
+      "clear_passage_verified": false,
+      "mesh_names": [
+        "window-20/frame-left",
+        "window-20/frame-right",
+        "window-20/frame-bottom",
+        "window-20/frame-top",
+        "window-20/glass-0",
+        "window-20/glass-1",
+        "window-20/mullion"
+      ]
+    },
+    {
+      "id": "living-main-window",
+      "label": "거실 큰 창",
+      "source_id": "479CCD29-3F9A-4268-B6DF-7ABAE011CD22",
+      "kind": "window",
+      "axis": "z",
+      "center_m": [
+        21.382,
+        7.54
+      ],
+      "width_m": 3.6,
+      "height_m": 2.0,
+      "bottom_m": 0.35,
+      "dimension_basis": "user_confirmed_window_span_frame_from_existing_VR_measurement",
+      "source_position_mm": [
+        11937,
+        1150,
+        2605
+      ],
+      "source_product_name": "Archisketch Sliding Door 06",
+      "source_catalog_dimensions": {
+        "width": 3930,
+        "height": 2296,
+        "depth": 190,
+        "unit": "mm"
+      },
+      "vertical_placement_status": "user_height_or_provisional_sill",
+      "source_rotation_degrees": -90,
+      "source_endpoint_span_m": 4.048,
+      "clear_passage_verified": false,
+      "clear_span_m": [
+        3.4,
+        1.8
+      ],
+      "mesh_names": [
+        "living-main-window/frame-left",
+        "living-main-window/frame-right",
+        "living-main-window/frame-bottom",
+        "living-main-window/frame-top",
+        "living-main-window/glass-0",
+        "living-main-window/glass-1",
+        "living-main-window/mullion"
+      ]
+    },
+    {
+      "id": "window-22",
+      "label": "Archisketch Sliding Window 04",
+      "source_id": "46826262-7404-42CB-9B37-7804FA870432",
+      "kind": "window",
+      "axis": "z",
+      "center_m": [
+        20.801,
+        1.03
+      ],
+      "width_m": 1.096,
+      "height_m": 1.4,
+      "bottom_m": 0.8,
+      "dimension_basis": "source_polygon_opening_breakpoints",
+      "source_position_mm": [
+        11356,
+        1300,
+        -3905
+      ],
+      "source_product_name": "Archisketch Sliding Window 04",
+      "source_catalog_dimensions": {
+        "width": 1995,
+        "height": 1750,
+        "depth": 194,
+        "unit": "mm"
+      },
+      "vertical_placement_status": "user_height_or_provisional_sill",
+      "source_rotation_degrees": -90,
+      "source_endpoint_span_m": 1.096,
+      "clear_passage_verified": false,
+      "mesh_names": [
+        "window-22/frame-left",
+        "window-22/frame-right",
+        "window-22/frame-bottom",
+        "window-22/frame-top",
+        "window-22/glass-0",
+        "window-22/glass-1",
+        "window-22/mullion"
+      ]
+    },
+    {
+      "id": "window-23",
+      "label": "Archisketch Sliding Window 04",
+      "source_id": "FB1AD657-4C4B-4C5A-B21C-221476549975",
+      "kind": "window",
+      "axis": "x",
+      "center_m": [
+        12.277,
+        12.251
+      ],
+      "width_m": 1.231,
+      "height_m": 1.4,
+      "bottom_m": 0.8,
+      "dimension_basis": "source_polygon_opening_breakpoints",
+      "source_position_mm": [
+        2832,
+        1192,
+        7316
+      ],
+      "source_product_name": "Archisketch Sliding Window 04",
+      "source_catalog_dimensions": {
+        "width": 1995,
+        "height": 1750,
+        "depth": 194,
+        "unit": "mm"
+      },
+      "vertical_placement_status": "user_height_or_provisional_sill",
+      "source_rotation_degrees": 180,
+      "source_endpoint_span_m": 1.231,
+      "clear_passage_verified": false,
+      "mesh_names": [
+        "window-23/frame-left",
+        "window-23/frame-right",
+        "window-23/frame-bottom",
+        "window-23/frame-top",
+        "window-23/glass-0",
+        "window-23/glass-1",
+        "window-23/mullion"
+      ]
+    },
+    {
+      "id": "living-balcony-door",
+      "label": "거실 발코니 미닫이문",
+      "source_id": "FEEADDF9-9401-495C-9C77-2C0B9C5E8F19",
+      "kind": "sliding",
+      "axis": "x",
+      "center_m": [
+        17.9,
+        10.738
+      ],
+      "width_m": 3.092,
+      "height_m": 2.42,
+      "bottom_m": 0,
+      "dimension_basis": "source_polygon_opening_breakpoints",
+      "source_position_mm": [
+        8455,
+        1150,
+        5803
+      ],
+      "source_product_name": "Archisketch Sliding Door 06",
+      "source_catalog_dimensions": {
+        "width": 3930,
+        "height": 2296,
+        "depth": 190,
+        "unit": "mm"
+      },
+      "vertical_placement_status": "user_height_or_provisional_sill",
+      "source_rotation_degrees": 180,
+      "source_endpoint_span_m": 3.092,
+      "clear_passage_verified": false,
+      "mesh_names": [
+        "living-balcony-door/frame-left",
+        "living-balcony-door/frame-right",
+        "living-balcony-door/frame-bottom",
+        "living-balcony-door/frame-top",
+        "living-balcony-door/glass-0",
+        "living-balcony-door/glass-1",
+        "living-balcony-door/mullion"
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "source_id": "5905AA58-984F-40A9-A5EA-FCE2EFB5EFB3",
+      "reason": "Source sliding door center lies beyond both kitchen pantry and living balcony usable boundaries; connection is unresolved.",
+      "source_position_mm": [
+        6087,
+        990,
+        7219
+      ]
+    },
+    {
+      "source_id": "BEE5F6D3-A5B7-4CAF-ADA5-A08A73F33A9F",
+      "reason": "Same X/Z window as ABB7B018 with another vertical center. Use one user-sized window; do not stack duplicate windows.",
+      "source_position_mm": [
+        -3606,
+        1300,
+        6062
+      ]
+    }
+  ],
+  "wall_inference": {
+    "external_buffer_m": 0.2,
+    "method": "room boundary bands; internal wall width follows source polygon gaps; original wall centerlines absent",
+    "status": "inferred_not_surveyed"
+  },
+  "limitations": [
+    "Archisketch coordinates are numerical model data, not independent as-built measurements.",
+    "Basic and expanded sources have different room widths; keep source coordinates without whole-model rescaling.",
+    "Ceiling 2.5m and hinged door leaf 0.8x2.4m are user-specified. Window overrides apply only to measured expanded rooms.",
+    "Unmeasured opening sizes, frame allowances and sill heights are provisional.",
+    "No catalog furniture geometry or real-photo textures are included in this structural stage."
+  ],
+  "mesh_count": 636,
+  "independent_as_built_validation": false,
+  "blend_sha256": "926928151509db4e836096a8b8059a74769a2631184e4c5fa6f0b5940bdbd155",
+  "glb_sha256": "076472378bebad4ebb434d3d3fd1b24c18e9298edbd0a6aea534cba82e7a5ea0",
+  "finish_revision": "archisketch-kitchen-detail-v1",
+  "fixture_dimensions_status": "catalog_sofa_exact_other_fixture_dimensions_design_assumptions",
+  "fixtures": [
+    {
+      "footprints_m": [
+        [
+          16.629602432250977,
+          7.463601589202881,
+          16.820398330688477,
+          8.536397933959961
+        ],
+        [
+          19.179601669311523,
+          7.463601589202881,
+          19.370397567749023,
+          8.536397933959961
+        ],
+        [
+          16.826499938964844,
+          7.568000316619873,
+          17.402000427246094,
+          7.820000171661377
+        ],
+        [
+          17.41699981689453,
+          7.568000316619873,
+          17.99250030517578,
+          7.820000171661377
+        ],
+        [
+          18.00749969482422,
+          7.568000316619873,
+          18.58300018310547,
+          7.820000171661377
+        ],
+        [
+          18.597999572753906,
+          7.568000316619873,
+          19.173500061035156,
+          7.820000171661377
+        ],
+        [
+          16.827499389648438,
+          7.424000263214111,
+          17.4010009765625,
+          7.728000164031982
+        ],
+        [
+          17.417999267578125,
+          7.424000263214111,
+          17.991500854492188,
+          7.728000164031982
+        ],
+        [
+          18.008499145507812,
+          7.424000263214111,
+          18.582000732421875,
+          7.728000164031982
+        ],
+        [
+          18.5989990234375,
+          7.424000263214111,
+          19.172500610351562,
+          7.728000164031982
+        ],
+        [
+          17.240331649780273,
+          7.786499977111816,
+          17.67966651916504,
+          7.911499977111816
+        ],
+        [
+          18.32033348083496,
+          7.786499977111816,
+          18.759668350219727,
+          7.911499977111816
+        ],
+        [
+          16.825000762939453,
+          7.7049994468688965,
+          17.403499603271484,
+          8.549999237060547
+        ],
+        [
+          17.41550064086914,
+          7.7049994468688965,
+          17.993999481201172,
+          8.549999237060547
+        ],
+        [
+          18.006000518798828,
+          7.7049994468688965,
+          18.58449935913086,
+          8.549999237060547
+        ],
+        [
+          18.596500396728516,
+          7.7049994468688965,
+          19.174999237060547,
+          8.549999237060547
+        ],
+        [
+          16.836101531982422,
+          7.722601890563965,
+          17.392398834228516,
+          8.532398223876953
+        ],
+        [
+          17.42660140991211,
+          7.722601890563965,
+          17.982898712158203,
+          8.532398223876953
+        ],
+        [
+          18.017101287841797,
+          7.722601890563965,
+          18.57339859008789,
+          8.532398223876953
+        ],
+        [
+          18.607601165771484,
+          7.722601890563965,
+          19.163898468017578,
+          8.532398223876953
+        ],
+        [
+          16.604999542236328,
+          7.414999961853027,
+          16.845001220703125,
+          8.585000038146973
+        ],
+        [
+          19.154998779296875,
+          7.414999961853027,
+          19.395000457763672,
+          8.585000038146973
+        ],
+        [
+          16.715024948120117,
+          8.465024948120117,
+          16.74497413635254,
+          8.494974136352539
+        ],
+        [
+          16.7189998626709,
+          8.468999862670898,
+          16.740999221801758,
+          8.490999221801758
+        ],
+        [
+          16.7189998626709,
+          7.5289998054504395,
+          16.740999221801758,
+          7.551000118255615
+        ],
+        [
+          17.98900032043457,
+          8.468999862670898,
+          18.01099967956543,
+          8.490999221801758
+        ],
+        [
+          17.98900032043457,
+          7.5289998054504395,
+          18.01099967956543,
+          7.551000118255615
+        ],
+        [
+          19.259000778198242,
+          8.468999862670898,
+          19.2810001373291,
+          8.490999221801758
+        ],
+        [
+          19.259000778198242,
+          7.5289998054504395,
+          19.2810001373291,
+          7.551000118255615
+        ],
+        [
+          16.715024948120117,
+          7.525025844573975,
+          16.74497413635254,
+          7.55497407913208
+        ],
+        [
+          17.98502540588379,
+          8.465024948120117,
+          18.01497459411621,
+          8.494974136352539
+        ],
+        [
+          17.98502540588379,
+          7.525025844573975,
+          18.01497459411621,
+          7.55497407913208
+        ],
+        [
+          19.25502586364746,
+          8.465024948120117,
+          19.284975051879883,
+          8.494974136352539
+        ],
+        [
+          19.25502586364746,
+          7.525025844573975,
+          19.284975051879883,
+          7.55497407913208
+        ],
+        [
+          16.815000534057617,
+          7.430000305175781,
+          19.184999465942383,
+          7.670000076293945
+        ],
+        [
+          16.665000915527344,
+          7.460000038146973,
+          19.334999084472656,
+          8.5600004196167
+        ]
+      ],
+      "collision_footprints_m": [
+        [
+          16.629602432250977,
+          7.463601589202881,
+          16.820398330688477,
+          8.536397933959961
+        ],
+        [
+          19.179601669311523,
+          7.463601589202881,
+          19.370397567749023,
+          8.536397933959961
+        ],
+        [
+          16.826499938964844,
+          7.568000316619873,
+          17.402000427246094,
+          7.820000171661377
+        ],
+        [
+          17.41699981689453,
+          7.568000316619873,
+          17.99250030517578,
+          7.820000171661377
+        ],
+        [
+          18.00749969482422,
+          7.568000316619873,
+          18.58300018310547,
+          7.820000171661377
+        ],
+        [
+          18.597999572753906,
+          7.568000316619873,
+          19.173500061035156,
+          7.820000171661377
+        ],
+        [
+          16.827499389648438,
+          7.424000263214111,
+          17.4010009765625,
+          7.728000164031982
+        ],
+        [
+          17.417999267578125,
+          7.424000263214111,
+          17.991500854492188,
+          7.728000164031982
+        ],
+        [
+          18.008499145507812,
+          7.424000263214111,
+          18.582000732421875,
+          7.728000164031982
+        ],
+        [
+          18.5989990234375,
+          7.424000263214111,
+          19.172500610351562,
+          7.728000164031982
+        ],
+        [
+          17.240331649780273,
+          7.786499977111816,
+          17.67966651916504,
+          7.911499977111816
+        ],
+        [
+          18.32033348083496,
+          7.786499977111816,
+          18.759668350219727,
+          7.911499977111816
+        ],
+        [
+          16.825000762939453,
+          7.7049994468688965,
+          17.403499603271484,
+          8.549999237060547
+        ],
+        [
+          17.41550064086914,
+          7.7049994468688965,
+          17.993999481201172,
+          8.549999237060547
+        ],
+        [
+          18.006000518798828,
+          7.7049994468688965,
+          18.58449935913086,
+          8.549999237060547
+        ],
+        [
+          18.596500396728516,
+          7.7049994468688965,
+          19.174999237060547,
+          8.549999237060547
+        ],
+        [
+          16.836101531982422,
+          7.722601890563965,
+          17.392398834228516,
+          8.532398223876953
+        ],
+        [
+          17.42660140991211,
+          7.722601890563965,
+          17.982898712158203,
+          8.532398223876953
+        ],
+        [
+          18.017101287841797,
+          7.722601890563965,
+          18.57339859008789,
+          8.532398223876953
+        ],
+        [
+          18.607601165771484,
+          7.722601890563965,
+          19.163898468017578,
+          8.532398223876953
+        ],
+        [
+          16.604999542236328,
+          7.414999961853027,
+          16.845001220703125,
+          8.585000038146973
+        ],
+        [
+          19.154998779296875,
+          7.414999961853027,
+          19.395000457763672,
+          8.585000038146973
+        ],
+        [
+          16.715024948120117,
+          8.465024948120117,
+          16.74497413635254,
+          8.494974136352539
+        ],
+        [
+          16.715024948120117,
+          7.525025844573975,
+          16.74497413635254,
+          7.55497407913208
+        ],
+        [
+          17.98502540588379,
+          8.465024948120117,
+          18.01497459411621,
+          8.494974136352539
+        ],
+        [
+          17.98502540588379,
+          7.525025844573975,
+          18.01497459411621,
+          7.55497407913208
+        ],
+        [
+          19.25502586364746,
+          8.465024948120117,
+          19.284975051879883,
+          8.494974136352539
+        ],
+        [
+          19.25502586364746,
+          7.525025844573975,
+          19.284975051879883,
+          7.55497407913208
+        ],
+        [
+          16.815000534057617,
+          7.430000305175781,
+          19.184999465942383,
+          7.670000076293945
+        ],
+        [
+          16.665000915527344,
+          7.460000038146973,
+          19.334999084472656,
+          8.5600004196167
+        ]
+      ],
+      "id": "living-sofa",
+      "title": "소파 279 × 117cm",
+      "room_id": "living-kitchen-hall",
+      "component": "furniture",
+      "bounds_m": [
+        16.604999542236328,
+        7.414999961853027,
+        19.395000457763672,
+        8.585000038146973
+      ],
+      "bottom_m": 0.0,
+      "top_m": 0.7299999594688416,
+      "movable": true,
+      "dimension_basis": "user_catalog_dimensions_2.79x1.17x0.73_m",
+      "mesh_names": [
+        "Sofa / Arm tailored seam -1",
+        "Sofa / Arm tailored seam 1",
+        "Sofa / Back cushion 1",
+        "Sofa / Back cushion 2",
+        "Sofa / Back cushion 3",
+        "Sofa / Back cushion 4",
+        "Sofa / Folded headrest 1",
+        "Sofa / Folded headrest 2",
+        "Sofa / Folded headrest 3",
+        "Sofa / Folded headrest 4",
+        "Sofa / Loose lumbar cushion",
+        "Sofa / Loose lumbar cushion.001",
+        "Sofa / Seat cushion 1",
+        "Sofa / Seat cushion 2",
+        "Sofa / Seat cushion 3",
+        "Sofa / Seat cushion 4",
+        "Sofa / Seat piping 1",
+        "Sofa / Seat piping 2",
+        "Sofa / Seat piping 3",
+        "Sofa / Seat piping 4",
+        "Sofa / Sofa arm -1",
+        "Sofa / Sofa arm 1",
+        "Sofa / Sofa leg",
+        "Sofa / Sofa leg foot pad",
+        "Sofa / Sofa leg foot pad.001",
+        "Sofa / Sofa leg foot pad.002",
+        "Sofa / Sofa leg foot pad.003",
+        "Sofa / Sofa leg foot pad.004",
+        "Sofa / Sofa leg foot pad.005",
+        "Sofa / Sofa leg.001",
+        "Sofa / Sofa leg.002",
+        "Sofa / Sofa leg.003",
+        "Sofa / Sofa leg.004",
+        "Sofa / Sofa leg.005",
+        "Sofa / Sofa rear panel",
+        "Sofa / Sofa upholstered lower frame"
+      ],
+      "outside_room_m2": 0.0
+    },
+    {
+      "footprints_m": [
+        [
+          17.450000762939453,
+          6.409999847412109,
+          18.549999237060547,
+          6.989999771118164
+        ],
+        [
+          17.547500610351562,
+          6.487500190734863,
+          17.592498779296875,
+          6.532500267028809
+        ],
+        [
+          17.547500610351562,
+          6.867499828338623,
+          17.592498779296875,
+          6.912499904632568
+        ],
+        [
+          18.407501220703125,
+          6.487500190734863,
+          18.452499389648438,
+          6.532500267028809
+        ],
+        [
+          18.407501220703125,
+          6.867499828338623,
+          18.452499389648438,
+          6.912499904632568
+        ]
+      ],
+      "collision_footprints_m": [
+        [
+          17.450000762939453,
+          6.409999847412109,
+          18.549999237060547,
+          6.989999771118164
+        ],
+        [
+          17.547500610351562,
+          6.487500190734863,
+          17.592498779296875,
+          6.532500267028809
+        ],
+        [
+          17.547500610351562,
+          6.867499828338623,
+          17.592498779296875,
+          6.912499904632568
+        ],
+        [
+          18.407501220703125,
+          6.487500190734863,
+          18.452499389648438,
+          6.532500267028809
+        ],
+        [
+          18.407501220703125,
+          6.867499828338623,
+          18.452499389648438,
+          6.912499904632568
+        ]
+      ],
+      "id": "living-coffee-table",
+      "title": "거실 테이블 110 × 58cm",
+      "room_id": "living-kitchen-hall",
+      "component": "furniture",
+      "bounds_m": [
+        17.450000762939453,
+        6.409999847412109,
+        18.549999237060547,
+        6.989999771118164
+      ],
+      "bottom_m": 0.0,
+      "top_m": 0.45823532342910767,
+      "movable": true,
+      "dimension_basis": "reference_guided_design_dimensions",
+      "mesh_names": [
+        "Coffee / top",
+        "Coffee / leg",
+        "Coffee / leg.001",
+        "Coffee / leg.002",
+        "Coffee / leg.003"
+      ],
+      "outside_room_m2": 0.0,
+      "height_revision": {
+        "previous_m": 0.38,
+        "new_m": 0.45,
+        "basis": "design_height_for_existing_staging_furniture"
+      }
+    },
+    {
+      "footprints_m": [
+        [
+          10.139999389648438,
+          6.61299991607666,
+          10.607000350952148,
+          9.223999977111816
+        ],
+        [
+          10.180999755859375,
+          6.6539998054504395,
+          10.565999984741211,
+          9.182999610900879
+        ],
+        [
+          10.125999450683594,
+          6.598999977111816,
+          10.621000289916992,
+          9.23799991607666
+        ],
+        [
+          10.12600040435791,
+          6.60699987411499,
+          10.151000022888184,
+          7.2507500648498535
+        ],
+        [
+          10.12600040435791,
+          7.266749858856201,
+          10.151000022888184,
+          7.9105000495910645
+        ],
+        [
+          10.12600040435791,
+          7.926499843597412,
+          10.151000022888184,
+          8.570249557495117
+        ],
+        [
+          10.12600040435791,
+          8.586250305175781,
+          10.151000022888184,
+          9.229999542236328
+        ]
+      ],
+      "collision_footprints_m": [
+        [
+          10.139999389648438,
+          6.61299991607666,
+          10.607000350952148,
+          9.223999977111816
+        ],
+        [
+          10.12600040435791,
+          6.60699987411499,
+          10.151000022888184,
+          7.2507500648498535
+        ],
+        [
+          10.12600040435791,
+          7.266749858856201,
+          10.151000022888184,
+          7.9105000495910645
+        ],
+        [
+          10.12600040435791,
+          7.926499843597412,
+          10.151000022888184,
+          8.570249557495117
+        ],
+        [
+          10.12600040435791,
+          8.586250305175781,
+          10.151000022888184,
+          9.229999542236328
+        ]
+      ],
+      "id": "Bedroom 3 wardrobe",
+      "title": "Bedroom 3 wardrobe",
+      "room_id": "bedroom-3",
+      "component": "storage_fixture",
+      "bounds_m": [
+        10.125999450683594,
+        6.598999977111816,
+        10.621000289916992,
+        9.23799991607666
+      ],
+      "bottom_m": 0.0,
+      "top_m": 2.320000171661377,
+      "movable": false,
+      "dimension_basis": "reference_guided_design_dimensions",
+      "mesh_names": [
+        "Bedroom 3 wardrobe/carcass",
+        "Bedroom 3 wardrobe/plinth",
+        "Bedroom 3 wardrobe/cap",
+        "Bedroom 3 wardrobe/front-0-0",
+        "Bedroom 3 wardrobe/front-1-0",
+        "Bedroom 3 wardrobe/front-2-0",
+        "Bedroom 3 wardrobe/front-3-0"
+      ],
+      "outside_room_m2": 0.0
+    },
+    {
+      "id": "Kitchen west base",
+      "title": "주방 조리대·오븐",
+      "room_id": "living-kitchen-hall",
+      "component": "kitchen_fixture",
+      "bounds_m": [
+        10.890999794006348,
+        7.178999900817871,
+        11.5649995803833,
+        11.470000267028809
+      ],
+      "bottom_m": 0.0,
+      "top_m": 0.9169999957084656,
+      "footprints_m": [
+        [
+          10.905000686645508,
+          7.192999839782715,
+          11.496999740600586,
+          11.456000328063965
+        ],
+        [
+          10.946000099182129,
+          7.234000205993652,
+          11.456000328063965,
+          11.414999961853027
+        ],
+        [
+          10.890999794006348,
+          7.178999900817871,
+          11.511000633239746,
+          11.470000267028809
+        ],
+        [
+          11.486000061035156,
+          7.186999797821045,
+          11.51099967956543,
+          8.029199600219727
+        ],
+        [
+          11.486000061035156,
+          8.04520034790039,
+          11.51099967956543,
+          8.887399673461914
+        ],
+        [
+          11.486000061035156,
+          8.903400421142578,
+          11.51099967956543,
+          9.745599746704102
+        ],
+        [
+          11.486000061035156,
+          9.761600494384766,
+          11.51099967956543,
+          10.603799819946289
+        ],
+        [
+          11.486000061035156,
+          10.619800567626953,
+          11.51099967956543,
+          11.461999893188477
+        ],
+        [
+          10.951000213623047,
+          7.988999843597412,
+          11.471000671386719,
+          8.609000205993652
+        ],
+        [
+          11.016000747680664,
+          8.074000358581543,
+          11.145999908447266,
+          8.203999519348145
+        ],
+        [
+          11.276000022888184,
+          8.074000358581543,
+          11.405999183654785,
+          8.203999519348145
+        ],
+        [
+          11.016000747680664,
+          8.394000053405762,
+          11.145999908447266,
+          8.523999214172363
+        ],
+        [
+          11.276000022888184,
+          8.394000053405762,
+          11.405999183654785,
+          8.523999214172363
+        ],
+        [
+          11.508999824523926,
+          8.013999938964844,
+          11.526999473571777,
+          8.583999633789062
+        ],
+        [
+          11.536999702453613,
+          8.078999519348145,
+          11.5649995803833,
+          8.519000053405762
+        ]
+      ],
+      "collision_footprints_m": [
+        [
+          10.905000686645508,
+          7.192999839782715,
+          11.496999740600586,
+          11.456000328063965
+        ],
+        [
+          10.890999794006348,
+          7.178999900817871,
+          11.511000633239746,
+          11.470000267028809
+        ],
+        [
+          11.486000061035156,
+          7.186999797821045,
+          11.51099967956543,
+          8.029199600219727
+        ],
+        [
+          11.486000061035156,
+          8.04520034790039,
+          11.51099967956543,
+          8.887399673461914
+        ],
+        [
+          11.486000061035156,
+          8.903400421142578,
+          11.51099967956543,
+          9.745599746704102
+        ],
+        [
+          11.486000061035156,
+          9.761600494384766,
+          11.51099967956543,
+          10.603799819946289
+        ],
+        [
+          11.486000061035156,
+          10.619800567626953,
+          11.51099967956543,
+          11.461999893188477
+        ],
+        [
+          10.951000213623047,
+          7.988999843597412,
+          11.471000671386719,
+          8.609000205993652
+        ],
+        [
+          11.016000747680664,
+          8.074000358581543,
+          11.145999908447266,
+          8.203999519348145
+        ],
+        [
+          11.276000022888184,
+          8.074000358581543,
+          11.405999183654785,
+          8.203999519348145
+        ],
+        [
+          11.016000747680664,
+          8.394000053405762,
+          11.145999908447266,
+          8.523999214172363
+        ],
+        [
+          11.276000022888184,
+          8.394000053405762,
+          11.405999183654785,
+          8.523999214172363
+        ],
+        [
+          11.508999824523926,
+          8.013999938964844,
+          11.526999473571777,
+          8.583999633789062
+        ],
+        [
+          11.536999702453613,
+          8.078999519348145,
+          11.5649995803833,
+          8.519000053405762
+        ]
+      ],
+      "mesh_names": [
+        "Kitchen west base/carcass",
+        "Kitchen west base/plinth",
+        "Kitchen west base/countertop",
+        "Kitchen west base/front-0-0",
+        "Kitchen west base/front-1-0",
+        "Kitchen west base/front-2-0",
+        "Kitchen west base/front-3-0",
+        "Kitchen west base/front-4-0",
+        "Kitchen west base/induction",
+        "Kitchen west base/burner",
+        "Kitchen west base/burner.001",
+        "Kitchen west base/burner.002",
+        "Kitchen west base/burner.003",
+        "Kitchen west base/oven glass",
+        "Kitchen west base/oven handle"
+      ],
+      "movable": false,
+      "dimension_basis": "VR_guided_design_dimensions_not_surveyed",
+      "reference_variant": "expanded",
+      "reference_relation": "same_layout_qualitative_reference",
+      "outside_room_m2": 0.0
+    },
+    {
+      "id": "Kitchen upper 0",
+      "title": "주방 상부장",
+      "room_id": "living-kitchen-hall",
+      "component": "kitchen_fixture",
+      "bounds_m": [
+        10.890999794006348,
+        7.178999900817871,
+        11.25100040435791,
+        7.89900016784668
+      ],
+      "bottom_m": 1.619999885559082,
+      "top_m": 2.2700002193450928,
+      "footprints_m": [
+        [
+          10.904999732971191,
+          7.192999839782715,
+          11.237000465393066,
+          7.885000228881836
+        ],
+        [
+          10.890999794006348,
+          7.178999900817871,
+          11.25100040435791,
+          7.89900016784668
+        ],
+        [
+          11.22599983215332,
+          7.187000274658203,
+          11.250999450683594,
+          7.890999794006348
+        ]
+      ],
+      "collision_footprints_m": [
+        [
+          10.904999732971191,
+          7.192999839782715,
+          11.237000465393066,
+          7.885000228881836
+        ],
+        [
+          11.22599983215332,
+          7.187000274658203,
+          11.250999450683594,
+          7.890999794006348
+        ]
+      ],
+      "mesh_names": [
+        "Kitchen upper 0/carcass",
+        "Kitchen upper 0/cap",
+        "Kitchen upper 0/front-0-0"
+      ],
+      "movable": false,
+      "dimension_basis": "VR_guided_design_dimensions_not_surveyed",
+      "reference_variant": "expanded",
+      "reference_relation": "same_layout_qualitative_reference",
+      "outside_room_m2": 0.0
+    },
+    {
+      "id": "Kitchen upper 1",
+      "title": "주방 상부장",
+      "room_id": "living-kitchen-hall",
+      "component": "kitchen_fixture",
+      "bounds_m": [
+        10.890999794006348,
+        8.699000358581543,
+        11.25100040435791,
+        11.470000267028809
+      ],
+      "bottom_m": 1.619999885559082,
+      "top_m": 2.2700002193450928,
+      "footprints_m": [
+        [
+          10.904999732971191,
+          8.713000297546387,
+          11.237000465393066,
+          11.456000328063965
+        ],
+        [
+          10.890999794006348,
+          8.699000358581543,
+          11.25100040435791,
+          11.470000267028809
+        ],
+        [
+          11.22599983215332,
+          8.706999778747559,
+          11.250999450683594,
+          9.245200157165527
+        ],
+        [
+          11.22599983215332,
+          9.261199951171875,
+          11.250999450683594,
+          9.799400329589844
+        ],
+        [
+          11.22599983215332,
+          9.815400123596191,
+          11.250999450683594,
+          10.35360050201416
+        ],
+        [
+          11.22599983215332,
+          10.369599342346191,
+          11.250999450683594,
+          10.90779972076416
+        ],
+        [
+          11.22599983215332,
+          10.923799514770508,
+          11.250999450683594,
+          11.461999893188477
+        ]
+      ],
+      "collision_footprints_m": [
+        [
+          10.904999732971191,
+          8.713000297546387,
+          11.237000465393066,
+          11.456000328063965
+        ],
+        [
+          11.22599983215332,
+          8.706999778747559,
+          11.250999450683594,
+          9.245200157165527
+        ],
+        [
+          11.22599983215332,
+          9.261199951171875,
+          11.250999450683594,
+          9.799400329589844
+        ],
+        [
+          11.22599983215332,
+          9.815400123596191,
+          11.250999450683594,
+          10.35360050201416
+        ],
+        [
+          11.22599983215332,
+          10.369599342346191,
+          11.250999450683594,
+          10.90779972076416
+        ],
+        [
+          11.22599983215332,
+          10.923799514770508,
+          11.250999450683594,
+          11.461999893188477
+        ]
+      ],
+      "mesh_names": [
+        "Kitchen upper 1/carcass",
+        "Kitchen upper 1/cap",
+        "Kitchen upper 1/front-0-0",
+        "Kitchen upper 1/front-1-0",
+        "Kitchen upper 1/front-2-0",
+        "Kitchen upper 1/front-3-0",
+        "Kitchen upper 1/front-4-0"
+      ],
+      "movable": false,
+      "dimension_basis": "VR_guided_design_dimensions_not_surveyed",
+      "reference_variant": "expanded",
+      "reference_relation": "same_layout_qualitative_reference",
+      "outside_room_m2": 0.0
+    },
+    {
+      "id": "Kitchen hood and backsplash",
+      "title": "후드·벽 마감·하부 조명",
+      "room_id": "living-kitchen-hall",
+      "component": "kitchen_fixture",
+      "bounds_m": [
+        10.891499519348145,
+        7.178999900817871,
+        11.461000442504883,
+        11.470000267028809
+      ],
+      "bottom_m": 0.9100000262260437,
+      "top_m": 2.265000104904175,
+      "footprints_m": [
+        [
+          10.920999526977539,
+          7.938999652862549,
+          11.461000442504883,
+          8.6589994430542
+        ],
+        [
+          10.916000366210938,
+          8.138999938964844,
+          11.166000366210938,
+          8.458999633789062
+        ],
+        [
+          10.891499519348145,
+          7.178999900817871,
+          10.904500007629395,
+          11.470000267028809
+        ],
+        [
+          11.210000038146973,
+          7.178999900817871,
+          11.231999397277832,
+          11.470000267028809
+        ]
+      ],
+      "collision_footprints_m": [
+        [
+          10.920999526977539,
+          7.938999652862549,
+          11.461000442504883,
+          8.6589994430542
+        ],
+        [
+          10.916000366210938,
+          8.138999938964844,
+          11.166000366210938,
+          8.458999633789062
+        ],
+        [
+          10.891499519348145,
+          7.178999900817871,
+          10.904500007629395,
+          11.470000267028809
+        ],
+        [
+          11.210000038146973,
+          7.178999900817871,
+          11.231999397277832,
+          11.470000267028809
+        ]
+      ],
+      "mesh_names": [
+        "Kitchen hood and backsplash/hood",
+        "Kitchen hood and backsplash/hood chimney",
+        "Kitchen hood and backsplash/splashback",
+        "Kitchen hood and backsplash/under cabinet light"
+      ],
+      "movable": false,
+      "dimension_basis": "VR_guided_design_dimensions_not_surveyed",
+      "reference_variant": "expanded",
+      "reference_relation": "same_layout_qualitative_reference",
+      "outside_room_m2": 0.0
+    },
+    {
+      "id": "Kitchen sink run",
+      "title": "창 아래 싱크대",
+      "room_id": "living-kitchen-hall",
+      "component": "kitchen_fixture",
+      "bounds_m": [
+        10.890999794006348,
+        11.515999794006348,
+        12.918999671936035,
+        12.116000175476074
+      ],
+      "bottom_m": 0.0,
+      "top_m": 1.1799999475479126,
+      "footprints_m": [
+        [
+          10.904999732971191,
+          11.529999732971191,
+          12.904999732971191,
+          12.10200023651123
+        ],
+        [
+          10.946000099182129,
+          11.571000099182129,
+          12.863999366760254,
+          12.060999870300293
+        ],
+        [
+          10.890999794006348,
+          11.515999794006348,
+          12.918999671936035,
+          12.116000175476074
+        ],
+        [
+          10.89900016784668,
+          11.515999794006348,
+          11.559000015258789,
+          11.540999412536621
+        ],
+        [
+          11.574999809265137,
+          11.515999794006348,
+          12.234999656677246,
+          11.540999412536621
+        ],
+        [
+          12.25100040435791,
+          11.515999794006348,
+          12.91100025177002,
+          11.540999412536621
+        ],
+        [
+          11.5600004196167,
+          11.576000213623047,
+          12.34000015258789,
+          12.055999755859375
+        ],
+        [
+          11.927499771118164,
+          11.793499946594238,
+          11.97249984741211,
+          11.838500022888184
+        ],
+        [
+          11.932499885559082,
+          12.043499946594238,
+          11.967499732971191,
+          12.078499794006348
+        ],
+        [
+          11.932499885559082,
+          11.798500061035156,
+          11.967499732971191,
+          12.078500747680664
+        ]
+      ],
+      "collision_footprints_m": [
+        [
+          10.904999732971191,
+          11.529999732971191,
+          12.904999732971191,
+          12.10200023651123
+        ],
+        [
+          10.890999794006348,
+          11.515999794006348,
+          12.918999671936035,
+          12.116000175476074
+        ],
+        [
+          10.89900016784668,
+          11.515999794006348,
+          11.559000015258789,
+          11.540999412536621
+        ],
+        [
+          11.574999809265137,
+          11.515999794006348,
+          12.234999656677246,
+          11.540999412536621
+        ],
+        [
+          12.25100040435791,
+          11.515999794006348,
+          12.91100025177002,
+          11.540999412536621
+        ],
+        [
+          11.5600004196167,
+          11.576000213623047,
+          12.34000015258789,
+          12.055999755859375
+        ],
+        [
+          11.927499771118164,
+          11.793499946594238,
+          11.97249984741211,
+          11.838500022888184
+        ],
+        [
+          11.932499885559082,
+          12.043499946594238,
+          11.967499732971191,
+          12.078499794006348
+        ],
+        [
+          11.932499885559082,
+          11.798500061035156,
+          11.967499732971191,
+          12.078500747680664
+        ]
+      ],
+      "mesh_names": [
+        "Kitchen sink run/carcass",
+        "Kitchen sink run/plinth",
+        "Kitchen sink run/countertop",
+        "Kitchen sink run/front-0-0",
+        "Kitchen sink run/front-1-0",
+        "Kitchen sink run/front-2-0",
+        "Kitchen sink run/recessed sink",
+        "Kitchen sink run/drain",
+        "Kitchen sink run/tap column",
+        "Kitchen sink run/tap spout"
+      ],
+      "movable": false,
+      "dimension_basis": "VR_guided_design_dimensions_not_surveyed",
+      "reference_variant": "expanded",
+      "reference_relation": "same_layout_qualitative_reference",
+      "outside_room_m2": 0.0
+    },
+    {
+      "id": "Living kitchen island",
+      "title": "주방 아일랜드",
+      "room_id": "living-kitchen-hall",
+      "component": "kitchen_fixture",
+      "bounds_m": [
+        12.65000057220459,
+        6.949999809265137,
+        13.550000190734863,
+        8.550000190734863
+      ],
+      "bottom_m": 0.0,
+      "top_m": 0.8999999761581421,
+      "footprints_m": [
+        [
+          12.664000511169434,
+          6.9639997482299805,
+          13.53600025177002,
+          8.53600025177002
+        ],
+        [
+          12.704999923706055,
+          7.005000114440918,
+          13.495000839233398,
+          8.494999885559082
+        ],
+        [
+          12.65000057220459,
+          6.949999809265137,
+          13.550000190734863,
+          8.550000190734863
+        ],
+        [
+          13.52500057220459,
+          6.958000183105469,
+          13.550000190734863,
+          7.475333213806152
+        ],
+        [
+          13.52500057220459,
+          7.491333484649658,
+          13.550000190734863,
+          8.0086669921875
+        ],
+        [
+          13.52500057220459,
+          8.024666786193848,
+          13.550000190734863,
+          8.542000770568848
+        ]
+      ],
+      "collision_footprints_m": [
+        [
+          12.664000511169434,
+          6.9639997482299805,
+          13.53600025177002,
+          8.53600025177002
+        ],
+        [
+          12.65000057220459,
+          6.949999809265137,
+          13.550000190734863,
+          8.550000190734863
+        ],
+        [
+          13.52500057220459,
+          6.958000183105469,
+          13.550000190734863,
+          7.475333213806152
+        ],
+        [
+          13.52500057220459,
+          7.491333484649658,
+          13.550000190734863,
+          8.0086669921875
+        ],
+        [
+          13.52500057220459,
+          8.024666786193848,
+          13.550000190734863,
+          8.542000770568848
+        ]
+      ],
+      "mesh_names": [
+        "Living kitchen island/carcass",
+        "Living kitchen island/plinth",
+        "Living kitchen island/countertop",
+        "Living kitchen island/front-0-0",
+        "Living kitchen island/front-1-0",
+        "Living kitchen island/front-2-0"
+      ],
+      "movable": false,
+      "dimension_basis": "VR_guided_design_dimensions_not_surveyed",
+      "reference_variant": "expanded",
+      "reference_relation": "same_layout_qualitative_reference",
+      "outside_room_m2": 0.0
+    },
+    {
+      "id": "Refrigerator housing",
+      "title": "냉장고 수납장",
+      "room_id": "living-kitchen-hall",
+      "component": "kitchen_fixture",
+      "bounds_m": [
+        13.199999809265137,
+        8.550000190734863,
+        14.120000839233398,
+        9.84999942779541
+      ],
+      "bottom_m": 0.0,
+      "top_m": 2.2200000286102295,
+      "footprints_m": [
+        [
+          13.199999809265137,
+          8.550000190734863,
+          14.050000190734863,
+          9.84999942779541
+        ],
+        [
+          14.050000190734863,
+          8.554499626159668,
+          14.07599925994873,
+          9.195500373840332
+        ],
+        [
+          14.079999923706055,
+          9.142499923706055,
+          14.120000839233398,
+          9.167499542236328
+        ],
+        [
+          14.050000190734863,
+          9.204499244689941,
+          14.07599925994873,
+          9.845499992370605
+        ],
+        [
+          14.079999923706055,
+          9.232500076293945,
+          14.120000839233398,
+          9.257499694824219
+        ]
+      ],
+      "collision_footprints_m": [
+        [
+          13.199999809265137,
+          8.550000190734863,
+          14.050000190734863,
+          9.84999942779541
+        ],
+        [
+          14.050000190734863,
+          8.554499626159668,
+          14.07599925994873,
+          9.195500373840332
+        ],
+        [
+          14.079999923706055,
+          9.142499923706055,
+          14.120000839233398,
+          9.167499542236328
+        ],
+        [
+          14.050000190734863,
+          9.204499244689941,
+          14.07599925994873,
+          9.845499992370605
+        ],
+        [
+          14.079999923706055,
+          9.232500076293945,
+          14.120000839233398,
+          9.257499694824219
+        ]
+      ],
+      "mesh_names": [
+        "Refrigerator housing/body",
+        "Refrigerator housing/steel door 0",
+        "Refrigerator housing/handle 0",
+        "Refrigerator housing/steel door 1",
+        "Refrigerator housing/handle 1"
+      ],
+      "movable": false,
+      "dimension_basis": "VR_guided_design_dimensions_not_surveyed",
+      "reference_variant": "expanded",
+      "reference_relation": "same_layout_qualitative_reference",
+      "outside_room_m2": 0.0
+    },
+    {
+      "id": "Utility low cabinet",
+      "title": "다용도실 창 아래 수납장",
+      "room_id": "kitchen-pantry",
+      "component": "storage_fixture",
+      "bounds_m": [
+        13.229999542236328,
+        11.640000343322754,
+        14.100000381469727,
+        12.109999656677246
+      ],
+      "bottom_m": 0.0,
+      "top_m": 0.8399999737739563,
+      "footprints_m": [
+        [
+          13.243999481201172,
+          11.654000282287598,
+          14.086000442504883,
+          12.095999717712402
+        ],
+        [
+          13.28499984741211,
+          11.694999694824219,
+          14.045000076293945,
+          12.055000305175781
+        ],
+        [
+          13.229999542236328,
+          11.640000343322754,
+          14.100000381469727,
+          12.109999656677246
+        ],
+        [
+          13.23799991607666,
+          11.640000343322754,
+          13.657000541687012,
+          11.664999961853027
+        ],
+        [
+          13.672999382019043,
+          11.640000343322754,
+          14.092000007629395,
+          11.664999961853027
+        ]
+      ],
+      "collision_footprints_m": [
+        [
+          13.243999481201172,
+          11.654000282287598,
+          14.086000442504883,
+          12.095999717712402
+        ],
+        [
+          13.229999542236328,
+          11.640000343322754,
+          14.100000381469727,
+          12.109999656677246
+        ],
+        [
+          13.23799991607666,
+          11.640000343322754,
+          13.657000541687012,
+          11.664999961853027
+        ],
+        [
+          13.672999382019043,
+          11.640000343322754,
+          14.092000007629395,
+          11.664999961853027
+        ]
+      ],
+      "mesh_names": [
+        "Utility low cabinet/carcass",
+        "Utility low cabinet/plinth",
+        "Utility low cabinet/countertop",
+        "Utility low cabinet/front-0-0",
+        "Utility low cabinet/front-1-0"
+      ],
+      "movable": false,
+      "dimension_basis": "VR_guided_design_dimensions_not_surveyed",
+      "reference_variant": "expanded",
+      "reference_relation": "same_layout_qualitative_reference",
+      "outside_room_m2": 0.0
+    },
+    {
+      "id": "Utility shelves",
+      "title": "다용도실 선반",
+      "room_id": "kitchen-pantry",
+      "component": "storage_fixture",
+      "bounds_m": [
+        14.609999656677246,
+        10.480000495910645,
+        15.3100004196167,
+        10.720000267028809
+      ],
+      "bottom_m": 1.100000023841858,
+      "top_m": 1.7660000324249268,
+      "footprints_m": [
+        [
+          14.609999656677246,
+          10.480000495910645,
+          15.3100004196167,
+          10.720000267028809
+        ],
+        [
+          14.609999656677246,
+          10.480000495910645,
+          15.3100004196167,
+          10.720000267028809
+        ],
+        [
+          14.609999656677246,
+          10.480000495910645,
+          15.3100004196167,
+          10.720000267028809
+        ]
+      ],
+      "collision_footprints_m": [
+        [
+          14.609999656677246,
+          10.480000495910645,
+          15.3100004196167,
+          10.720000267028809
+        ],
+        [
+          14.609999656677246,
+          10.480000495910645,
+          15.3100004196167,
+          10.720000267028809
+        ]
+      ],
+      "mesh_names": [
+        "Utility shelves/shelf",
+        "Utility shelves/shelf.001",
+        "Utility shelves/shelf.002"
+      ],
+      "movable": false,
+      "dimension_basis": "VR_guided_design_dimensions_not_surveyed",
+      "reference_variant": "expanded",
+      "reference_relation": "same_layout_qualitative_reference",
+      "outside_room_m2": 0.0
+    },
+    {
+      "id": "Utility drain",
+      "title": "다용도실 배수구",
+      "room_id": "kitchen-pantry",
+      "component": "decoration",
+      "bounds_m": [
+        13.657500267028809,
+        11.592499732971191,
+        13.7475004196167,
+        11.682499885559082
+      ],
+      "bottom_m": 0.0020000000949949026,
+      "top_m": 0.004999999888241291,
+      "footprints_m": [
+        [
+          13.657500267028809,
+          11.592499732971191,
+          13.7475004196167,
+          11.682499885559082
+        ]
+      ],
+      "collision_footprints_m": [],
+      "mesh_names": [
+        "Utility drain/floor drain"
+      ],
+      "movable": false,
+      "dimension_basis": "VR_guided_design_dimensions_not_surveyed",
+      "reference_variant": "expanded",
+      "reference_relation": "same_layout_qualitative_reference",
+      "outside_room_m2": 0.0
+    },
+    {
+      "id": "bathroom-1-fixtures",
+      "title": "화장실 1 위생기구·거울",
+      "room_id": "bathroom-1",
+      "component": "bathroom_fixture",
+      "bounds_m": [
+        0.5020000338554382,
+        4.524999618530273,
+        2.9189999103546143,
+        6.23900032043457
+      ],
+      "bottom_m": 0.0,
+      "top_m": 2.0999999046325684,
+      "footprints_m": [
+        [
+          0.5020000338554382,
+          4.539999961853027,
+          1.2620000839233398,
+          6.23900032043457
+        ],
+        [
+          1.2559999227523804,
+          4.539999961853027,
+          1.2680000066757202,
+          5.060000419616699
+        ],
+        [
+          1.2519999742507935,
+          4.539999961853027,
+          1.2719999551773071,
+          5.060000419616699
+        ],
+        [
+          0.671999990940094,
+          4.605000019073486,
+          0.8720000386238098,
+          4.794999599456787
+        ],
+        [
+          0.7595000267028809,
+          4.535000324249268,
+          0.784500002861023,
+          4.565000057220459
+        ],
+        [
+          1.3269999027252197,
+          4.535000324249268,
+          1.9769999980926514,
+          4.985000133514404
+        ],
+        [
+          1.3070000410079956,
+          4.525000095367432,
+          1.996999979019165,
+          4.994999885559082
+        ],
+        [
+          1.629499912261963,
+          4.737500190734863,
+          1.6744999885559082,
+          4.782500267028809
+        ],
+        [
+          1.6369999647140503,
+          4.554999828338623,
+          1.6669999361038208,
+          4.65500020980835
+        ],
+        [
+          1.3320000171661377,
+          4.524999618530273,
+          2.9189999103546143,
+          4.545000076293945
+        ],
+        [
+          1.3320000171661377,
+          4.554999828338623,
+          2.9189999103546143,
+          4.575000286102295
+        ],
+        [
+          1.3320000171661377,
+          4.545000076293945,
+          2.9189999103546143,
+          4.664999961853027
+        ],
+        [
+          2.4590001106262207,
+          4.640000343322754,
+          2.738999843597412,
+          5.079999923706055
+        ],
+        [
+          2.4090001583099365,
+          4.559999942779541,
+          2.7890000343322754,
+          5.159999847412109
+        ],
+        [
+          2.4140000343322754,
+          4.630000114440918,
+          2.7839999198913574,
+          5.119999885559082
+        ],
+        [
+          2.4189999103546143,
+          4.565000057220459,
+          2.7790000438690186,
+          4.695000171661377
+        ]
+      ],
+      "collision_footprints_m": [
+        [
+          1.2559999227523804,
+          4.539999961853027,
+          1.2680000066757202,
+          5.060000419616699
+        ],
+        [
+          0.7595000267028809,
+          4.535000324249268,
+          0.784500002861023,
+          4.565000057220459
+        ],
+        [
+          1.3269999027252197,
+          4.535000324249268,
+          1.9769999980926514,
+          4.985000133514404
+        ],
+        [
+          1.3070000410079956,
+          4.525000095367432,
+          1.996999979019165,
+          4.994999885559082
+        ],
+        [
+          1.629499912261963,
+          4.737500190734863,
+          1.6744999885559082,
+          4.782500267028809
+        ],
+        [
+          1.6369999647140503,
+          4.554999828338623,
+          1.6669999361038208,
+          4.65500020980835
+        ],
+        [
+          1.3320000171661377,
+          4.524999618530273,
+          2.9189999103546143,
+          4.545000076293945
+        ],
+        [
+          1.3320000171661377,
+          4.545000076293945,
+          2.9189999103546143,
+          4.664999961853027
+        ],
+        [
+          2.4590001106262207,
+          4.640000343322754,
+          2.738999843597412,
+          5.079999923706055
+        ],
+        [
+          2.4090001583099365,
+          4.559999942779541,
+          2.7890000343322754,
+          5.159999847412109
+        ],
+        [
+          2.4140000343322754,
+          4.630000114440918,
+          2.7839999198913574,
+          5.119999885559082
+        ],
+        [
+          2.4189999103546143,
+          4.565000057220459,
+          2.7790000438690186,
+          4.695000171661377
+        ]
+      ],
+      "mesh_names": [
+        "bathroom-1-fixtures/shower tray",
+        "bathroom-1-fixtures/shower screen",
+        "bathroom-1-fixtures/shower rail",
+        "bathroom-1-fixtures/shower head",
+        "bathroom-1-fixtures/shower riser",
+        "bathroom-1-fixtures/vanity cabinet",
+        "bathroom-1-fixtures/porcelain basin",
+        "bathroom-1-fixtures/drain",
+        "bathroom-1-fixtures/basin tap",
+        "bathroom-1-fixtures/mirror",
+        "bathroom-1-fixtures/mirror light",
+        "bathroom-1-fixtures/stone shelf",
+        "bathroom-1-fixtures/wc pedestal",
+        "bathroom-1-fixtures/wc bowl",
+        "bathroom-1-fixtures/wc lid",
+        "bathroom-1-fixtures/wc tank"
+      ],
+      "movable": false,
+      "dimension_basis": "VR_guided_design_dimensions_not_surveyed",
+      "reference_variant": "expanded",
+      "reference_relation": "same_layout_qualitative_reference",
+      "outside_room_m2": 0.0
+    },
+    {
+      "id": "primary-bath-fixtures",
+      "title": "안방 화장실 위생기구·거울",
+      "room_id": "primary-bath",
+      "component": "bathroom_fixture",
+      "bounds_m": [
+        11.778999328613281,
+        2.2810001373291016,
+        14.171000480651855,
+        3.9210000038146973
+      ],
+      "bottom_m": 0.0,
+      "top_m": 2.0799999237060547,
+      "footprints_m": [
+        [
+          12.516499519348145,
+          2.2960000038146973,
+          12.56149959564209,
+          3.9060001373291016
+        ],
+        [
+          11.778999328613281,
+          2.2960000038146973,
+          11.819000244140625,
+          3.9060001373291016
+        ],
+        [
+          11.788999557495117,
+          2.2810001373291016,
+          12.548999786376953,
+          2.321000099182129
+        ],
+        [
+          11.788999557495117,
+          3.88100004196167,
+          12.548999786376953,
+          3.9210000038146973
+        ],
+        [
+          11.788999557495117,
+          2.2960000038146973,
+          12.548999786376953,
+          3.9059998989105225
+        ],
+        [
+          12.146499633789062,
+          3.0785000324249268,
+          12.191499710083008,
+          3.123500108718872
+        ],
+        [
+          11.833999633789062,
+          2.4560000896453857,
+          11.923999786376953,
+          2.496000051498413
+        ],
+        [
+          12.61400032043457,
+          3.4610002040863037,
+          13.263999938964844,
+          3.9110000133514404
+        ],
+        [
+          12.593999862670898,
+          3.4509999752044678,
+          13.284000396728516,
+          3.9210000038146973
+        ],
+        [
+          12.916500091552734,
+          3.6635000705718994,
+          12.96150016784668,
+          3.7085001468658447
+        ],
+        [
+          12.923999786376953,
+          3.7910001277923584,
+          12.954000473022461,
+          3.8910000324249268
+        ],
+        [
+          12.619000434875488,
+          3.9010000228881836,
+          14.171000480651855,
+          3.9210000038146973
+        ],
+        [
+          12.619000434875488,
+          3.871000051498413,
+          14.171000480651855,
+          3.8910000324249268
+        ],
+        [
+          12.619000434875488,
+          3.7810001373291016,
+          14.171000480651855,
+          3.9010000228881836
+        ],
+        [
+          13.710999488830566,
+          3.365999937057495,
+          13.991000175476074,
+          3.805999994277954
+        ],
+        [
+          13.66100025177002,
+          3.2860000133514404,
+          14.040999412536621,
+          3.885999917984009
+        ],
+        [
+          13.666000366210938,
+          3.326000213623047,
+          14.03600025177002,
+          3.815999984741211
+        ],
+        [
+          13.670999526977539,
+          3.750999927520752,
+          14.031000137329102,
+          3.88100004196167
+        ]
+      ],
+      "collision_footprints_m": [
+        [
+          12.516499519348145,
+          2.2960000038146973,
+          12.56149959564209,
+          3.9060001373291016
+        ],
+        [
+          11.778999328613281,
+          2.2960000038146973,
+          11.819000244140625,
+          3.9060001373291016
+        ],
+        [
+          11.788999557495117,
+          2.2810001373291016,
+          12.548999786376953,
+          2.321000099182129
+        ],
+        [
+          11.788999557495117,
+          3.88100004196167,
+          12.548999786376953,
+          3.9210000038146973
+        ],
+        [
+          11.788999557495117,
+          2.2960000038146973,
+          12.548999786376953,
+          3.9059998989105225
+        ],
+        [
+          12.146499633789062,
+          3.0785000324249268,
+          12.191499710083008,
+          3.123500108718872
+        ],
+        [
+          11.833999633789062,
+          2.4560000896453857,
+          11.923999786376953,
+          2.496000051498413
+        ],
+        [
+          12.61400032043457,
+          3.4610002040863037,
+          13.263999938964844,
+          3.9110000133514404
+        ],
+        [
+          12.593999862670898,
+          3.4509999752044678,
+          13.284000396728516,
+          3.9210000038146973
+        ],
+        [
+          12.916500091552734,
+          3.6635000705718994,
+          12.96150016784668,
+          3.7085001468658447
+        ],
+        [
+          12.923999786376953,
+          3.7910001277923584,
+          12.954000473022461,
+          3.8910000324249268
+        ],
+        [
+          12.619000434875488,
+          3.9010000228881836,
+          14.171000480651855,
+          3.9210000038146973
+        ],
+        [
+          12.619000434875488,
+          3.7810001373291016,
+          14.171000480651855,
+          3.9010000228881836
+        ],
+        [
+          13.710999488830566,
+          3.365999937057495,
+          13.991000175476074,
+          3.805999994277954
+        ],
+        [
+          13.66100025177002,
+          3.2860000133514404,
+          14.040999412536621,
+          3.885999917984009
+        ],
+        [
+          13.666000366210938,
+          3.326000213623047,
+          14.03600025177002,
+          3.815999984741211
+        ],
+        [
+          13.670999526977539,
+          3.750999927520752,
+          14.031000137329102,
+          3.88100004196167
+        ]
+      ],
+      "mesh_names": [
+        "primary-bath-fixtures/tub apron",
+        "primary-bath-fixtures/tub west apron",
+        "primary-bath-fixtures/tub end",
+        "primary-bath-fixtures/tub end.001",
+        "primary-bath-fixtures/recessed bathtub",
+        "primary-bath-fixtures/drain",
+        "primary-bath-fixtures/tub mixer",
+        "primary-bath-fixtures/vanity cabinet",
+        "primary-bath-fixtures/porcelain basin",
+        "primary-bath-fixtures/drain.001",
+        "primary-bath-fixtures/basin tap",
+        "primary-bath-fixtures/mirror",
+        "primary-bath-fixtures/mirror light",
+        "primary-bath-fixtures/stone shelf",
+        "primary-bath-fixtures/wc pedestal",
+        "primary-bath-fixtures/wc bowl",
+        "primary-bath-fixtures/wc lid",
+        "primary-bath-fixtures/wc tank"
+      ],
+      "movable": false,
+      "dimension_basis": "VR_guided_design_dimensions_not_surveyed",
+      "reference_variant": "expanded",
+      "reference_relation": "same_layout_qualitative_reference",
+      "outside_room_m2": 0.0
+    },
+    {
+      "id": "entry-storage built-in",
+      "title": "현관 수납 공간 수납장",
+      "room_id": "entry-storage",
+      "component": "storage_fixture",
+      "bounds_m": [
+        8.373000144958496,
+        1.371999979019165,
+        10.002999305725098,
+        1.6170001029968262
+      ],
+      "bottom_m": 0.0,
+      "top_m": 2.3000001907348633,
+      "footprints_m": [
+        [
+          8.38700008392334,
+          1.3860000371932983,
+          9.988999366760254,
+          1.6030000448226929
+        ],
+        [
+          8.427999496459961,
+          1.4270000457763672,
+          9.947999954223633,
+          1.562000036239624
+        ],
+        [
+          8.373000144958496,
+          1.371999979019165,
+          10.002999305725098,
+          1.6170001029968262
+        ],
+        [
+          8.380999565124512,
+          1.5920000076293945,
+          8.908333778381348,
+          1.6170001029968262
+        ],
+        [
+          8.924332618713379,
+          1.5920000076293945,
+          9.451666831970215,
+          1.6170001029968262
+        ],
+        [
+          9.467666625976562,
+          1.5920000076293945,
+          9.995000839233398,
+          1.6170001029968262
+        ]
+      ],
+      "collision_footprints_m": [
+        [
+          8.38700008392334,
+          1.3860000371932983,
+          9.988999366760254,
+          1.6030000448226929
+        ],
+        [
+          8.380999565124512,
+          1.5920000076293945,
+          8.908333778381348,
+          1.6170001029968262
+        ],
+        [
+          8.924332618713379,
+          1.5920000076293945,
+          9.451666831970215,
+          1.6170001029968262
+        ],
+        [
+          9.467666625976562,
+          1.5920000076293945,
+          9.995000839233398,
+          1.6170001029968262
+        ]
+      ],
+      "mesh_names": [
+        "entry-storage built-in/carcass",
+        "entry-storage built-in/plinth",
+        "entry-storage built-in/cap",
+        "entry-storage built-in/front-0-0",
+        "entry-storage built-in/front-1-0",
+        "entry-storage built-in/front-2-0"
+      ],
+      "movable": false,
+      "dimension_basis": "VR_guided_design_dimensions_not_surveyed",
+      "reference_variant": "expanded",
+      "reference_relation": "same_layout_qualitative_reference",
+      "outside_room_m2": 0.0
+    },
+    {
+      "id": "hall-pantry built-in",
+      "title": "침실 2 앞 팬트리 수납장",
+      "room_id": "hall-pantry",
+      "component": "storage_fixture",
+      "bounds_m": [
+        4.828999996185303,
+        3.8969998359680176,
+        6.721999645233154,
+        4.1419997215271
+      ],
+      "bottom_m": 0.0,
+      "top_m": 2.3000001907348633,
+      "footprints_m": [
+        [
+          4.8429999351501465,
+          3.9109997749328613,
+          6.7079997062683105,
+          4.127999782562256
+        ],
+        [
+          4.883999824523926,
+          3.9519996643066406,
+          6.666999816894531,
+          4.086999893188477
+        ],
+        [
+          4.828999996185303,
+          3.8969998359680176,
+          6.721999645233154,
+          4.1419997215271
+        ],
+        [
+          4.836999893188477,
+          4.117000102996826,
+          5.451999664306641,
+          4.1419997215271
+        ],
+        [
+          5.4679999351501465,
+          4.117000102996826,
+          6.0829997062683105,
+          4.1419997215271
+        ],
+        [
+          6.098999977111816,
+          4.117000102996826,
+          6.7139997482299805,
+          4.1419997215271
+        ]
+      ],
+      "collision_footprints_m": [
+        [
+          4.8429999351501465,
+          3.9109997749328613,
+          6.7079997062683105,
+          4.127999782562256
+        ],
+        [
+          4.836999893188477,
+          4.117000102996826,
+          5.451999664306641,
+          4.1419997215271
+        ],
+        [
+          5.4679999351501465,
+          4.117000102996826,
+          6.0829997062683105,
+          4.1419997215271
+        ],
+        [
+          6.098999977111816,
+          4.117000102996826,
+          6.7139997482299805,
+          4.1419997215271
+        ]
+      ],
+      "mesh_names": [
+        "hall-pantry built-in/carcass",
+        "hall-pantry built-in/plinth",
+        "hall-pantry built-in/cap",
+        "hall-pantry built-in/front-0-0",
+        "hall-pantry built-in/front-1-0",
+        "hall-pantry built-in/front-2-0"
+      ],
+      "movable": false,
+      "dimension_basis": "VR_guided_design_dimensions_not_surveyed",
+      "reference_variant": "expanded",
+      "reference_relation": "same_layout_qualitative_reference",
+      "outside_room_m2": 0.0
+    },
+    {
+      "id": "Dressing deep wardrobe",
+      "title": "드레스룸 안쪽 옷장",
+      "room_id": "dressing",
+      "component": "storage_fixture",
+      "bounds_m": [
+        10.27299976348877,
+        0.3799999952316284,
+        10.793000221252441,
+        2.5939998626708984
+      ],
+      "bottom_m": 0.0,
+      "top_m": 2.3000001907348633,
+      "footprints_m": [
+        [
+          10.286999702453613,
+          0.39399993419647217,
+          10.779000282287598,
+          2.5799999237060547
+        ],
+        [
+          10.32800006866455,
+          0.434999942779541,
+          10.73799991607666,
+          2.5390000343322754
+        ],
+        [
+          10.27299976348877,
+          0.3799999952316284,
+          10.793000221252441,
+          2.5939998626708984
+        ],
+        [
+          10.768000602722168,
+          0.3880000114440918,
+          10.793000221252441,
+          1.1100000143051147
+        ],
+        [
+          10.768000602722168,
+          1.125999927520752,
+          10.793000221252441,
+          1.8480000495910645
+        ],
+        [
+          10.768000602722168,
+          1.863999843597412,
+          10.793000221252441,
+          2.5859999656677246
+        ]
+      ],
+      "collision_footprints_m": [
+        [
+          10.286999702453613,
+          0.39399993419647217,
+          10.779000282287598,
+          2.5799999237060547
+        ],
+        [
+          10.768000602722168,
+          0.3880000114440918,
+          10.793000221252441,
+          1.1100000143051147
+        ],
+        [
+          10.768000602722168,
+          1.125999927520752,
+          10.793000221252441,
+          1.8480000495910645
+        ],
+        [
+          10.768000602722168,
+          1.863999843597412,
+          10.793000221252441,
+          2.5859999656677246
+        ]
+      ],
+      "mesh_names": [
+        "Dressing deep wardrobe/carcass",
+        "Dressing deep wardrobe/plinth",
+        "Dressing deep wardrobe/cap",
+        "Dressing deep wardrobe/front-0-0",
+        "Dressing deep wardrobe/front-1-0",
+        "Dressing deep wardrobe/front-2-0"
+      ],
+      "movable": false,
+      "dimension_basis": "VR_guided_design_dimensions_not_surveyed",
+      "reference_variant": "expanded",
+      "reference_relation": "same_layout_qualitative_reference",
+      "outside_room_m2": 0.0
+    },
+    {
+      "id": "Dressing vanity",
+      "title": "드레스룸 화장대",
+      "room_id": "dressing",
+      "component": "storage_fixture",
+      "bounds_m": [
+        10.842999458312988,
+        0.33500000834465027,
+        12.894000053405762,
+        0.7599999904632568
+      ],
+      "bottom_m": 0.0,
+      "top_m": 2.1500000953674316,
+      "footprints_m": [
+        [
+          10.856999397277832,
+          0.3490000069141388,
+          12.880000114440918,
+          0.7460000514984131
+        ],
+        [
+          10.89799976348877,
+          0.39000001549720764,
+          12.83899974822998,
+          0.7050000429153442
+        ],
+        [
+          10.842999458312988,
+          0.33500000834465027,
+          12.894000053405762,
+          0.7599999904632568
+        ],
+        [
+          10.85099983215332,
+          0.7350000143051147,
+          11.518667221069336,
+          0.7599999904632568
+        ],
+        [
+          11.534666061401367,
+          0.7350000143051147,
+          12.202333450317383,
+          0.7599999904632568
+        ],
+        [
+          12.21833324432373,
+          0.7350000143051147,
+          12.886000633239746,
+          0.7599999904632568
+        ],
+        [
+          10.873000144958496,
+          0.3409999907016754,
+          12.863999366760254,
+          0.35899999737739563
+        ],
+        [
+          10.873000144958496,
+          0.3610000014305115,
+          12.863999366760254,
+          0.3790000081062317
+        ]
+      ],
+      "collision_footprints_m": [
+        [
+          10.856999397277832,
+          0.3490000069141388,
+          12.880000114440918,
+          0.7460000514984131
+        ],
+        [
+          10.842999458312988,
+          0.33500000834465027,
+          12.894000053405762,
+          0.7599999904632568
+        ],
+        [
+          10.85099983215332,
+          0.7350000143051147,
+          11.518667221069336,
+          0.7599999904632568
+        ],
+        [
+          11.534666061401367,
+          0.7350000143051147,
+          12.202333450317383,
+          0.7599999904632568
+        ],
+        [
+          12.21833324432373,
+          0.7350000143051147,
+          12.886000633239746,
+          0.7599999904632568
+        ],
+        [
+          10.873000144958496,
+          0.3409999907016754,
+          12.863999366760254,
+          0.35899999737739563
+        ]
+      ],
+      "mesh_names": [
+        "Dressing vanity/carcass",
+        "Dressing vanity/plinth",
+        "Dressing vanity/countertop",
+        "Dressing vanity/front-0-0",
+        "Dressing vanity/front-1-0",
+        "Dressing vanity/front-2-0",
+        "Dressing vanity/mirror",
+        "Dressing vanity/vanity light"
+      ],
+      "movable": false,
+      "dimension_basis": "VR_guided_design_dimensions_not_surveyed",
+      "reference_variant": "expanded",
+      "reference_relation": "same_layout_qualitative_reference",
+      "outside_room_m2": 0.0
+    },
+    {
+      "id": "Skirting entry-storage",
+      "title": "현관 수납 공간 걸레받이",
+      "room_id": "entry-storage",
+      "component": "decoration",
+      "bounds_m": [
+        8.348999977111816,
+        1.3429999351501465,
+        10.036499977111816,
+        2.2039999961853027
+      ],
+      "bottom_m": 0.0030000004917383194,
+      "top_m": 0.057999998331069946,
+      "footprints_m": [
+        [
+          8.357000350952148,
+          2.188000202178955,
+          8.703125,
+          2.2039999961853027
+        ],
+        [
+          9.68287467956543,
+          2.188000202178955,
+          10.028984069824219,
+          2.2039999961853027
+        ],
+        [
+          10.020499229431152,
+          1.3509999513626099,
+          10.036499977111816,
+          2.196000099182129
+        ],
+        [
+          8.356999397277832,
+          1.3429999351501465,
+          10.028016090393066,
+          1.3589999675750732
+        ],
+        [
+          8.348999977111816,
+          1.3509999513626099,
+          8.36500072479248,
+          2.196000099182129
+        ]
+      ],
+      "collision_footprints_m": [],
+      "mesh_names": [
+        "Skirting entry-storage/profile",
+        "Skirting entry-storage/profile.001",
+        "Skirting entry-storage/profile.002",
+        "Skirting entry-storage/profile.003",
+        "Skirting entry-storage/profile.004"
+      ],
+      "movable": false,
+      "dimension_basis": "VR_guided_design_dimensions_not_surveyed",
+      "reference_variant": "expanded",
+      "reference_relation": "same_layout_qualitative_reference",
+      "outside_room_m2": 0.0
+    },
+    {
+      "id": "Skirting bedroom-1",
+      "title": "침실 1 걸레받이",
+      "room_id": "bedroom-1",
+      "component": "decoration",
+      "bounds_m": [
+        0.4780000150203705,
+        6.485000133514404,
+        4.209000110626221,
+        10.891000747680664
+      ],
+      "bottom_m": 0.0030000004917383194,
+      "top_m": 0.057999998331069946,
+      "footprints_m": [
+        [
+          0.4780000150203705,
+          6.493000030517578,
+          0.49399998784065247,
+          10.882999420166016
+        ],
+        [
+          0.4859999418258667,
+          10.875,
+          4.200999736785889,
+          10.891000747680664
+        ],
+        [
+          4.193000316619873,
+          6.493000030517578,
+          4.209000110626221,
+          10.882999420166016
+        ],
+        [
+          0.48600006103515625,
+          6.485000133514404,
+          3.2819151878356934,
+          6.500999927520752
+        ]
+      ],
+      "collision_footprints_m": [],
+      "mesh_names": [
+        "Skirting bedroom-1/profile",
+        "Skirting bedroom-1/profile.001",
+        "Skirting bedroom-1/profile.002",
+        "Skirting bedroom-1/profile.003"
+      ],
+      "movable": false,
+      "dimension_basis": "VR_guided_design_dimensions_not_surveyed",
+      "reference_variant": "expanded",
+      "reference_relation": "same_layout_qualitative_reference",
+      "outside_room_m2": 0.0
+    },
+    {
+      "id": "Skirting living-kitchen-hall",
+      "title": "거실 · 주방 · 복도 걸레받이",
+      "room_id": "living-kitchen-hall",
+      "component": "decoration",
+      "bounds_m": [
+        3.205000162124634,
+        2.4160001277923584,
+        21.275999069213867,
+        12.145000457763672
+      ],
+      "bottom_m": 0.0030000004917383194,
+      "top_m": 0.057999998331069946,
+      "footprints_m": [
+        [
+          21.260000228881836,
+          5.039999961853027,
+          21.275999069213867,
+          10.62399959564209
+        ],
+        [
+          15.937085151672363,
+          5.0320000648498535,
+          21.26799964904785,
+          5.047999858856201
+        ],
+        [
+          13.430997848510742,
+          5.0320000648498535,
+          15.046915054321289,
+          5.047999858856201
+        ],
+        [
+          10.028999328613281,
+          5.0320000648498535,
+          11.407001495361328,
+          5.047999858856201
+        ],
+        [
+          10.020999908447266,
+          2.4240002632141113,
+          10.03700065612793,
+          5.039999961853027
+        ],
+        [
+          9.68287467956543,
+          2.4160001277923584,
+          10.028999328613281,
+          2.431999921798706
+        ],
+        [
+          8.35702133178711,
+          2.4160001277923584,
+          8.703125,
+          2.431999921798706
+        ],
+        [
+          8.349143028259277,
+          2.4240000247955322,
+          8.365143775939941,
+          2.589731454849243
+        ],
+        [
+          8.350790977478027,
+          3.4799387454986572,
+          8.366791725158691,
+          3.762000799179077
+        ],
+        [
+          8.34998893737793,
+          3.762000799179077,
+          8.365989685058594,
+          5.039999961853027
+        ],
+        [
+          6.255209445953369,
+          5.0320000648498535,
+          8.356978416442871,
+          5.047999858856201
+        ],
+        [
+          3.2130000591278076,
+          5.0320000648498535,
+          5.182790756225586,
+          5.047999858856201
+        ],
+        [
+          3.205000162124634,
+          5.039999961853027,
+          3.2209999561309814,
+          5.291914939880371
+        ],
+        [
+          3.205000162124634,
+          6.182084560394287,
+          3.2209999561309814,
+          6.264999866485596
+        ],
+        [
+          3.2129998207092285,
+          6.256999969482422,
+          3.2819151878356934,
+          6.2729997634887695
+        ],
+        [
+          4.172084808349609,
+          6.256999969482422,
+          6.199914932250977,
+          6.2729997634887695
+        ],
+        [
+          7.090084552764893,
+          6.256999969482422,
+          7.4559149742126465,
+          6.2729997634887695
+        ],
+        [
+          8.346084594726562,
+          6.256999969482422,
+          11.639999389648438,
+          6.2729997634887695
+        ],
+        [
+          11.631999969482422,
+          6.264999866485596,
+          11.648000717163086,
+          7.111999988555908
+        ],
+        [
+          10.869999885559082,
+          7.104000091552734,
+          11.640000343322754,
+          7.119999885559082
+        ],
+        [
+          10.86199951171875,
+          7.112000465393066,
+          10.878000259399414,
+          12.13700008392334
+        ],
+        [
+          10.869999885559082,
+          12.128999710083008,
+          12.9399995803833,
+          12.145000457763672
+        ],
+        [
+          12.931999206542969,
+          11.121085166931152,
+          12.947999954223633,
+          12.13700008392334
+        ],
+        [
+          12.931999206542969,
+          9.958000183105469,
+          12.947999954223633,
+          10.230915069580078
+        ],
+        [
+          12.9399995803833,
+          9.949999809265137,
+          16.203998565673828,
+          9.9660005569458
+        ],
+        [
+          16.196001052856445,
+          9.958000183105469,
+          16.211999893188477,
+          10.624000549316406
+        ],
+        [
+          16.20400047302246,
+          10.615999221801758,
+          16.31960105895996,
+          10.631999969482422
+        ],
+        [
+          19.480398178100586,
+          10.615999221801758,
+          21.26799964904785,
+          10.631999969482422
+        ]
+      ],
+      "collision_footprints_m": [],
+      "mesh_names": [
+        "Skirting living-kitchen-hall/profile",
+        "Skirting living-kitchen-hall/profile.001",
+        "Skirting living-kitchen-hall/profile.002",
+        "Skirting living-kitchen-hall/profile.003",
+        "Skirting living-kitchen-hall/profile.004",
+        "Skirting living-kitchen-hall/profile.005",
+        "Skirting living-kitchen-hall/profile.006",
+        "Skirting living-kitchen-hall/profile.007",
+        "Skirting living-kitchen-hall/profile.008",
+        "Skirting living-kitchen-hall/profile.009",
+        "Skirting living-kitchen-hall/profile.010",
+        "Skirting living-kitchen-hall/profile.011",
+        "Skirting living-kitchen-hall/profile.012",
+        "Skirting living-kitchen-hall/profile.013",
+        "Skirting living-kitchen-hall/profile.014",
+        "Skirting living-kitchen-hall/profile.015",
+        "Skirting living-kitchen-hall/profile.016",
+        "Skirting living-kitchen-hall/profile.017",
+        "Skirting living-kitchen-hall/profile.018",
+        "Skirting living-kitchen-hall/profile.019",
+        "Skirting living-kitchen-hall/profile.020",
+        "Skirting living-kitchen-hall/profile.021",
+        "Skirting living-kitchen-hall/profile.022",
+        "Skirting living-kitchen-hall/profile.023",
+        "Skirting living-kitchen-hall/profile.024",
+        "Skirting living-kitchen-hall/profile.025",
+        "Skirting living-kitchen-hall/profile.026",
+        "Skirting living-kitchen-hall/profile.027"
+      ],
+      "movable": false,
+      "dimension_basis": "VR_guided_design_dimensions_not_surveyed",
+      "reference_variant": "expanded",
+      "reference_relation": "same_layout_qualitative_reference",
+      "outside_room_m2": 0.0
+    },
+    {
+      "id": "Skirting hall-pantry",
+      "title": "침실 2 앞 팬트리 걸레받이",
+      "room_id": "hall-pantry",
+      "component": "decoration",
+      "bounds_m": [
+        4.805000305175781,
+        3.868000030517578,
+        6.75600004196167,
+        4.819999694824219
+      ],
+      "bottom_m": 0.0030000004917383194,
+      "top_m": 0.057999998331069946,
+      "footprints_m": [
+        [
+          6.740000247955322,
+          3.875999927520752,
+          6.75600004196167,
+          4.811999797821045
+        ],
+        [
+          4.812999725341797,
+          3.868000030517578,
+          6.748000144958496,
+          3.883999824523926
+        ],
+        [
+          4.805000305175781,
+          3.875999927520752,
+          4.821000099182129,
+          4.811999797821045
+        ],
+        [
+          4.812999725341797,
+          4.803999900817871,
+          5.182790756225586,
+          4.819999694824219
+        ],
+        [
+          6.255208969116211,
+          4.803999900817871,
+          6.748000144958496,
+          4.819999694824219
+        ]
+      ],
+      "collision_footprints_m": [],
+      "mesh_names": [
+        "Skirting hall-pantry/profile",
+        "Skirting hall-pantry/profile.001",
+        "Skirting hall-pantry/profile.002",
+        "Skirting hall-pantry/profile.003",
+        "Skirting hall-pantry/profile.004"
+      ],
+      "movable": false,
+      "dimension_basis": "VR_guided_design_dimensions_not_surveyed",
+      "reference_variant": "expanded",
+      "reference_relation": "same_layout_qualitative_reference",
+      "outside_room_m2": 0.0
+    },
+    {
+      "id": "Skirting bedroom-3",
+      "title": "침실 3 걸레받이",
+      "room_id": "bedroom-3",
+      "component": "decoration",
+      "bounds_m": [
+        7.365000247955322,
+        6.485000133514404,
+        10.65000057220459,
+        10.891000747680664
+      ],
+      "bottom_m": 0.0030000004917383194,
+      "top_m": 0.057999998331069946,
+      "footprints_m": [
+        [
+          7.365000247955322,
+          6.493000030517578,
+          7.38100004196167,
+          10.882999420166016
+        ],
+        [
+          7.373000144958496,
+          10.875,
+          10.335000038146973,
+          10.891000747680664
+        ],
+        [
+          10.32699966430664,
+          9.343999862670898,
+          10.343000411987305,
+          10.882999420166016
+        ],
+        [
+          10.335000038146973,
+          9.335999488830566,
+          10.641999244689941,
+          9.35200023651123
+        ],
+        [
+          10.633999824523926,
+          6.493000030517578,
+          10.65000057220459,
+          9.343999862670898
+        ],
+        [
+          8.346084594726562,
+          6.485000133514404,
+          10.642000198364258,
+          6.500999927520752
+        ],
+        [
+          7.373000144958496,
+          6.485000133514404,
+          7.455915451049805,
+          6.500999927520752
+        ]
+      ],
+      "collision_footprints_m": [],
+      "mesh_names": [
+        "Skirting bedroom-3/profile",
+        "Skirting bedroom-3/profile.001",
+        "Skirting bedroom-3/profile.002",
+        "Skirting bedroom-3/profile.003",
+        "Skirting bedroom-3/profile.004",
+        "Skirting bedroom-3/profile.005",
+        "Skirting bedroom-3/profile.006"
+      ],
+      "movable": false,
+      "dimension_basis": "VR_guided_design_dimensions_not_surveyed",
+      "reference_variant": "expanded",
+      "reference_relation": "same_layout_qualitative_reference",
+      "outside_room_m2": 0.0
+    },
+    {
+      "id": "Skirting primary",
+      "title": "안방 걸레받이",
+      "room_id": "primary",
+      "component": "decoration",
+      "bounds_m": [
+        13.15999984741211,
+        0.3060000240802765,
+        19.21299934387207,
+        4.819999694824219
+      ],
+      "bottom_m": 0.0030000004917383194,
+      "top_m": 0.057999998331069946,
+      "footprints_m": [
+        [
+          19.19700050354004,
+          4.183173656463623,
+          19.21299934387207,
+          4.811999797821045
+        ],
+        [
+          19.19700050354004,
+          0.3139999508857727,
+          19.21299934387207,
+          2.122826337814331
+        ],
+        [
+          13.168000221252441,
+          0.3060000240802765,
+          19.204999923706055,
+          0.32199999690055847
+        ],
+        [
+          13.15999984741211,
+          0.3140000104904175,
+          13.176000595092773,
+          0.9995214939117432
+        ],
+        [
+          13.15999984741211,
+          1.986478567123413,
+          13.176000595092773,
+          2.0420000553131104
+        ],
+        [
+          13.168000221252441,
+          2.0340001583099365,
+          13.33991527557373,
+          2.049999952316284
+        ],
+        [
+          14.230085372924805,
+          2.0340001583099365,
+          14.46500015258789,
+          2.049999952316284
+        ],
+        [
+          14.456999778747559,
+          2.0420000553131104,
+          14.473000526428223,
+          4.812000274658203
+        ],
+        [
+          14.46500015258789,
+          4.803999900817871,
+          15.046915054321289,
+          4.819999694824219
+        ],
+        [
+          15.937085151672363,
+          4.803999900817871,
+          19.204999923706055,
+          4.819999694824219
+        ]
+      ],
+      "collision_footprints_m": [],
+      "mesh_names": [
+        "Skirting primary/profile",
+        "Skirting primary/profile.001",
+        "Skirting primary/profile.002",
+        "Skirting primary/profile.003",
+        "Skirting primary/profile.004",
+        "Skirting primary/profile.005",
+        "Skirting primary/profile.006",
+        "Skirting primary/profile.007",
+        "Skirting primary/profile.008",
+        "Skirting primary/profile.009"
+      ],
+      "movable": false,
+      "dimension_basis": "VR_guided_design_dimensions_not_surveyed",
+      "reference_variant": "expanded",
+      "reference_relation": "same_layout_qualitative_reference",
+      "outside_room_m2": 0.0
+    },
+    {
+      "id": "Skirting dressing",
+      "title": "드레스룸 안쪽 공간 걸레받이",
+      "room_id": "dressing",
+      "component": "decoration",
+      "bounds_m": [
+        10.24899959564209,
+        0.3060000240802765,
+        12.947999954223633,
+        2.638000011444092
+      ],
+      "bottom_m": 0.0030000004917383194,
+      "top_m": 0.057999998331069946,
+      "footprints_m": [
+        [
+          10.256999969482422,
+          2.622000217437744,
+          11.545000076293945,
+          2.638000011444092
+        ],
+        [
+          11.536999702453613,
+          2.0420000553131104,
+          11.553000450134277,
+          2.629999876022339
+        ],
+        [
+          11.545000076293945,
+          2.0340001583099365,
+          12.940000534057617,
+          2.049999952316284
+        ],
+        [
+          12.931999206542969,
+          1.986478567123413,
+          12.947999954223633,
+          2.0420000553131104
+        ],
+        [
+          12.931999206542969,
+          0.3140000104904175,
+          12.947999954223633,
+          0.9995214939117432
+        ],
+        [
+          10.256999969482422,
+          0.3060000240802765,
+          12.940000534057617,
+          0.32199999690055847
+        ],
+        [
+          10.24899959564209,
+          0.3140000104904175,
+          10.265000343322754,
+          2.630000114440918
+        ]
+      ],
+      "collision_footprints_m": [],
+      "mesh_names": [
+        "Skirting dressing/profile",
+        "Skirting dressing/profile.001",
+        "Skirting dressing/profile.002",
+        "Skirting dressing/profile.003",
+        "Skirting dressing/profile.004",
+        "Skirting dressing/profile.005",
+        "Skirting dressing/profile.006"
+      ],
+      "movable": false,
+      "dimension_basis": "VR_guided_design_dimensions_not_surveyed",
+      "reference_variant": "expanded",
+      "reference_relation": "same_layout_qualitative_reference",
+      "outside_room_m2": 0.0
+    },
+    {
+      "id": "Skirting hall-storage",
+      "title": "복도 붙박이 수납 걸레받이",
+      "room_id": "hall-storage",
+      "component": "decoration",
+      "bounds_m": [
+        10.798999786376953,
+        4.1519999504089355,
+        13.921000480651855,
+        4.819999694824219
+      ],
+      "bottom_m": 0.0030000004917383194,
+      "top_m": 0.057999998331069946,
+      "footprints_m": [
+        [
+          10.798999786376953,
+          4.159999847412109,
+          10.815000534057617,
+          4.812000274658203
+        ],
+        [
+          10.806999206542969,
+          4.803999900817871,
+          11.407001495361328,
+          4.819999694824219
+        ],
+        [
+          13.430997848510742,
+          4.803999900817871,
+          13.913000106811523,
+          4.819999694824219
+        ],
+        [
+          13.904999732971191,
+          4.159999847412109,
+          13.921000480651855,
+          4.812000274658203
+        ],
+        [
+          13.089385986328125,
+          4.1519999504089355,
+          13.913000106811523,
+          4.167999744415283
+        ],
+        [
+          10.807000160217285,
+          4.1519999504089355,
+          11.748614311218262,
+          4.167999744415283
+        ]
+      ],
+      "collision_footprints_m": [],
+      "mesh_names": [
+        "Skirting hall-storage/profile",
+        "Skirting hall-storage/profile.001",
+        "Skirting hall-storage/profile.002",
+        "Skirting hall-storage/profile.003",
+        "Skirting hall-storage/profile.004",
+        "Skirting hall-storage/profile.005"
+      ],
+      "movable": false,
+      "dimension_basis": "VR_guided_design_dimensions_not_surveyed",
+      "reference_variant": "expanded",
+      "reference_relation": "same_layout_qualitative_reference",
+      "outside_room_m2": 0.0
+    },
+    {
+      "id": "Skirting bedroom-2",
+      "title": "침실 2 걸레받이",
+      "room_id": "bedroom-2",
+      "component": "decoration",
+      "bounds_m": [
+        4.421000003814697,
+        6.485000133514404,
+        7.1529998779296875,
+        10.891000747680664
+      ],
+      "bottom_m": 0.0030000004917383194,
+      "top_m": 0.057999998331069946,
+      "footprints_m": [
+        [
+          4.428999900817871,
+          10.875,
+          7.145000457763672,
+          10.891000747680664
+        ],
+        [
+          7.13700008392334,
+          6.493000030517578,
+          7.1529998779296875,
+          10.882999420166016
+        ],
+        [
+          7.090084552764893,
+          6.485000133514404,
+          7.144999980926514,
+          6.500999927520752
+        ],
+        [
+          4.86299991607666,
+          6.485000133514404,
+          6.199914932250977,
+          6.500999927520752
+        ],
+        [
+          4.855000019073486,
+          6.49299955368042,
+          4.870999813079834,
+          7.111999988555908
+        ],
+        [
+          4.428999900817871,
+          7.104000091552734,
+          4.86299991607666,
+          7.119999885559082
+        ],
+        [
+          4.421000003814697,
+          7.111999988555908,
+          4.436999797821045,
+          9.449999809265137
+        ],
+        [
+          4.428999900817871,
+          9.441999435424805,
+          4.86299991607666,
+          9.458000183105469
+        ],
+        [
+          4.855000019073486,
+          9.449999809265137,
+          4.870999813079834,
+          10.282000541687012
+        ],
+        [
+          4.428999900817871,
+          10.273999214172363,
+          4.86299991607666,
+          10.289999961853027
+        ],
+        [
+          4.421000003814697,
+          10.282000541687012,
+          4.436999797821045,
+          10.883000373840332
+        ]
+      ],
+      "collision_footprints_m": [],
+      "mesh_names": [
+        "Skirting bedroom-2/profile",
+        "Skirting bedroom-2/profile.001",
+        "Skirting bedroom-2/profile.002",
+        "Skirting bedroom-2/profile.003",
+        "Skirting bedroom-2/profile.004",
+        "Skirting bedroom-2/profile.005",
+        "Skirting bedroom-2/profile.006",
+        "Skirting bedroom-2/profile.007",
+        "Skirting bedroom-2/profile.008",
+        "Skirting bedroom-2/profile.009",
+        "Skirting bedroom-2/profile.010"
+      ],
+      "movable": false,
+      "dimension_basis": "VR_guided_design_dimensions_not_surveyed",
+      "reference_variant": "expanded",
+      "reference_relation": "same_layout_qualitative_reference",
+      "outside_room_m2": 0.0
+    }
+  ],
+  "door_accessories": {
+    "door-00": [
+      "door-00/lever--1",
+      "door-00/lever-1"
+    ],
+    "door-01": [
+      "door-01/lever--1",
+      "door-01/lever-1"
+    ],
+    "door-02": [
+      "door-02/lever--1",
+      "door-02/lever-1"
+    ],
+    "door-03": [
+      "door-03/lever--1",
+      "door-03/lever-1"
+    ],
+    "door-04": [
+      "door-04/lever--1",
+      "door-04/lever-1"
+    ],
+    "door-05": [
+      "door-05/lever--1",
+      "door-05/lever-1"
+    ],
+    "door-06": [
+      "door-06/lever--1",
+      "door-06/lever-1"
+    ],
+    "door-07": [
+      "door-07/lever--1",
+      "door-07/lever-1"
+    ],
+    "kitchen-pantry-door": [
+      "kitchen-pantry-door/lever--1",
+      "kitchen-pantry-door/lever-1"
+    ]
+  },
+  "detail_review": {
+    "parent_revision": "archisketch-interiors-v1",
+    "parent_blend_sha256": "2f8483623d826de8380869189b36f371c4ee2e07bba8a0a1b95818df8b75e48c",
+    "reference_variant": "expanded",
+    "basic_reference_status": "adapted_not_photographically_verified",
+    "source_coordinates_preserved": true,
+    "hardware_verified_as_built": false,
+    "fixture_sizes_measured": false,
+    "sliding": [
+      {
+        "id": "sliding-09",
+        "old_clear_m": 0.3935,
+        "new_clear_m": 0.8270000000000001
+      },
+      {
+        "id": "sliding-10",
+        "old_clear_m": 0.43849999999999995,
+        "new_clear_m": 0.9169999999999999
+      },
+      {
+        "id": "dressing-door",
+        "old_clear_m": 0.397,
+        "new_clear_m": 0.8340000000000001
+      }
+    ],
+    "body_default_width_m": 0.44,
+    "validation_body_width_m": 0.5,
+    "references": [
+      {
+        "file": "AisideProject/references/week-07/acro-river-park/naver/vr/168C/screenshots/expanded/168C_VR_확장형_거실.png",
+        "sha256": "e39778f3fa69244ab1c4aa6ca3786c088ffe70fa52ba295dc7e6ca1522569ac1",
+        "name": "168C_VR_확장형_거실.png"
+      },
+      {
+        "file": "AisideProject/references/week-07/acro-river-park/naver/vr/168C/screenshots/expanded/168C_VR_확장형_거실부엌.png",
+        "sha256": "1a992f5691dfc584916388dd8c46123ecb0bedefce11a52d00fbcef0a902e3cb",
+        "name": "168C_VR_확장형_거실부엌.png"
+      },
+      {
+        "file": "AisideProject/references/week-07/acro-river-park/naver/vr/168C/screenshots/expanded/168C_VR_확장형_드레스룸.png",
+        "sha256": "6c17a84891de133b100d9966d6601d6d666402d8df4f6e8006d3eae704f2f68d",
+        "name": "168C_VR_확장형_드레스룸.png"
+      },
+      {
+        "file": "AisideProject/references/week-07/acro-river-park/naver/vr/168C/screenshots/expanded/168C_VR_확장형_복도 우측 뷰.png",
+        "sha256": "ba8537a0d31e428c4964eaa49cfec8f8634eeb087cd3a1c2bb35ac25d91e1a06",
+        "name": "168C_VR_확장형_복도 우측 뷰.png"
+      },
+      {
+        "file": "AisideProject/references/week-07/acro-river-park/naver/vr/168C/screenshots/expanded/168C_VR_확장형_복도 좌측 뷰.png",
+        "sha256": "63a60203b4b23ef371748d78ff72fcb63783dbb752c4b8de428b836850774857",
+        "name": "168C_VR_확장형_복도 좌측 뷰.png"
+      },
+      {
+        "file": "AisideProject/references/week-07/acro-river-park/naver/vr/168C/screenshots/expanded/168C_VR_확장형_부엌.png",
+        "sha256": "757f0f90c7b017d5bab9eae1b21e9001ae8ce5952b82f1b737234631d98bd42f",
+        "name": "168C_VR_확장형_부엌.png"
+      },
+      {
+        "file": "AisideProject/references/week-07/acro-river-park/naver/vr/168C/screenshots/expanded/168C_VR_확장형_부엌내부.png",
+        "sha256": "364aea65b1579ccaa0f955f3356ef3d8496ea04e4db402e16bc24ba291ec66df",
+        "name": "168C_VR_확장형_부엌내부.png"
+      },
+      {
+        "file": "AisideProject/references/week-07/acro-river-park/naver/vr/168C/screenshots/expanded/168C_VR_확장형_부엌내부_펜트리.png",
+        "sha256": "fa2c5bbd9dfe7982dbf571907f5ab9352e68f1e47c9825c58676ebc2b972b945",
+        "name": "168C_VR_확장형_부엌내부_펜트리.png"
+      },
+      {
+        "file": "AisideProject/references/week-07/acro-river-park/naver/vr/168C/screenshots/expanded/168C_VR_확장형_안방.png",
+        "sha256": "42d443c1c44a2023f1177dc19ce91b3895bbe25f95dd93797fb35979401687f0",
+        "name": "168C_VR_확장형_안방.png"
+      },
+      {
+        "file": "AisideProject/references/week-07/acro-river-park/naver/vr/168C/screenshots/expanded/168C_VR_확장형_안방_화장실.png",
+        "sha256": "2d885aba7818c2ddf544a65e50eedfa5511c7848d21116ad985e2a8eec63b5a6",
+        "name": "168C_VR_확장형_안방_화장실.png"
+      },
+      {
+        "file": "AisideProject/references/week-07/acro-river-park/naver/vr/168C/screenshots/expanded/168C_VR_확장형_침실1.png",
+        "sha256": "8056b64c6b41e586da95a38d4000bf07f0ab7ed6f66b5b65b8014234e737669c",
+        "name": "168C_VR_확장형_침실1.png"
+      },
+      {
+        "file": "AisideProject/references/week-07/acro-river-park/naver/vr/168C/screenshots/expanded/168C_VR_확장형_침실2.png",
+        "sha256": "b3fc6fc2ff749d2ac0530b9b85f5b964d4f1b4f887f2ec14555e1ab16d862e40",
+        "name": "168C_VR_확장형_침실2.png"
+      },
+      {
+        "file": "AisideProject/references/week-07/acro-river-park/naver/vr/168C/screenshots/expanded/168C_VR_확장형_침실3.png",
+        "sha256": "82a749b7e85202ca1b6932448195bf43abe414cc7d20d68501d80e4bccc1f35f",
+        "name": "168C_VR_확장형_침실3.png"
+      },
+      {
+        "file": "AisideProject/references/week-07/acro-river-park/naver/vr/168C/screenshots/expanded/168C_VR_확장형_평면도.png",
+        "sha256": "d04eada83190a15eecc85225632118ae92d7e1bd067abbd77183914036bc974f",
+        "name": "168C_VR_확장형_평면도.png"
+      },
+      {
+        "file": "AisideProject/references/week-07/acro-river-park/naver/vr/168C/screenshots/expanded/168C_VR_확장형_현관.png",
+        "sha256": "297bd1fc2a464b0f9b2916fc2b2ded6807330e6422b351c1d2d0c2a592b4759d",
+        "name": "168C_VR_확장형_현관.png"
+      },
+      {
+        "file": "AisideProject/references/week-07/acro-river-park/naver/vr/168C/screenshots/expanded/168C_VR_확장형_현관_입장.png",
+        "sha256": "0f486c22ec8abebdb996abbcf6a4ad1c025da23a33ec47ef27846a9392264516",
+        "name": "168C_VR_확장형_현관_입장.png"
+      },
+      {
+        "file": "AisideProject/references/week-07/acro-river-park/naver/vr/168C/screenshots/expanded/168C_VR_확장형_화장실1.png",
+        "sha256": "95d550aadf4c36a4863c99e190fd33b97816a25320f2b82bdee8e1ab4964fa0a",
+        "name": "168C_VR_확장형_화장실1.png"
+      }
+    ]
+  },
+  "joinery_review": [
+    {
+      "id": "sliding-09",
+      "mesh": "sliding-09/mullion",
+      "profile_depth_m": 0.02,
+      "normal_track_m": -0.018,
+      "basis": "provisional_nonintersecting_sliding_profile"
+    },
+    {
+      "id": "sliding-10",
+      "mesh": "sliding-10/mullion",
+      "profile_depth_m": 0.02,
+      "normal_track_m": -0.018,
+      "basis": "provisional_nonintersecting_sliding_profile"
+    },
+    {
+      "id": "sliding-11",
+      "mesh": "sliding-11/mullion",
+      "profile_depth_m": 0.02,
+      "normal_track_m": -0.018,
+      "basis": "provisional_nonintersecting_sliding_profile"
+    },
+    {
+      "id": "dressing-door",
+      "mesh": "dressing-door/mullion",
+      "profile_depth_m": 0.02,
+      "normal_track_m": -0.018,
+      "basis": "provisional_nonintersecting_sliding_profile"
+    },
+    {
+      "id": "primary-balcony-door",
+      "mesh": "primary-balcony-door/mullion",
+      "profile_depth_m": 0.02,
+      "normal_track_m": -0.018,
+      "basis": "provisional_nonintersecting_sliding_profile"
+    },
+    {
+      "id": "living-balcony-door",
+      "mesh": "living-balcony-door/mullion",
+      "profile_depth_m": 0.02,
+      "normal_track_m": -0.018,
+      "basis": "provisional_nonintersecting_sliding_profile"
+    }
+  ],
+  "visual_details": {
+    "parent_revision": "archisketch-pbr-candidate-v1",
+    "mesh_names": [
+      "Visual detail / oven vertical trim",
+      "Visual detail / oven vertical trim.001",
+      "Visual detail / oven horizontal trim",
+      "Visual detail / oven horizontal trim.001",
+      "Visual detail / oven control fascia",
+      "Visual detail / oven display glass",
+      "Visual detail / oven selector",
+      "Visual detail / oven selector index",
+      "Visual detail / oven selector.001",
+      "Visual detail / oven selector index.001",
+      "Visual detail / oven display indicator",
+      "Visual detail / oven display indicator.001",
+      "Visual detail / oven display indicator.002",
+      "Visual detail / oven display indicator.003",
+      "Visual detail / oven lower vent",
+      "Visual detail / oven lower vent.001",
+      "Visual detail / oven lower vent.002",
+      "Visual detail / oven lower vent.003",
+      "Visual detail / oven lower vent.004",
+      "Visual detail / oven lower vent.005",
+      "Visual detail / oven lower vent.006",
+      "Visual detail / oven lower vent.007",
+      "Visual detail / oven lower vent.008",
+      "Visual detail / oven lower vent.009",
+      "Visual detail / hood filter recess",
+      "Visual detail / hood filter rail",
+      "Visual detail / hood filter rail.001",
+      "Visual detail / hood filter rail.002",
+      "Visual detail / hood filter rail.003",
+      "Visual detail / hood filter rail.004",
+      "Visual detail / hood filter rail.005",
+      "Visual detail / hood filter rail.006",
+      "Visual detail / hood filter rail.007",
+      "Visual detail / hood filter rail.008",
+      "Visual detail / hood filter rail.009",
+      "Visual detail / hood filter rail.010",
+      "Visual detail / hood filter rail.011",
+      "Visual detail / hood filter rail.012",
+      "Visual detail / hood filter rail.013",
+      "Visual detail / hood diffuser",
+      "Visual detail / hood diffuser.001",
+      "Visual detail / hood fascia inset",
+      "Visual detail / hood push button",
+      "Visual detail / hood push button.001",
+      "Visual detail / hood push button.002",
+      "Visual detail / hood push button.003",
+      "Visual detail / hood push button.004",
+      "Visual detail / window-23 pane seal",
+      "Visual detail / window-23 pane seal.001",
+      "Visual detail / window-23 pane seal.002",
+      "Visual detail / window-23 pane seal.003",
+      "Visual detail / window-23 pane seal.004",
+      "Visual detail / window-23 pane seal.005",
+      "Visual detail / window-23 pane seal.006",
+      "Visual detail / window-23 pane seal.007",
+      "Visual detail / window-23 grip mount",
+      "Visual detail / window-23 grip mount.001",
+      "Visual detail / window-23 inset grip",
+      "Visual detail / window-15 pane seal",
+      "Visual detail / window-15 pane seal.001",
+      "Visual detail / window-15 pane seal.002",
+      "Visual detail / window-15 pane seal.003",
+      "Visual detail / window-15 pane seal.004",
+      "Visual detail / window-15 pane seal.005",
+      "Visual detail / window-15 pane seal.006",
+      "Visual detail / window-15 pane seal.007",
+      "Visual detail / window-15 grip mount",
+      "Visual detail / window-15 grip mount.001",
+      "Visual detail / window-15 inset grip"
+    ],
+    "basis": "VR appearance reference; detail dimensions are design assumptions",
+    "collision": "All added decorations are non-collidable and contained in existing occupied fixture/window envelopes",
+    "architecture_and_fixture_metadata_unchanged": true
+  }
+}

@@ -1,0 +1,1604 @@
+{
+  "schema": "cortex.material-candidate.v1",
+  "phase": "P0 UV-only; inherited texture bytes, not new PBR",
+  "candidate_revision": "archisketch-uv-p0-v1",
+  "baseline_revision": "archisketch-circulation-v5",
+  "material_name_mapping": "identity; names unchanged",
+  "variants": {
+    "basic": {
+      "model_uri": "assets/models/acro-river-park/112a/archisketch-uv-p0-v1/basic/acro112a-basic.glb",
+      "model_info_uri": "assets/models/acro-river-park/112a/archisketch-uv-p0-v1/basic/model-info.json",
+      "baseline_files_sha256": {
+        "assets/models/acro-river-park/112a/archisketch-circulation-v5/basic/acro112a-basic.blend": "8b8214034c81f24be6c17b18715baba167f27b102fd22b9be09cdbe253e60ec4",
+        "assets/models/acro-river-park/112a/archisketch-circulation-v5/basic/acro112a-basic.glb": "31aea39235f6a65c668ecf2754e18859679a6d24e8da93a8925eded8d2621354",
+        "assets/models/acro-river-park/112a/archisketch-circulation-v5/basic/model-info.json": "71c56eacdc6a5fed35442c4d358419fbe324fa24e0e8120f3a72f6ee56d6ecf2"
+      },
+      "candidate_files_sha256": {
+        "assets/models/acro-river-park/112a/archisketch-uv-p0-v1/basic/acro112a-basic.blend": "dcf7c3a19a1ed86fecd101e1a5d6b2698310ebb926beb186f8ff2e3669141c0e",
+        "assets/models/acro-river-park/112a/archisketch-uv-p0-v1/basic/acro112a-basic.glb": "56149e44e767c9143da8dfe7bd1082916ae9912f6c824331bd98a575037becb5",
+        "assets/models/acro-river-park/112a/archisketch-uv-p0-v1/basic/model-info.json": "2774111950707b4f520be84e6003a070d0bb69c32a7856bd216ba7dfcbd51ec7"
+      },
+      "materials": [
+        {
+          "name": "112A / Warm ivory plaster",
+          "role": "wall_plaster",
+          "first_pbr_comparison": true,
+          "material_extras": {
+            "texture_repeat_m": 1.2
+          },
+          "maps": {
+            "baseColorTexture": null,
+            "normalTexture": null,
+            "metallicRoughnessTexture": null,
+            "occlusionTexture": null
+          },
+          "ao_atlas": "none",
+          "new_pbr_material_applied": false
+        },
+        {
+          "name": "112A / Reference gray porcelain tile",
+          "role": "floor_stone",
+          "first_pbr_comparison": true,
+          "material_extras": {
+            "texture_repeat_m": 1.2
+          },
+          "maps": {
+            "baseColorTexture": null,
+            "normalTexture": null,
+            "metallicRoughnessTexture": null,
+            "occlusionTexture": null
+          },
+          "ao_atlas": "none",
+          "new_pbr_material_applied": false
+        },
+        {
+          "name": "112A / Bedroom light oak",
+          "role": "floor_wood",
+          "first_pbr_comparison": true,
+          "material_extras": {
+            "texture_repeat_m": 1.2
+          },
+          "maps": {
+            "baseColorTexture": {
+              "uri": "assets/models/acro-river-park/112a/archisketch-uv-p0-v1/inherited-textures/f4deddef41cee87ea509f8aea4add749da37881fa4cb830b1a1805d3b6a70334.png",
+              "sha256": "f4deddef41cee87ea509f8aea4add749da37881fa4cb830b1a1805d3b6a70334",
+              "source_container": "assets/models/acro-river-park/112a/archisketch-uv-p0-v1/basic/acro112a-basic.glb",
+              "embedded_image_index": 0,
+              "colorSpace": "sRGB",
+              "packed_channel": "RGB",
+              "texCoord": 0,
+              "KHR_texture_transform": null,
+              "texture_transform": {
+                "repeat": [
+                  1,
+                  1
+                ],
+                "offset": [
+                  0,
+                  0
+                ],
+                "rotation": 0
+              },
+              "sampler": {
+                "magFilter": 9729,
+                "minFilter": 9987
+              },
+              "normal_convention": null,
+              "normal_scale": null,
+              "meters_per_uv_tile": 1.2,
+              "sample_size_basis": "assumed metric tiling; not measured surface sample",
+              "source": {
+                "basis": "inherited v5 bytes; no new PBR content",
+                "record": "assets/materials/generated-v1/manifest.json",
+                "external_url": null,
+                "license": "project-generated baseline texture; no third-party CC0 claim"
+              },
+              "ao_scope": null
+            },
+            "normalTexture": null,
+            "metallicRoughnessTexture": null,
+            "occlusionTexture": null
+          },
+          "ao_atlas": "none",
+          "new_pbr_material_applied": false
+        },
+        {
+          "name": "112A / Travertine bathroom",
+          "role": null,
+          "first_pbr_comparison": false,
+          "material_extras": {
+            "texture_repeat_m": 1.2
+          },
+          "maps": {
+            "baseColorTexture": {
+              "uri": "assets/models/acro-river-park/112a/archisketch-uv-p0-v1/inherited-textures/7ef821e2c0c5858344ea6e07141863b2128ca3716244f3ec417e5d776c91e7dd.png",
+              "sha256": "7ef821e2c0c5858344ea6e07141863b2128ca3716244f3ec417e5d776c91e7dd",
+              "source_container": "assets/models/acro-river-park/112a/archisketch-uv-p0-v1/basic/acro112a-basic.glb",
+              "embedded_image_index": 1,
+              "colorSpace": "sRGB",
+              "packed_channel": "RGB",
+              "texCoord": 0,
+              "KHR_texture_transform": null,
+              "texture_transform": {
+                "repeat": [
+                  1,
+                  1
+                ],
+                "offset": [
+                  0,
+                  0
+                ],
+                "rotation": 0
+              },
+              "sampler": {
+                "magFilter": 9729,
+                "minFilter": 9987
+              },
+              "normal_convention": null,
+              "normal_scale": null,
+              "meters_per_uv_tile": 1.2,
+              "sample_size_basis": "assumed metric tiling; not measured surface sample",
+              "source": {
+                "basis": "inherited v5 bytes; no new PBR content",
+                "record": "assets/materials/generated-v1/manifest.json",
+                "external_url": null,
+                "license": "project-generated baseline texture; no third-party CC0 claim"
+              },
+              "ao_scope": null
+            },
+            "normalTexture": null,
+            "metallicRoughnessTexture": null,
+            "occlusionTexture": null
+          },
+          "ao_atlas": "none",
+          "new_pbr_material_applied": false
+        },
+        {
+          "name": "112A / Lacquer warm white",
+          "role": null,
+          "first_pbr_comparison": false,
+          "material_extras": {
+            "texture_repeat_m": 1.2
+          },
+          "maps": {
+            "baseColorTexture": null,
+            "normalTexture": null,
+            "metallicRoughnessTexture": null,
+            "occlusionTexture": null
+          },
+          "ao_atlas": "none",
+          "new_pbr_material_applied": false
+        },
+        {
+          "name": "112A / Clear neutral glazing",
+          "role": null,
+          "first_pbr_comparison": false,
+          "material_extras": {
+            "texture_repeat_m": 1.2
+          },
+          "maps": {
+            "baseColorTexture": null,
+            "normalTexture": null,
+            "metallicRoughnessTexture": null,
+            "occlusionTexture": null
+          },
+          "ao_atlas": "none",
+          "new_pbr_material_applied": false
+        },
+        {
+          "name": "112A / Ceiling warm white",
+          "role": null,
+          "first_pbr_comparison": false,
+          "material_extras": {
+            "texture_repeat_m": 1.2
+          },
+          "maps": {
+            "baseColorTexture": null,
+            "normalTexture": null,
+            "metallicRoughnessTexture": null,
+            "occlusionTexture": null
+          },
+          "ao_atlas": "none",
+          "new_pbr_material_applied": false
+        },
+        {
+          "name": "Draft kitchen / recess",
+          "role": null,
+          "first_pbr_comparison": false,
+          "material_extras": {},
+          "maps": {
+            "baseColorTexture": null,
+            "normalTexture": null,
+            "metallicRoughnessTexture": null,
+            "occlusionTexture": null
+          },
+          "ao_atlas": "none",
+          "new_pbr_material_applied": false
+        },
+        {
+          "name": "Draft kitchen / front",
+          "role": null,
+          "first_pbr_comparison": false,
+          "material_extras": {},
+          "maps": {
+            "baseColorTexture": null,
+            "normalTexture": null,
+            "metallicRoughnessTexture": null,
+            "occlusionTexture": null
+          },
+          "ao_atlas": "none",
+          "new_pbr_material_applied": false
+        },
+        {
+          "name": "112A / Stone joints",
+          "role": null,
+          "first_pbr_comparison": false,
+          "material_extras": {
+            "texture_repeat_m": 1.2
+          },
+          "maps": {
+            "baseColorTexture": null,
+            "normalTexture": null,
+            "metallicRoughnessTexture": null,
+            "occlusionTexture": null
+          },
+          "ao_atlas": "none",
+          "new_pbr_material_applied": false
+        },
+        {
+          "name": "112A / Smoked oak door",
+          "role": null,
+          "first_pbr_comparison": false,
+          "material_extras": {
+            "texture_repeat_m": 1.2
+          },
+          "maps": {
+            "baseColorTexture": {
+              "uri": "assets/models/acro-river-park/112a/archisketch-uv-p0-v1/inherited-textures/f4deddef41cee87ea509f8aea4add749da37881fa4cb830b1a1805d3b6a70334.png",
+              "sha256": "f4deddef41cee87ea509f8aea4add749da37881fa4cb830b1a1805d3b6a70334",
+              "source_container": "assets/models/acro-river-park/112a/archisketch-uv-p0-v1/basic/acro112a-basic.glb",
+              "embedded_image_index": 0,
+              "colorSpace": "sRGB",
+              "packed_channel": "RGB",
+              "texCoord": 0,
+              "KHR_texture_transform": null,
+              "texture_transform": {
+                "repeat": [
+                  1,
+                  1
+                ],
+                "offset": [
+                  0,
+                  0
+                ],
+                "rotation": 0
+              },
+              "sampler": {
+                "magFilter": 9729,
+                "minFilter": 9987
+              },
+              "normal_convention": null,
+              "normal_scale": null,
+              "meters_per_uv_tile": 1.2,
+              "sample_size_basis": "assumed metric tiling; not measured surface sample",
+              "source": {
+                "basis": "inherited v5 bytes; no new PBR content",
+                "record": "assets/materials/generated-v1/manifest.json",
+                "external_url": null,
+                "license": "project-generated baseline texture; no third-party CC0 claim"
+              },
+              "ao_scope": null
+            },
+            "normalTexture": null,
+            "metallicRoughnessTexture": null,
+            "occlusionTexture": null
+          },
+          "ao_atlas": "none",
+          "new_pbr_material_applied": false
+        },
+        {
+          "name": "112A / Ivory woven linen",
+          "role": "fabric_upholstery",
+          "first_pbr_comparison": true,
+          "material_extras": {
+            "texture_repeat_m": 1.2
+          },
+          "maps": {
+            "baseColorTexture": null,
+            "normalTexture": null,
+            "metallicRoughnessTexture": null,
+            "occlusionTexture": null
+          },
+          "ao_atlas": "none",
+          "new_pbr_material_applied": false
+        },
+        {
+          "name": "112A / VR polished stone floor",
+          "role": "floor_stone",
+          "first_pbr_comparison": true,
+          "material_extras": {
+            "texture_repeat_m": 1.2
+          },
+          "maps": {
+            "baseColorTexture": {
+              "uri": "assets/models/acro-river-park/112a/archisketch-uv-p0-v1/inherited-textures/7ef821e2c0c5858344ea6e07141863b2128ca3716244f3ec417e5d776c91e7dd.png",
+              "sha256": "7ef821e2c0c5858344ea6e07141863b2128ca3716244f3ec417e5d776c91e7dd",
+              "source_container": "assets/models/acro-river-park/112a/archisketch-uv-p0-v1/basic/acro112a-basic.glb",
+              "embedded_image_index": 1,
+              "colorSpace": "sRGB",
+              "packed_channel": "RGB",
+              "texCoord": 0,
+              "KHR_texture_transform": null,
+              "texture_transform": {
+                "repeat": [
+                  1,
+                  1
+                ],
+                "offset": [
+                  0,
+                  0
+                ],
+                "rotation": 0
+              },
+              "sampler": {
+                "magFilter": 9729,
+                "minFilter": 9987
+              },
+              "normal_convention": null,
+              "normal_scale": null,
+              "meters_per_uv_tile": 1.2,
+              "sample_size_basis": "assumed metric tiling; not measured surface sample",
+              "source": {
+                "basis": "inherited v5 bytes; no new PBR content",
+                "record": "assets/materials/generated-v1/manifest.json",
+                "external_url": null,
+                "license": "project-generated baseline texture; no third-party CC0 claim"
+              },
+              "ao_scope": null
+            },
+            "normalTexture": null,
+            "metallicRoughnessTexture": null,
+            "occlusionTexture": null
+          },
+          "ao_atlas": "none",
+          "new_pbr_material_applied": false
+        },
+        {
+          "name": "112A / Charcoal lacquer",
+          "role": null,
+          "first_pbr_comparison": false,
+          "material_extras": {
+            "texture_repeat_m": 1.2
+          },
+          "maps": {
+            "baseColorTexture": null,
+            "normalTexture": null,
+            "metallicRoughnessTexture": null,
+            "occlusionTexture": null
+          },
+          "ao_atlas": "none",
+          "new_pbr_material_applied": false
+        },
+        {
+          "name": "112A / brushed nickel",
+          "role": null,
+          "first_pbr_comparison": false,
+          "material_extras": {
+            "texture_repeat_m": 1.2
+          },
+          "maps": {
+            "baseColorTexture": null,
+            "normalTexture": null,
+            "metallicRoughnessTexture": null,
+            "occlusionTexture": null
+          },
+          "ao_atlas": "none",
+          "new_pbr_material_applied": false
+        },
+        {
+          "name": "112A / Black glass",
+          "role": null,
+          "first_pbr_comparison": false,
+          "material_extras": {
+            "texture_repeat_m": 1.2
+          },
+          "maps": {
+            "baseColorTexture": null,
+            "normalTexture": null,
+            "metallicRoughnessTexture": null,
+            "occlusionTexture": null
+          },
+          "ao_atlas": "none",
+          "new_pbr_material_applied": false
+        },
+        {
+          "name": "Dark tailored piping",
+          "role": null,
+          "first_pbr_comparison": false,
+          "material_extras": {},
+          "maps": {
+            "baseColorTexture": null,
+            "normalTexture": null,
+            "metallicRoughnessTexture": null,
+            "occlusionTexture": null
+          },
+          "ao_atlas": "none",
+          "new_pbr_material_applied": false
+        },
+        {
+          "name": "Catalog charcoal leather",
+          "role": null,
+          "first_pbr_comparison": false,
+          "material_extras": {
+            "material_source": "Procedural visual approximation, not measured material"
+          },
+          "maps": {
+            "baseColorTexture": {
+              "uri": "assets/models/acro-river-park/112a/archisketch-uv-p0-v1/inherited-textures/acee78ffd025efba5f65a0c43cb29556ca178198ec95b6ad892d4a86cf49bcb9.png",
+              "sha256": "acee78ffd025efba5f65a0c43cb29556ca178198ec95b6ad892d4a86cf49bcb9",
+              "source_container": "assets/models/acro-river-park/112a/archisketch-uv-p0-v1/basic/acro112a-basic.glb",
+              "embedded_image_index": 3,
+              "colorSpace": "sRGB",
+              "packed_channel": "RGB",
+              "texCoord": 0,
+              "KHR_texture_transform": null,
+              "texture_transform": {
+                "repeat": [
+                  1,
+                  1
+                ],
+                "offset": [
+                  0,
+                  0
+                ],
+                "rotation": 0
+              },
+              "sampler": {
+                "magFilter": 9729,
+                "minFilter": 9987
+              },
+              "normal_convention": null,
+              "normal_scale": null,
+              "meters_per_uv_tile": null,
+              "sample_size_basis": "unchanged baseline mapping; physical sample size not established",
+              "source": {
+                "basis": "inherited v5 bytes; no new PBR content",
+                "record": null,
+                "external_url": null,
+                "license": "inherited catalog texture; license not re-audited in P0, preserve existing use only"
+              },
+              "ao_scope": null
+            },
+            "normalTexture": {
+              "uri": "assets/models/acro-river-park/112a/archisketch-uv-p0-v1/inherited-textures/5b4d8efcd6fbf5862b06c07c54cfb0702ff1aa1fda5f41be0ee00d0a2cfef969.png",
+              "sha256": "5b4d8efcd6fbf5862b06c07c54cfb0702ff1aa1fda5f41be0ee00d0a2cfef969",
+              "source_container": "assets/models/acro-river-park/112a/archisketch-uv-p0-v1/basic/acro112a-basic.glb",
+              "embedded_image_index": 2,
+              "colorSpace": "linear",
+              "packed_channel": "RGB",
+              "texCoord": 0,
+              "KHR_texture_transform": null,
+              "texture_transform": {
+                "repeat": [
+                  1,
+                  1
+                ],
+                "offset": [
+                  0,
+                  0
+                ],
+                "rotation": 0
+              },
+              "sampler": {
+                "magFilter": 9729,
+                "minFilter": 9987
+              },
+              "normal_convention": "OpenGL tangent-space +Y (glTF)",
+              "normal_scale": 0.25,
+              "meters_per_uv_tile": null,
+              "sample_size_basis": "unchanged baseline mapping; physical sample size not established",
+              "source": {
+                "basis": "inherited v5 bytes; no new PBR content",
+                "record": null,
+                "external_url": null,
+                "license": "inherited catalog texture; license not re-audited in P0, preserve existing use only"
+              },
+              "ao_scope": null
+            },
+            "metallicRoughnessTexture": {
+              "uri": "assets/models/acro-river-park/112a/archisketch-uv-p0-v1/inherited-textures/ad30cc704c367d01bd2716ea771a2604d0cb5a0434730fbf148eef2142bfedb2.png",
+              "sha256": "ad30cc704c367d01bd2716ea771a2604d0cb5a0434730fbf148eef2142bfedb2",
+              "source_container": "assets/models/acro-river-park/112a/archisketch-uv-p0-v1/basic/acro112a-basic.glb",
+              "embedded_image_index": 4,
+              "colorSpace": "linear",
+              "packed_channel": {
+                "roughness": "G",
+                "metallic": "B"
+              },
+              "texCoord": 0,
+              "KHR_texture_transform": null,
+              "texture_transform": {
+                "repeat": [
+                  1,
+                  1
+                ],
+                "offset": [
+                  0,
+                  0
+                ],
+                "rotation": 0
+              },
+              "sampler": {
+                "magFilter": 9729,
+                "minFilter": 9987
+              },
+              "normal_convention": null,
+              "normal_scale": null,
+              "meters_per_uv_tile": null,
+              "sample_size_basis": "unchanged baseline mapping; physical sample size not established",
+              "source": {
+                "basis": "inherited v5 bytes; no new PBR content",
+                "record": null,
+                "external_url": null,
+                "license": "inherited catalog texture; license not re-audited in P0, preserve existing use only"
+              },
+              "ao_scope": null
+            },
+            "occlusionTexture": null
+          },
+          "ao_atlas": "none",
+          "new_pbr_material_applied": false
+        },
+        {
+          "name": "Polished steel legs",
+          "role": null,
+          "first_pbr_comparison": false,
+          "material_extras": {},
+          "maps": {
+            "baseColorTexture": null,
+            "normalTexture": null,
+            "metallicRoughnessTexture": null,
+            "occlusionTexture": null
+          },
+          "ao_atlas": "none",
+          "new_pbr_material_applied": false
+        },
+        {
+          "name": "Dark foot protectors",
+          "role": null,
+          "first_pbr_comparison": false,
+          "material_extras": {},
+          "maps": {
+            "baseColorTexture": null,
+            "normalTexture": null,
+            "metallicRoughnessTexture": null,
+            "occlusionTexture": null
+          },
+          "ao_atlas": "none",
+          "new_pbr_material_applied": false
+        },
+        {
+          "name": "Catalog charcoal PVC",
+          "role": null,
+          "first_pbr_comparison": false,
+          "material_extras": {
+            "material_source": "Procedural visual approximation, not measured material"
+          },
+          "maps": {
+            "baseColorTexture": {
+              "uri": "assets/models/acro-river-park/112a/archisketch-uv-p0-v1/inherited-textures/4ffc5fa6f0cceca360028b55029d52b5cf737f291e954d1e7e6644d711c4f7f1.png",
+              "sha256": "4ffc5fa6f0cceca360028b55029d52b5cf737f291e954d1e7e6644d711c4f7f1",
+              "source_container": "assets/models/acro-river-park/112a/archisketch-uv-p0-v1/basic/acro112a-basic.glb",
+              "embedded_image_index": 6,
+              "colorSpace": "sRGB",
+              "packed_channel": "RGB",
+              "texCoord": 0,
+              "KHR_texture_transform": null,
+              "texture_transform": {
+                "repeat": [
+                  1,
+                  1
+                ],
+                "offset": [
+                  0,
+                  0
+                ],
+                "rotation": 0
+              },
+              "sampler": {
+                "magFilter": 9729,
+                "minFilter": 9987
+              },
+              "normal_convention": null,
+              "normal_scale": null,
+              "meters_per_uv_tile": null,
+              "sample_size_basis": "unchanged baseline mapping; physical sample size not established",
+              "source": {
+                "basis": "inherited v5 bytes; no new PBR content",
+                "record": null,
+                "external_url": null,
+                "license": "inherited catalog texture; license not re-audited in P0, preserve existing use only"
+              },
+              "ao_scope": null
+            },
+            "normalTexture": {
+              "uri": "assets/models/acro-river-park/112a/archisketch-uv-p0-v1/inherited-textures/3ada4b8e5d95077829f86c6540cb30170b2b9ab770a8e02f4979d5aed1276667.png",
+              "sha256": "3ada4b8e5d95077829f86c6540cb30170b2b9ab770a8e02f4979d5aed1276667",
+              "source_container": "assets/models/acro-river-park/112a/archisketch-uv-p0-v1/basic/acro112a-basic.glb",
+              "embedded_image_index": 5,
+              "colorSpace": "linear",
+              "packed_channel": "RGB",
+              "texCoord": 0,
+              "KHR_texture_transform": null,
+              "texture_transform": {
+                "repeat": [
+                  1,
+                  1
+                ],
+                "offset": [
+                  0,
+                  0
+                ],
+                "rotation": 0
+              },
+              "sampler": {
+                "magFilter": 9729,
+                "minFilter": 9987
+              },
+              "normal_convention": "OpenGL tangent-space +Y (glTF)",
+              "normal_scale": 0.25,
+              "meters_per_uv_tile": null,
+              "sample_size_basis": "unchanged baseline mapping; physical sample size not established",
+              "source": {
+                "basis": "inherited v5 bytes; no new PBR content",
+                "record": null,
+                "external_url": null,
+                "license": "inherited catalog texture; license not re-audited in P0, preserve existing use only"
+              },
+              "ao_scope": null
+            },
+            "metallicRoughnessTexture": {
+              "uri": "assets/models/acro-river-park/112a/archisketch-uv-p0-v1/inherited-textures/e6e26eb6a402f83b2cba2e1cde72706963a8d7f43b3378899538092bbf652c57.png",
+              "sha256": "e6e26eb6a402f83b2cba2e1cde72706963a8d7f43b3378899538092bbf652c57",
+              "source_container": "assets/models/acro-river-park/112a/archisketch-uv-p0-v1/basic/acro112a-basic.glb",
+              "embedded_image_index": 7,
+              "colorSpace": "linear",
+              "packed_channel": {
+                "roughness": "G",
+                "metallic": "B"
+              },
+              "texCoord": 0,
+              "KHR_texture_transform": null,
+              "texture_transform": {
+                "repeat": [
+                  1,
+                  1
+                ],
+                "offset": [
+                  0,
+                  0
+                ],
+                "rotation": 0
+              },
+              "sampler": {
+                "magFilter": 9729,
+                "minFilter": 9987
+              },
+              "normal_convention": null,
+              "normal_scale": null,
+              "meters_per_uv_tile": null,
+              "sample_size_basis": "unchanged baseline mapping; physical sample size not established",
+              "source": {
+                "basis": "inherited v5 bytes; no new PBR content",
+                "record": null,
+                "external_url": null,
+                "license": "inherited catalog texture; license not re-audited in P0, preserve existing use only"
+              },
+              "ao_scope": null
+            },
+            "occlusionTexture": null
+          },
+          "ao_atlas": "none",
+          "new_pbr_material_applied": false
+        },
+        {
+          "name": "112A / Offwhite bed linen",
+          "role": "fabric_bedding",
+          "first_pbr_comparison": true,
+          "material_extras": {
+            "texture_repeat_m": 1.2
+          },
+          "maps": {
+            "baseColorTexture": null,
+            "normalTexture": null,
+            "metallicRoughnessTexture": null,
+            "occlusionTexture": null
+          },
+          "ao_atlas": "none",
+          "new_pbr_material_applied": false
+        },
+        {
+          "name": "112A / Porcelain",
+          "role": null,
+          "first_pbr_comparison": false,
+          "material_extras": {
+            "texture_repeat_m": 1.2
+          },
+          "maps": {
+            "baseColorTexture": null,
+            "normalTexture": null,
+            "metallicRoughnessTexture": null,
+            "occlusionTexture": null
+          },
+          "ao_atlas": "none",
+          "new_pbr_material_applied": false
+        },
+        {
+          "name": "112A / Mirror",
+          "role": null,
+          "first_pbr_comparison": false,
+          "material_extras": {
+            "texture_repeat_m": 1.2
+          },
+          "maps": {
+            "baseColorTexture": null,
+            "normalTexture": null,
+            "metallicRoughnessTexture": null,
+            "occlusionTexture": null
+          },
+          "ao_atlas": "none",
+          "new_pbr_material_applied": false
+        },
+        {
+          "name": "112A / Warm light diffuser",
+          "role": null,
+          "first_pbr_comparison": false,
+          "material_extras": {
+            "texture_repeat_m": 1.2
+          },
+          "maps": {
+            "baseColorTexture": null,
+            "normalTexture": null,
+            "metallicRoughnessTexture": null,
+            "occlusionTexture": null
+          },
+          "ao_atlas": "none",
+          "new_pbr_material_applied": false
+        },
+        {
+          "name": "112A / Satin sink stainless",
+          "role": null,
+          "first_pbr_comparison": false,
+          "material_extras": {},
+          "maps": {
+            "baseColorTexture": null,
+            "normalTexture": null,
+            "metallicRoughnessTexture": null,
+            "occlusionTexture": null
+          },
+          "ao_atlas": "none",
+          "new_pbr_material_applied": false
+        },
+        {
+          "name": "112A / Drain dark inset",
+          "role": null,
+          "first_pbr_comparison": false,
+          "material_extras": {},
+          "maps": {
+            "baseColorTexture": null,
+            "normalTexture": null,
+            "metallicRoughnessTexture": null,
+            "occlusionTexture": null
+          },
+          "ao_atlas": "none",
+          "new_pbr_material_applied": false
+        }
+      ]
+    },
+    "expanded": {
+      "model_uri": "assets/models/acro-river-park/112a/archisketch-uv-p0-v1/expanded/acro112a-expanded.glb",
+      "model_info_uri": "assets/models/acro-river-park/112a/archisketch-uv-p0-v1/expanded/model-info.json",
+      "baseline_files_sha256": {
+        "assets/models/acro-river-park/112a/archisketch-circulation-v5/expanded/acro112a-expanded.blend": "662b12c79a482d5d970b41d1370506f337e671802fb30e0158e3b8fbba78f735",
+        "assets/models/acro-river-park/112a/archisketch-circulation-v5/expanded/acro112a-expanded.glb": "b428fcdc58a0c94ae1557e57151b3ad98882cf47b83027594d6ea1ad5e06f80e",
+        "assets/models/acro-river-park/112a/archisketch-circulation-v5/expanded/model-info.json": "8a9b1e9fded2221321f06c495b288b55c3c83bb60aa3eee21156474797085a00"
+      },
+      "candidate_files_sha256": {
+        "assets/models/acro-river-park/112a/archisketch-uv-p0-v1/expanded/acro112a-expanded.blend": "bd35c45c323a3462b1b187e0bc65aa0a910a1f56251be28a3f94decddf32fee3",
+        "assets/models/acro-river-park/112a/archisketch-uv-p0-v1/expanded/acro112a-expanded.glb": "de207887a32eef9ebf1fa3af39d137011a085cae79ec8caf75976495855e81d3",
+        "assets/models/acro-river-park/112a/archisketch-uv-p0-v1/expanded/model-info.json": "e8b0d9c7e98d2c7063c46a11b79355e34a0397045e485264b89d93f3ddf0eeab"
+      },
+      "materials": [
+        {
+          "name": "112A / Warm ivory plaster",
+          "role": "wall_plaster",
+          "first_pbr_comparison": true,
+          "material_extras": {
+            "texture_repeat_m": 1.2
+          },
+          "maps": {
+            "baseColorTexture": null,
+            "normalTexture": null,
+            "metallicRoughnessTexture": null,
+            "occlusionTexture": null
+          },
+          "ao_atlas": "none",
+          "new_pbr_material_applied": false
+        },
+        {
+          "name": "112A / Bedroom light oak",
+          "role": "floor_wood",
+          "first_pbr_comparison": true,
+          "material_extras": {
+            "texture_repeat_m": 1.2
+          },
+          "maps": {
+            "baseColorTexture": {
+              "uri": "assets/models/acro-river-park/112a/archisketch-uv-p0-v1/inherited-textures/f4deddef41cee87ea509f8aea4add749da37881fa4cb830b1a1805d3b6a70334.png",
+              "sha256": "f4deddef41cee87ea509f8aea4add749da37881fa4cb830b1a1805d3b6a70334",
+              "source_container": "assets/models/acro-river-park/112a/archisketch-uv-p0-v1/expanded/acro112a-expanded.glb",
+              "embedded_image_index": 0,
+              "colorSpace": "sRGB",
+              "packed_channel": "RGB",
+              "texCoord": 0,
+              "KHR_texture_transform": null,
+              "texture_transform": {
+                "repeat": [
+                  1,
+                  1
+                ],
+                "offset": [
+                  0,
+                  0
+                ],
+                "rotation": 0
+              },
+              "sampler": {
+                "magFilter": 9729,
+                "minFilter": 9987
+              },
+              "normal_convention": null,
+              "normal_scale": null,
+              "meters_per_uv_tile": 1.2,
+              "sample_size_basis": "assumed metric tiling; not measured surface sample",
+              "source": {
+                "basis": "inherited v5 bytes; no new PBR content",
+                "record": "assets/materials/generated-v1/manifest.json",
+                "external_url": null,
+                "license": "project-generated baseline texture; no third-party CC0 claim"
+              },
+              "ao_scope": null
+            },
+            "normalTexture": null,
+            "metallicRoughnessTexture": null,
+            "occlusionTexture": null
+          },
+          "ao_atlas": "none",
+          "new_pbr_material_applied": false
+        },
+        {
+          "name": "112A / Reference gray porcelain tile",
+          "role": "floor_stone",
+          "first_pbr_comparison": true,
+          "material_extras": {
+            "texture_repeat_m": 1.2
+          },
+          "maps": {
+            "baseColorTexture": null,
+            "normalTexture": null,
+            "metallicRoughnessTexture": null,
+            "occlusionTexture": null
+          },
+          "ao_atlas": "none",
+          "new_pbr_material_applied": false
+        },
+        {
+          "name": "112A / Travertine bathroom",
+          "role": null,
+          "first_pbr_comparison": false,
+          "material_extras": {
+            "texture_repeat_m": 1.2
+          },
+          "maps": {
+            "baseColorTexture": {
+              "uri": "assets/models/acro-river-park/112a/archisketch-uv-p0-v1/inherited-textures/7ef821e2c0c5858344ea6e07141863b2128ca3716244f3ec417e5d776c91e7dd.png",
+              "sha256": "7ef821e2c0c5858344ea6e07141863b2128ca3716244f3ec417e5d776c91e7dd",
+              "source_container": "assets/models/acro-river-park/112a/archisketch-uv-p0-v1/expanded/acro112a-expanded.glb",
+              "embedded_image_index": 1,
+              "colorSpace": "sRGB",
+              "packed_channel": "RGB",
+              "texCoord": 0,
+              "KHR_texture_transform": null,
+              "texture_transform": {
+                "repeat": [
+                  1,
+                  1
+                ],
+                "offset": [
+                  0,
+                  0
+                ],
+                "rotation": 0
+              },
+              "sampler": {
+                "magFilter": 9729,
+                "minFilter": 9987
+              },
+              "normal_convention": null,
+              "normal_scale": null,
+              "meters_per_uv_tile": 1.2,
+              "sample_size_basis": "assumed metric tiling; not measured surface sample",
+              "source": {
+                "basis": "inherited v5 bytes; no new PBR content",
+                "record": "assets/materials/generated-v1/manifest.json",
+                "external_url": null,
+                "license": "project-generated baseline texture; no third-party CC0 claim"
+              },
+              "ao_scope": null
+            },
+            "normalTexture": null,
+            "metallicRoughnessTexture": null,
+            "occlusionTexture": null
+          },
+          "ao_atlas": "none",
+          "new_pbr_material_applied": false
+        },
+        {
+          "name": "112A / Lacquer warm white",
+          "role": null,
+          "first_pbr_comparison": false,
+          "material_extras": {
+            "texture_repeat_m": 1.2
+          },
+          "maps": {
+            "baseColorTexture": null,
+            "normalTexture": null,
+            "metallicRoughnessTexture": null,
+            "occlusionTexture": null
+          },
+          "ao_atlas": "none",
+          "new_pbr_material_applied": false
+        },
+        {
+          "name": "112A / Clear neutral glazing",
+          "role": null,
+          "first_pbr_comparison": false,
+          "material_extras": {
+            "texture_repeat_m": 1.2
+          },
+          "maps": {
+            "baseColorTexture": null,
+            "normalTexture": null,
+            "metallicRoughnessTexture": null,
+            "occlusionTexture": null
+          },
+          "ao_atlas": "none",
+          "new_pbr_material_applied": false
+        },
+        {
+          "name": "112A / Ceiling warm white",
+          "role": null,
+          "first_pbr_comparison": false,
+          "material_extras": {
+            "texture_repeat_m": 1.2
+          },
+          "maps": {
+            "baseColorTexture": null,
+            "normalTexture": null,
+            "metallicRoughnessTexture": null,
+            "occlusionTexture": null
+          },
+          "ao_atlas": "none",
+          "new_pbr_material_applied": false
+        },
+        {
+          "name": "Draft kitchen / recess",
+          "role": null,
+          "first_pbr_comparison": false,
+          "material_extras": {},
+          "maps": {
+            "baseColorTexture": null,
+            "normalTexture": null,
+            "metallicRoughnessTexture": null,
+            "occlusionTexture": null
+          },
+          "ao_atlas": "none",
+          "new_pbr_material_applied": false
+        },
+        {
+          "name": "Draft kitchen / front",
+          "role": null,
+          "first_pbr_comparison": false,
+          "material_extras": {},
+          "maps": {
+            "baseColorTexture": null,
+            "normalTexture": null,
+            "metallicRoughnessTexture": null,
+            "occlusionTexture": null
+          },
+          "ao_atlas": "none",
+          "new_pbr_material_applied": false
+        },
+        {
+          "name": "112A / Stone joints",
+          "role": null,
+          "first_pbr_comparison": false,
+          "material_extras": {
+            "texture_repeat_m": 1.2
+          },
+          "maps": {
+            "baseColorTexture": null,
+            "normalTexture": null,
+            "metallicRoughnessTexture": null,
+            "occlusionTexture": null
+          },
+          "ao_atlas": "none",
+          "new_pbr_material_applied": false
+        },
+        {
+          "name": "112A / Smoked oak door",
+          "role": null,
+          "first_pbr_comparison": false,
+          "material_extras": {
+            "texture_repeat_m": 1.2
+          },
+          "maps": {
+            "baseColorTexture": {
+              "uri": "assets/models/acro-river-park/112a/archisketch-uv-p0-v1/inherited-textures/f4deddef41cee87ea509f8aea4add749da37881fa4cb830b1a1805d3b6a70334.png",
+              "sha256": "f4deddef41cee87ea509f8aea4add749da37881fa4cb830b1a1805d3b6a70334",
+              "source_container": "assets/models/acro-river-park/112a/archisketch-uv-p0-v1/expanded/acro112a-expanded.glb",
+              "embedded_image_index": 0,
+              "colorSpace": "sRGB",
+              "packed_channel": "RGB",
+              "texCoord": 0,
+              "KHR_texture_transform": null,
+              "texture_transform": {
+                "repeat": [
+                  1,
+                  1
+                ],
+                "offset": [
+                  0,
+                  0
+                ],
+                "rotation": 0
+              },
+              "sampler": {
+                "magFilter": 9729,
+                "minFilter": 9987
+              },
+              "normal_convention": null,
+              "normal_scale": null,
+              "meters_per_uv_tile": 1.2,
+              "sample_size_basis": "assumed metric tiling; not measured surface sample",
+              "source": {
+                "basis": "inherited v5 bytes; no new PBR content",
+                "record": "assets/materials/generated-v1/manifest.json",
+                "external_url": null,
+                "license": "project-generated baseline texture; no third-party CC0 claim"
+              },
+              "ao_scope": null
+            },
+            "normalTexture": null,
+            "metallicRoughnessTexture": null,
+            "occlusionTexture": null
+          },
+          "ao_atlas": "none",
+          "new_pbr_material_applied": false
+        },
+        {
+          "name": "112A / Ivory woven linen",
+          "role": "fabric_upholstery",
+          "first_pbr_comparison": true,
+          "material_extras": {
+            "texture_repeat_m": 1.2
+          },
+          "maps": {
+            "baseColorTexture": null,
+            "normalTexture": null,
+            "metallicRoughnessTexture": null,
+            "occlusionTexture": null
+          },
+          "ao_atlas": "none",
+          "new_pbr_material_applied": false
+        },
+        {
+          "name": "112A / VR polished stone floor",
+          "role": "floor_stone",
+          "first_pbr_comparison": true,
+          "material_extras": {
+            "texture_repeat_m": 1.2
+          },
+          "maps": {
+            "baseColorTexture": {
+              "uri": "assets/models/acro-river-park/112a/archisketch-uv-p0-v1/inherited-textures/7ef821e2c0c5858344ea6e07141863b2128ca3716244f3ec417e5d776c91e7dd.png",
+              "sha256": "7ef821e2c0c5858344ea6e07141863b2128ca3716244f3ec417e5d776c91e7dd",
+              "source_container": "assets/models/acro-river-park/112a/archisketch-uv-p0-v1/expanded/acro112a-expanded.glb",
+              "embedded_image_index": 1,
+              "colorSpace": "sRGB",
+              "packed_channel": "RGB",
+              "texCoord": 0,
+              "KHR_texture_transform": null,
+              "texture_transform": {
+                "repeat": [
+                  1,
+                  1
+                ],
+                "offset": [
+                  0,
+                  0
+                ],
+                "rotation": 0
+              },
+              "sampler": {
+                "magFilter": 9729,
+                "minFilter": 9987
+              },
+              "normal_convention": null,
+              "normal_scale": null,
+              "meters_per_uv_tile": 1.2,
+              "sample_size_basis": "assumed metric tiling; not measured surface sample",
+              "source": {
+                "basis": "inherited v5 bytes; no new PBR content",
+                "record": "assets/materials/generated-v1/manifest.json",
+                "external_url": null,
+                "license": "project-generated baseline texture; no third-party CC0 claim"
+              },
+              "ao_scope": null
+            },
+            "normalTexture": null,
+            "metallicRoughnessTexture": null,
+            "occlusionTexture": null
+          },
+          "ao_atlas": "none",
+          "new_pbr_material_applied": false
+        },
+        {
+          "name": "112A / Charcoal lacquer",
+          "role": null,
+          "first_pbr_comparison": false,
+          "material_extras": {
+            "texture_repeat_m": 1.2
+          },
+          "maps": {
+            "baseColorTexture": null,
+            "normalTexture": null,
+            "metallicRoughnessTexture": null,
+            "occlusionTexture": null
+          },
+          "ao_atlas": "none",
+          "new_pbr_material_applied": false
+        },
+        {
+          "name": "112A / brushed nickel",
+          "role": null,
+          "first_pbr_comparison": false,
+          "material_extras": {
+            "texture_repeat_m": 1.2
+          },
+          "maps": {
+            "baseColorTexture": null,
+            "normalTexture": null,
+            "metallicRoughnessTexture": null,
+            "occlusionTexture": null
+          },
+          "ao_atlas": "none",
+          "new_pbr_material_applied": false
+        },
+        {
+          "name": "112A / Black glass",
+          "role": null,
+          "first_pbr_comparison": false,
+          "material_extras": {
+            "texture_repeat_m": 1.2
+          },
+          "maps": {
+            "baseColorTexture": null,
+            "normalTexture": null,
+            "metallicRoughnessTexture": null,
+            "occlusionTexture": null
+          },
+          "ao_atlas": "none",
+          "new_pbr_material_applied": false
+        },
+        {
+          "name": "Dark tailored piping",
+          "role": null,
+          "first_pbr_comparison": false,
+          "material_extras": {},
+          "maps": {
+            "baseColorTexture": null,
+            "normalTexture": null,
+            "metallicRoughnessTexture": null,
+            "occlusionTexture": null
+          },
+          "ao_atlas": "none",
+          "new_pbr_material_applied": false
+        },
+        {
+          "name": "Catalog charcoal leather",
+          "role": null,
+          "first_pbr_comparison": false,
+          "material_extras": {
+            "material_source": "Procedural visual approximation, not measured material"
+          },
+          "maps": {
+            "baseColorTexture": {
+              "uri": "assets/models/acro-river-park/112a/archisketch-uv-p0-v1/inherited-textures/acee78ffd025efba5f65a0c43cb29556ca178198ec95b6ad892d4a86cf49bcb9.png",
+              "sha256": "acee78ffd025efba5f65a0c43cb29556ca178198ec95b6ad892d4a86cf49bcb9",
+              "source_container": "assets/models/acro-river-park/112a/archisketch-uv-p0-v1/expanded/acro112a-expanded.glb",
+              "embedded_image_index": 3,
+              "colorSpace": "sRGB",
+              "packed_channel": "RGB",
+              "texCoord": 0,
+              "KHR_texture_transform": null,
+              "texture_transform": {
+                "repeat": [
+                  1,
+                  1
+                ],
+                "offset": [
+                  0,
+                  0
+                ],
+                "rotation": 0
+              },
+              "sampler": {
+                "magFilter": 9729,
+                "minFilter": 9987
+              },
+              "normal_convention": null,
+              "normal_scale": null,
+              "meters_per_uv_tile": null,
+              "sample_size_basis": "unchanged baseline mapping; physical sample size not established",
+              "source": {
+                "basis": "inherited v5 bytes; no new PBR content",
+                "record": null,
+                "external_url": null,
+                "license": "inherited catalog texture; license not re-audited in P0, preserve existing use only"
+              },
+              "ao_scope": null
+            },
+            "normalTexture": {
+              "uri": "assets/models/acro-river-park/112a/archisketch-uv-p0-v1/inherited-textures/5b4d8efcd6fbf5862b06c07c54cfb0702ff1aa1fda5f41be0ee00d0a2cfef969.png",
+              "sha256": "5b4d8efcd6fbf5862b06c07c54cfb0702ff1aa1fda5f41be0ee00d0a2cfef969",
+              "source_container": "assets/models/acro-river-park/112a/archisketch-uv-p0-v1/expanded/acro112a-expanded.glb",
+              "embedded_image_index": 2,
+              "colorSpace": "linear",
+              "packed_channel": "RGB",
+              "texCoord": 0,
+              "KHR_texture_transform": null,
+              "texture_transform": {
+                "repeat": [
+                  1,
+                  1
+                ],
+                "offset": [
+                  0,
+                  0
+                ],
+                "rotation": 0
+              },
+              "sampler": {
+                "magFilter": 9729,
+                "minFilter": 9987
+              },
+              "normal_convention": "OpenGL tangent-space +Y (glTF)",
+              "normal_scale": 0.25,
+              "meters_per_uv_tile": null,
+              "sample_size_basis": "unchanged baseline mapping; physical sample size not established",
+              "source": {
+                "basis": "inherited v5 bytes; no new PBR content",
+                "record": null,
+                "external_url": null,
+                "license": "inherited catalog texture; license not re-audited in P0, preserve existing use only"
+              },
+              "ao_scope": null
+            },
+            "metallicRoughnessTexture": {
+              "uri": "assets/models/acro-river-park/112a/archisketch-uv-p0-v1/inherited-textures/ad30cc704c367d01bd2716ea771a2604d0cb5a0434730fbf148eef2142bfedb2.png",
+              "sha256": "ad30cc704c367d01bd2716ea771a2604d0cb5a0434730fbf148eef2142bfedb2",
+              "source_container": "assets/models/acro-river-park/112a/archisketch-uv-p0-v1/expanded/acro112a-expanded.glb",
+              "embedded_image_index": 4,
+              "colorSpace": "linear",
+              "packed_channel": {
+                "roughness": "G",
+                "metallic": "B"
+              },
+              "texCoord": 0,
+              "KHR_texture_transform": null,
+              "texture_transform": {
+                "repeat": [
+                  1,
+                  1
+                ],
+                "offset": [
+                  0,
+                  0
+                ],
+                "rotation": 0
+              },
+              "sampler": {
+                "magFilter": 9729,
+                "minFilter": 9987
+              },
+              "normal_convention": null,
+              "normal_scale": null,
+              "meters_per_uv_tile": null,
+              "sample_size_basis": "unchanged baseline mapping; physical sample size not established",
+              "source": {
+                "basis": "inherited v5 bytes; no new PBR content",
+                "record": null,
+                "external_url": null,
+                "license": "inherited catalog texture; license not re-audited in P0, preserve existing use only"
+              },
+              "ao_scope": null
+            },
+            "occlusionTexture": null
+          },
+          "ao_atlas": "none",
+          "new_pbr_material_applied": false
+        },
+        {
+          "name": "Polished steel legs",
+          "role": null,
+          "first_pbr_comparison": false,
+          "material_extras": {},
+          "maps": {
+            "baseColorTexture": null,
+            "normalTexture": null,
+            "metallicRoughnessTexture": null,
+            "occlusionTexture": null
+          },
+          "ao_atlas": "none",
+          "new_pbr_material_applied": false
+        },
+        {
+          "name": "Dark foot protectors",
+          "role": null,
+          "first_pbr_comparison": false,
+          "material_extras": {},
+          "maps": {
+            "baseColorTexture": null,
+            "normalTexture": null,
+            "metallicRoughnessTexture": null,
+            "occlusionTexture": null
+          },
+          "ao_atlas": "none",
+          "new_pbr_material_applied": false
+        },
+        {
+          "name": "Catalog charcoal PVC",
+          "role": null,
+          "first_pbr_comparison": false,
+          "material_extras": {
+            "material_source": "Procedural visual approximation, not measured material"
+          },
+          "maps": {
+            "baseColorTexture": {
+              "uri": "assets/models/acro-river-park/112a/archisketch-uv-p0-v1/inherited-textures/4ffc5fa6f0cceca360028b55029d52b5cf737f291e954d1e7e6644d711c4f7f1.png",
+              "sha256": "4ffc5fa6f0cceca360028b55029d52b5cf737f291e954d1e7e6644d711c4f7f1",
+              "source_container": "assets/models/acro-river-park/112a/archisketch-uv-p0-v1/expanded/acro112a-expanded.glb",
+              "embedded_image_index": 6,
+              "colorSpace": "sRGB",
+              "packed_channel": "RGB",
+              "texCoord": 0,
+              "KHR_texture_transform": null,
+              "texture_transform": {
+                "repeat": [
+                  1,
+                  1
+                ],
+                "offset": [
+                  0,
+                  0
+                ],
+                "rotation": 0
+              },
+              "sampler": {
+                "magFilter": 9729,
+                "minFilter": 9987
+              },
+              "normal_convention": null,
+              "normal_scale": null,
+              "meters_per_uv_tile": null,
+              "sample_size_basis": "unchanged baseline mapping; physical sample size not established",
+              "source": {
+                "basis": "inherited v5 bytes; no new PBR content",
+                "record": null,
+                "external_url": null,
+                "license": "inherited catalog texture; license not re-audited in P0, preserve existing use only"
+              },
+              "ao_scope": null
+            },
+            "normalTexture": {
+              "uri": "assets/models/acro-river-park/112a/archisketch-uv-p0-v1/inherited-textures/3ada4b8e5d95077829f86c6540cb30170b2b9ab770a8e02f4979d5aed1276667.png",
+              "sha256": "3ada4b8e5d95077829f86c6540cb30170b2b9ab770a8e02f4979d5aed1276667",
+              "source_container": "assets/models/acro-river-park/112a/archisketch-uv-p0-v1/expanded/acro112a-expanded.glb",
+              "embedded_image_index": 5,
+              "colorSpace": "linear",
+              "packed_channel": "RGB",
+              "texCoord": 0,
+              "KHR_texture_transform": null,
+              "texture_transform": {
+                "repeat": [
+                  1,
+                  1
+                ],
+                "offset": [
+                  0,
+                  0
+                ],
+                "rotation": 0
+              },
+              "sampler": {
+                "magFilter": 9729,
+                "minFilter": 9987
+              },
+              "normal_convention": "OpenGL tangent-space +Y (glTF)",
+              "normal_scale": 0.25,
+              "meters_per_uv_tile": null,
+              "sample_size_basis": "unchanged baseline mapping; physical sample size not established",
+              "source": {
+                "basis": "inherited v5 bytes; no new PBR content",
+                "record": null,
+                "external_url": null,
+                "license": "inherited catalog texture; license not re-audited in P0, preserve existing use only"
+              },
+              "ao_scope": null
+            },
+            "metallicRoughnessTexture": {
+              "uri": "assets/models/acro-river-park/112a/archisketch-uv-p0-v1/inherited-textures/e6e26eb6a402f83b2cba2e1cde72706963a8d7f43b3378899538092bbf652c57.png",
+              "sha256": "e6e26eb6a402f83b2cba2e1cde72706963a8d7f43b3378899538092bbf652c57",
+              "source_container": "assets/models/acro-river-park/112a/archisketch-uv-p0-v1/expanded/acro112a-expanded.glb",
+              "embedded_image_index": 7,
+              "colorSpace": "linear",
+              "packed_channel": {
+                "roughness": "G",
+                "metallic": "B"
+              },
+              "texCoord": 0,
+              "KHR_texture_transform": null,
+              "texture_transform": {
+                "repeat": [
+                  1,
+                  1
+                ],
+                "offset": [
+                  0,
+                  0
+                ],
+                "rotation": 0
+              },
+              "sampler": {
+                "magFilter": 9729,
+                "minFilter": 9987
+              },
+              "normal_convention": null,
+              "normal_scale": null,
+              "meters_per_uv_tile": null,
+              "sample_size_basis": "unchanged baseline mapping; physical sample size not established",
+              "source": {
+                "basis": "inherited v5 bytes; no new PBR content",
+                "record": null,
+                "external_url": null,
+                "license": "inherited catalog texture; license not re-audited in P0, preserve existing use only"
+              },
+              "ao_scope": null
+            },
+            "occlusionTexture": null
+          },
+          "ao_atlas": "none",
+          "new_pbr_material_applied": false
+        },
+        {
+          "name": "112A / Offwhite bed linen",
+          "role": "fabric_bedding",
+          "first_pbr_comparison": true,
+          "material_extras": {
+            "texture_repeat_m": 1.2
+          },
+          "maps": {
+            "baseColorTexture": null,
+            "normalTexture": null,
+            "metallicRoughnessTexture": null,
+            "occlusionTexture": null
+          },
+          "ao_atlas": "none",
+          "new_pbr_material_applied": false
+        },
+        {
+          "name": "112A / Porcelain",
+          "role": null,
+          "first_pbr_comparison": false,
+          "material_extras": {
+            "texture_repeat_m": 1.2
+          },
+          "maps": {
+            "baseColorTexture": null,
+            "normalTexture": null,
+            "metallicRoughnessTexture": null,
+            "occlusionTexture": null
+          },
+          "ao_atlas": "none",
+          "new_pbr_material_applied": false
+        },
+        {
+          "name": "112A / Mirror",
+          "role": null,
+          "first_pbr_comparison": false,
+          "material_extras": {
+            "texture_repeat_m": 1.2
+          },
+          "maps": {
+            "baseColorTexture": null,
+            "normalTexture": null,
+            "metallicRoughnessTexture": null,
+            "occlusionTexture": null
+          },
+          "ao_atlas": "none",
+          "new_pbr_material_applied": false
+        },
+        {
+          "name": "112A / Warm light diffuser",
+          "role": null,
+          "first_pbr_comparison": false,
+          "material_extras": {
+            "texture_repeat_m": 1.2
+          },
+          "maps": {
+            "baseColorTexture": null,
+            "normalTexture": null,
+            "metallicRoughnessTexture": null,
+            "occlusionTexture": null
+          },
+          "ao_atlas": "none",
+          "new_pbr_material_applied": false
+        },
+        {
+          "name": "112A / Satin sink stainless",
+          "role": null,
+          "first_pbr_comparison": false,
+          "material_extras": {},
+          "maps": {
+            "baseColorTexture": null,
+            "normalTexture": null,
+            "metallicRoughnessTexture": null,
+            "occlusionTexture": null
+          },
+          "ao_atlas": "none",
+          "new_pbr_material_applied": false
+        },
+        {
+          "name": "112A / Drain dark inset",
+          "role": null,
+          "first_pbr_comparison": false,
+          "material_extras": {},
+          "maps": {
+            "baseColorTexture": null,
+            "normalTexture": null,
+            "metallicRoughnessTexture": null,
+            "occlusionTexture": null
+          },
+          "ao_atlas": "none",
+          "new_pbr_material_applied": false
+        }
+      ]
+    }
+  },
+  "roles": {
+    "112A / Warm ivory plaster": "wall_plaster",
+    "112A / Bedroom light oak": "floor_wood",
+    "112A / VR polished stone floor": "floor_stone",
+    "112A / Reference gray porcelain tile": "floor_stone",
+    "112A / Ivory woven linen": "fabric_upholstery",
+    "112A / Offwhite bed linen": "fabric_bedding"
+  },
+  "default_excluded": [
+    "ceiling",
+    "lacquer",
+    "catalog sofa leather/PVC"
+  ],
+  "UV1_scene_atlas": null,
+  "forced_attribute_removal": false
+}

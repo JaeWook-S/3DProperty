@@ -1,0 +1,366 @@
+[
+  {
+    "id": "bedroom-1",
+    "name_ko": "침실 1",
+    "name": "Bedroom 1",
+    "reference_bounds_px": [
+      87,
+      341,
+      237,
+      506
+    ],
+    "kind": "interior",
+    "bounds_basis": "provisional room boundary lines; clear-size report subtracts assumed wall thickness only for enclosed rectangles",
+    "reference_bounds_m": [
+      0.0,
+      5.765,
+      3.84,
+      10.3
+    ],
+    "reference_width_m": 3.84,
+    "reference_depth_m": 4.535,
+    "draft_wall_face_width_m": 3.69,
+    "draft_wall_face_depth_m": 4.385,
+    "draft_clear_basis": "main wall faces only; excludes piers, wardrobes and finish thickness; not surveyed",
+    "certified_clear_width_m": null,
+    "certified_clear_depth_m": null
+  },
+  {
+    "id": "bedroom-2",
+    "name_ko": "침실 2",
+    "name": "Bedroom 2",
+    "reference_bounds_px": [
+      237,
+      341,
+      334,
+      506
+    ],
+    "kind": "interior",
+    "bounds_basis": "provisional room boundary lines; clear-size report subtracts assumed wall thickness only for enclosed rectangles",
+    "reference_bounds_m": [
+      3.84,
+      5.765,
+      6.7,
+      10.3
+    ],
+    "reference_width_m": 2.86,
+    "reference_depth_m": 4.535,
+    "draft_wall_face_width_m": 2.74,
+    "draft_wall_face_depth_m": 4.385,
+    "draft_clear_basis": "main wall faces only; excludes piers, wardrobes and finish thickness; not surveyed",
+    "certified_clear_width_m": null,
+    "certified_clear_depth_m": null
+  },
+  {
+    "id": "bedroom-3",
+    "name_ko": "침실 3",
+    "name": "Bedroom 3",
+    "reference_bounds_px": [
+      334,
+      341,
+      451,
+      506
+    ],
+    "kind": "interior",
+    "bounds_basis": "provisional room boundary lines; clear-size report subtracts assumed wall thickness only for enclosed rectangles",
+    "reference_bounds_m": [
+      6.7,
+      5.765,
+      9.964677419354839,
+      10.3
+    ],
+    "reference_width_m": 3.2647,
+    "reference_depth_m": 4.535,
+    "draft_wall_face_width_m": 3.1447,
+    "draft_wall_face_depth_m": 4.385,
+    "draft_clear_basis": "main wall faces only; excludes piers, wardrobes and finish thickness; not surveyed",
+    "certified_clear_width_m": null,
+    "certified_clear_depth_m": null
+  },
+  {
+    "id": "primary-bedroom",
+    "name_ko": "안방",
+    "name": "Primary bedroom",
+    "reference_bounds_px": [
+      589,
+      124,
+      763,
+      291
+    ],
+    "kind": "interior",
+    "bounds_basis": "provisional room boundary lines; clear-size report subtracts assumed wall thickness only for enclosed rectangles",
+    "reference_bounds_m": [
+      13.712269938650307,
+      0.0,
+      18.43055214723926,
+      4.418846153846154
+    ],
+    "reference_width_m": 4.7183,
+    "reference_depth_m": 4.4188,
+    "draft_wall_face_width_m": null,
+    "draft_wall_face_depth_m": null,
+    "draft_clear_basis": null,
+    "certified_clear_width_m": null,
+    "certified_clear_depth_m": null
+  },
+  {
+    "id": "bathroom-1",
+    "name_ko": "화장실 1",
+    "name": "Bathroom 1",
+    "reference_bounds_px": [
+      87,
+      273,
+      192,
+      341
+    ],
+    "kind": "wet",
+    "bounds_basis": "provisional room boundary lines; clear-size report subtracts assumed wall thickness only for enclosed rectangles",
+    "reference_bounds_m": [
+      0.0,
+      3.9339999999999997,
+      2.6879999999999997,
+      5.765
+    ],
+    "reference_width_m": 2.688,
+    "reference_depth_m": 1.831,
+    "draft_wall_face_width_m": null,
+    "draft_wall_face_depth_m": null,
+    "draft_clear_basis": null,
+    "certified_clear_width_m": null,
+    "certified_clear_depth_m": null
+  },
+  {
+    "id": "primary-bathroom",
+    "name_ko": "안방 화장실",
+    "name": "Primary bathroom",
+    "reference_bounds_px": [
+      493,
+      194,
+      589,
+      259
+    ],
+    "kind": "wet",
+    "bounds_basis": "provisional room boundary lines; clear-size report subtracts assumed wall thickness only for enclosed rectangles",
+    "reference_bounds_m": [
+      11.109079754601227,
+      1.8409448818897638,
+      13.712269938650307,
+      3.5559999999999996
+    ],
+    "reference_width_m": 2.6032,
+    "reference_depth_m": 1.7151,
+    "draft_wall_face_width_m": null,
+    "draft_wall_face_depth_m": null,
+    "draft_clear_basis": null,
+    "certified_clear_width_m": null,
+    "certified_clear_depth_m": null
+  },
+  {
+    "id": "dressing-room",
+    "name_ko": "드레스룸",
+    "name": "Dressing",
+    "reference_bounds_px": [
+      544,
+      124,
+      589,
+      194
+    ],
+    "kind": "interior",
+    "bounds_basis": "provisional room boundary lines; clear-size report subtracts assumed wall thickness only for enclosed rectangles",
+    "reference_bounds_m": [
+      12.4920245398773,
+      0.0,
+      13.712269938650307,
+      1.8409448818897638
+    ],
+    "reference_width_m": 1.2202,
+    "reference_depth_m": 1.8409,
+    "draft_wall_face_width_m": null,
+    "draft_wall_face_depth_m": null,
+    "draft_clear_basis": null,
+    "certified_clear_width_m": null,
+    "certified_clear_depth_m": null
+  },
+  {
+    "id": "entry",
+    "name_ko": "현관",
+    "name": "Entry",
+    "reference_bounds_px": [
+      374,
+      198,
+      443,
+      291
+    ],
+    "kind": "entry",
+    "bounds_basis": "provisional room boundary lines; clear-size report subtracts assumed wall thickness only for enclosed rectangles",
+    "reference_bounds_m": [
+      7.816129032258065,
+      1.9461417322834647,
+      9.741451612903226,
+      4.418846153846154
+    ],
+    "reference_width_m": 1.9253,
+    "reference_depth_m": 2.4727,
+    "draft_wall_face_width_m": null,
+    "draft_wall_face_depth_m": null,
+    "draft_clear_basis": null,
+    "certified_clear_width_m": null,
+    "certified_clear_depth_m": null
+  },
+  {
+    "id": "hall",
+    "name_ko": "복도",
+    "name": "Hall",
+    "reference_bounds_px": [
+      192,
+      291,
+      451,
+      341
+    ],
+    "kind": "circulation",
+    "bounds_basis": "provisional room boundary lines; clear-size report subtracts assumed wall thickness only for enclosed rectangles",
+    "reference_bounds_m": [
+      2.6879999999999997,
+      4.418846153846154,
+      9.964677419354839,
+      5.765
+    ],
+    "reference_width_m": 7.2767,
+    "reference_depth_m": 1.3462,
+    "draft_wall_face_width_m": null,
+    "draft_wall_face_depth_m": null,
+    "draft_clear_basis": null,
+    "certified_clear_width_m": null,
+    "certified_clear_depth_m": null
+  },
+  {
+    "id": "living",
+    "name_ko": "거실",
+    "name": "Living",
+    "reference_bounds_px": [
+      544,
+      291,
+      837,
+      475
+    ],
+    "kind": "open_zone",
+    "bounds_basis": "provisional room boundary lines; clear-size report subtracts assumed wall thickness only for enclosed rectangles",
+    "reference_bounds_m": [
+      12.4920245398773,
+      4.418846153846154,
+      20.5,
+      9.422641509433962
+    ],
+    "reference_width_m": 8.008,
+    "reference_depth_m": 5.0038,
+    "draft_wall_face_width_m": null,
+    "draft_wall_face_depth_m": null,
+    "draft_clear_basis": null,
+    "certified_clear_width_m": null,
+    "certified_clear_depth_m": null
+  },
+  {
+    "id": "kitchen",
+    "name_ko": "주방",
+    "name": "Kitchen",
+    "reference_bounds_px": [
+      451,
+      341,
+      544,
+      475
+    ],
+    "kind": "open_zone",
+    "bounds_basis": "provisional room boundary lines; clear-size report subtracts assumed wall thickness only for enclosed rectangles",
+    "reference_bounds_m": [
+      9.964677419354839,
+      5.765,
+      12.4920245398773,
+      9.422641509433962
+    ],
+    "reference_width_m": 2.5273,
+    "reference_depth_m": 3.6576,
+    "draft_wall_face_width_m": null,
+    "draft_wall_face_depth_m": null,
+    "draft_clear_basis": null,
+    "certified_clear_width_m": null,
+    "certified_clear_depth_m": null
+  },
+  {
+    "id": "pantry",
+    "name_ko": "팬트리·다용도 공간",
+    "name": "Utility",
+    "reference_bounds_px": [
+      544,
+      475,
+      632,
+      549
+    ],
+    "kind": "utility",
+    "bounds_basis": "provisional room boundary lines; clear-size report subtracts assumed wall thickness only for enclosed rectangles",
+    "reference_bounds_m": [
+      12.4920245398773,
+      9.422641509433962,
+      14.878282208588956,
+      11.51
+    ],
+    "reference_width_m": 2.3863,
+    "reference_depth_m": 2.0874,
+    "draft_wall_face_width_m": null,
+    "draft_wall_face_depth_m": null,
+    "draft_clear_basis": null,
+    "certified_clear_width_m": null,
+    "certified_clear_depth_m": null
+  },
+  {
+    "id": "primary-balcony",
+    "name_ko": "안방 발코니",
+    "name": "Primary balcony",
+    "reference_bounds_px": [
+      763,
+      180,
+      817,
+      277
+    ],
+    "kind": "balcony",
+    "bounds_basis": "provisional room boundary lines; clear-size report subtracts assumed wall thickness only for enclosed rectangles",
+    "reference_bounds_m": [
+      18.43055214723926,
+      1.4727559055118111,
+      19.933962264150942,
+      4.0419230769230765
+    ],
+    "reference_width_m": 1.5034,
+    "reference_depth_m": 2.5692,
+    "draft_wall_face_width_m": null,
+    "draft_wall_face_depth_m": null,
+    "draft_clear_basis": null,
+    "certified_clear_width_m": null,
+    "certified_clear_depth_m": null
+  },
+  {
+    "id": "living-balcony",
+    "name_ko": "거실 발코니",
+    "name": "Living balcony",
+    "reference_bounds_px": [
+      632,
+      495,
+      784,
+      543
+    ],
+    "kind": "balcony",
+    "bounds_basis": "provisional room boundary lines; clear-size report subtracts assumed wall thickness only for enclosed rectangles",
+    "reference_bounds_m": [
+      14.878282208588956,
+      9.98867924528302,
+      19.0,
+      11.341162790697675
+    ],
+    "reference_width_m": 4.1217,
+    "reference_depth_m": 1.3525,
+    "draft_wall_face_width_m": null,
+    "draft_wall_face_depth_m": null,
+    "draft_clear_basis": null,
+    "certified_clear_width_m": null,
+    "certified_clear_depth_m": null
+  }
+]

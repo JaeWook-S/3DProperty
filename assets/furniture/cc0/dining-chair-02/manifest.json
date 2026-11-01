@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "id": "cc0-dining-chair-02",
+  "title": "가죽 식탁의자",
+  "kind": "catalog:dining-chair-02",
+  "role": "dining_chair",
+  "geometry_kind": "glb",
+  "model_file": "model.glb",
+  "model_sha256": "4d01d3da63a1e1a1e92d0472710459799f7f7fb397ec2821bc3e7e71f54d6a7b",
+  "model_bytes": 920148,
+  "source_model_sha256": "4d01d3da63a1e1a1e92d0472710459799f7f7fb397ec2821bc3e7e71f54d6a7b",
+  "dimensions_m": {
+    "width": 0.4335707724094391,
+    "depth": 0.5764201134443283,
+    "height": 0.9733776897192001
+  },
+  "dimension_basis": "source_model_bounds_not_physical_measurement",
+  "physical_measurement_verified": false,
+  "unit": "m",
+  "scale": [
+    1,
+    1,
+    1
+  ],
+  "original_bounds_xyz": {
+    "min": [
+      -0.21678538620471954,
+      0.0012850910425186157,
+      -0.33102381229400635
+    ],
+    "max": [
+      0.21678538620471954,
+      0.9746627807617188,
+      0.24539630115032196
+    ]
+  },
+  "front_direction": {
+    "direction_gltf": "+Z",
+    "basis": "S2 visually inspected delivered-GLB front CPU render; not a physical survey",
+    "table_note": null
+  },
+  "dimension_note": "원본 모델의 가로·깊이·전체 높이입니다. 좌면 높이나 제품 실측이 아닙니다.",
+  "runtime_normalization": "translation only: center X/Z and ground minimum Y; preserve original node transforms and scale",
+  "source": {
+    "official_page": "https://polyhaven.com/a/dining_chair_02",
+    "author": "James Ray Cock",
+    "license": "CC0-1.0",
+    "license_url": "https://polyhaven.com/license",
+    "license_deed": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "official_info": "https://api.polyhaven.com/info/dining_chair_02",
+    "official_files": "https://api.polyhaven.com/files/dining_chair_02",
+    "api_attribution": "Poly Haven; offline asset package, no production API integration",
+    "physical_sku_reference": null,
+    "field_measurement_reference": null
+  },
+  "triangles": 22013,
+  "materials": [
+    "dining_chair_02"
+  ],
+  "appearance_policy": "authored-pbr-v1",
+  "original_BIN_and_images_preserved": true,
+  "candidate_copied_byte_identical": true,
+  "preview_file": "preview.png",
+  "preview_basis": "CPU render of the delivered GLB; not a product photograph",
+  "integration_source_manifest_sha256": "bab783bb8cafa03536ee220cf6de81990ca716b30308c57145a7604927c1b239",
+  "GPU_used": false
+}

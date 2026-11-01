@@ -1,0 +1,25 @@
+{
+  "recorded_at_utc": "2026-10-23T01:22:09.731655+00:00",
+  "status": "new_geometry_candidate_ready_for_independent_web_review_not_active",
+  "revision": "archisketch-kitchen-detail-v1",
+  "candidate_directory": "/home/nas5/kinamkim/Repos/geonwoo/3DProperty/assets/models/acro-river-park/168c/archisketch-kitchen-detail-v1/expanded",
+  "files": {
+    "acro168c-expanded.blend": "926928151509db4e836096a8b8059a74769a2631184e4c5fa6f0b5940bdbd155",
+    "acro168c-expanded.glb": "076472378bebad4ebb434d3d3fd1b24c18e9298edbd0a6aea534cba82e7a5ea0",
+    "model-info.json": "24d38da95e6c3b948bc5f56ac2331be599446d66385935047f00779716ce3a79"
+  },
+  "manifest": "/home/nas5/kinamkim/Repos/geonwoo/3DProperty/assets/models/acro-river-park/168c/archisketch-kitchen-detail-v1/expanded/detail-manifest.json",
+  "preservation_validation": "/home/nas5/kinamkim/Repos/geonwoo/3DProperty/runtime/interior/2026-10-22-kitchen-detail/verification.json",
+  "comparison": "/home/nas5/kinamkim/Repos/geonwoo/3DProperty/runtime/interior/2026-10-22-kitchen-detail/comparison.html",
+  "prior_pbr_activation_is_already_complete": true,
+  "different_from_prior_candidate": true,
+  "request_to_S3": [
+    "Browser-only candidate swap first; compare same day/balanced camera and inherited five authored PBR values.",
+    "Verify new GLB nodes not part of collision/door/template ownership; existing door/layout/navigation bounds unchanged; inspect static batching/per-frame draw count.",
+    "Check representative kitchen/pantry movement and finish restore; original all-room collision metadata unchanged by independent file checks.",
+    "If candidate looks correct and passes, switch 168C expanded GLB and metadata together; other three models unchanged. Preserve day/night backdrop and runtime lighting.",
+    "Send actual captures, hashes and validation scope; no repeated tests solely for an old S3-READY."
+  ],
+  "gpu_policy": "No H200 compute without explicit user permission. Use SwiftShader for CPU browser checks.",
+  "dataset_current_release": "unchanged until candidate acceptance"
+}

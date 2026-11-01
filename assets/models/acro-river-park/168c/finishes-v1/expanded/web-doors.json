@@ -1,0 +1,277 @@
+[
+  {
+    "id": "168c-door:entry-door",
+    "name": "현관문",
+    "type": "hinged",
+    "adapter": "exported",
+    "objectId": "168c:entry-door/leaf",
+    "hinge": [
+      7.816129207611084,
+      1.2000000476837158,
+      2.282519578933716
+    ],
+    "axis": "V",
+    "width": 0.8,
+    "height": 2.4,
+    "swingRadians": 1.5707963267948966,
+    "closedDirection": [
+      6.123233995736766e-17,
+      1.0
+    ],
+    "sourceObject": "entry-door/leaf"
+  },
+  {
+    "id": "168c-door:bedroom-1-door",
+    "name": "침실 1 문",
+    "type": "hinged",
+    "adapter": "exported",
+    "objectId": "168c:bedroom-1-door/leaf",
+    "hinge": [
+      2.8512001037597656,
+      1.2000000476837158,
+      5.764999866485596
+    ],
+    "axis": "H",
+    "width": 0.8,
+    "height": 2.4,
+    "swingRadians": -1.5707963267948966,
+    "closedDirection": [
+      1.0,
+      -0.0
+    ],
+    "sourceObject": "bedroom-1-door/leaf"
+  },
+  {
+    "id": "168c-door:bedroom-2-door",
+    "name": "침실 2 문",
+    "type": "hinged",
+    "adapter": "exported",
+    "objectId": "168c:bedroom-2-door/leaf",
+    "hinge": [
+      5.7103095054626465,
+      1.2000000476837158,
+      5.764999866485596
+    ],
+    "axis": "H",
+    "width": 0.8,
+    "height": 2.4,
+    "swingRadians": -1.5707963267948966,
+    "closedDirection": [
+      1.0,
+      -0.0
+    ],
+    "sourceObject": "bedroom-2-door/leaf"
+  },
+  {
+    "id": "168c-door:bedroom-3-door",
+    "name": "침실 3 문",
+    "type": "hinged",
+    "adapter": "exported",
+    "objectId": "168c:bedroom-3-door/leaf",
+    "hinge": [
+      6.969677448272705,
+      1.2000000476837158,
+      5.764999866485596
+    ],
+    "axis": "H",
+    "width": 0.8,
+    "height": 2.4,
+    "swingRadians": -1.5707963267948966,
+    "closedDirection": [
+      1.0,
+      -0.0
+    ],
+    "sourceObject": "bedroom-3-door/leaf"
+  },
+  {
+    "id": "168c-door:bathroom-1-door",
+    "name": "화장실 1 문",
+    "type": "hinged",
+    "adapter": "exported",
+    "objectId": "168c:bathroom-1-door/leaf",
+    "hinge": [
+      2.687999963760376,
+      1.2000000476837158,
+      4.584230899810791
+    ],
+    "axis": "V",
+    "width": 0.8,
+    "height": 2.4,
+    "swingRadians": -1.5707963267948966,
+    "closedDirection": [
+      6.123233995736766e-17,
+      1.0
+    ],
+    "sourceObject": "bathroom-1-door/leaf"
+  },
+  {
+    "id": "168c-door:hall-pantry-door",
+    "name": "복도 팬트리 문",
+    "type": "hinged",
+    "adapter": "exported",
+    "objectId": "168c:hall-pantry-door/leaf",
+    "hinge": [
+      4.884742259979248,
+      1.2000000476837158,
+      4.418846130371094
+    ],
+    "axis": "H",
+    "width": 0.8,
+    "height": 2.4,
+    "swingRadians": 0.7853981633974483,
+    "closedDirection": [
+      1.0,
+      -0.0
+    ],
+    "sourceObject": "hall-pantry-door/leaf"
+  },
+  {
+    "id": "168c-door:primary-bathroom-door",
+    "name": "안방 욕실 문",
+    "type": "hinged",
+    "adapter": "exported",
+    "objectId": "168c:primary-bathroom-door/leaf",
+    "hinge": [
+      12.66147232055664,
+      1.2000000476837158,
+      1.8409448862075806
+    ],
+    "axis": "H",
+    "width": 0.8,
+    "height": 2.4,
+    "swingRadians": -1.5707963267948966,
+    "closedDirection": [
+      1.0,
+      -0.0
+    ],
+    "sourceObject": "primary-bathroom-door/leaf"
+  },
+  {
+    "id": "168c-door:primary-door",
+    "name": "안방 문",
+    "type": "hinged",
+    "adapter": "exported",
+    "objectId": "168c:primary-door/leaf",
+    "hinge": [
+      14.424049377441406,
+      1.2000000476837158,
+      4.418846130371094
+    ],
+    "axis": "H",
+    "width": 0.8,
+    "height": 2.4,
+    "swingRadians": 1.5707963267948966,
+    "closedDirection": [
+      1.0,
+      -0.0
+    ],
+    "sourceObject": "primary-door/leaf"
+  },
+  {
+    "id": "168c-door:primary-balcony-opening",
+    "name": "안방 발코니 미닫이문",
+    "type": "sliding",
+    "adapter": "exported",
+    "movingObjects": [
+      "168c:primary-balcony-opening/panel-1",
+      "168c:primary-balcony-opening/panel-1-left",
+      "168c:primary-balcony-opening/panel-1-right",
+      "168c:primary-balcony-opening/panel-1-bottom",
+      "168c:primary-balcony-opening/panel-1-top"
+    ],
+    "translationAxis": "z",
+    "travel": 0.79,
+    "width": 1.7,
+    "height": 2.2,
+    "openingLocation": [
+      18.43055214723926,
+      0.05,
+      2.8666141732283466
+    ]
+  },
+  {
+    "id": "168c-door:primary-balcony-service-door",
+    "name": "안방 발코니 안쪽 문",
+    "type": "hinged",
+    "adapter": "exported",
+    "objectId": "168c:primary-balcony-service-door/leaf",
+    "hinge": [
+      19.56981086730957,
+      1.2000000476837158,
+      1.4727559089660645
+    ],
+    "axis": "H",
+    "width": 0.8,
+    "height": 2.4,
+    "swingRadians": 1.5707963267948966,
+    "closedDirection": [
+      -1.0,
+      -1.2246467991473532e-16
+    ],
+    "sourceObject": "primary-balcony-service-door/leaf"
+  },
+  {
+    "id": "168c-door:pantry-door",
+    "name": "주방 팬트리 문",
+    "type": "hinged",
+    "adapter": "exported",
+    "objectId": "168c:pantry-door/leaf",
+    "hinge": [
+      12.492024421691895,
+      1.2000000476837158,
+      9.616981506347656
+    ],
+    "axis": "V",
+    "width": 0.8,
+    "height": 2.4,
+    "swingRadians": 1.5707963267948966,
+    "closedDirection": [
+      6.123233995736766e-17,
+      1.0
+    ],
+    "sourceObject": "pantry-door/leaf"
+  },
+  {
+    "id": "168c-door:living-window-2",
+    "name": "거실 발코니 미닫이문",
+    "type": "sliding",
+    "adapter": "exported",
+    "movingObjects": [
+      "168c:living-window-2/panel-1",
+      "168c:living-window-2/panel-1-left",
+      "168c:living-window-2/panel-1-right",
+      "168c:living-window-2/panel-1-bottom",
+      "168c:living-window-2/panel-1-top"
+    ],
+    "translationAxis": "x",
+    "travel": 1.54,
+    "width": 3.2,
+    "height": 2.2,
+    "openingLocation": [
+      17.1560736196319,
+      0.05,
+      9.98867924528302
+    ]
+  },
+  {
+    "id": "168c-door:bathroom-1-shower-door",
+    "name": "샤워부스 문",
+    "type": "hinged",
+    "adapter": "exported",
+    "objectId": "168c:bathroom-1-shower-door/leaf",
+    "hinge": [
+      1.1263999938964844,
+      1.0499999523162842,
+      4.688076972961426
+    ],
+    "axis": "V",
+    "width": 0.7,
+    "height": 2.1,
+    "swingRadians": -1.0471975511965976,
+    "closedDirection": [
+      6.123233995736766e-17,
+      1.0
+    ],
+    "sourceObject": "bathroom-1-shower-door/leaf"
+  }
+]

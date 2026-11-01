@@ -14,10 +14,11 @@
     "test:browser": "playwright test"
   },
   "dependencies": {
+    "leaflet": "1.9.4",
     "three": "0.186.1"
   },
   "devDependencies": {
-    "vite": "6.4.3",
-    "@playwright/test": "1.58.2"
+    "@playwright/test": "1.58.2",
+    "vite": "6.4.3"
   }
 }

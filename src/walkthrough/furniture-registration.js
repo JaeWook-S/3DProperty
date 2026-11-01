@@ -141,7 +141,7 @@ export function setupFurnitureImageRegistration({
     try {
       onMeasurementStart(selectedFile);
       if (!measurementEnabled) {
-        message('이미지를 Mac에서 확인했어요. GPU 서버 미연결로 모델 측정·서버 전송은 하지 않습니다.', 'offline');
+        message('이미지를 이 기기에서 확인했어요. GPU 서버 미연결로 모델 측정·서버 전송은 하지 않습니다.', 'offline');
         return;
       }
       message('이미지를 전송하는 중…', 'loading');

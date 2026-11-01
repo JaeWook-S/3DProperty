@@ -1,0 +1,54 @@
+{
+  "status": "ready_for_s3_activation",
+  "revision": "archisketch-pbr-candidate-v1",
+  "variant": "168c-expanded-archisketch",
+  "files": {
+    "glb": {
+      "absolute_path": "/home/nas5/kinamkim/Repos/geonwoo/3DProperty/assets/models/acro-river-park/168c/archisketch-pbr-candidate-v1/expanded/acro168c-expanded.glb",
+      "repo_path": "assets/models/acro-river-park/168c/archisketch-pbr-candidate-v1/expanded/acro168c-expanded.glb",
+      "sha256": "4834a91ececc43f5c9961ca224024117f1b39192564090c664ac64d72d51e8da"
+    },
+    "metadata": {
+      "absolute_path": "/home/nas5/kinamkim/Repos/geonwoo/3DProperty/assets/models/acro-river-park/168c/archisketch-pbr-candidate-v1/expanded/model-info.json",
+      "repo_path": "assets/models/acro-river-park/168c/archisketch-pbr-candidate-v1/expanded/model-info.json",
+      "sha256": "edf86a4ed2bac8a23f284a884b4c4c8545b713cc07176271cf24087d1fc40e4f"
+    },
+    "blend": {
+      "absolute_path": "/home/nas5/kinamkim/Repos/geonwoo/3DProperty/assets/models/acro-river-park/168c/archisketch-pbr-candidate-v1/expanded/acro168c-expanded.blend",
+      "repo_path": "assets/models/acro-river-park/168c/archisketch-pbr-candidate-v1/expanded/acro168c-expanded.blend",
+      "sha256": "0a9348bc0c32639499fe5db27f16e263fa324ae70a0ca4ebca0ee0ac0c5b6005"
+    },
+    "manifest": {
+      "absolute_path": "/home/nas5/kinamkim/Repos/geonwoo/3DProperty/assets/models/acro-river-park/168c/archisketch-pbr-candidate-v1/expanded/material-manifest.json",
+      "repo_path": "assets/models/acro-river-park/168c/archisketch-pbr-candidate-v1/expanded/material-manifest.json",
+      "sha256": "c9fbc80631233d3f9fea6e59362bc1e089082a6bb375381c417a9d64ae094fb2"
+    },
+    "verification": {
+      "absolute_path": "/home/nas5/kinamkim/Repos/geonwoo/3DProperty/assets/models/acro-river-park/168c/archisketch-pbr-candidate-v1/expanded/verification.json",
+      "repo_path": "assets/models/acro-river-park/168c/archisketch-pbr-candidate-v1/expanded/verification.json",
+      "sha256": "a6615f2193326c68be8c752457569c55c772061b9aaafd8e47b05b36dd55c3b3"
+    }
+  },
+  "http_verification": {
+    "glb": {
+      "url": "http://127.0.0.1:5173/assets/models/acro-river-park/168c/archisketch-pbr-candidate-v1/expanded/acro168c-expanded.glb",
+      "status": 200,
+      "bytes": 12007524,
+      "sha256": "4834a91ececc43f5c9961ca224024117f1b39192564090c664ac64d72d51e8da"
+    },
+    "metadata": {
+      "url": "http://127.0.0.1:5173/assets/models/acro-river-park/168c/archisketch-pbr-candidate-v1/expanded/model-info.json",
+      "status": 200,
+      "bytes": 155142,
+      "sha256": "edf86a4ed2bac8a23f284a884b4c4c8545b713cc07176271cf24087d1fc40e4f"
+    }
+  },
+  "glb_identical_to_tested_s2_authored_v2": true,
+  "normal_policy": "glTF scalar 1; preserve signed GLTFLoader result [1,-1], do not invert green channel",
+  "activation_owner": "existing Cortex S3",
+  "activation_scope": "Switch only 168C expanded GLB and metadata imports in variants together; keep remaining 3 variants unchanged. Existing S3 regression plan: 4-model selection and finish restoration. No new GLB or metadata generation required.",
+  "s1_runtime_edits": 0,
+  "s1_gpu_calls": 0,
+  "s1_dataset_current_release_changed": false,
+  "source_handoff": "/home/nas5/kinamkim/Repos/geonwoo/AisideProject/realestate-spatial-ai/docs/session-handoffs/s1-168c-pbr-candidate-20261022.json"
+}

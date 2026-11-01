@@ -1,0 +1,40 @@
+{
+  "schema": "cortex.plan-clarity.v1",
+  "status": "public_v10_verified",
+  "at": "2026-10-26T07:35:11.930999+00:00",
+  "request": "107동 11층 1104호 112A labels/walls/blue focus",
+  "changes": [
+    "active-model wall section and source door/window outlines in lightweight 2D JSON",
+    "actual-font measured polygon-contained labels with numbers/room chooser for narrow spaces",
+    "explicitly suppress platform native SVG outline, retain green keyboard outline"
+  ],
+  "checks": {
+    "serviceUnit": {
+      "passed": 31,
+      "log": "runtime/plan-clarity/2026-10-26/service-unit.log"
+    },
+    "sourceWalls": "runtime/plan-clarity/2026-10-26/walls/export-verification.json",
+    "chromium": "runtime/plan-clarity/2026-10-26/browser/summary.json",
+    "webkitBefore": "runtime/plan-clarity/2026-10-26/webkit-public/summary.json",
+    "webkitAfter": "runtime/plan-clarity/2026-10-26/webkit-after/summary.json",
+    "measurementBrowser": {
+      "passed": 3,
+      "log": "runtime/plan-clarity/2026-10-26/measurement-browser.log"
+    },
+    "serviceBuild": "runtime/plan-clarity/2026-10-26/service-build.log"
+  },
+  "blueCircle": {
+    "largeReportedCircleReproduced": false,
+    "baselineNativeFocusStyle": "5px auto rgba(52,132,228,.8)",
+    "patchedNativeOutlineStyle": "none",
+    "actualMacSafariTested": false,
+    "afterCircleElements": 0,
+    "note": "Possible native-focus cause removed, not claiming reproduction of the exact user screenshot."
+  },
+  "geometryModified": false,
+  "h200Compute": 0,
+  "publish": "/home/nas5/kinamkim/Repos/geonwoo/3DProperty/startup/07_팀미팅/2026-10-24_designer-demo/hosting-plan-clarity-entry-20261026/verification.json",
+  "publicVerification": "runtime/plan-clarity/2026-10-26/public/verification.json",
+  "url": "https://cortex-design-preview-20261024.spunky-note-2434.chatgpt.site",
+  "version": 10
+}

@@ -1,3 +1,4 @@
+import {pointInRoom,hingedSegment} from './minimap-geometry.js';
 // Plan coordinates use the same meter-valued X/Z axes as Three.js.
 export function corners(item) {
   const c=Math.cos(item.angle),s=Math.sin(item.angle);
@@ -7,12 +8,14 @@ export function corners(item) {
   });
 }
 export function overlap(a,b,clearance=.015) {
-  const ca=corners(a),cb=corners(b);
-  for(const p of [ca,cb]) for(let i=0;i<2;i++) {
-    const q=p[i],r=p[i+1],dx=r[0]-q[0],dz=r[1]-q[1],n=Math.hypot(dx,dz);
-    const axis=[-dz/n,dx/n],pa=ca.map(v=>v[0]*axis[0]+v[1]*axis[1]),pb=cb.map(v=>v[0]*axis[0]+v[1]*axis[1]);
-    if(Math.max(...pa)<=Math.min(...pb)+clearance||Math.max(...pb)<=Math.min(...pa)+clearance)return false;
-  }
+  // Rectangle SAT without allocating corners/projection arrays for every obstacle.
+  const dx=b.x-a.x,dz=b.z-a.z,ca=Math.cos(a.angle),sa=Math.sin(a.angle),cb=Math.cos(b.angle),sb=Math.sin(b.angle);
+  const c=Math.abs(ca*cb+sa*sb),s=Math.abs(sa*cb-ca*sb);
+  const aw=a.width/2,ad=a.depth/2,bw=b.width/2,bd=b.depth/2;
+  if(Math.abs(dx*ca-dz*sa)>=aw+c*bw+s*bd-clearance)return false;
+  if(Math.abs(dx*sa+dz*ca)>=ad+s*bw+c*bd-clearance)return false;
+  if(Math.abs(dx*cb-dz*sb)>=bw+c*aw+s*ad-clearance)return false;
+  if(Math.abs(dx*sb+dz*cb)>=bd+s*aw+c*ad-clearance)return false;
   return true;
 }
 // Rugs and play mats lie flat on the floor: furniture may stand on them and they do not
@@ -21,7 +24,7 @@ const flat=o=>o.height<.05;
 export function placementError(item,room,others,obstacles) {
   if(![item.x,item.z,item.angle].every(Number.isFinite))return '위치와 회전값을 확인해 주세요.';
   const [x1,z1,x2,z2]=room.bounds_m;
-  if(corners(item).some(([x,z])=>x<x1+.015||x>x2-.015||z<z1+.015||z>z2-.015))return '가구 전체가 선택한 공간 안에 있어야 해요.';
+  if(corners(item).some(([x,z])=>x<x1+.015||x>x2-.015||z<z1+.015||z>z2-.015||!pointInRoom(room,x,z)))return '가구 전체가 선택한 공간 안에 있어야 해요.';
   if(!flat(item)&&others.some(o=>o.id!==item.id&&!o.deleted&&!flat(o)&&overlap(item,o)))return '다른 가구와 겹쳐요.';
   if(obstacles.some(o=>overlap(item,o)))return '벽이나 고정 집기와 겹쳐요.';
   return null;
@@ -30,6 +33,7 @@ export function placementError(item,room,others,obstacles) {
 // Advisory footprints follow the viewer's inferred door hinges, not a survey.
 export function doorFootprints(definitions) {
   return definitions.filter(d=>d.type==='hinged').flatMap(d=>
+    d.adapter==='exported' ? Array.from({length:25},(_,i)=>{const [x,z,x2,z2]=hingedSegment(d,i/24);return {x:(x+x2)/2,z:(z+z2)/2,width:d.width,depth:.08,angle:Math.atan2(-(z2-z),x2-x),title:d.name};}) :
     Array.from({length:25},(_,i)=>{
       const angle=i*Math.PI/48*(d.hingeSide==='right'?-1:1),w=d.width,[x,,z]=d.hinge;
       return d.axis==='H'
@@ -41,7 +45,7 @@ export function doorFootprints(definitions) {
 export function placementWarnings(item,room,others,obstacles,doors=[],clearance=.6) {
   if(![item.x,item.z,item.angle].every(Number.isFinite))return ['위치와 회전값을 확인해 주세요.'];
   const warnings=[], [x1,z1,x2,z2]=room.bounds_m;
-  if(corners(item).some(([x,z])=>x<x1||x>x2||z<z1||z>z2))warnings.push('선택한 공간의 경계를 벗어났어요.');
+  if(corners(item).some(([x,z])=>!pointInRoom(room,x,z)))warnings.push('선택한 공간의 경계를 벗어났어요.');
   const furniture=flat(item)?[]:others.filter(o=>o.id!==item.id&&!o.deleted&&!flat(o));
   if(furniture.some(o=>overlap(item,o,0)))warnings.push('다른 가구와 겹쳐요.');
   if(obstacles.some(o=>overlap(item,o,0)))warnings.push('벽이나 고정 집기와 겹쳐요.');

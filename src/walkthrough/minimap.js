@@ -1,6 +1,7 @@
 import {Box3} from 'three';
+import {wallSectionPath} from './wall-slice.js';
 import {corners} from './layout.js';
-import {headingDegrees, hingedSegment, navigationRooms, planBounds, roomAt, viewSector} from './minimap-geometry.js';
+import {headingDegrees, hingedSegment, navigationPlaces, planBounds, roomAt, viewSector} from './minimap-geometry.js';
 import './minimap.css';
 
 const NS = 'http://www.w3.org/2000/svg';
@@ -38,13 +39,13 @@ export function createMinimap() {
 
   function rebuild(active) {
     activeKey = active.key; host.dataset.variant = active.key;
-    host.querySelector('#minimap-variant').textContent = `112A · ${active.definition.label}`;
-    rooms = navigationRooms(active.definition.info);
+    host.querySelector('#minimap-variant').textContent = `${active.definition.unitType} · ${active.definition.label}`;
+    rooms = navigationPlaces(active.definition.info);
     plan.setAttribute('viewBox',planBounds(rooms).join(' ')); plan.replaceChildren(); roomNodes = new Map();
     for (const room of rooms) {
       const [x,z,x2,z2] = room.bounds_m;
       const group = svg('g',{'data-room':room.id,class:room.kind === 'balcony' ? 'minimap-zone balcony' : 'minimap-zone'});
-      group.append(svg('rect',{x,y:z,width:x2-x,height:z2-z,rx:.025}));
+      group.append(room.polygon_m ? svg('polygon',{points:room.polygon_m.map(p=>p.join(',')).join(' ')}) : svg('rect',{x,y:z,width:x2-x,height:z2-z,rx:.025}));
       plan.append(group); roomNodes.set(room.id,group);
     }
     // Slice the actual architectural bounds at waist height; omit lintels/low trim.
@@ -54,7 +55,8 @@ export function createMinimap() {
       if (!object.isMesh || active.definition.info.objects[object.userData.object_id]?.category !== 'Structure') return;
       const b = new Box3().setFromObject(object);
       if (b.min.y > 1 || b.max.y < 1) return;
-      walls.append(svg('rect',{x:b.min.x,y:b.min.z,width:b.max.x-b.min.x,height:b.max.z-b.min.z}));
+      if (active.definition.info.wallSlice) walls.append(svg('path',{d:wallSectionPath(object),fill:'currentColor','fill-rule':'evenodd',stroke:'currentColor','stroke-width':.008}));
+      else walls.append(svg('rect',{x:b.min.x,y:b.min.z,width:b.max.x-b.min.x,height:b.max.z-b.min.z}));
     });
     plan.append(walls);
     furnitureLayer = svg('g',{class:'minimap-furniture'}); doorLayer = svg('g',{class:'minimap-doors'});

@@ -6,6 +6,7 @@ import { createWalkThemes } from './walk-themes.js';
 import { planDressing, createDressing } from './dressing.js';
 import { corners } from '../walkthrough/layout.js';
 import { rememberTheme } from '../walkthrough/my-home.js';
+import { coordinateConceptInput, conceptRoomId } from './coordinate-plan.js';
 import './concepts.css';
 
 // Recommended concepts for the 112A unit (W7-06): the "컨셉 보기" tab ranks concepts by
@@ -81,7 +82,14 @@ const PLAN_FILL = {
 export function createConceptStudio(hooks) {
   const state = { open: false, view: 'list', household: null, mood: null, applied: new Map(), matchFloor: true };
   const variant = () => hooks.current().key;
-  const appliedHere = () => state.applied.get(variant()) ?? null;
+  // Theme history retains the public basic/expanded identifiers used by house tours.
+  const themePlan = () => hooks.current().definition.info.unitType === '112A'
+    ? hooks.current().definition.info.variant : variant();
+  const supported=()=>!hooks.current().definition.structureOnly&&hooks.current().definition.unitType!=='168C';
+  const modelRoomId=id=>conceptRoomId(id,hooks.current().definition.info);
+  const scope = () => hooks.layoutScope || variant();
+  const storedScope=()=>scope().startsWith('unit:')?scope():variant();
+  const appliedHere = () => state.applied.get(scope()) ?? null;
   const walking = () => hooks.mode === 'tour';
 
   // Shared kit pieces become addable templates on every loaded plan.
@@ -101,7 +109,8 @@ export function createConceptStudio(hooks) {
       // Kept model furniture returns to its initial transform when a concept is applied.
       const existing = active.staging.items.filter((item) => !item.id.startsWith('added-') && concept.keep.includes(item.kind))
         .map(({ id, kind, width, depth, height, initial }) => ({ id, kind, width, depth, height, ...initial }));
-      planCache.set(key, planConcept(concept, { variant: variant(), rooms: hooks.rooms(), doors: active.definition.doors, existing }));
+      const adapted=active.definition.coordinateBased?coordinateConceptInput(concept,active.definition.info):{concept,rooms:hooks.rooms(),variant:variant(),search:false};
+      planCache.set(key, planConcept(adapted.concept, {variant:adapted.variant, rooms:adapted.rooms, doors:active.definition.doors, existing, obstacles:active.staging.obstacles, search:adapted.search}));
     }
     return planCache.get(key);
   }
@@ -132,7 +141,8 @@ export function createConceptStudio(hooks) {
     if (!applied) { dressing.clear(active.model); return; }
     const concept = CONCEPTS.find((c) => c.id === applied.concept);
     const kept = active.staging.items.filter((i) => !i.id.startsWith('added-') && concept.keep.includes(i.kind)).map((i) => ({ ...i, ...i.initial }));
-    const props = planDressing(plan(concept).placements, hooks.rooms(), { kept, doors: active.definition.doors, seed: seedOf(concept.id) });
+    const placements = plan(concept).placements.map((item) => ({ ...item, room: modelRoomId(item.room) }));
+    const props = planDressing(placements, hooks.rooms(), { kept, doors: active.definition.doors, seed: seedOf(concept.id) });
     dressing.build(active.model, props, PALETTES[applied.palette].colors);
   }
   function paint() {
@@ -166,6 +176,7 @@ export function createConceptStudio(hooks) {
   // concept and then place the walker themselves); staged previews stay out of the theme
   // history. `tour` is the 집들이 the theme was taken from.
   function apply(conceptId, paletteId, { url = true, frame = true, tour = null } = {}) {
+    if(!supported())return false;
     const concept = CONCEPTS.find((c) => c.id === conceptId);
     if (!concept) return false;
     const staging = hooks.current().staging;
@@ -181,8 +192,8 @@ export function createConceptStudio(hooks) {
     staging.rebuild();
     if (walking()) hooks.settle();
     const palette = paletteId ?? pickPalette(concept, state.mood);
-    state.applied.set(variant(), tour ? { concept: concept.id, palette, tour } : { concept: concept.id, palette });
-    if (url) rememberTheme({ concept: concept.id, palette, plan: variant(), tour });
+    state.applied.set(scope(), tour ? { concept: concept.id, palette, tour } : { concept: concept.id, palette });
+    if (url) rememberTheme({ concept: concept.id, palette, plan: themePlan(), tour });
     applyPalette(PALETTES[palette].colors);
     if (state.matchFloor) setFinish(PALETTES[palette].finish);
     hooks.refreshLayout();
@@ -200,7 +211,7 @@ export function createConceptStudio(hooks) {
     const applied = appliedHere();
     if (!applied) return;
     applied.palette = paletteId;
-    rememberTheme({ concept: applied.concept, palette: paletteId, plan: variant(), tour: applied.tour ?? null });
+    rememberTheme({ concept: applied.concept, palette: paletteId, plan: themePlan(), tour: applied.tour ?? null });
     applyPalette(PALETTES[paletteId].colors);
     if (state.matchFloor) setFinish(PALETTES[paletteId].finish);
     paint();
@@ -214,7 +225,7 @@ export function createConceptStudio(hooks) {
     if (resetLayout) hooks.current().staging.reset();
     if (resetLayout && walking()) hooks.settle();
     const applied = appliedHere();
-    state.applied.delete(variant());
+    state.applied.delete(scope());
     paint();
     if (applied && state.matchFloor) setFinish('original');
     if (resetLayout) hooks.refreshLayout();
@@ -247,12 +258,12 @@ export function createConceptStudio(hooks) {
 
   function thumbnail(concept, paletteId) {
     const colors = { ...PALETTES[paletteId].colors, leaf: '#6f8c5f' };
-    const [x0, z0, x1, z1] = UNIT_BOUNDS;
+    const [x0, z0, x1, z1] = hooks.current().definition.info.bounds_m || UNIT_BOUNDS;
     const svg = svgNode('svg', { viewBox: `${x0} ${z0} ${x1 - x0} ${z1 - z0}`, class: 'concept-thumb', role: 'img', 'aria-label': `${concept.title} 배치 미리보기` });
     for (const room of hooks.rooms()) {
       const [rx0, rz0, rx1, rz1] = room.bounds_m;
       const balcony = room.kind === 'balcony' || room.kind === 'open_balcony';
-      svg.append(svgNode('rect', { x: rx0, y: rz0, width: rx1 - rx0, height: rz1 - rz0, class: balcony ? 'thumb-balcony' : 'thumb-room' }));
+      svg.append(room.polygon_m?svgNode('polygon',{points:room.polygon_m.map(p=>p.join(',')).join(' '),class:balcony?'thumb-balcony':'thumb-room'}):svgNode('rect', { x: rx0, y: rz0, width: rx1 - rx0, height: rz1 - rz0, class: balcony ? 'thumb-balcony' : 'thumb-room' }));
     }
     const kept = hooks.current().staging.items.filter((i) => !i.id.startsWith('added-') && concept.keep.includes(i.kind))
       .map((i) => ({ ...i, ...i.initial }));
@@ -265,7 +276,7 @@ export function createConceptStudio(hooks) {
   }
 
   function renderList() {
-    const variantLabel = variant() === 'expanded' ? '확장형' : '기본형';
+    const variantLabel = (hooks.current().definition.info.variant || variant()) === 'expanded' ? '확장형' : '기본형';
     const header = element('header', { class: 'concept-header' },
       element('div', { class: 'concept-title-row' },
         element('h2', { id: 'concept-heading', tabindex: '-1', text: '우리 가족에 맞춘 배치' }),
@@ -312,6 +323,7 @@ export function createConceptStudio(hooks) {
         badge ? element('p', { class: `concept-fit fit-${fit}`, text: badge }) : null,
         element('h3', { text: concept.title }),
         element('p', { class: 'concept-tagline', text: concept.tagline }),
+        plan(concept).skipped.length?element('p',{class:'concept-hint',text:'이 평면에서 '+plan(concept).skipped.length+'개 가구는 공간 부족으로 제외했어요.'}):null,
         colors,
         element('ul', { class: 'concept-facts' }, facts.map((fact) => element('li', { text: fact }))),
         needs.length ? element('p', { class: `concept-needs${met === needs.length ? ' all-met' : ''}`, text: `${HOUSEHOLDS.find((h) => h.id === state.household).label} 조건 ${met}/${needs.length} 충족` }) : null),
@@ -320,7 +332,7 @@ export function createConceptStudio(hooks) {
 
   // The studio frames the plan top-down one frame after a mode change; frame the angled
   // dollhouse view after that so the furniture reads in 3D.
-  function frameUnit() { requestAnimationFrame(() => requestAnimationFrame(() => hooks.frame(UNIT_BOUNDS, compact.matches))); }
+  function frameUnit() { requestAnimationFrame(() => requestAnimationFrame(() => hooks.frame(hooks.current().definition.info.bounds_m || UNIT_BOUNDS, compact.matches))); }
 
   function revealCard(conceptId) {
     if (!state.open || state.view !== 'list') return;
@@ -348,10 +360,10 @@ export function createConceptStudio(hooks) {
     }
     const keptTitles = concept.keep.map((kind) => hooks.current().staging.items.find((i) => i.kind === kind)).filter(Boolean);
     const roomList = element('ul', { class: 'concept-rooms' }, [...byRoom.entries()].map(([roomId, pieces]) => {
-      const room = hooks.rooms().find((r) => r.id === roomId);
+      const room = hooks.rooms().find((r) => r.id === modelRoomId(roomId));
       const names = pieces.filter((p) => !FURNITURE[p.kind].decor).map((p) => p.title);
       if (roomId === 'Master bedroom') names.unshift(...keptTitles.map((i) => `${i.title}(기존)`));
-      return element('li', {}, element('button', { type: 'button', onclick: () => { hooks.selectRoom(roomId); hooks.frame(room.bounds_m, false); } },
+      return element('li', {}, element('button', { type: 'button', onclick: () => { hooks.selectRoom(modelRoomId(roomId)); hooks.frame(room.bounds_m, false); } },
         element('strong', { text: concept.rooms[roomId] ?? room?.name_ko ?? roomId }),
         element('span', { class: 'concept-room-name', text: room?.name_ko ?? roomId }),
         element('span', { class: 'concept-room-items', text: names.join(' · ') || '소품' })));
@@ -394,14 +406,14 @@ export function createConceptStudio(hooks) {
   // Walk from the living room's north-west corner, looking across the rug toward the sofa and windows.
   function walk() {
     close();
-    hooks.selectRoom('Living front');
+    hooks.selectRoom(modelRoomId('Living front'));
     $('room-walk').click();
-    const living = hooks.rooms().find((r) => r.id === 'Living front');
+    const living = hooks.rooms().find((r) => r.id === modelRoomId('Living front'));
     if (!living) return;
     const [x1, z1, x2, z2] = living.bounds_m;
     hooks.standAt(x1 + 0.85, z1 + 0.45, x2 - 0.6, (z1 + z2) / 2 + 0.6);
   }
-  function edit() { close(); hooks.selectRoom('Living front'); $('room-edit').click(); }
+  function edit() { close(); hooks.selectRoom(modelRoomId('Living front')); $('room-edit').click(); }
 
   const listView = element('div', { class: 'concept-view' });
   const detailView = element('div', { class: 'concept-view' });
@@ -419,6 +431,7 @@ export function createConceptStudio(hooks) {
   panel.append(grabber, listView, detailView);
 
   function render() {
+    if(!supported()){themes.onMode('complex');return;}
     themes.render();
     if (!state.open) return;
     const detail = state.view === 'detail' && appliedHere();
@@ -431,7 +444,7 @@ export function createConceptStudio(hooks) {
 
   // The tab always opens on the household list; details open only on request.
   function open() {
-    if (hooks.mode === 'complex') return;
+    if (hooks.mode === 'complex' || !supported()) return;
     if (hooks.mode !== 'overview') hooks.setMode('overview');
     ensureTemplates();
     state.open = true;
@@ -462,29 +475,29 @@ export function createConceptStudio(hooks) {
 
   // Saved layouts remember their concept and palette alongside the furniture.
   $('save-layout')?.addEventListener('click', () => {
-    try { localStorage.setItem(STORAGE_KEY(variant()), JSON.stringify(appliedHere())); } catch { /* storage unavailable */ }
+    try { localStorage.setItem(STORAGE_KEY(storedScope()), JSON.stringify(appliedHere())); } catch { /* storage unavailable */ }
   });
   $('restore-layout')?.addEventListener('click', () => {
     let saved = null;
-    try { saved = JSON.parse(localStorage.getItem(STORAGE_KEY(variant()))); } catch { /* storage unavailable */ }
-    if (saved && CONCEPTS.some((c) => c.id === saved.concept) && PALETTES[saved.palette]) state.applied.set(variant(), saved);
-    else state.applied.delete(variant());
+    try { saved = JSON.parse(localStorage.getItem(STORAGE_KEY(storedScope()))); } catch { /* storage unavailable */ }
+    if (saved && CONCEPTS.some((c) => c.id === saved.concept) && PALETTES[saved.palette]) state.applied.set(scope(), saved);
+    else state.applied.delete(scope());
     paint(); writeURL(); render();
   });
   $('reset-layout')?.addEventListener('click', () => clear({ resetLayout: false }));
 
-  ensureTemplates();
-
   const hooksApi = {
     onMode(mode) {
       if (mode !== 'overview' && state.open) close();
-      tab.disabled = mode === 'complex';
-      themes.onMode(mode);
+      tab.disabled = mode === 'complex' || !supported();tab.hidden=!supported();
+      if(!supported()&&state.open)close();
+      themes.onMode(supported()?mode:'complex');
       // The phone sidebar keeps the complex screen's scroll; start the unit at its top.
       if (mode === 'overview' && compact.matches) $('studio-sidebar').scrollTop = 0;
     },
     onVariant() {
-      ensureTemplates();
+      if(state.open&&supported())ensureTemplates();
+      if(!supported()){close();return;}
       paint();
       writeURL();
       render();
@@ -493,7 +506,7 @@ export function createConceptStudio(hooks) {
 
   // Shared links (?concept=…&palette=…) open the unit with that concept applied.
   const linked = CONCEPTS.find((c) => c.id === params.get('concept'));
-  if (linked) queueMicrotask(() => {
+  if (linked && supported()) queueMicrotask(() => {
     hooks.setMode('overview');
     open();
     apply(linked.id, PALETTES[params.get('palette')] && linked.palettes.includes(params.get('palette')) ? params.get('palette') : undefined);
@@ -512,13 +525,15 @@ export function createConceptStudio(hooks) {
   // as it was — furniture, applied concept and floor finish of the loaded plan.
   hooksApi.api = {
     apply,
-    applied: (key = variant()) => state.applied.get(key) ?? null,
-    snapshot: () => ({ variant: variant(), items: hooks.current().staging.snapshot(), applied: appliedHere() && { ...appliedHere() }, finish: $('finish')?.value ?? 'original' }),
+    roomId: modelRoomId,
+    applied: (key = scope()) => state.applied.get(key)
+      ?? (key === variant() || key === themePlan() ? appliedHere() : null),
+    snapshot: () => ({ variant: variant(), scope: scope(), items: hooks.current().staging.snapshot(), applied: appliedHere() && { ...appliedHere() }, finish: $('finish')?.value ?? 'original' }),
     restore(snap, { url = true } = {}) {
-      if (!snap || snap.variant !== variant()) return false;
+      if (!snap || snap.variant !== variant() || (snap.scope !== undefined && snap.scope !== scope())) return false;
       ensureTemplates();
       hooks.current().staging.restore(snap.items, hooks.rooms());
-      if (snap.applied) state.applied.set(variant(), { ...snap.applied }); else state.applied.delete(variant());
+      if (snap.applied) state.applied.set(scope(), { ...snap.applied }); else state.applied.delete(scope());
       paint();
       setFinish(snap.finish);
       hooks.refreshLayout();

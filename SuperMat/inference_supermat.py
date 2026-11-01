@@ -18,6 +18,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--output-dir", type=str, required=True, help="Directory to save outputs.")
     parser.add_argument("--checkpoint", type=str, default='checkpoints/supermat.ckpt', help="Checkpoint file path.")
     parser.add_argument("--base-model", type=str, default="stabilityai/stable-diffusion-2-1", help="Base Stable Diffusion model path or Hugging Face repo id.")
+    parser.add_argument("--allow-model-download", action="store_true", help="Explicitly allow fetching base-model files; default uses local cache only.")
     parser.add_argument("--device", type=str, default="cuda" if torch.cuda.is_available() else "cpu", help="Torch device, e.g. cuda, cuda:0, cpu.")
     parser.add_argument("--image-size", type=int, default=512, help="Input resize resolution.")
     parser.add_argument("--seed", type=int, default=None, help="Random seed.")
@@ -28,6 +29,7 @@ def parse_args() -> argparse.Namespace:
 def build_pipeline(args: argparse.Namespace) -> SuperMatStableDiffusionPipeline:
     pipe = SuperMatStableDiffusionPipeline.from_pretrained(
         args.base_model,
+        local_files_only=not args.allow_model_download,
         safety_checker=None,
         requires_safety_checker=False,
     ).to(args.device)

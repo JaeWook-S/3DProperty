@@ -77,6 +77,7 @@ class Settings:
     generate_3d: bool = True
     blender_executable: Path = PROJECT_ROOT / ".tooling/blender/blender"
     blender_timeout: int = 120
+    supermat_enabled: bool = False
     supermat_python: Path = PROJECT_ROOT / ".envs/furniture-supermat/bin/python"
     supermat_checkpoint: Path = PROJECT_ROOT / "SuperMat/checkpoints/supermat.pth"
     supermat_base_model: str = "sd2-community/stable-diffusion-2-1"
@@ -110,6 +111,7 @@ class Settings:
             blender_executable=project_path(os.getenv("PIPELINE_BLENDER_EXECUTABLE") or shutil.which("blender") or
                 ("/Applications/Blender.app/Contents/MacOS/Blender" if Path("/Applications/Blender.app/Contents/MacOS/Blender").is_file() else ".tooling/blender/blender")),
             blender_timeout=int(os.getenv("PIPELINE_BLENDER_TIMEOUT", "120")),
+            supermat_enabled=os.getenv("PIPELINE_SUPERMAT_ENABLED", "false").strip().lower() in {"true", "1", "yes"},
             supermat_python=project_path(os.getenv("PIPELINE_SUPERMAT_PYTHON", ".envs/furniture-supermat/bin/python")),
             supermat_checkpoint=project_path(os.getenv("PIPELINE_SUPERMAT_CHECKPOINT", "SuperMat/checkpoints/supermat.pth")),
             supermat_base_model=supermat_base_model,

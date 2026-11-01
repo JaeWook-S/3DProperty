@@ -1,0 +1,3288 @@
+{
+  "passed": true,
+  "checks_count": 742,
+  "checks": [
+    {
+      "name": "BLEND uses meters",
+      "passed": true
+    },
+    {
+      "name": "unit scale / Floor / footprint is not certified area",
+      "passed": true
+    },
+    {
+      "name": "unit scale / outer-00/after",
+      "passed": true
+    },
+    {
+      "name": "unit scale / outer-01/entry-door/before",
+      "passed": true
+    },
+    {
+      "name": "unit scale / outer-01/entry-door/lintel",
+      "passed": true
+    },
+    {
+      "name": "unit scale / outer-01/after",
+      "passed": true
+    },
+    {
+      "name": "unit scale / outer-02/after",
+      "passed": true
+    },
+    {
+      "name": "unit scale / outer-03/after",
+      "passed": true
+    },
+    {
+      "name": "unit scale / outer-04/after",
+      "passed": true
+    },
+    {
+      "name": "unit scale / outer-05/primary-exterior-window/before",
+      "passed": true
+    },
+    {
+      "name": "unit scale / outer-05/primary-exterior-window/sill",
+      "passed": true
+    },
+    {
+      "name": "unit scale / outer-05/primary-exterior-window/lintel",
+      "passed": true
+    },
+    {
+      "name": "unit scale / outer-05/after",
+      "passed": true
+    },
+    {
+      "name": "unit scale / outer-06/after",
+      "passed": true
+    },
+    {
+      "name": "unit scale / outer-07/living-window-1/before",
+      "passed": true
+    },
+    {
+      "name": "unit scale / outer-07/living-window-1/sill",
+      "passed": true
+    },
+    {
+      "name": "unit scale / outer-07/living-window-1/lintel",
+      "passed": true
+    },
+    {
+      "name": "unit scale / outer-07/after",
+      "passed": true
+    },
+    {
+      "name": "unit scale / outer-08/after",
+      "passed": true
+    },
+    {
+      "name": "unit scale / outer-09/after",
+      "passed": true
+    },
+    {
+      "name": "unit scale / outer-10/after",
+      "passed": true
+    },
+    {
+      "name": "unit scale / outer-11/after",
+      "passed": true
+    },
+    {
+      "name": "unit scale / outer-12/kitchen-window/before",
+      "passed": true
+    },
+    {
+      "name": "unit scale / outer-12/kitchen-window/sill",
+      "passed": true
+    },
+    {
+      "name": "unit scale / outer-12/kitchen-window/lintel",
+      "passed": true
+    },
+    {
+      "name": "unit scale / outer-12/after",
+      "passed": true
+    },
+    {
+      "name": "unit scale / outer-13/after",
+      "passed": true
+    },
+    {
+      "name": "unit scale / outer-14/bedroom-1-window/before",
+      "passed": true
+    },
+    {
+      "name": "unit scale / outer-14/bedroom-1-window/sill",
+      "passed": true
+    },
+    {
+      "name": "unit scale / outer-14/bedroom-1-window/lintel",
+      "passed": true
+    },
+    {
+      "name": "unit scale / outer-14/bedroom-2-window/before",
+      "passed": true
+    },
+    {
+      "name": "unit scale / outer-14/bedroom-2-window/sill",
+      "passed": true
+    },
+    {
+      "name": "unit scale / outer-14/bedroom-2-window/lintel",
+      "passed": true
+    },
+    {
+      "name": "unit scale / outer-14/bedroom-3-window/before",
+      "passed": true
+    },
+    {
+      "name": "unit scale / outer-14/bedroom-3-window/sill",
+      "passed": true
+    },
+    {
+      "name": "unit scale / outer-14/bedroom-3-window/lintel",
+      "passed": true
+    },
+    {
+      "name": "unit scale / outer-14/after",
+      "passed": true
+    },
+    {
+      "name": "unit scale / outer-15/after",
+      "passed": true
+    },
+    {
+      "name": "unit scale / bedrooms-north/bedroom-1-door/before",
+      "passed": true
+    },
+    {
+      "name": "unit scale / bedrooms-north/bedroom-1-door/lintel",
+      "passed": true
+    },
+    {
+      "name": "unit scale / bedrooms-north/bedroom-2-door/before",
+      "passed": true
+    },
+    {
+      "name": "unit scale / bedrooms-north/bedroom-2-door/lintel",
+      "passed": true
+    },
+    {
+      "name": "unit scale / bedrooms-north/bedroom-3-door/before",
+      "passed": true
+    },
+    {
+      "name": "unit scale / bedrooms-north/bedroom-3-door/lintel",
+      "passed": true
+    },
+    {
+      "name": "unit scale / bedrooms-north/after",
+      "passed": true
+    },
+    {
+      "name": "unit scale / bedroom-1-2/after",
+      "passed": true
+    },
+    {
+      "name": "unit scale / bedroom-2-3/after",
+      "passed": true
+    },
+    {
+      "name": "unit scale / bedroom-3-kitchen/after",
+      "passed": true
+    },
+    {
+      "name": "unit scale / bathroom-1-east/bathroom-1-door/before",
+      "passed": true
+    },
+    {
+      "name": "unit scale / bathroom-1-east/bathroom-1-door/lintel",
+      "passed": true
+    },
+    {
+      "name": "unit scale / bathroom-1-east/after",
+      "passed": true
+    },
+    {
+      "name": "unit scale / bathroom-1-north/after",
+      "passed": true
+    },
+    {
+      "name": "unit scale / service-south/hall-pantry-door/before",
+      "passed": true
+    },
+    {
+      "name": "unit scale / service-south/hall-pantry-door/lintel",
+      "passed": true
+    },
+    {
+      "name": "unit scale / service-south/after",
+      "passed": true
+    },
+    {
+      "name": "unit scale / entry-east/after",
+      "passed": true
+    },
+    {
+      "name": "unit scale / service-east/dressing-inner-passage/before",
+      "passed": true
+    },
+    {
+      "name": "unit scale / service-east/dressing-inner-passage/lintel",
+      "passed": true
+    },
+    {
+      "name": "unit scale / service-east/after",
+      "passed": true
+    },
+    {
+      "name": "unit scale / primary-bathroom-north/primary-bathroom-door/before",
+      "passed": true
+    },
+    {
+      "name": "unit scale / primary-bathroom-north/primary-bathroom-door/lintel",
+      "passed": true
+    },
+    {
+      "name": "unit scale / primary-bathroom-north/after",
+      "passed": true
+    },
+    {
+      "name": "unit scale / primary-bathroom-west/after",
+      "passed": true
+    },
+    {
+      "name": "unit scale / primary-bathroom-east/after",
+      "passed": true
+    },
+    {
+      "name": "unit scale / primary-service-south/after",
+      "passed": true
+    },
+    {
+      "name": "unit scale / primary-south/primary-door/before",
+      "passed": true
+    },
+    {
+      "name": "unit scale / primary-south/primary-door/lintel",
+      "passed": true
+    },
+    {
+      "name": "unit scale / primary-south/after",
+      "passed": true
+    },
+    {
+      "name": "unit scale / primary-balcony-divider/primary-balcony-opening/before",
+      "passed": true
+    },
+    {
+      "name": "unit scale / primary-balcony-divider/primary-balcony-opening/sill",
+      "passed": true
+    },
+    {
+      "name": "unit scale / primary-balcony-divider/primary-balcony-opening/lintel",
+      "passed": true
+    },
+    {
+      "name": "unit scale / primary-balcony-divider/after",
+      "passed": true
+    },
+    {
+      "name": "unit scale / primary-balcony-service/primary-balcony-service-door/before",
+      "passed": true
+    },
+    {
+      "name": "unit scale / primary-balcony-service/primary-balcony-service-door/lintel",
+      "passed": true
+    },
+    {
+      "name": "unit scale / primary-balcony-service/after",
+      "passed": true
+    },
+    {
+      "name": "unit scale / pantry-north/pantry-door/before",
+      "passed": true
+    },
+    {
+      "name": "unit scale / pantry-north/pantry-door/lintel",
+      "passed": true
+    },
+    {
+      "name": "unit scale / pantry-north/after",
+      "passed": true
+    },
+    {
+      "name": "unit scale / pantry-east/after",
+      "passed": true
+    },
+    {
+      "name": "unit scale / pantry-west/after",
+      "passed": true
+    },
+    {
+      "name": "unit scale / living-balcony-return/after",
+      "passed": true
+    },
+    {
+      "name": "unit scale / living-balcony-divider/living-window-2/before",
+      "passed": true
+    },
+    {
+      "name": "unit scale / living-balcony-divider/living-window-2/sill",
+      "passed": true
+    },
+    {
+      "name": "unit scale / living-balcony-divider/living-window-2/lintel",
+      "passed": true
+    },
+    {
+      "name": "unit scale / living-balcony-divider/after",
+      "passed": true
+    },
+    {
+      "name": "unit scale / dressing-inner-south/after",
+      "passed": true
+    },
+    {
+      "name": "unit scale / hall-pantry-west/after",
+      "passed": true
+    },
+    {
+      "name": "unit scale / hall-pantry-east/after",
+      "passed": true
+    },
+    {
+      "name": "unit scale / utility-shaft-north/after",
+      "passed": true
+    },
+    {
+      "name": "unit scale / utility-shaft-west/after",
+      "passed": true
+    },
+    {
+      "name": "unit scale / kitchen-shaft-north/after",
+      "passed": true
+    },
+    {
+      "name": "unit scale / kitchen-shaft-east/after",
+      "passed": true
+    },
+    {
+      "name": "unit scale / kitchen-shaft-south/after",
+      "passed": true
+    },
+    {
+      "name": "unit scale / bathroom-1-shower-divider/bathroom-1-shower-door/before",
+      "passed": true
+    },
+    {
+      "name": "unit scale / bathroom-1-shower-divider/after",
+      "passed": true
+    },
+    {
+      "name": "unit scale / bedroom-2-west-north-pier",
+      "passed": true
+    },
+    {
+      "name": "unit scale / bedroom-2-west-south-pier",
+      "passed": true
+    },
+    {
+      "name": "unit scale / entry-door/jamb-left",
+      "passed": true
+    },
+    {
+      "name": "unit scale / entry-door/jamb-right",
+      "passed": true
+    },
+    {
+      "name": "unit scale / entry-door/head",
+      "passed": true
+    },
+    {
+      "name": "unit scale / entry-door/leaf",
+      "passed": true
+    },
+    {
+      "name": "saved leaf / entry-door/leaf",
+      "passed": true,
+      "observed_m": [
+        0.800000011920929,
+        2.4000000953674316
+      ]
+    },
+    {
+      "name": "unit scale / entry-door/handle",
+      "passed": true
+    },
+    {
+      "name": "unit scale / bedroom-1-door/jamb-left",
+      "passed": true
+    },
+    {
+      "name": "unit scale / bedroom-1-door/jamb-right",
+      "passed": true
+    },
+    {
+      "name": "unit scale / bedroom-1-door/head",
+      "passed": true
+    },
+    {
+      "name": "unit scale / bedroom-1-door/leaf",
+      "passed": true
+    },
+    {
+      "name": "saved leaf / bedroom-1-door/leaf",
+      "passed": true,
+      "observed_m": [
+        0.800000011920929,
+        2.4000000953674316
+      ]
+    },
+    {
+      "name": "unit scale / bedroom-1-door/handle",
+      "passed": true
+    },
+    {
+      "name": "unit scale / bedroom-2-door/jamb-left",
+      "passed": true
+    },
+    {
+      "name": "unit scale / bedroom-2-door/jamb-right",
+      "passed": true
+    },
+    {
+      "name": "unit scale / bedroom-2-door/head",
+      "passed": true
+    },
+    {
+      "name": "unit scale / bedroom-2-door/leaf",
+      "passed": true
+    },
+    {
+      "name": "saved leaf / bedroom-2-door/leaf",
+      "passed": true,
+      "observed_m": [
+        0.800000011920929,
+        2.4000000953674316
+      ]
+    },
+    {
+      "name": "unit scale / bedroom-2-door/handle",
+      "passed": true
+    },
+    {
+      "name": "unit scale / bedroom-3-door/jamb-left",
+      "passed": true
+    },
+    {
+      "name": "unit scale / bedroom-3-door/jamb-right",
+      "passed": true
+    },
+    {
+      "name": "unit scale / bedroom-3-door/head",
+      "passed": true
+    },
+    {
+      "name": "unit scale / bedroom-3-door/leaf",
+      "passed": true
+    },
+    {
+      "name": "saved leaf / bedroom-3-door/leaf",
+      "passed": true,
+      "observed_m": [
+        0.800000011920929,
+        2.4000000953674316
+      ]
+    },
+    {
+      "name": "unit scale / bedroom-3-door/handle",
+      "passed": true
+    },
+    {
+      "name": "unit scale / bathroom-1-door/jamb-left",
+      "passed": true
+    },
+    {
+      "name": "unit scale / bathroom-1-door/jamb-right",
+      "passed": true
+    },
+    {
+      "name": "unit scale / bathroom-1-door/head",
+      "passed": true
+    },
+    {
+      "name": "unit scale / bathroom-1-door/leaf",
+      "passed": true
+    },
+    {
+      "name": "saved leaf / bathroom-1-door/leaf",
+      "passed": true,
+      "observed_m": [
+        0.800000011920929,
+        2.4000000953674316
+      ]
+    },
+    {
+      "name": "unit scale / bathroom-1-door/handle",
+      "passed": true
+    },
+    {
+      "name": "unit scale / hall-pantry-door/jamb-left",
+      "passed": true
+    },
+    {
+      "name": "unit scale / hall-pantry-door/jamb-right",
+      "passed": true
+    },
+    {
+      "name": "unit scale / hall-pantry-door/head",
+      "passed": true
+    },
+    {
+      "name": "unit scale / hall-pantry-door/leaf",
+      "passed": true
+    },
+    {
+      "name": "saved leaf / hall-pantry-door/leaf",
+      "passed": true,
+      "observed_m": [
+        0.800000011920929,
+        2.4000000953674316
+      ]
+    },
+    {
+      "name": "unit scale / hall-pantry-door/handle",
+      "passed": true
+    },
+    {
+      "name": "unit scale / dressing-inner-passage/frame-left",
+      "passed": true
+    },
+    {
+      "name": "unit scale / dressing-inner-passage/frame-right",
+      "passed": true
+    },
+    {
+      "name": "unit scale / dressing-inner-passage/frame-top",
+      "passed": true
+    },
+    {
+      "name": "unit scale / primary-bathroom-door/jamb-left",
+      "passed": true
+    },
+    {
+      "name": "unit scale / primary-bathroom-door/jamb-right",
+      "passed": true
+    },
+    {
+      "name": "unit scale / primary-bathroom-door/head",
+      "passed": true
+    },
+    {
+      "name": "unit scale / primary-bathroom-door/leaf",
+      "passed": true
+    },
+    {
+      "name": "saved leaf / primary-bathroom-door/leaf",
+      "passed": true,
+      "observed_m": [
+        0.800000011920929,
+        2.4000000953674316
+      ]
+    },
+    {
+      "name": "unit scale / primary-bathroom-door/handle",
+      "passed": true
+    },
+    {
+      "name": "unit scale / primary-door/jamb-left",
+      "passed": true
+    },
+    {
+      "name": "unit scale / primary-door/jamb-right",
+      "passed": true
+    },
+    {
+      "name": "unit scale / primary-door/head",
+      "passed": true
+    },
+    {
+      "name": "unit scale / primary-door/leaf",
+      "passed": true
+    },
+    {
+      "name": "saved leaf / primary-door/leaf",
+      "passed": true,
+      "observed_m": [
+        0.800000011920929,
+        2.4000000953674316
+      ]
+    },
+    {
+      "name": "unit scale / primary-door/handle",
+      "passed": true
+    },
+    {
+      "name": "unit scale / primary-balcony-service-door/jamb-left",
+      "passed": true
+    },
+    {
+      "name": "unit scale / primary-balcony-service-door/jamb-right",
+      "passed": true
+    },
+    {
+      "name": "unit scale / primary-balcony-service-door/head",
+      "passed": true
+    },
+    {
+      "name": "unit scale / primary-balcony-service-door/leaf",
+      "passed": true
+    },
+    {
+      "name": "saved leaf / primary-balcony-service-door/leaf",
+      "passed": true,
+      "observed_m": [
+        0.800000011920929,
+        2.4000000953674316
+      ]
+    },
+    {
+      "name": "unit scale / primary-balcony-service-door/handle",
+      "passed": true
+    },
+    {
+      "name": "unit scale / pantry-door/jamb-left",
+      "passed": true
+    },
+    {
+      "name": "unit scale / pantry-door/jamb-right",
+      "passed": true
+    },
+    {
+      "name": "unit scale / pantry-door/head",
+      "passed": true
+    },
+    {
+      "name": "unit scale / pantry-door/leaf",
+      "passed": true
+    },
+    {
+      "name": "saved leaf / pantry-door/leaf",
+      "passed": true,
+      "observed_m": [
+        0.800000011920929,
+        2.4000000953674316
+      ]
+    },
+    {
+      "name": "unit scale / pantry-door/handle",
+      "passed": true
+    },
+    {
+      "name": "unit scale / bathroom-1-shower-door/jamb-left",
+      "passed": true
+    },
+    {
+      "name": "unit scale / bathroom-1-shower-door/jamb-right",
+      "passed": true
+    },
+    {
+      "name": "unit scale / bathroom-1-shower-door/head",
+      "passed": true
+    },
+    {
+      "name": "unit scale / bathroom-1-shower-door/leaf",
+      "passed": true
+    },
+    {
+      "name": "saved leaf / bathroom-1-shower-door/leaf",
+      "passed": true,
+      "observed_m": [
+        0.699999988079071,
+        2.0999999046325684
+      ]
+    },
+    {
+      "name": "unit scale / bathroom-1-shower-door/handle",
+      "passed": true
+    },
+    {
+      "name": "unit scale / primary-exterior-window/frame-left",
+      "passed": true
+    },
+    {
+      "name": "unit scale / primary-exterior-window/frame-right",
+      "passed": true
+    },
+    {
+      "name": "unit scale / primary-exterior-window/frame-bottom",
+      "passed": true
+    },
+    {
+      "name": "unit scale / primary-exterior-window/frame-top",
+      "passed": true
+    },
+    {
+      "name": "unit scale / primary-exterior-window/full-window-span",
+      "passed": true
+    },
+    {
+      "name": "unit scale / living-window-1/frame-left",
+      "passed": true
+    },
+    {
+      "name": "unit scale / living-window-1/frame-right",
+      "passed": true
+    },
+    {
+      "name": "unit scale / living-window-1/frame-bottom",
+      "passed": true
+    },
+    {
+      "name": "unit scale / living-window-1/frame-top",
+      "passed": true
+    },
+    {
+      "name": "unit scale / living-window-1/full-window-span",
+      "passed": true
+    },
+    {
+      "name": "unit scale / kitchen-window/frame-left",
+      "passed": true
+    },
+    {
+      "name": "unit scale / kitchen-window/frame-right",
+      "passed": true
+    },
+    {
+      "name": "unit scale / kitchen-window/frame-bottom",
+      "passed": true
+    },
+    {
+      "name": "unit scale / kitchen-window/frame-top",
+      "passed": true
+    },
+    {
+      "name": "unit scale / kitchen-window/full-window-span",
+      "passed": true
+    },
+    {
+      "name": "unit scale / bedroom-1-window/frame-left",
+      "passed": true
+    },
+    {
+      "name": "unit scale / bedroom-1-window/frame-right",
+      "passed": true
+    },
+    {
+      "name": "unit scale / bedroom-1-window/frame-bottom",
+      "passed": true
+    },
+    {
+      "name": "unit scale / bedroom-1-window/frame-top",
+      "passed": true
+    },
+    {
+      "name": "unit scale / bedroom-1-window/full-window-span",
+      "passed": true
+    },
+    {
+      "name": "unit scale / bedroom-2-window/frame-left",
+      "passed": true
+    },
+    {
+      "name": "unit scale / bedroom-2-window/frame-right",
+      "passed": true
+    },
+    {
+      "name": "unit scale / bedroom-2-window/frame-bottom",
+      "passed": true
+    },
+    {
+      "name": "unit scale / bedroom-2-window/frame-top",
+      "passed": true
+    },
+    {
+      "name": "unit scale / bedroom-2-window/full-window-span",
+      "passed": true
+    },
+    {
+      "name": "unit scale / bedroom-3-window/frame-left",
+      "passed": true
+    },
+    {
+      "name": "unit scale / bedroom-3-window/frame-right",
+      "passed": true
+    },
+    {
+      "name": "unit scale / bedroom-3-window/frame-bottom",
+      "passed": true
+    },
+    {
+      "name": "unit scale / bedroom-3-window/frame-top",
+      "passed": true
+    },
+    {
+      "name": "unit scale / bedroom-3-window/full-window-span",
+      "passed": true
+    },
+    {
+      "name": "unit scale / primary-balcony-opening/frame-left",
+      "passed": true
+    },
+    {
+      "name": "unit scale / primary-balcony-opening/frame-right",
+      "passed": true
+    },
+    {
+      "name": "unit scale / primary-balcony-opening/frame-bottom",
+      "passed": true
+    },
+    {
+      "name": "unit scale / primary-balcony-opening/frame-top",
+      "passed": true
+    },
+    {
+      "name": "unit scale / primary-balcony-opening/panel-0",
+      "passed": true
+    },
+    {
+      "name": "unit scale / primary-balcony-opening/panel-0-left",
+      "passed": true
+    },
+    {
+      "name": "unit scale / primary-balcony-opening/panel-0-right",
+      "passed": true
+    },
+    {
+      "name": "unit scale / primary-balcony-opening/panel-0-bottom",
+      "passed": true
+    },
+    {
+      "name": "unit scale / primary-balcony-opening/panel-0-top",
+      "passed": true
+    },
+    {
+      "name": "unit scale / primary-balcony-opening/panel-1",
+      "passed": true
+    },
+    {
+      "name": "unit scale / primary-balcony-opening/panel-1-left",
+      "passed": true
+    },
+    {
+      "name": "unit scale / primary-balcony-opening/panel-1-right",
+      "passed": true
+    },
+    {
+      "name": "unit scale / primary-balcony-opening/panel-1-bottom",
+      "passed": true
+    },
+    {
+      "name": "unit scale / primary-balcony-opening/panel-1-top",
+      "passed": true
+    },
+    {
+      "name": "unit scale / living-window-2/frame-left",
+      "passed": true
+    },
+    {
+      "name": "unit scale / living-window-2/frame-right",
+      "passed": true
+    },
+    {
+      "name": "unit scale / living-window-2/frame-bottom",
+      "passed": true
+    },
+    {
+      "name": "unit scale / living-window-2/frame-top",
+      "passed": true
+    },
+    {
+      "name": "unit scale / living-window-2/full-window-span",
+      "passed": true
+    },
+    {
+      "name": "unit scale / Ceiling / underside 2.500m / hidden for review",
+      "passed": true
+    },
+    {
+      "name": "saved ceiling underside 2.5m",
+      "passed": true,
+      "observed_m": 2.5
+    },
+    {
+      "name": "ceiling hidden for Blender review",
+      "passed": true
+    },
+    {
+      "name": "unit scale / shaft-bathroom-1-north/blocked-volume",
+      "passed": true
+    },
+    {
+      "name": "unit scale / shaft-hall-west/blocked-volume",
+      "passed": true
+    },
+    {
+      "name": "unit scale / shaft-hall-east/blocked-volume",
+      "passed": true
+    },
+    {
+      "name": "unit scale / shaft-entry-north/blocked-volume",
+      "passed": true
+    },
+    {
+      "name": "unit scale / shaft-primary-bathroom/blocked-volume",
+      "passed": true
+    },
+    {
+      "name": "unit scale / shaft-kitchen/blocked-volume",
+      "passed": true
+    },
+    {
+      "name": "unit scale / shaft-utility/blocked-volume",
+      "passed": true
+    },
+    {
+      "name": "unit scale / hall-pantry-shelves/left-side",
+      "passed": true
+    },
+    {
+      "name": "unit scale / hall-pantry-shelves/right-side",
+      "passed": true
+    },
+    {
+      "name": "unit scale / hall-pantry-shelves/back",
+      "passed": true
+    },
+    {
+      "name": "unit scale / hall-pantry-shelves/shelf-0",
+      "passed": true
+    },
+    {
+      "name": "unit scale / hall-pantry-shelves/shelf-1",
+      "passed": true
+    },
+    {
+      "name": "unit scale / hall-pantry-shelves/shelf-2",
+      "passed": true
+    },
+    {
+      "name": "unit scale / hall-pantry-shelves/shelf-3",
+      "passed": true
+    },
+    {
+      "name": "unit scale / hall-pantry-shelves/shelf-4",
+      "passed": true
+    },
+    {
+      "name": "unit scale / dressing-inner-shelves/left-side",
+      "passed": true
+    },
+    {
+      "name": "unit scale / dressing-inner-shelves/right-side",
+      "passed": true
+    },
+    {
+      "name": "unit scale / dressing-inner-shelves/back",
+      "passed": true
+    },
+    {
+      "name": "unit scale / dressing-inner-shelves/shelf-0",
+      "passed": true
+    },
+    {
+      "name": "unit scale / dressing-inner-shelves/shelf-1",
+      "passed": true
+    },
+    {
+      "name": "unit scale / dressing-inner-shelves/shelf-2",
+      "passed": true
+    },
+    {
+      "name": "unit scale / dressing-inner-shelves/shelf-3",
+      "passed": true
+    },
+    {
+      "name": "unit scale / dressing-inner-shelves/shelf-4",
+      "passed": true
+    },
+    {
+      "name": "unit scale / bathroom-1-shower/base",
+      "passed": true
+    },
+    {
+      "name": "unit scale / bathroom-1-shower/drain",
+      "passed": true
+    },
+    {
+      "name": "unit scale / bathroom-1-shower-rail/rail",
+      "passed": true
+    },
+    {
+      "name": "unit scale / bathroom-1-shower-rail/head",
+      "passed": true
+    },
+    {
+      "name": "unit scale / bathroom-1-shower-rail/control",
+      "passed": true
+    },
+    {
+      "name": "saved user window span / bedroom-2-window",
+      "passed": true,
+      "observed_m": [
+        1.399999976158142,
+        1.2000000476837158
+      ]
+    },
+    {
+      "name": "saved frame / bedroom-2-window",
+      "passed": true,
+      "observed_m": [
+        1.6000003814697266,
+        1.4000000357627869
+      ]
+    },
+    {
+      "name": "saved user window span / bedroom-3-window",
+      "passed": true,
+      "observed_m": [
+        1.399999976158142,
+        1.2000000476837158
+      ]
+    },
+    {
+      "name": "saved frame / bedroom-3-window",
+      "passed": true,
+      "observed_m": [
+        1.6000003814697266,
+        1.4000000357627869
+      ]
+    },
+    {
+      "name": "saved user window span / living-window-1",
+      "passed": true,
+      "observed_m": [
+        3.4000000953674316,
+        1.7999999523162842
+      ]
+    },
+    {
+      "name": "saved frame / living-window-1",
+      "passed": true,
+      "observed_m": [
+        3.5999999046325684,
+        2.0
+      ]
+    },
+    {
+      "name": "seven plan X regions represented",
+      "passed": true
+    },
+    {
+      "name": "X region physically blocked / shaft-bathroom-1-north",
+      "passed": true
+    },
+    {
+      "name": "X region physically blocked / shaft-hall-west",
+      "passed": true
+    },
+    {
+      "name": "X region physically blocked / shaft-hall-east",
+      "passed": true
+    },
+    {
+      "name": "X region physically blocked / shaft-entry-north",
+      "passed": true
+    },
+    {
+      "name": "X region physically blocked / shaft-primary-bathroom",
+      "passed": true
+    },
+    {
+      "name": "X region physically blocked / shaft-kitchen",
+      "passed": true
+    },
+    {
+      "name": "X region physically blocked / shaft-utility",
+      "passed": true
+    },
+    {
+      "name": "new structural aperture open / hall-pantry-door",
+      "passed": true,
+      "blockers": []
+    },
+    {
+      "name": "new structural aperture open / dressing-inner-passage",
+      "passed": true,
+      "blockers": []
+    },
+    {
+      "name": "new structural aperture open / primary-balcony-service-door",
+      "passed": true,
+      "blockers": []
+    },
+    {
+      "name": "new structural aperture open / bathroom-1-shower-door",
+      "passed": true,
+      "blockers": []
+    },
+    {
+      "name": "deeper dressing connection is not walled off",
+      "passed": true,
+      "blockers": []
+    },
+    {
+      "name": "balcony has separate moving and fixed panels",
+      "passed": true
+    },
+    {
+      "name": "old full-span balcony glass removed",
+      "passed": true
+    },
+    {
+      "name": "hall and kitchen pantry distinct",
+      "passed": true
+    },
+    {
+      "name": "shower tray and pull present",
+      "passed": true
+    },
+    {
+      "name": "GLB mesh identity set",
+      "passed": true,
+      "expected_count": 232,
+      "actual_count": 232
+    },
+    {
+      "name": "GLB bounds / Floor / footprint is not certified area",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / Floor / footprint is not certified area",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / outer-00/after",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / outer-00/after",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / outer-01/entry-door/before",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / outer-01/entry-door/before",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / outer-01/entry-door/lintel",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / outer-01/entry-door/lintel",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / outer-01/after",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / outer-01/after",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / outer-02/after",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / outer-02/after",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / outer-03/after",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / outer-03/after",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / outer-04/after",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / outer-04/after",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / outer-05/primary-exterior-window/before",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / outer-05/primary-exterior-window/before",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / outer-05/primary-exterior-window/sill",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / outer-05/primary-exterior-window/sill",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / outer-05/primary-exterior-window/lintel",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / outer-05/primary-exterior-window/lintel",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / outer-05/after",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / outer-05/after",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / outer-06/after",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / outer-06/after",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / outer-07/living-window-1/before",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / outer-07/living-window-1/before",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / outer-07/living-window-1/sill",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / outer-07/living-window-1/sill",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / outer-07/living-window-1/lintel",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / outer-07/living-window-1/lintel",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / outer-07/after",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / outer-07/after",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / outer-08/after",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / outer-08/after",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / outer-09/after",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / outer-09/after",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / outer-10/after",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / outer-10/after",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / outer-11/after",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / outer-11/after",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / outer-12/kitchen-window/before",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / outer-12/kitchen-window/before",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / outer-12/kitchen-window/sill",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / outer-12/kitchen-window/sill",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / outer-12/kitchen-window/lintel",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / outer-12/kitchen-window/lintel",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / outer-12/after",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / outer-12/after",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / outer-13/after",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / outer-13/after",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / outer-14/bedroom-1-window/before",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / outer-14/bedroom-1-window/before",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / outer-14/bedroom-1-window/sill",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / outer-14/bedroom-1-window/sill",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / outer-14/bedroom-1-window/lintel",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / outer-14/bedroom-1-window/lintel",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / outer-14/bedroom-2-window/before",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / outer-14/bedroom-2-window/before",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / outer-14/bedroom-2-window/sill",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / outer-14/bedroom-2-window/sill",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / outer-14/bedroom-2-window/lintel",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / outer-14/bedroom-2-window/lintel",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / outer-14/bedroom-3-window/before",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / outer-14/bedroom-3-window/before",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / outer-14/bedroom-3-window/sill",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / outer-14/bedroom-3-window/sill",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / outer-14/bedroom-3-window/lintel",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / outer-14/bedroom-3-window/lintel",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / outer-14/after",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / outer-14/after",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / outer-15/after",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / outer-15/after",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / bedrooms-north/bedroom-1-door/before",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / bedrooms-north/bedroom-1-door/before",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / bedrooms-north/bedroom-1-door/lintel",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / bedrooms-north/bedroom-1-door/lintel",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / bedrooms-north/bedroom-2-door/before",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / bedrooms-north/bedroom-2-door/before",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / bedrooms-north/bedroom-2-door/lintel",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / bedrooms-north/bedroom-2-door/lintel",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / bedrooms-north/bedroom-3-door/before",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / bedrooms-north/bedroom-3-door/before",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / bedrooms-north/bedroom-3-door/lintel",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / bedrooms-north/bedroom-3-door/lintel",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / bedrooms-north/after",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / bedrooms-north/after",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / bedroom-1-2/after",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / bedroom-1-2/after",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / bedroom-2-3/after",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / bedroom-2-3/after",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / bedroom-3-kitchen/after",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / bedroom-3-kitchen/after",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / bathroom-1-east/bathroom-1-door/before",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / bathroom-1-east/bathroom-1-door/before",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / bathroom-1-east/bathroom-1-door/lintel",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / bathroom-1-east/bathroom-1-door/lintel",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / bathroom-1-east/after",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / bathroom-1-east/after",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / bathroom-1-north/after",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / bathroom-1-north/after",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / service-south/hall-pantry-door/before",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / service-south/hall-pantry-door/before",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / service-south/hall-pantry-door/lintel",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / service-south/hall-pantry-door/lintel",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / service-south/after",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / service-south/after",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / entry-east/after",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / entry-east/after",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / service-east/dressing-inner-passage/before",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / service-east/dressing-inner-passage/before",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / service-east/dressing-inner-passage/lintel",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / service-east/dressing-inner-passage/lintel",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / service-east/after",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / service-east/after",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / primary-bathroom-north/primary-bathroom-door/before",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / primary-bathroom-north/primary-bathroom-door/before",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / primary-bathroom-north/primary-bathroom-door/lintel",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / primary-bathroom-north/primary-bathroom-door/lintel",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / primary-bathroom-north/after",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / primary-bathroom-north/after",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / primary-bathroom-west/after",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / primary-bathroom-west/after",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / primary-bathroom-east/after",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / primary-bathroom-east/after",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / primary-service-south/after",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / primary-service-south/after",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / primary-south/primary-door/before",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / primary-south/primary-door/before",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / primary-south/primary-door/lintel",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / primary-south/primary-door/lintel",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / primary-south/after",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / primary-south/after",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / primary-balcony-divider/primary-balcony-opening/before",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / primary-balcony-divider/primary-balcony-opening/before",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / primary-balcony-divider/primary-balcony-opening/sill",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / primary-balcony-divider/primary-balcony-opening/sill",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / primary-balcony-divider/primary-balcony-opening/lintel",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / primary-balcony-divider/primary-balcony-opening/lintel",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / primary-balcony-divider/after",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / primary-balcony-divider/after",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / primary-balcony-service/primary-balcony-service-door/before",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / primary-balcony-service/primary-balcony-service-door/before",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / primary-balcony-service/primary-balcony-service-door/lintel",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / primary-balcony-service/primary-balcony-service-door/lintel",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / primary-balcony-service/after",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / primary-balcony-service/after",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / pantry-north/pantry-door/before",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / pantry-north/pantry-door/before",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / pantry-north/pantry-door/lintel",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / pantry-north/pantry-door/lintel",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / pantry-north/after",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / pantry-north/after",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / pantry-east/after",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / pantry-east/after",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / pantry-west/after",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / pantry-west/after",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / living-balcony-return/after",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / living-balcony-return/after",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / living-balcony-divider/living-window-2/before",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / living-balcony-divider/living-window-2/before",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / living-balcony-divider/living-window-2/sill",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / living-balcony-divider/living-window-2/sill",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / living-balcony-divider/living-window-2/lintel",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / living-balcony-divider/living-window-2/lintel",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / living-balcony-divider/after",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / living-balcony-divider/after",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / dressing-inner-south/after",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / dressing-inner-south/after",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / hall-pantry-west/after",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / hall-pantry-west/after",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / hall-pantry-east/after",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / hall-pantry-east/after",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / utility-shaft-north/after",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / utility-shaft-north/after",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / utility-shaft-west/after",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / utility-shaft-west/after",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / kitchen-shaft-north/after",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / kitchen-shaft-north/after",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / kitchen-shaft-east/after",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / kitchen-shaft-east/after",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / kitchen-shaft-south/after",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / kitchen-shaft-south/after",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / bathroom-1-shower-divider/bathroom-1-shower-door/before",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / bathroom-1-shower-divider/bathroom-1-shower-door/before",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / bathroom-1-shower-divider/after",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / bathroom-1-shower-divider/after",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / bedroom-2-west-north-pier",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / bedroom-2-west-north-pier",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / bedroom-2-west-south-pier",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / bedroom-2-west-south-pier",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / entry-door/jamb-left",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / entry-door/jamb-left",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / entry-door/jamb-right",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / entry-door/jamb-right",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / entry-door/head",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / entry-door/head",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / entry-door/leaf",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / entry-door/leaf",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / entry-door/handle",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / entry-door/handle",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / bedroom-1-door/jamb-left",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / bedroom-1-door/jamb-left",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / bedroom-1-door/jamb-right",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / bedroom-1-door/jamb-right",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / bedroom-1-door/head",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / bedroom-1-door/head",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / bedroom-1-door/leaf",
+      "passed": true,
+      "max_difference_m": 2.384185791015625e-07
+    },
+    {
+      "name": "GLB category / bedroom-1-door/leaf",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / bedroom-1-door/handle",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / bedroom-1-door/handle",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / bedroom-2-door/jamb-left",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / bedroom-2-door/jamb-left",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / bedroom-2-door/jamb-right",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / bedroom-2-door/jamb-right",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / bedroom-2-door/head",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / bedroom-2-door/head",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / bedroom-2-door/leaf",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / bedroom-2-door/leaf",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / bedroom-2-door/handle",
+      "passed": true,
+      "max_difference_m": 4.76837158203125e-07
+    },
+    {
+      "name": "GLB category / bedroom-2-door/handle",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / bedroom-3-door/jamb-left",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / bedroom-3-door/jamb-left",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / bedroom-3-door/jamb-right",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / bedroom-3-door/jamb-right",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / bedroom-3-door/head",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / bedroom-3-door/head",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / bedroom-3-door/leaf",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / bedroom-3-door/leaf",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / bedroom-3-door/handle",
+      "passed": true,
+      "max_difference_m": 4.76837158203125e-07
+    },
+    {
+      "name": "GLB category / bedroom-3-door/handle",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / bathroom-1-door/jamb-left",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / bathroom-1-door/jamb-left",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / bathroom-1-door/jamb-right",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / bathroom-1-door/jamb-right",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / bathroom-1-door/head",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / bathroom-1-door/head",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / bathroom-1-door/leaf",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / bathroom-1-door/leaf",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / bathroom-1-door/handle",
+      "passed": true,
+      "max_difference_m": 1.1920928955078125e-07
+    },
+    {
+      "name": "GLB category / bathroom-1-door/handle",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / hall-pantry-door/jamb-left",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / hall-pantry-door/jamb-left",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / hall-pantry-door/jamb-right",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / hall-pantry-door/jamb-right",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / hall-pantry-door/head",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / hall-pantry-door/head",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / hall-pantry-door/leaf",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / hall-pantry-door/leaf",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / hall-pantry-door/handle",
+      "passed": true,
+      "max_difference_m": 2.384185791015625e-07
+    },
+    {
+      "name": "GLB category / hall-pantry-door/handle",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / dressing-inner-passage/frame-left",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / dressing-inner-passage/frame-left",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / dressing-inner-passage/frame-right",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / dressing-inner-passage/frame-right",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / dressing-inner-passage/frame-top",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / dressing-inner-passage/frame-top",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / primary-bathroom-door/jamb-left",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / primary-bathroom-door/jamb-left",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / primary-bathroom-door/jamb-right",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / primary-bathroom-door/jamb-right",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / primary-bathroom-door/head",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / primary-bathroom-door/head",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / primary-bathroom-door/leaf",
+      "passed": true,
+      "max_difference_m": 1.1920928955078125e-07
+    },
+    {
+      "name": "GLB category / primary-bathroom-door/leaf",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / primary-bathroom-door/handle",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / primary-bathroom-door/handle",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / primary-door/jamb-left",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / primary-door/jamb-left",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / primary-door/jamb-right",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / primary-door/jamb-right",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / primary-door/head",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / primary-door/head",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / primary-door/leaf",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / primary-door/leaf",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / primary-door/handle",
+      "passed": true,
+      "max_difference_m": 2.384185791015625e-07
+    },
+    {
+      "name": "GLB category / primary-door/handle",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / primary-balcony-service-door/jamb-left",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / primary-balcony-service-door/jamb-left",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / primary-balcony-service-door/jamb-right",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / primary-balcony-service-door/jamb-right",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / primary-balcony-service-door/head",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / primary-balcony-service-door/head",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / primary-balcony-service-door/leaf",
+      "passed": true,
+      "max_difference_m": 1.1920928955078125e-07
+    },
+    {
+      "name": "GLB category / primary-balcony-service-door/leaf",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / primary-balcony-service-door/handle",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / primary-balcony-service-door/handle",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / pantry-door/jamb-left",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / pantry-door/jamb-left",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / pantry-door/jamb-right",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / pantry-door/jamb-right",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / pantry-door/head",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / pantry-door/head",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / pantry-door/leaf",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / pantry-door/leaf",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / pantry-door/handle",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / pantry-door/handle",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / bathroom-1-shower-door/jamb-left",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / bathroom-1-shower-door/jamb-left",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / bathroom-1-shower-door/jamb-right",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / bathroom-1-shower-door/jamb-right",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / bathroom-1-shower-door/head",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / bathroom-1-shower-door/head",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / bathroom-1-shower-door/leaf",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / bathroom-1-shower-door/leaf",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / bathroom-1-shower-door/handle",
+      "passed": true,
+      "max_difference_m": 1.1920928955078125e-07
+    },
+    {
+      "name": "GLB category / bathroom-1-shower-door/handle",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / primary-exterior-window/frame-left",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / primary-exterior-window/frame-left",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / primary-exterior-window/frame-right",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / primary-exterior-window/frame-right",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / primary-exterior-window/frame-bottom",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / primary-exterior-window/frame-bottom",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / primary-exterior-window/frame-top",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / primary-exterior-window/frame-top",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / primary-exterior-window/full-window-span",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / primary-exterior-window/full-window-span",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / living-window-1/frame-left",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / living-window-1/frame-left",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / living-window-1/frame-right",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / living-window-1/frame-right",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / living-window-1/frame-bottom",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / living-window-1/frame-bottom",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / living-window-1/frame-top",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / living-window-1/frame-top",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / living-window-1/full-window-span",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / living-window-1/full-window-span",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / kitchen-window/frame-left",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / kitchen-window/frame-left",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / kitchen-window/frame-right",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / kitchen-window/frame-right",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / kitchen-window/frame-bottom",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / kitchen-window/frame-bottom",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / kitchen-window/frame-top",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / kitchen-window/frame-top",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / kitchen-window/full-window-span",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / kitchen-window/full-window-span",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / bedroom-1-window/frame-left",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / bedroom-1-window/frame-left",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / bedroom-1-window/frame-right",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / bedroom-1-window/frame-right",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / bedroom-1-window/frame-bottom",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / bedroom-1-window/frame-bottom",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / bedroom-1-window/frame-top",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / bedroom-1-window/frame-top",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / bedroom-1-window/full-window-span",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / bedroom-1-window/full-window-span",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / bedroom-2-window/frame-left",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / bedroom-2-window/frame-left",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / bedroom-2-window/frame-right",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / bedroom-2-window/frame-right",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / bedroom-2-window/frame-bottom",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / bedroom-2-window/frame-bottom",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / bedroom-2-window/frame-top",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / bedroom-2-window/frame-top",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / bedroom-2-window/full-window-span",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / bedroom-2-window/full-window-span",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / bedroom-3-window/frame-left",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / bedroom-3-window/frame-left",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / bedroom-3-window/frame-right",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / bedroom-3-window/frame-right",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / bedroom-3-window/frame-bottom",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / bedroom-3-window/frame-bottom",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / bedroom-3-window/frame-top",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / bedroom-3-window/frame-top",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / bedroom-3-window/full-window-span",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / bedroom-3-window/full-window-span",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / primary-balcony-opening/frame-left",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / primary-balcony-opening/frame-left",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / primary-balcony-opening/frame-right",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / primary-balcony-opening/frame-right",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / primary-balcony-opening/frame-bottom",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / primary-balcony-opening/frame-bottom",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / primary-balcony-opening/frame-top",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / primary-balcony-opening/frame-top",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / primary-balcony-opening/panel-0",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / primary-balcony-opening/panel-0",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / primary-balcony-opening/panel-0-left",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / primary-balcony-opening/panel-0-left",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / primary-balcony-opening/panel-0-right",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / primary-balcony-opening/panel-0-right",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / primary-balcony-opening/panel-0-bottom",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / primary-balcony-opening/panel-0-bottom",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / primary-balcony-opening/panel-0-top",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / primary-balcony-opening/panel-0-top",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / primary-balcony-opening/panel-1",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / primary-balcony-opening/panel-1",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / primary-balcony-opening/panel-1-left",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / primary-balcony-opening/panel-1-left",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / primary-balcony-opening/panel-1-right",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / primary-balcony-opening/panel-1-right",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / primary-balcony-opening/panel-1-bottom",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / primary-balcony-opening/panel-1-bottom",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / primary-balcony-opening/panel-1-top",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / primary-balcony-opening/panel-1-top",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / living-window-2/frame-left",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / living-window-2/frame-left",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / living-window-2/frame-right",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / living-window-2/frame-right",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / living-window-2/frame-bottom",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / living-window-2/frame-bottom",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / living-window-2/frame-top",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / living-window-2/frame-top",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / living-window-2/full-window-span",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / living-window-2/full-window-span",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / Ceiling / underside 2.500m / hidden for review",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / Ceiling / underside 2.500m / hidden for review",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / shaft-bathroom-1-north/blocked-volume",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / shaft-bathroom-1-north/blocked-volume",
+      "passed": true
+    },
+    {
+      "name": "GLB non-occupiable semantics / shaft-bathroom-1-north/blocked-volume",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / shaft-hall-west/blocked-volume",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / shaft-hall-west/blocked-volume",
+      "passed": true
+    },
+    {
+      "name": "GLB non-occupiable semantics / shaft-hall-west/blocked-volume",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / shaft-hall-east/blocked-volume",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / shaft-hall-east/blocked-volume",
+      "passed": true
+    },
+    {
+      "name": "GLB non-occupiable semantics / shaft-hall-east/blocked-volume",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / shaft-entry-north/blocked-volume",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / shaft-entry-north/blocked-volume",
+      "passed": true
+    },
+    {
+      "name": "GLB non-occupiable semantics / shaft-entry-north/blocked-volume",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / shaft-primary-bathroom/blocked-volume",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / shaft-primary-bathroom/blocked-volume",
+      "passed": true
+    },
+    {
+      "name": "GLB non-occupiable semantics / shaft-primary-bathroom/blocked-volume",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / shaft-kitchen/blocked-volume",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / shaft-kitchen/blocked-volume",
+      "passed": true
+    },
+    {
+      "name": "GLB non-occupiable semantics / shaft-kitchen/blocked-volume",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / shaft-utility/blocked-volume",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / shaft-utility/blocked-volume",
+      "passed": true
+    },
+    {
+      "name": "GLB non-occupiable semantics / shaft-utility/blocked-volume",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / hall-pantry-shelves/left-side",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / hall-pantry-shelves/left-side",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / hall-pantry-shelves/right-side",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / hall-pantry-shelves/right-side",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / hall-pantry-shelves/back",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / hall-pantry-shelves/back",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / hall-pantry-shelves/shelf-0",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / hall-pantry-shelves/shelf-0",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / hall-pantry-shelves/shelf-1",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / hall-pantry-shelves/shelf-1",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / hall-pantry-shelves/shelf-2",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / hall-pantry-shelves/shelf-2",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / hall-pantry-shelves/shelf-3",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / hall-pantry-shelves/shelf-3",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / hall-pantry-shelves/shelf-4",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / hall-pantry-shelves/shelf-4",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / dressing-inner-shelves/left-side",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / dressing-inner-shelves/left-side",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / dressing-inner-shelves/right-side",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / dressing-inner-shelves/right-side",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / dressing-inner-shelves/back",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / dressing-inner-shelves/back",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / dressing-inner-shelves/shelf-0",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / dressing-inner-shelves/shelf-0",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / dressing-inner-shelves/shelf-1",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / dressing-inner-shelves/shelf-1",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / dressing-inner-shelves/shelf-2",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / dressing-inner-shelves/shelf-2",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / dressing-inner-shelves/shelf-3",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / dressing-inner-shelves/shelf-3",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / dressing-inner-shelves/shelf-4",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / dressing-inner-shelves/shelf-4",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / bathroom-1-shower/base",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / bathroom-1-shower/base",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / bathroom-1-shower/drain",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / bathroom-1-shower/drain",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / bathroom-1-shower-rail/rail",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / bathroom-1-shower-rail/rail",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / bathroom-1-shower-rail/head",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / bathroom-1-shower-rail/head",
+      "passed": true
+    },
+    {
+      "name": "GLB bounds / bathroom-1-shower-rail/control",
+      "passed": true,
+      "max_difference_m": 0.0
+    },
+    {
+      "name": "GLB category / bathroom-1-shower-rail/control",
+      "passed": true
+    },
+    {
+      "name": "GLB contains no cameras or lights",
+      "passed": true
+    }
+  ],
+  "architecture_meshes": 232,
+  "max_glb_roundtrip_difference_m": 4.76837158203125e-07,
+  "scope": "saved geometry and GLB export/import; no claim of as-built dimensional validation or web integration",
+  "blender_version": "4.5.3 LTS",
+  "blend_sha256": "2904ddb49cd71ab920f0dae9e891b44f312ac1f399a2242415926c5bb61999f9",
+  "glb_sha256": "0e9af48328e3cfec3fdbb1f5288dbd8b4dbd9daebe6736f5d5f6307b1c210e02"
+}

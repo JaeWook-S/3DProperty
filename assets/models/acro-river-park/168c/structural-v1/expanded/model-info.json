@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "unit_type": "168C",
+  "variant": "expanded",
+  "stage": "02 structural details review",
+  "revision": "structural-v1",
+  "units": "m",
+  "blender_version": "4.5.3 LTS",
+  "web_integration_status": "not_integrated",
+  "ceiling_height_m": 2.5,
+  "architecture_mesh_count": 232,
+  "excluded_zone_count": 7,
+  "source_plan_sha256": "d50961aa15f6cd577878730c1e44f4ecfa5d81f63b15fa2d481283ab5238853e",
+  "dimension_spec_sha256": "f6bfa271f57e590a9fe22a02c1691315d61504f772be6908f0ad4524cee77696",
+  "layout_spec_sha256": "18d3ebebdbef11ab678b5162e1d46af7c71f251e78516bd729474c1c9cfc4f52",
+  "blend_sha256": "2904ddb49cd71ab920f0dae9e891b44f312ac1f399a2242415926c5bb61999f9",
+  "glb_sha256": "0e9af48328e3cfec3fdbb1f5288dbd8b4dbd9daebe6736f5d5f6307b1c210e02",
+  "geometry_check_count": 45,
+  "geometry_checks_passed": true,
+  "ceiling_visibility": "hidden in blend review; present in GLB with component=ceiling",
+  "source_screenshot_textures_included": false,
+  "limitation": "Reference lines, wall thicknesses, unmeasured openings and sill levels are draft interpretations. Not a certified as-built model."
+}

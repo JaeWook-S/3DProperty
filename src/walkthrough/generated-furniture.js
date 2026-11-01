@@ -24,7 +24,7 @@ export function generatedViewerUrl(viewerBase, asset, variant = 'expanded') {
   const url = new URL(viewerBase);
   if (!['http:', 'https:'].includes(url.protocol) || url.username || url.password) throw new Error('3D 뷰어 주소가 올바르지 않습니다.');
   url.searchParams.set('studio', '1');
-  url.searchParams.set('variant', variant === 'basic' ? 'basic' : 'expanded');
+  url.searchParams.set('variant', ['expanded','basic','168c-expanded'].includes(variant) ? variant : 'expanded');
   url.searchParams.set('furnitureAsset', asset.asset_id);
   return url.href;
 }

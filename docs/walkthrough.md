@@ -1,25 +1,14 @@
 # 기본형·확장형 1인칭 공간 체험
 
-아크로리버파크 112A 기본형·확장형 `dimensioned-v3`을 Three.js에서 미터 단위 그대로 표시하는 PC·모바일 프로토타입입니다. Blender에서 편집하던 모델을 다운로드하여 쓰는 방식이며, Blender 화면을 실시간 스트리밍하는 방식은 아닙니다. 웹 실행 중에는 Blender나 MCP 연결을 유지할 필요가 없습니다.
+아크로리버파크 112A·168C 기본형/확장형 네 모델을 Three.js에서 미터 단위 그대로 표시하는 PC·모바일 프로토타입입니다. Blender에서 편집하던 모델을 다운로드하여 쓰는 방식이며, Blender 화면을 실시간 스트리밍하는 방식은 아닙니다. 웹 실행 중에는 Blender나 MCP 연결을 유지할 필요가 없습니다.
 
 ## 실행
 
-Node.js 20.19 이상이 필요합니다.
+Mac 원격 사용은 저장소의 최신 [open-studio.command](../open-studio.command)를 한 번 받아 더블클릭한다. SSH와 지도·뷰어 두 연결을 자동 준비해 지도를 연다. 기존 파일을 보관했다면 [README의 한 번 갱신 명령](../README.md)을 사용한다. Mac에 Node나 모델 파일 설치는 필요 없다.
 
-```bash
-npm ci
-npm run dev
-```
+로컬 개발은 Node20.19 이상에서 루트와 `apps/web` 의존성을 설치하고 각각 `npm run dev`를 실행한다. 지도 서비스는 http://localhost:5185/ 이며, 아크로리버파크 → 동·층 → 2D 평면 측정 / 실내3D로 진행한다. 5173 기본 주소도 지도로 안내한다.
 
-브라우저에서 http://localhost:5173 을 열면 Studio가 시작됩니다. `?studio=1` 또는 평면·조명 등의 설정 옵션만 붙인 주소도 같은 Studio를 엽니다. 아래 단독 뷰어의 조작을 확인하려면 http://localhost:5173/?studio=0 을 사용합니다. 서버의 VS Code Remote 환경이라면 **포트** 탭에 `5173`을 전달합니다. Mac 터미널에서 직접 연결할 수도 있습니다.
-
-```bash
-ssh -N -o ExitOnForwardFailure=yes -L 5173:127.0.0.1:5173 yj1-H200-kinamkim
-```
-
-기존 Blender용 `-R 9876:...` 터널과 별도로 실행하고 창을 열어둡니다. 웹 서버는 기본적으로 서버의 loopback 주소에만 바인딩합니다.
-
-`npm run build`로 `dist/`를 생성합니다. 정적 HTTP(S) 서버로 배포할 수 있으며 외부 CDN 의존성은 없습니다. HTML을 파일로 직접 더블클릭하는 방식은 지원하지 않습니다. `npm run preview`로 빌드 결과를 확인할 때는 같은 포트의 개발 서버를 먼저 종료합니다.
+기존 `http://localhost:5173/?studio=1`은 뷰어 직접 진입, `?studio=0`은 단독 둘러보기를 유지한다. SSH 로컬 포트가 다르면 런처가 `viewerUrl`/`serviceUrl`로 실제 주소를 전달하며 **지도에서 위치 찾기**로 복귀할 수 있다. 수동 연결은 [주소 계약](web-integration.md)을 참고한다. 실제 층·호·타입은 미확인이고 준비된 실내는 체험 평면이다.
 
 ## 조작
 

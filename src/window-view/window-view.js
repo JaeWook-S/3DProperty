@@ -9,7 +9,7 @@ const $ = (id) => document.getElementById(id);
 const UPLOAD_NOTE = '창밖: 직접 불러온 360° 사진 · 방향은 슬라이더로 맞춰요';
 
 export function createWindowView(hooks) {
-  const state = { texture: null, heading: 0, note: null };
+  const state = { texture: null, heading: 0 };
   const { group, photo } = hooks.exterior;
 
   // Panorama sphere around the unit at eye height so the horizon stays level.
@@ -28,10 +28,7 @@ export function createWindowView(hooks) {
     sphere.material.map = state.texture;
     sphere.material.needsUpdate = true;
     sphere.rotation.y = (state.heading * Math.PI) / 180;
-    if (photo) photo.visible = !custom;
-    const badge = $('exterior-note');
-    if (badge && custom && badge.textContent !== UPLOAD_NOTE) { state.note = badge.textContent; badge.textContent = UPLOAD_NOTE; }
-    if (badge && !custom && state.note) { badge.textContent = state.note; state.note = null; }
+    hooks.exterior.setReferenceOverride(custom ? UPLOAD_NOTE : null);
     reset.hidden = !custom;
     heading.closest('.wv-heading').hidden = !custom;
     hooks.invalidate();
@@ -83,7 +80,7 @@ export function createWindowView(hooks) {
   if (import.meta.env.DEV && new URLSearchParams(location.search).has('test')) {
     window.__windowView = {
       state: () => ({ custom: Boolean(state.texture), sphereVisible: sphere.visible, photoVisible: photo?.visible ?? null,
-        rotation: sphere.rotation.y, badge: $('exterior-note')?.textContent }),
+        rotation: sphere.rotation.y, badge: $('exterior-note')?.textContent, reference: hooks.exterior.referenceState() }),
     };
   }
 

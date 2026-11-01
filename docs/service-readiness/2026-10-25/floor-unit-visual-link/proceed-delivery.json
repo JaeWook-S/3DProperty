@@ -1,0 +1,8 @@
+{
+  "queuedAt": "2026-10-25T15:49:30.797001+00:00",
+  "returncode": 0,
+  "stdout": "Queued message 01a173c0-b34f-7220-b73c-b35a3a359919 for thread 01a0eb21-9413-7271-9d76-4cd9a7d1863a.\n",
+  "stderr": "",
+  "receiptConfirmed": false,
+  "implementationComplete": false
+}

@@ -1,0 +1,28 @@
+{
+  "status": "implemented_verified_published_v13",
+  "url": "https://cortex-design-preview-20261024.spunky-note-2434.chatgpt.site/paired-floor/",
+  "parentWebsite": "https://cortex-design-preview-20261024.spunky-note-2434.chatgpt.site",
+  "verification": "/home/nas5/kinamkim/Repos/geonwoo/3DProperty/runtime/paired-floor-quality/2026-10-26/verification.json",
+  "deployment": "/home/nas5/kinamkim/Repos/geonwoo/3DProperty/startup/07_팀미팅/2026-10-24_designer-demo/hosting-floor-quality-20261026/deployment-result.json",
+  "publicSmoke": "/home/nas5/kinamkim/Repos/geonwoo/3DProperty/runtime/paired-floor-quality/2026-10-26/public-smoke.json",
+  "changedScope": [
+    "src/paired-floor main/scene/style andnewdetails/transportadapter/view/panel",
+    "paired-floorpublicsubdirectoryonly"
+  ],
+  "unchanged": [
+    "originalmeterGLB/metadata/layout",
+    "publicmainv12",
+    "ourhome112Aexpanded",
+    "house-tourtemplateflow",
+    "10existingpublicGLBs"
+  ],
+  "limits": [
+    "211A furnished kitchen/bath/interior fixture layout not added; finish shell only",
+    "No tilting, disassembly, cargo weight rating, handlers or equipment",
+    "No Mac/mobile hardware FPS measurement",
+    "Actual building common-area survey still needed"
+  ],
+  "gpuUsed": false,
+  "newUserActionRequired": false,
+  "mainRepositoryPushed": false
+}

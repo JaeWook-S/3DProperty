@@ -1,0 +1,17 @@
+{
+  "at": "2026-10-26T07:35:11.930999+00:00",
+  "status": "complete",
+  "version": 10,
+  "url": "https://cortex-design-preview-20261024.spunky-note-2434.chatgpt.site",
+  "record": "/home/nas5/kinamkim/Repos/geonwoo/3DProperty/startup/07_팀미팅/2026-10-24_designer-demo/hosting-plan-clarity-entry-20261026/verification.json",
+  "scope": [
+    "2D source walls/openings and fitted labels",
+    "native focus suppression",
+    "optional illustrative common-area walk"
+  ],
+  "owner": "S1",
+  "S3ActionRequired": false,
+  "existingS3SiteFeaturesPreserved": true,
+  "unitQuestionEvidence": "runtime/entry-common-area/2026-10-26/168c-unit-answer.json",
+  "actualSharedFloorStillUnknown": true
+}

@@ -1,0 +1,48 @@
+{
+  "status": "implemented_verified_published",
+  "at": "2026-10-25T16:53:37.799293+00:00",
+  "scope": {
+    "preparedList": "ready=true only; temporary coordinates excluded",
+    "searchList": "Photon results retained; temporary coordinates excluded",
+    "temporaryCoordinate": "one latest pin, separate unregistered detail, explicit clear",
+    "knownPlace": "no inference that an arbitrary coordinate is a real building",
+    "URLRestoration": "point restored as selection only, not appended to list",
+    "requestDraft": "local browser draft only after explicit save; no auto-registration or API request",
+    "pendingPlacesLabel": "도면·3D 미등록",
+    "existingFloorPreviews": "preserved"
+  },
+  "version": 7,
+  "liveURL": "https://cortex-design-preview-20261024.spunky-note-2434.chatgpt.site",
+  "verification": "/home/nas5/kinamkim/Repos/geonwoo/3DProperty/startup/07_팀미팅/2026-10-24_designer-demo/hosting-map-point-label-20261025/verification.json",
+  "runtime": "/home/nas5/kinamkim/Repos/geonwoo/3DProperty/runtime/service-map/2026-10-25/map-point-classification/verification.json",
+  "publicVerification": "/home/nas5/kinamkim/Repos/geonwoo/3DProperty/startup/07_팀미팅/2026-10-24_designer-demo/hosting-map-point-label-20261025/public-browser/verification.json",
+  "changedProductFiles": [
+    "apps/web/src/map-service.js",
+    "apps/web/src/map-service.css"
+  ],
+  "modelOrDatasetChanges": false,
+  "GPU_used": false,
+  "S1Delivery": {
+    "state": "queued_once",
+    "at": "2026-10-25T16:54:54.227562+00:00",
+    "receipt": "Queued message 01a173fc-8eb2-7953-977a-767435b61f16 for thread 01a09bea-3ac9-7a80-8db6-4816d901f9f8.",
+    "processedByS1": "not confirmed"
+  },
+  "developmentServerReadback": {
+    "5185": 200,
+    "5173": "connection refused; no restart"
+  },
+  "additionalThreeClickReselectVerification": {
+    "at": "2026-10-25T16:59:01.652Z",
+    "passed": true,
+    "evidence": "/home/nas5/kinamkim/Repos/geonwoo/3DProperty/runtime/service-map/2026-10-25/map-point-classification/three-click-reselect/verification.json",
+    "consecutiveClicks": 3,
+    "temporaryPinsAfterEach": 1,
+    "preparedListAfterEach": 1,
+    "implicitRequestDrafts": 0,
+    "afterAcroTemporaryPins": 0,
+    "siteReady": true,
+    "productChanges": 0,
+    "deployments": 0
+  }
+}

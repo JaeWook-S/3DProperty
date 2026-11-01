@@ -1,0 +1,748 @@
+[
+  {
+    "id": "entry-door",
+    "kind": "door",
+    "wall_id": "outer-01",
+    "center_px": 226,
+    "swing_degrees": 90,
+    "dimension_source": "user specified nominal 0.8 x 2.4m; rough opening adds provisional 20mm jamb allowance",
+    "leaf_width_m": 0.8,
+    "leaf_height_m": 2.4,
+    "cut_width_m": 0.84,
+    "cut_height_m": 2.42,
+    "bottom_m": 0.0,
+    "role": "nominal_door_not_clear_passage",
+    "center_axis_m": 2.68251968503937,
+    "blender_location_m": [
+      7.816129032258065,
+      -2.68251968503937,
+      0.0
+    ],
+    "axis": "v",
+    "effective_clear_opening_m": null,
+    "mesh_objects": [
+      "entry-door/jamb-left",
+      "entry-door/jamb-right",
+      "entry-door/head",
+      "entry-door/leaf",
+      "entry-door/handle"
+    ],
+    "leaf_mesh_name": "entry-door/leaf",
+    "hinge_blender_m": [
+      7.816129207611084,
+      -2.282519578933716,
+      1.2000000476837158
+    ],
+    "hinge_side": "start"
+  },
+  {
+    "id": "primary-exterior-window",
+    "kind": "window",
+    "wall_id": "outer-05",
+    "center_px": 230,
+    "cut_width_m": 1.8,
+    "cut_height_m": 2.2,
+    "bottom_m": 0.05,
+    "window_span_m": null,
+    "dimension_source": "unmeasured placeholder glazing",
+    "provisional": true,
+    "sill_source": "draft placement, not measured",
+    "clear_opening_m": null,
+    "center_axis_m": 2.787716535433071,
+    "blender_location_m": [
+      19.933962264150942,
+      -2.787716535433071,
+      0.05
+    ],
+    "axis": "v",
+    "effective_clear_opening_m": null,
+    "mesh_objects": [
+      "primary-exterior-window/frame-left",
+      "primary-exterior-window/frame-right",
+      "primary-exterior-window/frame-bottom",
+      "primary-exterior-window/frame-top",
+      "primary-exterior-window/full-window-span"
+    ],
+    "span_mesh_name": "primary-exterior-window/full-window-span",
+    "display_span_m": [
+      1.6800000000000002,
+      2.08
+    ]
+  },
+  {
+    "id": "living-window-1",
+    "kind": "window",
+    "wall_id": "outer-07",
+    "center_px": 385,
+    "cut_width_m": 3.6,
+    "cut_height_m": 2.0,
+    "bottom_m": 0.25,
+    "window_span_m": [
+      3.4,
+      1.8
+    ],
+    "dimension_source": "frame VR3.6x2.0; user window span3.4x1.8",
+    "provisional": false,
+    "sill_source": "draft placement, not measured",
+    "clear_opening_m": null,
+    "center_axis_m": 6.957321428571428,
+    "blender_location_m": [
+      20.5,
+      -6.957321428571428,
+      0.25
+    ],
+    "axis": "v",
+    "effective_clear_opening_m": null,
+    "mesh_objects": [
+      "living-window-1/frame-left",
+      "living-window-1/frame-right",
+      "living-window-1/frame-bottom",
+      "living-window-1/frame-top",
+      "living-window-1/full-window-span"
+    ],
+    "span_mesh_name": "living-window-1/full-window-span",
+    "display_span_m": [
+      3.4,
+      1.8
+    ]
+  },
+  {
+    "id": "kitchen-window",
+    "kind": "window",
+    "wall_id": "outer-12",
+    "center_px": 500,
+    "cut_width_m": 1.6,
+    "cut_height_m": 1.1,
+    "bottom_m": 1.05,
+    "window_span_m": null,
+    "dimension_source": "unmeasured placeholder; location from plan/VR",
+    "provisional": true,
+    "sill_source": "draft placement, not measured",
+    "clear_opening_m": null,
+    "center_axis_m": 11.298895705521472,
+    "blender_location_m": [
+      11.298895705521472,
+      -11.51,
+      1.05
+    ],
+    "axis": "h",
+    "effective_clear_opening_m": null,
+    "mesh_objects": [
+      "kitchen-window/frame-left",
+      "kitchen-window/frame-right",
+      "kitchen-window/frame-bottom",
+      "kitchen-window/frame-top",
+      "kitchen-window/full-window-span"
+    ],
+    "span_mesh_name": "kitchen-window/full-window-span",
+    "display_span_m": [
+      1.48,
+      0.9800000000000001
+    ]
+  },
+  {
+    "id": "bedroom-1-window",
+    "kind": "window",
+    "wall_id": "outer-14",
+    "center_px": 160,
+    "cut_width_m": 2.1,
+    "cut_height_m": 2.1,
+    "bottom_m": 0.25,
+    "window_span_m": [
+      2.0,
+      2.0
+    ],
+    "dimension_source": "inner span VR 2.0x2.0; outer width VR2.1; outer height2.1 assumed",
+    "provisional": true,
+    "sill_source": "draft placement, not measured",
+    "clear_opening_m": null,
+    "center_axis_m": 1.8687999999999998,
+    "blender_location_m": [
+      1.8687999999999998,
+      -10.3,
+      0.25
+    ],
+    "axis": "h",
+    "effective_clear_opening_m": null,
+    "mesh_objects": [
+      "bedroom-1-window/frame-left",
+      "bedroom-1-window/frame-right",
+      "bedroom-1-window/frame-bottom",
+      "bedroom-1-window/frame-top",
+      "bedroom-1-window/full-window-span"
+    ],
+    "span_mesh_name": "bedroom-1-window/full-window-span",
+    "display_span_m": [
+      2.0,
+      2.0
+    ]
+  },
+  {
+    "id": "bedroom-2-window",
+    "kind": "window",
+    "wall_id": "outer-14",
+    "center_px": 284,
+    "cut_width_m": 1.6,
+    "cut_height_m": 1.4,
+    "bottom_m": 0.8,
+    "window_span_m": [
+      1.4,
+      1.2
+    ],
+    "dimension_source": "user specified frame and window span",
+    "provisional": false,
+    "sill_source": "draft placement, not measured",
+    "clear_opening_m": null,
+    "center_axis_m": 5.225773195876289,
+    "blender_location_m": [
+      5.225773195876289,
+      -10.3,
+      0.8
+    ],
+    "axis": "h",
+    "effective_clear_opening_m": null,
+    "mesh_objects": [
+      "bedroom-2-window/frame-left",
+      "bedroom-2-window/frame-right",
+      "bedroom-2-window/frame-bottom",
+      "bedroom-2-window/frame-top",
+      "bedroom-2-window/full-window-span"
+    ],
+    "span_mesh_name": "bedroom-2-window/full-window-span",
+    "display_span_m": [
+      1.4,
+      1.2
+    ]
+  },
+  {
+    "id": "bedroom-3-window",
+    "kind": "window",
+    "wall_id": "outer-14",
+    "center_px": 392,
+    "cut_width_m": 1.6,
+    "cut_height_m": 1.4,
+    "bottom_m": 0.8,
+    "window_span_m": [
+      1.4,
+      1.2
+    ],
+    "dimension_source": "user specified frame and window span",
+    "provisional": false,
+    "sill_source": "draft placement, not measured",
+    "clear_opening_m": null,
+    "center_axis_m": 8.318387096774194,
+    "blender_location_m": [
+      8.318387096774194,
+      -10.3,
+      0.8
+    ],
+    "axis": "h",
+    "effective_clear_opening_m": null,
+    "mesh_objects": [
+      "bedroom-3-window/frame-left",
+      "bedroom-3-window/frame-right",
+      "bedroom-3-window/frame-bottom",
+      "bedroom-3-window/frame-top",
+      "bedroom-3-window/full-window-span"
+    ],
+    "span_mesh_name": "bedroom-3-window/full-window-span",
+    "display_span_m": [
+      1.4,
+      1.2
+    ]
+  },
+  {
+    "id": "bedroom-1-door",
+    "kind": "door",
+    "wall_id": "bedrooms-north",
+    "center_px": 214,
+    "swing_degrees": -90,
+    "dimension_source": "user specified nominal 0.8 x 2.4m; rough opening adds provisional 20mm jamb allowance",
+    "leaf_width_m": 0.8,
+    "leaf_height_m": 2.4,
+    "cut_width_m": 0.84,
+    "cut_height_m": 2.42,
+    "bottom_m": 0.0,
+    "role": "nominal_door_not_clear_passage",
+    "center_axis_m": 3.2512,
+    "blender_location_m": [
+      3.2512,
+      -5.765,
+      0.0
+    ],
+    "axis": "h",
+    "effective_clear_opening_m": null,
+    "mesh_objects": [
+      "bedroom-1-door/jamb-left",
+      "bedroom-1-door/jamb-right",
+      "bedroom-1-door/head",
+      "bedroom-1-door/leaf",
+      "bedroom-1-door/handle"
+    ],
+    "leaf_mesh_name": "bedroom-1-door/leaf",
+    "hinge_blender_m": [
+      2.8512001037597656,
+      -5.764999866485596,
+      1.2000000476837158
+    ],
+    "hinge_side": "start"
+  },
+  {
+    "id": "bedroom-2-door",
+    "kind": "door",
+    "wall_id": "bedrooms-north",
+    "center_px": 314,
+    "swing_degrees": -90,
+    "dimension_source": "user specified nominal 0.8 x 2.4m; rough opening adds provisional 20mm jamb allowance",
+    "leaf_width_m": 0.8,
+    "leaf_height_m": 2.4,
+    "cut_width_m": 0.84,
+    "cut_height_m": 2.42,
+    "bottom_m": 0.0,
+    "role": "nominal_door_not_clear_passage",
+    "center_axis_m": 6.110309278350515,
+    "blender_location_m": [
+      6.110309278350515,
+      -5.765,
+      0.0
+    ],
+    "axis": "h",
+    "effective_clear_opening_m": null,
+    "mesh_objects": [
+      "bedroom-2-door/jamb-left",
+      "bedroom-2-door/jamb-right",
+      "bedroom-2-door/head",
+      "bedroom-2-door/leaf",
+      "bedroom-2-door/handle"
+    ],
+    "leaf_mesh_name": "bedroom-2-door/leaf",
+    "hinge_blender_m": [
+      5.7103095054626465,
+      -5.764999866485596,
+      1.2000000476837158
+    ],
+    "hinge_side": "start"
+  },
+  {
+    "id": "bedroom-3-door",
+    "kind": "door",
+    "wall_id": "bedrooms-north",
+    "center_px": 358,
+    "swing_degrees": -90,
+    "dimension_source": "user specified nominal 0.8 x 2.4m; rough opening adds provisional 20mm jamb allowance",
+    "leaf_width_m": 0.8,
+    "leaf_height_m": 2.4,
+    "cut_width_m": 0.84,
+    "cut_height_m": 2.42,
+    "bottom_m": 0.0,
+    "role": "nominal_door_not_clear_passage",
+    "center_axis_m": 7.369677419354839,
+    "blender_location_m": [
+      7.369677419354839,
+      -5.765,
+      0.0
+    ],
+    "axis": "h",
+    "effective_clear_opening_m": null,
+    "mesh_objects": [
+      "bedroom-3-door/jamb-left",
+      "bedroom-3-door/jamb-right",
+      "bedroom-3-door/head",
+      "bedroom-3-door/leaf",
+      "bedroom-3-door/handle"
+    ],
+    "leaf_mesh_name": "bedroom-3-door/leaf",
+    "hinge_blender_m": [
+      6.969677448272705,
+      -5.764999866485596,
+      1.2000000476837158
+    ],
+    "hinge_side": "start"
+  },
+  {
+    "id": "bathroom-1-door",
+    "kind": "door",
+    "wall_id": "bathroom-1-east",
+    "center_px": 312,
+    "swing_degrees": -90,
+    "dimension_source": "user specified nominal 0.8 x 2.4m; rough opening adds provisional 20mm jamb allowance",
+    "leaf_width_m": 0.8,
+    "leaf_height_m": 2.4,
+    "cut_width_m": 0.84,
+    "cut_height_m": 2.42,
+    "bottom_m": 0.0,
+    "role": "nominal_door_not_clear_passage",
+    "center_axis_m": 4.984230769230769,
+    "blender_location_m": [
+      2.6879999999999997,
+      -4.984230769230769,
+      0.0
+    ],
+    "axis": "v",
+    "effective_clear_opening_m": null,
+    "mesh_objects": [
+      "bathroom-1-door/jamb-left",
+      "bathroom-1-door/jamb-right",
+      "bathroom-1-door/head",
+      "bathroom-1-door/leaf",
+      "bathroom-1-door/handle"
+    ],
+    "leaf_mesh_name": "bathroom-1-door/leaf",
+    "hinge_blender_m": [
+      2.687999963760376,
+      -4.584230899810791,
+      1.2000000476837158
+    ],
+    "hinge_side": "start"
+  },
+  {
+    "id": "hall-pantry-door",
+    "kind": "door",
+    "wall_id": "service-south",
+    "center_px": 286,
+    "swing_degrees": 45,
+    "leaf_width_m": 0.8,
+    "leaf_height_m": 2.4,
+    "cut_width_m": 0.84,
+    "cut_height_m": 2.42,
+    "bottom_m": 0.0,
+    "role": "nominal_door_not_clear_passage",
+    "dimension_source": "user nominal door size; placement and swing provisional",
+    "hinge_side": "start",
+    "center_axis_m": 5.284742268041237,
+    "blender_location_m": [
+      5.284742268041237,
+      -4.418846153846154,
+      0.0
+    ],
+    "axis": "h",
+    "effective_clear_opening_m": null,
+    "mesh_objects": [
+      "hall-pantry-door/jamb-left",
+      "hall-pantry-door/jamb-right",
+      "hall-pantry-door/head",
+      "hall-pantry-door/leaf",
+      "hall-pantry-door/handle"
+    ],
+    "leaf_mesh_name": "hall-pantry-door/leaf",
+    "hinge_blender_m": [
+      4.884742259979248,
+      -4.418846130371094,
+      1.2000000476837158
+    ]
+  },
+  {
+    "id": "dressing-inner-passage",
+    "kind": "passage",
+    "wall_id": "service-east",
+    "center_px": 166,
+    "cut_width_m": 1.1,
+    "cut_height_m": 2.4,
+    "bottom_m": 0.0,
+    "window_span_m": null,
+    "provisional": true,
+    "dimension_source": "open connection inferred from plan and VR; width/height provisional",
+    "center_axis_m": 1.1045669291338582,
+    "blender_location_m": [
+      12.4920245398773,
+      -1.1045669291338582,
+      0.0
+    ],
+    "axis": "v",
+    "effective_clear_opening_m": null,
+    "mesh_objects": [
+      "dressing-inner-passage/frame-left",
+      "dressing-inner-passage/frame-right",
+      "dressing-inner-passage/frame-top"
+    ]
+  },
+  {
+    "id": "primary-bathroom-door",
+    "kind": "door",
+    "wall_id": "primary-bathroom-north",
+    "center_px": 565,
+    "swing_degrees": -90,
+    "dimension_source": "user specified nominal 0.8 x 2.4m; rough opening adds provisional 20mm jamb allowance",
+    "leaf_width_m": 0.8,
+    "leaf_height_m": 2.4,
+    "cut_width_m": 0.84,
+    "cut_height_m": 2.42,
+    "bottom_m": 0.0,
+    "role": "nominal_door_not_clear_passage",
+    "center_axis_m": 13.061472392638038,
+    "blender_location_m": [
+      13.061472392638038,
+      -1.8409448818897638,
+      0.0
+    ],
+    "axis": "h",
+    "effective_clear_opening_m": null,
+    "mesh_objects": [
+      "primary-bathroom-door/jamb-left",
+      "primary-bathroom-door/jamb-right",
+      "primary-bathroom-door/head",
+      "primary-bathroom-door/leaf",
+      "primary-bathroom-door/handle"
+    ],
+    "leaf_mesh_name": "primary-bathroom-door/leaf",
+    "hinge_blender_m": [
+      12.66147232055664,
+      -1.8409448862075806,
+      1.2000000476837158
+    ],
+    "hinge_side": "start"
+  },
+  {
+    "id": "primary-door",
+    "kind": "door",
+    "wall_id": "primary-south",
+    "center_px": 630,
+    "swing_degrees": 90,
+    "dimension_source": "user specified nominal 0.8 x 2.4m; rough opening adds provisional 20mm jamb allowance",
+    "leaf_width_m": 0.8,
+    "leaf_height_m": 2.4,
+    "cut_width_m": 0.84,
+    "cut_height_m": 2.42,
+    "bottom_m": 0.0,
+    "role": "nominal_door_not_clear_passage",
+    "center_axis_m": 14.824049079754602,
+    "blender_location_m": [
+      14.824049079754602,
+      -4.418846153846154,
+      0.0
+    ],
+    "axis": "h",
+    "effective_clear_opening_m": null,
+    "mesh_objects": [
+      "primary-door/jamb-left",
+      "primary-door/jamb-right",
+      "primary-door/head",
+      "primary-door/leaf",
+      "primary-door/handle"
+    ],
+    "leaf_mesh_name": "primary-door/leaf",
+    "hinge_blender_m": [
+      14.424049377441406,
+      -4.418846130371094,
+      1.2000000476837158
+    ],
+    "hinge_side": "start"
+  },
+  {
+    "id": "primary-balcony-opening",
+    "kind": "sliding_door",
+    "wall_id": "primary-balcony-divider",
+    "center_px": 233,
+    "cut_width_m": 1.7,
+    "cut_height_m": 2.2,
+    "bottom_m": 0.05,
+    "window_span_m": null,
+    "dimension_source": "sliding balcony assembly confirmed by primary-room VR; existing 1.70 x 2.20m envelope remains provisional",
+    "provisional": true,
+    "sill_source": "draft placement, not measured",
+    "clear_opening_m": null,
+    "opening_fraction": 1.0,
+    "motion_type": "sliding",
+    "connection_rooms": [
+      "primary-bedroom",
+      "primary-balcony"
+    ],
+    "center_axis_m": 2.8666141732283466,
+    "blender_location_m": [
+      18.43055214723926,
+      -2.8666141732283466,
+      0.05
+    ],
+    "axis": "v",
+    "effective_clear_opening_m": null,
+    "mesh_objects": [
+      "primary-balcony-opening/frame-left",
+      "primary-balcony-opening/frame-right",
+      "primary-balcony-opening/frame-bottom",
+      "primary-balcony-opening/frame-top",
+      "primary-balcony-opening/panel-0",
+      "primary-balcony-opening/panel-0-left",
+      "primary-balcony-opening/panel-0-right",
+      "primary-balcony-opening/panel-0-bottom",
+      "primary-balcony-opening/panel-0-top",
+      "primary-balcony-opening/panel-1",
+      "primary-balcony-opening/panel-1-left",
+      "primary-balcony-opening/panel-1-right",
+      "primary-balcony-opening/panel-1-bottom",
+      "primary-balcony-opening/panel-1-top"
+    ],
+    "panel_objects": [
+      "primary-balcony-opening/panel-0",
+      "primary-balcony-opening/panel-1"
+    ],
+    "draft_slide_travel_m": 0.79,
+    "movement_implemented_in_web": false,
+    "display_span_m": [
+      1.58,
+      2.08
+    ]
+  },
+  {
+    "id": "primary-balcony-service-door",
+    "kind": "door",
+    "wall_id": "primary-balcony-service",
+    "center_px": 790,
+    "swing_degrees": 90,
+    "leaf_width_m": 0.8,
+    "leaf_height_m": 2.4,
+    "cut_width_m": 0.84,
+    "cut_height_m": 2.42,
+    "bottom_m": 0.0,
+    "role": "nominal_door_not_clear_passage",
+    "dimension_source": "user nominal door size; placement and swing provisional",
+    "hinge_side": "end",
+    "center_axis_m": 19.169811320754718,
+    "blender_location_m": [
+      19.169811320754718,
+      -1.4727559055118111,
+      0.0
+    ],
+    "axis": "h",
+    "effective_clear_opening_m": null,
+    "mesh_objects": [
+      "primary-balcony-service-door/jamb-left",
+      "primary-balcony-service-door/jamb-right",
+      "primary-balcony-service-door/head",
+      "primary-balcony-service-door/leaf",
+      "primary-balcony-service-door/handle"
+    ],
+    "leaf_mesh_name": "primary-balcony-service-door/leaf",
+    "hinge_blender_m": [
+      19.56981086730957,
+      -1.4727559089660645,
+      1.2000000476837158
+    ]
+  },
+  {
+    "id": "pantry-door",
+    "kind": "door",
+    "wall_id": "pantry-west",
+    "center_px": 496,
+    "swing_degrees": 90,
+    "dimension_source": "user 0.80 x 2.40m nominal leaf; west-side access confirmed by feedback and kitchen/pantry VR; exact hinge and position provisional",
+    "leaf_width_m": 0.8,
+    "leaf_height_m": 2.4,
+    "cut_width_m": 0.84,
+    "cut_height_m": 2.42,
+    "bottom_m": 0.0,
+    "role": "nominal_door_not_clear_passage",
+    "hinge_side": "start",
+    "center_axis_m": 10.016981132075472,
+    "blender_location_m": [
+      12.4920245398773,
+      -10.016981132075472,
+      0.0
+    ],
+    "axis": "v",
+    "effective_clear_opening_m": null,
+    "mesh_objects": [
+      "pantry-door/jamb-left",
+      "pantry-door/jamb-right",
+      "pantry-door/head",
+      "pantry-door/leaf",
+      "pantry-door/handle"
+    ],
+    "leaf_mesh_name": "pantry-door/leaf",
+    "hinge_blender_m": [
+      12.492024421691895,
+      -9.616981506347656,
+      1.2000000476837158
+    ]
+  },
+  {
+    "id": "living-window-2",
+    "kind": "sliding_door",
+    "wall_id": "living-balcony-divider",
+    "center_px": 716,
+    "cut_width_m": 3.2,
+    "cut_height_m": 2.2,
+    "bottom_m": 0.05,
+    "window_span_m": null,
+    "dimension_source": "user confirms sliding access to living balcony; draft3.20 x2.20m envelope retained; VR3.1/3.2m width conflict unresolved",
+    "provisional": true,
+    "sill_source": "draft placement, not measured",
+    "clear_opening_m": null,
+    "opening_fraction": 1.0,
+    "motion_type": "sliding",
+    "connection_rooms": [
+      "living",
+      "living-balcony"
+    ],
+    "center_axis_m": 17.1560736196319,
+    "blender_location_m": [
+      17.1560736196319,
+      -9.98867924528302,
+      0.05
+    ],
+    "axis": "h",
+    "effective_clear_opening_m": null,
+    "mesh_objects": [
+      "living-window-2/frame-left",
+      "living-window-2/frame-right",
+      "living-window-2/frame-bottom",
+      "living-window-2/frame-top",
+      "living-window-2/panel-0",
+      "living-window-2/panel-0-left",
+      "living-window-2/panel-0-right",
+      "living-window-2/panel-0-bottom",
+      "living-window-2/panel-0-top",
+      "living-window-2/panel-1",
+      "living-window-2/panel-1-left",
+      "living-window-2/panel-1-right",
+      "living-window-2/panel-1-bottom",
+      "living-window-2/panel-1-top"
+    ],
+    "panel_objects": [
+      "living-window-2/panel-0",
+      "living-window-2/panel-1"
+    ],
+    "draft_slide_travel_m": 1.54,
+    "movement_implemented_in_web": false,
+    "display_span_m": [
+      3.08,
+      2.08
+    ]
+  },
+  {
+    "id": "bathroom-1-shower-door",
+    "kind": "door",
+    "wall_id": "bathroom-1-shower-divider",
+    "center_px": 314,
+    "swing_degrees": -60,
+    "leaf_width_m": 0.7,
+    "leaf_height_m": 2.1,
+    "cut_width_m": 0.74,
+    "cut_height_m": 2.12,
+    "bottom_m": 0.0,
+    "role": "shower_enclosure_door",
+    "dimension_source": "unmeasured shower enclosure placeholder 0.70 x 2.10m; not the user-specified ordinary room door",
+    "leaf_material": "glass",
+    "center_axis_m": 5.038076923076923,
+    "blender_location_m": [
+      1.1263999999999998,
+      -5.038076923076923,
+      0.0
+    ],
+    "axis": "v",
+    "effective_clear_opening_m": null,
+    "mesh_objects": [
+      "bathroom-1-shower-door/jamb-left",
+      "bathroom-1-shower-door/jamb-right",
+      "bathroom-1-shower-door/head",
+      "bathroom-1-shower-door/leaf",
+      "bathroom-1-shower-door/handle"
+    ],
+    "leaf_mesh_name": "bathroom-1-shower-door/leaf",
+    "hinge_blender_m": [
+      1.1263999938964844,
+      -4.688076972961426,
+      1.0499999523162842
+    ],
+    "hinge_side": "start"
+  }
+]

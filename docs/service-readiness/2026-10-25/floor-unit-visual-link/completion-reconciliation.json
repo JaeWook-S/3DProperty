@@ -1,0 +1,24 @@
+{
+  "at": "2026-10-25T16:57:04.585354+00:00",
+  "request": "CORTEX-FLOOR-UNIT-VISUAL-LINK-20261025",
+  "status": "already_implemented_verified_and_published",
+  "floorPreviewRelease": "hosting-floor-unit-preview-20261025 / v6",
+  "currentRelease": "hosting-map-point-label-20261025 / v7",
+  "provisionalDefault": "Nonspatial floor household cards; user async option response remains unconfirmed.",
+  "evidence": [
+    "docs/service-readiness/2026-10-25/floor-unit-visual-link/ready.json",
+    "docs/service-readiness/2026-10-25/map-point-classification-ready.json",
+    "tests/floor-unit-preview.browser.js"
+  ],
+  "currentSourceSHAEqualsCompletedReport": true,
+  "v7ViewerByteIdenticalToV6": true,
+  "thisTurnProductChanges": 0,
+  "thisTurnBrowserRuns": 0,
+  "thisTurnDeployments": 0,
+  "thisTurnGPU": 0,
+  "S1Delivery": {
+    "state": "queued_once",
+    "receipt": "Queued message 01a173fe-8c32-7762-a2e4-d5e16ce2eaea for thread 01a09bea-3ac9-7a80-8db6-4816d901f9f8.",
+    "processed": "not confirmed"
+  }
+}

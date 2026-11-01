@@ -7,13 +7,19 @@ export const HOMES = {
   basic: { complex: '아크로리버파크', unit: '112A 기본형', label: '아크로리버파크 112A 기본형' },
 };
 const KEY = 'cortex-my-home';
+export function homePlan(value) {
+  const aliases = {'112a-basic-archisketch':'basic','112a-expanded-archisketch':'expanded'};
+  const key = aliases[value] || value;
+  return Object.hasOwn(HOMES,key) ? key : null;
+}
 
 export function readHome(fallback = 'expanded') {
-  try { const saved = localStorage.getItem(KEY); if (HOMES[saved]) return saved; } catch { /* storage unavailable */ }
-  return HOMES[fallback] ? fallback : 'expanded';
+  try { const saved = homePlan(localStorage.getItem(KEY)); if (saved) return saved; } catch { /* storage unavailable */ }
+  return homePlan(fallback) || 'expanded';
 }
 export function saveHome(home) {
-  if (!HOMES[home]) return;
+  home = homePlan(home);
+  if (!home) return;
   try { localStorage.setItem(KEY, home); } catch { /* storage unavailable */ }
   document.dispatchEvent(new CustomEvent('cortex:home', { detail: home }));
 }
@@ -29,7 +35,8 @@ export function readThemes() {
   } catch { return []; }
 }
 export function rememberTheme({ concept, palette, plan, tour = null }) {
-  if (!HOMES[plan]) return;
+  plan = homePlan(plan);
+  if (!plan) return;
   const same = (entry) => entry.concept === concept && entry.plan === plan && (entry.tour ?? null) === tour;
   const list = [{ concept, palette, plan, tour, at: Date.now() }, ...readThemes().filter((entry) => !same(entry))];
   try { localStorage.setItem(THEMES_KEY, JSON.stringify(list.slice(0, THEMES_KEPT))); } catch { /* storage unavailable */ }

@@ -81,7 +81,7 @@ bash start.sh
 
 [기존 웹 열기](http://127.0.0.1:5185/) → **내 가구 확인 → 가구 등록**에서 이미지를 선택합니다. 기존 JSON 파일 확인 기능도 그대로 사용할 수 있습니다.
 
-자동으로 **SAM3 → MoGe-3 → 후처리 → SuperMat → 치수·재질 프롬프트 → 선택한 코드 생성기(GPT 또는 stub) → Blender → GLB**를 실행합니다. 각 로컬 모델은 별도 프로세스로 순서대로 실행합니다. SuperMat 입력은 측정 단계의 EXIF 정렬·리사이즈가 끝난 `input_rgb.png`에 해당 가구의 SAM3 마스크를 알파로 적용한 RGBA 이미지입니다. 같은 좌표계의 알파 마스크로 재질 통계를 추출하므로 배경을 제외합니다.
+`PIPELINE_SUPERMAT_ENABLED=true`로 명시적으로 활성화한 경우 **SAM3 → MoGe-3 → 후처리 → SuperMat → 치수·재질 프롬프트 → 선택한 코드 생성기(GPT 또는 stub) → Blender → GLB**를 실행합니다. 각 로컬 모델은 별도 프로세스로 순서대로 실행합니다. SuperMat 입력은 측정 단계의 EXIF 정렬·리사이즈가 끝난 `input_rgb.png`에 해당 가구의 SAM3 마스크를 알파로 적용한 RGBA 이미지입니다. 같은 좌표계의 알파 마스크로 재질 통계를 추출하므로 배경을 제외합니다.
 
 서버 터미널에 미터 단위 치수, SuperMat 단계 및 생성된 `prompt.txt` 경로가 출력됩니다. 프롬프트는 패키지 내부 `SuperMat/supermat_to_prompt.py`의 요약·생성 함수를 사용하며, 미터 치수를 센티미터로 변환해 재질 JSON에 채우고 Blender 실행 규약을 추가합니다.
 
@@ -101,6 +101,12 @@ bash start.sh
 
 `000`은 선택된 가구의 원래 측정 인덱스입니다. 앞 가구의 측정에 실패했다면 `001` 등으로 저장됩니다. SuperMat 또는 Blender 실패 시에도 측정 결과는 남고 `generation.status=failed`와 오류가 반환됩니다. 측정 치수가 없는 가구는 모델을 만들지 않습니다. 서버 디스크가 사라지면 GLB도 사라지므로 저장한 배치의 생성 가구를 다시 불러오려면 원래 서버 파일과 API가 필요합니다.
 
+## SuperMat 실행 선택
+
+SuperMat은 기본적으로 꺼져 있습니다 (`PIPELINE_SUPERMAT_ENABLED=false`). 이 상태에서는 GPU/모델 subprocess 없이 치수와 참조 사진만 사용하는 로컬 프롬프트를 만들고, 결과의 `generation.material.status`에 `disabled`와 사유를 표시합니다. stub 모드의 고정 테이블 생성은 계속 사용할 수 있습니다. H200 등 GPU 사용은 사전 허가 후 `PIPELINE_SUPERMAT_ENABLED=true`로 명시적으로 켭니다.
+
+활성화하려면 별도 Python 환경, SuperMat 체크포인트, 로컬 디렉터리 또는 캐시에 준비된 Stable Diffusion 기본 모델이 필요합니다. 서비스는 모델을 자동 다운로드하지 않습니다. 별도로 허가된 다운로드 작업에 한해서 독립 CLI의 `--allow-model-download` 옵션을 사용합니다. SuperMat 활성화와 유료 GPT 어댑터 선택은 독립 설정입니다.
+
 ## 코드 생성기 선택
 
 `pipeline/code_provider.py`가 코드 생성기를 선택합니다. 기존 임의 테이블 테스트 모드는 다음 설정이며, 이 모드에서는 GPT API를 호출하지 않습니다.
@@ -109,7 +115,7 @@ bash start.sh
 PIPELINE_CODE_PROVIDER=stub
 ```
 
-구현된 GPT API 어댑터는 다음 설정으로 선택합니다. 이 브랜치의 `.env.example`은 이 모드를 기본으로 안내하며, 서버 API 키 설정이 필요합니다.
+구현된 GPT API 어댑터는 다음 설정으로 선택합니다. 기본값과 `.env.example`은 `stub`이며, GPT 사용에는 명시적인 어댑터 선택과 서버 API 키 설정이 필요합니다.
 
 ```dotenv
 PIPELINE_CODE_PROVIDER=services.furniture_pipeline.pipeline.gpt_provider:generate

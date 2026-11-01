@@ -1,0 +1,84 @@
+{
+  "passed": true,
+  "candidate": "168c-expanded",
+  "revision": "archisketch-metric-v1",
+  "source_files": {
+    "assets/models/acro-river-park/168c/archisketch-kitchen-detail-v1/expanded/acro168c-expanded.blend": "926928151509db4e836096a8b8059a74769a2631184e4c5fa6f0b5940bdbd155",
+    "assets/models/acro-river-park/168c/archisketch-kitchen-detail-v1/expanded/acro168c-expanded.glb": "076472378bebad4ebb434d3d3fd1b24c18e9298edbd0a6aea534cba82e7a5ea0",
+    "assets/models/acro-river-park/168c/archisketch-kitchen-detail-v1/expanded/model-info.json": "24d38da95e6c3b948bc5f56ac2331be599446d66385935047f00779716ce3a79"
+  },
+  "files": {
+    "acro168c-expanded.blend": "cc636e6dd2dbf4a4802c87747315e3a256500c0f1de99a15e7b0846e9ba82ad2",
+    "acro168c-expanded.glb": "d9f31a482095a6b4b98177978f9e269f9dc3bb38ad8c194166407e7905b94dce",
+    "model-info.json": "b50157bc57140329d935f75eeb7b44c1f9893aeb624fe1820c5fd15311f6c086"
+  },
+  "changed_meshes": [
+    "sliding-11/frame-bottom",
+    "sliding-11/frame-left",
+    "sliding-11/frame-right",
+    "sliding-11/frame-top",
+    "sliding-11/glass-0",
+    "sliding-11/glass-1",
+    "window-20/frame-bottom",
+    "window-20/frame-left",
+    "window-20/frame-right",
+    "window-20/frame-top",
+    "window-20/glass-0",
+    "window-20/glass-1"
+  ],
+  "new_wall_meshes": [
+    "Metric wall correction/sliding-11/00",
+    "Metric wall correction/sliding-11/01",
+    "Metric wall correction/sliding-11/02",
+    "Metric wall correction/sliding-11/03",
+    "Metric wall correction/sliding-11/04",
+    "Metric wall correction/sliding-11/05",
+    "Metric wall correction/sliding-11/06",
+    "Metric wall correction/window-20/00",
+    "Metric wall correction/window-20/01"
+  ],
+  "unchanged_meshes": 624,
+  "protected_rooms_fixtures_metadata": true,
+  "material_names_and_extras_preserved": true,
+  "opening_reviews": [
+    {
+      "id": "sliding-11",
+      "old_width_m": 1.958,
+      "new_width_m": 1.795,
+      "source_id": "AD3F7697-0773-492B-91A8-6FD50F3F3E76",
+      "source_layout_sha256": "116b802cdff225d8c21070413310e076c6d5c3de8ee37f022a176731878175fb",
+      "removed_wall_volume_m3": 0,
+      "restored_wall_volume_m3": 0.07889199999999849,
+      "added_wall_meshes": [
+        "Metric wall correction/sliding-11/00",
+        "Metric wall correction/sliding-11/01",
+        "Metric wall correction/sliding-11/02",
+        "Metric wall correction/sliding-11/03",
+        "Metric wall correction/sliding-11/04",
+        "Metric wall correction/sliding-11/05",
+        "Metric wall correction/sliding-11/06"
+      ],
+      "height_center_axis_unchanged": true,
+      "expected_removed_wall_volume_m3": 0.0
+    },
+    {
+      "id": "window-20",
+      "old_width_m": 2.189,
+      "new_width_m": 1.995,
+      "source_id": "3D3B30DF-F219-4A31-9750-BE7D04E3AE30",
+      "source_layout_sha256": "116b802cdff225d8c21070413310e076c6d5c3de8ee37f022a176731878175fb",
+      "removed_wall_volume_m3": 0,
+      "restored_wall_volume_m3": 0.05431999999999981,
+      "added_wall_meshes": [
+        "Metric wall correction/window-20/00",
+        "Metric wall correction/window-20/01"
+      ],
+      "height_center_axis_unchanged": true,
+      "expected_removed_wall_volume_m3": 0.0
+    }
+  ],
+  "GPU_used": false,
+  "render_performed": false,
+  "browser_validation": "pending",
+  "active_web_changed": false
+}

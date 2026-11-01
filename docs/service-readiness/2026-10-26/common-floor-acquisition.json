@@ -1,0 +1,44 @@
+{
+  "checkedAt": "2026-10-26T08:26:46.461879+00:00",
+  "request": "Where to obtain 100-building whole-floor plan and where to access elevator walk",
+  "managementPhone": "02-3478-2904",
+  "phoneSource": "https://www.k-apt.go.kr/bid/bidDetail.do?bidNum=20260922170450943",
+  "requiredDocument": "100동 11층 또는 해당 층 포함 기준층 평면도: 호수별 현관·복도·엘리베이터 표시",
+  "documentAvailabilityConfirmed": false,
+  "paths": [
+    "관리사무소 생활지원센터에 자료 보유/열람/제공 문의",
+    "세움터/서초구에 층 평면도 보유 및 자격·동의 범위 확인",
+    "거주자/관리사무소 협조를 통한 게시 피난도 및 연결 사진"
+  ],
+  "lawSource": "https://www.law.go.kr/lsLinkCommonInfo.do?chrClsCd=010202&lsJoLnkSeq=1031391211",
+  "publicWholeFloorDownloadFound": false,
+  "example": {
+    "building": "100",
+    "floor": 11,
+    "unit": "1105",
+    "type": "168C",
+    "variants": [
+      "basic",
+      "expanded"
+    ]
+  },
+  "alternativeExample": {
+    "building": "107",
+    "floor": 11,
+    "unit": "1104",
+    "type": "112A"
+  },
+  "currentCommonArea": "Illustrative optional corridor/elevator attached at source entrance for all four supported variants; not actual selected floor",
+  "uiSteps": [
+    "선택 호수에서 기본/확장 선택",
+    "실내3D에서 둘러보기",
+    "포인터 잠금 중이면 Esc",
+    "현관 밖 둘러보기 · 예시 공용부",
+    "현관→복도→문/호출버튼 E 또는 클릭→엘리베이터"
+  ],
+  "floorTravel": false,
+  "productChanges": 0,
+  "modelChanges": 0,
+  "gpuCompute": 0,
+  "publication": 0
+}

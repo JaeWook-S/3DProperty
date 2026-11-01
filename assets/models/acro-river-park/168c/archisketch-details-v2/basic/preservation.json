@@ -1,0 +1,30 @@
+{
+  "passed": true,
+  "variant": "basic",
+  "source_sha256": "1cbe0510e0db9a30c7f0594c0e8c7de549c523d182201f8277209e8b268cc870",
+  "protected_structural_meshes": 216,
+  "unexpected_changes": [],
+  "source_room_opening_coordinates_unchanged": true,
+  "sliding_panels_offset": [
+    "living-balcony-door/mullion",
+    "living-east-balcony-door/mullion",
+    "primary-balcony-door/mullion",
+    "sliding-09/mullion",
+    "sliding-10/mullion",
+    "sliding-11/mullion",
+    "sliding-20/glass-0",
+    "sliding-20/glass-1",
+    "sliding-20/mullion",
+    "sliding-21/mullion",
+    "sliding-22/glass-0",
+    "sliding-22/glass-1",
+    "sliding-22/mullion",
+    "sliding-26/glass-0",
+    "sliding-26/glass-1",
+    "sliding-26/mullion"
+  ],
+  "replaced_fixture_meshes": 93,
+  "old_meshes": 469,
+  "new_meshes": 557,
+  "browser_validation_pending": true
+}

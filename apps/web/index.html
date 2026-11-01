@@ -1,23 +1,11 @@
 <!doctype html>
 <html lang="ko">
-<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#143b36"><title>Cortex · 내 공간, 내 가구</title></head>
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#143b36"><title>Cortex · 새로운 집 찾기</title></head>
 <body>
-<header class="site-header"><a class="brand" href="./" aria-label="Cortex 처음으로"><span class="brand-mark">C</span> CORTEX<span class="brand-sub">SPATIAL STUDIO</span></a><span class="project-tag">2026 · WEEK 05</span></header>
+<header class="site-header"><a class="brand" href="./" aria-label="Cortex 처음으로"><span class="brand-mark">C</span> CORTEX<span class="brand-sub">SPATIAL STUDIO</span></a><span class="project-tag">FIND YOUR SPACE</span></header>
 <main>
-  <div class="heading"><p class="eyebrow">내 공간, 내 가구</p><h1>살아볼 공간을,<br class="mobile-break"> 먼저 걸어보세요.</h1><p>도면으로 만든 집을 둘러보고, 내 가구의 크기를 확인해 보세요.</p></div>
-  <nav class="steps" aria-label="작업 단계"><button class="step active" id="space-tab" aria-current="page"><span>01</span> 공간 둘러보기</button><button class="step" id="furniture-tab"><span>02</span> 내 가구 확인</button></nav>
-  <section id="space-panel" aria-labelledby="space-title">
-    <div class="space-layout">
-      <figure class="space-photo"><img id="space-preview" src="./previews/expanded.jpg" alt="확장형 공간의 실제 웹 뷰어 캡처"><figcaption><span class="photo-chip">실제 웹 뷰어 캡처</span><h2 id="space-title">아크로리버파크 112A</h2><p id="photo-caption">확장형 · 라이트 오크 / 해질녘 미리보기</p></figcaption></figure>
-      <div class="space-details"><p class="eyebrow">SELECT YOUR SPACE</p><h2>어떤 공간부터<br>둘러볼까요?</h2><fieldset class="variant-options"><legend>평면 선택</legend>
-        <label class="variant-option"><input type="radio" name="variant" value="expanded" checked><span><strong>확장형</strong><small>발코니를 확장한 공간</small></span><span class="option-check" aria-hidden="true">↗</span></label>
-        <label class="variant-option"><input type="radio" name="variant" value="basic"><span><strong>기본형</strong><small>실내와 발코니가 분리된 구조</small></span><span class="option-check" aria-hidden="true">↗</span></label>
-      </fieldset><p class="model-note" id="variant-description"></p><a class="primary" id="open-viewer" target="_blank" rel="noopener noreferrer">확장형 공간 열기 <span aria-hidden="true">↗</span></a><p class="link-note">새 탭에서 열립니다. 마친 뒤 이 탭으로 돌아오세요.<br>시작 설정은 원본 마감 · 낮 · 고화질입니다.</p><p class="mobile-note">공간 이동은 키보드·마우스가 있는 PC에서 지원합니다.</p></div>
-    </div>
-    <div class="help-grid"><article><span class="help-number">01 / WALK</span><h3>내 눈높이로 이동</h3><p><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> 이동 · 마우스로 둘러보기<br>눈높이 1.60m · 기본 이동 속도 1.20m/s</p></article><article><span class="help-number">02 / INTERACT</span><h3>문과 분위기 살펴보기</h3><p><kbd>E</kbd> 또는 클릭으로 가까운 문 열기<br>조명·마감·화질은 공간 안에서 바꿀 수 있어요.</p></article><article><span class="help-number">03 / RETURN</span><h3>언제든 돌아오기</h3><p><kbd>Esc</kbd>로 마우스 잠금 해제<br>공간 탭을 닫으면 이 화면에서 계속할 수 있어요.</p></article></div>
-    <details class="source-note"><summary>공간의 치수와 입력 자료에 대해</summary><p>모델은 미터 단위를 유지합니다. 도면에 없는 구간과 층고·가구 규격에는 가정이 있으며, 실제 건물을 독립 실측한 결과는 아닙니다. 새 도면은 네이버 부동산 자료를 활용하고, 출처와 치수 표기 여부를 함께 기록할 예정입니다.</p></details>
-    <details class="source-note"><summary>공간이 열리지 않을 때</summary><p>뷰어 서버와 포트 전달을 확인하세요. 이 페이지는 공간 내부의 로딩 상태를 자동으로 감지하지 않습니다. 연결이 실패해도 현재 탭에서 다른 평면을 선택할 수 있습니다.</p><p>개발용 뷰어 주소: <code id="viewer-address"></code></p><p id="config-error" role="alert" hidden></p></details>
-  </section>
+  <nav class="steps" aria-label="작업 단계"><button class="step active" id="space-tab" aria-current="page">위치에서 시작</button><button class="step" id="furniture-tab">내 가구 확인</button></nav>
+  <section id="space-panel" aria-label="지도에서 공간 찾기"><div id="map-service"></div></section>
   <section id="furniture-panel" aria-labelledby="furniture-title" hidden>
     <div class="furniture-intro"><div><p class="eyebrow">YOUR FURNITURE</p><h2 id="furniture-title">내 가구의 크기를 확인하세요.</h2><p>가구 사진을 등록하면 서버에서 폭·깊이·높이를 측정합니다.<br>기존 치수 결과 JSON 파일도 아래에서 확인할 수 있습니다.</p></div><span class="outline-badge">이미지 측정 · JSON 확인</span></div>
     <section class="measurement-card" aria-labelledby="measurement-title">
@@ -32,5 +20,5 @@
   </section>
 </main>
 <footer><span>CORTEX / 인하대학교 인공지능종합설계</span><span>공간을 이해하는 새로운 방법.</span></footer>
-<script type="module" src="/src/main.js"></script>
+<script type="module" src="/src/service-entry.js"></script>
 </body></html>

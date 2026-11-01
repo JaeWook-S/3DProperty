@@ -2,19 +2,21 @@
 
 작업 브랜치: `feat/gpt-astra-furniture`
 
-기존 SAM3·MoGe3·SuperMat·Blender 및 웹 연결을 유지하고, 코드 생성기만 OpenAI Responses API로 교체합니다.
+기존 SAM3·MoGe3·Blender 및 웹 연결을 유지하고, SuperMat은 별도 선택으로 두며, 코드 생성기만 OpenAI Responses API로 교체합니다.
 
 ```text
 이미지 → SAM3 + MoGe3 → SuperMat → 치수·재질 프롬프트
 → GPT-6 Astra (xhigh) → Blender Python → 기존 Blender 실행기 → GLB → 웹
 ```
 
+SuperMat 기본값은 `PIPELINE_SUPERMAT_ENABLED=false`입니다. H200 등 GPU 사용 허가를 받은 후 별도로 활성화하며, 로컬 기본 모델/체크포인트가 준비되어야 합니다. 이 설정과 유료 GPT 어댑터 선택은 독립적입니다.
+
 ## 필요한 것
 
 - 서버에서 사용할 **OpenAI API 키**: [API 키 관리](https://platform.openai.com/api-keys).
 - 해당 API 프로젝트의 **`gpt-6-astra` 모델 접근 권한**, 사용 가능한 결제·크레딧 및 요청 한도.
 - 서버에서 `https://api.openai.com`으로 연결할 수 있는 HTTPS 네트워크.
-- 기존에 테스트한 SAM3·MoGe3·SuperMat·Blender 환경과 가중치.
+- SAM3·MoGe3·Blender 환경과 가중치. SuperMat 활성화 시에만 별도 SuperMat 환경과 로컬 기본 모델/체크포인트.
 - API 환경에 설치할 OpenAI Python SDK. 아래 명령으로 추가합니다.
 
 API 키는 서버의 `services/furniture_pipeline/.env`에만 입력합니다. 웹이나 Mac의 `runyour.env`, Git에 올리는 `.env.example`에는 실제 키를 넣지 않습니다. `.env`는 기존 `.gitignore`에서 제외하고 있습니다.

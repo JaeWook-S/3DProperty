@@ -1,0 +1,2381 @@
+{
+  "units": "meters",
+  "upAxis": "Y",
+  "unitType": "168C",
+  "variant": "expanded",
+  "navigationReady": true,
+  "structureRevision": "structural-v2",
+  "finishRevision": "finishes-v1",
+  "rooms": [
+    {
+      "id": "bedroom-1",
+      "name_ko": "침실 1",
+      "bounds_m": [
+        0.0,
+        5.765,
+        3.84,
+        10.3
+      ],
+      "polygon_m": [
+        [
+          0.0,
+          5.765
+        ],
+        [
+          3.84,
+          5.765
+        ],
+        [
+          3.84,
+          10.3
+        ],
+        [
+          0.0,
+          10.3
+        ]
+      ],
+      "width_m": 3.84,
+      "depth_m": 4.535000000000001,
+      "kind": "interior",
+      "floor_object": "Finish floor / bedroom-1",
+      "source": "draft calibrated reference boundaries, not surveyed clear room area"
+    },
+    {
+      "id": "bedroom-2",
+      "name_ko": "침실 2",
+      "bounds_m": [
+        3.84,
+        5.765,
+        6.7,
+        10.3
+      ],
+      "polygon_m": [
+        [
+          3.84,
+          5.765
+        ],
+        [
+          6.7,
+          5.765
+        ],
+        [
+          6.7,
+          10.3
+        ],
+        [
+          3.84,
+          10.3
+        ]
+      ],
+      "width_m": 2.8600000000000003,
+      "depth_m": 4.535000000000001,
+      "kind": "interior",
+      "floor_object": "Finish floor / bedroom-2",
+      "source": "draft calibrated reference boundaries, not surveyed clear room area"
+    },
+    {
+      "id": "bedroom-3",
+      "name_ko": "침실 3",
+      "bounds_m": [
+        6.7,
+        5.765,
+        9.964677419354839,
+        10.3
+      ],
+      "polygon_m": [
+        [
+          6.7,
+          5.765
+        ],
+        [
+          9.964677419354839,
+          5.765
+        ],
+        [
+          9.964677419354839,
+          10.3
+        ],
+        [
+          6.7,
+          10.3
+        ]
+      ],
+      "width_m": 3.2646774193548387,
+      "depth_m": 4.535000000000001,
+      "kind": "interior",
+      "floor_object": "Finish floor / bedroom-3",
+      "source": "draft calibrated reference boundaries, not surveyed clear room area"
+    },
+    {
+      "id": "primary-bedroom",
+      "name_ko": "안방",
+      "bounds_m": [
+        13.712269938650307,
+        0.0,
+        18.43055214723926,
+        4.418846153846154
+      ],
+      "polygon_m": [
+        [
+          13.712269938650307,
+          0.0
+        ],
+        [
+          18.43055214723926,
+          0.0
+        ],
+        [
+          18.43055214723926,
+          4.418846153846154
+        ],
+        [
+          13.712269938650307,
+          4.418846153846154
+        ]
+      ],
+      "width_m": 4.718282208588954,
+      "depth_m": 4.418846153846154,
+      "kind": "interior",
+      "floor_object": "Finish floor / primary-bedroom",
+      "source": "draft calibrated reference boundaries, not surveyed clear room area"
+    },
+    {
+      "id": "bathroom-1",
+      "name_ko": "화장실 1",
+      "bounds_m": [
+        0.0,
+        3.9339999999999997,
+        2.6879999999999997,
+        5.765
+      ],
+      "polygon_m": [
+        [
+          0.0,
+          3.9339999999999997
+        ],
+        [
+          2.6879999999999997,
+          3.9339999999999997
+        ],
+        [
+          2.6879999999999997,
+          5.765
+        ],
+        [
+          0.0,
+          5.765
+        ]
+      ],
+      "width_m": 2.6879999999999997,
+      "depth_m": 1.831,
+      "kind": "wet",
+      "floor_object": "Finish floor / bathroom-1",
+      "source": "draft calibrated reference boundaries, not surveyed clear room area"
+    },
+    {
+      "id": "primary-bathroom",
+      "name_ko": "안방 화장실",
+      "bounds_m": [
+        11.109079754601227,
+        1.8409448818897638,
+        13.712269938650307,
+        3.5559999999999996
+      ],
+      "polygon_m": [
+        [
+          11.109079754601227,
+          1.8409448818897638
+        ],
+        [
+          13.712269938650307,
+          1.8409448818897638
+        ],
+        [
+          13.712269938650307,
+          3.5559999999999996
+        ],
+        [
+          11.109079754601227,
+          3.5559999999999996
+        ]
+      ],
+      "width_m": 2.6031901840490796,
+      "depth_m": 1.7150551181102358,
+      "kind": "wet",
+      "floor_object": "Finish floor / primary-bathroom",
+      "source": "draft calibrated reference boundaries, not surveyed clear room area"
+    },
+    {
+      "id": "dressing-room",
+      "name_ko": "드레스룸",
+      "bounds_m": [
+        12.4920245398773,
+        0.0,
+        13.712269938650307,
+        1.8409448818897638
+      ],
+      "polygon_m": [
+        [
+          12.4920245398773,
+          0.0
+        ],
+        [
+          13.712269938650307,
+          0.0
+        ],
+        [
+          13.712269938650307,
+          1.8409448818897638
+        ],
+        [
+          12.4920245398773,
+          1.8409448818897638
+        ]
+      ],
+      "width_m": 1.220245398773006,
+      "depth_m": 1.8409448818897638,
+      "kind": "interior",
+      "floor_object": "Finish floor / dressing-room",
+      "source": "draft calibrated reference boundaries, not surveyed clear room area"
+    },
+    {
+      "id": "entry",
+      "name_ko": "현관",
+      "bounds_m": [
+        7.816129032258065,
+        1.9461417322834647,
+        9.741451612903226,
+        4.418846153846154
+      ],
+      "polygon_m": [
+        [
+          7.816129032258065,
+          1.9461417322834647
+        ],
+        [
+          9.741451612903226,
+          1.9461417322834647
+        ],
+        [
+          9.741451612903226,
+          4.418846153846154
+        ],
+        [
+          7.816129032258065,
+          4.418846153846154
+        ]
+      ],
+      "width_m": 1.9253225806451617,
+      "depth_m": 2.472704421562689,
+      "kind": "entry",
+      "floor_object": "Finish floor / entry",
+      "source": "draft calibrated reference boundaries, not surveyed clear room area"
+    },
+    {
+      "id": "hall",
+      "name_ko": "복도",
+      "bounds_m": [
+        2.6879999999999997,
+        4.418846153846154,
+        9.964677419354839,
+        5.765
+      ],
+      "polygon_m": [
+        [
+          2.6879999999999997,
+          4.418846153846154
+        ],
+        [
+          9.964677419354839,
+          4.418846153846154
+        ],
+        [
+          9.964677419354839,
+          5.765
+        ],
+        [
+          2.6879999999999997,
+          5.765
+        ]
+      ],
+      "width_m": 7.276677419354839,
+      "depth_m": 1.3461538461538458,
+      "kind": "circulation",
+      "floor_object": "Finish floor / hall",
+      "source": "draft calibrated reference boundaries, not surveyed clear room area"
+    },
+    {
+      "id": "living",
+      "name_ko": "거실",
+      "bounds_m": [
+        12.4920245398773,
+        4.418846153846154,
+        20.5,
+        9.422641509433962
+      ],
+      "polygon_m": [
+        [
+          13.14282208588957,
+          4.418846153846154
+        ],
+        [
+          20.5,
+          4.418846153846154
+        ],
+        [
+          20.5,
+          9.98867924528302
+        ],
+        [
+          15.36638036809816,
+          9.98867924528302
+        ],
+        [
+          15.36638036809816,
+          9.422641509433962
+        ],
+        [
+          14.769815950920245,
+          9.422641509433962
+        ],
+        [
+          14.769815950920245,
+          8.2309375
+        ],
+        [
+          13.14282208588957,
+          8.2309375
+        ]
+      ],
+      "width_m": 8.0079754601227,
+      "depth_m": 5.003795355587808,
+      "kind": "open_zone",
+      "floor_object": "Finish floor / living",
+      "source": "draft calibrated reference boundaries, not surveyed clear room area",
+      "viewTarget": [
+        12.1,
+        7.8
+      ]
+    },
+    {
+      "id": "kitchen",
+      "name_ko": "주방",
+      "bounds_m": [
+        9.964677419354839,
+        5.765,
+        14.769815950920245,
+        11.51
+      ],
+      "polygon_m": [
+        [
+          9.964677419354839,
+          6.415357142857143
+        ],
+        [
+          11.05484662576687,
+          6.415357142857143
+        ],
+        [
+          11.05484662576687,
+          5.765
+        ],
+        [
+          13.14282208588957,
+          5.765
+        ],
+        [
+          13.14282208588957,
+          8.2309375
+        ],
+        [
+          14.769815950920245,
+          8.2309375
+        ],
+        [
+          14.769815950920245,
+          9.422641509433962
+        ],
+        [
+          12.4920245398773,
+          9.422641509433962
+        ],
+        [
+          12.4920245398773,
+          11.51
+        ],
+        [
+          9.964677419354839,
+          11.51
+        ]
+      ],
+      "width_m": 4.805138531565406,
+      "depth_m": 5.745,
+      "kind": "open_zone",
+      "floor_object": "Finish floor / kitchen",
+      "source": "draft calibrated reference boundaries, not surveyed clear room area",
+      "viewTarget": [
+        11.6,
+        10.8
+      ]
+    },
+    {
+      "id": "pantry",
+      "name_ko": "주방 팬트리·다용도실",
+      "bounds_m": [
+        12.4920245398773,
+        9.422641509433962,
+        14.878282208588956,
+        11.51
+      ],
+      "polygon_m": [
+        [
+          12.4920245398773,
+          9.422641509433962
+        ],
+        [
+          14.878282208588956,
+          9.422641509433962
+        ],
+        [
+          14.878282208588956,
+          10.58139534883721
+        ],
+        [
+          13.847852760736195,
+          10.58139534883721
+        ],
+        [
+          13.847852760736195,
+          11.51
+        ],
+        [
+          12.4920245398773,
+          11.51
+        ]
+      ],
+      "width_m": 2.3862576687116555,
+      "depth_m": 2.0873584905660376,
+      "kind": "utility",
+      "floor_object": "Finish floor / pantry",
+      "source": "draft calibrated reference boundaries, not surveyed clear room area"
+    },
+    {
+      "id": "primary-balcony",
+      "name_ko": "안방 발코니",
+      "bounds_m": [
+        18.43055214723926,
+        1.4727559055118111,
+        19.933962264150942,
+        4.0419230769230765
+      ],
+      "polygon_m": [
+        [
+          18.43055214723926,
+          1.4727559055118111
+        ],
+        [
+          19.933962264150942,
+          1.4727559055118111
+        ],
+        [
+          19.933962264150942,
+          4.0419230769230765
+        ],
+        [
+          18.43055214723926,
+          4.0419230769230765
+        ]
+      ],
+      "width_m": 1.503410116911681,
+      "depth_m": 2.5691671714112654,
+      "kind": "balcony",
+      "floor_object": "Finish floor / primary-balcony",
+      "source": "draft calibrated reference boundaries, not surveyed clear room area"
+    },
+    {
+      "id": "living-balcony",
+      "name_ko": "거실 발코니",
+      "bounds_m": [
+        14.878282208588956,
+        9.98867924528302,
+        19.0,
+        11.341162790697675
+      ],
+      "polygon_m": [
+        [
+          14.878282208588956,
+          9.98867924528302
+        ],
+        [
+          19.0,
+          9.98867924528302
+        ],
+        [
+          19.0,
+          11.341162790697675
+        ],
+        [
+          14.878282208588956,
+          11.341162790697675
+        ]
+      ],
+      "width_m": 4.121717791411044,
+      "depth_m": 1.352483545414655,
+      "kind": "balcony",
+      "floor_object": "Finish floor / living-balcony",
+      "source": "draft calibrated reference boundaries, not surveyed clear room area"
+    },
+    {
+      "id": "hall-pantry",
+      "name_ko": "복도 팬트리·수납",
+      "bounds_m": [
+        4.134845360824742,
+        3.34,
+        6.4346391752577325,
+        4.418846153846154
+      ],
+      "polygon_m": [
+        [
+          4.134845360824742,
+          3.34
+        ],
+        [
+          6.4346391752577325,
+          3.34
+        ],
+        [
+          6.4346391752577325,
+          4.418846153846154
+        ],
+        [
+          4.134845360824742,
+          4.418846153846154
+        ]
+      ],
+      "width_m": 2.2997938144329906,
+      "depth_m": 1.078846153846154,
+      "kind": "utility",
+      "floor_object": "Finish floor / hall-pantry",
+      "source": "draft calibrated reference boundaries, not surveyed clear room area"
+    },
+    {
+      "id": "dressing-inner",
+      "name_ko": "드레스룸 안쪽",
+      "bounds_m": [
+        9.741451612903226,
+        0.0,
+        12.4920245398773,
+        2.288031496062992
+      ],
+      "polygon_m": [
+        [
+          9.741451612903226,
+          0.0
+        ],
+        [
+          12.4920245398773,
+          0.0
+        ],
+        [
+          12.4920245398773,
+          1.8409448818897638
+        ],
+        [
+          11.109079754601227,
+          1.8409448818897638
+        ],
+        [
+          11.109079754601227,
+          2.288031496062992
+        ],
+        [
+          9.741451612903226,
+          2.288031496062992
+        ]
+      ],
+      "width_m": 2.7505729269740744,
+      "depth_m": 2.288031496062992,
+      "kind": "interior",
+      "floor_object": "Finish floor / dressing-inner",
+      "source": "draft calibrated reference boundaries, not surveyed clear room area"
+    },
+    {
+      "id": "primary-balcony-service",
+      "name_ko": "발코니 안쪽 공간",
+      "bounds_m": [
+        18.43055214723926,
+        0.0,
+        19.933962264150942,
+        1.4727559055118111
+      ],
+      "polygon_m": [
+        [
+          18.43055214723926,
+          0.0
+        ],
+        [
+          19.933962264150942,
+          0.0
+        ],
+        [
+          19.933962264150942,
+          1.4727559055118111
+        ],
+        [
+          18.43055214723926,
+          1.4727559055118111
+        ]
+      ],
+      "width_m": 1.503410116911681,
+      "depth_m": 1.4727559055118111,
+      "kind": "utility",
+      "floor_object": "Finish floor / primary-balcony-service",
+      "source": "draft calibrated reference boundaries, not surveyed clear room area"
+    }
+  ],
+  "objects": {
+    "168c:Floor / footprint is not certified area": {
+      "name": "Floor / footprint is not certified area",
+      "category": "Floors",
+      "component": "floor"
+    },
+    "168c:outer-00/after": {
+      "name": "outer-00/after",
+      "category": "Structure",
+      "component": "wall"
+    },
+    "168c:outer-01/entry-door/before": {
+      "name": "outer-01/entry-door/before",
+      "category": "Structure",
+      "component": "wall"
+    },
+    "168c:outer-01/entry-door/lintel": {
+      "name": "outer-01/entry-door/lintel",
+      "category": "Structure",
+      "component": "wall"
+    },
+    "168c:outer-01/after": {
+      "name": "outer-01/after",
+      "category": "Structure",
+      "component": "wall"
+    },
+    "168c:outer-02/after": {
+      "name": "outer-02/after",
+      "category": "Structure",
+      "component": "wall"
+    },
+    "168c:outer-03/after": {
+      "name": "outer-03/after",
+      "category": "Structure",
+      "component": "wall"
+    },
+    "168c:outer-04/after": {
+      "name": "outer-04/after",
+      "category": "Structure",
+      "component": "wall"
+    },
+    "168c:outer-05/primary-exterior-window/before": {
+      "name": "outer-05/primary-exterior-window/before",
+      "category": "Structure",
+      "component": "wall"
+    },
+    "168c:outer-05/primary-exterior-window/sill": {
+      "name": "outer-05/primary-exterior-window/sill",
+      "category": "Structure",
+      "component": "wall"
+    },
+    "168c:outer-05/primary-exterior-window/lintel": {
+      "name": "outer-05/primary-exterior-window/lintel",
+      "category": "Structure",
+      "component": "wall"
+    },
+    "168c:outer-05/after": {
+      "name": "outer-05/after",
+      "category": "Structure",
+      "component": "wall"
+    },
+    "168c:outer-07/living-window-1/before": {
+      "name": "outer-07/living-window-1/before",
+      "category": "Structure",
+      "component": "wall"
+    },
+    "168c:outer-07/living-window-1/sill": {
+      "name": "outer-07/living-window-1/sill",
+      "category": "Structure",
+      "component": "wall"
+    },
+    "168c:outer-07/living-window-1/lintel": {
+      "name": "outer-07/living-window-1/lintel",
+      "category": "Structure",
+      "component": "wall"
+    },
+    "168c:outer-07/after": {
+      "name": "outer-07/after",
+      "category": "Structure",
+      "component": "wall"
+    },
+    "168c:outer-08/after": {
+      "name": "outer-08/after",
+      "category": "Structure",
+      "component": "wall"
+    },
+    "168c:outer-09/after": {
+      "name": "outer-09/after",
+      "category": "Structure",
+      "component": "wall"
+    },
+    "168c:outer-10/after": {
+      "name": "outer-10/after",
+      "category": "Structure",
+      "component": "wall"
+    },
+    "168c:outer-11/after": {
+      "name": "outer-11/after",
+      "category": "Structure",
+      "component": "wall"
+    },
+    "168c:outer-12/kitchen-window/before": {
+      "name": "outer-12/kitchen-window/before",
+      "category": "Structure",
+      "component": "wall"
+    },
+    "168c:outer-12/kitchen-window/sill": {
+      "name": "outer-12/kitchen-window/sill",
+      "category": "Structure",
+      "component": "wall"
+    },
+    "168c:outer-12/kitchen-window/lintel": {
+      "name": "outer-12/kitchen-window/lintel",
+      "category": "Structure",
+      "component": "wall"
+    },
+    "168c:outer-12/after": {
+      "name": "outer-12/after",
+      "category": "Structure",
+      "component": "wall"
+    },
+    "168c:outer-13/after": {
+      "name": "outer-13/after",
+      "category": "Structure",
+      "component": "wall"
+    },
+    "168c:outer-14/bedroom-1-window/before": {
+      "name": "outer-14/bedroom-1-window/before",
+      "category": "Structure",
+      "component": "wall"
+    },
+    "168c:outer-14/bedroom-1-window/sill": {
+      "name": "outer-14/bedroom-1-window/sill",
+      "category": "Structure",
+      "component": "wall"
+    },
+    "168c:outer-14/bedroom-1-window/lintel": {
+      "name": "outer-14/bedroom-1-window/lintel",
+      "category": "Structure",
+      "component": "wall"
+    },
+    "168c:outer-14/bedroom-2-window/before": {
+      "name": "outer-14/bedroom-2-window/before",
+      "category": "Structure",
+      "component": "wall"
+    },
+    "168c:outer-14/bedroom-2-window/sill": {
+      "name": "outer-14/bedroom-2-window/sill",
+      "category": "Structure",
+      "component": "wall"
+    },
+    "168c:outer-14/bedroom-2-window/lintel": {
+      "name": "outer-14/bedroom-2-window/lintel",
+      "category": "Structure",
+      "component": "wall"
+    },
+    "168c:outer-14/bedroom-3-window/before": {
+      "name": "outer-14/bedroom-3-window/before",
+      "category": "Structure",
+      "component": "wall"
+    },
+    "168c:outer-14/bedroom-3-window/sill": {
+      "name": "outer-14/bedroom-3-window/sill",
+      "category": "Structure",
+      "component": "wall"
+    },
+    "168c:outer-14/bedroom-3-window/lintel": {
+      "name": "outer-14/bedroom-3-window/lintel",
+      "category": "Structure",
+      "component": "wall"
+    },
+    "168c:outer-14/after": {
+      "name": "outer-14/after",
+      "category": "Structure",
+      "component": "wall"
+    },
+    "168c:outer-15/after": {
+      "name": "outer-15/after",
+      "category": "Structure",
+      "component": "wall"
+    },
+    "168c:bedrooms-north/bedroom-1-door/before": {
+      "name": "bedrooms-north/bedroom-1-door/before",
+      "category": "Structure",
+      "component": "wall"
+    },
+    "168c:bedrooms-north/bedroom-1-door/lintel": {
+      "name": "bedrooms-north/bedroom-1-door/lintel",
+      "category": "Structure",
+      "component": "wall"
+    },
+    "168c:bedrooms-north/bedroom-2-door/before": {
+      "name": "bedrooms-north/bedroom-2-door/before",
+      "category": "Structure",
+      "component": "wall"
+    },
+    "168c:bedrooms-north/bedroom-2-door/lintel": {
+      "name": "bedrooms-north/bedroom-2-door/lintel",
+      "category": "Structure",
+      "component": "wall"
+    },
+    "168c:bedrooms-north/bedroom-3-door/before": {
+      "name": "bedrooms-north/bedroom-3-door/before",
+      "category": "Structure",
+      "component": "wall"
+    },
+    "168c:bedrooms-north/bedroom-3-door/lintel": {
+      "name": "bedrooms-north/bedroom-3-door/lintel",
+      "category": "Structure",
+      "component": "wall"
+    },
+    "168c:bedrooms-north/after": {
+      "name": "bedrooms-north/after",
+      "category": "Structure",
+      "component": "wall"
+    },
+    "168c:bedroom-1-2/after": {
+      "name": "bedroom-1-2/after",
+      "category": "Structure",
+      "component": "wall"
+    },
+    "168c:bedroom-2-3/after": {
+      "name": "bedroom-2-3/after",
+      "category": "Structure",
+      "component": "wall"
+    },
+    "168c:bedroom-3-kitchen/after": {
+      "name": "bedroom-3-kitchen/after",
+      "category": "Structure",
+      "component": "wall"
+    },
+    "168c:bathroom-1-east/bathroom-1-door/before": {
+      "name": "bathroom-1-east/bathroom-1-door/before",
+      "category": "Structure",
+      "component": "wall"
+    },
+    "168c:bathroom-1-east/bathroom-1-door/lintel": {
+      "name": "bathroom-1-east/bathroom-1-door/lintel",
+      "category": "Structure",
+      "component": "wall"
+    },
+    "168c:bathroom-1-east/after": {
+      "name": "bathroom-1-east/after",
+      "category": "Structure",
+      "component": "wall"
+    },
+    "168c:bathroom-1-north/after": {
+      "name": "bathroom-1-north/after",
+      "category": "Structure",
+      "component": "wall"
+    },
+    "168c:service-south/hall-pantry-door/before": {
+      "name": "service-south/hall-pantry-door/before",
+      "category": "Structure",
+      "component": "wall"
+    },
+    "168c:service-south/hall-pantry-door/lintel": {
+      "name": "service-south/hall-pantry-door/lintel",
+      "category": "Structure",
+      "component": "wall"
+    },
+    "168c:service-south/after": {
+      "name": "service-south/after",
+      "category": "Structure",
+      "component": "wall"
+    },
+    "168c:entry-east/after": {
+      "name": "entry-east/after",
+      "category": "Structure",
+      "component": "wall"
+    },
+    "168c:service-east/dressing-inner-passage/before": {
+      "name": "service-east/dressing-inner-passage/before",
+      "category": "Structure",
+      "component": "wall"
+    },
+    "168c:service-east/dressing-inner-passage/lintel": {
+      "name": "service-east/dressing-inner-passage/lintel",
+      "category": "Structure",
+      "component": "wall"
+    },
+    "168c:service-east/after": {
+      "name": "service-east/after",
+      "category": "Structure",
+      "component": "wall"
+    },
+    "168c:primary-bathroom-north/primary-bathroom-door/before": {
+      "name": "primary-bathroom-north/primary-bathroom-door/before",
+      "category": "Structure",
+      "component": "wall"
+    },
+    "168c:primary-bathroom-north/primary-bathroom-door/lintel": {
+      "name": "primary-bathroom-north/primary-bathroom-door/lintel",
+      "category": "Structure",
+      "component": "wall"
+    },
+    "168c:primary-bathroom-north/after": {
+      "name": "primary-bathroom-north/after",
+      "category": "Structure",
+      "component": "wall"
+    },
+    "168c:primary-bathroom-west/after": {
+      "name": "primary-bathroom-west/after",
+      "category": "Structure",
+      "component": "wall"
+    },
+    "168c:primary-bathroom-east/after": {
+      "name": "primary-bathroom-east/after",
+      "category": "Structure",
+      "component": "wall"
+    },
+    "168c:primary-service-south/after": {
+      "name": "primary-service-south/after",
+      "category": "Structure",
+      "component": "wall"
+    },
+    "168c:primary-south/primary-door/before": {
+      "name": "primary-south/primary-door/before",
+      "category": "Structure",
+      "component": "wall"
+    },
+    "168c:primary-south/primary-door/lintel": {
+      "name": "primary-south/primary-door/lintel",
+      "category": "Structure",
+      "component": "wall"
+    },
+    "168c:primary-south/after": {
+      "name": "primary-south/after",
+      "category": "Structure",
+      "component": "wall"
+    },
+    "168c:primary-balcony-divider/primary-balcony-opening/before": {
+      "name": "primary-balcony-divider/primary-balcony-opening/before",
+      "category": "Structure",
+      "component": "wall"
+    },
+    "168c:primary-balcony-divider/primary-balcony-opening/sill": {
+      "name": "primary-balcony-divider/primary-balcony-opening/sill",
+      "category": "Structure",
+      "component": "wall"
+    },
+    "168c:primary-balcony-divider/primary-balcony-opening/lintel": {
+      "name": "primary-balcony-divider/primary-balcony-opening/lintel",
+      "category": "Structure",
+      "component": "wall"
+    },
+    "168c:primary-balcony-divider/after": {
+      "name": "primary-balcony-divider/after",
+      "category": "Structure",
+      "component": "wall"
+    },
+    "168c:primary-balcony-service/primary-balcony-service-door/before": {
+      "name": "primary-balcony-service/primary-balcony-service-door/before",
+      "category": "Structure",
+      "component": "wall"
+    },
+    "168c:primary-balcony-service/primary-balcony-service-door/lintel": {
+      "name": "primary-balcony-service/primary-balcony-service-door/lintel",
+      "category": "Structure",
+      "component": "wall"
+    },
+    "168c:primary-balcony-service/after": {
+      "name": "primary-balcony-service/after",
+      "category": "Structure",
+      "component": "wall"
+    },
+    "168c:pantry-north/after": {
+      "name": "pantry-north/after",
+      "category": "Structure",
+      "component": "wall"
+    },
+    "168c:pantry-east/after": {
+      "name": "pantry-east/after",
+      "category": "Structure",
+      "component": "wall"
+    },
+    "168c:pantry-west/pantry-door/before": {
+      "name": "pantry-west/pantry-door/before",
+      "category": "Structure",
+      "component": "wall"
+    },
+    "168c:pantry-west/pantry-door/lintel": {
+      "name": "pantry-west/pantry-door/lintel",
+      "category": "Structure",
+      "component": "wall"
+    },
+    "168c:pantry-west/after": {
+      "name": "pantry-west/after",
+      "category": "Structure",
+      "component": "wall"
+    },
+    "168c:living-balcony-return/after": {
+      "name": "living-balcony-return/after",
+      "category": "Structure",
+      "component": "wall"
+    },
+    "168c:living-balcony-divider/living-window-2/before": {
+      "name": "living-balcony-divider/living-window-2/before",
+      "category": "Structure",
+      "component": "wall"
+    },
+    "168c:living-balcony-divider/living-window-2/sill": {
+      "name": "living-balcony-divider/living-window-2/sill",
+      "category": "Structure",
+      "component": "wall"
+    },
+    "168c:living-balcony-divider/living-window-2/lintel": {
+      "name": "living-balcony-divider/living-window-2/lintel",
+      "category": "Structure",
+      "component": "wall"
+    },
+    "168c:living-balcony-divider/after": {
+      "name": "living-balcony-divider/after",
+      "category": "Structure",
+      "component": "wall"
+    },
+    "168c:dressing-inner-south/after": {
+      "name": "dressing-inner-south/after",
+      "category": "Structure",
+      "component": "wall"
+    },
+    "168c:hall-pantry-west/after": {
+      "name": "hall-pantry-west/after",
+      "category": "Structure",
+      "component": "wall"
+    },
+    "168c:hall-pantry-east/after": {
+      "name": "hall-pantry-east/after",
+      "category": "Structure",
+      "component": "wall"
+    },
+    "168c:utility-shaft-north/after": {
+      "name": "utility-shaft-north/after",
+      "category": "Structure",
+      "component": "wall"
+    },
+    "168c:utility-shaft-west/after": {
+      "name": "utility-shaft-west/after",
+      "category": "Structure",
+      "component": "wall"
+    },
+    "168c:kitchen-shaft-north/after": {
+      "name": "kitchen-shaft-north/after",
+      "category": "Structure",
+      "component": "wall"
+    },
+    "168c:kitchen-shaft-east/after": {
+      "name": "kitchen-shaft-east/after",
+      "category": "Structure",
+      "component": "wall"
+    },
+    "168c:kitchen-shaft-south/after": {
+      "name": "kitchen-shaft-south/after",
+      "category": "Structure",
+      "component": "wall"
+    },
+    "168c:bathroom-1-shower-divider/bathroom-1-shower-door/before": {
+      "name": "bathroom-1-shower-divider/bathroom-1-shower-door/before",
+      "category": "Doors_Windows",
+      "component": "glass_partition"
+    },
+    "168c:bathroom-1-shower-divider/after": {
+      "name": "bathroom-1-shower-divider/after",
+      "category": "Doors_Windows",
+      "component": "glass_partition"
+    },
+    "168c:primary-balcony-south-closure/after": {
+      "name": "primary-balcony-south-closure/after",
+      "category": "Structure",
+      "component": "wall"
+    },
+    "168c:bedroom-2-west-north-pier": {
+      "name": "bedroom-2-west-north-pier",
+      "category": "Structure",
+      "component": "wall_pier"
+    },
+    "168c:bedroom-2-west-south-pier": {
+      "name": "bedroom-2-west-south-pier",
+      "category": "Structure",
+      "component": "wall_pier"
+    },
+    "168c:entry-door/jamb-left": {
+      "name": "entry-door/jamb-left",
+      "category": "Doors_Windows",
+      "component": "door_frame"
+    },
+    "168c:entry-door/jamb-right": {
+      "name": "entry-door/jamb-right",
+      "category": "Doors_Windows",
+      "component": "door_frame"
+    },
+    "168c:entry-door/head": {
+      "name": "entry-door/head",
+      "category": "Doors_Windows",
+      "component": "door_frame"
+    },
+    "168c:entry-door/leaf": {
+      "name": "entry-door/leaf",
+      "category": "Doors_Windows",
+      "component": "door_leaf"
+    },
+    "168c:entry-door/handle": {
+      "name": "entry-door/handle",
+      "category": "Doors_Windows",
+      "component": "door_handle"
+    },
+    "168c:bedroom-1-door/jamb-left": {
+      "name": "bedroom-1-door/jamb-left",
+      "category": "Doors_Windows",
+      "component": "door_frame"
+    },
+    "168c:bedroom-1-door/jamb-right": {
+      "name": "bedroom-1-door/jamb-right",
+      "category": "Doors_Windows",
+      "component": "door_frame"
+    },
+    "168c:bedroom-1-door/head": {
+      "name": "bedroom-1-door/head",
+      "category": "Doors_Windows",
+      "component": "door_frame"
+    },
+    "168c:bedroom-1-door/leaf": {
+      "name": "bedroom-1-door/leaf",
+      "category": "Doors_Windows",
+      "component": "door_leaf"
+    },
+    "168c:bedroom-1-door/handle": {
+      "name": "bedroom-1-door/handle",
+      "category": "Doors_Windows",
+      "component": "door_handle"
+    },
+    "168c:bedroom-2-door/jamb-left": {
+      "name": "bedroom-2-door/jamb-left",
+      "category": "Doors_Windows",
+      "component": "door_frame"
+    },
+    "168c:bedroom-2-door/jamb-right": {
+      "name": "bedroom-2-door/jamb-right",
+      "category": "Doors_Windows",
+      "component": "door_frame"
+    },
+    "168c:bedroom-2-door/head": {
+      "name": "bedroom-2-door/head",
+      "category": "Doors_Windows",
+      "component": "door_frame"
+    },
+    "168c:bedroom-2-door/leaf": {
+      "name": "bedroom-2-door/leaf",
+      "category": "Doors_Windows",
+      "component": "door_leaf"
+    },
+    "168c:bedroom-2-door/handle": {
+      "name": "bedroom-2-door/handle",
+      "category": "Doors_Windows",
+      "component": "door_handle"
+    },
+    "168c:bedroom-3-door/jamb-left": {
+      "name": "bedroom-3-door/jamb-left",
+      "category": "Doors_Windows",
+      "component": "door_frame"
+    },
+    "168c:bedroom-3-door/jamb-right": {
+      "name": "bedroom-3-door/jamb-right",
+      "category": "Doors_Windows",
+      "component": "door_frame"
+    },
+    "168c:bedroom-3-door/head": {
+      "name": "bedroom-3-door/head",
+      "category": "Doors_Windows",
+      "component": "door_frame"
+    },
+    "168c:bedroom-3-door/leaf": {
+      "name": "bedroom-3-door/leaf",
+      "category": "Doors_Windows",
+      "component": "door_leaf"
+    },
+    "168c:bedroom-3-door/handle": {
+      "name": "bedroom-3-door/handle",
+      "category": "Doors_Windows",
+      "component": "door_handle"
+    },
+    "168c:bathroom-1-door/jamb-left": {
+      "name": "bathroom-1-door/jamb-left",
+      "category": "Doors_Windows",
+      "component": "door_frame"
+    },
+    "168c:bathroom-1-door/jamb-right": {
+      "name": "bathroom-1-door/jamb-right",
+      "category": "Doors_Windows",
+      "component": "door_frame"
+    },
+    "168c:bathroom-1-door/head": {
+      "name": "bathroom-1-door/head",
+      "category": "Doors_Windows",
+      "component": "door_frame"
+    },
+    "168c:bathroom-1-door/leaf": {
+      "name": "bathroom-1-door/leaf",
+      "category": "Doors_Windows",
+      "component": "door_leaf"
+    },
+    "168c:bathroom-1-door/handle": {
+      "name": "bathroom-1-door/handle",
+      "category": "Doors_Windows",
+      "component": "door_handle"
+    },
+    "168c:hall-pantry-door/jamb-left": {
+      "name": "hall-pantry-door/jamb-left",
+      "category": "Doors_Windows",
+      "component": "door_frame"
+    },
+    "168c:hall-pantry-door/jamb-right": {
+      "name": "hall-pantry-door/jamb-right",
+      "category": "Doors_Windows",
+      "component": "door_frame"
+    },
+    "168c:hall-pantry-door/head": {
+      "name": "hall-pantry-door/head",
+      "category": "Doors_Windows",
+      "component": "door_frame"
+    },
+    "168c:hall-pantry-door/leaf": {
+      "name": "hall-pantry-door/leaf",
+      "category": "Doors_Windows",
+      "component": "door_leaf"
+    },
+    "168c:hall-pantry-door/handle": {
+      "name": "hall-pantry-door/handle",
+      "category": "Doors_Windows",
+      "component": "door_handle"
+    },
+    "168c:dressing-inner-passage/frame-left": {
+      "name": "dressing-inner-passage/frame-left",
+      "category": "Doors_Windows",
+      "component": "passage_frame"
+    },
+    "168c:dressing-inner-passage/frame-right": {
+      "name": "dressing-inner-passage/frame-right",
+      "category": "Doors_Windows",
+      "component": "passage_frame"
+    },
+    "168c:dressing-inner-passage/frame-top": {
+      "name": "dressing-inner-passage/frame-top",
+      "category": "Doors_Windows",
+      "component": "passage_frame"
+    },
+    "168c:primary-bathroom-door/jamb-left": {
+      "name": "primary-bathroom-door/jamb-left",
+      "category": "Doors_Windows",
+      "component": "door_frame"
+    },
+    "168c:primary-bathroom-door/jamb-right": {
+      "name": "primary-bathroom-door/jamb-right",
+      "category": "Doors_Windows",
+      "component": "door_frame"
+    },
+    "168c:primary-bathroom-door/head": {
+      "name": "primary-bathroom-door/head",
+      "category": "Doors_Windows",
+      "component": "door_frame"
+    },
+    "168c:primary-bathroom-door/leaf": {
+      "name": "primary-bathroom-door/leaf",
+      "category": "Doors_Windows",
+      "component": "door_leaf"
+    },
+    "168c:primary-bathroom-door/handle": {
+      "name": "primary-bathroom-door/handle",
+      "category": "Doors_Windows",
+      "component": "door_handle"
+    },
+    "168c:primary-door/jamb-left": {
+      "name": "primary-door/jamb-left",
+      "category": "Doors_Windows",
+      "component": "door_frame"
+    },
+    "168c:primary-door/jamb-right": {
+      "name": "primary-door/jamb-right",
+      "category": "Doors_Windows",
+      "component": "door_frame"
+    },
+    "168c:primary-door/head": {
+      "name": "primary-door/head",
+      "category": "Doors_Windows",
+      "component": "door_frame"
+    },
+    "168c:primary-door/leaf": {
+      "name": "primary-door/leaf",
+      "category": "Doors_Windows",
+      "component": "door_leaf"
+    },
+    "168c:primary-door/handle": {
+      "name": "primary-door/handle",
+      "category": "Doors_Windows",
+      "component": "door_handle"
+    },
+    "168c:primary-balcony-service-door/jamb-left": {
+      "name": "primary-balcony-service-door/jamb-left",
+      "category": "Doors_Windows",
+      "component": "door_frame"
+    },
+    "168c:primary-balcony-service-door/jamb-right": {
+      "name": "primary-balcony-service-door/jamb-right",
+      "category": "Doors_Windows",
+      "component": "door_frame"
+    },
+    "168c:primary-balcony-service-door/head": {
+      "name": "primary-balcony-service-door/head",
+      "category": "Doors_Windows",
+      "component": "door_frame"
+    },
+    "168c:primary-balcony-service-door/leaf": {
+      "name": "primary-balcony-service-door/leaf",
+      "category": "Doors_Windows",
+      "component": "door_leaf"
+    },
+    "168c:primary-balcony-service-door/handle": {
+      "name": "primary-balcony-service-door/handle",
+      "category": "Doors_Windows",
+      "component": "door_handle"
+    },
+    "168c:pantry-door/jamb-left": {
+      "name": "pantry-door/jamb-left",
+      "category": "Doors_Windows",
+      "component": "door_frame"
+    },
+    "168c:pantry-door/jamb-right": {
+      "name": "pantry-door/jamb-right",
+      "category": "Doors_Windows",
+      "component": "door_frame"
+    },
+    "168c:pantry-door/head": {
+      "name": "pantry-door/head",
+      "category": "Doors_Windows",
+      "component": "door_frame"
+    },
+    "168c:pantry-door/leaf": {
+      "name": "pantry-door/leaf",
+      "category": "Doors_Windows",
+      "component": "door_leaf"
+    },
+    "168c:pantry-door/handle": {
+      "name": "pantry-door/handle",
+      "category": "Doors_Windows",
+      "component": "door_handle"
+    },
+    "168c:bathroom-1-shower-door/jamb-left": {
+      "name": "bathroom-1-shower-door/jamb-left",
+      "category": "Doors_Windows",
+      "component": "door_frame"
+    },
+    "168c:bathroom-1-shower-door/jamb-right": {
+      "name": "bathroom-1-shower-door/jamb-right",
+      "category": "Doors_Windows",
+      "component": "door_frame"
+    },
+    "168c:bathroom-1-shower-door/head": {
+      "name": "bathroom-1-shower-door/head",
+      "category": "Doors_Windows",
+      "component": "door_frame"
+    },
+    "168c:bathroom-1-shower-door/leaf": {
+      "name": "bathroom-1-shower-door/leaf",
+      "category": "Doors_Windows",
+      "component": "door_leaf"
+    },
+    "168c:bathroom-1-shower-door/handle": {
+      "name": "bathroom-1-shower-door/handle",
+      "category": "Doors_Windows",
+      "component": "door_handle"
+    },
+    "168c:primary-exterior-window/frame-left": {
+      "name": "primary-exterior-window/frame-left",
+      "category": "Doors_Windows",
+      "component": "window_frame"
+    },
+    "168c:primary-exterior-window/frame-right": {
+      "name": "primary-exterior-window/frame-right",
+      "category": "Doors_Windows",
+      "component": "window_frame"
+    },
+    "168c:primary-exterior-window/frame-bottom": {
+      "name": "primary-exterior-window/frame-bottom",
+      "category": "Doors_Windows",
+      "component": "window_frame"
+    },
+    "168c:primary-exterior-window/frame-top": {
+      "name": "primary-exterior-window/frame-top",
+      "category": "Doors_Windows",
+      "component": "window_frame"
+    },
+    "168c:primary-exterior-window/full-window-span": {
+      "name": "primary-exterior-window/full-window-span",
+      "category": "Doors_Windows",
+      "component": "window_span"
+    },
+    "168c:living-window-1/frame-left": {
+      "name": "living-window-1/frame-left",
+      "category": "Doors_Windows",
+      "component": "window_frame"
+    },
+    "168c:living-window-1/frame-right": {
+      "name": "living-window-1/frame-right",
+      "category": "Doors_Windows",
+      "component": "window_frame"
+    },
+    "168c:living-window-1/frame-bottom": {
+      "name": "living-window-1/frame-bottom",
+      "category": "Doors_Windows",
+      "component": "window_frame"
+    },
+    "168c:living-window-1/frame-top": {
+      "name": "living-window-1/frame-top",
+      "category": "Doors_Windows",
+      "component": "window_frame"
+    },
+    "168c:living-window-1/full-window-span": {
+      "name": "living-window-1/full-window-span",
+      "category": "Doors_Windows",
+      "component": "window_span"
+    },
+    "168c:kitchen-window/frame-left": {
+      "name": "kitchen-window/frame-left",
+      "category": "Doors_Windows",
+      "component": "window_frame"
+    },
+    "168c:kitchen-window/frame-right": {
+      "name": "kitchen-window/frame-right",
+      "category": "Doors_Windows",
+      "component": "window_frame"
+    },
+    "168c:kitchen-window/frame-bottom": {
+      "name": "kitchen-window/frame-bottom",
+      "category": "Doors_Windows",
+      "component": "window_frame"
+    },
+    "168c:kitchen-window/frame-top": {
+      "name": "kitchen-window/frame-top",
+      "category": "Doors_Windows",
+      "component": "window_frame"
+    },
+    "168c:kitchen-window/full-window-span": {
+      "name": "kitchen-window/full-window-span",
+      "category": "Doors_Windows",
+      "component": "window_span"
+    },
+    "168c:bedroom-1-window/frame-left": {
+      "name": "bedroom-1-window/frame-left",
+      "category": "Doors_Windows",
+      "component": "window_frame"
+    },
+    "168c:bedroom-1-window/frame-right": {
+      "name": "bedroom-1-window/frame-right",
+      "category": "Doors_Windows",
+      "component": "window_frame"
+    },
+    "168c:bedroom-1-window/frame-bottom": {
+      "name": "bedroom-1-window/frame-bottom",
+      "category": "Doors_Windows",
+      "component": "window_frame"
+    },
+    "168c:bedroom-1-window/frame-top": {
+      "name": "bedroom-1-window/frame-top",
+      "category": "Doors_Windows",
+      "component": "window_frame"
+    },
+    "168c:bedroom-1-window/full-window-span": {
+      "name": "bedroom-1-window/full-window-span",
+      "category": "Doors_Windows",
+      "component": "window_span"
+    },
+    "168c:bedroom-2-window/frame-left": {
+      "name": "bedroom-2-window/frame-left",
+      "category": "Doors_Windows",
+      "component": "window_frame"
+    },
+    "168c:bedroom-2-window/frame-right": {
+      "name": "bedroom-2-window/frame-right",
+      "category": "Doors_Windows",
+      "component": "window_frame"
+    },
+    "168c:bedroom-2-window/frame-bottom": {
+      "name": "bedroom-2-window/frame-bottom",
+      "category": "Doors_Windows",
+      "component": "window_frame"
+    },
+    "168c:bedroom-2-window/frame-top": {
+      "name": "bedroom-2-window/frame-top",
+      "category": "Doors_Windows",
+      "component": "window_frame"
+    },
+    "168c:bedroom-2-window/full-window-span": {
+      "name": "bedroom-2-window/full-window-span",
+      "category": "Doors_Windows",
+      "component": "window_span"
+    },
+    "168c:bedroom-3-window/frame-left": {
+      "name": "bedroom-3-window/frame-left",
+      "category": "Doors_Windows",
+      "component": "window_frame"
+    },
+    "168c:bedroom-3-window/frame-right": {
+      "name": "bedroom-3-window/frame-right",
+      "category": "Doors_Windows",
+      "component": "window_frame"
+    },
+    "168c:bedroom-3-window/frame-bottom": {
+      "name": "bedroom-3-window/frame-bottom",
+      "category": "Doors_Windows",
+      "component": "window_frame"
+    },
+    "168c:bedroom-3-window/frame-top": {
+      "name": "bedroom-3-window/frame-top",
+      "category": "Doors_Windows",
+      "component": "window_frame"
+    },
+    "168c:bedroom-3-window/full-window-span": {
+      "name": "bedroom-3-window/full-window-span",
+      "category": "Doors_Windows",
+      "component": "window_span"
+    },
+    "168c:primary-balcony-opening/frame-left": {
+      "name": "primary-balcony-opening/frame-left",
+      "category": "Doors_Windows",
+      "component": "window_frame"
+    },
+    "168c:primary-balcony-opening/frame-right": {
+      "name": "primary-balcony-opening/frame-right",
+      "category": "Doors_Windows",
+      "component": "window_frame"
+    },
+    "168c:primary-balcony-opening/frame-bottom": {
+      "name": "primary-balcony-opening/frame-bottom",
+      "category": "Doors_Windows",
+      "component": "window_frame"
+    },
+    "168c:primary-balcony-opening/frame-top": {
+      "name": "primary-balcony-opening/frame-top",
+      "category": "Doors_Windows",
+      "component": "window_frame"
+    },
+    "168c:primary-balcony-opening/panel-0": {
+      "name": "primary-balcony-opening/panel-0",
+      "category": "Doors_Windows",
+      "component": "sliding_panel"
+    },
+    "168c:primary-balcony-opening/panel-0-left": {
+      "name": "primary-balcony-opening/panel-0-left",
+      "category": "Doors_Windows",
+      "component": "sliding_frame"
+    },
+    "168c:primary-balcony-opening/panel-0-right": {
+      "name": "primary-balcony-opening/panel-0-right",
+      "category": "Doors_Windows",
+      "component": "sliding_frame"
+    },
+    "168c:primary-balcony-opening/panel-0-bottom": {
+      "name": "primary-balcony-opening/panel-0-bottom",
+      "category": "Doors_Windows",
+      "component": "sliding_frame"
+    },
+    "168c:primary-balcony-opening/panel-0-top": {
+      "name": "primary-balcony-opening/panel-0-top",
+      "category": "Doors_Windows",
+      "component": "sliding_frame"
+    },
+    "168c:primary-balcony-opening/panel-1": {
+      "name": "primary-balcony-opening/panel-1",
+      "category": "Doors_Windows",
+      "component": "sliding_panel"
+    },
+    "168c:primary-balcony-opening/panel-1-left": {
+      "name": "primary-balcony-opening/panel-1-left",
+      "category": "Doors_Windows",
+      "component": "sliding_frame"
+    },
+    "168c:primary-balcony-opening/panel-1-right": {
+      "name": "primary-balcony-opening/panel-1-right",
+      "category": "Doors_Windows",
+      "component": "sliding_frame"
+    },
+    "168c:primary-balcony-opening/panel-1-bottom": {
+      "name": "primary-balcony-opening/panel-1-bottom",
+      "category": "Doors_Windows",
+      "component": "sliding_frame"
+    },
+    "168c:primary-balcony-opening/panel-1-top": {
+      "name": "primary-balcony-opening/panel-1-top",
+      "category": "Doors_Windows",
+      "component": "sliding_frame"
+    },
+    "168c:living-window-2/frame-left": {
+      "name": "living-window-2/frame-left",
+      "category": "Doors_Windows",
+      "component": "window_frame"
+    },
+    "168c:living-window-2/frame-right": {
+      "name": "living-window-2/frame-right",
+      "category": "Doors_Windows",
+      "component": "window_frame"
+    },
+    "168c:living-window-2/frame-bottom": {
+      "name": "living-window-2/frame-bottom",
+      "category": "Doors_Windows",
+      "component": "window_frame"
+    },
+    "168c:living-window-2/frame-top": {
+      "name": "living-window-2/frame-top",
+      "category": "Doors_Windows",
+      "component": "window_frame"
+    },
+    "168c:living-window-2/panel-0": {
+      "name": "living-window-2/panel-0",
+      "category": "Doors_Windows",
+      "component": "sliding_panel"
+    },
+    "168c:living-window-2/panel-0-left": {
+      "name": "living-window-2/panel-0-left",
+      "category": "Doors_Windows",
+      "component": "sliding_frame"
+    },
+    "168c:living-window-2/panel-0-right": {
+      "name": "living-window-2/panel-0-right",
+      "category": "Doors_Windows",
+      "component": "sliding_frame"
+    },
+    "168c:living-window-2/panel-0-bottom": {
+      "name": "living-window-2/panel-0-bottom",
+      "category": "Doors_Windows",
+      "component": "sliding_frame"
+    },
+    "168c:living-window-2/panel-0-top": {
+      "name": "living-window-2/panel-0-top",
+      "category": "Doors_Windows",
+      "component": "sliding_frame"
+    },
+    "168c:living-window-2/panel-1": {
+      "name": "living-window-2/panel-1",
+      "category": "Doors_Windows",
+      "component": "sliding_panel"
+    },
+    "168c:living-window-2/panel-1-left": {
+      "name": "living-window-2/panel-1-left",
+      "category": "Doors_Windows",
+      "component": "sliding_frame"
+    },
+    "168c:living-window-2/panel-1-right": {
+      "name": "living-window-2/panel-1-right",
+      "category": "Doors_Windows",
+      "component": "sliding_frame"
+    },
+    "168c:living-window-2/panel-1-bottom": {
+      "name": "living-window-2/panel-1-bottom",
+      "category": "Doors_Windows",
+      "component": "sliding_frame"
+    },
+    "168c:living-window-2/panel-1-top": {
+      "name": "living-window-2/panel-1-top",
+      "category": "Doors_Windows",
+      "component": "sliding_frame"
+    },
+    "168c:Ceiling / underside 2.500m / hidden for review": {
+      "name": "Ceiling / underside 2.500m / hidden for review",
+      "category": "Ceilings",
+      "component": "ceiling"
+    },
+    "168c:shaft-bathroom-1-north/blocked-volume": {
+      "name": "shaft-bathroom-1-north/blocked-volume",
+      "category": "Structure",
+      "component": "excluded_volume"
+    },
+    "168c:shaft-hall-west/blocked-volume": {
+      "name": "shaft-hall-west/blocked-volume",
+      "category": "Structure",
+      "component": "excluded_volume"
+    },
+    "168c:shaft-hall-east/blocked-volume": {
+      "name": "shaft-hall-east/blocked-volume",
+      "category": "Structure",
+      "component": "excluded_volume"
+    },
+    "168c:shaft-entry-north/blocked-volume": {
+      "name": "shaft-entry-north/blocked-volume",
+      "category": "Structure",
+      "component": "excluded_volume"
+    },
+    "168c:shaft-primary-bathroom/blocked-volume": {
+      "name": "shaft-primary-bathroom/blocked-volume",
+      "category": "Structure",
+      "component": "excluded_volume"
+    },
+    "168c:shaft-kitchen/blocked-volume": {
+      "name": "shaft-kitchen/blocked-volume",
+      "category": "Structure",
+      "component": "excluded_volume"
+    },
+    "168c:shaft-utility/blocked-volume": {
+      "name": "shaft-utility/blocked-volume",
+      "category": "Structure",
+      "component": "excluded_volume"
+    },
+    "168c:hall-pantry-shelves/left-side": {
+      "name": "hall-pantry-shelves/left-side",
+      "category": "Kitchen",
+      "component": "fixed_storage"
+    },
+    "168c:hall-pantry-shelves/right-side": {
+      "name": "hall-pantry-shelves/right-side",
+      "category": "Kitchen",
+      "component": "fixed_storage"
+    },
+    "168c:hall-pantry-shelves/back": {
+      "name": "hall-pantry-shelves/back",
+      "category": "Kitchen",
+      "component": "fixed_storage"
+    },
+    "168c:hall-pantry-shelves/shelf-0": {
+      "name": "hall-pantry-shelves/shelf-0",
+      "category": "Kitchen",
+      "component": "fixed_storage"
+    },
+    "168c:hall-pantry-shelves/shelf-1": {
+      "name": "hall-pantry-shelves/shelf-1",
+      "category": "Kitchen",
+      "component": "fixed_storage"
+    },
+    "168c:hall-pantry-shelves/shelf-2": {
+      "name": "hall-pantry-shelves/shelf-2",
+      "category": "Kitchen",
+      "component": "fixed_storage"
+    },
+    "168c:hall-pantry-shelves/shelf-3": {
+      "name": "hall-pantry-shelves/shelf-3",
+      "category": "Kitchen",
+      "component": "fixed_storage"
+    },
+    "168c:hall-pantry-shelves/shelf-4": {
+      "name": "hall-pantry-shelves/shelf-4",
+      "category": "Kitchen",
+      "component": "fixed_storage"
+    },
+    "168c:dressing-inner-shelves/left-side": {
+      "name": "dressing-inner-shelves/left-side",
+      "category": "Kitchen",
+      "component": "fixed_storage"
+    },
+    "168c:dressing-inner-shelves/right-side": {
+      "name": "dressing-inner-shelves/right-side",
+      "category": "Kitchen",
+      "component": "fixed_storage"
+    },
+    "168c:dressing-inner-shelves/back": {
+      "name": "dressing-inner-shelves/back",
+      "category": "Kitchen",
+      "component": "fixed_storage"
+    },
+    "168c:dressing-inner-shelves/shelf-0": {
+      "name": "dressing-inner-shelves/shelf-0",
+      "category": "Kitchen",
+      "component": "fixed_storage"
+    },
+    "168c:dressing-inner-shelves/shelf-1": {
+      "name": "dressing-inner-shelves/shelf-1",
+      "category": "Kitchen",
+      "component": "fixed_storage"
+    },
+    "168c:dressing-inner-shelves/shelf-2": {
+      "name": "dressing-inner-shelves/shelf-2",
+      "category": "Kitchen",
+      "component": "fixed_storage"
+    },
+    "168c:dressing-inner-shelves/shelf-3": {
+      "name": "dressing-inner-shelves/shelf-3",
+      "category": "Kitchen",
+      "component": "fixed_storage"
+    },
+    "168c:dressing-inner-shelves/shelf-4": {
+      "name": "dressing-inner-shelves/shelf-4",
+      "category": "Kitchen",
+      "component": "fixed_storage"
+    },
+    "168c:bathroom-1-shower/base": {
+      "name": "bathroom-1-shower/base",
+      "category": "Bathrooms",
+      "component": "shower_fixture"
+    },
+    "168c:bathroom-1-shower/drain": {
+      "name": "bathroom-1-shower/drain",
+      "category": "Bathrooms",
+      "component": "shower_fixture"
+    },
+    "168c:bathroom-1-shower-rail/rail": {
+      "name": "bathroom-1-shower-rail/rail",
+      "category": "Bathrooms",
+      "component": "shower_fixture"
+    },
+    "168c:bathroom-1-shower-rail/head": {
+      "name": "bathroom-1-shower-rail/head",
+      "category": "Bathrooms",
+      "component": "shower_fixture"
+    },
+    "168c:bathroom-1-shower-rail/control": {
+      "name": "bathroom-1-shower-rail/control",
+      "category": "Bathrooms",
+      "component": "shower_fixture"
+    },
+    "168c:kitchen-west-base/carcass": {
+      "name": "kitchen-west-base/carcass",
+      "category": "Kitchen",
+      "component": "fixed_storage"
+    },
+    "168c:kitchen-west-base/plinth": {
+      "name": "kitchen-west-base/plinth",
+      "category": "Kitchen",
+      "component": "fixed_storage"
+    },
+    "168c:kitchen-west-base/countertop": {
+      "name": "kitchen-west-base/countertop",
+      "category": "Kitchen",
+      "component": "fixed_storage"
+    },
+    "168c:kitchen-west-base/front-0-0": {
+      "name": "kitchen-west-base/front-0-0",
+      "category": "Kitchen",
+      "component": "fixed_storage"
+    },
+    "168c:kitchen-west-base/front-1-0": {
+      "name": "kitchen-west-base/front-1-0",
+      "category": "Kitchen",
+      "component": "fixed_storage"
+    },
+    "168c:kitchen-west-base/front-2-0": {
+      "name": "kitchen-west-base/front-2-0",
+      "category": "Kitchen",
+      "component": "fixed_storage"
+    },
+    "168c:kitchen-west-base/front-3-0": {
+      "name": "kitchen-west-base/front-3-0",
+      "category": "Kitchen",
+      "component": "fixed_storage"
+    },
+    "168c:kitchen-west-base/front-4-0": {
+      "name": "kitchen-west-base/front-4-0",
+      "category": "Kitchen",
+      "component": "fixed_storage"
+    },
+    "168c:kitchen-west-base/front-5-0": {
+      "name": "kitchen-west-base/front-5-0",
+      "category": "Kitchen",
+      "component": "fixed_storage"
+    },
+    "168c:kitchen-south-sink/carcass": {
+      "name": "kitchen-south-sink/carcass",
+      "category": "Kitchen",
+      "component": "fixed_storage"
+    },
+    "168c:kitchen-south-sink/plinth": {
+      "name": "kitchen-south-sink/plinth",
+      "category": "Kitchen",
+      "component": "fixed_storage"
+    },
+    "168c:kitchen-south-sink/countertop": {
+      "name": "kitchen-south-sink/countertop",
+      "category": "Kitchen",
+      "component": "fixed_storage"
+    },
+    "168c:kitchen-south-sink/front-0-0": {
+      "name": "kitchen-south-sink/front-0-0",
+      "category": "Kitchen",
+      "component": "fixed_storage"
+    },
+    "168c:kitchen-south-sink/front-1-0": {
+      "name": "kitchen-south-sink/front-1-0",
+      "category": "Kitchen",
+      "component": "fixed_storage"
+    },
+    "168c:kitchen-south-sink/front-2-0": {
+      "name": "kitchen-south-sink/front-2-0",
+      "category": "Kitchen",
+      "component": "fixed_storage"
+    },
+    "168c:kitchen-south-sink/front-3-0": {
+      "name": "kitchen-south-sink/front-3-0",
+      "category": "Kitchen",
+      "component": "fixed_storage"
+    },
+    "168c:kitchen-south-sink/sink-rim": {
+      "name": "kitchen-south-sink/sink-rim",
+      "category": "Kitchen",
+      "component": "fixed_storage"
+    },
+    "168c:kitchen-south-sink/sink-basin-indication": {
+      "name": "kitchen-south-sink/sink-basin-indication",
+      "category": "Kitchen",
+      "component": "fixed_storage"
+    },
+    "168c:kitchen-south-sink/tap-upright": {
+      "name": "kitchen-south-sink/tap-upright",
+      "category": "Kitchen",
+      "component": "fixed_storage"
+    },
+    "168c:kitchen-south-sink/tap-spout": {
+      "name": "kitchen-south-sink/tap-spout",
+      "category": "Kitchen",
+      "component": "fixed_storage"
+    },
+    "168c:kitchen-west-upper-a/carcass": {
+      "name": "kitchen-west-upper-a/carcass",
+      "category": "Kitchen",
+      "component": "fixed_storage"
+    },
+    "168c:kitchen-west-upper-a/cap": {
+      "name": "kitchen-west-upper-a/cap",
+      "category": "Kitchen",
+      "component": "fixed_storage"
+    },
+    "168c:kitchen-west-upper-a/front-0-0": {
+      "name": "kitchen-west-upper-a/front-0-0",
+      "category": "Kitchen",
+      "component": "fixed_storage"
+    },
+    "168c:kitchen-west-upper-a/front-1-0": {
+      "name": "kitchen-west-upper-a/front-1-0",
+      "category": "Kitchen",
+      "component": "fixed_storage"
+    },
+    "168c:kitchen-west-upper-a/front-2-0": {
+      "name": "kitchen-west-upper-a/front-2-0",
+      "category": "Kitchen",
+      "component": "fixed_storage"
+    },
+    "168c:kitchen-west-upper-b/carcass": {
+      "name": "kitchen-west-upper-b/carcass",
+      "category": "Kitchen",
+      "component": "fixed_storage"
+    },
+    "168c:kitchen-west-upper-b/cap": {
+      "name": "kitchen-west-upper-b/cap",
+      "category": "Kitchen",
+      "component": "fixed_storage"
+    },
+    "168c:kitchen-west-upper-b/front-0-0": {
+      "name": "kitchen-west-upper-b/front-0-0",
+      "category": "Kitchen",
+      "component": "fixed_storage"
+    },
+    "168c:kitchen-west-upper-b/front-1-0": {
+      "name": "kitchen-west-upper-b/front-1-0",
+      "category": "Kitchen",
+      "component": "fixed_storage"
+    },
+    "168c:kitchen-hob-hood/hob": {
+      "name": "kitchen-hob-hood/hob",
+      "category": "Kitchen",
+      "component": "fixed_storage"
+    },
+    "168c:kitchen-hob-hood/burner-0-0": {
+      "name": "kitchen-hob-hood/burner-0-0",
+      "category": "Kitchen",
+      "component": "fixed_storage"
+    },
+    "168c:kitchen-hob-hood/burner-0-1": {
+      "name": "kitchen-hob-hood/burner-0-1",
+      "category": "Kitchen",
+      "component": "fixed_storage"
+    },
+    "168c:kitchen-hob-hood/burner-1-0": {
+      "name": "kitchen-hob-hood/burner-1-0",
+      "category": "Kitchen",
+      "component": "fixed_storage"
+    },
+    "168c:kitchen-hob-hood/burner-1-1": {
+      "name": "kitchen-hob-hood/burner-1-1",
+      "category": "Kitchen",
+      "component": "fixed_storage"
+    },
+    "168c:kitchen-hob-hood/hood": {
+      "name": "kitchen-hob-hood/hood",
+      "category": "Kitchen",
+      "component": "fixed_storage"
+    },
+    "168c:kitchen-hob-hood/hood-underside": {
+      "name": "kitchen-hob-hood/hood-underside",
+      "category": "Kitchen",
+      "component": "fixed_storage"
+    },
+    "168c:kitchen-hob-hood/hood-stack": {
+      "name": "kitchen-hob-hood/hood-stack",
+      "category": "Kitchen",
+      "component": "fixed_storage"
+    },
+    "168c:kitchen-island/carcass": {
+      "name": "kitchen-island/carcass",
+      "category": "Kitchen",
+      "component": "fixed_storage"
+    },
+    "168c:kitchen-island/plinth": {
+      "name": "kitchen-island/plinth",
+      "category": "Kitchen",
+      "component": "fixed_storage"
+    },
+    "168c:kitchen-island/countertop": {
+      "name": "kitchen-island/countertop",
+      "category": "Kitchen",
+      "component": "fixed_storage"
+    },
+    "168c:kitchen-island/front-0-0": {
+      "name": "kitchen-island/front-0-0",
+      "category": "Kitchen",
+      "component": "fixed_storage"
+    },
+    "168c:kitchen-island/front-0-1": {
+      "name": "kitchen-island/front-0-1",
+      "category": "Kitchen",
+      "component": "fixed_storage"
+    },
+    "168c:kitchen-island/front-0-2": {
+      "name": "kitchen-island/front-0-2",
+      "category": "Kitchen",
+      "component": "fixed_storage"
+    },
+    "168c:kitchen-island/front-1-0": {
+      "name": "kitchen-island/front-1-0",
+      "category": "Kitchen",
+      "component": "fixed_storage"
+    },
+    "168c:kitchen-island/front-1-1": {
+      "name": "kitchen-island/front-1-1",
+      "category": "Kitchen",
+      "component": "fixed_storage"
+    },
+    "168c:kitchen-island/front-1-2": {
+      "name": "kitchen-island/front-1-2",
+      "category": "Kitchen",
+      "component": "fixed_storage"
+    },
+    "168c:kitchen-island/front-2-0": {
+      "name": "kitchen-island/front-2-0",
+      "category": "Kitchen",
+      "component": "fixed_storage"
+    },
+    "168c:kitchen-island/front-2-1": {
+      "name": "kitchen-island/front-2-1",
+      "category": "Kitchen",
+      "component": "fixed_storage"
+    },
+    "168c:kitchen-island/front-2-2": {
+      "name": "kitchen-island/front-2-2",
+      "category": "Kitchen",
+      "component": "fixed_storage"
+    },
+    "168c:kitchen-fridge-storage/body": {
+      "name": "kitchen-fridge-storage/body",
+      "category": "Kitchen",
+      "component": "fixed_storage"
+    },
+    "168c:kitchen-fridge-storage/plinth": {
+      "name": "kitchen-fridge-storage/plinth",
+      "category": "Kitchen",
+      "component": "fixed_storage"
+    },
+    "168c:kitchen-fridge-storage/storage-left": {
+      "name": "kitchen-fridge-storage/storage-left",
+      "category": "Kitchen",
+      "component": "fixed_storage"
+    },
+    "168c:kitchen-fridge-storage/storage-right": {
+      "name": "kitchen-fridge-storage/storage-right",
+      "category": "Kitchen",
+      "component": "fixed_storage"
+    },
+    "168c:kitchen-fridge-storage/fridge-header": {
+      "name": "kitchen-fridge-storage/fridge-header",
+      "category": "Kitchen",
+      "component": "fixed_storage"
+    },
+    "168c:kitchen-fridge-storage/fridge-door-left": {
+      "name": "kitchen-fridge-storage/fridge-door-left",
+      "category": "Kitchen",
+      "component": "fixed_storage"
+    },
+    "168c:kitchen-fridge-storage/fridge-door-right": {
+      "name": "kitchen-fridge-storage/fridge-door-right",
+      "category": "Kitchen",
+      "component": "fixed_storage"
+    },
+    "168c:kitchen-fridge-storage/fridge-handle--1": {
+      "name": "kitchen-fridge-storage/fridge-handle--1",
+      "category": "Kitchen",
+      "component": "fixed_storage"
+    },
+    "168c:kitchen-fridge-storage/fridge-handle-1": {
+      "name": "kitchen-fridge-storage/fridge-handle-1",
+      "category": "Kitchen",
+      "component": "fixed_storage"
+    },
+    "168c:Finish floor / connections": {
+      "name": "Finish floor / connections",
+      "category": "Floors",
+      "component": "floor_finish"
+    },
+    "168c:Finish floor / bathroom-1": {
+      "name": "Finish floor / bathroom-1",
+      "category": "Floors",
+      "component": "floor_finish"
+    },
+    "168c:Finish floor / bedroom-1": {
+      "name": "Finish floor / bedroom-1",
+      "category": "Floors",
+      "component": "floor_finish"
+    },
+    "168c:Finish floor / hall": {
+      "name": "Finish floor / hall",
+      "category": "Floors",
+      "component": "floor_finish"
+    },
+    "168c:Finish floor / bedroom-2": {
+      "name": "Finish floor / bedroom-2",
+      "category": "Floors",
+      "component": "floor_finish"
+    },
+    "168c:Finish floor / hall-pantry": {
+      "name": "Finish floor / hall-pantry",
+      "category": "Floors",
+      "component": "floor_finish"
+    },
+    "168c:Finish floor / bedroom-3": {
+      "name": "Finish floor / bedroom-3",
+      "category": "Floors",
+      "component": "floor_finish"
+    },
+    "168c:Finish floor / entry": {
+      "name": "Finish floor / entry",
+      "category": "Floors",
+      "component": "floor_finish"
+    },
+    "168c:Finish floor / dressing-inner": {
+      "name": "Finish floor / dressing-inner",
+      "category": "Floors",
+      "component": "floor_finish"
+    },
+    "168c:Finish floor / kitchen": {
+      "name": "Finish floor / kitchen",
+      "category": "Floors",
+      "component": "floor_finish"
+    },
+    "168c:Finish floor / primary-bathroom": {
+      "name": "Finish floor / primary-bathroom",
+      "category": "Floors",
+      "component": "floor_finish"
+    },
+    "168c:Finish floor / dressing-room": {
+      "name": "Finish floor / dressing-room",
+      "category": "Floors",
+      "component": "floor_finish"
+    },
+    "168c:Finish floor / pantry": {
+      "name": "Finish floor / pantry",
+      "category": "Floors",
+      "component": "floor_finish"
+    },
+    "168c:Finish floor / living": {
+      "name": "Finish floor / living",
+      "category": "Floors",
+      "component": "floor_finish"
+    },
+    "168c:Finish floor / primary-bedroom": {
+      "name": "Finish floor / primary-bedroom",
+      "category": "Floors",
+      "component": "floor_finish"
+    },
+    "168c:Finish floor / living-balcony": {
+      "name": "Finish floor / living-balcony",
+      "category": "Floors",
+      "component": "floor_finish"
+    },
+    "168c:Finish floor / primary-balcony-service": {
+      "name": "Finish floor / primary-balcony-service",
+      "category": "Floors",
+      "component": "floor_finish"
+    },
+    "168c:Finish floor / primary-balcony": {
+      "name": "Finish floor / primary-balcony",
+      "category": "Floors",
+      "component": "floor_finish"
+    },
+    "168c:168C ring diffuser 0": {
+      "name": "168C ring diffuser 0",
+      "category": "Lighting",
+      "component": "light_fixture"
+    },
+    "168c:168C lamp mount 0": {
+      "name": "168C lamp mount 0",
+      "category": "Lighting",
+      "component": "light_fixture"
+    },
+    "168c:168C ring diffuser 1": {
+      "name": "168C ring diffuser 1",
+      "category": "Lighting",
+      "component": "light_fixture"
+    },
+    "168c:168C lamp mount 1": {
+      "name": "168C lamp mount 1",
+      "category": "Lighting",
+      "component": "light_fixture"
+    },
+    "168c:168C ring diffuser 2": {
+      "name": "168C ring diffuser 2",
+      "category": "Lighting",
+      "component": "light_fixture"
+    },
+    "168c:168C lamp mount 2": {
+      "name": "168C lamp mount 2",
+      "category": "Lighting",
+      "component": "light_fixture"
+    },
+    "168c:168C ceiling panel 3": {
+      "name": "168C ceiling panel 3",
+      "category": "Lighting",
+      "component": "light_fixture"
+    },
+    "168c:168C ceiling panel 4": {
+      "name": "168C ceiling panel 4",
+      "category": "Lighting",
+      "component": "light_fixture"
+    },
+    "168c:168C ceiling panel 5": {
+      "name": "168C ceiling panel 5",
+      "category": "Lighting",
+      "component": "light_fixture"
+    },
+    "168c:168C ceiling panel 6": {
+      "name": "168C ceiling panel 6",
+      "category": "Lighting",
+      "component": "light_fixture"
+    },
+    "168c:168C ring diffuser 7": {
+      "name": "168C ring diffuser 7",
+      "category": "Lighting",
+      "component": "light_fixture"
+    },
+    "168c:168C lamp mount 7": {
+      "name": "168C lamp mount 7",
+      "category": "Lighting",
+      "component": "light_fixture"
+    },
+    "168c:168C ceiling panel 8": {
+      "name": "168C ceiling panel 8",
+      "category": "Lighting",
+      "component": "light_fixture"
+    },
+    "168c:168C ceiling panel 9": {
+      "name": "168C ceiling panel 9",
+      "category": "Lighting",
+      "component": "light_fixture"
+    },
+    "168c:168C ceiling panel 10": {
+      "name": "168C ceiling panel 10",
+      "category": "Lighting",
+      "component": "light_fixture"
+    },
+    "168c:168C ceiling panel 11": {
+      "name": "168C ceiling panel 11",
+      "category": "Lighting",
+      "component": "light_fixture"
+    },
+    "168c:168C living cove north": {
+      "name": "168C living cove north",
+      "category": "Lighting",
+      "component": "light_fixture"
+    },
+    "168c:168C living cove south": {
+      "name": "168C living cove south",
+      "category": "Lighting",
+      "component": "light_fixture"
+    },
+    "168c:168C living cove east": {
+      "name": "168C living cove east",
+      "category": "Lighting",
+      "component": "light_fixture"
+    }
+  },
+  "bounds_m": [
+    -0.12,
+    -0.12,
+    20.62,
+    11.63
+  ],
+  "spawn": [
+    16.5,
+    6.5
+  ],
+  "defaultRoom": "living",
+  "ceilingHeight_m": 2.5,
+  "lightPositions": [
+    [
+      16.8,
+      6.9
+    ],
+    [
+      14.8,
+      6.4
+    ],
+    [
+      16.4,
+      4.9
+    ],
+    [
+      11.6,
+      8.7
+    ],
+    [
+      1.9,
+      8
+    ],
+    [
+      5.2,
+      8
+    ],
+    [
+      8.3,
+      8
+    ],
+    [
+      15.8,
+      2.2
+    ],
+    [
+      8.3,
+      3.2
+    ],
+    [
+      6.5,
+      5
+    ],
+    [
+      12.3,
+      2.7
+    ],
+    [
+      2,
+      4.8
+    ]
+  ],
+  "source": "dimensioned plan + user dimensions; VR-guided finishes; unmeasured details remain provisional"
+}

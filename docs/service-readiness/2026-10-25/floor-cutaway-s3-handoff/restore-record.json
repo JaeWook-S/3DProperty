@@ -1,0 +1,28 @@
+{
+  "reason": "User assigned cutaway work to existing S3; incomplete callers preserved off-product, verified working UI restored.",
+  "files": [
+    {
+      "path": "src/walkthrough/site-tour.js",
+      "partialSaved": "/home/nas5/kinamkim/Repos/geonwoo/3DProperty/docs/service-readiness/2026-10-25/floor-cutaway-s3-handoff/partial-ui-source/src/walkthrough/site-tour.js",
+      "restoredSHA256": "3b675f3b096c8713189ac62ac456eed9bc576dbf44fd42111609ba2fdef8cf3e"
+    },
+    {
+      "path": "src/walkthrough/site-tour.css",
+      "partialSaved": "/home/nas5/kinamkim/Repos/geonwoo/3DProperty/docs/service-readiness/2026-10-25/floor-cutaway-s3-handoff/partial-ui-source/src/walkthrough/site-tour.css",
+      "restoredSHA256": "7810567e2bcd42fa606ddd1eee863745a7e4a97bc1171a2b1af5adbdea0cd326"
+    },
+    {
+      "path": "src/walkthrough/site-appearance.js",
+      "partialSaved": "/home/nas5/kinamkim/Repos/geonwoo/3DProperty/docs/service-readiness/2026-10-25/floor-cutaway-s3-handoff/partial-ui-source/src/walkthrough/site-appearance.js",
+      "restoredSHA256": "03d55cb523ebfc849d40e753f85962f0842023d3b5cd684f9d884601e59f8972"
+    },
+    {
+      "path": "src/walkthrough/location.js",
+      "partialSaved": "/home/nas5/kinamkim/Repos/geonwoo/3DProperty/docs/service-readiness/2026-10-25/floor-cutaway-s3-handoff/partial-ui-source/src/walkthrough/location.js",
+      "restoredSHA256": "5a2bc58c40359bfed8a04926308107b09fa0fe5a39f2406e30519439463d63c0"
+    }
+  ],
+  "coreImplementationWritten": false,
+  "browserOrBuildForCutawayRun": false,
+  "publicDeploymentChanged": false
+}

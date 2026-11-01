@@ -1,0 +1,30 @@
+{
+  "at": "2026-10-25T16:29:38.441484+00:00",
+  "v6_status": "implemented_verified_published_v6",
+  "version_id": "appgprj_6adc181c49708191a65db8c32f5dc69d~appgver_0aac153d7d8081919d88be7a80e9988f",
+  "public_url": "https://cortex-design-preview-20261024.spunky-note-2434.chatgpt.site",
+  "read_completed_records_only": true,
+  "v6_tests_repeated": false,
+  "remaining_task": "single temporary map pin without result-list accumulation",
+  "remaining_implemented": true,
+  "owner": "existing Cortex-S3",
+  "request": "[기존 S1 → 기존 Cortex S3 / CORTEX-SINGLE-MAP-POINT-20261025 실행 요청]\n호수 미리보기·주변 경관의 공개 v6 ready.json과 site-surroundings-ready.json을 읽고 완료로 인수했습니다. 완료 작업/검사는 반복하지 마세요.\n다음 남은 작업은 사용자가 앞서 “선택한 위치만큼 생겨나는데 용도를 모르겠다”고 지적한 임시 지도 위치 누적 수정입니다. 새로운 주변환경 요청이 이를 취소하지 않았으므로 현재 S3 앱 소유 범위에서 이어서 구현해 주세요. 지금은 준비/대기 요청이 아니라 실행 요청이며 S1은 해당 제품 파일을 수정하지 않습니다.\n요구사항: 지도 빈 곳 클릭은 마지막 임시 핀 1개만 갱신, 임시좌표를 준비된 공간/검색결과 목록에 append/unshift하지 않음, 실제 아크로핀/검색결과 보존, 선택정보 별도 간결 표시와 해제, URL 복원/새로고침 시 누적 없음. 클릭 자체는 등록/도면요청이 아니며 초안저장은 명시 행동만 유지. 기존 single-map-point-requirement.json을 적용하세요.\n범위는 apps/web 지도 상태·표시와 필요한 좁은 검사로 한정합니다. 3회 빈 곳 클릭→임시 핀 1개·목록 불변→아크로 복귀, 검색/URL 복원·해제, 현재 동호수 선택 보존을 확인하면 됩니다. 기존 v6 호수/경관/모델 전체 회귀는 새 실패 없으면 반복 불필요합니다. 모델/variants/공용층/H200/유료/메인 커밋푸시 변경0.\n사용자가 이미 요청한 웹 반영 범위에서 검사 통과 후 같은 공개 URL 후속 업데이트까지 담당해 주세요. v6 완료 이력은 보존하고 새 코드가 실제 공개됐는지 별도 기록해 주세요. 상충되는 새 사용자 지시가 있다면 구체 내용만 알려주세요. 단순 ACK 대신 완료 근거를 전달해 주세요.",
+  "queue_returncode": 0,
+  "queue_output": "Queued message 01a173e5-6d97-7d92-a4ae-bade55fd5d70 for thread 01a0eb21-9413-7271-9d76-4cd9a7d1863a.",
+  "queue_error": "",
+  "queue_is_not_execution_completion": true,
+  "S1_product_edits": 0,
+  "initial_remaining_state": {
+    "at": "2026-10-25T16:29:38.441484+00:00",
+    "remaining_implemented": false
+  },
+  "remaining_status": "implemented_verified_published_v7",
+  "remaining_status_updated_at": "2026-10-25T17:07:06.524476+00:00",
+  "remaining_published_at": "2026-10-25T16:47:31.284240+00:00",
+  "remaining_public_version": 7,
+  "remaining_completion_record": "/home/nas5/kinamkim/Repos/geonwoo/3DProperty/docs/service-readiness/2026-10-25/map-point-classification-ready.json",
+  "remaining_public_verification": "/home/nas5/kinamkim/Repos/geonwoo/3DProperty/startup/07_팀미팅/2026-10-24_designer-demo/hosting-map-point-label-20261025/public-browser/verification.json",
+  "remaining_three_click_verification": "/home/nas5/kinamkim/Repos/geonwoo/3DProperty/runtime/service-map/2026-10-25/map-point-classification/three-click-reselect/verification.json",
+  "original_receipt_preserved": "/home/nas5/kinamkim/Repos/geonwoo/3DProperty/runtime/service-map/2026-10-25/map-point-classification/handoff-reconciliation/v6-receipt-before.json",
+  "status_note": "Original v6 receipt and queue details remain historical. The assigned single-pin follow-up was completed and publicly published later as v7; it is no longer pending."
+}

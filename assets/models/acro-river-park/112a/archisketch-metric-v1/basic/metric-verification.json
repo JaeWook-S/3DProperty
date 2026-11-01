@@ -1,0 +1,49 @@
+{
+  "passed": true,
+  "candidate": "112a-basic",
+  "revision": "archisketch-metric-v1",
+  "source_files": {
+    "assets/models/acro-river-park/112a/archisketch-uv-p0-v1/basic/acro112a-basic.blend": "dcf7c3a19a1ed86fecd101e1a5d6b2698310ebb926beb186f8ff2e3669141c0e",
+    "assets/models/acro-river-park/112a/archisketch-uv-p0-v1/basic/acro112a-basic.glb": "56149e44e767c9143da8dfe7bd1082916ae9912f6c824331bd98a575037becb5",
+    "assets/models/acro-river-park/112a/archisketch-uv-p0-v1/basic/model-info.json": "2774111950707b4f520be84e6003a070d0bb69c32a7856bd216ba7dfcbd51ec7"
+  },
+  "files": {
+    "acro112a-basic.blend": "8a18eaa922d4c0be0543877865897630f3b1679546f631e6f1467a7a582cf95e",
+    "acro112a-basic.glb": "d60e1f371befac9696575190777cdb06b67a4e50e5204136a3b40a98dd9aad7b",
+    "model-info.json": "e5ce4c392a6d7a78a0c327216253fa7cf15309e9ac2ca55605685858ed9e4029"
+  },
+  "changed_meshes": [
+    "Wall/layer-01/03",
+    "Wall/layer-01/04",
+    "Wall/layer-02/01",
+    "Wall/layer-02/03",
+    "window-17/frame-bottom",
+    "window-17/frame-left",
+    "window-17/frame-right",
+    "window-17/frame-top",
+    "window-17/glass-0",
+    "window-17/glass-1"
+  ],
+  "new_wall_meshes": [],
+  "unchanged_meshes": 456,
+  "protected_rooms_fixtures_metadata": true,
+  "material_names_and_extras_preserved": true,
+  "opening_reviews": [
+    {
+      "id": "window-17",
+      "old_width_m": 1.023,
+      "new_width_m": 1.995,
+      "source_id": "151CF630-4CC5-47FD-BAC6-139051D330C4",
+      "source_layout_sha256": "7e08f3bff57cf21d8584c4dc40df2be02d5b80cb55b6618678144fd5a1efdc59",
+      "removed_wall_volume_m3": 0.33482924968185457,
+      "restored_wall_volume_m3": 0,
+      "added_wall_meshes": [],
+      "height_center_axis_unchanged": true,
+      "expected_removed_wall_volume_m3": 0.3348292500000004
+    }
+  ],
+  "GPU_used": false,
+  "render_performed": false,
+  "browser_validation": "pending",
+  "active_web_changed": false
+}

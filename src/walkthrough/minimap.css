@@ -29,3 +29,5 @@ body.touch-walking #minimap-toggle{min-height:28px}
 body.touch-walking #minimap-toggle kbd{display:none}
 @media(max-width:650px){#walk-minimap,body.touch-walking #walk-minimap{width:168px;right:14px}#walk-minimap header{padding:7px;gap:4px}#minimap-variant{font-size:9px}#minimap-toggle{font-size:9px;padding:4px}#walk-minimap footer{padding:6px 8px}#walk-minimap footer span{display:none}.minimap-zone-label{display:none}#walk-minimap.is-collapsed,body.touch-walking #walk-minimap.is-collapsed{width:auto}}
 @media(max-height:520px){body.touch-walking #walk-minimap{width:164px;top:calc(var(--touch-top) + 58px)}#minimap-plan{max-height:150px}.minimap-zone-label{display:none}}
+
+.minimap-zone polygon{fill:#e5ecdf;stroke:#aabd9e;stroke-width:.025}.minimap-zone.current polygon{fill:#bed6ac}.minimap-zone.balcony polygon{fill:#d8e7eb}

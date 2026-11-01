@@ -1,0 +1,40 @@
+{
+  "source": {
+    "provider": "Archisketch",
+    "tool": "search-public-floorplans",
+    "query": "아크로리버파크",
+    "checkedAt": "2026-10-12",
+    "buildingName": "아크로리버파크",
+    "address": "서울특별시 서초구 신반포로15길 19"
+  },
+  "units": {
+    "112A": {
+      "supplyM2": 112.74,
+      "exclusiveM2": 84.97,
+      "floorplans": [
+        {
+          "label": "기본형",
+          "id": "63847ab9e7d4b53709725abd"
+        },
+        {
+          "label": "확장형",
+          "id": "63847abb230ed268d50ff999"
+        }
+      ]
+    },
+    "168C": {
+      "supplyM2": 168.95,
+      "exclusiveM2": 129.96,
+      "floorplans": [
+        {
+          "label": "기본형",
+          "id": "63847ae6e7d4b537097289e6"
+        },
+        {
+          "label": "확장형",
+          "id": "63847ae878f59409227951d5"
+        }
+      ]
+    }
+  }
+}

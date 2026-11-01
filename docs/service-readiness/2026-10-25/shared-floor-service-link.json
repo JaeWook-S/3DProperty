@@ -1,0 +1,44 @@
+{
+  "schema": "cortex-shared-floor-service-link-v1",
+  "at": "2026-10-25T09:27:57.395728+00:00",
+  "owner": "Cortex-S3",
+  "status": "integrated_locally_verified_not_published",
+  "passed": true,
+  "entry": {
+    "label": "가구 반입 검토 · 가정 배치",
+    "where": "Acro prepared-model section of apps/web service",
+    "element": "#open-floor-access",
+    "path": "/floor-access-review.html",
+    "same_window": true,
+    "assumption_note": "168C 확장형 두 세대와 가정한 홀·엘리베이터를 살펴봅니다. 선택한 동·층의 실제 배치가 아닙니다.",
+    "selection_is_prototype_mapping": false
+  },
+  "verification": "runtime/service-readiness/2026-10-25/floor-access-link/verification.json",
+  "files": [
+    "apps/web/src/map-service.js",
+    "apps/web/src/map-service.css",
+    "apps/web/src/viewer-url.js",
+    "floor-access-review.html",
+    "src/floor-access-entry.js"
+  ],
+  "browser_scenarios": 1,
+  "viewport_cases": 2,
+  "S1_files_unchanged": true,
+  "designer_public_site_changed": false,
+  "coordination": {
+    "S1_prototype_handoff": "docs/service-readiness/2026-10-25/shared-floor-ready.json",
+    "S1_prototype_verification": "runtime/floor-access/2026-10-25/verification.json",
+    "S3_actual_work_started": "2026-10-25T09:18:13.304860+00:00",
+    "scope_notification_queue": "01a17259-1ed6-7fa0-b99c-eaaec2cd5f4e",
+    "queue_is_not_completion": true,
+    "implementation_completed": true,
+    "browser_completed": "2026-10-25T09:25:13.585601+00:00",
+    "build_completed": "2026-10-25T09:24:50.723960+00:00"
+  },
+  "limitations": [
+    "Prototype common area remains assumed; actual building/floor/line unknown.",
+    "No S3 rerun of S1 transport, furniture loading, complete model or collision regressions.",
+    "390px viewport is desktop Chromium; no actual touch-device/FPS claim.",
+    "No new publication; frozen designer site and S3 static candidate remain unchanged."
+  ]
+}

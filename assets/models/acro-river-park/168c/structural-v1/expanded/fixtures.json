@@ -1,0 +1,110 @@
+[
+  {
+    "id": "hall-pantry-shelves",
+    "kind": "shelving",
+    "bounds_px": [
+      250,
+      254,
+      322,
+      264
+    ],
+    "height_m": 2.25,
+    "levels": 5,
+    "dimension_status": "unmeasured placeholder",
+    "source": "VR/plan shows function; precise fixture size is not measured",
+    "reference_bounds_m": [
+      4.2232989690721645,
+      3.421,
+      6.346185567010309,
+      3.691
+    ],
+    "mesh_names": [
+      "hall-pantry-shelves/left-side",
+      "hall-pantry-shelves/right-side",
+      "hall-pantry-shelves/back",
+      "hall-pantry-shelves/shelf-0",
+      "hall-pantry-shelves/shelf-1",
+      "hall-pantry-shelves/shelf-2",
+      "hall-pantry-shelves/shelf-3",
+      "hall-pantry-shelves/shelf-4"
+    ]
+  },
+  {
+    "id": "dressing-inner-shelves",
+    "kind": "shelving",
+    "bounds_px": [
+      446,
+      127,
+      535,
+      136
+    ],
+    "height_m": 2.3,
+    "levels": 5,
+    "dimension_status": "unmeasured placeholder",
+    "source": "VR/plan shows function; precise fixture size is not measured",
+    "reference_bounds_m": [
+      9.825161290322582,
+      0.07889763779527559,
+      12.2479754601227,
+      0.31559055118110235
+    ],
+    "mesh_names": [
+      "dressing-inner-shelves/left-side",
+      "dressing-inner-shelves/right-side",
+      "dressing-inner-shelves/back",
+      "dressing-inner-shelves/shelf-0",
+      "dressing-inner-shelves/shelf-1",
+      "dressing-inner-shelves/shelf-2",
+      "dressing-inner-shelves/shelf-3",
+      "dressing-inner-shelves/shelf-4"
+    ]
+  },
+  {
+    "id": "bathroom-1-shower",
+    "kind": "shower_tray",
+    "bounds_px": [
+      91,
+      278,
+      130,
+      337
+    ],
+    "height_m": 0.035,
+    "dimension_status": "unmeasured placeholder",
+    "source": "VR/plan shows function; precise fixture size is not measured",
+    "reference_bounds_m": [
+      0.10239999999999999,
+      4.068846153846153,
+      1.1008,
+      5.657307692307692
+    ],
+    "mesh_names": [
+      "bathroom-1-shower/base",
+      "bathroom-1-shower/drain"
+    ]
+  },
+  {
+    "id": "bathroom-1-shower-rail",
+    "kind": "shower_rail",
+    "bounds_px": [
+      91,
+      284,
+      94,
+      286
+    ],
+    "bottom_m": 0.85,
+    "height_m": 1.2,
+    "dimension_status": "unmeasured placeholder",
+    "source": "VR/plan shows function; precise fixture size is not measured",
+    "reference_bounds_m": [
+      0.10239999999999999,
+      4.230384615384615,
+      0.17919999999999997,
+      4.284230769230769
+    ],
+    "mesh_names": [
+      "bathroom-1-shower-rail/rail",
+      "bathroom-1-shower-rail/head",
+      "bathroom-1-shower-rail/control"
+    ]
+  }
+]

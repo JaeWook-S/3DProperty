@@ -1,0 +1,70 @@
+{
+  "status": "merged_and_public_v12_verified",
+  "checkedAt": "2026-10-26T16:28:38.006070+00:00",
+  "upstream": "1f70f46375346fab8682797adf778461bd3eeada",
+  "previous": "a735b680858aaf57fdd2aaacc654c39b021f2d3d",
+  "commitsReceived": 7,
+  "ownership": {
+    "website": "Mingyu: default HOME, house tours, themes/history, style browsing",
+    "furniture": "JaeWook: SuperMat/GPT provider/material prompt and export pipeline",
+    "house": "S1/user: existing canonical Archisketch metric geometry, doors/collision, variants and paired floor"
+  },
+  "integrationFixes": [
+    "Canonical variant IDs and metric room mappings for themes",
+    "Per-household layout snapshot/restore and theme history",
+    "Authored PBR loader normal sign/scalars preserved",
+    "Mingyu default HOME with find-home map/unit and paired-floor navigation",
+    "Preview free mouse and explicit walk; normal walking unchanged",
+    "Mobile grids allow intrinsic content to shrink",
+    "SuperMat and paid provider explicit opt-in; disabled paths make no inference or paid requests"
+  ],
+  "verification": {
+    "rootNode": {
+      "passed": 223,
+      "total": 223
+    },
+    "serviceNode": {
+      "passed": 31,
+      "total": 31
+    },
+    "postPreviewFixScopedNode": {
+      "passed": 57,
+      "total": 57
+    },
+    "backendCPU": {
+      "passed": 37,
+      "skipped": 2,
+      "total": 39
+    },
+    "browser": "Tour preview/restore/apply/undo/history; actual4variants2D/3D; real-photoHOME; static1440/390",
+    "protectedBefore": "runtime/integration/2026-10-26/protected-before.json",
+    "sync": "runtime/integration/2026-10-26/sync-primary.json",
+    "frontend": "runtime/integration/2026-10-26/frontend-review.json",
+    "backend": "runtime/integration/2026-10-26/backend-review.json",
+    "browserEvidence": "runtime/integration/2026-10-26/integration-browser-review.json",
+    "static": "runtime/integration/2026-10-26/static-preview-final/verification.json"
+  },
+  "limits": [
+    "Real SuperMat/GPT/Blender generation not run; exact pinned backend environment not validated",
+    "GPU/H200 and paid API calls0",
+    "Existing actual geometry and source uncertainty preserved",
+    "CPU SwiftShader browser; real Mac/mobile FPS not measured",
+    "Large bundle warnings remain; not a performance benchmark"
+  ],
+  "servers": {
+    "viewer5173": "started existing helper with measurement0",
+    "service5185": "reused"
+  },
+  "mainGitHubPush": false,
+  "originalWorkPreserved": true,
+  "publicURL": "https://cortex-design-preview-20261024.spunky-note-2434.chatgpt.site",
+  "publicVerification": "/home/nas5/kinamkim/Repos/geonwoo/3DProperty/startup/07_팀미팅/2026-10-24_designer-demo/hosting-upstream-merge-20261026/verification.json",
+  "publicVersion": 12,
+  "postBrowserDelta": {
+    "files": [
+      "src/house-tours/home.css"
+    ],
+    "reason": "Mobile intrinsic-width fix",
+    "validatedBy": "final static and anonymous public390px element bounds and screenshot"
+  }
+}

@@ -41,8 +41,8 @@ export function roomChange(from, to) {
  */
 export function compareFit(concept, source, target) {
   const existing = keptFor(concept);
-  const from = planConcept(concept, { ...source, existing });
-  const to = planConcept(concept, { ...target, existing });
+  const from = planConcept(source.concept ?? concept, { ...source, existing:source.existing ?? existing });
+  const to = planConcept(target.concept ?? concept, { ...target, existing:target.existing ?? existing });
   const roomName = (id, rooms) => concept.rooms?.[id] ?? rooms.find((r) => r.id === id)?.name_ko ?? id;
   const items = [];
   for (const s of from.placements) {

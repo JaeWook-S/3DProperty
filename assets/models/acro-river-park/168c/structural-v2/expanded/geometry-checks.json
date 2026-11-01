@@ -1,0 +1,445 @@
+{
+  "scope": "configured_dimensions_and_draft_mesh_consistency_only",
+  "independent_as_built_validation": false,
+  "checks": [
+    {
+      "component": "entry-door",
+      "measurement": "local_leaf_width_height_m",
+      "expected": [
+        0.8,
+        2.4
+      ],
+      "actual": [
+        0.800000011920929,
+        2.4000000953674316
+      ],
+      "passed": true
+    },
+    {
+      "component": "entry-door",
+      "measurement": "wall_hole_center_unblocked",
+      "blockers": [],
+      "passed": true
+    },
+    {
+      "component": "primary-exterior-window",
+      "measurement": "frame_outer_width_height_m",
+      "expected": [
+        1.8,
+        2.2
+      ],
+      "actual": [
+        1.7999999523162842,
+        2.200000047683716
+      ],
+      "passed": true
+    },
+    {
+      "component": "primary-exterior-window",
+      "measurement": "wall_hole_center_unblocked",
+      "blockers": [],
+      "passed": true
+    },
+    {
+      "component": "living-window-1",
+      "measurement": "frame_outer_width_height_m",
+      "expected": [
+        3.6,
+        2.0
+      ],
+      "actual": [
+        3.5999999046325684,
+        2.0
+      ],
+      "passed": true
+    },
+    {
+      "component": "living-window-1",
+      "measurement": "whole_window_span_m_not_clear_opening",
+      "expected": [
+        3.4,
+        1.8
+      ],
+      "actual": [
+        3.4000000953674316,
+        1.7999999523162842
+      ],
+      "passed": true
+    },
+    {
+      "component": "living-window-1",
+      "measurement": "wall_hole_center_unblocked",
+      "blockers": [],
+      "passed": true
+    },
+    {
+      "component": "kitchen-window",
+      "measurement": "frame_outer_width_height_m",
+      "expected": [
+        1.6,
+        1.1
+      ],
+      "actual": [
+        1.5999994277954102,
+        1.1000001430511475
+      ],
+      "passed": true
+    },
+    {
+      "component": "kitchen-window",
+      "measurement": "wall_hole_center_unblocked",
+      "blockers": [],
+      "passed": true
+    },
+    {
+      "component": "bedroom-1-window",
+      "measurement": "frame_outer_width_height_m",
+      "expected": [
+        2.1,
+        2.1
+      ],
+      "actual": [
+        2.1000000834465027,
+        2.1000001430511475
+      ],
+      "passed": true
+    },
+    {
+      "component": "bedroom-1-window",
+      "measurement": "whole_window_span_m_not_clear_opening",
+      "expected": [
+        2.0,
+        2.0
+      ],
+      "actual": [
+        2.0,
+        2.0
+      ],
+      "passed": true
+    },
+    {
+      "component": "bedroom-1-window",
+      "measurement": "wall_hole_center_unblocked",
+      "blockers": [],
+      "passed": true
+    },
+    {
+      "component": "bedroom-2-window",
+      "measurement": "frame_outer_width_height_m",
+      "expected": [
+        1.6,
+        1.4
+      ],
+      "actual": [
+        1.6000003814697266,
+        1.4000000357627869
+      ],
+      "passed": true
+    },
+    {
+      "component": "bedroom-2-window",
+      "measurement": "whole_window_span_m_not_clear_opening",
+      "expected": [
+        1.4,
+        1.2
+      ],
+      "actual": [
+        1.399999976158142,
+        1.2000000476837158
+      ],
+      "passed": true
+    },
+    {
+      "component": "bedroom-2-window",
+      "measurement": "wall_hole_center_unblocked",
+      "blockers": [],
+      "passed": true
+    },
+    {
+      "component": "bedroom-3-window",
+      "measurement": "frame_outer_width_height_m",
+      "expected": [
+        1.6,
+        1.4
+      ],
+      "actual": [
+        1.6000003814697266,
+        1.4000000357627869
+      ],
+      "passed": true
+    },
+    {
+      "component": "bedroom-3-window",
+      "measurement": "whole_window_span_m_not_clear_opening",
+      "expected": [
+        1.4,
+        1.2
+      ],
+      "actual": [
+        1.399999976158142,
+        1.2000000476837158
+      ],
+      "passed": true
+    },
+    {
+      "component": "bedroom-3-window",
+      "measurement": "wall_hole_center_unblocked",
+      "blockers": [],
+      "passed": true
+    },
+    {
+      "component": "bedroom-1-door",
+      "measurement": "local_leaf_width_height_m",
+      "expected": [
+        0.8,
+        2.4
+      ],
+      "actual": [
+        0.800000011920929,
+        2.4000000953674316
+      ],
+      "passed": true
+    },
+    {
+      "component": "bedroom-1-door",
+      "measurement": "wall_hole_center_unblocked",
+      "blockers": [],
+      "passed": true
+    },
+    {
+      "component": "bedroom-2-door",
+      "measurement": "local_leaf_width_height_m",
+      "expected": [
+        0.8,
+        2.4
+      ],
+      "actual": [
+        0.800000011920929,
+        2.4000000953674316
+      ],
+      "passed": true
+    },
+    {
+      "component": "bedroom-2-door",
+      "measurement": "wall_hole_center_unblocked",
+      "blockers": [],
+      "passed": true
+    },
+    {
+      "component": "bedroom-3-door",
+      "measurement": "local_leaf_width_height_m",
+      "expected": [
+        0.8,
+        2.4
+      ],
+      "actual": [
+        0.800000011920929,
+        2.4000000953674316
+      ],
+      "passed": true
+    },
+    {
+      "component": "bedroom-3-door",
+      "measurement": "wall_hole_center_unblocked",
+      "blockers": [],
+      "passed": true
+    },
+    {
+      "component": "bathroom-1-door",
+      "measurement": "local_leaf_width_height_m",
+      "expected": [
+        0.8,
+        2.4
+      ],
+      "actual": [
+        0.800000011920929,
+        2.4000000953674316
+      ],
+      "passed": true
+    },
+    {
+      "component": "bathroom-1-door",
+      "measurement": "wall_hole_center_unblocked",
+      "blockers": [],
+      "passed": true
+    },
+    {
+      "component": "hall-pantry-door",
+      "measurement": "local_leaf_width_height_m",
+      "expected": [
+        0.8,
+        2.4
+      ],
+      "actual": [
+        0.800000011920929,
+        2.4000000953674316
+      ],
+      "passed": true
+    },
+    {
+      "component": "hall-pantry-door",
+      "measurement": "wall_hole_center_unblocked",
+      "blockers": [],
+      "passed": true
+    },
+    {
+      "component": "dressing-inner-passage",
+      "measurement": "frame_outer_width_height_m",
+      "expected": [
+        1.1,
+        2.4
+      ],
+      "actual": [
+        1.0999999642372131,
+        2.4000000953674316
+      ],
+      "passed": true
+    },
+    {
+      "component": "dressing-inner-passage",
+      "measurement": "wall_hole_center_unblocked",
+      "blockers": [],
+      "passed": true
+    },
+    {
+      "component": "primary-bathroom-door",
+      "measurement": "local_leaf_width_height_m",
+      "expected": [
+        0.8,
+        2.4
+      ],
+      "actual": [
+        0.800000011920929,
+        2.4000000953674316
+      ],
+      "passed": true
+    },
+    {
+      "component": "primary-bathroom-door",
+      "measurement": "wall_hole_center_unblocked",
+      "blockers": [],
+      "passed": true
+    },
+    {
+      "component": "primary-door",
+      "measurement": "local_leaf_width_height_m",
+      "expected": [
+        0.8,
+        2.4
+      ],
+      "actual": [
+        0.800000011920929,
+        2.4000000953674316
+      ],
+      "passed": true
+    },
+    {
+      "component": "primary-door",
+      "measurement": "wall_hole_center_unblocked",
+      "blockers": [],
+      "passed": true
+    },
+    {
+      "component": "primary-balcony-opening",
+      "measurement": "frame_outer_width_height_m",
+      "expected": [
+        1.7,
+        2.2
+      ],
+      "actual": [
+        1.7000000476837158,
+        2.200000047683716
+      ],
+      "passed": true
+    },
+    {
+      "component": "primary-balcony-opening",
+      "measurement": "wall_hole_center_unblocked",
+      "blockers": [],
+      "passed": true
+    },
+    {
+      "component": "primary-balcony-service-door",
+      "measurement": "local_leaf_width_height_m",
+      "expected": [
+        0.8,
+        2.4
+      ],
+      "actual": [
+        0.800000011920929,
+        2.4000000953674316
+      ],
+      "passed": true
+    },
+    {
+      "component": "primary-balcony-service-door",
+      "measurement": "wall_hole_center_unblocked",
+      "blockers": [],
+      "passed": true
+    },
+    {
+      "component": "pantry-door",
+      "measurement": "local_leaf_width_height_m",
+      "expected": [
+        0.8,
+        2.4
+      ],
+      "actual": [
+        0.800000011920929,
+        2.4000000953674316
+      ],
+      "passed": true
+    },
+    {
+      "component": "pantry-door",
+      "measurement": "wall_hole_center_unblocked",
+      "blockers": [],
+      "passed": true
+    },
+    {
+      "component": "living-window-2",
+      "measurement": "frame_outer_width_height_m",
+      "expected": [
+        3.2,
+        2.2
+      ],
+      "actual": [
+        3.200000762939453,
+        2.200000047683716
+      ],
+      "passed": true
+    },
+    {
+      "component": "living-window-2",
+      "measurement": "wall_hole_center_unblocked",
+      "blockers": [],
+      "passed": true
+    },
+    {
+      "component": "bathroom-1-shower-door",
+      "measurement": "local_leaf_width_height_m",
+      "expected": [
+        0.7,
+        2.1
+      ],
+      "actual": [
+        0.699999988079071,
+        2.0999999046325684
+      ],
+      "passed": true
+    },
+    {
+      "component": "bathroom-1-shower-door",
+      "measurement": "wall_hole_center_unblocked",
+      "blockers": [],
+      "passed": true
+    },
+    {
+      "component": "ceiling",
+      "measurement": "floor_to_underside_m",
+      "expected": 2.5,
+      "actual": 2.5,
+      "passed": true
+    }
+  ]
+}

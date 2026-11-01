@@ -234,7 +234,7 @@ class GPTProviderTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as temporary:
             checkpoint = Path(temporary) / "fixture.pth"
             checkpoint.write_bytes(b"synthetic inference fixture, never loaded")
-            settings = replace(settings_for(temporary), generate_3d=True,
+            settings = replace(settings_for(temporary), generate_3d=True, supermat_enabled=True,
                 blender_executable=Path(executable), supermat_python=Path(sys.executable), supermat_checkpoint=checkpoint)
             def runner(settings, image, directory, progress):
                 canonical, mask = material_fixture(directory)

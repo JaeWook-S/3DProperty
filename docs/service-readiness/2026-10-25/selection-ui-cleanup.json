@@ -1,0 +1,24 @@
+{
+  "owner": "S1",
+  "status": "completed_and_public",
+  "updatedAt": "2026-10-25T14:58:52.069981+00:00",
+  "report": "/home/nas5/kinamkim/Repos/geonwoo/3DProperty/startup/07_팀미팅/2026-10-24_designer-demo/hosting-ui-cleanup-20261025/verification.json",
+  "url": "https://cortex-design-preview-20261024.spunky-note-2434.chatgpt.site",
+  "files": [
+    "apps/web/src/map-service.js",
+    "apps/web/src/map-service.css",
+    "src/walkthrough/site-tour.js",
+    "src/walkthrough/site-tour.css",
+    "src/walkthrough/studio.js",
+    "src/walkthrough/studio.css",
+    "tests/remote-service.browser.js",
+    "apps/web/tests/unit-selection.browser.js",
+    "apps/web/tests/map-service.browser.js",
+    "apps/web/tests/preview-only.browser.js"
+  ],
+  "noFurtherActivationNeeded": true,
+  "newModels": false,
+  "localAndPublic": true,
+  "GPUUsed": false,
+  "mainRepositoryCommitOrPush": false
+}

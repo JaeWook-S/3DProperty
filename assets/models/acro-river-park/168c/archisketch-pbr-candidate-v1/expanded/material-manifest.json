@@ -1,0 +1,973 @@
+{
+  "schema": "s2-material-candidate-v1",
+  "revision": "archisketch-pbr-candidate-v1",
+  "appearance_policy": "authored-pbr-v1",
+  "candidate": "acro168c-expanded.glb",
+  "candidate_sha256": "4834a91ececc43f5c9961ca224024117f1b39192564090c664ac64d72d51e8da",
+  "candidate_bytes": 12007524,
+  "parent": "acro168c-expanded-s2-pbr-v1.glb",
+  "parent_sha256": "3f2ca4351a632ca6177f6a66a8cff2074dc7e439e3ad393eaa083f163eae951d",
+  "production_parent_sha256": "1b15525640d4ece5914b5ce679233f8134b3b3eb5ae6a77e96d767a95c474216",
+  "compute": "CPU metadata manipulation only; no render/inference/GPU calls",
+  "materials": [
+    {
+      "material_index": 0,
+      "name": "168C / Warm ivory plaster",
+      "role": "wall/plaster and shared plaster surfaces",
+      "appearance_policy": "authored-pbr-v1",
+      "files": {
+        "roughness": {
+          "path": "maps/plaster-roughness.png",
+          "sha256": "a9c6169e9c8ae9483db7a8ad888504bda0f91a5c29f8b79204a6c4b582a7e70e",
+          "bytes": 225174
+        },
+        "normal": {
+          "path": "maps/plaster-normal.png",
+          "sha256": "8f2476a673c2e76e2138ab7fa58ed16d30bdf2262eaf1e267afb6dffcd0260ab",
+          "bytes": 13779
+        },
+        "metallicRoughness": {
+          "path": "maps/plaster-metallicRoughness.png",
+          "sha256": "f4afd9792bf3862eb5d1e5d91cbe5ffe2115d1d49cad9c4a3663c44bf66648a7",
+          "bytes": 181290
+        }
+      },
+      "baseColor": {
+        "colorspace": "sRGB for textures; linear for factor",
+        "texture": null,
+        "factor_linear": [
+          0.7799999713897705,
+          0.7549999952316284,
+          0.699999988079071,
+          1
+        ],
+        "source": "preserved from original GLB"
+      },
+      "normal": {
+        "convention": "tangent-space OpenGL +Y",
+        "colorspace": "NoColorSpace/linear",
+        "strength": 1.0,
+        "baked_bump_strength": 0.32,
+        "bake_distance_m": 0.0001,
+        "gltf_normalTexture_scale": 1,
+        "runtime_policy": "preserve GLTFLoader output including derivative-tangent Y sign; do not call setScalar(1) or force (1,1)",
+        "expected_current_runtime_normalScale": [
+          1,
+          -1
+        ],
+        "condition": "current candidate has no TANGENT attributes; current local GLTFLoader flips y for derivative tangents",
+        "tangent_present_case": "preserve loader result; do not globally force negative Y",
+        "normal_map_pixels": "unchanged OpenGL tangent-space +Y; do not invert green channel",
+        "evidence": "/home/nas5/kinamkim/Repos/geonwoo/3DProperty/node_modules/three/examples/jsm/loaders/GLTFLoader.js",
+        "loader_sha256": "131c0f78c01d19368ae495caa65b3adaa10487810a36a05bb5901b769a35ac16",
+        "runtime_normalScale": "Preserve signed GLTFLoader result. With no TANGENT attribute this loader uses [1,-1], not setScalar(1). glTF normalTexture.scale stays 1."
+      },
+      "metallicRoughness": {
+        "colorspace": "NoColorSpace/linear",
+        "R": "255 unused; not AO",
+        "G": "roughness",
+        "B": "0 metallic",
+        "roughnessFactor": 1,
+        "metallicFactor": 0,
+        "authored_roughness_range": [
+          0.74,
+          0.84
+        ]
+      },
+      "uv": {
+        "texCoord": 0,
+        "wrap": "REPEAT both axes",
+        "transform": "unchanged; no new KHR_texture_transform",
+        "bake_sample_m": [
+          1,
+          1
+        ],
+        "physical_sample_status": "Existing generator UV convention 1.2m/tile, not a measured material sample. Normal swatch baked at 1m; physical relief height unverified. No UV transform added.",
+        "original_material_extras": {
+          "texture_repeat_m": 1.2
+        },
+        "application_tile_m": [
+          1.2,
+          1.2
+        ]
+      },
+      "provenance": {
+        "method": "S2-authored native Blender noise/ramp/bump; CPU baked 512x512; no VLMaterial inference",
+        "script": "build_candidate.py",
+        "new_maps_license": "Original project-authored outputs; no separate distribution license declared; no third-party material pack copied",
+        "inherited_assets_license": "Inherited source GLB textures remain subject to existing source rights; not re-licensed or independently audited here"
+      },
+      "affected_node_count": 51,
+      "affected_nodes": [
+        {
+          "index": 0,
+          "name": "Base/00"
+        },
+        {
+          "index": 16,
+          "name": "Wall/layer-00/00"
+        },
+        {
+          "index": 17,
+          "name": "Wall/layer-00/01"
+        },
+        {
+          "index": 18,
+          "name": "Wall/layer-01/00"
+        },
+        {
+          "index": 19,
+          "name": "Wall/layer-01/01"
+        },
+        {
+          "index": 20,
+          "name": "Wall/layer-01/02"
+        },
+        {
+          "index": 21,
+          "name": "Wall/layer-02/00"
+        },
+        {
+          "index": 22,
+          "name": "Wall/layer-02/01"
+        },
+        {
+          "index": 23,
+          "name": "Wall/layer-02/02"
+        },
+        {
+          "index": 24,
+          "name": "Wall/layer-02/03"
+        },
+        {
+          "index": 25,
+          "name": "Wall/layer-02/04"
+        },
+        {
+          "index": 26,
+          "name": "Wall/layer-02/05"
+        },
+        {
+          "index": 27,
+          "name": "Wall/layer-02/06"
+        },
+        {
+          "index": 28,
+          "name": "Wall/layer-02/07"
+        },
+        {
+          "index": 29,
+          "name": "Wall/layer-03/00"
+        },
+        {
+          "index": 30,
+          "name": "Wall/layer-03/01"
+        },
+        {
+          "index": 31,
+          "name": "Wall/layer-03/02"
+        },
+        {
+          "index": 32,
+          "name": "Wall/layer-03/03"
+        },
+        {
+          "index": 33,
+          "name": "Wall/layer-03/04"
+        },
+        {
+          "index": 34,
+          "name": "Wall/layer-03/05"
+        },
+        {
+          "index": 35,
+          "name": "Wall/layer-03/06"
+        },
+        {
+          "index": 36,
+          "name": "Wall/layer-03/07"
+        },
+        {
+          "index": 37,
+          "name": "Wall/layer-03/08"
+        },
+        {
+          "index": 38,
+          "name": "Wall/layer-03/09"
+        },
+        {
+          "index": 39,
+          "name": "Wall/layer-04/00"
+        },
+        {
+          "index": 40,
+          "name": "Wall/layer-04/01"
+        },
+        {
+          "index": 41,
+          "name": "Wall/layer-04/02"
+        },
+        {
+          "index": 42,
+          "name": "Wall/layer-04/03"
+        },
+        {
+          "index": 43,
+          "name": "Wall/layer-04/04"
+        },
+        {
+          "index": 44,
+          "name": "Wall/layer-05/00"
+        },
+        {
+          "index": 45,
+          "name": "Wall/layer-05/01"
+        },
+        {
+          "index": 46,
+          "name": "Wall/layer-05/02"
+        },
+        {
+          "index": 47,
+          "name": "Wall/layer-06/00"
+        },
+        {
+          "index": 48,
+          "name": "Wall/layer-06/01"
+        },
+        {
+          "index": 49,
+          "name": "Wall/layer-07/00"
+        },
+        {
+          "index": 184,
+          "name": "Non-occupiable/00"
+        },
+        {
+          "index": 185,
+          "name": "Non-occupiable/01"
+        },
+        {
+          "index": 186,
+          "name": "Non-occupiable/02"
+        },
+        {
+          "index": 187,
+          "name": "Non-occupiable/03"
+        },
+        {
+          "index": 188,
+          "name": "Non-occupiable/04"
+        },
+        {
+          "index": 189,
+          "name": "Non-occupiable/05"
+        },
+        {
+          "index": 190,
+          "name": "Non-occupiable/06"
+        },
+        {
+          "index": 191,
+          "name": "Non-occupiable/07"
+        },
+        {
+          "index": 192,
+          "name": "Non-occupiable/08"
+        },
+        {
+          "index": 193,
+          "name": "Non-occupiable/09"
+        },
+        {
+          "index": 194,
+          "name": "Non-occupiable/10"
+        },
+        {
+          "index": 195,
+          "name": "Non-occupiable/11"
+        },
+        {
+          "index": 196,
+          "name": "Non-occupiable/12"
+        },
+        {
+          "index": 197,
+          "name": "Non-occupiable/13"
+        },
+        {
+          "index": 198,
+          "name": "Non-occupiable/14"
+        },
+        {
+          "index": 199,
+          "name": "Non-occupiable/15"
+        }
+      ]
+    },
+    {
+      "material_index": 3,
+      "name": "168C / VR polished stone floor",
+      "role": "polished stone floor",
+      "appearance_policy": "authored-pbr-v1",
+      "files": {
+        "roughness": {
+          "path": "maps/floor-roughness.png",
+          "sha256": "edbdb8cbad3788ccaffd3c290e2f96d703c40ccb8b639922486d1411d3d3240a",
+          "bytes": 200283
+        },
+        "normal": {
+          "path": "maps/floor-normal.png",
+          "sha256": "e63bec467df1cf5c92f3c3b3971a80f5c4a24a7740ae75ef76b3acdd78b32c0d",
+          "bytes": 227126
+        },
+        "metallicRoughness": {
+          "path": "maps/floor-metallicRoughness.png",
+          "sha256": "7f86fc2a2b71170370b730a9b044664297c9be0e82b63247bde30b0174849000",
+          "bytes": 157208
+        }
+      },
+      "baseColor": {
+        "colorspace": "sRGB for textures; linear for factor",
+        "texture": {
+          "index": 2
+        },
+        "factor_linear": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "source": "preserved from original GLB"
+      },
+      "normal": {
+        "convention": "tangent-space OpenGL +Y",
+        "colorspace": "NoColorSpace/linear",
+        "strength": 1.0,
+        "baked_bump_strength": 0.32,
+        "bake_distance_m": 0.00035,
+        "gltf_normalTexture_scale": 1,
+        "runtime_policy": "preserve GLTFLoader output including derivative-tangent Y sign; do not call setScalar(1) or force (1,1)",
+        "expected_current_runtime_normalScale": [
+          1,
+          -1
+        ],
+        "condition": "current candidate has no TANGENT attributes; current local GLTFLoader flips y for derivative tangents",
+        "tangent_present_case": "preserve loader result; do not globally force negative Y",
+        "normal_map_pixels": "unchanged OpenGL tangent-space +Y; do not invert green channel",
+        "evidence": "/home/nas5/kinamkim/Repos/geonwoo/3DProperty/node_modules/three/examples/jsm/loaders/GLTFLoader.js",
+        "loader_sha256": "131c0f78c01d19368ae495caa65b3adaa10487810a36a05bb5901b769a35ac16",
+        "runtime_normalScale": "Preserve signed GLTFLoader result. With no TANGENT attribute this loader uses [1,-1], not setScalar(1). glTF normalTexture.scale stays 1."
+      },
+      "metallicRoughness": {
+        "colorspace": "NoColorSpace/linear",
+        "R": "255 unused; not AO",
+        "G": "roughness",
+        "B": "0 metallic",
+        "roughnessFactor": 1,
+        "metallicFactor": 0,
+        "authored_roughness_range": [
+          0.17,
+          0.25
+        ]
+      },
+      "uv": {
+        "texCoord": 0,
+        "wrap": "REPEAT both axes",
+        "transform": "unchanged; no new KHR_texture_transform",
+        "bake_sample_m": [
+          1,
+          1
+        ],
+        "physical_sample_status": "Existing generator UV convention 1.2m/tile, not a measured material sample. Normal swatch baked at 1m; physical relief height unverified. No UV transform added.",
+        "original_material_extras": {
+          "texture_repeat_m": 1.2
+        },
+        "application_tile_m": [
+          1.2,
+          1.2
+        ]
+      },
+      "provenance": {
+        "method": "S2-authored native Blender noise/ramp/bump; CPU baked 512x512; no VLMaterial inference",
+        "script": "build_candidate.py",
+        "new_maps_license": "Original project-authored outputs; no separate distribution license declared; no third-party material pack copied",
+        "inherited_assets_license": "Inherited source GLB textures remain subject to existing source rights; not re-licensed or independently audited here"
+      },
+      "affected_node_count": 5,
+      "affected_nodes": [
+        {
+          "index": 4,
+          "name": "Floor/living-kitchen-hall"
+        },
+        {
+          "index": 7,
+          "name": "Floor/living-balcony"
+        },
+        {
+          "index": 8,
+          "name": "Floor/kitchen-pantry"
+        },
+        {
+          "index": 12,
+          "name": "Floor/primary-balcony-storage"
+        },
+        {
+          "index": 15,
+          "name": "Floor/primary-balcony"
+        }
+      ]
+    },
+    {
+      "material_index": 4,
+      "name": "168C / VR beige stone wall",
+      "role": "stone wall and shared shelves/aprons",
+      "appearance_policy": "authored-pbr-v1",
+      "files": {
+        "roughness": {
+          "path": "maps/wall-roughness.png",
+          "sha256": "758798228722d1b5a1c16974d041a6091a1b98614b1962db2e9fdf6aa8499f18",
+          "bytes": 222855
+        },
+        "normal": {
+          "path": "maps/wall-normal.png",
+          "sha256": "5a46b3d5202b130911e31987f9ff266e819ef31a27e27b498af4e6aae4fec3f4",
+          "bytes": 7048
+        },
+        "metallicRoughness": {
+          "path": "maps/wall-metallicRoughness.png",
+          "sha256": "cb3eebae848c71f9393df673aa363807757722927ae766d2d138db5222abbabe",
+          "bytes": 177264
+        }
+      },
+      "baseColor": {
+        "colorspace": "sRGB for textures; linear for factor",
+        "texture": {
+          "index": 3
+        },
+        "factor_linear": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "source": "preserved from original GLB"
+      },
+      "normal": {
+        "convention": "tangent-space OpenGL +Y",
+        "colorspace": "NoColorSpace/linear",
+        "strength": 1.0,
+        "baked_bump_strength": 0.32,
+        "bake_distance_m": 0.00015,
+        "gltf_normalTexture_scale": 1,
+        "runtime_policy": "preserve GLTFLoader output including derivative-tangent Y sign; do not call setScalar(1) or force (1,1)",
+        "expected_current_runtime_normalScale": [
+          1,
+          -1
+        ],
+        "condition": "current candidate has no TANGENT attributes; current local GLTFLoader flips y for derivative tangents",
+        "tangent_present_case": "preserve loader result; do not globally force negative Y",
+        "normal_map_pixels": "unchanged OpenGL tangent-space +Y; do not invert green channel",
+        "evidence": "/home/nas5/kinamkim/Repos/geonwoo/3DProperty/node_modules/three/examples/jsm/loaders/GLTFLoader.js",
+        "loader_sha256": "131c0f78c01d19368ae495caa65b3adaa10487810a36a05bb5901b769a35ac16",
+        "runtime_normalScale": "Preserve signed GLTFLoader result. With no TANGENT attribute this loader uses [1,-1], not setScalar(1). glTF normalTexture.scale stays 1."
+      },
+      "metallicRoughness": {
+        "colorspace": "NoColorSpace/linear",
+        "R": "255 unused; not AO",
+        "G": "roughness",
+        "B": "0 metallic",
+        "roughnessFactor": 1,
+        "metallicFactor": 0,
+        "authored_roughness_range": [
+          0.3,
+          0.43
+        ]
+      },
+      "uv": {
+        "texCoord": 0,
+        "wrap": "REPEAT both axes",
+        "transform": "unchanged; no new KHR_texture_transform",
+        "bake_sample_m": [
+          1,
+          1
+        ],
+        "physical_sample_status": "Existing generator UV convention 1.2m/tile, not a measured material sample. Normal swatch baked at 1m; physical relief height unverified. No UV transform added.",
+        "original_material_extras": {
+          "texture_repeat_m": 1.2
+        },
+        "application_tile_m": [
+          1.2,
+          1.2
+        ]
+      },
+      "provenance": {
+        "method": "S2-authored native Blender noise/ramp/bump; CPU baked 512x512; no VLMaterial inference",
+        "script": "build_candidate.py",
+        "new_maps_license": "Original project-authored outputs; no separate distribution license declared; no third-party material pack copied",
+        "inherited_assets_license": "Inherited source GLB textures remain subject to existing source rights; not re-licensed or independently audited here"
+      },
+      "affected_node_count": 35,
+      "affected_nodes": [
+        {
+          "index": 16,
+          "name": "Wall/layer-00/00"
+        },
+        {
+          "index": 17,
+          "name": "Wall/layer-00/01"
+        },
+        {
+          "index": 18,
+          "name": "Wall/layer-01/00"
+        },
+        {
+          "index": 19,
+          "name": "Wall/layer-01/01"
+        },
+        {
+          "index": 20,
+          "name": "Wall/layer-01/02"
+        },
+        {
+          "index": 21,
+          "name": "Wall/layer-02/00"
+        },
+        {
+          "index": 22,
+          "name": "Wall/layer-02/01"
+        },
+        {
+          "index": 23,
+          "name": "Wall/layer-02/02"
+        },
+        {
+          "index": 24,
+          "name": "Wall/layer-02/03"
+        },
+        {
+          "index": 25,
+          "name": "Wall/layer-02/04"
+        },
+        {
+          "index": 27,
+          "name": "Wall/layer-02/06"
+        },
+        {
+          "index": 28,
+          "name": "Wall/layer-02/07"
+        },
+        {
+          "index": 29,
+          "name": "Wall/layer-03/00"
+        },
+        {
+          "index": 30,
+          "name": "Wall/layer-03/01"
+        },
+        {
+          "index": 31,
+          "name": "Wall/layer-03/02"
+        },
+        {
+          "index": 32,
+          "name": "Wall/layer-03/03"
+        },
+        {
+          "index": 33,
+          "name": "Wall/layer-03/04"
+        },
+        {
+          "index": 34,
+          "name": "Wall/layer-03/05"
+        },
+        {
+          "index": 35,
+          "name": "Wall/layer-03/06"
+        },
+        {
+          "index": 37,
+          "name": "Wall/layer-03/08"
+        },
+        {
+          "index": 38,
+          "name": "Wall/layer-03/09"
+        },
+        {
+          "index": 39,
+          "name": "Wall/layer-04/00"
+        },
+        {
+          "index": 40,
+          "name": "Wall/layer-04/01"
+        },
+        {
+          "index": 41,
+          "name": "Wall/layer-04/02"
+        },
+        {
+          "index": 42,
+          "name": "Wall/layer-04/03"
+        },
+        {
+          "index": 43,
+          "name": "Wall/layer-04/04"
+        },
+        {
+          "index": 44,
+          "name": "Wall/layer-05/00"
+        },
+        {
+          "index": 45,
+          "name": "Wall/layer-05/01"
+        },
+        {
+          "index": 46,
+          "name": "Wall/layer-05/02"
+        },
+        {
+          "index": 47,
+          "name": "Wall/layer-06/00"
+        },
+        {
+          "index": 48,
+          "name": "Wall/layer-06/01"
+        },
+        {
+          "index": 49,
+          "name": "Wall/layer-07/00"
+        },
+        {
+          "index": 437,
+          "name": "bathroom-1-fixtures/stone shelf"
+        },
+        {
+          "index": 442,
+          "name": "primary-bath-fixtures/tub apron"
+        },
+        {
+          "index": 455,
+          "name": "primary-bath-fixtures/stone shelf"
+        }
+      ]
+    },
+    {
+      "material_index": 21,
+      "name": "Draft kitchen / stone",
+      "role": "countertop including shared vanity/utility countertops",
+      "appearance_policy": "authored-pbr-v1",
+      "files": {
+        "basecolor": {
+          "path": "maps/counter-basecolor.png",
+          "sha256": "a83da8378bded5e014dbf27828178709c0f97b4fe6772ec7363ac39ded33a919",
+          "bytes": 330081
+        },
+        "roughness": {
+          "path": "maps/counter-roughness.png",
+          "sha256": "aa21a0b37be707611998a2a65e5ab2948802c6d77f08cebf85c0cc1da9278fe9",
+          "bytes": 228541
+        },
+        "normal": {
+          "path": "maps/counter-normal.png",
+          "sha256": "b82c6669c73136f26298d34b40452be98cfdd7cc3f6a8a84129abb7b1bcc33f5",
+          "bytes": 24334
+        },
+        "metallicRoughness": {
+          "path": "maps/counter-metallicRoughness.png",
+          "sha256": "ee794cf7ee94105491b2321e042377fcd574fe158682f903cfe162137f2d9e75",
+          "bytes": 184456
+        }
+      },
+      "baseColor": {
+        "colorspace": "sRGB for textures; linear for factor",
+        "texture": {
+          "index": 19
+        },
+        "factor_linear": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "source": "new authored procedural bake"
+      },
+      "normal": {
+        "convention": "tangent-space OpenGL +Y",
+        "colorspace": "NoColorSpace/linear",
+        "strength": 1.0,
+        "baked_bump_strength": 0.32,
+        "bake_distance_m": 0.00012,
+        "gltf_normalTexture_scale": 1,
+        "runtime_policy": "preserve GLTFLoader output including derivative-tangent Y sign; do not call setScalar(1) or force (1,1)",
+        "expected_current_runtime_normalScale": [
+          1,
+          -1
+        ],
+        "condition": "current candidate has no TANGENT attributes; current local GLTFLoader flips y for derivative tangents",
+        "tangent_present_case": "preserve loader result; do not globally force negative Y",
+        "normal_map_pixels": "unchanged OpenGL tangent-space +Y; do not invert green channel",
+        "evidence": "/home/nas5/kinamkim/Repos/geonwoo/3DProperty/node_modules/three/examples/jsm/loaders/GLTFLoader.js",
+        "loader_sha256": "131c0f78c01d19368ae495caa65b3adaa10487810a36a05bb5901b769a35ac16",
+        "runtime_normalScale": "Preserve signed GLTFLoader result. With no TANGENT attribute this loader uses [1,-1], not setScalar(1). glTF normalTexture.scale stays 1."
+      },
+      "metallicRoughness": {
+        "colorspace": "NoColorSpace/linear",
+        "R": "255 unused; not AO",
+        "G": "roughness",
+        "B": "0 metallic",
+        "roughnessFactor": 1,
+        "metallicFactor": 0,
+        "authored_roughness_range": [
+          0.23,
+          0.34
+        ]
+      },
+      "uv": {
+        "texCoord": 0,
+        "wrap": "REPEAT both axes",
+        "transform": "unchanged; no new KHR_texture_transform",
+        "bake_sample_m": [
+          1,
+          1
+        ],
+        "physical_sample_status": "Existing generator UV convention 1.2m/tile, not a measured material sample. Normal swatch baked at 1m; physical relief height unverified. No UV transform added.",
+        "original_material_extras": {},
+        "application_tile_m": [
+          1.2,
+          1.2
+        ]
+      },
+      "provenance": {
+        "method": "S2-authored native Blender noise/ramp/bump; CPU baked 512x512; no VLMaterial inference",
+        "script": "build_candidate.py",
+        "new_maps_license": "Original project-authored outputs; no separate distribution license declared; no third-party material pack copied",
+        "inherited_assets_license": "Inherited source GLB textures remain subject to existing source rights; not re-licensed or independently audited here"
+      },
+      "affected_node_count": 5,
+      "affected_nodes": [
+        {
+          "index": 369,
+          "name": "Kitchen west base/countertop"
+        },
+        {
+          "index": 398,
+          "name": "Kitchen sink run/countertop"
+        },
+        {
+          "index": 408,
+          "name": "Living kitchen island/countertop"
+        },
+        {
+          "index": 419,
+          "name": "Utility low cabinet/countertop"
+        },
+        {
+          "index": 480,
+          "name": "Dressing vanity/countertop"
+        }
+      ]
+    },
+    {
+      "material_index": 22,
+      "name": "Draft kitchen / front",
+      "role": "cabinet/front and shared caps",
+      "appearance_policy": "authored-pbr-v1",
+      "files": {
+        "basecolor": {
+          "path": "maps/front-basecolor.png",
+          "sha256": "13b31dd09ae5cf553d62068019dfaa7dc323c9cb292d436143c42c4a48c48769",
+          "bytes": 251003
+        },
+        "roughness": {
+          "path": "maps/front-roughness.png",
+          "sha256": "ca8e8bcb2893bddcff14dd15c68a5c28c14572c37d762c68555cf884276c7285",
+          "bytes": 204027
+        },
+        "normal": {
+          "path": "maps/front-normal.png",
+          "sha256": "3537087b0b73abb7ee33ccea490821901eb2bdcc03d07b475882596fbc28cfa0",
+          "bytes": 242882
+        },
+        "metallicRoughness": {
+          "path": "maps/front-metallicRoughness.png",
+          "sha256": "ffcdec39254a90aaad2b9a2da15008900e68a90e7db7b5c48e3e6cd1646cf1a9",
+          "bytes": 163206
+        }
+      },
+      "baseColor": {
+        "colorspace": "sRGB for textures; linear for factor",
+        "texture": {
+          "index": 22
+        },
+        "factor_linear": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "source": "new authored procedural bake"
+      },
+      "normal": {
+        "convention": "tangent-space OpenGL +Y",
+        "colorspace": "NoColorSpace/linear",
+        "strength": 1.0,
+        "baked_bump_strength": 0.32,
+        "bake_distance_m": 0.00015,
+        "gltf_normalTexture_scale": 1,
+        "runtime_policy": "preserve GLTFLoader output including derivative-tangent Y sign; do not call setScalar(1) or force (1,1)",
+        "expected_current_runtime_normalScale": [
+          1,
+          -1
+        ],
+        "condition": "current candidate has no TANGENT attributes; current local GLTFLoader flips y for derivative tangents",
+        "tangent_present_case": "preserve loader result; do not globally force negative Y",
+        "normal_map_pixels": "unchanged OpenGL tangent-space +Y; do not invert green channel",
+        "evidence": "/home/nas5/kinamkim/Repos/geonwoo/3DProperty/node_modules/three/examples/jsm/loaders/GLTFLoader.js",
+        "loader_sha256": "131c0f78c01d19368ae495caa65b3adaa10487810a36a05bb5901b769a35ac16",
+        "runtime_normalScale": "Preserve signed GLTFLoader result. With no TANGENT attribute this loader uses [1,-1], not setScalar(1). glTF normalTexture.scale stays 1."
+      },
+      "metallicRoughness": {
+        "colorspace": "NoColorSpace/linear",
+        "R": "255 unused; not AO",
+        "G": "roughness",
+        "B": "0 metallic",
+        "roughnessFactor": 1,
+        "metallicFactor": 0,
+        "authored_roughness_range": [
+          0.27,
+          0.33
+        ]
+      },
+      "uv": {
+        "texCoord": 0,
+        "wrap": "REPEAT both axes",
+        "transform": "unchanged; no new KHR_texture_transform",
+        "bake_sample_m": [
+          1,
+          1
+        ],
+        "physical_sample_status": "Existing generator UV convention 1.2m/tile, not a measured material sample. Normal swatch baked at 1m; physical relief height unverified. No UV transform added.",
+        "original_material_extras": {},
+        "application_tile_m": [
+          1.2,
+          1.2
+        ]
+      },
+      "provenance": {
+        "method": "S2-authored native Blender noise/ramp/bump; CPU baked 512x512; no VLMaterial inference",
+        "script": "build_candidate.py",
+        "new_maps_license": "Original project-authored outputs; no separate distribution license declared; no third-party material pack copied",
+        "inherited_assets_license": "Inherited source GLB textures remain subject to existing source rights; not re-licensed or independently audited here"
+      },
+      "affected_node_count": 21,
+      "affected_nodes": [
+        {
+          "index": 370,
+          "name": "Kitchen west base/front-0-0"
+        },
+        {
+          "index": 371,
+          "name": "Kitchen west base/front-1-0"
+        },
+        {
+          "index": 372,
+          "name": "Kitchen west base/front-2-0"
+        },
+        {
+          "index": 373,
+          "name": "Kitchen west base/front-3-0"
+        },
+        {
+          "index": 374,
+          "name": "Kitchen west base/front-4-0"
+        },
+        {
+          "index": 383,
+          "name": "Kitchen upper 0/cap"
+        },
+        {
+          "index": 384,
+          "name": "Kitchen upper 0/front-0-0"
+        },
+        {
+          "index": 386,
+          "name": "Kitchen upper 1/cap"
+        },
+        {
+          "index": 387,
+          "name": "Kitchen upper 1/front-0-0"
+        },
+        {
+          "index": 388,
+          "name": "Kitchen upper 1/front-1-0"
+        },
+        {
+          "index": 389,
+          "name": "Kitchen upper 1/front-2-0"
+        },
+        {
+          "index": 390,
+          "name": "Kitchen upper 1/front-3-0"
+        },
+        {
+          "index": 391,
+          "name": "Kitchen upper 1/front-4-0"
+        },
+        {
+          "index": 399,
+          "name": "Kitchen sink run/front-0-0"
+        },
+        {
+          "index": 400,
+          "name": "Kitchen sink run/front-1-0"
+        },
+        {
+          "index": 401,
+          "name": "Kitchen sink run/front-2-0"
+        },
+        {
+          "index": 409,
+          "name": "Living kitchen island/front-0-0"
+        },
+        {
+          "index": 410,
+          "name": "Living kitchen island/front-1-0"
+        },
+        {
+          "index": 411,
+          "name": "Living kitchen island/front-2-0"
+        },
+        {
+          "index": 420,
+          "name": "Utility low cabinet/front-0-0"
+        },
+        {
+          "index": 421,
+          "name": "Utility low cabinet/front-1-0"
+        }
+      ]
+    }
+  ],
+  "checks": {
+    "only_five_material_policy_fields_changed": true,
+    "all_image_geometry_binary_bytes_identical": true,
+    "parent_unchanged": true,
+    "exactly_five_marked_materials": true,
+    "header_length_correct": true
+  },
+  "scope": "candidate only; active product paths unchanged",
+  "blender_files": "This paired BLEND starts from pristine details-v2 and includes all five appearance_policy markers, packed source maps and preserved source camera/light/visibility settings.",
+  "previews": [
+    "kitchen-before.png",
+    "kitchen-after.png"
+  ],
+  "preview_reuse_reason": "GLB bytes identical to S2 authored candidate; paired BLEND uses the same source maps and source lighting. S2 before/after PNGs restore ceilings and use their recorded review camera; paired BLEND preserves original cutaway viewport settings.",
+  "next_step": "S3 scoped loader uses material extras.appearance_policy; verify effective roughness/normalScale/color/emissive after refineMaterials and final stage",
+  "normalScale_correction": "Supersedes prior S2 (1,1) runtime recommendation. Preserve loader sign; glTF scale remains 1.",
+  "paired_blend": "acro168c-expanded.blend",
+  "paired_blend_sha256": "0a9348bc0c32639499fe5db27f16e263fa324ae70a0ca4ebca0ee0ac0c5b6005",
+  "source_manifest": "/home/nas5/kinamkim/Repos/geonwoo/AisideProject/realestate-spatial-ai/experiments/service-appearance/2026-10-22-168c/s2/material-manifest.json",
+  "source_manifest_sha256": "f4d12d22b90f5b4ce166ad31ead92342fd7c8a6a56ae964d0d5a4920e80b0608",
+  "metadata": "model-info.json",
+  "active_web_changed": false
+}

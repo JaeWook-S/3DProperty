@@ -25,3 +25,19 @@ body.studio{background:#f4f4ef;color:#1c4038}body.studio .topbar,body.studio .bo
 #layout-plan text {
   letter-spacing: 0;
 }
+.plan-room polygon{fill:#e4eadb;stroke:#c3d0bd;stroke-width:.025}.plan-room.active polygon{fill:#d4e3c9;stroke:#7f9d72}
+
+/* Architectural section comes from actual wall triangles, including thickness and openings. */
+.plan-walls{fill:#454740;stroke:#454740;stroke-width:.008;pointer-events:none}.plan-window{stroke:#7f9a9b;stroke-width:.055;pointer-events:none}.plan-door-leaf{stroke:#806648;stroke-width:.045;pointer-events:none}.plan-fixed{fill:#9c9584;opacity:.80}.plan-room polygon{fill:#eee9de;stroke:#d7d1c5}.plan-room.active polygon{fill:#e0e9d7}.plan-room.balcony polygon{fill:#e9edef}
+
+.plan-entry{fill:#d4d4cf;pointer-events:none}.plan-entry-label{font-size:.20px;fill:#575950;pointer-events:none}.plan-door-swing{fill:none;stroke:#9a8266;stroke-width:.018;stroke-dasharray:.05 .04;pointer-events:none}
+
+.studio-source-details{margin-top:14px;color:#62796b;font-size:11px;pointer-events:auto}
+.studio-source-details summary{cursor:pointer;width:max-content;font-size:11px;list-style:none;padding:4px 0}
+.studio-source-details summary::-webkit-details-marker{display:none}
+.studio-source-details p{line-height:1.6;margin:8px 0}
+.studio-source-details a{font-size:11px;color:inherit}
+.context-credits{display:flex;align-items:center;justify-content:flex-end;gap:10px;font-size:11px;pointer-events:auto}
+.context-credits>a{font-size:11px;color:#62796b}
+.context-credits .studio-source-details{position:relative;margin:0}
+.context-credits details[open]{background:#fcfcf7;padding:10px;border:1px solid #dce3db;border-radius:6px;max-width:300px}

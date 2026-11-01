@@ -1,0 +1,84 @@
+{
+  "at": "2026-10-25T08:09:57.361976+00:00",
+  "task": "W7-03 one-floor elevator and furniture transport",
+  "state": "integrated_locally_verified_not_published",
+  "recommended_first_fixture": "168C expanded two units plus shared landing and elevator; illustrative arrangement, not a verified Acro floor",
+  "user_scope_question": "two-unit prototype selected as default; real floor layout remains unverified",
+  "current_product_changes": "new isolated entry/module only; main service unchanged",
+  "current_public_demo_changes": false,
+  "existing_support": [
+    "metric apartment GLBs",
+    "furniture W/D/H and yaw footprints",
+    "2D/3D staging",
+    "animated doors",
+    "human capsule movement"
+  ],
+  "new_work": [
+    "unit-instance IDs and explicit local-to-floor rigid transforms",
+    "parameterized shared hall and elevator",
+    "separate cargo collision geometry including vertical dimensions",
+    "upright translation and rotation path review",
+    "separate car containment / door clearance / route outcomes"
+  ],
+  "phases": [
+    {
+      "phase": 1,
+      "deliverable": "one floor 2D/3D assembly with editable dimensions and provenance, entry anchors, independent unit IDs",
+      "complete": true
+    },
+    {
+      "phase": 2,
+      "deliverable": "upright furniture fit, continuous yaw manipulation and interference feedback; route check only within documented coverage/tolerance",
+      "complete": true,
+      "scope": "upright supplied common-area route to closed unit entry front only"
+    },
+    {
+      "phase": 3,
+      "deliverable": "pitch/roll tilting, removed legs/packaging scenarios and improved route planning",
+      "complete": false
+    }
+  ],
+  "source_requirements": [
+    {
+      "field": "elevator",
+      "needed": "clear interior width/depth/height; fully open door clear width/height and position; handrails/protrusions",
+      "why": "interior fit alone cannot prove entry through doorway"
+    },
+    {
+      "field": "common area",
+      "needed": "floor-core plan, usable corridor widths, turning/recess space, overheads, unit entry placement",
+      "why": "single-unit plans do not establish shared hall/elevator geometry"
+    },
+    {
+      "field": "cargo",
+      "needed": "actual transported envelope W/D/H, packaging/removable parts/orientation and uncertainty",
+      "why": "CC0 model bounds are not independent physical product measurements"
+    },
+    {
+      "field": "unit entrance",
+      "needed": "usable clear opening with actual door position, frame, threshold",
+      "why": "door-leaf size and human walkthrough clearance are not cargo clearance"
+    }
+  ],
+  "implementation_guards": [
+    "do not shrink people/furniture/apartments to fit",
+    "do not reuse human capsule as furniture test",
+    "include ceilings/overheads excluded by current human collision",
+    "static endpoint success is not route success",
+    "test sampled routes only with explicit conservative coverage; no universal impossible claim",
+    "actual building and unit mapping remains unknown until evidenced"
+  ],
+  "reusable_sources": {
+    "footprint": "src/walkthrough/layout.js corners/overlap(0)",
+    "person_only": "src/walkthrough/movement.js bodyAt/moveWithCollisions",
+    "provenance": "assets/furniture/cc0/*/manifest.json",
+    "original_task": "docs/week07-todo.md W7-03"
+  },
+  "verification_this_turn": "24 unit tests + 4 unique browser cases + isolated build passed; no real lift measurements",
+  "GPU": false,
+  "updated_at": "2026-10-25T09:29:58.264073+00:00",
+  "entry": "/floor-access-review.html",
+  "verification": "runtime/floor-access/2026-10-25/verification.json",
+  "service_integration_complete": true,
+  "service_integration_evidence": "runtime/service-readiness/2026-10-25/floor-access-link/verification.json"
+}

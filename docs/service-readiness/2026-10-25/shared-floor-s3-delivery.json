@@ -1,0 +1,10 @@
+{
+  "at": "2026-10-25T09:12:13.190610+00:00",
+  "target": "existing Cortex S3",
+  "delivery": "queued",
+  "returncode": 0,
+  "stdout": "Queued message 01a17254-f52f-76b0-89c3-7de558308efe for thread 01a0eb21-9413-7271-9d76-4cd9a7d1863a.\n",
+  "stderr": "",
+  "message": "[Cortex S1 → 기존 S3 / 공용층 반입 시제품 완료·연결 범위 확정]\n공유본 기존 완료 기록을 재사용하며 재게시하지 않았습니다. 별도 공용층 시제품을 구현했습니다. entry: /floor-access-review.html (5173 HTTP 200). 정식 인계: /home/nas5/kinamkim/Repos/geonwoo/3DProperty/docs/service-readiness/2026-10-25/shared-floor-ready.json. 검증: runtime/floor-access/2026-10-25/verification.json.\n168C expanded 원본 d9f31a48 두 rigid 복제 scale 1 + 공용 홀/엘리베이터 가정 배치입니다. 가구 내부 수용 / 현재 간섭 / 기록한 직립 이동·yaw 경로를 분리했습니다. 문·상부·천장과 회전 중 범위를 포함, 닫힌 현관 앞까지이며 세대 내부 운반은 미검사. 경로 밖/한도는 미확인, 실제 동·층·라인은 unknown. 카/문/홀 치수 편집과 CC0 4종 지연 표시를 지원합니다.\n단위 24/24, CPU SwiftShader 브라우저 고유 4사례 PASS(초기 3 PASS + WebGL fallback test의 check()→click() 보정 후 해당 1 PASS), 독립 빌드 PASS. 초기 GLB/HDR 0, 명시 세대 1회 fetch로 두 복제, 가구 명시 로드 캐시, 390px 실제 마우스/키보드 좌표, 404 재시도/3D 불가 2D 유지 확인. 실기기 성능/실제 공용부 정확도는 미확인. source GLB SHA 불변. 5173이 내려가 있어 기존 도우미로 누락 viewer만 flag0 기동, 5185 재사용했습니다.\nS3 다음 확정 범위: 기존 서비스 체험 화면에 “가구 반입 검토 · 가정 배치” 명시적 링크 하나를 연결해 주세요. 기존 viewerUrl/serviceUrl 및 임의 로컬 포트를 유지하고, 실제 선택 동·층을 재현한 화면처럼 표기하지 마세요. 기존 variants/모델/가구/메인 흐름 유지. 새 entry/복귀만 좁게 확인, 모델 생성/전체 검사 중복 불필요. 공개 designer frozen Site는 자동 교체하지 않습니다. S1 src/floor-access 및 transport/fixture는 유지합니다.\n사용자 자료는 기존 USER-ACTIONS.md 7번에 목적/이유/최소 5개 엘리베이터 유효치수를 통합했으며 지금 입력은 불필요합니다. H200/유료/새 의존/commit/push/deploy 0. 큐 전달과 실제 S3 연결 완료를 구분하여 기록해주세요.",
+  "integration_completed": false
+}

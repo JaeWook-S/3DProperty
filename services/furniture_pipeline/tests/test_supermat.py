@@ -64,9 +64,42 @@ class SuperMatTests(unittest.TestCase):
     def configured(self, directory):
         checkpoint = Path(directory) / "test-supermat.pth"
         checkpoint.write_bytes(b"synthetic inference fixture; never loaded")
-        return replace(settings_for(directory), generate_3d=True,
+        return replace(settings_for(directory), generate_3d=True, supermat_enabled=True,
             blender_executable=Path(shutil.which("true")), supermat_python=Path(sys.executable),
             supermat_checkpoint=checkpoint)
+
+    def test_disabled_material_inference_never_launches_workers_or_requires_weights(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            settings = settings_for(temporary)
+            stages = []
+            with patch("services.furniture_pipeline.pipeline.material_prompt.run_worker") as worker:
+                material = prepare_material_prompt(settings, Path(temporary) / "upload.png", temporary,
+                    RECORD, 0, DIMENSIONS, {}, progress=stages.append)
+            worker.assert_not_called()
+            self.assertEqual(material["status"], "disabled")
+            self.assertFalse(material["enabled"])
+            self.assertEqual(material["maps"], {})
+            self.assertIn("PIPELINE_SUPERMAT_ENABLED", material["reason"])
+            self.assertEqual(stages, ["supermat_disabled"])
+            self.assertIn("create_model(dimensions)", material["prompt"])
+            self.assertFalse((Path(temporary) / "supermat").exists())
+
+    def test_disabled_supermat_retains_stub_generation_without_inference(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            settings = replace(settings_for(temporary), generate_3d=True,
+                blender_executable=Path(shutil.which("true")))
+            def runner(*args, **kwargs):
+                return {"outcome": "measured", "objects": [RECORD]}
+            with patch("services.furniture_pipeline.pipeline.material_prompt.run_worker") as neural, \
+                    patch("services.furniture_pipeline.pipeline.build_assets.run_worker", side_effect=fake_export), \
+                    TestClient(create_app(settings, runner)) as client:
+                accepted = client.post("/api/furniture/measure", files={"image": ("chair.png", image_bytes(), "image/png")}).json()
+                generation = client.get(accepted["status_url"]).json()["result"]["generation"]
+                self.assertEqual(generation["status"], "completed")
+                self.assertEqual(generation["material"]["status"], "disabled")
+                self.assertNotIn("SuperMat", generation["assets"][0]["provenance"]["weights_id"])
+                self.assertFalse(client.get("/health").json()["supermat_enabled"])
+            neural.assert_not_called()
 
     def test_material_prompt_uses_canonical_frame_alpha_and_real_foreground_statistics(self):
         with tempfile.TemporaryDirectory() as temporary:

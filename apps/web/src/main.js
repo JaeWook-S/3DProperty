@@ -1,49 +1,45 @@
+import {viewerBaseForPage} from '../../../src/property/service-endpoints.js';
 import './style.css';
 import { parseFurniture, MAX_FILE_BYTES, formatDimension, BASIS_LABELS, SCALE_LABELS } from './furniture.js';
-import { VARIANTS, buildViewerUrl } from './viewer-url.js';
+import { VARIANTS, DEFAULT_VARIANT, buildViewerUrl } from './viewer-url.js';
+import { createMapService } from './map-service.js';
 import { setupFurnitureImageRegistration } from '../../../src/walkthrough/furniture-registration.js';
-import { disposeMeasurementResult, renderMeasurementResult } from './measurement.js';
+let measurementModule;
+const measurement=()=>import('./measurement.js').then(module=>(measurementModule=module));
 const $ = (id) => document.getElementById(id);
 const node = (tag, text, className) => { const e = document.createElement(tag); if (text !== undefined) e.textContent = text; if (className) e.className = className; return e; };
-const defaultViewer = new URL('/', location.href); defaultViewer.port = '5173';
-const viewerBase = import.meta.env.VITE_VIEWER_BASE_URL || defaultViewer.href;
+const viewerBase = viewerBaseForPage(location.href, import.meta.env.VITE_VIEWER_BASE_URL).href;
+const serviceHome = new URL(new URL(viewerBase).searchParams.get('serviceUrl'));
+const homeURL=new URL(viewerBase);homeURL.searchParams.set('studio','1');
+document.querySelector('.brand').href = homeURL.href;
+const homeNav=document.createElement('nav');homeNav.setAttribute('aria-label','주요 메뉴');homeNav.className='service-home-nav';
+for(const [label,tours] of [['홈',false],['집들이',true]]){const link=document.createElement('a'),url=new URL(homeURL);if(tours)url.searchParams.set('tours','all');link.href=url.href;link.textContent=label;homeNav.append(link);}
+document.querySelector('.site-header').append(homeNav);
 let currentResult = null, currentSource = '', unit = 'cm', loadSequence = 0;
-$('viewer-address').textContent = viewerBase;
-function selectSpace(variant) {
-  const v = VARIANTS[variant];
-  $('space-preview').src = `${import.meta.env.BASE_URL}previews/${v.image}`;
-  $('space-preview').alt = `${v.title} 공간의 실제 웹 뷰어 캡처`;
-  $('variant-description').textContent = v.description;
-  $('photo-caption').textContent = variant === 'expanded' ? '확장형 · 라이트 오크 / 해질녘 미리보기' : '기본형 · 웜 스톤 / 밤 미리보기';
-  $('open-viewer').replaceChildren(node('span', `${v.title} 공간 열기`), node('span', '↗'));
-  try { $('open-viewer').href = buildViewerUrl(viewerBase, variant); }
-  catch (error) { $('open-viewer').removeAttribute('href'); $('open-viewer').setAttribute('aria-disabled', 'true'); $('config-error').hidden = false; $('config-error').textContent = error.message; }
-}
-for (const input of document.querySelectorAll('[name="variant"]')) input.addEventListener('change', () => selectSpace(input.value));
-selectSpace('expanded');
-const studioLink=document.createElement('a');
-studioLink.className='primary';studioLink.id='open-studio';studioLink.textContent='단지에서 시작 · 공간 꾸미기 ↗';studioLink.target='_blank';studioLink.rel='noopener noreferrer';
-try {const url=new URL(viewerBase);if(!['http:','https:'].includes(url.protocol)||url.username||url.password)throw Error();url.searchParams.set('studio','1');studioLink.href=url.href;$('open-viewer').before(studioLink);}catch{/* Existing configuration error remains visible. */}
+const mapService=createMapService({host:$('map-service'),viewerBase});
+const initialQuery=new URLSearchParams(location.search).get('query');
+if(initialQuery)mapService.ready.then(()=>{const input=$('place-query');if(input){input.value=initialQuery;$('place-search').requestSubmit();}});
 function showPanel(panel) {
   for (const id of ['space', 'furniture']) { const active = id === panel; $(`${id}-panel`).hidden = !active; $(`${id}-tab`).classList.toggle('active', active); if (active) $(`${id}-tab`).setAttribute('aria-current', 'page'); else $(`${id}-tab`).removeAttribute('aria-current'); }
 }
-$('space-tab').addEventListener('click', () => showPanel('space'));
+$('space-tab').addEventListener('click', () => {showPanel('space');mapService.resize();});
 $('furniture-tab').addEventListener('click', () => showPanel('furniture'));
 setupFurnitureImageRegistration({
   button: $('register-furniture'), input: $('furniture-image-file'), panel: $('furniture-image-preview'),
   preview: $('furniture-image-preview').querySelector('img'), name: $('furniture-image-name'),
   metadata: $('furniture-image-metadata'), status: $('furniture-image-status'),
   onMeasurementStart() {
-    disposeMeasurementResult($('image-measurement-result'));
+    measurementModule?.disposeMeasurementResult($('image-measurement-result'));
     $('image-measurement-result').replaceChildren();
     $('image-measurement-result').hidden = true;
   },
-  onMeasurementComplete(job, file) {
-    renderMeasurementResult($('image-measurement-result'), job, file.name, { viewerBase,
-      variant: document.querySelector('[name="variant"]:checked')?.value || 'expanded' });
+  async onMeasurementComplete(job, file) {
+    const module=await measurement();
+    module.renderMeasurementResult($('image-measurement-result'), job, file.name, { viewerBase,
+      variant: mapService.selection().sampleVariant || DEFAULT_VARIANT });
   },
 });
-window.addEventListener('pagehide', () => disposeMeasurementResult($('image-measurement-result')), { once: true });
+window.addEventListener('pagehide', () => measurementModule?.disposeMeasurementResult($('image-measurement-result')), { once: true });
 function pair(list, label, value) { list.append(node('dt', label), node('dd', value)); }
 const PROCESS_LABELS = { succeeded: '성공', failed: '실패', unresolved: '미정', pending: '진행 대기', not_run: '실행 안 됨' };
 const MISSING_LABELS = {

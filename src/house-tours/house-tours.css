@@ -18,7 +18,12 @@
 /* --- visit bar in the header, touch bar over the walk ------------------------------------ */
 #tour-session{display:flex;align-items:center;gap:8px;margin-left:auto;pointer-events:auto}
 #tour-session[hidden]{display:none}
-body[data-house-tour] .studio-header .mode-switch{display:none}
+body[data-house-tour] .studio-header .mode-switch,body[data-house-tour] .studio-header nav{display:none}
+/* A preview has the full room view while the desktop cursor stays on its controls. */
+body.studio[data-house-tour] #studio-sidebar,body.studio[data-house-tour] #three-label{display:none}
+body.studio[data-house-tour] #viewport{left:0}
+body.studio .studio-header .ts-resume{height:36px;padding:0 12px;border:1px solid var(--line-strong);font-size:13px;white-space:nowrap;cursor:pointer}
+body.walking #tour-session .ts-resume{display:none}
 .ts-label{display:flex;align-items:center;gap:8px;margin-right:6px;font-size:15px;font-weight:700;color:var(--ink)}
 .ts-label i{padding:3px 7px;border-radius:4px;background:var(--brand-soft);color:var(--brand);font-size:12px;font-style:normal;font-weight:700}
 .ts-rooms{display:flex;gap:2px;padding:3px;border-radius:8px;background:var(--surface)}

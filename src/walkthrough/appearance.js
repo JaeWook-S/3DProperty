@@ -31,32 +31,50 @@ export function setupAppearance(renderer, scene, camera) {
   sun.shadow.radius = 2;
   scene.add(sun, sun.target);
   const lights = [];
-  for (const [x, z] of [[7.8, 7.2], [7.6, 3], [4.2, 7], [1.3, 7], [11.8, 6], [3.2, 4.8], [12.2, 2.7], [10.5, 3], [4.9, 3.4]]) {
+  const defaultLightPositions = [[7.8, 7.2], [7.6, 3], [4.2, 7], [1.3, 7], [11.8, 6], [3.2, 4.8], [12.2, 2.7], [10.5, 3], [4.9, 3.4]];
+  for (const [x, z] of defaultLightPositions) {
     const light = new THREE.PointLight(0xffe9cc, 6, 6, 2);
     light.position.set(x, 2.4, z);
     scene.add(light); lights.push(light);
   }
-  const target = new THREE.WebGLRenderTarget(1, 1, { type: THREE.HalfFloatType, samples: 4 });
-  const composer = new EffectComposer(renderer, target);
-  composer.addPass(new RenderPass(scene, camera));
-  const ao = new GTAOPass(scene, camera, innerWidth, innerHeight);
-  ao.updateGtaoMaterial({ radius: 0.25, distanceExponent: 1.5, thickness: 0.8, distanceFallOff: 0.8, samples: 16 });
-  ao.blendIntensity = 0.7;
-  ao.updatePdMaterial({ radius: 6, samples: 24, lumaPhi: 2 });
-  composer.addPass(ao);
-  composer.addPass(new OutputPass());
-  let quality = 'high', lighting = 'day';
+  // The default path renders directly. Allocate AO/MSAA buffers only on request.
+  let composer=null,ao=null,quality='balanced',lighting='day',resizeKey='';
+  const stats={frames:0,calls:0,triangles:0,shadowUpdates:0,cpuMs:0};
+  renderer.info.autoReset=false;
+  function ensureComposer(){
+    if(composer)return;
+    const target=new THREE.WebGLRenderTarget(1,1,{type:THREE.HalfFloatType,samples:4});
+    composer=new EffectComposer(renderer,target);
+    composer.addPass(new RenderPass(scene,camera));
+    ao=new GTAOPass(scene,camera,1,1);
+    ao.updateGtaoMaterial({radius:.25,distanceExponent:1.5,thickness:.8,distanceFallOff:.8,samples:16});
+    ao.blendIntensity=.7;ao.updatePdMaterial({radius:6,samples:24,lumaPhi:2});
+    composer.addPass(ao);composer.addPass(new OutputPass());
+    resizeKey='';
+  }
   function resize() {
     const bounds=renderer.domElement.parentElement.getBoundingClientRect();
-    const width=Math.max(1,bounds.width),height=Math.max(1,bounds.height);
-    const requested = quality === 'ultra' ? 2 : quality === 'high' ? Math.min(devicePixelRatio, 1.5) : 1;
-    const ratio = Math.min(requested, 3840 / Math.max(width, height));
-    renderer.setPixelRatio(ratio);
-    renderer.setSize(width, height);
-    composer.setPixelRatio(ratio);
-    composer.setSize(width, height);
-    const aoRatio = quality === 'ultra' ? Math.min(ratio, 1.5) : Math.min(ratio, 1.25) * 0.7;
-    ao.setSize(Math.round(width * aoRatio), Math.round(height * aoRatio));
+    const width=Math.max(1,Math.round(bounds.width)),height=Math.max(1,Math.round(bounds.height));
+    const requested=quality==='ultra'?2:quality==='high'?Math.min(devicePixelRatio,1.5):quality==='balanced'?Math.min(devicePixelRatio,1.25):1;
+    const ratio=Math.min(requested,3840/Math.max(width,height));
+    const key=[width,height,ratio,quality].join(':');
+    if(key===resizeKey)return;resizeKey=key;
+    renderer.setPixelRatio(ratio);renderer.setSize(width,height);
+    if(quality==='high'||quality==='ultra'){
+      composer.setPixelRatio(ratio);composer.setSize(width,height);
+      const aoRatio=quality==='ultra'?Math.min(ratio,1.5):Math.min(ratio,1.25)*.7;
+      ao.setSize(Math.round(width*aoRatio),Math.round(height*aoRatio));
+    }
+  }
+  let modelOffset=[0,0];
+  function setModel(info) {
+    const positions=info.lightPositions || defaultLightPositions;
+    while(lights.length<positions.length){const light=new THREE.PointLight(0xffe9cc,6,7,2);scene.add(light);lights.push(light);}
+    lights.forEach((light,i)=>{light.visible=i<positions.length;if(light.visible)light.position.set(positions[i][0],(info.ceilingHeight_m??2.6)-.2,positions[i][1]);});
+    const b=info.bounds_m || [0,0,14,9],cx=(b[0]+b[2])/2,cz=(b[1]+b[3])/2;
+    modelOffset=[cx-7,cz-4.5];sun.target.position.set(cx,0,cz);
+    const half=Math.max(10,(b[2]-b[0])/2+2);Object.assign(sun.shadow.camera,{left:-half,right:half,top:half,bottom:-half,far:50});sun.shadow.camera.updateProjectionMatrix();
+    setLighting(lighting);
   }
   function setLighting(value) {
     const p = LIGHTING[value];
@@ -65,16 +83,16 @@ export function setupAppearance(renderer, scene, camera) {
     scene.background = new THREE.Color(p.sky);
     scene.environmentIntensity = p.environment;
     hemisphere.intensity = p.hemisphere;
-    sun.intensity = p.sun; sun.color.setHex(p.sunColor); sun.position.set(...p.position);
+    sun.intensity = p.sun; sun.color.setHex(p.sunColor); sun.position.set(p.position[0]+modelOffset[0],p.position[1],p.position[2]+modelOffset[1]);
     for (const light of lights) { light.intensity = p.indoor; light.color.setHex(p.indoorColor); }
     renderer.toneMappingExposure = p.exposure;
     renderer.shadowMap.needsUpdate = true;
   }
   function setQuality(value) {
-    if (!['light', 'high', 'ultra'].includes(value)) throw new Error(`Unknown quality: ${value}`);
+    if (!['light', 'balanced', 'high', 'ultra'].includes(value)) throw new Error(`Unknown quality: ${value}`);
     quality = value;
-    ao.enabled = value !== 'light';
-    const shadowSize = value === 'ultra' ? 4096 : 2048;
+    if(value==='high'||value==='ultra')ensureComposer();
+    const shadowSize=value==='ultra'?4096:value==='high'?2048:value==='balanced'?1024:512;
     if (sun.shadow.mapSize.x !== shadowSize) {
       sun.shadow.map?.dispose(); sun.shadow.map = null;
       sun.shadow.mapSize.set(shadowSize, shadowSize);
@@ -84,7 +102,17 @@ export function setupAppearance(renderer, scene, camera) {
   }
   setLighting('day'); resize();
   return {
-    render: (dt) => composer.render(dt), resize, setQuality, setLighting,
+    render(dt) {
+      const start=performance.now();renderer.info.reset();
+      if(renderer.shadowMap.needsUpdate)stats.shadowUpdates++;
+      const restoreContext = scene.userData.contextAppearance?.(renderer);
+      try {
+        if(quality==='high'||quality==='ultra')composer.render(dt);
+        else renderer.render(scene,camera);
+      } finally { restoreContext?.(); }
+      stats.frames++;stats.calls=renderer.info.render.calls;stats.triangles=renderer.info.render.triangles;stats.cpuMs=performance.now()-start;
+    }, resize, setQuality, setLighting, setModel,
+    get stats(){return {...stats};},
     invalidateShadows: () => { renderer.shadowMap.needsUpdate = true; },
     get quality() { return quality; }, get lighting() { return lighting; },
     get resolution() { return renderer.getDrawingBufferSize(new THREE.Vector2()).toArray(); },
@@ -99,18 +127,21 @@ export function refineMaterials(model, renderer) {
       if (seen.has(material)) continue;
       seen.add(material);
       if (material.map) material.map.anisotropy = Math.min(8, renderer.capabilities.getMaxAnisotropy());
-      if (material.normalMap) material.normalScale.setScalar(0.45);
-      if (material.name.includes('plaster')) material.roughness = 0.92;
-      if (material.name.includes('Lacquer')) material.roughness = 0.48;
-      if (material.name.includes('limestone')) { material.roughness = 0.52; material.normalScale.setScalar(0.2); }
-      if (material.name.includes('Calacatta')) material.roughness = 0.34;
-      if (material.name.includes('nickel')) material.roughness = 0.3;
-      if (material.emissiveIntensity > 1) material.emissiveIntensity = 1.4;
-      // Window glass: a thin clear pane instead of a transmission pass, so the view outside is
-      // drawn at full resolution and ceiling lights do not mirror in it as bright discs.
-      if (material.name.includes('Window glass')) {
-        material.transmission = 0; material.transparent = true; material.opacity = 0.06; material.depthWrite = false;
-        material.roughness = 0.35; if ('specularIntensity' in material) material.specularIntensity = 0.04;
+      // glTF material extras opt authored PBR sets out of legacy look adjustments.
+      // Keep this explicit so existing unmarked models retain their current look.
+      if (material.userData.appearance_policy !== 'authored-pbr-v1') {
+        if (material.normalMap) material.normalScale.setScalar(0.45);
+        if (material.name.includes('plaster')) material.roughness = 0.92;
+        if (material.name.includes('Lacquer')) material.roughness = 0.48;
+        if (material.name.includes('limestone')) { material.roughness = 0.52; material.normalScale.setScalar(0.2); }
+        if (material.name.includes('Calacatta')) material.roughness = 0.34;
+        if (material.name.includes('nickel')) material.roughness = 0.3;
+        if (material.emissiveIntensity > 1) material.emissiveIntensity = 1.4;
+        // Keep legacy glazing clear without replacing authored transmission or normals.
+        if (material.name.includes('Window glass')) {
+          material.transmission = 0; material.transparent = true; material.opacity = 0.06; material.depthWrite = false;
+          material.roughness = 0.35; if ('specularIntensity' in material) material.specularIntensity = 0.04;
+        }
       }
       material.needsUpdate = true;
     }

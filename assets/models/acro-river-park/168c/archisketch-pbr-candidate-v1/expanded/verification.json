@@ -1,0 +1,218 @@
+{
+  "passed": true,
+  "revision": "archisketch-pbr-candidate-v1",
+  "source_files_sha256": {
+    "/home/nas5/kinamkim/Repos/geonwoo/3DProperty/assets/models/acro-river-park/168c/archisketch-details-v2/expanded/acro168c-expanded.blend": "90c92ba391f79f282bfc6f897593d07e043e432c91611628e3b3f16b53770311",
+    "/home/nas5/kinamkim/Repos/geonwoo/3DProperty/assets/models/acro-river-park/168c/archisketch-details-v2/expanded/acro168c-expanded.glb": "1b15525640d4ece5914b5ce679233f8134b3b3eb5ae6a77e96d767a95c474216",
+    "/home/nas5/kinamkim/Repos/geonwoo/3DProperty/assets/models/acro-river-park/168c/archisketch-details-v2/expanded/model-info.json": "14d8b07c165d183647b73adf83ecabecd35807b2e64fb2bbd29789c1ee399a63"
+  },
+  "source_files_unchanged": true,
+  "source_glb_binary_prefix_identical": true,
+  "glb_all_nodes_meshes_accessors_scenes_extras_equal": true,
+  "glb_original_images_preserved": 8,
+  "glb_untargeted_materials_preserved": 21,
+  "glb_exact_s2_candidate_sha256": "4834a91ececc43f5c9961ca224024117f1b39192564090c664ac64d72d51e8da",
+  "blender_geometry_and_normals_equal_meshes": 567,
+  "blender_all_uv_layers_equal_meshes": 567,
+  "blender_object_state_equal": 603,
+  "blender_source_light_camera_visibility_settings_preserved": true,
+  "blender_reopened_file_verification": true,
+  "blender_five_material_properties_tagged": true,
+  "source_geometry_digest": "830a76ae4c3237f711518cc871ca95c66754c4fba038c44a632080e60221dce5",
+  "source_uv_digest": "d1f7235166372416ad6fd7422fc180a076ff9c8a060499351c5a9cc4be582dae",
+  "maps_sha256": {
+    "maps/plaster-roughness.png": "a9c6169e9c8ae9483db7a8ad888504bda0f91a5c29f8b79204a6c4b582a7e70e",
+    "maps/plaster-normal.png": "8f2476a673c2e76e2138ab7fa58ed16d30bdf2262eaf1e267afb6dffcd0260ab",
+    "maps/plaster-metallicRoughness.png": "f4afd9792bf3862eb5d1e5d91cbe5ffe2115d1d49cad9c4a3663c44bf66648a7",
+    "maps/floor-roughness.png": "edbdb8cbad3788ccaffd3c290e2f96d703c40ccb8b639922486d1411d3d3240a",
+    "maps/floor-normal.png": "e63bec467df1cf5c92f3c3b3971a80f5c4a24a7740ae75ef76b3acdd78b32c0d",
+    "maps/floor-metallicRoughness.png": "7f86fc2a2b71170370b730a9b044664297c9be0e82b63247bde30b0174849000",
+    "maps/wall-roughness.png": "758798228722d1b5a1c16974d041a6091a1b98614b1962db2e9fdf6aa8499f18",
+    "maps/wall-normal.png": "5a46b3d5202b130911e31987f9ff266e819ef31a27e27b498af4e6aae4fec3f4",
+    "maps/wall-metallicRoughness.png": "cb3eebae848c71f9393df673aa363807757722927ae766d2d138db5222abbabe",
+    "maps/counter-basecolor.png": "a83da8378bded5e014dbf27828178709c0f97b4fe6772ec7363ac39ded33a919",
+    "maps/counter-roughness.png": "aa21a0b37be707611998a2a65e5ab2948802c6d77f08cebf85c0cc1da9278fe9",
+    "maps/counter-normal.png": "b82c6669c73136f26298d34b40452be98cfdd7cc3f6a8a84129abb7b1bcc33f5",
+    "maps/counter-metallicRoughness.png": "ee794cf7ee94105491b2321e042377fcd574fe158682f903cfe162137f2d9e75",
+    "maps/front-basecolor.png": "13b31dd09ae5cf553d62068019dfaa7dc323c9cb292d436143c42c4a48c48769",
+    "maps/front-roughness.png": "ca8e8bcb2893bddcff14dd15c68a5c28c14572c37d762c68555cf884276c7285",
+    "maps/front-normal.png": "3537087b0b73abb7ee33ccea490821901eb2bdcc03d07b475882596fbc28cfa0",
+    "maps/front-metallicRoughness.png": "ffcdec39254a90aaad2b9a2da15008900e68a90e7db7b5c48e3e6cd1646cf1a9"
+  },
+  "blender_map_bindings": [
+    {
+      "material": "168C / Warm ivory plaster",
+      "channel": "roughness",
+      "sha256": "a9c6169e9c8ae9483db7a8ad888504bda0f91a5c29f8b79204a6c4b582a7e70e",
+      "packed": true,
+      "colorspace": "Non-Color"
+    },
+    {
+      "material": "168C / Warm ivory plaster",
+      "channel": "normal",
+      "sha256": "8f2476a673c2e76e2138ab7fa58ed16d30bdf2262eaf1e267afb6dffcd0260ab",
+      "packed": true,
+      "colorspace": "Non-Color"
+    },
+    {
+      "material": "168C / VR polished stone floor",
+      "channel": "roughness",
+      "sha256": "edbdb8cbad3788ccaffd3c290e2f96d703c40ccb8b639922486d1411d3d3240a",
+      "packed": true,
+      "colorspace": "Non-Color"
+    },
+    {
+      "material": "168C / VR polished stone floor",
+      "channel": "normal",
+      "sha256": "e63bec467df1cf5c92f3c3b3971a80f5c4a24a7740ae75ef76b3acdd78b32c0d",
+      "packed": true,
+      "colorspace": "Non-Color"
+    },
+    {
+      "material": "168C / VR beige stone wall",
+      "channel": "roughness",
+      "sha256": "758798228722d1b5a1c16974d041a6091a1b98614b1962db2e9fdf6aa8499f18",
+      "packed": true,
+      "colorspace": "Non-Color"
+    },
+    {
+      "material": "168C / VR beige stone wall",
+      "channel": "normal",
+      "sha256": "5a46b3d5202b130911e31987f9ff266e819ef31a27e27b498af4e6aae4fec3f4",
+      "packed": true,
+      "colorspace": "Non-Color"
+    },
+    {
+      "material": "Draft kitchen / stone",
+      "channel": "basecolor",
+      "sha256": "a83da8378bded5e014dbf27828178709c0f97b4fe6772ec7363ac39ded33a919",
+      "packed": true,
+      "colorspace": "sRGB"
+    },
+    {
+      "material": "Draft kitchen / stone",
+      "channel": "roughness",
+      "sha256": "aa21a0b37be707611998a2a65e5ab2948802c6d77f08cebf85c0cc1da9278fe9",
+      "packed": true,
+      "colorspace": "Non-Color"
+    },
+    {
+      "material": "Draft kitchen / stone",
+      "channel": "normal",
+      "sha256": "b82c6669c73136f26298d34b40452be98cfdd7cc3f6a8a84129abb7b1bcc33f5",
+      "packed": true,
+      "colorspace": "Non-Color"
+    },
+    {
+      "material": "Draft kitchen / front",
+      "channel": "basecolor",
+      "sha256": "13b31dd09ae5cf553d62068019dfaa7dc323c9cb292d436143c42c4a48c48769",
+      "packed": true,
+      "colorspace": "sRGB"
+    },
+    {
+      "material": "Draft kitchen / front",
+      "channel": "roughness",
+      "sha256": "ca8e8bcb2893bddcff14dd15c68a5c28c14572c37d762c68555cf884276c7285",
+      "packed": true,
+      "colorspace": "Non-Color"
+    },
+    {
+      "material": "Draft kitchen / front",
+      "channel": "normal",
+      "sha256": "3537087b0b73abb7ee33ccea490821901eb2bdcc03d07b475882596fbc28cfa0",
+      "packed": true,
+      "colorspace": "Non-Color"
+    }
+  ],
+  "outputs_sha256": {
+    "acro168c-expanded.blend": "0a9348bc0c32639499fe5db27f16e263fa324ae70a0ca4ebca0ee0ac0c5b6005",
+    "acro168c-expanded.glb": "4834a91ececc43f5c9961ca224024117f1b39192564090c664ac64d72d51e8da",
+    "model-info.json": "edf86a4ed2bac8a23f284a884b4c4c8545b713cc07176271cf24087d1fc40e4f",
+    "material-manifest.json": "c9fbc80631233d3f9fea6e59362bc1e089082a6bb375381c417a9d64ae094fb2"
+  },
+  "modeling_metadata_changed_fields_only": [
+    "finish_revision",
+    "blend_sha256",
+    "glb_sha256"
+  ],
+  "material_scope": "Shared named materials, including adjacent rooms, exactly as S2 manifest affected_nodes; not a kitchen-only mask.",
+  "gpu_render_inference_calls": 0,
+  "web_runtime_or_active_paths_changed": false,
+  "visual_validation": "S2 before/after render inspected; subtle appearance change, not photorealism or measured-material recovery.",
+  "independent_glb_embedded_map_bindings": [
+    {
+      "material": "168C / Warm ivory plaster",
+      "channel": "normal",
+      "sha256": "8f2476a673c2e76e2138ab7fa58ed16d30bdf2262eaf1e267afb6dffcd0260ab",
+      "texCoord": 0
+    },
+    {
+      "material": "168C / Warm ivory plaster",
+      "channel": "metallicRoughness",
+      "sha256": "f4afd9792bf3862eb5d1e5d91cbe5ffe2115d1d49cad9c4a3663c44bf66648a7",
+      "texCoord": 0
+    },
+    {
+      "material": "168C / VR polished stone floor",
+      "channel": "normal",
+      "sha256": "e63bec467df1cf5c92f3c3b3971a80f5c4a24a7740ae75ef76b3acdd78b32c0d",
+      "texCoord": 0
+    },
+    {
+      "material": "168C / VR polished stone floor",
+      "channel": "metallicRoughness",
+      "sha256": "7f86fc2a2b71170370b730a9b044664297c9be0e82b63247bde30b0174849000",
+      "texCoord": 0
+    },
+    {
+      "material": "168C / VR beige stone wall",
+      "channel": "normal",
+      "sha256": "5a46b3d5202b130911e31987f9ff266e819ef31a27e27b498af4e6aae4fec3f4",
+      "texCoord": 0
+    },
+    {
+      "material": "168C / VR beige stone wall",
+      "channel": "metallicRoughness",
+      "sha256": "cb3eebae848c71f9393df673aa363807757722927ae766d2d138db5222abbabe",
+      "texCoord": 0
+    },
+    {
+      "material": "Draft kitchen / stone",
+      "channel": "normal",
+      "sha256": "b82c6669c73136f26298d34b40452be98cfdd7cc3f6a8a84129abb7b1bcc33f5",
+      "texCoord": 0
+    },
+    {
+      "material": "Draft kitchen / stone",
+      "channel": "metallicRoughness",
+      "sha256": "ee794cf7ee94105491b2321e042377fcd574fe158682f903cfe162137f2d9e75",
+      "texCoord": 0
+    },
+    {
+      "material": "Draft kitchen / stone",
+      "channel": "basecolor",
+      "sha256": "a83da8378bded5e014dbf27828178709c0f97b4fe6772ec7363ac39ded33a919",
+      "texCoord": 0
+    },
+    {
+      "material": "Draft kitchen / front",
+      "channel": "normal",
+      "sha256": "3537087b0b73abb7ee33ccea490821901eb2bdcc03d07b475882596fbc28cfa0",
+      "texCoord": 0
+    },
+    {
+      "material": "Draft kitchen / front",
+      "channel": "metallicRoughness",
+      "sha256": "ffcdec39254a90aaad2b9a2da15008900e68a90e7db7b5c48e3e6cd1646cf1a9",
+      "texCoord": 0
+    },
+    {
+      "material": "Draft kitchen / front",
+      "channel": "basecolor",
+      "sha256": "13b31dd09ae5cf553d62068019dfaa7dc323c9cb292d436143c42c4a48c48769",
+      "texCoord": 0
+    }
+  ],
+  "packed_mr_G_equals_source_roughness_R_unused255_B_metallic0": true
+}

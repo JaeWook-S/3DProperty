@@ -1,0 +1,1831 @@
+{
+  "passed": true,
+  "revision": "archisketch-kitchen-detail-v1",
+  "parent_files_sha256": {
+    "acro168c-expanded.blend": "0a9348bc0c32639499fe5db27f16e263fa324ae70a0ca4ebca0ee0ac0c5b6005",
+    "acro168c-expanded.glb": "4834a91ececc43f5c9961ca224024117f1b39192564090c664ac64d72d51e8da",
+    "model-info.json": "edf86a4ed2bac8a23f284a884b4c4c8545b713cc07176271cf24087d1fc40e4f"
+  },
+  "original_blender_mesh_geometry_normals_uv_equal": 567,
+  "original_blender_object_metadata_transforms_equal": 603,
+  "original_material_names_properties_equal": true,
+  "glb_append": {
+    "old_nodes": 569,
+    "added_nodes": 69,
+    "old_meshes": 567,
+    "added_meshes": 69,
+    "original_binary_bytes_preserved": 11448508,
+    "new_bytes": 246296
+  },
+  "all_original_glb_materials_textures_images_equal": true,
+  "unchanged_rooms_openings_fixtures_metadata": true,
+  "new_meshes": [
+    {
+      "name": "Visual detail / oven vertical trim",
+      "host": "Kitchen west base",
+      "bbox_xyz": [
+        11.528499603271484,
+        -8.583499908447266,
+        0.23000001907348633,
+        11.533498764038086,
+        -8.574499130249023,
+        0.6299999952316284
+      ],
+      "footprint_xz": [
+        11.528499603271484,
+        8.574499130249023,
+        11.533498764038086,
+        8.583499908447266
+      ],
+      "allowed_occupied_envelope_xz": [
+        10.890999794006348,
+        7.178999900817871,
+        11.5649995803833,
+        11.470000267028809
+      ],
+      "collision": false,
+      "basis": "visual approximation, no surveyed appliance specification"
+    },
+    {
+      "name": "Visual detail / oven vertical trim.001",
+      "host": "Kitchen west base",
+      "bbox_xyz": [
+        11.528499603271484,
+        -8.023500442504883,
+        0.23000001907348633,
+        11.533498764038086,
+        -8.01449966430664,
+        0.6299999952316284
+      ],
+      "footprint_xz": [
+        11.528499603271484,
+        8.01449966430664,
+        11.533498764038086,
+        8.023500442504883
+      ],
+      "allowed_occupied_envelope_xz": [
+        10.890999794006348,
+        7.178999900817871,
+        11.5649995803833,
+        11.470000267028809
+      ],
+      "collision": false,
+      "basis": "visual approximation, no surveyed appliance specification"
+    },
+    {
+      "name": "Visual detail / oven horizontal trim",
+      "host": "Kitchen west base",
+      "bbox_xyz": [
+        11.528499603271484,
+        -8.578999519348145,
+        0.2304999977350235,
+        11.533498764038086,
+        -8.019000053405762,
+        0.2395000010728836
+      ],
+      "footprint_xz": [
+        11.528499603271484,
+        8.019000053405762,
+        11.533498764038086,
+        8.578999519348145
+      ],
+      "allowed_occupied_envelope_xz": [
+        10.890999794006348,
+        7.178999900817871,
+        11.5649995803833,
+        11.470000267028809
+      ],
+      "collision": false,
+      "basis": "visual approximation, no surveyed appliance specification"
+    },
+    {
+      "name": "Visual detail / oven horizontal trim.001",
+      "host": "Kitchen west base",
+      "bbox_xyz": [
+        11.528499603271484,
+        -8.578999519348145,
+        0.6205000281333923,
+        11.533498764038086,
+        -8.019000053405762,
+        0.6294999718666077
+      ],
+      "footprint_xz": [
+        11.528499603271484,
+        8.019000053405762,
+        11.533498764038086,
+        8.578999519348145
+      ],
+      "allowed_occupied_envelope_xz": [
+        10.890999794006348,
+        7.178999900817871,
+        11.5649995803833,
+        11.470000267028809
+      ],
+      "collision": false,
+      "basis": "visual approximation, no surveyed appliance specification"
+    },
+    {
+      "name": "Visual detail / oven control fascia",
+      "host": "Kitchen west base",
+      "bbox_xyz": [
+        11.529998779296875,
+        -8.583999633789062,
+        0.6825000047683716,
+        11.535999298095703,
+        -8.013999938964844,
+        0.8075000047683716
+      ],
+      "footprint_xz": [
+        11.529998779296875,
+        8.013999938964844,
+        11.535999298095703,
+        8.583999633789062
+      ],
+      "allowed_occupied_envelope_xz": [
+        10.890999794006348,
+        7.178999900817871,
+        11.5649995803833,
+        11.470000267028809
+      ],
+      "collision": false,
+      "basis": "visual approximation, no surveyed appliance specification"
+    },
+    {
+      "name": "Visual detail / oven display glass",
+      "host": "Kitchen west base",
+      "bbox_xyz": [
+        11.535999298095703,
+        -8.368999481201172,
+        0.7350000143051147,
+        11.539999008178711,
+        -8.229000091552734,
+        0.7749999761581421
+      ],
+      "footprint_xz": [
+        11.535999298095703,
+        8.229000091552734,
+        11.539999008178711,
+        8.368999481201172
+      ],
+      "allowed_occupied_envelope_xz": [
+        10.890999794006348,
+        7.178999900817871,
+        11.5649995803833,
+        11.470000267028809
+      ],
+      "collision": false,
+      "basis": "visual approximation, no surveyed appliance specification"
+    },
+    {
+      "name": "Visual detail / oven selector",
+      "host": "Kitchen west base",
+      "bbox_xyz": [
+        11.535999298095703,
+        -8.528999328613281,
+        0.7300000190734863,
+        11.552000045776367,
+        -8.479000091552734,
+        0.7799999713897705
+      ],
+      "footprint_xz": [
+        11.535999298095703,
+        8.479000091552734,
+        11.552000045776367,
+        8.528999328613281
+      ],
+      "allowed_occupied_envelope_xz": [
+        10.890999794006348,
+        7.178999900817871,
+        11.5649995803833,
+        11.470000267028809
+      ],
+      "collision": false,
+      "basis": "visual approximation, no surveyed appliance specification"
+    },
+    {
+      "name": "Visual detail / oven selector index",
+      "host": "Kitchen west base",
+      "bbox_xyz": [
+        11.55199909210205,
+        -8.505000114440918,
+        0.7610000371932983,
+        11.553999900817871,
+        -8.502999305725098,
+        0.7730000019073486
+      ],
+      "footprint_xz": [
+        11.55199909210205,
+        8.502999305725098,
+        11.553999900817871,
+        8.505000114440918
+      ],
+      "allowed_occupied_envelope_xz": [
+        10.890999794006348,
+        7.178999900817871,
+        11.5649995803833,
+        11.470000267028809
+      ],
+      "collision": false,
+      "basis": "visual approximation, no surveyed appliance specification"
+    },
+    {
+      "name": "Visual detail / oven selector.001",
+      "host": "Kitchen west base",
+      "bbox_xyz": [
+        11.535999298095703,
+        -8.118999481201172,
+        0.7300000190734863,
+        11.552000045776367,
+        -8.069000244140625,
+        0.7799999713897705
+      ],
+      "footprint_xz": [
+        11.535999298095703,
+        8.069000244140625,
+        11.552000045776367,
+        8.118999481201172
+      ],
+      "allowed_occupied_envelope_xz": [
+        10.890999794006348,
+        7.178999900817871,
+        11.5649995803833,
+        11.470000267028809
+      ],
+      "collision": false,
+      "basis": "visual approximation, no surveyed appliance specification"
+    },
+    {
+      "name": "Visual detail / oven selector index.001",
+      "host": "Kitchen west base",
+      "bbox_xyz": [
+        11.55199909210205,
+        -8.095000267028809,
+        0.7610000371932983,
+        11.553999900817871,
+        -8.092999458312988,
+        0.7730000019073486
+      ],
+      "footprint_xz": [
+        11.55199909210205,
+        8.092999458312988,
+        11.553999900817871,
+        8.095000267028809
+      ],
+      "allowed_occupied_envelope_xz": [
+        10.890999794006348,
+        7.178999900817871,
+        11.5649995803833,
+        11.470000267028809
+      ],
+      "collision": false,
+      "basis": "visual approximation, no surveyed appliance specification"
+    },
+    {
+      "name": "Visual detail / oven display indicator",
+      "host": "Kitchen west base",
+      "bbox_xyz": [
+        11.539999008178711,
+        -8.33549976348877,
+        0.7490000128746033,
+        11.541999816894531,
+        -8.332499504089355,
+        0.7609999775886536
+      ],
+      "footprint_xz": [
+        11.539999008178711,
+        8.332499504089355,
+        11.541999816894531,
+        8.33549976348877
+      ],
+      "allowed_occupied_envelope_xz": [
+        10.890999794006348,
+        7.178999900817871,
+        11.5649995803833,
+        11.470000267028809
+      ],
+      "collision": false,
+      "basis": "visual approximation, no surveyed appliance specification"
+    },
+    {
+      "name": "Visual detail / oven display indicator.001",
+      "host": "Kitchen west base",
+      "bbox_xyz": [
+        11.539999008178711,
+        -8.3125,
+        0.7490000128746033,
+        11.541999816894531,
+        -8.309499740600586,
+        0.7609999775886536
+      ],
+      "footprint_xz": [
+        11.539999008178711,
+        8.309499740600586,
+        11.541999816894531,
+        8.3125
+      ],
+      "allowed_occupied_envelope_xz": [
+        10.890999794006348,
+        7.178999900817871,
+        11.5649995803833,
+        11.470000267028809
+      ],
+      "collision": false,
+      "basis": "visual approximation, no surveyed appliance specification"
+    },
+    {
+      "name": "Visual detail / oven display indicator.002",
+      "host": "Kitchen west base",
+      "bbox_xyz": [
+        11.539999008178711,
+        -8.28849983215332,
+        0.7490000128746033,
+        11.541999816894531,
+        -8.285499572753906,
+        0.7609999775886536
+      ],
+      "footprint_xz": [
+        11.539999008178711,
+        8.285499572753906,
+        11.541999816894531,
+        8.28849983215332
+      ],
+      "allowed_occupied_envelope_xz": [
+        10.890999794006348,
+        7.178999900817871,
+        11.5649995803833,
+        11.470000267028809
+      ],
+      "collision": false,
+      "basis": "visual approximation, no surveyed appliance specification"
+    },
+    {
+      "name": "Visual detail / oven display indicator.003",
+      "host": "Kitchen west base",
+      "bbox_xyz": [
+        11.539999008178711,
+        -8.26550006866455,
+        0.7490000128746033,
+        11.541999816894531,
+        -8.262499809265137,
+        0.7609999775886536
+      ],
+      "footprint_xz": [
+        11.539999008178711,
+        8.262499809265137,
+        11.541999816894531,
+        8.26550006866455
+      ],
+      "allowed_occupied_envelope_xz": [
+        10.890999794006348,
+        7.178999900817871,
+        11.5649995803833,
+        11.470000267028809
+      ],
+      "collision": false,
+      "basis": "visual approximation, no surveyed appliance specification"
+    },
+    {
+      "name": "Visual detail / oven lower vent",
+      "host": "Kitchen west base",
+      "bbox_xyz": [
+        11.529499053955078,
+        -8.51550006866455,
+        0.18649999797344208,
+        11.532499313354492,
+        -8.487500190734863,
+        0.18949998915195465
+      ],
+      "footprint_xz": [
+        11.529499053955078,
+        8.487500190734863,
+        11.532499313354492,
+        8.51550006866455
+      ],
+      "allowed_occupied_envelope_xz": [
+        10.890999794006348,
+        7.178999900817871,
+        11.5649995803833,
+        11.470000267028809
+      ],
+      "collision": false,
+      "basis": "visual approximation, no surveyed appliance specification"
+    },
+    {
+      "name": "Visual detail / oven lower vent.001",
+      "host": "Kitchen west base",
+      "bbox_xyz": [
+        11.529499053955078,
+        -8.470499992370605,
+        0.18649999797344208,
+        11.532499313354492,
+        -8.442500114440918,
+        0.18949998915195465
+      ],
+      "footprint_xz": [
+        11.529499053955078,
+        8.442500114440918,
+        11.532499313354492,
+        8.470499992370605
+      ],
+      "allowed_occupied_envelope_xz": [
+        10.890999794006348,
+        7.178999900817871,
+        11.5649995803833,
+        11.470000267028809
+      ],
+      "collision": false,
+      "basis": "visual approximation, no surveyed appliance specification"
+    },
+    {
+      "name": "Visual detail / oven lower vent.002",
+      "host": "Kitchen west base",
+      "bbox_xyz": [
+        11.529499053955078,
+        -8.42549991607666,
+        0.18649999797344208,
+        11.532499313354492,
+        -8.397500038146973,
+        0.18949998915195465
+      ],
+      "footprint_xz": [
+        11.529499053955078,
+        8.397500038146973,
+        11.532499313354492,
+        8.42549991607666
+      ],
+      "allowed_occupied_envelope_xz": [
+        10.890999794006348,
+        7.178999900817871,
+        11.5649995803833,
+        11.470000267028809
+      ],
+      "collision": false,
+      "basis": "visual approximation, no surveyed appliance specification"
+    },
+    {
+      "name": "Visual detail / oven lower vent.003",
+      "host": "Kitchen west base",
+      "bbox_xyz": [
+        11.529499053955078,
+        -8.380499839782715,
+        0.18649999797344208,
+        11.532499313354492,
+        -8.352499961853027,
+        0.18949998915195465
+      ],
+      "footprint_xz": [
+        11.529499053955078,
+        8.352499961853027,
+        11.532499313354492,
+        8.380499839782715
+      ],
+      "allowed_occupied_envelope_xz": [
+        10.890999794006348,
+        7.178999900817871,
+        11.5649995803833,
+        11.470000267028809
+      ],
+      "collision": false,
+      "basis": "visual approximation, no surveyed appliance specification"
+    },
+    {
+      "name": "Visual detail / oven lower vent.004",
+      "host": "Kitchen west base",
+      "bbox_xyz": [
+        11.529499053955078,
+        -8.33549976348877,
+        0.18649999797344208,
+        11.532499313354492,
+        -8.307499885559082,
+        0.18949998915195465
+      ],
+      "footprint_xz": [
+        11.529499053955078,
+        8.307499885559082,
+        11.532499313354492,
+        8.33549976348877
+      ],
+      "allowed_occupied_envelope_xz": [
+        10.890999794006348,
+        7.178999900817871,
+        11.5649995803833,
+        11.470000267028809
+      ],
+      "collision": false,
+      "basis": "visual approximation, no surveyed appliance specification"
+    },
+    {
+      "name": "Visual detail / oven lower vent.005",
+      "host": "Kitchen west base",
+      "bbox_xyz": [
+        11.529499053955078,
+        -8.290499687194824,
+        0.18649999797344208,
+        11.532499313354492,
+        -8.262499809265137,
+        0.18949998915195465
+      ],
+      "footprint_xz": [
+        11.529499053955078,
+        8.262499809265137,
+        11.532499313354492,
+        8.290499687194824
+      ],
+      "allowed_occupied_envelope_xz": [
+        10.890999794006348,
+        7.178999900817871,
+        11.5649995803833,
+        11.470000267028809
+      ],
+      "collision": false,
+      "basis": "visual approximation, no surveyed appliance specification"
+    },
+    {
+      "name": "Visual detail / oven lower vent.006",
+      "host": "Kitchen west base",
+      "bbox_xyz": [
+        11.529499053955078,
+        -8.245499610900879,
+        0.18649999797344208,
+        11.532499313354492,
+        -8.217499732971191,
+        0.18949998915195465
+      ],
+      "footprint_xz": [
+        11.529499053955078,
+        8.217499732971191,
+        11.532499313354492,
+        8.245499610900879
+      ],
+      "allowed_occupied_envelope_xz": [
+        10.890999794006348,
+        7.178999900817871,
+        11.5649995803833,
+        11.470000267028809
+      ],
+      "collision": false,
+      "basis": "visual approximation, no surveyed appliance specification"
+    },
+    {
+      "name": "Visual detail / oven lower vent.007",
+      "host": "Kitchen west base",
+      "bbox_xyz": [
+        11.529499053955078,
+        -8.200499534606934,
+        0.18649999797344208,
+        11.532499313354492,
+        -8.172499656677246,
+        0.18949998915195465
+      ],
+      "footprint_xz": [
+        11.529499053955078,
+        8.172499656677246,
+        11.532499313354492,
+        8.200499534606934
+      ],
+      "allowed_occupied_envelope_xz": [
+        10.890999794006348,
+        7.178999900817871,
+        11.5649995803833,
+        11.470000267028809
+      ],
+      "collision": false,
+      "basis": "visual approximation, no surveyed appliance specification"
+    },
+    {
+      "name": "Visual detail / oven lower vent.008",
+      "host": "Kitchen west base",
+      "bbox_xyz": [
+        11.529499053955078,
+        -8.155499458312988,
+        0.18649999797344208,
+        11.532499313354492,
+        -8.1274995803833,
+        0.18949998915195465
+      ],
+      "footprint_xz": [
+        11.529499053955078,
+        8.1274995803833,
+        11.532499313354492,
+        8.155499458312988
+      ],
+      "allowed_occupied_envelope_xz": [
+        10.890999794006348,
+        7.178999900817871,
+        11.5649995803833,
+        11.470000267028809
+      ],
+      "collision": false,
+      "basis": "visual approximation, no surveyed appliance specification"
+    },
+    {
+      "name": "Visual detail / oven lower vent.009",
+      "host": "Kitchen west base",
+      "bbox_xyz": [
+        11.529499053955078,
+        -8.110499382019043,
+        0.18649999797344208,
+        11.532499313354492,
+        -8.082499504089355,
+        0.18949998915195465
+      ],
+      "footprint_xz": [
+        11.529499053955078,
+        8.082499504089355,
+        11.532499313354492,
+        8.110499382019043
+      ],
+      "allowed_occupied_envelope_xz": [
+        10.890999794006348,
+        7.178999900817871,
+        11.5649995803833,
+        11.470000267028809
+      ],
+      "collision": false,
+      "basis": "visual approximation, no surveyed appliance specification"
+    },
+    {
+      "name": "Visual detail / hood filter recess",
+      "host": "Kitchen west base",
+      "bbox_xyz": [
+        10.960999488830566,
+        -8.618999481201172,
+        1.5460000038146973,
+        11.421000480651855,
+        -7.979000091552734,
+        1.5499999523162842
+      ],
+      "footprint_xz": [
+        10.960999488830566,
+        7.979000091552734,
+        11.421000480651855,
+        8.618999481201172
+      ],
+      "allowed_occupied_envelope_xz": [
+        10.890999794006348,
+        7.178999900817871,
+        11.5649995803833,
+        11.470000267028809
+      ],
+      "collision": false,
+      "basis": "visual approximation, no surveyed appliance specification"
+    },
+    {
+      "name": "Visual detail / hood filter rail",
+      "host": "Kitchen west base",
+      "bbox_xyz": [
+        10.974499702453613,
+        -8.598999977111816,
+        1.5434999465942383,
+        10.977499961853027,
+        -7.999000072479248,
+        1.5464999675750732
+      ],
+      "footprint_xz": [
+        10.974499702453613,
+        7.999000072479248,
+        10.977499961853027,
+        8.598999977111816
+      ],
+      "allowed_occupied_envelope_xz": [
+        10.890999794006348,
+        7.178999900817871,
+        11.5649995803833,
+        11.470000267028809
+      ],
+      "collision": false,
+      "basis": "visual approximation, no surveyed appliance specification"
+    },
+    {
+      "name": "Visual detail / hood filter rail.001",
+      "host": "Kitchen west base",
+      "bbox_xyz": [
+        11.007575988769531,
+        -8.598999977111816,
+        1.5434999465942383,
+        11.010576248168945,
+        -7.999000072479248,
+        1.5464999675750732
+      ],
+      "footprint_xz": [
+        11.007575988769531,
+        7.999000072479248,
+        11.010576248168945,
+        8.598999977111816
+      ],
+      "allowed_occupied_envelope_xz": [
+        10.890999794006348,
+        7.178999900817871,
+        11.5649995803833,
+        11.470000267028809
+      ],
+      "collision": false,
+      "basis": "visual approximation, no surveyed appliance specification"
+    },
+    {
+      "name": "Visual detail / hood filter rail.002",
+      "host": "Kitchen west base",
+      "bbox_xyz": [
+        11.040653228759766,
+        -8.598999977111816,
+        1.5434999465942383,
+        11.04365348815918,
+        -7.999000072479248,
+        1.5464999675750732
+      ],
+      "footprint_xz": [
+        11.040653228759766,
+        7.999000072479248,
+        11.04365348815918,
+        8.598999977111816
+      ],
+      "allowed_occupied_envelope_xz": [
+        10.890999794006348,
+        7.178999900817871,
+        11.5649995803833,
+        11.470000267028809
+      ],
+      "collision": false,
+      "basis": "visual approximation, no surveyed appliance specification"
+    },
+    {
+      "name": "Visual detail / hood filter rail.003",
+      "host": "Kitchen west base",
+      "bbox_xyz": [
+        11.07373046875,
+        -8.598999977111816,
+        1.5434999465942383,
+        11.076730728149414,
+        -7.999000072479248,
+        1.5464999675750732
+      ],
+      "footprint_xz": [
+        11.07373046875,
+        7.999000072479248,
+        11.076730728149414,
+        8.598999977111816
+      ],
+      "allowed_occupied_envelope_xz": [
+        10.890999794006348,
+        7.178999900817871,
+        11.5649995803833,
+        11.470000267028809
+      ],
+      "collision": false,
+      "basis": "visual approximation, no surveyed appliance specification"
+    },
+    {
+      "name": "Visual detail / hood filter rail.004",
+      "host": "Kitchen west base",
+      "bbox_xyz": [
+        11.106807708740234,
+        -8.598999977111816,
+        1.5434999465942383,
+        11.109807968139648,
+        -7.999000072479248,
+        1.5464999675750732
+      ],
+      "footprint_xz": [
+        11.106807708740234,
+        7.999000072479248,
+        11.109807968139648,
+        8.598999977111816
+      ],
+      "allowed_occupied_envelope_xz": [
+        10.890999794006348,
+        7.178999900817871,
+        11.5649995803833,
+        11.470000267028809
+      ],
+      "collision": false,
+      "basis": "visual approximation, no surveyed appliance specification"
+    },
+    {
+      "name": "Visual detail / hood filter rail.005",
+      "host": "Kitchen west base",
+      "bbox_xyz": [
+        11.139883995056152,
+        -8.598999977111816,
+        1.5434999465942383,
+        11.142884254455566,
+        -7.999000072479248,
+        1.5464999675750732
+      ],
+      "footprint_xz": [
+        11.139883995056152,
+        7.999000072479248,
+        11.142884254455566,
+        8.598999977111816
+      ],
+      "allowed_occupied_envelope_xz": [
+        10.890999794006348,
+        7.178999900817871,
+        11.5649995803833,
+        11.470000267028809
+      ],
+      "collision": false,
+      "basis": "visual approximation, no surveyed appliance specification"
+    },
+    {
+      "name": "Visual detail / hood filter rail.006",
+      "host": "Kitchen west base",
+      "bbox_xyz": [
+        11.172961235046387,
+        -8.598999977111816,
+        1.5434999465942383,
+        11.1759614944458,
+        -7.999000072479248,
+        1.5464999675750732
+      ],
+      "footprint_xz": [
+        11.172961235046387,
+        7.999000072479248,
+        11.1759614944458,
+        8.598999977111816
+      ],
+      "allowed_occupied_envelope_xz": [
+        10.890999794006348,
+        7.178999900817871,
+        11.5649995803833,
+        11.470000267028809
+      ],
+      "collision": false,
+      "basis": "visual approximation, no surveyed appliance specification"
+    },
+    {
+      "name": "Visual detail / hood filter rail.007",
+      "host": "Kitchen west base",
+      "bbox_xyz": [
+        11.206038475036621,
+        -8.598999977111816,
+        1.5434999465942383,
+        11.209038734436035,
+        -7.999000072479248,
+        1.5464999675750732
+      ],
+      "footprint_xz": [
+        11.206038475036621,
+        7.999000072479248,
+        11.209038734436035,
+        8.598999977111816
+      ],
+      "allowed_occupied_envelope_xz": [
+        10.890999794006348,
+        7.178999900817871,
+        11.5649995803833,
+        11.470000267028809
+      ],
+      "collision": false,
+      "basis": "visual approximation, no surveyed appliance specification"
+    },
+    {
+      "name": "Visual detail / hood filter rail.008",
+      "host": "Kitchen west base",
+      "bbox_xyz": [
+        11.239115715026855,
+        -8.598999977111816,
+        1.5434999465942383,
+        11.24211597442627,
+        -7.999000072479248,
+        1.5464999675750732
+      ],
+      "footprint_xz": [
+        11.239115715026855,
+        7.999000072479248,
+        11.24211597442627,
+        8.598999977111816
+      ],
+      "allowed_occupied_envelope_xz": [
+        10.890999794006348,
+        7.178999900817871,
+        11.5649995803833,
+        11.470000267028809
+      ],
+      "collision": false,
+      "basis": "visual approximation, no surveyed appliance specification"
+    },
+    {
+      "name": "Visual detail / hood filter rail.009",
+      "host": "Kitchen west base",
+      "bbox_xyz": [
+        11.272192001342773,
+        -8.598999977111816,
+        1.5434999465942383,
+        11.275192260742188,
+        -7.999000072479248,
+        1.5464999675750732
+      ],
+      "footprint_xz": [
+        11.272192001342773,
+        7.999000072479248,
+        11.275192260742188,
+        8.598999977111816
+      ],
+      "allowed_occupied_envelope_xz": [
+        10.890999794006348,
+        7.178999900817871,
+        11.5649995803833,
+        11.470000267028809
+      ],
+      "collision": false,
+      "basis": "visual approximation, no surveyed appliance specification"
+    },
+    {
+      "name": "Visual detail / hood filter rail.010",
+      "host": "Kitchen west base",
+      "bbox_xyz": [
+        11.305269241333008,
+        -8.598999977111816,
+        1.5434999465942383,
+        11.308269500732422,
+        -7.999000072479248,
+        1.5464999675750732
+      ],
+      "footprint_xz": [
+        11.305269241333008,
+        7.999000072479248,
+        11.308269500732422,
+        8.598999977111816
+      ],
+      "allowed_occupied_envelope_xz": [
+        10.890999794006348,
+        7.178999900817871,
+        11.5649995803833,
+        11.470000267028809
+      ],
+      "collision": false,
+      "basis": "visual approximation, no surveyed appliance specification"
+    },
+    {
+      "name": "Visual detail / hood filter rail.011",
+      "host": "Kitchen west base",
+      "bbox_xyz": [
+        11.338346481323242,
+        -8.598999977111816,
+        1.5434999465942383,
+        11.341346740722656,
+        -7.999000072479248,
+        1.5464999675750732
+      ],
+      "footprint_xz": [
+        11.338346481323242,
+        7.999000072479248,
+        11.341346740722656,
+        8.598999977111816
+      ],
+      "allowed_occupied_envelope_xz": [
+        10.890999794006348,
+        7.178999900817871,
+        11.5649995803833,
+        11.470000267028809
+      ],
+      "collision": false,
+      "basis": "visual approximation, no surveyed appliance specification"
+    },
+    {
+      "name": "Visual detail / hood filter rail.012",
+      "host": "Kitchen west base",
+      "bbox_xyz": [
+        11.371423721313477,
+        -8.598999977111816,
+        1.5434999465942383,
+        11.37442398071289,
+        -7.999000072479248,
+        1.5464999675750732
+      ],
+      "footprint_xz": [
+        11.371423721313477,
+        7.999000072479248,
+        11.37442398071289,
+        8.598999977111816
+      ],
+      "allowed_occupied_envelope_xz": [
+        10.890999794006348,
+        7.178999900817871,
+        11.5649995803833,
+        11.470000267028809
+      ],
+      "collision": false,
+      "basis": "visual approximation, no surveyed appliance specification"
+    },
+    {
+      "name": "Visual detail / hood filter rail.013",
+      "host": "Kitchen west base",
+      "bbox_xyz": [
+        11.404500007629395,
+        -8.598999977111816,
+        1.5434999465942383,
+        11.407500267028809,
+        -7.999000072479248,
+        1.5464999675750732
+      ],
+      "footprint_xz": [
+        11.404500007629395,
+        7.999000072479248,
+        11.407500267028809,
+        8.598999977111816
+      ],
+      "allowed_occupied_envelope_xz": [
+        10.890999794006348,
+        7.178999900817871,
+        11.5649995803833,
+        11.470000267028809
+      ],
+      "collision": false,
+      "basis": "visual approximation, no surveyed appliance specification"
+    },
+    {
+      "name": "Visual detail / hood diffuser",
+      "host": "Kitchen west base",
+      "bbox_xyz": [
+        11.310999870300293,
+        -8.643499374389648,
+        1.5449999570846558,
+        11.41100025177002,
+        -8.624500274658203,
+        1.5489999055862427
+      ],
+      "footprint_xz": [
+        11.310999870300293,
+        8.624500274658203,
+        11.41100025177002,
+        8.643499374389648
+      ],
+      "allowed_occupied_envelope_xz": [
+        10.890999794006348,
+        7.178999900817871,
+        11.5649995803833,
+        11.470000267028809
+      ],
+      "collision": false,
+      "basis": "visual approximation, no surveyed appliance specification"
+    },
+    {
+      "name": "Visual detail / hood diffuser.001",
+      "host": "Kitchen west base",
+      "bbox_xyz": [
+        11.310999870300293,
+        -7.973499774932861,
+        1.5449999570846558,
+        11.41100025177002,
+        -7.9544997215271,
+        1.5489999055862427
+      ],
+      "footprint_xz": [
+        11.310999870300293,
+        7.9544997215271,
+        11.41100025177002,
+        7.973499774932861
+      ],
+      "allowed_occupied_envelope_xz": [
+        10.890999794006348,
+        7.178999900817871,
+        11.5649995803833,
+        11.470000267028809
+      ],
+      "collision": false,
+      "basis": "visual approximation, no surveyed appliance specification"
+    },
+    {
+      "name": "Visual detail / hood fascia inset",
+      "host": "Kitchen west base",
+      "bbox_xyz": [
+        11.461000442504883,
+        -8.46399974822998,
+        1.5649999380111694,
+        11.46500015258789,
+        -8.133999824523926,
+        1.600000023841858
+      ],
+      "footprint_xz": [
+        11.461000442504883,
+        8.133999824523926,
+        11.46500015258789,
+        8.46399974822998
+      ],
+      "allowed_occupied_envelope_xz": [
+        10.890999794006348,
+        7.178999900817871,
+        11.5649995803833,
+        11.470000267028809
+      ],
+      "collision": false,
+      "basis": "visual approximation, no surveyed appliance specification"
+    },
+    {
+      "name": "Visual detail / hood push button",
+      "host": "Kitchen west base",
+      "bbox_xyz": [
+        11.46500015258789,
+        -8.411999702453613,
+        1.5735000371932983,
+        11.468999862670898,
+        -8.394000053405762,
+        1.591499924659729
+      ],
+      "footprint_xz": [
+        11.46500015258789,
+        8.394000053405762,
+        11.468999862670898,
+        8.411999702453613
+      ],
+      "allowed_occupied_envelope_xz": [
+        10.890999794006348,
+        7.178999900817871,
+        11.5649995803833,
+        11.470000267028809
+      ],
+      "collision": false,
+      "basis": "visual approximation, no surveyed appliance specification"
+    },
+    {
+      "name": "Visual detail / hood push button.001",
+      "host": "Kitchen west base",
+      "bbox_xyz": [
+        11.46500015258789,
+        -8.359999656677246,
+        1.5735000371932983,
+        11.468999862670898,
+        -8.342000007629395,
+        1.591499924659729
+      ],
+      "footprint_xz": [
+        11.46500015258789,
+        8.342000007629395,
+        11.468999862670898,
+        8.359999656677246
+      ],
+      "allowed_occupied_envelope_xz": [
+        10.890999794006348,
+        7.178999900817871,
+        11.5649995803833,
+        11.470000267028809
+      ],
+      "collision": false,
+      "basis": "visual approximation, no surveyed appliance specification"
+    },
+    {
+      "name": "Visual detail / hood push button.002",
+      "host": "Kitchen west base",
+      "bbox_xyz": [
+        11.46500015258789,
+        -8.307999610900879,
+        1.5735000371932983,
+        11.468999862670898,
+        -8.289999961853027,
+        1.591499924659729
+      ],
+      "footprint_xz": [
+        11.46500015258789,
+        8.289999961853027,
+        11.468999862670898,
+        8.307999610900879
+      ],
+      "allowed_occupied_envelope_xz": [
+        10.890999794006348,
+        7.178999900817871,
+        11.5649995803833,
+        11.470000267028809
+      ],
+      "collision": false,
+      "basis": "visual approximation, no surveyed appliance specification"
+    },
+    {
+      "name": "Visual detail / hood push button.003",
+      "host": "Kitchen west base",
+      "bbox_xyz": [
+        11.46500015258789,
+        -8.255999565124512,
+        1.5735000371932983,
+        11.468999862670898,
+        -8.23799991607666,
+        1.591499924659729
+      ],
+      "footprint_xz": [
+        11.46500015258789,
+        8.23799991607666,
+        11.468999862670898,
+        8.255999565124512
+      ],
+      "allowed_occupied_envelope_xz": [
+        10.890999794006348,
+        7.178999900817871,
+        11.5649995803833,
+        11.470000267028809
+      ],
+      "collision": false,
+      "basis": "visual approximation, no surveyed appliance specification"
+    },
+    {
+      "name": "Visual detail / hood push button.004",
+      "host": "Kitchen west base",
+      "bbox_xyz": [
+        11.46500015258789,
+        -8.203999519348145,
+        1.5735000371932983,
+        11.468999862670898,
+        -8.185999870300293,
+        1.591499924659729
+      ],
+      "footprint_xz": [
+        11.46500015258789,
+        8.185999870300293,
+        11.468999862670898,
+        8.203999519348145
+      ],
+      "allowed_occupied_envelope_xz": [
+        10.890999794006348,
+        7.178999900817871,
+        11.5649995803833,
+        11.470000267028809
+      ],
+      "collision": false,
+      "basis": "visual approximation, no surveyed appliance specification"
+    },
+    {
+      "name": "Visual detail / window-23 pane seal",
+      "host": "window-23",
+      "bbox_xyz": [
+        11.71150016784668,
+        -12.222500801086426,
+        0.8499999642372131,
+        11.715499877929688,
+        -12.219500541687012,
+        2.1500000953674316
+      ],
+      "footprint_xz": [
+        11.71150016784668,
+        12.219500541687012,
+        11.715499877929688,
+        12.222500801086426
+      ],
+      "allowed_occupied_envelope_xz": [
+        11.661499977111816,
+        12.211000442504883,
+        12.892499923706055,
+        12.291000366210938
+      ],
+      "collision": false,
+      "basis": "visual approximation, no surveyed appliance specification"
+    },
+    {
+      "name": "Visual detail / window-23 pane seal.001",
+      "host": "window-23",
+      "bbox_xyz": [
+        12.273000717163086,
+        -12.222500801086426,
+        0.8499999642372131,
+        12.277000427246094,
+        -12.219500541687012,
+        2.1500000953674316
+      ],
+      "footprint_xz": [
+        12.273000717163086,
+        12.219500541687012,
+        12.277000427246094,
+        12.222500801086426
+      ],
+      "allowed_occupied_envelope_xz": [
+        11.661499977111816,
+        12.211000442504883,
+        12.892499923706055,
+        12.291000366210938
+      ],
+      "collision": false,
+      "basis": "visual approximation, no surveyed appliance specification"
+    },
+    {
+      "name": "Visual detail / window-23 pane seal.002",
+      "host": "window-23",
+      "bbox_xyz": [
+        11.713500022888184,
+        -12.222500801086426,
+        0.8500000238418579,
+        12.27500057220459,
+        -12.219500541687012,
+        0.8539999723434448
+      ],
+      "footprint_xz": [
+        11.713500022888184,
+        12.219500541687012,
+        12.27500057220459,
+        12.222500801086426
+      ],
+      "allowed_occupied_envelope_xz": [
+        11.661499977111816,
+        12.211000442504883,
+        12.892499923706055,
+        12.291000366210938
+      ],
+      "collision": false,
+      "basis": "visual approximation, no surveyed appliance specification"
+    },
+    {
+      "name": "Visual detail / window-23 pane seal.003",
+      "host": "window-23",
+      "bbox_xyz": [
+        11.713500022888184,
+        -12.222500801086426,
+        2.1459999084472656,
+        12.27500057220459,
+        -12.219500541687012,
+        2.1500000953674316
+      ],
+      "footprint_xz": [
+        11.713500022888184,
+        12.219500541687012,
+        12.27500057220459,
+        12.222500801086426
+      ],
+      "allowed_occupied_envelope_xz": [
+        11.661499977111816,
+        12.211000442504883,
+        12.892499923706055,
+        12.291000366210938
+      ],
+      "collision": false,
+      "basis": "visual approximation, no surveyed appliance specification"
+    },
+    {
+      "name": "Visual detail / window-23 pane seal.004",
+      "host": "window-23",
+      "bbox_xyz": [
+        12.277000427246094,
+        -12.258500099182129,
+        0.8499999642372131,
+        12.281000137329102,
+        -12.255499839782715,
+        2.1500000953674316
+      ],
+      "footprint_xz": [
+        12.277000427246094,
+        12.255499839782715,
+        12.281000137329102,
+        12.258500099182129
+      ],
+      "allowed_occupied_envelope_xz": [
+        11.661499977111816,
+        12.211000442504883,
+        12.892499923706055,
+        12.291000366210938
+      ],
+      "collision": false,
+      "basis": "visual approximation, no surveyed appliance specification"
+    },
+    {
+      "name": "Visual detail / window-23 pane seal.005",
+      "host": "window-23",
+      "bbox_xyz": [
+        12.838500022888184,
+        -12.258500099182129,
+        0.8499999642372131,
+        12.842499732971191,
+        -12.255499839782715,
+        2.1500000953674316
+      ],
+      "footprint_xz": [
+        12.838500022888184,
+        12.255499839782715,
+        12.842499732971191,
+        12.258500099182129
+      ],
+      "allowed_occupied_envelope_xz": [
+        11.661499977111816,
+        12.211000442504883,
+        12.892499923706055,
+        12.291000366210938
+      ],
+      "collision": false,
+      "basis": "visual approximation, no surveyed appliance specification"
+    },
+    {
+      "name": "Visual detail / window-23 pane seal.006",
+      "host": "window-23",
+      "bbox_xyz": [
+        12.279000282287598,
+        -12.258500099182129,
+        0.8500000238418579,
+        12.840498924255371,
+        -12.255499839782715,
+        0.8539999723434448
+      ],
+      "footprint_xz": [
+        12.279000282287598,
+        12.255499839782715,
+        12.840498924255371,
+        12.258500099182129
+      ],
+      "allowed_occupied_envelope_xz": [
+        11.661499977111816,
+        12.211000442504883,
+        12.892499923706055,
+        12.291000366210938
+      ],
+      "collision": false,
+      "basis": "visual approximation, no surveyed appliance specification"
+    },
+    {
+      "name": "Visual detail / window-23 pane seal.007",
+      "host": "window-23",
+      "bbox_xyz": [
+        12.279000282287598,
+        -12.258500099182129,
+        2.1459999084472656,
+        12.840498924255371,
+        -12.255499839782715,
+        2.1500000953674316
+      ],
+      "footprint_xz": [
+        12.279000282287598,
+        12.255499839782715,
+        12.840498924255371,
+        12.258500099182129
+      ],
+      "allowed_occupied_envelope_xz": [
+        11.661499977111816,
+        12.211000442504883,
+        12.892499923706055,
+        12.291000366210938
+      ],
+      "collision": false,
+      "basis": "visual approximation, no surveyed appliance specification"
+    },
+    {
+      "name": "Visual detail / window-23 grip mount",
+      "host": "window-23",
+      "bbox_xyz": [
+        12.243000030517578,
+        -12.219999313354492,
+        1.2929999828338623,
+        12.26099967956543,
+        -12.211999893188477,
+        1.306999921798706
+      ],
+      "footprint_xz": [
+        12.243000030517578,
+        12.211999893188477,
+        12.26099967956543,
+        12.219999313354492
+      ],
+      "allowed_occupied_envelope_xz": [
+        11.661499977111816,
+        12.211000442504883,
+        12.892499923706055,
+        12.291000366210938
+      ],
+      "collision": false,
+      "basis": "visual approximation, no surveyed appliance specification"
+    },
+    {
+      "name": "Visual detail / window-23 grip mount.001",
+      "host": "window-23",
+      "bbox_xyz": [
+        12.243000030517578,
+        -12.219999313354492,
+        1.4129999876022339,
+        12.26099967956543,
+        -12.211999893188477,
+        1.4269999265670776
+      ],
+      "footprint_xz": [
+        12.243000030517578,
+        12.211999893188477,
+        12.26099967956543,
+        12.219999313354492
+      ],
+      "allowed_occupied_envelope_xz": [
+        11.661499977111816,
+        12.211000442504883,
+        12.892499923706055,
+        12.291000366210938
+      ],
+      "collision": false,
+      "basis": "visual approximation, no surveyed appliance specification"
+    },
+    {
+      "name": "Visual detail / window-23 inset grip",
+      "host": "window-23",
+      "bbox_xyz": [
+        12.246000289916992,
+        -12.21500015258789,
+        1.3000000715255737,
+        12.257999420166016,
+        -12.211000442504883,
+        1.4199999570846558
+      ],
+      "footprint_xz": [
+        12.246000289916992,
+        12.211000442504883,
+        12.257999420166016,
+        12.21500015258789
+      ],
+      "allowed_occupied_envelope_xz": [
+        11.661499977111816,
+        12.211000442504883,
+        12.892499923706055,
+        12.291000366210938
+      ],
+      "collision": false,
+      "basis": "visual approximation, no surveyed appliance specification"
+    },
+    {
+      "name": "Visual detail / window-15 pane seal",
+      "host": "window-15",
+      "bbox_xyz": [
+        13.42300033569336,
+        -12.222500801086426,
+        0.8499999642372131,
+        13.427000045776367,
+        -12.219500541687012,
+        2.1500000953674316
+      ],
+      "footprint_xz": [
+        13.42300033569336,
+        12.219500541687012,
+        13.427000045776367,
+        12.222500801086426
+      ],
+      "allowed_occupied_envelope_xz": [
+        13.373000144958496,
+        12.211000442504883,
+        14.237000465393066,
+        12.291000366210938
+      ],
+      "collision": false,
+      "basis": "visual approximation, no surveyed appliance specification"
+    },
+    {
+      "name": "Visual detail / window-15 pane seal.001",
+      "host": "window-15",
+      "bbox_xyz": [
+        13.801000595092773,
+        -12.222500801086426,
+        0.8499999642372131,
+        13.805000305175781,
+        -12.219500541687012,
+        2.1500000953674316
+      ],
+      "footprint_xz": [
+        13.801000595092773,
+        12.219500541687012,
+        13.805000305175781,
+        12.222500801086426
+      ],
+      "allowed_occupied_envelope_xz": [
+        13.373000144958496,
+        12.211000442504883,
+        14.237000465393066,
+        12.291000366210938
+      ],
+      "collision": false,
+      "basis": "visual approximation, no surveyed appliance specification"
+    },
+    {
+      "name": "Visual detail / window-15 pane seal.002",
+      "host": "window-15",
+      "bbox_xyz": [
+        13.425000190734863,
+        -12.222500801086426,
+        0.8500000238418579,
+        13.803000450134277,
+        -12.219500541687012,
+        0.8539999723434448
+      ],
+      "footprint_xz": [
+        13.425000190734863,
+        12.219500541687012,
+        13.803000450134277,
+        12.222500801086426
+      ],
+      "allowed_occupied_envelope_xz": [
+        13.373000144958496,
+        12.211000442504883,
+        14.237000465393066,
+        12.291000366210938
+      ],
+      "collision": false,
+      "basis": "visual approximation, no surveyed appliance specification"
+    },
+    {
+      "name": "Visual detail / window-15 pane seal.003",
+      "host": "window-15",
+      "bbox_xyz": [
+        13.425000190734863,
+        -12.222500801086426,
+        2.1459999084472656,
+        13.803000450134277,
+        -12.219500541687012,
+        2.1500000953674316
+      ],
+      "footprint_xz": [
+        13.425000190734863,
+        12.219500541687012,
+        13.803000450134277,
+        12.222500801086426
+      ],
+      "allowed_occupied_envelope_xz": [
+        13.373000144958496,
+        12.211000442504883,
+        14.237000465393066,
+        12.291000366210938
+      ],
+      "collision": false,
+      "basis": "visual approximation, no surveyed appliance specification"
+    },
+    {
+      "name": "Visual detail / window-15 pane seal.004",
+      "host": "window-15",
+      "bbox_xyz": [
+        13.805000305175781,
+        -12.258500099182129,
+        0.8499999642372131,
+        13.809000015258789,
+        -12.255499839782715,
+        2.1500000953674316
+      ],
+      "footprint_xz": [
+        13.805000305175781,
+        12.255499839782715,
+        13.809000015258789,
+        12.258500099182129
+      ],
+      "allowed_occupied_envelope_xz": [
+        13.373000144958496,
+        12.211000442504883,
+        14.237000465393066,
+        12.291000366210938
+      ],
+      "collision": false,
+      "basis": "visual approximation, no surveyed appliance specification"
+    },
+    {
+      "name": "Visual detail / window-15 pane seal.005",
+      "host": "window-15",
+      "bbox_xyz": [
+        14.183000564575195,
+        -12.258500099182129,
+        0.8499999642372131,
+        14.187000274658203,
+        -12.255499839782715,
+        2.1500000953674316
+      ],
+      "footprint_xz": [
+        14.183000564575195,
+        12.255499839782715,
+        14.187000274658203,
+        12.258500099182129
+      ],
+      "allowed_occupied_envelope_xz": [
+        13.373000144958496,
+        12.211000442504883,
+        14.237000465393066,
+        12.291000366210938
+      ],
+      "collision": false,
+      "basis": "visual approximation, no surveyed appliance specification"
+    },
+    {
+      "name": "Visual detail / window-15 pane seal.006",
+      "host": "window-15",
+      "bbox_xyz": [
+        13.807000160217285,
+        -12.258500099182129,
+        0.8500000238418579,
+        14.1850004196167,
+        -12.255499839782715,
+        0.8539999723434448
+      ],
+      "footprint_xz": [
+        13.807000160217285,
+        12.255499839782715,
+        14.1850004196167,
+        12.258500099182129
+      ],
+      "allowed_occupied_envelope_xz": [
+        13.373000144958496,
+        12.211000442504883,
+        14.237000465393066,
+        12.291000366210938
+      ],
+      "collision": false,
+      "basis": "visual approximation, no surveyed appliance specification"
+    },
+    {
+      "name": "Visual detail / window-15 pane seal.007",
+      "host": "window-15",
+      "bbox_xyz": [
+        13.807000160217285,
+        -12.258500099182129,
+        2.1459999084472656,
+        14.1850004196167,
+        -12.255499839782715,
+        2.1500000953674316
+      ],
+      "footprint_xz": [
+        13.807000160217285,
+        12.255499839782715,
+        14.1850004196167,
+        12.258500099182129
+      ],
+      "allowed_occupied_envelope_xz": [
+        13.373000144958496,
+        12.211000442504883,
+        14.237000465393066,
+        12.291000366210938
+      ],
+      "collision": false,
+      "basis": "visual approximation, no surveyed appliance specification"
+    },
+    {
+      "name": "Visual detail / window-15 grip mount",
+      "host": "window-15",
+      "bbox_xyz": [
+        13.770999908447266,
+        -12.219999313354492,
+        1.2929999828338623,
+        13.788999557495117,
+        -12.211999893188477,
+        1.306999921798706
+      ],
+      "footprint_xz": [
+        13.770999908447266,
+        12.211999893188477,
+        13.788999557495117,
+        12.219999313354492
+      ],
+      "allowed_occupied_envelope_xz": [
+        13.373000144958496,
+        12.211000442504883,
+        14.237000465393066,
+        12.291000366210938
+      ],
+      "collision": false,
+      "basis": "visual approximation, no surveyed appliance specification"
+    },
+    {
+      "name": "Visual detail / window-15 grip mount.001",
+      "host": "window-15",
+      "bbox_xyz": [
+        13.770999908447266,
+        -12.219999313354492,
+        1.4129999876022339,
+        13.788999557495117,
+        -12.211999893188477,
+        1.4269999265670776
+      ],
+      "footprint_xz": [
+        13.770999908447266,
+        12.211999893188477,
+        13.788999557495117,
+        12.219999313354492
+      ],
+      "allowed_occupied_envelope_xz": [
+        13.373000144958496,
+        12.211000442504883,
+        14.237000465393066,
+        12.291000366210938
+      ],
+      "collision": false,
+      "basis": "visual approximation, no surveyed appliance specification"
+    },
+    {
+      "name": "Visual detail / window-15 inset grip",
+      "host": "window-15",
+      "bbox_xyz": [
+        13.77400016784668,
+        -12.21500015258789,
+        1.3000000715255737,
+        13.785999298095703,
+        -12.211000442504883,
+        1.4199999570846558
+      ],
+      "footprint_xz": [
+        13.77400016784668,
+        12.211000442504883,
+        13.785999298095703,
+        12.21500015258789
+      ],
+      "allowed_occupied_envelope_xz": [
+        13.373000144958496,
+        12.211000442504883,
+        14.237000465393066,
+        12.291000366210938
+      ],
+      "collision": false,
+      "basis": "visual approximation, no surveyed appliance specification"
+    }
+  ],
+  "all_new_uv_valid": true,
+  "new_triangles": 2924,
+  "outputs_sha256": {
+    "acro168c-expanded.blend": "926928151509db4e836096a8b8059a74769a2631184e4c5fa6f0b5940bdbd155",
+    "acro168c-expanded.glb": "076472378bebad4ebb434d3d3fd1b24c18e9298edbd0a6aea534cba82e7a5ea0",
+    "model-info.json": "24d38da95e6c3b948bc5f56ac2331be599446d66385935047f00779716ce3a79",
+    "visual-details.glb": "ea8ed5d9f95495222830bcc5a030c091230626d9bee5c439c60dc0877a257ef2"
+  },
+  "gpu_calls": 0,
+  "render_calls": 0,
+  "web_active_paths_changed": false,
+  "browser_validation_pending": true,
+  "detail_dimensions_are_not_surveyed": true
+}
