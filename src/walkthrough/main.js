@@ -16,6 +16,8 @@ import './style.css';
 import { stagingAssets } from './staging-assets.js';
 import { createStudio } from './studio.js';
 import { createMinimap } from './minimap.js';
+import { createFurnitureInfo } from './furniture-info.js';
+import { createFurnitureHover } from './furniture-hover.js';
 import {pointInRoom,roomAt,navigationPlaces} from './minimap-geometry.js';
 // Phone/tablet walking (src/mobile). Imported last so its overrides follow the viewer styles.
 import { TouchWalkControls } from '../mobile/touch-walk-controls.js';
@@ -80,7 +82,7 @@ async function boot() {
   // iPhone Safari has no Pointer Lock API. unlock() runs before every load and on blur,
   // so make it a no-op there instead of throwing; walking then uses the touch controls.
   if (!document.exitPointerLock) controls.unlock = () => {};
-  let needsRender = true, studio = null, commonArea = null, commonWorld = null;
+  let needsRender = true, studio = null, commonArea = null, commonWorld = null, furnitureInfo = null, furnitureHover = null;
   // The original world is returned unchanged until the explicit outside tour.
   const walkingWorld = () => commonWorld ?? active?.world;
   const walkingDoors = () => [...(active?.doors ?? []), ...(commonArea?.doors ?? [])];
@@ -130,22 +132,46 @@ async function boot() {
     onTap: ({ x, y }) => interact(new THREE.Vector2(x, y)), onAction: () => interact(),
   });
   touch.addEventListener('change', () => { needsRender = true; });
-  const walking = () => controls.isLocked || touch.isLocked;
+  const walking = () => !furnitureInfo?.isOpen && (controls.isLocked || touch.isLocked);
   const release = () => { controls.unlock(); touch.unlock(); };
   // A touch (or a browser without Pointer Lock) walks with the on-screen controls; a mouse locks the pointer.
-  const startWalking = () => (touch.preferred() || !renderer.domElement.requestPointerLock ? touch.lock() : controls.lock());
+  const startWalking = () => {
+    if (furnitureInfo?.isOpen) return;
+    if (touch.preferred() || !renderer.domElement.requestPointerLock) return touch.lock();
+    // Called directly from a click/P key gesture. Some browsers return a Promise;
+    // pointerlockerror below provides the retry UI without an unhandled rejection.
+    renderer.domElement.requestPointerLock({ unadjustedMovement: false })?.catch?.(() => {});
+  };
   const onLock = () => {
     keys.clear(); document.body.classList.add('walking'); $('pause').hidden = false;
     if (studio) requestAnimationFrame(resizeViewport);
   };
   const onUnlock = () => {
-    keys.clear(); document.body.classList.remove('walking');
+    keys.clear();
     $('pause').hidden = true; $('interaction').hidden = true;
+    // Keep the exact tour viewport while the product card releases the pointer.
+    if (furnitureInfo?.isOpen) return;
+    document.body.classList.remove('walking');
     $('start').innerHTML = '이어서 둘러보기 <span>↗</span>';
     if (studio) requestAnimationFrame(resizeViewport);
   };
   for (const source of [controls, touch]) { source.addEventListener('lock', onLock); source.addEventListener('unlock', onUnlock); }
-  document.addEventListener('pointerlockerror', () => toast('마우스 잠금에 실패했습니다. 잠시 후 다시 눌러 주세요.'));
+  furnitureInfo = createFurnitureInfo({
+    viewport: $('viewport'), camera, getActive: () => active,
+    eligible: () => ready && !busy && (!studio || studio.mode === 'tour'),
+    walking, occluders: () => commonArea ? [commonArea.group] : [],
+    pause: () => { keys.clear(); controls.enabled = false; release(); needsRender = true; },
+    resume: () => { controls.enabled = true; onUnlock(); startWalking(); },
+    paused: () => { controls.enabled = true; onUnlock(); },
+  });
+  furnitureHover = createFurnitureHover({
+    viewport: $('viewport'), renderer, camera, getActive: () => active,
+    eligible: () => ready && !busy && !furnitureInfo.isOpen && ['overview', 'edit'].includes(studio?.mode),
+  });
+  document.addEventListener('pointerlockerror', () => {
+    if (!furnitureInfo.isOpen) onUnlock();
+    toast('마우스 잠금에 실패했습니다. 이어서 둘러보기를 눌러 주세요.');
+  });
   $('start').addEventListener('click', () => {
     if (!ready || busy) return;
     startWalking();
@@ -281,6 +307,8 @@ async function boot() {
       world, doorById: new Map(doors.map((d) => [d.definition.id, d])) };
   }
   async function loadVariant(key) {
+    furnitureInfo?.close();
+    furnitureHover?.clear();
     const context=studio?.getSelection()??readSelection(location.href);
     if(context.locationId==='acro-river-park'&&context.unit){
       const unit=lookupUnit(context.building,context.floor,context.unit);
@@ -354,7 +382,7 @@ async function boot() {
     while (object && !object.userData.doorId) object = object.parent;
     return active.doorById.get(object?.userData.doorId) ?? commonArea?.doorById.get(object?.userData.doorId);
   }
-  function interact(pointer) { const door = pickDoor(pointer); if (door) { door.toggle(); updateInteraction(); } }
+  function interact(pointer) { if (furnitureInfo.isOpen) return; const door = pickDoor(pointer); if (door) { door.toggle(); updateInteraction(); } }
   function updateInteraction() {
     const door = walking() && pickDoor();
     const label = door && `${door.definition.name} ${door.target >= 0.5 ? '닫기' : '열기'}`;
@@ -478,7 +506,9 @@ async function boot() {
     }
     minimap.update({active,position,yaw:camera.rotation.y,horizontalFov:horizontalFromVertical(camera.fov,camera.aspect),
       visible:ready&&!busy&&!commonArea?.contains(position.x,position.z)&&(studio?studio.mode==='tour':walking())});
-    if (now-lastHUD >= 100) { if (walking()) { updateRoom(); updateInteraction(); } lastHUD=now; }
+    if (now-lastHUD >= 100) { if (walking()) { updateRoom(); updateInteraction(); } furnitureInfo.update(); lastHUD=now; }
+    if (furnitureInfo.isOpen) furnitureInfo.update();
+    furnitureHover.update();
     if (needsRender && active) { appearance.render(dt); needsRender = false; }
   });
   if (import.meta.env.DEV && params.has('test')) {
@@ -486,6 +516,8 @@ async function boot() {
       getState: () => ({ position: position.toArray(), eyeHeight, fov: camera.fov,horizontalFov:horizontalFromVertical(camera.fov,camera.aspect),bodyRadius,headTop:eyeHeight+.12,pitch:camera.rotation.x,
         scale: active?.model.scale.toArray(), meshCount: active?.meshCount, locked: controls.isLocked,
         touchWalking: touch.isLocked, touchInput: [touch.forward, touch.right], yaw: camera.rotation.y,
+        furnitureInfo: furnitureInfo.inspect(), furnitureTarget: furnitureInfo.target(),
+        furnitureHover: furnitureHover.inspect(),
         standing: active ? canStand(walkingWorld(), position, eyeHeight, bodyRadius) : false,
         loadingStage, variant: active?.key, finish: active?.model.userData.finish, lighting: appearance.lighting,
         quality: appearance.quality, resolution: appearance.resolution,
@@ -515,6 +547,15 @@ async function boot() {
         });
         return items;
       },
+      inspectStagedFurniture: () => active.staging.items.filter(item => !item.deleted).map(item => {
+        const bounds = new THREE.Box3().setFromObject(item.group);
+        const rect = renderer.domElement.getBoundingClientRect(), center = bounds.getCenter(new THREE.Vector3());
+        const screenPoints = [center, new THREE.Vector3(center.x, bounds.max.y, center.z),
+          ...[.25,.75].flatMap(x => [.25,.75].map(z => new THREE.Vector3(
+            THREE.MathUtils.lerp(bounds.min.x,bounds.max.x,x), bounds.max.y, THREE.MathUtils.lerp(bounds.min.z,bounds.max.z,z))))
+        ].map(point => { const p=point.clone().project(camera);return {x:rect.left+(p.x+1)*rect.width/2,y:rect.top+(1-p.y)*rect.height/2}; });
+        return { id: item.id, kind: item.kind, min: bounds.min.toArray(), max: bounds.max.toArray(), screenPoints };
+      }),
       textureInfo: () => {
         const found = new Map();
         active.model.traverse((object) => {
@@ -534,10 +575,10 @@ async function boot() {
       },
       move: (dx, dz) => { moveWithCollisions(walkingWorld(), position, new THREE.Vector3(dx, 0, dz), eyeHeight, bodyRadius); camera.position.copy(position); needsRender = true; },
       look: (yaw, pitch = 0) => { camera.rotation.set(pitch, yaw, 0); needsRender = true; },
-      place: (x, z, targetX, targetZ) => {
+      place: (x, z, targetX, targetZ, targetY = 1.1) => {
         const next = new THREE.Vector3(x, eyeHeight, z);
         if (!canStand(walkingWorld(), next, eyeHeight, bodyRadius)) throw new Error('Test position intersects geometry');
-        position.copy(next); camera.position.copy(next); camera.lookAt(targetX, 1.1, targetZ); needsRender = true;
+        position.copy(next); camera.position.copy(next); camera.lookAt(targetX, targetY, targetZ); needsRender = true;
       },
       pickDoor: () => pickDoor()?.definition.id, interact: () => interact(),
       commonPoint:(t,s)=>commonArea?.layout.point(t,s),
@@ -548,7 +589,7 @@ async function boot() {
   if (params.get('studio') !== '0' && active) {
     studio=createStudio({scene,camera,renderer,initialMode:params.get('entry'),lighting:selected.lighting,getActive:()=>active,loadVariant,resize:resizeViewport,
       invalidate:(shadows=false)=>{if(shadows)appearance.invalidateShadows();needsRender=true;},enterRoom,unlock:()=>{keys.clear();release();},
-      settle,standAt,openCommonArea,onModeChange:mode=>{if(mode!=='tour')clearCommonArea();},resume:()=>{if(ready&&!busy&&!walking())startWalking();}});
+      settle,standAt,openCommonArea,onModeChange:mode=>{furnitureHover.clear();if(mode!=='tour'){furnitureInfo.close();clearCommonArea();}},resume:()=>{if(ready&&!busy&&!walking())startWalking();}});
     if(import.meta.env.DEV&&params.has('test'))window.__studio=studio;
   }
 }

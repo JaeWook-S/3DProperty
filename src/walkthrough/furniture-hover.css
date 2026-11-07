@@ -1,0 +1,19 @@
+#furniture-hover-layer{position:absolute;inset:0;z-index:45;pointer-events:none}
+#furniture-hover-layer[hidden],#furniture-hover-layer [hidden]{display:none!important}
+#furniture-hover-plus{position:absolute;display:grid;place-items:center;width:32px;height:32px;padding:0;border:1px solid #fff;border-radius:50%;background:#ffffffed;color:#294e3c;box-shadow:0 2px 12px #112d3540;transform:translate(-50%,-50%);pointer-events:auto;cursor:pointer;transition:background .12s,color .12s}
+#furniture-hover-plus span{font:300 26px/1 system-ui;transform:translateY(-1px)}
+#furniture-hover-plus:hover,#furniture-hover-plus[aria-expanded=true]{background:#285442;color:white}
+#furniture-hover-plus[aria-expanded=true] span{transform:translateY(-1px) rotate(45deg)}
+#furniture-hover-card{position:absolute;width:min(286px,calc(100% - 20px));max-height:calc(100% - 20px);overflow:auto;border:1px solid #d8dfd3;border-radius:11px;background:#fffefb;color:#284635;box-shadow:0 8px 28px #15372c2e;pointer-events:auto;outline:none}
+#furniture-hover-close{position:absolute;right:5px;top:5px;z-index:1;border:0;border-radius:50%;background:#fffdf7dc;width:24px;height:24px;padding:0;color:#6a7865;font:20px/1 system-ui;cursor:pointer}
+#furniture-hover-close:hover{background:#eaf0e5;color:#294e3c}
+.furniture-hover-summary{display:flex;gap:13px;padding:15px 27px 13px 13px;align-items:center}
+#furniture-hover-image{display:block;width:82px;height:86px;flex:none;border-radius:6px;background:#eef0ea;object-fit:contain}
+.furniture-hover-details{min-width:0;flex:1}
+#furniture-hover-seller{font-size:10px;line-height:1.5;color:#7c8874;margin:0 0 4px;overflow-wrap:anywhere}
+#furniture-hover-name{font-size:13px;line-height:1.5;font-weight:600;letter-spacing:-.3px;margin:0 0 7px;overflow-wrap:anywhere}
+#furniture-hover-price{font-size:16px;line-height:1.4;font-weight:750;margin:0;overflow-wrap:anywhere}
+#furniture-hover-example{display:inline-block;margin-top:5px;color:#87917e;font-size:9px}
+#furniture-hover-link{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 14px;border-top:1px solid #edf0e7;color:#3d654b;font-size:11px;text-decoration:none;cursor:pointer}
+#furniture-hover-link:hover{background:#f1f5ed}#furniture-hover-link[aria-disabled=true]{color:#9ca594;pointer-events:none}
+#furniture-hover-status{font-size:10px;line-height:1.6;padding:0 13px 12px;margin:0;color:#8a5e31;overflow-wrap:anywhere}

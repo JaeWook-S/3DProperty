@@ -1,0 +1,52 @@
+# 둘러보기에서 가구를 바라보고 P를 누르면 표시되는 상품 정보입니다.
+# 저장 후 카드를 다시 열면 반영됩니다. 배포된 사이트는 이 파일을 포함해 재배포하세요.
+# price는 쉼표 없는 숫자, currency는 KRW/USD 등의 통화 코드입니다.
+# placeholder를 false로 바꾸면 '예시 상품 정보' 표시가 사라집니다.
+version: 1
+defaults:
+  price: 199000
+  currency: KRW
+  seller: "임시 판매처"
+  url: "https://example.com/"
+  placeholder: true
+
+# 키 우선순위: 배치 ID → CC0 모델 ID → 가구 종류(kind).
+# 목록에 없는 가구도 실제 3D 썸네일과 defaults 정보로 표시됩니다.
+# 기존 CC0 썸네일은 자동 연결됩니다. 이미지 경로를 수정할 필요가 없습니다.
+products:
+  catalog-sofa-2790:
+    name: "임시 상품 · 3인 소파"
+    price: 1290000
+  catalog-stool-980:
+    name: "임시 상품 · 스툴"
+    price: 199000
+  cc0-modern-arm-chair-01:
+    name: "임시 상품 · 라운지 체어"
+    price: 249000
+  cc0-sofa-02:
+    name: "임시 상품 · 클래식 소파"
+    price: 899000
+  cc0-modern-coffee-table-01:
+    name: "임시 상품 · 커피 테이블"
+    price: 159000
+  cc0-dining-chair-02:
+    name: "임시 상품 · 식탁 의자"
+    price: 99000
+  sofa:
+    name: "임시 상품 · 소파"
+    price: 899000
+  stool:
+    name: "임시 상품 · 스툴"
+    price: 199000
+  king:
+    name: "임시 상품 · 킹 침대"
+    price: 1190000
+  single:
+    name: "임시 상품 · 싱글 침대"
+    price: 499000
+  desk:
+    name: "임시 상품 · 책상"
+    price: 179000
+  chair:
+    name: "임시 상품 · 의자"
+    price: 99000
