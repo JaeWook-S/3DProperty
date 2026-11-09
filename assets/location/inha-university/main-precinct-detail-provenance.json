@@ -1,0 +1,474 @@
+{
+  "schema": "cortex.campus.detail-evidence.v1",
+  "revision": "main-precinct-detail-v1",
+  "scope": "인하대 본관–정문 1차 외관 보강",
+  "surveyed": false,
+  "sourceGeometry": "OSM way/217958071 main building and way/218220690 water outline are unchanged; local metre projection inherited from campus-context.json.",
+  "sourceGeometrySHA256": "094c8c7c38d8029106e18f4cf5d60b5a4a2e66dd9c9ad521814a570efeb579e6",
+  "sources": [
+    {
+      "url": "https://heritage.inha.ac.kr/images/then/then01-img06.png",
+      "pageUrl": "https://heritage.inha.ac.kr/thenandnow",
+      "caption": "2021. 인하대학교 전경",
+      "sha256": "aa872c7d290e0dfb4c9b4792f6411233e8c2fc5b7e3f6d15e6747b27450649aa",
+      "captureTimeVerification": "Only year label in official page; no EXIF timestamp present; exact shutter date not independently verified.",
+      "rights": "Copyright/license not established. Reference only; do not redistribute or embed as a texture."
+    },
+    {
+      "url": "https://heritage.inha.ac.kr/images/then/then02-img02.png",
+      "pageUrl": "https://heritage.inha.ac.kr/thenandnow",
+      "caption": "2023. 개교 70주년 기념 배너가 걸린 본관",
+      "sha256": "bcb6f7925e2fc16311663d28618ac5830b7a28508467e9157cca11d973b7a855",
+      "captureTimeVerification": "Only year label in official page; no EXIF timestamp present; exact shutter date not independently verified.",
+      "rights": "Copyright/license not established. Reference only; do not redistribute or embed as a texture."
+    },
+    {
+      "url": "https://heritage.inha.ac.kr/images/then/then03-img02.png",
+      "pageUrl": "https://heritage.inha.ac.kr/thenandnow",
+      "caption": "2023 정문",
+      "sha256": "0319bc31b0b8fa9356e7ed1ec14d673e94673786cb5bc851b15f0adee103409b",
+      "captureTimeVerification": "Only year label in official page; no EXIF timestamp present; exact shutter date not independently verified.",
+      "rights": "Copyright/license not established. Reference only; do not redistribute or embed as a texture."
+    },
+    {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/f/f1/%EC%9D%B8%ED%95%98%EB%8C%80%ED%95%99%EA%B5%90_%EB%B3%B8%EA%B4%80.jpg",
+      "pageUrl": "https://commons.wikimedia.org/wiki/File:%EC%9D%B8%ED%95%98%EB%8C%80%ED%95%99%EA%B5%90_%EB%B3%B8%EA%B4%80.jpg",
+      "caption": "2011-02-15. Ifflies / Wikimedia Commons",
+      "sha256": "8b702afb32390c63dcf15ef305979ab51b4569e1955fd238ed5b8e8847ea0257",
+      "captureTimeVerification": "Page date2011-02-15; original ExifIFD DateTimeOriginal2011:02:15 14:22:09. Camera clock not independently verified.",
+      "rights": "CC BY-SA3.0 (or GFDL) per file page. Kept reference-only for this task; reuse requires applicable attribution/license compliance."
+    },
+    {
+      "url": "https://storage.googleapis.com/hg-homepage-prd-an3-gcs-bucket-public/cbFeatureHighlightCardContentImage/image/202504/11/9a1e8140-7245-460e-bd4b-86f2c0fbf2ed.png",
+      "pageUrl": "https://www.hanjinkal.co.kr/companies/our-companies/nonprofit-corporations/inha-university",
+      "caption": "Main building from southeast/front-right, anniversary banner",
+      "sha256": "5861f0ef2b3ee19cc989b5e2a4e53125c9a73f96e126ea3caeff17a72683a34f",
+      "captureTimeVerification": "Image URL upload path202504/11 and anniversary2024 banner do not prove capture date.",
+      "rights": "HanjinKal public image; reuse rights not established. Reference only.",
+      "providerMetadata": null
+    },
+    {
+      "url": "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/export?bbox=126.6524%2C37.44715%2C126.6554%2C37.4500&bboxSR=4326&imageSR=3857&size=1050%2C1200&format=jpg&f=image",
+      "pageUrl": "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer",
+      "caption": "North-up main-building/main-gate overhead",
+      "sha256": "2bd98144207c112ffc2871d46bf1b3dbdc6d7ca14a578e8bca2eaed06e355aa7",
+      "captureTimeVerification": "Map citation reports SRC_DATE20260101 (2026-01-01), WV02/Vivid Advanced; this is provider source-date metadata, not independently verified shutter date.",
+      "rights": "Source: Esri, Vantor, Earthstar Geographics, and the GIS User Community. Reference only; no public texture use or redistribution authorized.",
+      "providerMetadata": {
+        "OBJECTID": "480350",
+        "Shape": "Polygon",
+        "SRC_DATE": "20260101",
+        "SRC_RES": "0.5",
+        "SRC_ACC": "8.47",
+        "SAMP_RES": "0.3",
+        "SRC_DESC": "WV02",
+        "MinMapLevel": "12",
+        "MaxMapLevel": "19",
+        "NICE_NAME": "Vivid Advanced",
+        "DrawOrder": "80",
+        "SRC_DATE2": "1/1/2026",
+        "NICE_DESC": "Vantor",
+        "Shape_Length": "180178.403147",
+        "Shape_Area": "881630888",
+        "BlockName": "DYNAMIC_ESRI_Seoul_26Q1",
+        "ReleaseName": "Raster Basemaps 2026.R04"
+      }
+    },
+    {
+      "url": "https://www.inha.ac.kr/sites/kr/atchmnfl_mngr/campusMap/temp_1564210506551100.jpg",
+      "pageUrl": "https://www.inha.ac.kr/kr/964/subview.do",
+      "captureTimeVerification": "Unknown",
+      "rights": "Reference only; public redistribution permission not established."
+    }
+  ],
+  "observations": [
+    {
+      "id": "front-rhythm",
+      "type": "direct_visual_count",
+      "sources": [
+        "official-main-building-2023.png",
+        "commons-main-building-2011.jpg"
+      ],
+      "finding": "Central facade has approximately10 repeated vertical bays between the two tall glazed end cores; approximately9 intermediate tall piers. About5 horizontal opening/window-group tiers are visible.",
+      "confidence": "high for repeated bay rhythm, medium for tier count due shadows/vegetation",
+      "limitations": "These are opening groups, not individual glazing panes or a certified total window inventory. Lowest tier includes entrances/occlusion. Do not claim50 exact windows or exact total building floors."
+    },
+    {
+      "id": "front-material-massing",
+      "type": "direct_visual",
+      "sources": [
+        "official-main-building-2023.png",
+        "hanjinkal-main-oblique.png"
+      ],
+      "finding": "Light beige/gray square stone-panel cladding; deeply recessed central windows behind tall square piers; turquoise/gray glazing; two taller rectangular glazed end cores within projecting stone surrounds; lower outer wings. Facade top cornice/parapet is horizontal.",
+      "confidence": "high",
+      "limitations": "Stone type, panel dimensions, pier section, glass properties, exact heights remain unknown."
+    },
+    {
+      "id": "roof",
+      "type": "direct_visual",
+      "sources": [
+        "esri-gate-main-overhead.jpg",
+        "official-aerial-2021.png"
+      ],
+      "finding": "Roof is flat in several rectangular zones with perimeter parapets; central long roof strip and shorter end/core roof pieces; central rear block projects toward northeast. Small roof objects are visible.",
+      "confidence": "high for flat roof and stepped outline, low for equipment identities",
+      "limitations": "Do not label rooftop objects as HVAC/solar/skylights or assign dimensions without another source. Off-nadir roof displacement is visible; use OSM footprint for ground placement."
+    },
+    {
+      "id": "side-and-rear",
+      "type": "direct_visual",
+      "sources": [
+        "hanjinkal-main-oblique.png",
+        "esri-gate-main-overhead.jpg"
+      ],
+      "finding": "Front-right wing has horizontal window groups and a relatively plain stone-clad narrow end face. Plan is a long bar with northeast central rear projection, not a simple filled rectangle.",
+      "confidence": "medium",
+      "limitations": "Entire rear and both side elevations are not sufficiently documented for exact window counts."
+    },
+    {
+      "id": "entrance-stairs",
+      "type": "direct_visual",
+      "sources": [
+        "hanjinkal-main-oblique.png",
+        "esri-gate-main-overhead.jpg"
+      ],
+      "finding": "Raised landscaped terrace in front of building, with broad light-colored stair approaches from the front drive/forecourt; shrubs and trimmed trees flank the stairs. Central doors are at the recessed bottom tier.",
+      "confidence": "high for broad steps/terrace; medium for exact door positions",
+      "limitations": "Step/riser count, accessible ramp alignment, door leaf count and opening widths are unresolved. Main-front center below is a geometric proxy, not surveyed doorway."
+    },
+    {
+      "id": "main-gate",
+      "type": "direct_visual",
+      "sources": [
+        "official-main-gate-2023.png",
+        "esri-gate-main-overhead.jpg"
+      ],
+      "finding": "Current-reference main gate is an open vehicular/pedestrian entrance without an overhead arch. Two low brick name walls have pale inset panels reading 인하대학교 and INHA UNIVERSITY with crest. Small brick guardhouse with flat light fascia/roof stands on the right when looking inward; crosswalk and signal poles are in front.",
+      "confidence": "high for2023 photograph, corroborated in overhead layout",
+      "limitations": "Wall height/length, exact street-light design and current traffic control operation not measured. Do not substitute historical1950 entrance or a neighboring campus gate."
+    },
+    {
+      "id": "forecourt",
+      "type": "direct_visual_and_osm",
+      "sources": [
+        "official-aerial-2021.png",
+        "esri-gate-main-overhead.jpg",
+        "official-main-building-2023.png"
+      ],
+      "finding": "Long narrow rectangular water feature lies on the main axis. Both sides have paved vehicle circulation and diagonal parking, then grass plots and tree rows. Transverse paths/roads divide the larger lawn plots. Trimmed evergreen trees border the pool; street lamps and small signs line the approach.",
+      "confidence": "high",
+      "limitations": "Tree counts/species, current parked vehicles and temporary banners are scene assumptions, not fixed architecture."
+    }
+  ],
+  "coordinateMeasurements": {
+    "mainBuilding": {
+      "osmId": 217958071,
+      "url": "https://www.openstreetmap.org/way/217958071",
+      "frontCenterProxy": {
+        "lat": 37.44931245,
+        "lon": 126.65436505
+      },
+      "frontageBearingDegrees": 119.29,
+      "outwardFacadeNormalBearingDegrees": 209.29,
+      "heightMeters": null,
+      "heightStatus": "Unknown from sources. Any renderer height must remain an assumption."
+    },
+    "gate": {
+      "osmNodeId": 4741793208,
+      "url": "https://www.openstreetmap.org/node/4741793208",
+      "coordinate": {
+        "lat": 37.4477024,
+        "lon": 126.6531848
+      },
+      "meaning": "OSM named entrance POI, approximate location; not surveyed curb threshold."
+    },
+    "pool": {
+      "osmWayId": 218220690,
+      "url": "https://www.openstreetmap.org/way/218220690",
+      "northeastEnd": {
+        "lat": 37.44901125,
+        "lon": 126.65412309999999
+      },
+      "southwestEnd": {
+        "lat": 37.4480041,
+        "lon": 126.6534386
+      }
+    },
+    "guardhouse": {
+      "osmWayId": 1098539003,
+      "center": {
+        "lat": 37.44761475,
+        "lon": 126.6533705
+      },
+      "nameTag": "주차관리실",
+      "levelsTag": "1"
+    },
+    "mainFrontRoad": {
+      "osmWayId": 481241692,
+      "tags": {
+        "highway": "service"
+      },
+      "geometry": [
+        {
+          "lat": 37.4495876,
+          "lon": 126.6533032
+        },
+        {
+          "lat": 37.4487502,
+          "lon": 126.6551815
+        }
+      ]
+    },
+    "measurements": [
+      {
+        "id": "gate-poi-to-front-proxy",
+        "a": {
+          "lat": 37.4477024,
+          "lon": 126.6531848
+        },
+        "b": {
+          "lat": 37.44931245,
+          "lon": 126.65436505
+        },
+        "distanceMeters": 207.14,
+        "displayDistanceMeters": 207,
+        "bearingDegreesClockwiseFromNorth": 30.2,
+        "meaning": "Straight line, not walking route or gate-to-door survey.",
+        "method": "Haversine great-circle distance, Earth mean radius6371008.8m. Source-coordinate derived, not field measurement. Numeric precision does not establish positional accuracy."
+      },
+      {
+        "id": "pool-centerline-length",
+        "a": {
+          "lat": 37.44901125,
+          "lon": 126.65412309999999
+        },
+        "b": {
+          "lat": 37.4480041,
+          "lon": 126.6534386
+        },
+        "distanceMeters": 127.25,
+        "displayDistanceMeters": 127,
+        "bearingDegreesClockwiseFromNorth": 208.35,
+        "meaning": "Derived from opposite end-midpoints of OSM water way218220690.",
+        "method": "Haversine great-circle distance, Earth mean radius6371008.8m. Source-coordinate derived, not field measurement. Numeric precision does not establish positional accuracy."
+      },
+      {
+        "id": "pool-northeast-end-width",
+        "a": {
+          "lat": 37.4490336,
+          "lon": 126.6540764
+        },
+        "b": {
+          "lat": 37.4489889,
+          "lon": 126.6541698
+        },
+        "distanceMeters": 9.63,
+        "displayDistanceMeters": 10,
+        "bearingDegreesClockwiseFromNorth": 121.08,
+        "meaning": "OSM polygon edge; approximate water width.",
+        "method": "Haversine great-circle distance, Earth mean radius6371008.8m. Source-coordinate derived, not field measurement. Numeric precision does not establish positional accuracy."
+      },
+      {
+        "id": "pool-southwest-end-width",
+        "a": {
+          "lat": 37.4479829,
+          "lon": 126.6534853
+        },
+        "b": {
+          "lat": 37.4480253,
+          "lon": 126.6533919
+        },
+        "distanceMeters": 9.5,
+        "displayDistanceMeters": 9,
+        "bearingDegreesClockwiseFromNorth": 299.76,
+        "meaning": "OSM polygon edge; approximate water width.",
+        "method": "Haversine great-circle distance, Earth mean radius6371008.8m. Source-coordinate derived, not field measurement. Numeric precision does not establish positional accuracy."
+      },
+      {
+        "id": "pool-ne-end-to-front-proxy",
+        "a": {
+          "lat": 37.44901125,
+          "lon": 126.65412309999999
+        },
+        "b": {
+          "lat": 37.44931245,
+          "lon": 126.65436505
+        },
+        "distanceMeters": 39.72,
+        "displayDistanceMeters": 40,
+        "bearingDegreesClockwiseFromNorth": 32.53,
+        "meaning": "Includes terrace/forecourt/transverse road; not a clear uninterrupted walking corridor.",
+        "method": "Haversine great-circle distance, Earth mean radius6371008.8m. Source-coordinate derived, not field measurement. Numeric precision does not establish positional accuracy."
+      },
+      {
+        "id": "gate-poi-to-pool-sw-end",
+        "a": {
+          "lat": 37.4477024,
+          "lon": 126.6531848
+        },
+        "b": {
+          "lat": 37.4480041,
+          "lon": 126.6534386
+        },
+        "distanceMeters": 40.34,
+        "displayDistanceMeters": 40,
+        "bearingDegreesClockwiseFromNorth": 33.74,
+        "meaning": "Approximate straight-line spacing.",
+        "method": "Haversine great-circle distance, Earth mean radius6371008.8m. Source-coordinate derived, not field measurement. Numeric precision does not establish positional accuracy."
+      },
+      {
+        "id": "overall-facade-span",
+        "a": {
+          "lat": 37.4495594,
+          "lon": 126.6538313
+        },
+        "b": {
+          "lat": 37.4490924,
+          "lon": 126.6549223
+        },
+        "distanceMeters": 109.42,
+        "displayDistanceMeters": 109,
+        "bearingDegreesClockwiseFromNorth": 118.33,
+        "meaning": "Endpoint span of ground-footprint front, including outer wings.",
+        "method": "Haversine great-circle distance, Earth mean radius6371008.8m. Source-coordinate derived, not field measurement. Numeric precision does not establish positional accuracy."
+      },
+      {
+        "id": "central-front-span",
+        "a": {
+          "lat": 37.449444,
+          "lon": 126.6540696
+        },
+        "b": {
+          "lat": 37.4491809,
+          "lon": 126.6546605
+        },
+        "distanceMeters": 59.81,
+        "displayDistanceMeters": 60,
+        "bearingDegreesClockwiseFromNorth": 119.29,
+        "meaning": "OSM long central frontage segment; useful for10-bay rhythm, not measured facade dimensions.",
+        "method": "Haversine great-circle distance, Earth mean radius6371008.8m. Source-coordinate derived, not field measurement. Numeric precision does not establish positional accuracy."
+      },
+      {
+        "id": "front-proxy-to-transverse-road-centerline",
+        "distanceMeters": 19.22,
+        "displayDistanceMeters": 19,
+        "roadOsmId": 481241692,
+        "method": "Nearest point on OSM road centerline segment in local equirectangular meter projection. Source-derived, not field measured.",
+        "meaning": "Distance to centerline only. Road width/curb edge and stair footprint are unknown."
+      },
+      {
+        "id": "main-bar-west-end-depth",
+        "a": {
+          "lat": 37.4497314,
+          "lon": 126.6539528
+        },
+        "b": {
+          "lat": 37.4495594,
+          "lon": 126.6538313
+        },
+        "distanceMeters": 21.93,
+        "displayDistanceMeters": 22,
+        "method": "Haversine length of sourced OSM footprint edge; not field measured.",
+        "meaning": "Ground footprint massing reference; does not establish roof overhang or height."
+      },
+      {
+        "id": "rear-projection-width",
+        "a": {
+          "lat": 37.4495654,
+          "lon": 126.6547096
+        },
+        "b": {
+          "lat": 37.4496697,
+          "lon": 126.6544756
+        },
+        "distanceMeters": 23.69,
+        "displayDistanceMeters": 24,
+        "method": "Haversine length of sourced OSM footprint edge; not field measured.",
+        "meaning": "Ground footprint massing reference; does not establish roof overhang or height."
+      },
+      {
+        "id": "rear-projection-additional-depth",
+        "a": {
+          "lat": 37.4494086,
+          "lon": 126.6545988
+        },
+        "b": {
+          "lat": 37.4495654,
+          "lon": 126.6547096
+        },
+        "distanceMeters": 19.99,
+        "displayDistanceMeters": 20,
+        "method": "Haversine length of sourced OSM footprint edge; not field measured.",
+        "meaning": "Ground footprint massing reference; does not establish roof overhang or height."
+      }
+    ]
+  },
+  "gatePositionCrossCheck": {
+    "method": "Manual visual pick on georeferenced Esri1050x1200 image, not a surveyed point.",
+    "approximateCurbOpeningCenter": {
+      "lat": 37.4476084,
+      "lon": 126.6530324
+    },
+    "pixel": [
+      235,
+      1007
+    ],
+    "caveat": "OSM named gate POI lies about17m inward/northeast of this visually picked threshold. Both have uncertainty; retain source/estimate distinction and avoid moving geometry solely from a precise-looking point."
+  },
+  "imageryAccuracy": {
+    "providerSourceResolutionMeters": 0.5,
+    "providerSampleResolutionMeters": 0.3,
+    "providerSourceAccuracyMeters": 8.47,
+    "caveat": "Provider-reported image accuracy is not OSM accuracy. Pixel scales and decimal places do not establish survey accuracy. Georeferenced export extent stored in esri-export-extent.json."
+  },
+  "assumptions": {
+    "buildingHeight_m": "existing 20m visual assumption; front cornice20.4m, side wings19.1m, end cores21.7m; no measured height",
+    "facade": "10 central bays and approximately5 opening tiers are visual groups, not a certified window or floor count",
+    "cladding": "procedural0.9m panel grid; stone species and joint size unverified",
+    "recess_m": 2.5,
+    "steps": "7 shallow steps,0.15m assumed riser; not accessible-route certification",
+    "gate": "manually estimated curb position;25m×2m low side walls and guardhouse detailing visually assumed",
+    "landscape": "individual tree/parking/lighting positions and shapes approximate; source lawn/pool outlines preserved",
+    "cars": "illustrative size cues, not actual parked vehicles"
+  },
+  "implemented": [
+    "central colonnade and recessed windows",
+    "glazed end cores and low side wings",
+    "roof cornices, rear footprint and front entry",
+    "water edge, diagonal parking, sculpted planting and lamps",
+    "open low-wall main gate and mapped parking-office roof",
+    "front/entry/gate viewing positions",
+    "southeast end wall kept mostly solid stone as observed in oblique photo"
+  ],
+  "notImplemented": [
+    "surveyed facade measurements",
+    "campus terrain elevation",
+    "rear/side photographic verification",
+    "interiors",
+    "photogrammetry or roadview reconstruction"
+  ],
+  "imagesEmbedded": 0,
+  "phases": [
+    {
+      "id": "A",
+      "area": "정문–본관–앞 수로",
+      "status": "first photo-referenced exterior pass"
+    },
+    {
+      "id": "B",
+      "area": "정석학술정보관–주변 광장",
+      "status": "planned, existing simplified model retained"
+    },
+    {
+      "id": "C",
+      "area": "5호관–60주년기념관",
+      "status": "planned, existing simplified model retained"
+    },
+    {
+      "id": "D",
+      "area": "인경호–하이테크센터–후문",
+      "status": "planned, existing simplified model retained"
+    }
+  ]
+}

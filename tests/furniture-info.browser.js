@@ -1,5 +1,8 @@
 import { test, expect } from '@playwright/test';
 
+// Shared dev-server HMR is unrelated to this scoped integration scenario.
+test.beforeEach(async ({ page }) => { await page.routeWebSocket('**/*', socket => socket.close()); });
+
 // Real pointer lock needs a focused browsing context in automated Chrome. Keep
 // the native permission prompt out of this local interaction test; do not mock the API.
 test.use({ launchOptions: { args: ['--use-angle=swiftshader', '--enable-unsafe-swiftshader', '--no-sandbox', '--disable-features=KeyboardAndPointerLockPrompt'] } });
@@ -77,8 +80,20 @@ test('P opens the actual model card, freezes walking/look and restores pointer l
   try { await expect.poll(async () => (await state(page)).position, { timeout: 15000 }).not.toEqual(frozen.position); }
   finally { await page.keyboard.up('s'); }
   const yaw = (await state(page)).yaw;
+  await page.evaluate(() => {
+    window.__furniturePointerAudit = [];
+    document.addEventListener('mousemove', event => window.__furniturePointerAudit.push({
+      movementX: event.movementX, movementY: event.movementY, trusted: event.isTrusted,
+      clientX: event.clientX, clientY: event.clientY, locked: Boolean(document.pointerLockElement),
+      yaw: window.__walkthrough.getState().yaw,
+    }));
+  });
   await page.mouse.move(500, 300, { steps: 3 });
-  await expect.poll(async () => (await state(page)).yaw).not.toBe(yaw);
+  const pointerEvents = await page.evaluate(() => window.__furniturePointerAudit);
+  await info.attach('pointer-movement', {body: JSON.stringify(pointerEvents), contentType:'application/json'});
+  // Headless Chrome may emit equal/opposite trusted warp events after a move,
+  // returning the final yaw to its start. Verify actual event-time rotation.
+  expect(pointerEvents.some(event => event.trusted && event.locked && event.movementX !== 0 && Math.abs(event.yaw - yaw) > 1e-6)).toBe(true);
   expect(errors).toEqual([]);
 });
 

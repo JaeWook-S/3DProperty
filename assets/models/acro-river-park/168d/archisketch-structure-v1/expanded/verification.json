@@ -1,0 +1,296 @@
+{
+  "unit_type": "168D",
+  "variant": "expanded",
+  "status": "passed",
+  "errors": [],
+  "units": "m",
+  "scene_scale_length": 1,
+  "device": "CPU",
+  "cuda_visible_devices": "",
+  "floor_checks": [
+    {
+      "id": "bedroom-01",
+      "source_id": "D73F5E46-46A1-4E9D-9A41-EE1602990B0A",
+      "polygon_area_m2": 13.783104999999997,
+      "mesh_top_area_m2": 13.783102363348007,
+      "error_m2": 2.6366519900733465e-06,
+      "ceiling_height_m": 2.3
+    },
+    {
+      "id": "balcony-01",
+      "source_id": "2B60BB77-72F9-4E1F-88E1-528C261E5E80",
+      "polygon_area_m2": 3.2840220000000007,
+      "mesh_top_area_m2": 3.284022271633148,
+      "error_m2": 2.716331475305367e-07,
+      "ceiling_height_m": 2.3
+    },
+    {
+      "id": "primary",
+      "source_id": "40C06C91-4775-4245-9CFC-95DA70BE55A7",
+      "polygon_area_m2": 21.809717,
+      "mesh_top_area_m2": 21.809718176722527,
+      "error_m2": 1.1767225274184057e-06,
+      "ceiling_height_m": 2.3
+    },
+    {
+      "id": "utility-01",
+      "source_id": "9528E9EF-6786-45D7-B822-7C64822AEFF2",
+      "polygon_area_m2": 1.648295,
+      "mesh_top_area_m2": 1.648295022547245,
+      "error_m2": 2.2547244959980617e-08,
+      "ceiling_height_m": 2.6
+    },
+    {
+      "id": "storage-01",
+      "source_id": "29CF045B-87C2-4ECB-907E-DBD8390E510F",
+      "polygon_area_m2": 1.735650000000001,
+      "mesh_top_area_m2": 1.7356503456830978,
+      "error_m2": 3.456830968140423e-07,
+      "ceiling_height_m": 2.3
+    },
+    {
+      "id": "bathroom-01",
+      "source_id": "3C8B9270-D8C8-4D1D-8D51-1AEA584F7B5B",
+      "polygon_area_m2": 3.637965999999999,
+      "mesh_top_area_m2": 3.6379661560058594,
+      "error_m2": 1.5600586023012397e-07,
+      "ceiling_height_m": 2.3
+    },
+    {
+      "id": "storage-02",
+      "source_id": "60A42EC7-7FDC-41E5-AA7F-EBF7DD93D9FD",
+      "polygon_area_m2": 4.110273999999998,
+      "mesh_top_area_m2": 4.110273607075214,
+      "error_m2": 3.9292478337671355e-07,
+      "ceiling_height_m": 2.3
+    },
+    {
+      "id": "storage-03",
+      "source_id": "216F954E-F67A-4120-BD3F-9AB1EDE68CE6",
+      "polygon_area_m2": 1.4910699999999992,
+      "mesh_top_area_m2": 1.491070069372654,
+      "error_m2": 6.937265473183629e-08,
+      "ceiling_height_m": 2.3
+    },
+    {
+      "id": "bedroom-02",
+      "source_id": "D376914D-07C5-45F2-B175-CC070AB098F0",
+      "polygon_area_m2": 12.30577899999999,
+      "mesh_top_area_m2": 12.305779054760933,
+      "error_m2": 5.476094244727392e-08,
+      "ceiling_height_m": 2.3
+    },
+    {
+      "id": "bedroom-03",
+      "source_id": "3AD8F2E9-8A38-4946-8CBF-6D09896D428B",
+      "polygon_area_m2": 16.849451999999992,
+      "mesh_top_area_m2": 16.849442780017853,
+      "error_m2": 9.219982139541116e-06,
+      "ceiling_height_m": 2.3
+    },
+    {
+      "id": "bathroom-02",
+      "source_id": "BD5540AE-1AF0-403F-981C-5D9D38408ABE",
+      "polygon_area_m2": 3.944565,
+      "mesh_top_area_m2": 3.944562166929245,
+      "error_m2": 2.833070754881817e-06,
+      "ceiling_height_m": 2.3
+    },
+    {
+      "id": "storage-04",
+      "source_id": "D6F3F48F-5837-477F-B014-35E890C70E5F",
+      "polygon_area_m2": 2.3467734999999985,
+      "mesh_top_area_m2": 2.3467735797166824,
+      "error_m2": 7.971668392059428e-08,
+      "ceiling_height_m": 2.3
+    },
+    {
+      "id": "utility-02",
+      "source_id": "002A1A24-4E90-410B-8B7A-9C0AE839E0F5",
+      "polygon_area_m2": 3.032949000000002,
+      "mesh_top_area_m2": 3.0329485684633255,
+      "error_m2": 4.315366766149964e-07,
+      "ceiling_height_m": 2.3
+    },
+    {
+      "id": "living-kitchen-hall",
+      "source_id": "7908DD79-4ED2-4055-9060-8C447C266A2F",
+      "polygon_area_m2": 63.296371500000014,
+      "mesh_top_area_m2": 63.296370550990105,
+      "error_m2": 9.490099088793613e-07,
+      "ceiling_height_m": 2.3
+    },
+    {
+      "id": "balcony-02",
+      "source_id": "124E5798-57C3-44C3-A7CA-904FB3159655",
+      "polygon_area_m2": 4.927831999999999,
+      "mesh_top_area_m2": 4.927831992506981,
+      "error_m2": 7.4930177618171e-09,
+      "ceiling_height_m": 2.3
+    }
+  ],
+  "opening_checks": [
+    {
+      "id": "door-00",
+      "source_id": "94AF7687-CCB2-463D-AE0C-33CD89AF5B34",
+      "wall_clearance_rays": 6,
+      "blockers": [],
+      "placed_dimensions_exact": true
+    },
+    {
+      "id": "sliding-02",
+      "source_id": "85CB68C6-462E-494B-9E76-69825DD15EDC",
+      "wall_clearance_rays": 6,
+      "blockers": [],
+      "placed_dimensions_exact": true
+    },
+    {
+      "id": "sliding-03",
+      "source_id": "0592C794-EB20-4DCA-B358-57074DAAD7EB",
+      "wall_clearance_rays": 6,
+      "blockers": [],
+      "placed_dimensions_exact": true
+    },
+    {
+      "id": "sliding-04",
+      "source_id": "5FA5DF5F-6B31-4646-A029-F3A956C825C4",
+      "wall_clearance_rays": 6,
+      "blockers": [],
+      "placed_dimensions_exact": true
+    },
+    {
+      "id": "sliding-05",
+      "source_id": "D89F93D2-49B9-4DE8-8F26-C83D1C236A5B",
+      "wall_clearance_rays": 6,
+      "blockers": [],
+      "placed_dimensions_exact": true
+    },
+    {
+      "id": "sliding-06",
+      "source_id": "8153F70B-3B21-4E64-B4DD-8B95BED434AE",
+      "wall_clearance_rays": 6,
+      "blockers": [],
+      "placed_dimensions_exact": true
+    },
+    {
+      "id": "door-07",
+      "source_id": "68F93AEC-1ECA-4C7A-B91A-AACBD7540DDD",
+      "wall_clearance_rays": 6,
+      "blockers": [],
+      "placed_dimensions_exact": true
+    },
+    {
+      "id": "door-08",
+      "source_id": "CCAC8E96-902F-4B8D-8523-BC98DF468265",
+      "wall_clearance_rays": 6,
+      "blockers": [],
+      "placed_dimensions_exact": true
+    },
+    {
+      "id": "door-09",
+      "source_id": "DC413039-3B1E-4FC3-8EC2-72FD453E071C",
+      "wall_clearance_rays": 6,
+      "blockers": [],
+      "placed_dimensions_exact": true
+    },
+    {
+      "id": "door-10",
+      "source_id": "99E42428-6204-462C-AB75-38F1C068A7BD",
+      "wall_clearance_rays": 6,
+      "blockers": [],
+      "placed_dimensions_exact": true
+    },
+    {
+      "id": "door-11",
+      "source_id": "9666BB86-2A39-40EA-9FCF-4AC7FAE40750",
+      "wall_clearance_rays": 6,
+      "blockers": [],
+      "placed_dimensions_exact": true
+    },
+    {
+      "id": "door-12",
+      "source_id": "6E46F56C-97F1-4563-9270-CC26D8E45229",
+      "wall_clearance_rays": 6,
+      "blockers": [],
+      "placed_dimensions_exact": true
+    },
+    {
+      "id": "door-13",
+      "source_id": "C527176A-03D0-4756-AD76-A22AFF4885FC",
+      "wall_clearance_rays": 6,
+      "blockers": [],
+      "placed_dimensions_exact": true
+    },
+    {
+      "id": "door-14",
+      "source_id": "BDB9B307-139A-4936-B5DF-36ABAC46EBCB",
+      "wall_clearance_rays": 6,
+      "blockers": [],
+      "placed_dimensions_exact": true
+    },
+    {
+      "id": "sliding-15",
+      "source_id": "2DF5C848-84AA-4694-96D7-A15775622AF8",
+      "wall_clearance_rays": 6,
+      "blockers": [],
+      "placed_dimensions_exact": true
+    },
+    {
+      "id": "window-16",
+      "source_id": "9DFB8444-7CA9-4D18-8774-2B78811381A1",
+      "wall_clearance_rays": 6,
+      "blockers": [],
+      "placed_dimensions_exact": true
+    },
+    {
+      "id": "window-17",
+      "source_id": "06BC3795-FFBB-454A-9F6A-96CF44608EA7",
+      "wall_clearance_rays": 6,
+      "blockers": [],
+      "placed_dimensions_exact": true
+    },
+    {
+      "id": "window-18",
+      "source_id": "3691B035-EEEF-4EA8-A5FC-20EE5749E8EA",
+      "wall_clearance_rays": 6,
+      "blockers": [],
+      "placed_dimensions_exact": true
+    },
+    {
+      "id": "window-19",
+      "source_id": "3B4CBA9A-03A8-46AC-82E9-C9B74CF9EDBD",
+      "wall_clearance_rays": 6,
+      "blockers": [],
+      "placed_dimensions_exact": true
+    },
+    {
+      "id": "window-20",
+      "source_id": "839133CD-8975-44BE-B033-1BCBF191B78C",
+      "wall_clearance_rays": 6,
+      "blockers": [],
+      "placed_dimensions_exact": true
+    },
+    {
+      "id": "window-21",
+      "source_id": "36C2341A-50A3-4F36-A1E7-439D24371739",
+      "wall_clearance_rays": 6,
+      "blockers": [],
+      "placed_dimensions_exact": true
+    },
+    {
+      "id": "window-22",
+      "source_id": "9E5A63C3-F5C0-4FB9-B801-C3A63C878881",
+      "wall_clearance_rays": 6,
+      "blockers": [],
+      "placed_dimensions_exact": true
+    },
+    {
+      "id": "sliding-23",
+      "source_id": "49C35FB3-3F53-434E-9C0E-D0F3E2542DCC",
+      "wall_clearance_rays": 6,
+      "blockers": [],
+      "placed_dimensions_exact": true
+    }
+  ],
+  "scope": "source-to-mesh consistency; not field measurements or actual renovation confirmation"
+}

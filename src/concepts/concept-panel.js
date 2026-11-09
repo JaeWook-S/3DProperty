@@ -123,7 +123,7 @@ export function createConceptStudio(hooks) {
   const originalTints = new Map();
   function tintModel(colors) {
     hooks.current().model.traverse((object) => {
-      if (!object.isMesh) return;
+      if (!object.isMesh || object.userData.surfaceOverride || object.userData.renderBatch) return;
       for (const material of [].concat(object.material)) {
         const match = MODEL_TINTS.find(([pattern]) => pattern.test(material.name));
         if (!match) continue;
@@ -154,7 +154,9 @@ export function createConceptStudio(hooks) {
   }
   // The viewer's finish presets reset material colors; repaint once a finish settles.
   new MutationObserver(() => {
-    if (['ready', 'error'].includes(document.body.dataset.finishState)) paint();
+    // A finish change without an active concept must keep its own authored color.
+    // Otherwise the first oak tint is captured as the model's original wall.
+    if (supported() && appliedHere() && ['ready', 'error'].includes(document.body.dataset.finishState)) paint();
   }).observe(document.body, { attributes: true, attributeFilter: ['data-finish-state'] });
 
   function setFinish(finish) {

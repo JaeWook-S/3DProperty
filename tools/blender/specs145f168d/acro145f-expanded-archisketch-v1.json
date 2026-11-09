@@ -1,0 +1,6740 @@
+{
+  "schema_version": 1,
+  "unit_type": "145F",
+  "variant": "expanded",
+  "revision": "archisketch-structure-v1",
+  "stage": "source-coordinate structural shell candidate",
+  "ceiling_height_m": 2.6,
+  "ceiling_height_policy": "per_room_source_values_preserved; global_wall_top_uses_maximum_source_ceiling_explicitly",
+  "ceiling_unit_validation": {
+    "raw_values": [
+      2.3,
+      2.6
+    ],
+    "interpreted_unit": "m",
+    "schema_reported_unit": "mm",
+    "schema_unit_conflict": true,
+    "basis": "Room ceilingHeight raw2.3/2.6 conflicts with mm schema: literal millimeters cannot contain placed doors height1977/2120/2296/2300mm. Values interpreted as meters per room; no replacement by a generic2.5m or room-type default.",
+    "placed_opening_height_range_mm": [
+      560,
+      2300
+    ],
+    "placed_entrance_height_mm": 2300.0,
+    "source_door_center_roundoff_m_max": 0.002,
+    "independent_field_measurement": false
+  },
+  "source_project_name": "아크로리버파크 145Fm² 확장형",
+  "source_project_url": "https://planner.archisketch.com/?projectId=2QHp_dQ3R8GN3Zfrr2PLww",
+  "source_project_updated_at": "2026-11-02T12:40:29.976597",
+  "source_snapshot_kind": "live_mcp_read_user_saved_archived_wrapper",
+  "source_summary_sha256": "a86ab79c94a6417046297a1b11f1f0e836536bfdf5cfec12f3b0b737333f67db",
+  "source_layout_sha256": "519775cc9488deeb0b9e342c4b41cb219019efee0dddbf2d2865f2ab3cba66e1",
+  "source_snapshot_paths": [
+    "../AisideProject/datasets/acro-river-park/raw/archisketch/145F/expanded/2026-11-02-user-saved/project-summary.json",
+    "../AisideProject/datasets/acro-river-park/raw/archisketch/145F/expanded/2026-11-02-user-saved/furniture-layout.json"
+  ],
+  "source_observed_at_utc": "2026-11-02T12:48:12.586Z",
+  "origin_mm": [
+    -7966,
+    -6316
+  ],
+  "coordinate_transform": "source mm -> meters: x=(source_x-origin_x)/1000, z=(source_z-origin_z)/1000; Blender x,-z,height; glTF x,height,z",
+  "coordinate_scale": 1,
+  "units": "m",
+  "unit_area": {
+    "areaType": "확장형",
+    "exclusiveArea": "112.96",
+    "supplyArea": "145.95"
+  },
+  "area_accounting": {
+    "supply_area_m2": 145.95,
+    "exclusive_area_m2": 112.96,
+    "active_floor_polygon_union_m2": 141.1258935,
+    "all_source_polygon_sum_m2": 144.7200705,
+    "all_source_polygon_union_m2": 144.7200705,
+    "original_signed_ring_absolute_area_sum_m2": 144.6376345,
+    "source_reported_room_area_sum_m2": 144.64000000000004,
+    "note": "Supply/exclusive areas are source metadata, not floor polygon sums. Exact make_valid area interpretation is separately audited; no fitting or global rescaling applied."
+  },
+  "wall_inference": {
+    "external_buffer_m": 0.2,
+    "opening_cut_half_depth_m": 0.25,
+    "method": "outside bands around source interior-face polygons; source inter-room gaps preserved",
+    "status": "assumed_external_wall_band_and_inferred_internal_gaps_not_surveyed",
+    "source_external_wall_thickness": null
+  },
+  "rooms": [
+    {
+      "id": "balcony-01",
+      "name": "발코니 1",
+      "kind": "balcony",
+      "source_id": "8D8FC196-4328-42AF-8007-04B914F4761C",
+      "source_index": 0,
+      "source_type": "발코니",
+      "source_polygon_mm": [
+        [
+          -3835,
+          -4132
+        ],
+        [
+          -3835,
+          -4132
+        ],
+        [
+          -3419,
+          -4132
+        ],
+        [
+          -3419,
+          -5254
+        ],
+        [
+          -3419,
+          -6116
+        ],
+        [
+          -3564,
+          -6116
+        ],
+        [
+          -4516,
+          -6116
+        ],
+        [
+          -4516,
+          -6116
+        ],
+        [
+          -4699,
+          -6116
+        ],
+        [
+          -4699,
+          -5103
+        ],
+        [
+          -5604,
+          -5103
+        ],
+        [
+          -5604,
+          -4132
+        ]
+      ],
+      "polygon_m": [
+        [
+          4.131,
+          2.184
+        ],
+        [
+          4.547,
+          2.184
+        ],
+        [
+          4.547,
+          1.062
+        ],
+        [
+          4.547,
+          0.2
+        ],
+        [
+          4.402,
+          0.2
+        ],
+        [
+          3.45,
+          0.2
+        ],
+        [
+          3.267,
+          0.2
+        ],
+        [
+          3.267,
+          1.213
+        ],
+        [
+          2.362,
+          1.213
+        ],
+        [
+          2.362,
+          2.184
+        ]
+      ],
+      "source_area_m2": 3.42,
+      "polygon_part_area_m2": 3.418275,
+      "source_part_index": 0,
+      "source_part_count": 1,
+      "source_ceiling_value": 2.3,
+      "ceiling_height_m": 2.3,
+      "navigable": true,
+      "classification_basis": "source_room_type",
+      "room_boundary_status": "source_model_coordinates_not_as_built"
+    },
+    {
+      "id": "living-kitchen-hall",
+      "name": "거실 · 주방 · 복도",
+      "kind": "living",
+      "source_id": "17CDFCBA-CF77-4141-8C80-70DD14EADA96",
+      "source_index": 1,
+      "source_type": "거실&다이닝",
+      "source_polygon_mm": [
+        [
+          -3219,
+          -6116
+        ],
+        [
+          -3219,
+          -5254
+        ],
+        [
+          -3219,
+          -4032
+        ],
+        [
+          -3219,
+          -2916
+        ],
+        [
+          -3735,
+          -2916
+        ],
+        [
+          -3735,
+          -1078
+        ],
+        [
+          -3219,
+          -1078
+        ],
+        [
+          -3220,
+          -401
+        ],
+        [
+          -3609,
+          -402
+        ],
+        [
+          -3609,
+          4368
+        ],
+        [
+          -3609,
+          5704
+        ],
+        [
+          -3217,
+          5704
+        ],
+        [
+          -3217,
+          5704
+        ],
+        [
+          722,
+          5704
+        ],
+        [
+          722,
+          5704
+        ],
+        [
+          1218,
+          5704
+        ],
+        [
+          1218,
+          4368
+        ],
+        [
+          1218,
+          4368
+        ],
+        [
+          1218,
+          725
+        ],
+        [
+          4439,
+          725
+        ],
+        [
+          5760,
+          725
+        ],
+        [
+          5760,
+          -404
+        ],
+        [
+          4924,
+          -404
+        ],
+        [
+          4923,
+          -1035
+        ],
+        [
+          4923,
+          -1035
+        ],
+        [
+          4923,
+          -2109
+        ],
+        [
+          4923,
+          -2109
+        ],
+        [
+          4923,
+          -2626
+        ],
+        [
+          4765,
+          -2626
+        ],
+        [
+          3856,
+          -2626
+        ],
+        [
+          3400,
+          -2626
+        ],
+        [
+          3400,
+          -1258
+        ],
+        [
+          3400,
+          -404
+        ],
+        [
+          2797,
+          -404
+        ],
+        [
+          474,
+          -404
+        ],
+        [
+          -510,
+          -404
+        ],
+        [
+          -510,
+          -1135
+        ],
+        [
+          374,
+          -1135
+        ],
+        [
+          374,
+          -5055
+        ],
+        [
+          374,
+          -5055
+        ],
+        [
+          374,
+          -6116
+        ],
+        [
+          -598,
+          -6116
+        ],
+        [
+          -2243,
+          -6116
+        ]
+      ],
+      "polygon_m": [
+        [
+          4.747,
+          0.2
+        ],
+        [
+          4.747,
+          1.062
+        ],
+        [
+          4.747,
+          2.284
+        ],
+        [
+          4.747,
+          3.4
+        ],
+        [
+          4.231,
+          3.4
+        ],
+        [
+          4.231,
+          5.238
+        ],
+        [
+          4.747,
+          5.238
+        ],
+        [
+          4.746,
+          5.915
+        ],
+        [
+          4.357,
+          5.914
+        ],
+        [
+          4.357,
+          10.684
+        ],
+        [
+          4.357,
+          12.02
+        ],
+        [
+          4.749,
+          12.02
+        ],
+        [
+          8.688,
+          12.02
+        ],
+        [
+          9.184,
+          12.02
+        ],
+        [
+          9.184,
+          10.684
+        ],
+        [
+          9.184,
+          7.041
+        ],
+        [
+          12.405,
+          7.041
+        ],
+        [
+          13.726,
+          7.041
+        ],
+        [
+          13.726,
+          5.912
+        ],
+        [
+          12.89,
+          5.912
+        ],
+        [
+          12.889,
+          5.281
+        ],
+        [
+          12.889,
+          4.207
+        ],
+        [
+          12.889,
+          3.69
+        ],
+        [
+          12.731,
+          3.69
+        ],
+        [
+          11.822,
+          3.69
+        ],
+        [
+          11.366,
+          3.69
+        ],
+        [
+          11.366,
+          5.058
+        ],
+        [
+          11.366,
+          5.912
+        ],
+        [
+          10.763,
+          5.912
+        ],
+        [
+          8.44,
+          5.912
+        ],
+        [
+          7.456,
+          5.912
+        ],
+        [
+          7.456,
+          5.181
+        ],
+        [
+          8.34,
+          5.181
+        ],
+        [
+          8.34,
+          1.261
+        ],
+        [
+          8.34,
+          0.2
+        ],
+        [
+          7.368,
+          0.2
+        ],
+        [
+          5.723,
+          0.2
+        ]
+      ],
+      "source_area_m2": 58.82,
+      "polygon_part_area_m2": 58.82043849999999,
+      "source_part_index": 0,
+      "source_part_count": 1,
+      "source_ceiling_value": 2.3,
+      "ceiling_height_m": 2.3,
+      "navigable": true,
+      "classification_basis": "source_room_type",
+      "room_boundary_status": "source_model_coordinates_not_as_built"
+    },
+    {
+      "id": "excluded-01",
+      "name": "구조체 · 비사용 공간 1",
+      "kind": "excluded",
+      "source_id": "D6860C94-AD5E-4159-A048-C30B0ABB2288",
+      "source_index": 2,
+      "source_type": "NONE",
+      "source_polygon_mm": [
+        [
+          -3735,
+          -3116
+        ],
+        [
+          -3419,
+          -3116
+        ],
+        [
+          -3419,
+          -3932
+        ],
+        [
+          -3735,
+          -3932
+        ]
+      ],
+      "polygon_m": [
+        [
+          4.231,
+          3.2
+        ],
+        [
+          4.547,
+          3.2
+        ],
+        [
+          4.547,
+          2.384
+        ],
+        [
+          4.231,
+          2.384
+        ]
+      ],
+      "source_area_m2": 0.26,
+      "polygon_part_area_m2": 0.257856,
+      "source_part_index": 0,
+      "source_part_count": 1,
+      "source_ceiling_value": 2.3,
+      "ceiling_height_m": 2.3,
+      "navigable": false,
+      "classification_basis": "untyped_region_without_door_provisional_exclusion",
+      "room_boundary_status": "source_model_coordinates_not_as_built"
+    },
+    {
+      "id": "excluded-02",
+      "name": "구조체 · 비사용 공간 2",
+      "kind": "excluded",
+      "source_id": "3C4C6852-CC95-4133-9AFF-43EC4E57FB78",
+      "source_index": 3,
+      "source_type": "NONE",
+      "source_polygon_mm": [
+        [
+          7590,
+          -2626
+        ],
+        [
+          5960,
+          -2626
+        ],
+        [
+          5960,
+          -1811
+        ],
+        [
+          7590,
+          -1811
+        ]
+      ],
+      "polygon_m": [
+        [
+          15.556,
+          3.69
+        ],
+        [
+          13.926,
+          3.69
+        ],
+        [
+          13.926,
+          4.505
+        ],
+        [
+          15.556,
+          4.505
+        ]
+      ],
+      "source_area_m2": 1.33,
+      "polygon_part_area_m2": 1.328449999999999,
+      "source_part_index": 0,
+      "source_part_count": 1,
+      "source_ceiling_value": 2.3,
+      "ceiling_height_m": 2.3,
+      "navigable": false,
+      "classification_basis": "untyped_region_without_door_provisional_exclusion",
+      "room_boundary_status": "source_model_coordinates_not_as_built"
+    },
+    {
+      "id": "utility-01",
+      "name": "용도 미지정 보조실 1",
+      "kind": "utility",
+      "source_id": "2E48C574-2B2D-4359-9A9C-FB40BD521447",
+      "source_index": 4,
+      "source_type": "NONE",
+      "source_polygon_mm": [
+        [
+          5760,
+          -2626
+        ],
+        [
+          5123,
+          -2626
+        ],
+        [
+          5123,
+          -2109
+        ],
+        [
+          5123,
+          -1035
+        ],
+        [
+          5123,
+          -1035
+        ],
+        [
+          5123,
+          -604
+        ],
+        [
+          5760,
+          -604
+        ],
+        [
+          5760,
+          -1711
+        ]
+      ],
+      "polygon_m": [
+        [
+          13.726,
+          3.69
+        ],
+        [
+          13.089,
+          3.69
+        ],
+        [
+          13.089,
+          4.207
+        ],
+        [
+          13.089,
+          5.281
+        ],
+        [
+          13.089,
+          5.712
+        ],
+        [
+          13.726,
+          5.712
+        ],
+        [
+          13.726,
+          4.605
+        ]
+      ],
+      "source_area_m2": 1.29,
+      "polygon_part_area_m2": 1.2880140000000007,
+      "source_part_index": 0,
+      "source_part_count": 1,
+      "source_ceiling_value": 2.3,
+      "ceiling_height_m": 2.3,
+      "navigable": true,
+      "classification_basis": "untyped_region_with_source_door_connection_provisional_utility",
+      "room_boundary_status": "source_model_coordinates_not_as_built"
+    },
+    {
+      "id": "primary",
+      "name": "안방",
+      "kind": "bedroom",
+      "source_id": "837077F7-30B9-4E0A-B09F-AD458049DE8F",
+      "source_index": 5,
+      "source_type": "침실",
+      "source_polygon_mm": [
+        [
+          -5804,
+          -404
+        ],
+        [
+          -5804,
+          -1563
+        ],
+        [
+          -6236,
+          -1563
+        ],
+        [
+          -6236,
+          -1563
+        ],
+        [
+          -7113,
+          -1563
+        ],
+        [
+          -7113,
+          -1563
+        ],
+        [
+          -7766,
+          -1563
+        ],
+        [
+          -7766,
+          4268
+        ],
+        [
+          -6444,
+          4268
+        ],
+        [
+          -6010,
+          4268
+        ],
+        [
+          -6010,
+          4268
+        ],
+        [
+          -4377,
+          4268
+        ],
+        [
+          -4377,
+          4268
+        ],
+        [
+          -4161,
+          4268
+        ],
+        [
+          -4161,
+          4268
+        ],
+        [
+          -3835,
+          4268
+        ],
+        [
+          -3835,
+          4268
+        ],
+        [
+          -3809,
+          4268
+        ],
+        [
+          -3809,
+          -402
+        ],
+        [
+          -3834,
+          -402
+        ]
+      ],
+      "polygon_m": [
+        [
+          2.162,
+          5.912
+        ],
+        [
+          2.162,
+          4.753
+        ],
+        [
+          1.73,
+          4.753
+        ],
+        [
+          0.853,
+          4.753
+        ],
+        [
+          0.2,
+          4.753
+        ],
+        [
+          0.2,
+          10.584
+        ],
+        [
+          1.522,
+          10.584
+        ],
+        [
+          1.956,
+          10.584
+        ],
+        [
+          3.589,
+          10.584
+        ],
+        [
+          3.805,
+          10.584
+        ],
+        [
+          4.131,
+          10.584
+        ],
+        [
+          4.157,
+          10.584
+        ],
+        [
+          4.157,
+          5.914
+        ],
+        [
+          4.132,
+          5.914
+        ]
+      ],
+      "source_area_m2": 20.76,
+      "polygon_part_area_m2": 20.759042,
+      "source_part_index": 0,
+      "source_part_count": 1,
+      "source_ceiling_value": 2.3,
+      "ceiling_height_m": 2.3,
+      "navigable": true,
+      "classification_basis": "source_room_type",
+      "room_boundary_status": "source_model_coordinates_not_as_built"
+    },
+    {
+      "id": "storage-01",
+      "name": "수납실 1",
+      "kind": "storage",
+      "source_id": "B67C6643-370B-4FFE-9FB2-831ECE6316F9",
+      "source_index": 6,
+      "source_type": "벽장",
+      "source_polygon_mm": [
+        [
+          -5804,
+          -4032
+        ],
+        [
+          -5804,
+          -4032
+        ],
+        [
+          -5804,
+          -5103
+        ],
+        [
+          -6343,
+          -5103
+        ],
+        [
+          -7212,
+          -5103
+        ],
+        [
+          -7212,
+          -5103
+        ],
+        [
+          -7766,
+          -5103
+        ],
+        [
+          -7766,
+          -1763
+        ],
+        [
+          -7113,
+          -1763
+        ],
+        [
+          -7113,
+          -1763
+        ],
+        [
+          -6236,
+          -1763
+        ],
+        [
+          -6236,
+          -1763
+        ],
+        [
+          -5804,
+          -1763
+        ],
+        [
+          -5804,
+          -3016
+        ]
+      ],
+      "polygon_m": [
+        [
+          2.162,
+          2.284
+        ],
+        [
+          2.162,
+          1.213
+        ],
+        [
+          1.623,
+          1.213
+        ],
+        [
+          0.754,
+          1.213
+        ],
+        [
+          0.2,
+          1.213
+        ],
+        [
+          0.2,
+          4.553
+        ],
+        [
+          0.853,
+          4.553
+        ],
+        [
+          1.73,
+          4.553
+        ],
+        [
+          2.162,
+          4.553
+        ],
+        [
+          2.162,
+          3.3
+        ]
+      ],
+      "source_area_m2": 6.55,
+      "polygon_part_area_m2": 6.55308,
+      "source_part_index": 0,
+      "source_part_count": 1,
+      "source_ceiling_value": 2.3,
+      "ceiling_height_m": 2.3,
+      "navigable": true,
+      "classification_basis": "source_room_type",
+      "room_boundary_status": "source_model_coordinates_not_as_built"
+    },
+    {
+      "id": "utility-02",
+      "name": "용도 미지정 보조실 2",
+      "kind": "utility",
+      "source_id": "09AA41BF-C22D-459B-9875-51E84E1FBED4",
+      "source_index": 7,
+      "source_type": "NONE",
+      "source_polygon_mm": [
+        [
+          -7612,
+          5704
+        ],
+        [
+          -7612,
+          5704
+        ],
+        [
+          -6660,
+          5704
+        ],
+        [
+          -6544,
+          5704
+        ],
+        [
+          -6544,
+          4468
+        ],
+        [
+          -7766,
+          4468
+        ],
+        [
+          -7766,
+          5704
+        ]
+      ],
+      "polygon_m": [
+        [
+          0.354,
+          12.02
+        ],
+        [
+          1.306,
+          12.02
+        ],
+        [
+          1.422,
+          12.02
+        ],
+        [
+          1.422,
+          10.784
+        ],
+        [
+          0.2,
+          10.784
+        ],
+        [
+          0.2,
+          12.02
+        ]
+      ],
+      "source_area_m2": 1.51,
+      "polygon_part_area_m2": 1.5103919999999984,
+      "source_part_index": 0,
+      "source_part_count": 1,
+      "source_ceiling_value": 2.3,
+      "ceiling_height_m": 2.3,
+      "navigable": true,
+      "classification_basis": "untyped_region_with_source_door_connection_provisional_utility",
+      "room_boundary_status": "source_model_coordinates_not_as_built"
+    },
+    {
+      "id": "excluded-03",
+      "name": "구조체 · 비사용 공간 3",
+      "kind": "excluded",
+      "source_id": "6079F009-0183-483E-A416-4C2526109A08",
+      "source_index": 8,
+      "source_type": "NONE",
+      "source_polygon_mm": [
+        [
+          -4061,
+          4468
+        ],
+        [
+          -4061,
+          4825
+        ],
+        [
+          -3935,
+          4825
+        ],
+        [
+          -3935,
+          4468
+        ]
+      ],
+      "polygon_m": [
+        [
+          3.905,
+          10.784
+        ],
+        [
+          3.905,
+          11.141
+        ],
+        [
+          4.031,
+          11.141
+        ],
+        [
+          4.031,
+          10.784
+        ]
+      ],
+      "source_area_m2": 0.04,
+      "polygon_part_area_m2": 0.044981999999999876,
+      "source_part_index": 0,
+      "source_part_count": 1,
+      "source_ceiling_value": 2.6,
+      "ceiling_height_m": 2.6,
+      "navigable": false,
+      "classification_basis": "untyped_region_without_door_provisional_exclusion",
+      "room_boundary_status": "source_model_coordinates_not_as_built"
+    },
+    {
+      "id": "bedroom-01-part-01",
+      "name": "침실 1 / 원본 분할 1",
+      "kind": "bedroom",
+      "source_id": "08203BA2-D09C-43A6-A5A9-2D975FFBF59E",
+      "source_index": 9,
+      "source_type": "침실",
+      "source_polygon_mm": [
+        [
+          -6010,
+          5704
+        ],
+        [
+          -6010,
+          5704
+        ],
+        [
+          -4525,
+          5704
+        ],
+        [
+          -4525,
+          5704
+        ],
+        [
+          -3809,
+          5704
+        ],
+        [
+          -3809,
+          4468
+        ],
+        [
+          -3735,
+          4468
+        ],
+        [
+          -3735,
+          5025
+        ],
+        [
+          -4261,
+          5025
+        ],
+        [
+          -4261,
+          4468
+        ],
+        [
+          -4377,
+          4468
+        ],
+        [
+          -6010,
+          4468
+        ],
+        [
+          -6344,
+          4468
+        ],
+        [
+          -6344,
+          5704
+        ]
+      ],
+      "polygon_m": [
+        [
+          4.157,
+          12.02
+        ],
+        [
+          4.157,
+          11.341
+        ],
+        [
+          3.705,
+          11.341
+        ],
+        [
+          3.705,
+          10.784
+        ],
+        [
+          3.589,
+          10.784
+        ],
+        [
+          1.956,
+          10.784
+        ],
+        [
+          1.622,
+          10.784
+        ],
+        [
+          1.622,
+          12.02
+        ],
+        [
+          1.956,
+          12.02
+        ],
+        [
+          3.441,
+          12.02
+        ]
+      ],
+      "source_area_m2": 2.84,
+      "polygon_part_area_m2": 2.881495999999998,
+      "source_part_index": 0,
+      "source_part_count": 2,
+      "source_ceiling_value": 2.3,
+      "ceiling_height_m": 2.3,
+      "navigable": true,
+      "classification_basis": "source_room_type",
+      "room_boundary_status": "exact_make_valid_partition_of_self_crossing_source_not_as_built"
+    },
+    {
+      "id": "bedroom-01-part-02",
+      "name": "침실 1 / 원본 분할 2",
+      "kind": "bedroom",
+      "source_id": "08203BA2-D09C-43A6-A5A9-2D975FFBF59E",
+      "source_index": 9,
+      "source_type": "침실",
+      "source_polygon_mm": [
+        [
+          -6010,
+          5704
+        ],
+        [
+          -6010,
+          5704
+        ],
+        [
+          -4525,
+          5704
+        ],
+        [
+          -4525,
+          5704
+        ],
+        [
+          -3809,
+          5704
+        ],
+        [
+          -3809,
+          4468
+        ],
+        [
+          -3735,
+          4468
+        ],
+        [
+          -3735,
+          5025
+        ],
+        [
+          -4261,
+          5025
+        ],
+        [
+          -4261,
+          4468
+        ],
+        [
+          -4377,
+          4468
+        ],
+        [
+          -6010,
+          4468
+        ],
+        [
+          -6344,
+          4468
+        ],
+        [
+          -6344,
+          5704
+        ]
+      ],
+      "polygon_m": [
+        [
+          4.231,
+          10.784
+        ],
+        [
+          4.157,
+          10.784
+        ],
+        [
+          4.157,
+          11.341
+        ],
+        [
+          4.231,
+          11.341
+        ]
+      ],
+      "source_area_m2": 2.84,
+      "polygon_part_area_m2": 0.04121799999999981,
+      "source_part_index": 1,
+      "source_part_count": 2,
+      "source_ceiling_value": 2.3,
+      "ceiling_height_m": 2.3,
+      "navigable": false,
+      "classification_basis": "source_room_type",
+      "room_boundary_status": "exact_make_valid_partition_of_self_crossing_source_not_as_built"
+    },
+    {
+      "id": "balcony-02",
+      "name": "발코니 2",
+      "kind": "balcony",
+      "source_id": "EF583F7D-0AC8-4706-9B59-DA6067786289",
+      "source_index": 10,
+      "source_type": "발코니",
+      "source_polygon_mm": [
+        [
+          7590,
+          4468
+        ],
+        [
+          6950,
+          4468
+        ],
+        [
+          5193,
+          4468
+        ],
+        [
+          5193,
+          4468
+        ],
+        [
+          4439,
+          4468
+        ],
+        [
+          3856,
+          4468
+        ],
+        [
+          2096,
+          4468
+        ],
+        [
+          1709,
+          4468
+        ],
+        [
+          1690,
+          5804
+        ],
+        [
+          1690,
+          5804
+        ],
+        [
+          1690,
+          6192
+        ],
+        [
+          3756,
+          6192
+        ],
+        [
+          3756,
+          5391
+        ],
+        [
+          7590,
+          5391
+        ]
+      ],
+      "polygon_m": [
+        [
+          15.556,
+          10.784
+        ],
+        [
+          14.916,
+          10.784
+        ],
+        [
+          13.159,
+          10.784
+        ],
+        [
+          12.405,
+          10.784
+        ],
+        [
+          11.822,
+          10.784
+        ],
+        [
+          10.062,
+          10.784
+        ],
+        [
+          9.675,
+          10.784
+        ],
+        [
+          9.656,
+          12.12
+        ],
+        [
+          9.656,
+          12.508
+        ],
+        [
+          11.722,
+          12.508
+        ],
+        [
+          11.722,
+          11.707
+        ],
+        [
+          15.556,
+          11.707
+        ]
+      ],
+      "source_area_m2": 7.09,
+      "polygon_part_area_m2": 7.087873999999994,
+      "source_part_index": 0,
+      "source_part_count": 1,
+      "source_ceiling_value": 2.3,
+      "ceiling_height_m": 2.3,
+      "navigable": true,
+      "classification_basis": "source_room_type",
+      "room_boundary_status": "source_model_coordinates_not_as_built"
+    },
+    {
+      "id": "excluded-04",
+      "name": "구조체 · 비사용 공간 4",
+      "kind": "excluded",
+      "source_id": "E9775512-9AD4-4527-BFE4-BE0A8CA976EB",
+      "source_index": 11,
+      "source_type": "NONE",
+      "source_polygon_mm": [
+        [
+          1509,
+          4468
+        ],
+        [
+          1418,
+          4468
+        ],
+        [
+          1418,
+          5704
+        ],
+        [
+          1492,
+          5704
+        ]
+      ],
+      "polygon_m": [
+        [
+          9.475,
+          10.784
+        ],
+        [
+          9.384,
+          10.784
+        ],
+        [
+          9.384,
+          12.02
+        ],
+        [
+          9.458,
+          12.02
+        ]
+      ],
+      "source_area_m2": 0.1,
+      "polygon_part_area_m2": 0.10196999999999938,
+      "source_part_index": 0,
+      "source_part_count": 1,
+      "source_ceiling_value": 2.3,
+      "ceiling_height_m": 2.3,
+      "navigable": false,
+      "classification_basis": "untyped_region_without_door_provisional_exclusion",
+      "room_boundary_status": "source_model_coordinates_not_as_built"
+    },
+    {
+      "id": "bedroom-02",
+      "name": "침실 2",
+      "kind": "bedroom",
+      "source_id": "983A2012-2805-49C7-B523-A46E4D32CF8F",
+      "source_index": 12,
+      "source_type": "침실",
+      "source_polygon_mm": [
+        [
+          4339,
+          925
+        ],
+        [
+          1418,
+          925
+        ],
+        [
+          1418,
+          4268
+        ],
+        [
+          1611,
+          4268
+        ],
+        [
+          2096,
+          4268
+        ],
+        [
+          2096,
+          4268
+        ],
+        [
+          3856,
+          4268
+        ],
+        [
+          3856,
+          4268
+        ],
+        [
+          4339,
+          4268
+        ],
+        [
+          4339,
+          1104
+        ]
+      ],
+      "polygon_m": [
+        [
+          12.305,
+          7.241
+        ],
+        [
+          9.384,
+          7.241
+        ],
+        [
+          9.384,
+          10.584
+        ],
+        [
+          9.577,
+          10.584
+        ],
+        [
+          10.062,
+          10.584
+        ],
+        [
+          11.822,
+          10.584
+        ],
+        [
+          12.305,
+          10.584
+        ],
+        [
+          12.305,
+          7.42
+        ]
+      ],
+      "source_area_m2": 9.76,
+      "polygon_part_area_m2": 9.764902999999999,
+      "source_part_index": 0,
+      "source_part_count": 1,
+      "source_ceiling_value": 2.3,
+      "ceiling_height_m": 2.3,
+      "navigable": true,
+      "classification_basis": "source_room_type",
+      "room_boundary_status": "source_model_coordinates_not_as_built"
+    },
+    {
+      "id": "bedroom-03",
+      "name": "침실 3",
+      "kind": "bedroom",
+      "source_id": "4ECB6369-ABD7-43F8-88BC-F2D51189A7A4",
+      "source_index": 13,
+      "source_type": "침실",
+      "source_polygon_mm": [
+        [
+          5860,
+          925
+        ],
+        [
+          4539,
+          925
+        ],
+        [
+          4539,
+          1104
+        ],
+        [
+          4539,
+          1104
+        ],
+        [
+          4539,
+          4268
+        ],
+        [
+          5193,
+          4268
+        ],
+        [
+          6950,
+          4268
+        ],
+        [
+          7590,
+          4268
+        ],
+        [
+          7590,
+          925
+        ]
+      ],
+      "polygon_m": [
+        [
+          13.826,
+          7.241
+        ],
+        [
+          12.505,
+          7.241
+        ],
+        [
+          12.505,
+          7.42
+        ],
+        [
+          12.505,
+          10.584
+        ],
+        [
+          13.159,
+          10.584
+        ],
+        [
+          14.916,
+          10.584
+        ],
+        [
+          15.556,
+          10.584
+        ],
+        [
+          15.556,
+          7.241
+        ]
+      ],
+      "source_area_m2": 10.2,
+      "polygon_part_area_m2": 10.199492999999993,
+      "source_part_index": 0,
+      "source_part_count": 1,
+      "source_ceiling_value": 2.3,
+      "ceiling_height_m": 2.3,
+      "navigable": true,
+      "classification_basis": "source_room_type",
+      "room_boundary_status": "source_model_coordinates_not_as_built"
+    },
+    {
+      "id": "bathroom-01",
+      "name": "욕실 1",
+      "kind": "wet",
+      "source_id": "AAB81B11-359F-4D00-8802-ED7E17C219B2",
+      "source_index": 14,
+      "source_type": "욕실",
+      "source_polygon_mm": [
+        [
+          5960,
+          725
+        ],
+        [
+          7590,
+          725
+        ],
+        [
+          7590,
+          -1611
+        ],
+        [
+          5960,
+          -1611
+        ],
+        [
+          5960,
+          -504
+        ]
+      ],
+      "polygon_m": [
+        [
+          13.926,
+          7.041
+        ],
+        [
+          15.556,
+          7.041
+        ],
+        [
+          15.556,
+          4.705
+        ],
+        [
+          13.926,
+          4.705
+        ],
+        [
+          13.926,
+          5.812
+        ]
+      ],
+      "source_area_m2": 3.81,
+      "polygon_part_area_m2": 3.807679999999998,
+      "source_part_index": 0,
+      "source_part_count": 1,
+      "source_ceiling_value": 2.3,
+      "ceiling_height_m": 2.3,
+      "navigable": true,
+      "classification_basis": "source_room_type",
+      "room_boundary_status": "source_model_coordinates_not_as_built"
+    },
+    {
+      "id": "excluded-05",
+      "name": "구조체 · 비사용 공간 5",
+      "kind": "excluded",
+      "source_id": "7E8AE377-41BE-4301-BF23-47D663A48FE5",
+      "source_index": 15,
+      "source_type": "NONE",
+      "source_polygon_mm": [
+        [
+          374,
+          -604
+        ],
+        [
+          374,
+          -935
+        ],
+        [
+          -310,
+          -935
+        ],
+        [
+          -310,
+          -604
+        ]
+      ],
+      "polygon_m": [
+        [
+          8.34,
+          5.712
+        ],
+        [
+          8.34,
+          5.381
+        ],
+        [
+          7.656,
+          5.381
+        ],
+        [
+          7.656,
+          5.712
+        ]
+      ],
+      "source_area_m2": 0.23,
+      "polygon_part_area_m2": 0.22640399999999972,
+      "source_part_index": 0,
+      "source_part_count": 1,
+      "source_ceiling_value": 2.6,
+      "ceiling_height_m": 2.6,
+      "navigable": false,
+      "classification_basis": "untyped_region_without_door_provisional_exclusion",
+      "room_boundary_status": "source_model_coordinates_not_as_built"
+    },
+    {
+      "id": "bedroom-04",
+      "name": "침실 4",
+      "kind": "bedroom",
+      "source_id": "8502301E-6453-48C0-92B9-6217B0F8528F",
+      "source_index": 16,
+      "source_type": "침실",
+      "source_polygon_mm": [
+        [
+          2713,
+          -4955
+        ],
+        [
+          1174,
+          -4955
+        ],
+        [
+          1174,
+          -4955
+        ],
+        [
+          783,
+          -4955
+        ],
+        [
+          783,
+          -4955
+        ],
+        [
+          574,
+          -4955
+        ],
+        [
+          574,
+          -1035
+        ],
+        [
+          574,
+          -604
+        ],
+        [
+          2697,
+          -604
+        ],
+        [
+          2697,
+          -1358
+        ],
+        [
+          3200,
+          -1358
+        ],
+        [
+          3200,
+          -2726
+        ],
+        [
+          3200,
+          -4955
+        ]
+      ],
+      "polygon_m": [
+        [
+          10.679,
+          1.361
+        ],
+        [
+          9.14,
+          1.361
+        ],
+        [
+          8.749,
+          1.361
+        ],
+        [
+          8.54,
+          1.361
+        ],
+        [
+          8.54,
+          5.281
+        ],
+        [
+          8.54,
+          5.712
+        ],
+        [
+          10.663,
+          5.712
+        ],
+        [
+          10.663,
+          4.958
+        ],
+        [
+          11.166,
+          4.958
+        ],
+        [
+          11.166,
+          3.59
+        ],
+        [
+          11.166,
+          1.361
+        ]
+      ],
+      "source_area_m2": 11.05,
+      "polygon_part_area_m2": 11.046464000000007,
+      "source_part_index": 0,
+      "source_part_count": 1,
+      "source_ceiling_value": 2.3,
+      "ceiling_height_m": 2.3,
+      "navigable": true,
+      "classification_basis": "source_room_type",
+      "room_boundary_status": "source_model_coordinates_not_as_built"
+    },
+    {
+      "id": "excluded-06",
+      "name": "구조체 · 비사용 공간 6",
+      "kind": "excluded",
+      "source_id": "284BEFB9-4791-453D-8045-AA24DBFFF1F7",
+      "source_index": 17,
+      "source_type": "NONE",
+      "source_polygon_mm": [
+        [
+          3200,
+          -604
+        ],
+        [
+          3200,
+          -1158
+        ],
+        [
+          2897,
+          -1158
+        ],
+        [
+          2897,
+          -604
+        ]
+      ],
+      "polygon_m": [
+        [
+          11.166,
+          5.712
+        ],
+        [
+          11.166,
+          5.158
+        ],
+        [
+          10.863,
+          5.158
+        ],
+        [
+          10.863,
+          5.712
+        ]
+      ],
+      "source_area_m2": 0.17,
+      "polygon_part_area_m2": 0.16786200000000026,
+      "source_part_index": 0,
+      "source_part_count": 1,
+      "source_ceiling_value": 2.3,
+      "ceiling_height_m": 2.3,
+      "navigable": false,
+      "classification_basis": "untyped_region_without_door_provisional_exclusion",
+      "room_boundary_status": "source_model_coordinates_not_as_built"
+    },
+    {
+      "id": "excluded-07",
+      "name": "구조체 · 비사용 공간 7",
+      "kind": "excluded",
+      "source_id": "1AB56053-F705-4DDD-897B-3B23705A627E",
+      "source_index": 18,
+      "source_type": "NONE",
+      "source_polygon_mm": [
+        [
+          574,
+          -5155
+        ],
+        [
+          683,
+          -5155
+        ],
+        [
+          683,
+          -6116
+        ],
+        [
+          574,
+          -6116
+        ]
+      ],
+      "polygon_m": [
+        [
+          8.54,
+          1.161
+        ],
+        [
+          8.649,
+          1.161
+        ],
+        [
+          8.649,
+          0.2
+        ],
+        [
+          8.54,
+          0.2
+        ]
+      ],
+      "source_area_m2": 0.1,
+      "polygon_part_area_m2": 0.104749,
+      "source_part_index": 0,
+      "source_part_count": 1,
+      "source_ceiling_value": 2.3,
+      "ceiling_height_m": 2.3,
+      "navigable": false,
+      "classification_basis": "untyped_region_without_door_provisional_exclusion",
+      "room_boundary_status": "source_model_coordinates_not_as_built"
+    },
+    {
+      "id": "excluded-08",
+      "name": "구조체 · 비사용 공간 8",
+      "kind": "excluded",
+      "source_id": "93E8BC5E-0E60-4D3A-9505-D8AEEC551B62",
+      "source_index": 19,
+      "source_type": "NONE",
+      "source_polygon_mm": [
+        [
+          -3935,
+          -3932
+        ],
+        [
+          -5604,
+          -3932
+        ],
+        [
+          -5604,
+          -3116
+        ],
+        [
+          -3935,
+          -3116
+        ]
+      ],
+      "polygon_m": [
+        [
+          4.031,
+          2.384
+        ],
+        [
+          2.362,
+          2.384
+        ],
+        [
+          2.362,
+          3.2
+        ],
+        [
+          4.031,
+          3.2
+        ]
+      ],
+      "source_area_m2": 1.36,
+      "polygon_part_area_m2": 1.3619040000000002,
+      "source_part_index": 0,
+      "source_part_count": 1,
+      "source_ceiling_value": 2.3,
+      "ceiling_height_m": 2.3,
+      "navigable": false,
+      "classification_basis": "untyped_region_without_door_provisional_exclusion",
+      "room_boundary_status": "source_model_coordinates_not_as_built"
+    },
+    {
+      "id": "bathroom-02",
+      "name": "욕실 2",
+      "kind": "wet",
+      "source_id": "DABA63CB-EB66-4EA2-BA0E-D514A993D462",
+      "source_index": 20,
+      "source_type": "욕실",
+      "source_polygon_mm": [
+        [
+          -3934,
+          -602
+        ],
+        [
+          -3935,
+          -978
+        ],
+        [
+          -3935,
+          -978
+        ],
+        [
+          -3935,
+          -2916
+        ],
+        [
+          -5604,
+          -2916
+        ],
+        [
+          -5604,
+          -1663
+        ],
+        [
+          -5604,
+          -604
+        ]
+      ],
+      "polygon_m": [
+        [
+          4.032,
+          5.714
+        ],
+        [
+          4.031,
+          5.338
+        ],
+        [
+          4.031,
+          3.4
+        ],
+        [
+          2.362,
+          3.4
+        ],
+        [
+          2.362,
+          4.653
+        ],
+        [
+          2.362,
+          5.712
+        ]
+      ],
+      "source_area_m2": 3.86,
+      "polygon_part_area_m2": 3.8605839999999993,
+      "source_part_index": 0,
+      "source_part_count": 1,
+      "source_ceiling_value": 2.3,
+      "ceiling_height_m": 2.3,
+      "navigable": true,
+      "classification_basis": "source_room_type",
+      "room_boundary_status": "source_model_coordinates_not_as_built"
+    },
+    {
+      "id": "living-fragment-01",
+      "name": "거실 부속 조각 1",
+      "kind": "living",
+      "source_id": "A57004AF-CFD7-4475-A297-FE2B66EB97ED",
+      "source_index": 21,
+      "source_type": "거실&다이닝",
+      "source_polygon_mm": [
+        [
+          -3735,
+          -878
+        ],
+        [
+          -3734,
+          -602
+        ],
+        [
+          -3709,
+          -602
+        ],
+        [
+          -3420,
+          -602
+        ],
+        [
+          -3419,
+          -878
+        ]
+      ],
+      "polygon_m": [
+        [
+          4.231,
+          5.438
+        ],
+        [
+          4.232,
+          5.714
+        ],
+        [
+          4.257,
+          5.714
+        ],
+        [
+          4.546,
+          5.714
+        ],
+        [
+          4.547,
+          5.438
+        ]
+      ],
+      "source_area_m2": 0.09,
+      "polygon_part_area_m2": 0.0869400000000002,
+      "source_part_index": 0,
+      "source_part_count": 1,
+      "source_ceiling_value": 2.3,
+      "ceiling_height_m": 2.3,
+      "navigable": false,
+      "classification_basis": "source_room_type",
+      "room_boundary_status": "source_model_coordinates_not_as_built"
+    }
+  ],
+  "openings": [
+    {
+      "id": "door-00",
+      "label": "Archisketch Entrance Door",
+      "source_id": "FD492E03-96C0-4122-8C80-49471BCD74EB",
+      "source_index": 0,
+      "kind": "door",
+      "axis": "x",
+      "center_m": [
+        12.276,
+        3.59
+      ],
+      "along_xz": [
+        -1.0,
+        1.2246467991473532e-16
+      ],
+      "normal_xz": [
+        -1.2246467991473532e-16,
+        -1.0
+      ],
+      "width_m": 0.869,
+      "height_m": 2.3,
+      "bottom_m": 0,
+      "depth_m": 0.2,
+      "source_position_mm": [
+        4310,
+        1150,
+        -2726
+      ],
+      "source_rotation_degrees": -180,
+      "source_product_name": "Archisketch Entrance Door",
+      "source_catalog_dimensions": {
+        "width": 1000,
+        "height": 2300,
+        "depth": 200,
+        "unit": "mm"
+      },
+      "source_scaled_item_dimensions": {
+        "width": 869,
+        "height": 2300,
+        "depth": 200
+      },
+      "dimension_basis": "source_scaled_item",
+      "source_span_delta_m": null,
+      "source_span_conflict": false,
+      "source_bottom_m": 0.0,
+      "source_top_m": 2.3,
+      "vertical_placement_status": "door_floor_aligned; source_center_roundoff_0_to_2mm_explicit",
+      "vertical_alignment_delta_m": 0.0,
+      "adjacent_room_ids": [
+        [
+          "living-kitchen-hall"
+        ],
+        []
+      ],
+      "adjacent_source_room_ids": [
+        [
+          "17CDFCBA-CF77-4141-8C80-70DD14EADA96"
+        ],
+        []
+      ],
+      "neighbor_sampling": {
+        "side_order": [
+          -1,
+          1
+        ],
+        "offset_m": 0.32,
+        "points_xz_m": [
+          [
+            12.276,
+            3.9099999999999997
+          ],
+          [
+            12.276,
+            3.27
+          ]
+        ]
+      },
+      "adjacent_min_ceiling_m": 2.3,
+      "clear_passage_verified": false,
+      "frame_allowance_m": 0.02,
+      "frame_allowance_status": "assumed_visual_frame_not_source_measurement",
+      "orientation_basis": "source_y_rotation_degrees; along_xz=(cos(theta),-sin(theta)); normal_xz=(sin(theta),cos(theta))",
+      "orientation_axis_approximation_degrees": 0,
+      "source_nearest_cardinal_delta_degrees": 0,
+      "leaf_width_m": 0.829,
+      "leaf_height_m": 2.28,
+      "operation_basis": "source_opening_axis_with_provisional_hinge_and_swing"
+    },
+    {
+      "id": "sliding-02",
+      "label": "Archisketch Sliding Door 06",
+      "source_id": "BC268CAE-72B5-4699-97CD-929C8233A9C4",
+      "source_index": 1,
+      "kind": "sliding",
+      "axis": "x",
+      "center_m": [
+        6.72,
+        12.12
+      ],
+      "along_xz": [
+        1.0,
+        -0.0
+      ],
+      "normal_xz": [
+        0.0,
+        1.0
+      ],
+      "width_m": 3.93,
+      "height_m": 2.296,
+      "bottom_m": 0,
+      "depth_m": 0.19,
+      "source_position_mm": [
+        -1246,
+        1150,
+        5804
+      ],
+      "source_rotation_degrees": 0,
+      "source_product_name": "Archisketch Sliding Door 06",
+      "source_catalog_dimensions": {
+        "width": 3930,
+        "height": 2296,
+        "depth": 190,
+        "unit": "mm"
+      },
+      "source_scaled_item_dimensions": {
+        "width": 3930,
+        "height": 2296,
+        "depth": 190
+      },
+      "dimension_basis": "source_scaled_item",
+      "source_span_delta_m": null,
+      "source_span_conflict": false,
+      "source_bottom_m": 0.002,
+      "source_top_m": 2.2979999999999996,
+      "vertical_placement_status": "door_floor_aligned; source_center_roundoff_0_to_2mm_explicit",
+      "vertical_alignment_delta_m": -0.002,
+      "adjacent_room_ids": [
+        [
+          "living-kitchen-hall"
+        ],
+        []
+      ],
+      "adjacent_source_room_ids": [
+        [
+          "17CDFCBA-CF77-4141-8C80-70DD14EADA96"
+        ],
+        []
+      ],
+      "neighbor_sampling": {
+        "side_order": [
+          -1,
+          1
+        ],
+        "offset_m": 0.32,
+        "points_xz_m": [
+          [
+            6.72,
+            11.799999999999999
+          ],
+          [
+            6.72,
+            12.44
+          ]
+        ]
+      },
+      "adjacent_min_ceiling_m": 2.3,
+      "clear_passage_verified": false,
+      "frame_allowance_m": 0.05,
+      "frame_allowance_status": "assumed_visual_frame_not_source_measurement",
+      "orientation_basis": "source_y_rotation_degrees; along_xz=(cos(theta),-sin(theta)); normal_xz=(sin(theta),cos(theta))",
+      "orientation_axis_approximation_degrees": 0,
+      "source_nearest_cardinal_delta_degrees": 0,
+      "clear_span_m": [
+        3.83,
+        2.196
+      ]
+    },
+    {
+      "id": "window-03",
+      "label": "Archisketch Sliding Window 04",
+      "source_id": "823B1115-614A-4FE5-8B5D-F31511A51078",
+      "source_index": 2,
+      "kind": "window",
+      "axis": "x",
+      "center_m": [
+        2.696,
+        12.12
+      ],
+      "along_xz": [
+        1.0,
+        -0.0
+      ],
+      "normal_xz": [
+        0.0,
+        1.0
+      ],
+      "width_m": 1.481,
+      "height_m": 1.75,
+      "bottom_m": 0.425,
+      "depth_m": 0.194,
+      "source_position_mm": [
+        -5270,
+        1300,
+        5804
+      ],
+      "source_rotation_degrees": 0,
+      "source_product_name": "Archisketch Sliding Window 04",
+      "source_catalog_dimensions": {
+        "width": 1995,
+        "height": 1750,
+        "depth": 194,
+        "unit": "mm"
+      },
+      "source_scaled_item_dimensions": {
+        "width": 1481,
+        "height": 1750,
+        "depth": 194
+      },
+      "dimension_basis": "source_scaled_item",
+      "source_span_delta_m": null,
+      "source_span_conflict": false,
+      "source_bottom_m": 0.425,
+      "source_top_m": 2.175,
+      "vertical_placement_status": "source_window_center_and_instance_height_exact",
+      "vertical_alignment_delta_m": 0.0,
+      "adjacent_room_ids": [
+        [
+          "bedroom-01-part-01"
+        ],
+        []
+      ],
+      "adjacent_source_room_ids": [
+        [
+          "08203BA2-D09C-43A6-A5A9-2D975FFBF59E"
+        ],
+        []
+      ],
+      "neighbor_sampling": {
+        "side_order": [
+          -1,
+          1
+        ],
+        "offset_m": 0.32,
+        "points_xz_m": [
+          [
+            2.696,
+            11.799999999999999
+          ],
+          [
+            2.696,
+            12.44
+          ]
+        ]
+      },
+      "adjacent_min_ceiling_m": 2.3,
+      "clear_passage_verified": false,
+      "frame_allowance_m": 0.05,
+      "frame_allowance_status": "assumed_visual_frame_not_source_measurement",
+      "orientation_basis": "source_y_rotation_degrees; along_xz=(cos(theta),-sin(theta)); normal_xz=(sin(theta),cos(theta))",
+      "orientation_axis_approximation_degrees": 0,
+      "source_nearest_cardinal_delta_degrees": 0,
+      "clear_span_m": [
+        1.381,
+        1.65
+      ]
+    },
+    {
+      "id": "window-04",
+      "label": "Archisketch Sliding Window 04",
+      "source_id": "E88E0E18-F347-4978-ABF2-0055FE7942D2",
+      "source_index": 3,
+      "kind": "window",
+      "axis": "x",
+      "center_m": [
+        0.83,
+        12.12
+      ],
+      "along_xz": [
+        1.0,
+        -0.0
+      ],
+      "normal_xz": [
+        0.0,
+        1.0
+      ],
+      "width_m": 0.949,
+      "height_m": 1.75,
+      "bottom_m": 0.425,
+      "depth_m": 0.194,
+      "source_position_mm": [
+        -7136,
+        1300,
+        5804
+      ],
+      "source_rotation_degrees": 0,
+      "source_product_name": "Archisketch Sliding Window 04",
+      "source_catalog_dimensions": {
+        "width": 1995,
+        "height": 1750,
+        "depth": 194,
+        "unit": "mm"
+      },
+      "source_scaled_item_dimensions": {
+        "width": 949,
+        "height": 1750,
+        "depth": 194
+      },
+      "dimension_basis": "source_scaled_item",
+      "source_span_delta_m": null,
+      "source_span_conflict": false,
+      "source_bottom_m": 0.425,
+      "source_top_m": 2.175,
+      "vertical_placement_status": "source_window_center_and_instance_height_exact",
+      "vertical_alignment_delta_m": 0.0,
+      "adjacent_room_ids": [
+        [
+          "utility-02"
+        ],
+        []
+      ],
+      "adjacent_source_room_ids": [
+        [
+          "09AA41BF-C22D-459B-9875-51E84E1FBED4"
+        ],
+        []
+      ],
+      "neighbor_sampling": {
+        "side_order": [
+          -1,
+          1
+        ],
+        "offset_m": 0.32,
+        "points_xz_m": [
+          [
+            0.83,
+            11.799999999999999
+          ],
+          [
+            0.83,
+            12.44
+          ]
+        ]
+      },
+      "adjacent_min_ceiling_m": 2.3,
+      "clear_passage_verified": false,
+      "frame_allowance_m": 0.05,
+      "frame_allowance_status": "assumed_visual_frame_not_source_measurement",
+      "orientation_basis": "source_y_rotation_degrees; along_xz=(cos(theta),-sin(theta)); normal_xz=(sin(theta),cos(theta))",
+      "orientation_axis_approximation_degrees": 0,
+      "source_nearest_cardinal_delta_degrees": 0,
+      "clear_span_m": [
+        0.849,
+        1.65
+      ]
+    },
+    {
+      "id": "sliding-05",
+      "label": "ReliaBilt300 Sliding Door",
+      "source_id": "3265ECB8-694A-423D-9149-184D9D9305BF",
+      "source_index": 4,
+      "kind": "sliding",
+      "axis": "x",
+      "center_m": [
+        1.291,
+        4.653
+      ],
+      "along_xz": [
+        1.0,
+        -0.0
+      ],
+      "normal_xz": [
+        0.0,
+        1.0
+      ],
+      "width_m": 0.874,
+      "height_m": 1.977,
+      "bottom_m": 0,
+      "depth_m": 0.193,
+      "source_position_mm": [
+        -6675,
+        990,
+        -1663
+      ],
+      "source_rotation_degrees": 0,
+      "source_product_name": "ReliaBilt300 Sliding Door",
+      "source_catalog_dimensions": {
+        "width": 1795,
+        "height": 1977,
+        "depth": 193,
+        "unit": "mm"
+      },
+      "source_scaled_item_dimensions": {
+        "width": 874,
+        "height": 1977,
+        "depth": 193
+      },
+      "dimension_basis": "source_scaled_item",
+      "source_span_delta_m": null,
+      "source_span_conflict": false,
+      "source_bottom_m": 0.0015,
+      "source_top_m": 1.9785000000000001,
+      "vertical_placement_status": "door_floor_aligned; source_center_roundoff_0_to_2mm_explicit",
+      "vertical_alignment_delta_m": -0.0015,
+      "adjacent_room_ids": [
+        [
+          "storage-01"
+        ],
+        [
+          "primary"
+        ]
+      ],
+      "adjacent_source_room_ids": [
+        [
+          "B67C6643-370B-4FFE-9FB2-831ECE6316F9"
+        ],
+        [
+          "837077F7-30B9-4E0A-B09F-AD458049DE8F"
+        ]
+      ],
+      "neighbor_sampling": {
+        "side_order": [
+          -1,
+          1
+        ],
+        "offset_m": 0.32,
+        "points_xz_m": [
+          [
+            1.291,
+            4.332999999999999
+          ],
+          [
+            1.291,
+            4.973
+          ]
+        ]
+      },
+      "adjacent_min_ceiling_m": 2.3,
+      "clear_passage_verified": false,
+      "frame_allowance_m": 0.05,
+      "frame_allowance_status": "assumed_visual_frame_not_source_measurement",
+      "orientation_basis": "source_y_rotation_degrees; along_xz=(cos(theta),-sin(theta)); normal_xz=(sin(theta),cos(theta))",
+      "orientation_axis_approximation_degrees": 0,
+      "source_nearest_cardinal_delta_degrees": 0,
+      "clear_span_m": [
+        0.774,
+        1.877
+      ]
+    },
+    {
+      "id": "sliding-06",
+      "label": "ReliaBilt300 Sliding Door",
+      "source_id": "EF239329-B04E-4A01-A9E9-DBFD8AFE22B9",
+      "source_index": 5,
+      "kind": "sliding",
+      "axis": "z",
+      "center_m": [
+        12.989,
+        4.744
+      ],
+      "along_xz": [
+        6.123233995736766e-17,
+        1.0
+      ],
+      "normal_xz": [
+        -1.0,
+        6.123233995736766e-17
+      ],
+      "width_m": 1.07,
+      "height_m": 1.977,
+      "bottom_m": 0,
+      "depth_m": 0.193,
+      "source_position_mm": [
+        5023,
+        990,
+        -1572
+      ],
+      "source_rotation_degrees": -90,
+      "source_product_name": "ReliaBilt300 Sliding Door",
+      "source_catalog_dimensions": {
+        "width": 1795,
+        "height": 1977,
+        "depth": 193,
+        "unit": "mm"
+      },
+      "source_scaled_item_dimensions": {
+        "width": 1070,
+        "height": 1977,
+        "depth": 193
+      },
+      "dimension_basis": "source_scaled_item",
+      "source_span_delta_m": null,
+      "source_span_conflict": false,
+      "source_bottom_m": 0.0015,
+      "source_top_m": 1.9785000000000001,
+      "vertical_placement_status": "door_floor_aligned; source_center_roundoff_0_to_2mm_explicit",
+      "vertical_alignment_delta_m": -0.0015,
+      "adjacent_room_ids": [
+        [
+          "utility-01"
+        ],
+        [
+          "living-kitchen-hall"
+        ]
+      ],
+      "adjacent_source_room_ids": [
+        [
+          "2E48C574-2B2D-4359-9A9C-FB40BD521447"
+        ],
+        [
+          "17CDFCBA-CF77-4141-8C80-70DD14EADA96"
+        ]
+      ],
+      "neighbor_sampling": {
+        "side_order": [
+          -1,
+          1
+        ],
+        "offset_m": 0.32,
+        "points_xz_m": [
+          [
+            13.309000000000001,
+            4.744
+          ],
+          [
+            12.669,
+            4.744
+          ]
+        ]
+      },
+      "adjacent_min_ceiling_m": 2.3,
+      "clear_passage_verified": false,
+      "frame_allowance_m": 0.05,
+      "frame_allowance_status": "assumed_visual_frame_not_source_measurement",
+      "orientation_basis": "source_y_rotation_degrees; along_xz=(cos(theta),-sin(theta)); normal_xz=(sin(theta),cos(theta))",
+      "orientation_axis_approximation_degrees": 0,
+      "source_nearest_cardinal_delta_degrees": 0,
+      "clear_span_m": [
+        0.97,
+        1.877
+      ]
+    },
+    {
+      "id": "sliding-07",
+      "label": "ReliaBilt300 Sliding Door",
+      "source_id": "AD07AC4F-6399-403A-840B-E8B70A817B08",
+      "source_index": 6,
+      "kind": "sliding",
+      "axis": "x",
+      "center_m": [
+        2.773,
+        10.684
+      ],
+      "along_xz": [
+        1.0,
+        -0.0
+      ],
+      "normal_xz": [
+        0.0,
+        1.0
+      ],
+      "width_m": 1.627,
+      "height_m": 1.977,
+      "bottom_m": 0,
+      "depth_m": 0.193,
+      "source_position_mm": [
+        -5193,
+        990,
+        4368
+      ],
+      "source_rotation_degrees": 0,
+      "source_product_name": "ReliaBilt300 Sliding Door",
+      "source_catalog_dimensions": {
+        "width": 1795,
+        "height": 1977,
+        "depth": 193,
+        "unit": "mm"
+      },
+      "source_scaled_item_dimensions": {
+        "width": 1627,
+        "height": 1977,
+        "depth": 193
+      },
+      "dimension_basis": "source_scaled_item",
+      "source_span_delta_m": null,
+      "source_span_conflict": false,
+      "source_bottom_m": 0.0015,
+      "source_top_m": 1.9785000000000001,
+      "vertical_placement_status": "door_floor_aligned; source_center_roundoff_0_to_2mm_explicit",
+      "vertical_alignment_delta_m": -0.0015,
+      "adjacent_room_ids": [
+        [
+          "primary"
+        ],
+        [
+          "bedroom-01-part-01"
+        ]
+      ],
+      "adjacent_source_room_ids": [
+        [
+          "837077F7-30B9-4E0A-B09F-AD458049DE8F"
+        ],
+        [
+          "08203BA2-D09C-43A6-A5A9-2D975FFBF59E"
+        ]
+      ],
+      "neighbor_sampling": {
+        "side_order": [
+          -1,
+          1
+        ],
+        "offset_m": 0.32,
+        "points_xz_m": [
+          [
+            2.773,
+            10.363999999999999
+          ],
+          [
+            2.773,
+            11.004
+          ]
+        ]
+      },
+      "adjacent_min_ceiling_m": 2.3,
+      "clear_passage_verified": false,
+      "frame_allowance_m": 0.05,
+      "frame_allowance_status": "assumed_visual_frame_not_source_measurement",
+      "orientation_basis": "source_y_rotation_degrees; along_xz=(cos(theta),-sin(theta)); normal_xz=(sin(theta),cos(theta))",
+      "orientation_axis_approximation_degrees": 0,
+      "source_nearest_cardinal_delta_degrees": 0,
+      "clear_span_m": [
+        1.527,
+        1.877
+      ]
+    },
+    {
+      "id": "door-08",
+      "label": "Archisketch Door 9",
+      "source_id": "7C9FAA43-F059-46A7-ADF7-BD72B9B19909",
+      "source_index": 7,
+      "kind": "door",
+      "axis": "z",
+      "center_m": [
+        2.262,
+        5.25
+      ],
+      "along_xz": [
+        6.123233995736766e-17,
+        -1.0
+      ],
+      "normal_xz": [
+        1.0,
+        6.123233995736766e-17
+      ],
+      "width_m": 0.9,
+      "height_m": 2.12,
+      "bottom_m": 0,
+      "depth_m": 0.77,
+      "source_position_mm": [
+        -5704,
+        1062,
+        -1066
+      ],
+      "source_rotation_degrees": 90,
+      "source_product_name": "Archisketch Door 9",
+      "source_catalog_dimensions": {
+        "width": 900,
+        "height": 2120,
+        "depth": 770,
+        "unit": "mm"
+      },
+      "source_scaled_item_dimensions": {
+        "width": 900,
+        "height": 2120,
+        "depth": 770
+      },
+      "dimension_basis": "source_scaled_item",
+      "source_span_delta_m": null,
+      "source_span_conflict": false,
+      "source_bottom_m": 0.002,
+      "source_top_m": 2.122,
+      "vertical_placement_status": "door_floor_aligned; source_center_roundoff_0_to_2mm_explicit",
+      "vertical_alignment_delta_m": -0.002,
+      "adjacent_room_ids": [
+        [
+          "primary"
+        ],
+        [
+          "bathroom-02"
+        ]
+      ],
+      "adjacent_source_room_ids": [
+        [
+          "837077F7-30B9-4E0A-B09F-AD458049DE8F"
+        ],
+        [
+          "DABA63CB-EB66-4EA2-BA0E-D514A993D462"
+        ]
+      ],
+      "neighbor_sampling": {
+        "side_order": [
+          -1,
+          1
+        ],
+        "offset_m": 0.32,
+        "points_xz_m": [
+          [
+            1.942,
+            5.25
+          ],
+          [
+            2.582,
+            5.25
+          ]
+        ]
+      },
+      "adjacent_min_ceiling_m": 2.3,
+      "clear_passage_verified": false,
+      "frame_allowance_m": 0.02,
+      "frame_allowance_status": "assumed_visual_frame_not_source_measurement",
+      "orientation_basis": "source_y_rotation_degrees; along_xz=(cos(theta),-sin(theta)); normal_xz=(sin(theta),cos(theta))",
+      "orientation_axis_approximation_degrees": 0,
+      "source_nearest_cardinal_delta_degrees": 0,
+      "leaf_width_m": 0.86,
+      "leaf_height_m": 2.1,
+      "operation_basis": "source_opening_axis_with_provisional_hinge_and_swing"
+    },
+    {
+      "id": "door-09",
+      "label": "Archisketch Door 9",
+      "source_id": "4E682C2E-2C20-4BC1-8006-D5CF2688131D",
+      "source_index": 8,
+      "kind": "door",
+      "axis": "z",
+      "center_m": [
+        4.647,
+        1.556
+      ],
+      "along_xz": [
+        6.123233995736766e-17,
+        1.0
+      ],
+      "normal_xz": [
+        -1.0,
+        6.123233995736766e-17
+      ],
+      "width_m": 0.9,
+      "height_m": 2.12,
+      "bottom_m": 0,
+      "depth_m": 0.77,
+      "source_position_mm": [
+        -3319,
+        1062,
+        -4760
+      ],
+      "source_rotation_degrees": -90,
+      "source_product_name": "Archisketch Door 9",
+      "source_catalog_dimensions": {
+        "width": 900,
+        "height": 2120,
+        "depth": 770,
+        "unit": "mm"
+      },
+      "source_scaled_item_dimensions": {
+        "width": 900,
+        "height": 2120,
+        "depth": 770
+      },
+      "dimension_basis": "source_scaled_item",
+      "source_span_delta_m": null,
+      "source_span_conflict": false,
+      "source_bottom_m": 0.002,
+      "source_top_m": 2.122,
+      "vertical_placement_status": "door_floor_aligned; source_center_roundoff_0_to_2mm_explicit",
+      "vertical_alignment_delta_m": -0.002,
+      "adjacent_room_ids": [
+        [
+          "living-kitchen-hall"
+        ],
+        [
+          "balcony-01"
+        ]
+      ],
+      "adjacent_source_room_ids": [
+        [
+          "17CDFCBA-CF77-4141-8C80-70DD14EADA96"
+        ],
+        [
+          "8D8FC196-4328-42AF-8007-04B914F4761C"
+        ]
+      ],
+      "neighbor_sampling": {
+        "side_order": [
+          -1,
+          1
+        ],
+        "offset_m": 0.32,
+        "points_xz_m": [
+          [
+            4.9670000000000005,
+            1.556
+          ],
+          [
+            4.327,
+            1.556
+          ]
+        ]
+      },
+      "adjacent_min_ceiling_m": 2.3,
+      "clear_passage_verified": false,
+      "frame_allowance_m": 0.02,
+      "frame_allowance_status": "assumed_visual_frame_not_source_measurement",
+      "orientation_basis": "source_y_rotation_degrees; along_xz=(cos(theta),-sin(theta)); normal_xz=(sin(theta),cos(theta))",
+      "orientation_axis_approximation_degrees": 0,
+      "source_nearest_cardinal_delta_degrees": 0,
+      "leaf_width_m": 0.86,
+      "leaf_height_m": 2.1,
+      "operation_basis": "source_opening_axis_with_provisional_hinge_and_swing"
+    },
+    {
+      "id": "door-10",
+      "label": "Archisketch Door 9",
+      "source_id": "A0472E6C-B71B-41DF-B1C8-6ACA26965906",
+      "source_index": 9,
+      "kind": "door",
+      "axis": "x",
+      "center_m": [
+        10.213,
+        5.812
+      ],
+      "along_xz": [
+        -1.0,
+        1.2246467991473532e-16
+      ],
+      "normal_xz": [
+        -1.2246467991473532e-16,
+        -1.0
+      ],
+      "width_m": 0.9,
+      "height_m": 2.12,
+      "bottom_m": 0,
+      "depth_m": 0.77,
+      "source_position_mm": [
+        2247,
+        1062,
+        -504
+      ],
+      "source_rotation_degrees": -180,
+      "source_product_name": "Archisketch Door 9",
+      "source_catalog_dimensions": {
+        "width": 900,
+        "height": 2120,
+        "depth": 770,
+        "unit": "mm"
+      },
+      "source_scaled_item_dimensions": {
+        "width": 900,
+        "height": 2120,
+        "depth": 770
+      },
+      "dimension_basis": "source_scaled_item",
+      "source_span_delta_m": null,
+      "source_span_conflict": false,
+      "source_bottom_m": 0.002,
+      "source_top_m": 2.122,
+      "vertical_placement_status": "door_floor_aligned; source_center_roundoff_0_to_2mm_explicit",
+      "vertical_alignment_delta_m": -0.002,
+      "adjacent_room_ids": [
+        [
+          "living-kitchen-hall"
+        ],
+        [
+          "bedroom-04"
+        ]
+      ],
+      "adjacent_source_room_ids": [
+        [
+          "17CDFCBA-CF77-4141-8C80-70DD14EADA96"
+        ],
+        [
+          "8502301E-6453-48C0-92B9-6217B0F8528F"
+        ]
+      ],
+      "neighbor_sampling": {
+        "side_order": [
+          -1,
+          1
+        ],
+        "offset_m": 0.32,
+        "points_xz_m": [
+          [
+            10.213,
+            6.132000000000001
+          ],
+          [
+            10.213,
+            5.492
+          ]
+        ]
+      },
+      "adjacent_min_ceiling_m": 2.3,
+      "clear_passage_verified": false,
+      "frame_allowance_m": 0.02,
+      "frame_allowance_status": "assumed_visual_frame_not_source_measurement",
+      "orientation_basis": "source_y_rotation_degrees; along_xz=(cos(theta),-sin(theta)); normal_xz=(sin(theta),cos(theta))",
+      "orientation_axis_approximation_degrees": 0,
+      "source_nearest_cardinal_delta_degrees": 0,
+      "leaf_width_m": 0.86,
+      "leaf_height_m": 2.1,
+      "operation_basis": "source_opening_axis_with_provisional_hinge_and_swing"
+    },
+    {
+      "id": "door-11",
+      "label": "Archisketch Door 9",
+      "source_id": "E8356EDE-C4F8-4F92-A9AC-1F78987C7AA6",
+      "source_index": 10,
+      "kind": "door",
+      "axis": "z",
+      "center_m": [
+        13.826,
+        6.591
+      ],
+      "along_xz": [
+        6.123233995736766e-17,
+        -1.0
+      ],
+      "normal_xz": [
+        1.0,
+        6.123233995736766e-17
+      ],
+      "width_m": 0.9,
+      "height_m": 2.12,
+      "bottom_m": 0,
+      "depth_m": 0.77,
+      "source_position_mm": [
+        5860,
+        1062,
+        275
+      ],
+      "source_rotation_degrees": 90,
+      "source_product_name": "Archisketch Door 9",
+      "source_catalog_dimensions": {
+        "width": 900,
+        "height": 2120,
+        "depth": 770,
+        "unit": "mm"
+      },
+      "source_scaled_item_dimensions": {
+        "width": 900,
+        "height": 2120,
+        "depth": 770
+      },
+      "dimension_basis": "source_scaled_item",
+      "source_span_delta_m": null,
+      "source_span_conflict": false,
+      "source_bottom_m": 0.002,
+      "source_top_m": 2.122,
+      "vertical_placement_status": "door_floor_aligned; source_center_roundoff_0_to_2mm_explicit",
+      "vertical_alignment_delta_m": -0.002,
+      "adjacent_room_ids": [
+        [
+          "living-kitchen-hall"
+        ],
+        [
+          "bathroom-01"
+        ]
+      ],
+      "adjacent_source_room_ids": [
+        [
+          "17CDFCBA-CF77-4141-8C80-70DD14EADA96"
+        ],
+        [
+          "AAB81B11-359F-4D00-8802-ED7E17C219B2"
+        ]
+      ],
+      "neighbor_sampling": {
+        "side_order": [
+          -1,
+          1
+        ],
+        "offset_m": 0.32,
+        "points_xz_m": [
+          [
+            13.506,
+            6.591
+          ],
+          [
+            14.146,
+            6.591
+          ]
+        ]
+      },
+      "adjacent_min_ceiling_m": 2.3,
+      "clear_passage_verified": false,
+      "frame_allowance_m": 0.02,
+      "frame_allowance_status": "assumed_visual_frame_not_source_measurement",
+      "orientation_basis": "source_y_rotation_degrees; along_xz=(cos(theta),-sin(theta)); normal_xz=(sin(theta),cos(theta))",
+      "orientation_axis_approximation_degrees": 0,
+      "source_nearest_cardinal_delta_degrees": 0,
+      "leaf_width_m": 0.86,
+      "leaf_height_m": 2.1,
+      "operation_basis": "source_opening_axis_with_provisional_hinge_and_swing"
+    },
+    {
+      "id": "door-12",
+      "label": "Archisketch Door 9",
+      "source_id": "B174BA06-8A69-4A2B-99C9-58C025411679",
+      "source_index": 11,
+      "kind": "door",
+      "axis": "x",
+      "center_m": [
+        13.136,
+        7.141
+      ],
+      "along_xz": [
+        1.0,
+        -0.0
+      ],
+      "normal_xz": [
+        0.0,
+        1.0
+      ],
+      "width_m": 0.9,
+      "height_m": 2.12,
+      "bottom_m": 0,
+      "depth_m": 0.77,
+      "source_position_mm": [
+        5170,
+        1062,
+        825
+      ],
+      "source_rotation_degrees": 0,
+      "source_product_name": "Archisketch Door 9",
+      "source_catalog_dimensions": {
+        "width": 900,
+        "height": 2120,
+        "depth": 770,
+        "unit": "mm"
+      },
+      "source_scaled_item_dimensions": {
+        "width": 900,
+        "height": 2120,
+        "depth": 770
+      },
+      "dimension_basis": "source_scaled_item",
+      "source_span_delta_m": null,
+      "source_span_conflict": false,
+      "source_bottom_m": 0.002,
+      "source_top_m": 2.122,
+      "vertical_placement_status": "door_floor_aligned; source_center_roundoff_0_to_2mm_explicit",
+      "vertical_alignment_delta_m": -0.002,
+      "adjacent_room_ids": [
+        [
+          "living-kitchen-hall"
+        ],
+        [
+          "bedroom-03"
+        ]
+      ],
+      "adjacent_source_room_ids": [
+        [
+          "17CDFCBA-CF77-4141-8C80-70DD14EADA96"
+        ],
+        [
+          "4ECB6369-ABD7-43F8-88BC-F2D51189A7A4"
+        ]
+      ],
+      "neighbor_sampling": {
+        "side_order": [
+          -1,
+          1
+        ],
+        "offset_m": 0.32,
+        "points_xz_m": [
+          [
+            13.136,
+            6.821
+          ],
+          [
+            13.136,
+            7.461
+          ]
+        ]
+      },
+      "adjacent_min_ceiling_m": 2.3,
+      "clear_passage_verified": false,
+      "frame_allowance_m": 0.02,
+      "frame_allowance_status": "assumed_visual_frame_not_source_measurement",
+      "orientation_basis": "source_y_rotation_degrees; along_xz=(cos(theta),-sin(theta)); normal_xz=(sin(theta),cos(theta))",
+      "orientation_axis_approximation_degrees": 0,
+      "source_nearest_cardinal_delta_degrees": 0,
+      "leaf_width_m": 0.86,
+      "leaf_height_m": 2.1,
+      "operation_basis": "source_opening_axis_with_provisional_hinge_and_swing"
+    },
+    {
+      "id": "door-13",
+      "label": "Archisketch Door 9",
+      "source_id": "E8223512-1CA3-4A90-A9EC-26B774E5749D",
+      "source_index": 12,
+      "kind": "door",
+      "axis": "x",
+      "center_m": [
+        10.009,
+        7.141
+      ],
+      "along_xz": [
+        1.0,
+        -0.0
+      ],
+      "normal_xz": [
+        0.0,
+        1.0
+      ],
+      "width_m": 0.9,
+      "height_m": 2.12,
+      "bottom_m": 0,
+      "depth_m": 0.77,
+      "source_position_mm": [
+        2043,
+        1062,
+        825
+      ],
+      "source_rotation_degrees": 0,
+      "source_product_name": "Archisketch Door 9",
+      "source_catalog_dimensions": {
+        "width": 900,
+        "height": 2120,
+        "depth": 770,
+        "unit": "mm"
+      },
+      "source_scaled_item_dimensions": {
+        "width": 900,
+        "height": 2120,
+        "depth": 770
+      },
+      "dimension_basis": "source_scaled_item",
+      "source_span_delta_m": null,
+      "source_span_conflict": false,
+      "source_bottom_m": 0.002,
+      "source_top_m": 2.122,
+      "vertical_placement_status": "door_floor_aligned; source_center_roundoff_0_to_2mm_explicit",
+      "vertical_alignment_delta_m": -0.002,
+      "adjacent_room_ids": [
+        [
+          "living-kitchen-hall"
+        ],
+        [
+          "bedroom-02"
+        ]
+      ],
+      "adjacent_source_room_ids": [
+        [
+          "17CDFCBA-CF77-4141-8C80-70DD14EADA96"
+        ],
+        [
+          "983A2012-2805-49C7-B523-A46E4D32CF8F"
+        ]
+      ],
+      "neighbor_sampling": {
+        "side_order": [
+          -1,
+          1
+        ],
+        "offset_m": 0.32,
+        "points_xz_m": [
+          [
+            10.009,
+            6.821
+          ],
+          [
+            10.009,
+            7.461
+          ]
+        ]
+      },
+      "adjacent_min_ceiling_m": 2.3,
+      "clear_passage_verified": false,
+      "frame_allowance_m": 0.02,
+      "frame_allowance_status": "assumed_visual_frame_not_source_measurement",
+      "orientation_basis": "source_y_rotation_degrees; along_xz=(cos(theta),-sin(theta)); normal_xz=(sin(theta),cos(theta))",
+      "orientation_axis_approximation_degrees": 0,
+      "source_nearest_cardinal_delta_degrees": 0,
+      "leaf_width_m": 0.86,
+      "leaf_height_m": 2.1,
+      "operation_basis": "source_opening_axis_with_provisional_hinge_and_swing"
+    },
+    {
+      "id": "door-14",
+      "label": "Archisketch Door 9",
+      "source_id": "E01AFC41-C613-44AA-8C6B-502DC5A7A364",
+      "source_index": 13,
+      "kind": "door",
+      "axis": "z",
+      "center_m": [
+        4.257,
+        6.365
+      ],
+      "along_xz": [
+        6.123233995736766e-17,
+        1.0
+      ],
+      "normal_xz": [
+        -1.0,
+        6.123233995736766e-17
+      ],
+      "width_m": 0.9,
+      "height_m": 2.12,
+      "bottom_m": 0,
+      "depth_m": 0.77,
+      "source_position_mm": [
+        -3709,
+        1062,
+        49
+      ],
+      "source_rotation_degrees": -90,
+      "source_product_name": "Archisketch Door 9",
+      "source_catalog_dimensions": {
+        "width": 900,
+        "height": 2120,
+        "depth": 770,
+        "unit": "mm"
+      },
+      "source_scaled_item_dimensions": {
+        "width": 900,
+        "height": 2120,
+        "depth": 770
+      },
+      "dimension_basis": "source_scaled_item",
+      "source_span_delta_m": null,
+      "source_span_conflict": false,
+      "source_bottom_m": 0.002,
+      "source_top_m": 2.122,
+      "vertical_placement_status": "door_floor_aligned; source_center_roundoff_0_to_2mm_explicit",
+      "vertical_alignment_delta_m": -0.002,
+      "adjacent_room_ids": [
+        [
+          "living-kitchen-hall"
+        ],
+        [
+          "primary"
+        ]
+      ],
+      "adjacent_source_room_ids": [
+        [
+          "17CDFCBA-CF77-4141-8C80-70DD14EADA96"
+        ],
+        [
+          "837077F7-30B9-4E0A-B09F-AD458049DE8F"
+        ]
+      ],
+      "neighbor_sampling": {
+        "side_order": [
+          -1,
+          1
+        ],
+        "offset_m": 0.32,
+        "points_xz_m": [
+          [
+            4.577,
+            6.365
+          ],
+          [
+            3.937,
+            6.365
+          ]
+        ]
+      },
+      "adjacent_min_ceiling_m": 2.3,
+      "clear_passage_verified": false,
+      "frame_allowance_m": 0.02,
+      "frame_allowance_status": "assumed_visual_frame_not_source_measurement",
+      "orientation_basis": "source_y_rotation_degrees; along_xz=(cos(theta),-sin(theta)); normal_xz=(sin(theta),cos(theta))",
+      "orientation_axis_approximation_degrees": 0,
+      "source_nearest_cardinal_delta_degrees": 0,
+      "leaf_width_m": 0.86,
+      "leaf_height_m": 2.1,
+      "operation_basis": "source_opening_axis_with_provisional_hinge_and_swing"
+    },
+    {
+      "id": "door-15",
+      "label": "Archisketch Door 9",
+      "source_id": "6040CCB5-B419-4D99-B56D-B3D70AA2034B",
+      "source_index": 14,
+      "kind": "door",
+      "axis": "z",
+      "center_m": [
+        1.522,
+        11.43
+      ],
+      "along_xz": [
+        6.123233995736766e-17,
+        -1.0
+      ],
+      "normal_xz": [
+        1.0,
+        6.123233995736766e-17
+      ],
+      "width_m": 0.9,
+      "height_m": 2.12,
+      "bottom_m": 0,
+      "depth_m": 0.77,
+      "source_position_mm": [
+        -6444,
+        1062,
+        5114
+      ],
+      "source_rotation_degrees": 90,
+      "source_product_name": "Archisketch Door 9",
+      "source_catalog_dimensions": {
+        "width": 900,
+        "height": 2120,
+        "depth": 770,
+        "unit": "mm"
+      },
+      "source_scaled_item_dimensions": {
+        "width": 900,
+        "height": 2120,
+        "depth": 770
+      },
+      "dimension_basis": "source_scaled_item",
+      "source_span_delta_m": null,
+      "source_span_conflict": false,
+      "source_bottom_m": 0.002,
+      "source_top_m": 2.122,
+      "vertical_placement_status": "door_floor_aligned; source_center_roundoff_0_to_2mm_explicit",
+      "vertical_alignment_delta_m": -0.002,
+      "adjacent_room_ids": [
+        [
+          "utility-02"
+        ],
+        [
+          "bedroom-01-part-01"
+        ]
+      ],
+      "adjacent_source_room_ids": [
+        [
+          "09AA41BF-C22D-459B-9875-51E84E1FBED4"
+        ],
+        [
+          "08203BA2-D09C-43A6-A5A9-2D975FFBF59E"
+        ]
+      ],
+      "neighbor_sampling": {
+        "side_order": [
+          -1,
+          1
+        ],
+        "offset_m": 0.32,
+        "points_xz_m": [
+          [
+            1.202,
+            11.43
+          ],
+          [
+            1.842,
+            11.43
+          ]
+        ]
+      },
+      "adjacent_min_ceiling_m": 2.3,
+      "clear_passage_verified": false,
+      "frame_allowance_m": 0.02,
+      "frame_allowance_status": "assumed_visual_frame_not_source_measurement",
+      "orientation_basis": "source_y_rotation_degrees; along_xz=(cos(theta),-sin(theta)); normal_xz=(sin(theta),cos(theta))",
+      "orientation_axis_approximation_degrees": 0,
+      "source_nearest_cardinal_delta_degrees": 0,
+      "leaf_width_m": 0.86,
+      "leaf_height_m": 2.1,
+      "operation_basis": "source_opening_axis_with_provisional_hinge_and_swing"
+    },
+    {
+      "id": "sliding-16",
+      "label": "ReliaBilt300 Sliding Door",
+      "source_id": "BA3DDFA8-260E-40D4-AF43-B5E4370BFEAC",
+      "source_index": 15,
+      "kind": "sliding",
+      "axis": "x",
+      "center_m": [
+        10.942,
+        10.684
+      ],
+      "along_xz": [
+        1.0,
+        -0.0
+      ],
+      "normal_xz": [
+        0.0,
+        1.0
+      ],
+      "width_m": 1.753,
+      "height_m": 1.977,
+      "bottom_m": 0,
+      "depth_m": 0.193,
+      "source_position_mm": [
+        2976,
+        990,
+        4368
+      ],
+      "source_rotation_degrees": 0,
+      "source_product_name": "ReliaBilt300 Sliding Door",
+      "source_catalog_dimensions": {
+        "width": 1795,
+        "height": 1977,
+        "depth": 193,
+        "unit": "mm"
+      },
+      "source_scaled_item_dimensions": {
+        "width": 1753,
+        "height": 1977,
+        "depth": 193
+      },
+      "dimension_basis": "source_scaled_item",
+      "source_span_delta_m": null,
+      "source_span_conflict": false,
+      "source_bottom_m": 0.0015,
+      "source_top_m": 1.9785000000000001,
+      "vertical_placement_status": "door_floor_aligned; source_center_roundoff_0_to_2mm_explicit",
+      "vertical_alignment_delta_m": -0.0015,
+      "adjacent_room_ids": [
+        [
+          "bedroom-02"
+        ],
+        [
+          "balcony-02"
+        ]
+      ],
+      "adjacent_source_room_ids": [
+        [
+          "983A2012-2805-49C7-B523-A46E4D32CF8F"
+        ],
+        [
+          "EF583F7D-0AC8-4706-9B59-DA6067786289"
+        ]
+      ],
+      "neighbor_sampling": {
+        "side_order": [
+          -1,
+          1
+        ],
+        "offset_m": 0.32,
+        "points_xz_m": [
+          [
+            10.942,
+            10.363999999999999
+          ],
+          [
+            10.942,
+            11.004
+          ]
+        ]
+      },
+      "adjacent_min_ceiling_m": 2.3,
+      "clear_passage_verified": false,
+      "frame_allowance_m": 0.05,
+      "frame_allowance_status": "assumed_visual_frame_not_source_measurement",
+      "orientation_basis": "source_y_rotation_degrees; along_xz=(cos(theta),-sin(theta)); normal_xz=(sin(theta),cos(theta))",
+      "orientation_axis_approximation_degrees": 0,
+      "source_nearest_cardinal_delta_degrees": 0,
+      "clear_span_m": [
+        1.653,
+        1.877
+      ]
+    },
+    {
+      "id": "sliding-17",
+      "label": "ReliaBilt300 Sliding Door",
+      "source_id": "BAAB61A1-2779-4A32-82B0-C5D25CE42CCE",
+      "source_index": 16,
+      "kind": "sliding",
+      "axis": "x",
+      "center_m": [
+        14.037,
+        10.684
+      ],
+      "along_xz": [
+        1.0,
+        -0.0
+      ],
+      "normal_xz": [
+        0.0,
+        1.0
+      ],
+      "width_m": 1.751,
+      "height_m": 1.977,
+      "bottom_m": 0,
+      "depth_m": 0.193,
+      "source_position_mm": [
+        6071,
+        990,
+        4368
+      ],
+      "source_rotation_degrees": 0,
+      "source_product_name": "ReliaBilt300 Sliding Door",
+      "source_catalog_dimensions": {
+        "width": 1795,
+        "height": 1977,
+        "depth": 193,
+        "unit": "mm"
+      },
+      "source_scaled_item_dimensions": {
+        "width": 1751,
+        "height": 1977,
+        "depth": 193
+      },
+      "dimension_basis": "source_scaled_item",
+      "source_span_delta_m": null,
+      "source_span_conflict": false,
+      "source_bottom_m": 0.0015,
+      "source_top_m": 1.9785000000000001,
+      "vertical_placement_status": "door_floor_aligned; source_center_roundoff_0_to_2mm_explicit",
+      "vertical_alignment_delta_m": -0.0015,
+      "adjacent_room_ids": [
+        [
+          "bedroom-03"
+        ],
+        [
+          "balcony-02"
+        ]
+      ],
+      "adjacent_source_room_ids": [
+        [
+          "4ECB6369-ABD7-43F8-88BC-F2D51189A7A4"
+        ],
+        [
+          "EF583F7D-0AC8-4706-9B59-DA6067786289"
+        ]
+      ],
+      "neighbor_sampling": {
+        "side_order": [
+          -1,
+          1
+        ],
+        "offset_m": 0.32,
+        "points_xz_m": [
+          [
+            14.037,
+            10.363999999999999
+          ],
+          [
+            14.037,
+            11.004
+          ]
+        ]
+      },
+      "adjacent_min_ceiling_m": 2.3,
+      "clear_passage_verified": false,
+      "frame_allowance_m": 0.05,
+      "frame_allowance_status": "assumed_visual_frame_not_source_measurement",
+      "orientation_basis": "source_y_rotation_degrees; along_xz=(cos(theta),-sin(theta)); normal_xz=(sin(theta),cos(theta))",
+      "orientation_axis_approximation_degrees": 0,
+      "source_nearest_cardinal_delta_degrees": 0,
+      "clear_span_m": [
+        1.651,
+        1.877
+      ]
+    },
+    {
+      "id": "window-18",
+      "label": "Archisketch Sliding Window 04",
+      "source_id": "BB59B11E-A44D-4444-BD2A-E5659B9C1B6C",
+      "source_index": 17,
+      "kind": "window",
+      "axis": "x",
+      "center_m": [
+        3.924,
+        0.1
+      ],
+      "along_xz": [
+        1.0,
+        -0.0
+      ],
+      "normal_xz": [
+        0.0,
+        1.0
+      ],
+      "width_m": 0.95,
+      "height_m": 1.75,
+      "bottom_m": 0.425,
+      "depth_m": 0.194,
+      "source_position_mm": [
+        -4042,
+        1300,
+        -6216
+      ],
+      "source_rotation_degrees": 0,
+      "source_product_name": "Archisketch Sliding Window 04",
+      "source_catalog_dimensions": {
+        "width": 1995,
+        "height": 1750,
+        "depth": 194,
+        "unit": "mm"
+      },
+      "source_scaled_item_dimensions": {
+        "width": 950,
+        "height": 1750,
+        "depth": 194
+      },
+      "dimension_basis": "source_scaled_item",
+      "source_span_delta_m": null,
+      "source_span_conflict": false,
+      "source_bottom_m": 0.425,
+      "source_top_m": 2.175,
+      "vertical_placement_status": "source_window_center_and_instance_height_exact",
+      "vertical_alignment_delta_m": 0.0,
+      "adjacent_room_ids": [
+        [],
+        [
+          "balcony-01"
+        ]
+      ],
+      "adjacent_source_room_ids": [
+        [],
+        [
+          "8D8FC196-4328-42AF-8007-04B914F4761C"
+        ]
+      ],
+      "neighbor_sampling": {
+        "side_order": [
+          -1,
+          1
+        ],
+        "offset_m": 0.32,
+        "points_xz_m": [
+          [
+            3.924,
+            -0.22
+          ],
+          [
+            3.924,
+            0.42000000000000004
+          ]
+        ]
+      },
+      "adjacent_min_ceiling_m": 2.3,
+      "clear_passage_verified": false,
+      "frame_allowance_m": 0.05,
+      "frame_allowance_status": "assumed_visual_frame_not_source_measurement",
+      "orientation_basis": "source_y_rotation_degrees; along_xz=(cos(theta),-sin(theta)); normal_xz=(sin(theta),cos(theta))",
+      "orientation_axis_approximation_degrees": 0,
+      "source_nearest_cardinal_delta_degrees": 0,
+      "clear_span_m": [
+        0.85,
+        1.65
+      ]
+    },
+    {
+      "id": "window-19",
+      "label": "주방 창문",
+      "source_id": "82202945-F48A-4569-B50C-3B57BFE936DE",
+      "source_index": 18,
+      "kind": "window",
+      "axis": "x",
+      "center_m": [
+        6.546,
+        0.1
+      ],
+      "along_xz": [
+        1.0,
+        -0.0
+      ],
+      "normal_xz": [
+        0.0,
+        1.0
+      ],
+      "width_m": 1.605,
+      "height_m": 0.56,
+      "bottom_m": 0.94,
+      "depth_m": 0.2,
+      "source_position_mm": [
+        -1420,
+        1220,
+        -6216
+      ],
+      "source_rotation_degrees": 0,
+      "source_product_name": "주방 창문",
+      "source_catalog_dimensions": {
+        "width": 1800,
+        "height": 560,
+        "depth": 200,
+        "unit": "mm"
+      },
+      "source_scaled_item_dimensions": {
+        "width": 1605,
+        "height": 560,
+        "depth": 200
+      },
+      "dimension_basis": "source_scaled_item",
+      "source_span_delta_m": null,
+      "source_span_conflict": false,
+      "source_bottom_m": 0.94,
+      "source_top_m": 1.5,
+      "vertical_placement_status": "source_window_center_and_instance_height_exact",
+      "vertical_alignment_delta_m": 0.0,
+      "adjacent_room_ids": [
+        [],
+        [
+          "living-kitchen-hall"
+        ]
+      ],
+      "adjacent_source_room_ids": [
+        [],
+        [
+          "17CDFCBA-CF77-4141-8C80-70DD14EADA96"
+        ]
+      ],
+      "neighbor_sampling": {
+        "side_order": [
+          -1,
+          1
+        ],
+        "offset_m": 0.32,
+        "points_xz_m": [
+          [
+            6.546,
+            -0.22
+          ],
+          [
+            6.546,
+            0.42000000000000004
+          ]
+        ]
+      },
+      "adjacent_min_ceiling_m": 2.3,
+      "clear_passage_verified": false,
+      "frame_allowance_m": 0.05,
+      "frame_allowance_status": "assumed_visual_frame_not_source_measurement",
+      "orientation_basis": "source_y_rotation_degrees; along_xz=(cos(theta),-sin(theta)); normal_xz=(sin(theta),cos(theta))",
+      "orientation_axis_approximation_degrees": 0,
+      "source_nearest_cardinal_delta_degrees": 0,
+      "clear_span_m": [
+        1.505,
+        0.46
+      ]
+    },
+    {
+      "id": "window-20",
+      "label": "Archisketch Sliding Window 04",
+      "source_id": "B8A65212-49D9-4C9D-BFB1-E9304206478C",
+      "source_index": 19,
+      "kind": "window",
+      "axis": "x",
+      "center_m": [
+        1.188,
+        1.113
+      ],
+      "along_xz": [
+        1.0,
+        -0.0
+      ],
+      "normal_xz": [
+        0.0,
+        1.0
+      ],
+      "width_m": 0.867,
+      "height_m": 1.2,
+      "bottom_m": 1.0,
+      "depth_m": 0.194,
+      "source_position_mm": [
+        -6778,
+        1600,
+        -5203
+      ],
+      "source_rotation_degrees": 0,
+      "source_product_name": "Archisketch Sliding Window 04",
+      "source_catalog_dimensions": {
+        "width": 1995,
+        "height": 1750,
+        "depth": 194,
+        "unit": "mm"
+      },
+      "source_scaled_item_dimensions": {
+        "width": 867,
+        "height": 1200,
+        "depth": 194
+      },
+      "dimension_basis": "source_scaled_item",
+      "source_span_delta_m": null,
+      "source_span_conflict": false,
+      "source_bottom_m": 1.0,
+      "source_top_m": 2.2,
+      "vertical_placement_status": "source_window_center_and_instance_height_exact",
+      "vertical_alignment_delta_m": 0.0,
+      "adjacent_room_ids": [
+        [],
+        [
+          "storage-01"
+        ]
+      ],
+      "adjacent_source_room_ids": [
+        [],
+        [
+          "B67C6643-370B-4FFE-9FB2-831ECE6316F9"
+        ]
+      ],
+      "neighbor_sampling": {
+        "side_order": [
+          -1,
+          1
+        ],
+        "offset_m": 0.32,
+        "points_xz_m": [
+          [
+            1.188,
+            0.7929999999999999
+          ],
+          [
+            1.188,
+            1.433
+          ]
+        ]
+      },
+      "adjacent_min_ceiling_m": 2.3,
+      "clear_passage_verified": false,
+      "frame_allowance_m": 0.05,
+      "frame_allowance_status": "assumed_visual_frame_not_source_measurement",
+      "orientation_basis": "source_y_rotation_degrees; along_xz=(cos(theta),-sin(theta)); normal_xz=(sin(theta),cos(theta))",
+      "orientation_axis_approximation_degrees": 0,
+      "source_nearest_cardinal_delta_degrees": 0,
+      "clear_span_m": [
+        0.767,
+        1.1
+      ]
+    },
+    {
+      "id": "window-21",
+      "label": "Archisketch Sliding Window 04",
+      "source_id": "6C400954-8A65-4FB4-94FA-A0CA55CE3054",
+      "source_index": 20,
+      "kind": "window",
+      "axis": "x",
+      "center_m": [
+        9.891,
+        1.261
+      ],
+      "along_xz": [
+        1.0,
+        -0.0
+      ],
+      "normal_xz": [
+        0.0,
+        1.0
+      ],
+      "width_m": 1.499,
+      "height_m": 1.198,
+      "bottom_m": 1.001,
+      "depth_m": 0.194,
+      "source_position_mm": [
+        1925,
+        1600,
+        -5055
+      ],
+      "source_rotation_degrees": 0,
+      "source_product_name": "Archisketch Sliding Window 04",
+      "source_catalog_dimensions": {
+        "width": 1995,
+        "height": 1750,
+        "depth": 194,
+        "unit": "mm"
+      },
+      "source_scaled_item_dimensions": {
+        "width": 1499,
+        "height": 1198,
+        "depth": 194
+      },
+      "dimension_basis": "source_scaled_item",
+      "source_span_delta_m": null,
+      "source_span_conflict": false,
+      "source_bottom_m": 1.001,
+      "source_top_m": 2.199,
+      "vertical_placement_status": "source_window_center_and_instance_height_exact",
+      "vertical_alignment_delta_m": 0.0,
+      "adjacent_room_ids": [
+        [],
+        [
+          "bedroom-04"
+        ]
+      ],
+      "adjacent_source_room_ids": [
+        [],
+        [
+          "8502301E-6453-48C0-92B9-6217B0F8528F"
+        ]
+      ],
+      "neighbor_sampling": {
+        "side_order": [
+          -1,
+          1
+        ],
+        "offset_m": 0.32,
+        "points_xz_m": [
+          [
+            9.891,
+            0.9409999999999998
+          ],
+          [
+            9.891,
+            1.581
+          ]
+        ]
+      },
+      "adjacent_min_ceiling_m": 2.3,
+      "clear_passage_verified": false,
+      "frame_allowance_m": 0.05,
+      "frame_allowance_status": "assumed_visual_frame_not_source_measurement",
+      "orientation_basis": "source_y_rotation_degrees; along_xz=(cos(theta),-sin(theta)); normal_xz=(sin(theta),cos(theta))",
+      "orientation_axis_approximation_degrees": 0,
+      "source_nearest_cardinal_delta_degrees": 0,
+      "clear_span_m": [
+        1.399,
+        1.098
+      ]
+    }
+  ],
+  "skipped_openings": [],
+  "source_geometry_audit": [
+    {
+      "source_id": "8D8FC196-4328-42AF-8007-04B914F4761C",
+      "source_type": "발코니",
+      "valid_before": true,
+      "validity_reason_before": "Valid Geometry",
+      "method": "remove_consecutive_duplicates_only",
+      "original_polygon_mm": [
+        [
+          -3835,
+          -4132
+        ],
+        [
+          -3835,
+          -4132
+        ],
+        [
+          -3419,
+          -4132
+        ],
+        [
+          -3419,
+          -5254
+        ],
+        [
+          -3419,
+          -6116
+        ],
+        [
+          -3564,
+          -6116
+        ],
+        [
+          -4516,
+          -6116
+        ],
+        [
+          -4516,
+          -6116
+        ],
+        [
+          -4699,
+          -6116
+        ],
+        [
+          -4699,
+          -5103
+        ],
+        [
+          -5604,
+          -5103
+        ],
+        [
+          -5604,
+          -4132
+        ]
+      ],
+      "original_polygon_wkt_mm": "POLYGON ((-3835 -4132, -3835 -4132, -3419 -4132, -3419 -5254, -3419 -6116, -3564 -6116, -4516 -6116, -4516 -6116, -4699 -6116, -4699 -5103, -5604 -5103, -5604 -4132, -3835 -4132))",
+      "normalized_polygon_parts_wkt_mm": [
+        "POLYGON ((-3835 -4132, -3419 -4132, -3419 -5254, -3419 -6116, -3564 -6116, -4516 -6116, -4699 -6116, -4699 -5103, -5604 -5103, -5604 -4132, -3835 -4132))"
+      ],
+      "original_signed_ring_absolute_area_m2": 3.418275,
+      "source_reported_area_m2": 3.42,
+      "normalized_polygon_parts_area_m2": [
+        3.418275
+      ],
+      "normalized_polygon_area_m2": 3.418275,
+      "area_change_vs_original_ring_m2": 0.0,
+      "boundary_hausdorff_distance_m": 0.0,
+      "original_boundary_length_m": 8.338,
+      "normalized_boundary_length_m": 8.338,
+      "original_boundary_not_in_normalized_length_m": 0.0,
+      "normalized_boundary_not_in_original_length_m": 0.0,
+      "part_count": 1,
+      "removed_consecutive_or_closing_duplicate_vertices": 2,
+      "source_bytes_preserved": true,
+      "coordinate_tolerance_m": 0,
+      "area_interpretation": "Valid source polygon area retained."
+    },
+    {
+      "source_id": "17CDFCBA-CF77-4141-8C80-70DD14EADA96",
+      "source_type": "거실&다이닝",
+      "valid_before": true,
+      "validity_reason_before": "Valid Geometry",
+      "method": "remove_consecutive_duplicates_only",
+      "original_polygon_mm": [
+        [
+          -3219,
+          -6116
+        ],
+        [
+          -3219,
+          -5254
+        ],
+        [
+          -3219,
+          -4032
+        ],
+        [
+          -3219,
+          -2916
+        ],
+        [
+          -3735,
+          -2916
+        ],
+        [
+          -3735,
+          -1078
+        ],
+        [
+          -3219,
+          -1078
+        ],
+        [
+          -3220,
+          -401
+        ],
+        [
+          -3609,
+          -402
+        ],
+        [
+          -3609,
+          4368
+        ],
+        [
+          -3609,
+          5704
+        ],
+        [
+          -3217,
+          5704
+        ],
+        [
+          -3217,
+          5704
+        ],
+        [
+          722,
+          5704
+        ],
+        [
+          722,
+          5704
+        ],
+        [
+          1218,
+          5704
+        ],
+        [
+          1218,
+          4368
+        ],
+        [
+          1218,
+          4368
+        ],
+        [
+          1218,
+          725
+        ],
+        [
+          4439,
+          725
+        ],
+        [
+          5760,
+          725
+        ],
+        [
+          5760,
+          -404
+        ],
+        [
+          4924,
+          -404
+        ],
+        [
+          4923,
+          -1035
+        ],
+        [
+          4923,
+          -1035
+        ],
+        [
+          4923,
+          -2109
+        ],
+        [
+          4923,
+          -2109
+        ],
+        [
+          4923,
+          -2626
+        ],
+        [
+          4765,
+          -2626
+        ],
+        [
+          3856,
+          -2626
+        ],
+        [
+          3400,
+          -2626
+        ],
+        [
+          3400,
+          -1258
+        ],
+        [
+          3400,
+          -404
+        ],
+        [
+          2797,
+          -404
+        ],
+        [
+          474,
+          -404
+        ],
+        [
+          -510,
+          -404
+        ],
+        [
+          -510,
+          -1135
+        ],
+        [
+          374,
+          -1135
+        ],
+        [
+          374,
+          -5055
+        ],
+        [
+          374,
+          -5055
+        ],
+        [
+          374,
+          -6116
+        ],
+        [
+          -598,
+          -6116
+        ],
+        [
+          -2243,
+          -6116
+        ]
+      ],
+      "original_polygon_wkt_mm": "POLYGON ((-3219 -6116, -3219 -5254, -3219 -4032, -3219 -2916, -3735 -2916, -3735 -1078, -3219 -1078, -3220 -401, -3609 -402, -3609 4368, -3609 5704, -3217 5704, -3217 5704, 722 5704, 722 5704, 1218 5704, 1218 4368, 1218 4368, 1218 725, 4439 725, 5760 725, 5760 -404, 4924 -404, 4923 -1035, 4923 -1035, 4923 -2109, 4923 -2109, 4923 -2626, 4765 -2626, 3856 -2626, 3400 -2626, 3400 -1258, 3400 -404, 2797 -404, 474 -404, -510 -404, -510 -1135, 374 -1135, 374 -5055, 374 -5055, 374 -6116, -598 -6116, -2243 -6116, -3219 -6116))",
+      "normalized_polygon_parts_wkt_mm": [
+        "POLYGON ((-3219 -6116, -3219 -5254, -3219 -4032, -3219 -2916, -3735 -2916, -3735 -1078, -3219 -1078, -3220 -401, -3609 -402, -3609 4368, -3609 5704, -3217 5704, 722 5704, 1218 5704, 1218 4368, 1218 725, 4439 725, 5760 725, 5760 -404, 4924 -404, 4923 -1035, 4923 -2109, 4923 -2626, 4765 -2626, 3856 -2626, 3400 -2626, 3400 -1258, 3400 -404, 2797 -404, 474 -404, -510 -404, -510 -1135, 374 -1135, 374 -5055, 374 -6116, -598 -6116, -2243 -6116, -3219 -6116))"
+      ],
+      "original_signed_ring_absolute_area_m2": 58.8204385,
+      "source_reported_area_m2": 58.82,
+      "normalized_polygon_parts_area_m2": [
+        58.8204385
+      ],
+      "normalized_polygon_area_m2": 58.8204385,
+      "area_change_vs_original_ring_m2": 0.0,
+      "boundary_hausdorff_distance_m": 0.0,
+      "original_boundary_length_m": 49.62100281628949,
+      "normalized_boundary_length_m": 49.62100281628949,
+      "original_boundary_not_in_normalized_length_m": 0.0,
+      "normalized_boundary_not_in_original_length_m": 0.0,
+      "part_count": 1,
+      "removed_consecutive_or_closing_duplicate_vertices": 6,
+      "source_bytes_preserved": true,
+      "coordinate_tolerance_m": 0,
+      "area_interpretation": "Valid source polygon area retained."
+    },
+    {
+      "source_id": "D6860C94-AD5E-4159-A048-C30B0ABB2288",
+      "source_type": "NONE",
+      "valid_before": true,
+      "validity_reason_before": "Valid Geometry",
+      "method": "unchanged",
+      "original_polygon_mm": [
+        [
+          -3735,
+          -3116
+        ],
+        [
+          -3419,
+          -3116
+        ],
+        [
+          -3419,
+          -3932
+        ],
+        [
+          -3735,
+          -3932
+        ]
+      ],
+      "original_polygon_wkt_mm": "POLYGON ((-3735 -3116, -3419 -3116, -3419 -3932, -3735 -3932, -3735 -3116))",
+      "normalized_polygon_parts_wkt_mm": [
+        "POLYGON ((-3735 -3116, -3419 -3116, -3419 -3932, -3735 -3932, -3735 -3116))"
+      ],
+      "original_signed_ring_absolute_area_m2": 0.257856,
+      "source_reported_area_m2": 0.26,
+      "normalized_polygon_parts_area_m2": [
+        0.257856
+      ],
+      "normalized_polygon_area_m2": 0.257856,
+      "area_change_vs_original_ring_m2": 0.0,
+      "boundary_hausdorff_distance_m": 0.0,
+      "original_boundary_length_m": 2.264,
+      "normalized_boundary_length_m": 2.264,
+      "original_boundary_not_in_normalized_length_m": 0.0,
+      "normalized_boundary_not_in_original_length_m": 0.0,
+      "part_count": 1,
+      "removed_consecutive_or_closing_duplicate_vertices": 0,
+      "source_bytes_preserved": true,
+      "coordinate_tolerance_m": 0,
+      "area_interpretation": "Valid source polygon area retained."
+    },
+    {
+      "source_id": "3C4C6852-CC95-4133-9AFF-43EC4E57FB78",
+      "source_type": "NONE",
+      "valid_before": true,
+      "validity_reason_before": "Valid Geometry",
+      "method": "unchanged",
+      "original_polygon_mm": [
+        [
+          7590,
+          -2626
+        ],
+        [
+          5960,
+          -2626
+        ],
+        [
+          5960,
+          -1811
+        ],
+        [
+          7590,
+          -1811
+        ]
+      ],
+      "original_polygon_wkt_mm": "POLYGON ((7590 -2626, 5960 -2626, 5960 -1811, 7590 -1811, 7590 -2626))",
+      "normalized_polygon_parts_wkt_mm": [
+        "POLYGON ((7590 -2626, 5960 -2626, 5960 -1811, 7590 -1811, 7590 -2626))"
+      ],
+      "original_signed_ring_absolute_area_m2": 1.32845,
+      "source_reported_area_m2": 1.33,
+      "normalized_polygon_parts_area_m2": [
+        1.32845
+      ],
+      "normalized_polygon_area_m2": 1.32845,
+      "area_change_vs_original_ring_m2": 0.0,
+      "boundary_hausdorff_distance_m": 0.0,
+      "original_boundary_length_m": 4.89,
+      "normalized_boundary_length_m": 4.89,
+      "original_boundary_not_in_normalized_length_m": 0.0,
+      "normalized_boundary_not_in_original_length_m": 0.0,
+      "part_count": 1,
+      "removed_consecutive_or_closing_duplicate_vertices": 0,
+      "source_bytes_preserved": true,
+      "coordinate_tolerance_m": 0,
+      "area_interpretation": "Valid source polygon area retained."
+    },
+    {
+      "source_id": "2E48C574-2B2D-4359-9A9C-FB40BD521447",
+      "source_type": "NONE",
+      "valid_before": true,
+      "validity_reason_before": "Valid Geometry",
+      "method": "remove_consecutive_duplicates_only",
+      "original_polygon_mm": [
+        [
+          5760,
+          -2626
+        ],
+        [
+          5123,
+          -2626
+        ],
+        [
+          5123,
+          -2109
+        ],
+        [
+          5123,
+          -1035
+        ],
+        [
+          5123,
+          -1035
+        ],
+        [
+          5123,
+          -604
+        ],
+        [
+          5760,
+          -604
+        ],
+        [
+          5760,
+          -1711
+        ]
+      ],
+      "original_polygon_wkt_mm": "POLYGON ((5760 -2626, 5123 -2626, 5123 -2109, 5123 -1035, 5123 -1035, 5123 -604, 5760 -604, 5760 -1711, 5760 -2626))",
+      "normalized_polygon_parts_wkt_mm": [
+        "POLYGON ((5760 -2626, 5123 -2626, 5123 -2109, 5123 -1035, 5123 -604, 5760 -604, 5760 -1711, 5760 -2626))"
+      ],
+      "original_signed_ring_absolute_area_m2": 1.288014,
+      "source_reported_area_m2": 1.29,
+      "normalized_polygon_parts_area_m2": [
+        1.288014
+      ],
+      "normalized_polygon_area_m2": 1.288014,
+      "area_change_vs_original_ring_m2": 0.0,
+      "boundary_hausdorff_distance_m": 0.0,
+      "original_boundary_length_m": 5.318,
+      "normalized_boundary_length_m": 5.318,
+      "original_boundary_not_in_normalized_length_m": 0.0,
+      "normalized_boundary_not_in_original_length_m": 0.0,
+      "part_count": 1,
+      "removed_consecutive_or_closing_duplicate_vertices": 1,
+      "source_bytes_preserved": true,
+      "coordinate_tolerance_m": 0,
+      "area_interpretation": "Valid source polygon area retained."
+    },
+    {
+      "source_id": "837077F7-30B9-4E0A-B09F-AD458049DE8F",
+      "source_type": "침실",
+      "valid_before": true,
+      "validity_reason_before": "Valid Geometry",
+      "method": "remove_consecutive_duplicates_only",
+      "original_polygon_mm": [
+        [
+          -5804,
+          -404
+        ],
+        [
+          -5804,
+          -1563
+        ],
+        [
+          -6236,
+          -1563
+        ],
+        [
+          -6236,
+          -1563
+        ],
+        [
+          -7113,
+          -1563
+        ],
+        [
+          -7113,
+          -1563
+        ],
+        [
+          -7766,
+          -1563
+        ],
+        [
+          -7766,
+          4268
+        ],
+        [
+          -6444,
+          4268
+        ],
+        [
+          -6010,
+          4268
+        ],
+        [
+          -6010,
+          4268
+        ],
+        [
+          -4377,
+          4268
+        ],
+        [
+          -4377,
+          4268
+        ],
+        [
+          -4161,
+          4268
+        ],
+        [
+          -4161,
+          4268
+        ],
+        [
+          -3835,
+          4268
+        ],
+        [
+          -3835,
+          4268
+        ],
+        [
+          -3809,
+          4268
+        ],
+        [
+          -3809,
+          -402
+        ],
+        [
+          -3834,
+          -402
+        ]
+      ],
+      "original_polygon_wkt_mm": "POLYGON ((-5804 -404, -5804 -1563, -6236 -1563, -6236 -1563, -7113 -1563, -7113 -1563, -7766 -1563, -7766 4268, -6444 4268, -6010 4268, -6010 4268, -4377 4268, -4377 4268, -4161 4268, -4161 4268, -3835 4268, -3835 4268, -3809 4268, -3809 -402, -3834 -402, -5804 -404))",
+      "normalized_polygon_parts_wkt_mm": [
+        "POLYGON ((-5804 -404, -5804 -1563, -6236 -1563, -7113 -1563, -7766 -1563, -7766 4268, -6444 4268, -6010 4268, -4377 4268, -4161 4268, -3835 4268, -3809 4268, -3809 -402, -3834 -402, -5804 -404))"
+      ],
+      "original_signed_ring_absolute_area_m2": 20.759042,
+      "source_reported_area_m2": 20.76,
+      "normalized_polygon_parts_area_m2": [
+        20.759042
+      ],
+      "normalized_polygon_area_m2": 20.759042,
+      "area_change_vs_original_ring_m2": 0.0,
+      "boundary_hausdorff_distance_m": 0.0,
+      "original_boundary_length_m": 19.574001015228166,
+      "normalized_boundary_length_m": 19.574001015228166,
+      "original_boundary_not_in_normalized_length_m": 0.0,
+      "normalized_boundary_not_in_original_length_m": 0.0,
+      "part_count": 1,
+      "removed_consecutive_or_closing_duplicate_vertices": 6,
+      "source_bytes_preserved": true,
+      "coordinate_tolerance_m": 0,
+      "area_interpretation": "Valid source polygon area retained."
+    },
+    {
+      "source_id": "B67C6643-370B-4FFE-9FB2-831ECE6316F9",
+      "source_type": "벽장",
+      "valid_before": true,
+      "validity_reason_before": "Valid Geometry",
+      "method": "remove_consecutive_duplicates_only",
+      "original_polygon_mm": [
+        [
+          -5804,
+          -4032
+        ],
+        [
+          -5804,
+          -4032
+        ],
+        [
+          -5804,
+          -5103
+        ],
+        [
+          -6343,
+          -5103
+        ],
+        [
+          -7212,
+          -5103
+        ],
+        [
+          -7212,
+          -5103
+        ],
+        [
+          -7766,
+          -5103
+        ],
+        [
+          -7766,
+          -1763
+        ],
+        [
+          -7113,
+          -1763
+        ],
+        [
+          -7113,
+          -1763
+        ],
+        [
+          -6236,
+          -1763
+        ],
+        [
+          -6236,
+          -1763
+        ],
+        [
+          -5804,
+          -1763
+        ],
+        [
+          -5804,
+          -3016
+        ]
+      ],
+      "original_polygon_wkt_mm": "POLYGON ((-5804 -4032, -5804 -4032, -5804 -5103, -6343 -5103, -7212 -5103, -7212 -5103, -7766 -5103, -7766 -1763, -7113 -1763, -7113 -1763, -6236 -1763, -6236 -1763, -5804 -1763, -5804 -3016, -5804 -4032))",
+      "normalized_polygon_parts_wkt_mm": [
+        "POLYGON ((-5804 -4032, -5804 -5103, -6343 -5103, -7212 -5103, -7766 -5103, -7766 -1763, -7113 -1763, -6236 -1763, -5804 -1763, -5804 -3016, -5804 -4032))"
+      ],
+      "original_signed_ring_absolute_area_m2": 6.55308,
+      "source_reported_area_m2": 6.55,
+      "normalized_polygon_parts_area_m2": [
+        6.55308
+      ],
+      "normalized_polygon_area_m2": 6.55308,
+      "area_change_vs_original_ring_m2": 0.0,
+      "boundary_hausdorff_distance_m": 0.0,
+      "original_boundary_length_m": 10.604,
+      "normalized_boundary_length_m": 10.604,
+      "original_boundary_not_in_normalized_length_m": 0.0,
+      "normalized_boundary_not_in_original_length_m": 0.0,
+      "part_count": 1,
+      "removed_consecutive_or_closing_duplicate_vertices": 4,
+      "source_bytes_preserved": true,
+      "coordinate_tolerance_m": 0,
+      "area_interpretation": "Valid source polygon area retained."
+    },
+    {
+      "source_id": "09AA41BF-C22D-459B-9875-51E84E1FBED4",
+      "source_type": "NONE",
+      "valid_before": true,
+      "validity_reason_before": "Valid Geometry",
+      "method": "remove_consecutive_duplicates_only",
+      "original_polygon_mm": [
+        [
+          -7612,
+          5704
+        ],
+        [
+          -7612,
+          5704
+        ],
+        [
+          -6660,
+          5704
+        ],
+        [
+          -6544,
+          5704
+        ],
+        [
+          -6544,
+          4468
+        ],
+        [
+          -7766,
+          4468
+        ],
+        [
+          -7766,
+          5704
+        ]
+      ],
+      "original_polygon_wkt_mm": "POLYGON ((-7612 5704, -7612 5704, -6660 5704, -6544 5704, -6544 4468, -7766 4468, -7766 5704, -7612 5704))",
+      "normalized_polygon_parts_wkt_mm": [
+        "POLYGON ((-7612 5704, -6660 5704, -6544 5704, -6544 4468, -7766 4468, -7766 5704, -7612 5704))"
+      ],
+      "original_signed_ring_absolute_area_m2": 1.510392,
+      "source_reported_area_m2": 1.51,
+      "normalized_polygon_parts_area_m2": [
+        1.510392
+      ],
+      "normalized_polygon_area_m2": 1.510392,
+      "area_change_vs_original_ring_m2": 0.0,
+      "boundary_hausdorff_distance_m": 0.0,
+      "original_boundary_length_m": 4.916,
+      "normalized_boundary_length_m": 4.916,
+      "original_boundary_not_in_normalized_length_m": 0.0,
+      "normalized_boundary_not_in_original_length_m": 0.0,
+      "part_count": 1,
+      "removed_consecutive_or_closing_duplicate_vertices": 1,
+      "source_bytes_preserved": true,
+      "coordinate_tolerance_m": 0,
+      "area_interpretation": "Valid source polygon area retained."
+    },
+    {
+      "source_id": "6079F009-0183-483E-A416-4C2526109A08",
+      "source_type": "NONE",
+      "valid_before": true,
+      "validity_reason_before": "Valid Geometry",
+      "method": "unchanged",
+      "original_polygon_mm": [
+        [
+          -4061,
+          4468
+        ],
+        [
+          -4061,
+          4825
+        ],
+        [
+          -3935,
+          4825
+        ],
+        [
+          -3935,
+          4468
+        ]
+      ],
+      "original_polygon_wkt_mm": "POLYGON ((-4061 4468, -4061 4825, -3935 4825, -3935 4468, -4061 4468))",
+      "normalized_polygon_parts_wkt_mm": [
+        "POLYGON ((-4061 4468, -4061 4825, -3935 4825, -3935 4468, -4061 4468))"
+      ],
+      "original_signed_ring_absolute_area_m2": 0.044982,
+      "source_reported_area_m2": 0.04,
+      "normalized_polygon_parts_area_m2": [
+        0.044982
+      ],
+      "normalized_polygon_area_m2": 0.044982,
+      "area_change_vs_original_ring_m2": 0.0,
+      "boundary_hausdorff_distance_m": 0.0,
+      "original_boundary_length_m": 0.966,
+      "normalized_boundary_length_m": 0.966,
+      "original_boundary_not_in_normalized_length_m": 0.0,
+      "normalized_boundary_not_in_original_length_m": 0.0,
+      "part_count": 1,
+      "removed_consecutive_or_closing_duplicate_vertices": 0,
+      "source_bytes_preserved": true,
+      "coordinate_tolerance_m": 0,
+      "area_interpretation": "Valid source polygon area retained."
+    },
+    {
+      "source_id": "08203BA2-D09C-43A6-A5A9-2D975FFBF59E",
+      "source_type": "침실",
+      "valid_before": false,
+      "validity_reason_before": "Self-intersection[-3809 5025]",
+      "method": "exact_make_valid_linework_no_tolerance",
+      "original_polygon_mm": [
+        [
+          -6010,
+          5704
+        ],
+        [
+          -6010,
+          5704
+        ],
+        [
+          -4525,
+          5704
+        ],
+        [
+          -4525,
+          5704
+        ],
+        [
+          -3809,
+          5704
+        ],
+        [
+          -3809,
+          4468
+        ],
+        [
+          -3735,
+          4468
+        ],
+        [
+          -3735,
+          5025
+        ],
+        [
+          -4261,
+          5025
+        ],
+        [
+          -4261,
+          4468
+        ],
+        [
+          -4377,
+          4468
+        ],
+        [
+          -6010,
+          4468
+        ],
+        [
+          -6344,
+          4468
+        ],
+        [
+          -6344,
+          5704
+        ]
+      ],
+      "original_polygon_wkt_mm": "POLYGON ((-6010 5704, -6010 5704, -4525 5704, -4525 5704, -3809 5704, -3809 4468, -3735 4468, -3735 5025, -4261 5025, -4261 4468, -4377 4468, -6010 4468, -6344 4468, -6344 5704, -6010 5704))",
+      "normalized_polygon_parts_wkt_mm": [
+        "POLYGON ((-3809 5704, -3809 5025, -4261 5025, -4261 4468, -4377 4468, -6010 4468, -6344 4468, -6344 5704, -6010 5704, -4525 5704, -3809 5704))",
+        "POLYGON ((-3735 4468, -3809 4468, -3809 5025, -3735 5025, -3735 4468))"
+      ],
+      "original_signed_ring_absolute_area_m2": 2.840278,
+      "source_reported_area_m2": 2.84,
+      "normalized_polygon_parts_area_m2": [
+        2.881496,
+        0.041218
+      ],
+      "normalized_polygon_area_m2": 2.922714,
+      "area_change_vs_original_ring_m2": 0.082436,
+      "boundary_hausdorff_distance_m": 0.0,
+      "original_boundary_length_m": 8.804,
+      "normalized_boundary_length_m": 8.804,
+      "original_boundary_not_in_normalized_length_m": 0.0,
+      "normalized_boundary_not_in_original_length_m": 0.0,
+      "part_count": 2,
+      "removed_consecutive_or_closing_duplicate_vertices": 2,
+      "source_bytes_preserved": true,
+      "coordinate_tolerance_m": 0,
+      "area_interpretation": "For an invalid self-crossing ring, shoelace area is not a valid occupied-area reference; exact linework partitions are preserved separately."
+    },
+    {
+      "source_id": "EF583F7D-0AC8-4706-9B59-DA6067786289",
+      "source_type": "발코니",
+      "valid_before": true,
+      "validity_reason_before": "Valid Geometry",
+      "method": "remove_consecutive_duplicates_only",
+      "original_polygon_mm": [
+        [
+          7590,
+          4468
+        ],
+        [
+          6950,
+          4468
+        ],
+        [
+          5193,
+          4468
+        ],
+        [
+          5193,
+          4468
+        ],
+        [
+          4439,
+          4468
+        ],
+        [
+          3856,
+          4468
+        ],
+        [
+          2096,
+          4468
+        ],
+        [
+          1709,
+          4468
+        ],
+        [
+          1690,
+          5804
+        ],
+        [
+          1690,
+          5804
+        ],
+        [
+          1690,
+          6192
+        ],
+        [
+          3756,
+          6192
+        ],
+        [
+          3756,
+          5391
+        ],
+        [
+          7590,
+          5391
+        ]
+      ],
+      "original_polygon_wkt_mm": "POLYGON ((7590 4468, 6950 4468, 5193 4468, 5193 4468, 4439 4468, 3856 4468, 2096 4468, 1709 4468, 1690 5804, 1690 5804, 1690 6192, 3756 6192, 3756 5391, 7590 5391, 7590 4468))",
+      "normalized_polygon_parts_wkt_mm": [
+        "POLYGON ((7590 4468, 6950 4468, 5193 4468, 4439 4468, 3856 4468, 2096 4468, 1709 4468, 1690 5804, 1690 6192, 3756 6192, 3756 5391, 7590 5391, 7590 4468))"
+      ],
+      "original_signed_ring_absolute_area_m2": 7.087874,
+      "source_reported_area_m2": 7.09,
+      "normalized_polygon_parts_area_m2": [
+        7.087874
+      ],
+      "normalized_polygon_area_m2": 7.087874,
+      "area_change_vs_original_ring_m2": 0.0,
+      "boundary_hausdorff_distance_m": 0.0,
+      "original_boundary_length_m": 15.229135097959785,
+      "normalized_boundary_length_m": 15.229135097959785,
+      "original_boundary_not_in_normalized_length_m": 0.0,
+      "normalized_boundary_not_in_original_length_m": 0.0,
+      "part_count": 1,
+      "removed_consecutive_or_closing_duplicate_vertices": 2,
+      "source_bytes_preserved": true,
+      "coordinate_tolerance_m": 0,
+      "area_interpretation": "Valid source polygon area retained."
+    },
+    {
+      "source_id": "E9775512-9AD4-4527-BFE4-BE0A8CA976EB",
+      "source_type": "NONE",
+      "valid_before": true,
+      "validity_reason_before": "Valid Geometry",
+      "method": "unchanged",
+      "original_polygon_mm": [
+        [
+          1509,
+          4468
+        ],
+        [
+          1418,
+          4468
+        ],
+        [
+          1418,
+          5704
+        ],
+        [
+          1492,
+          5704
+        ]
+      ],
+      "original_polygon_wkt_mm": "POLYGON ((1509 4468, 1418 4468, 1418 5704, 1492 5704, 1509 4468))",
+      "normalized_polygon_parts_wkt_mm": [
+        "POLYGON ((1509 4468, 1418 4468, 1418 5704, 1492 5704, 1509 4468))"
+      ],
+      "original_signed_ring_absolute_area_m2": 0.10197,
+      "source_reported_area_m2": 0.1,
+      "normalized_polygon_parts_area_m2": [
+        0.10197
+      ],
+      "normalized_polygon_area_m2": 0.10197,
+      "area_change_vs_original_ring_m2": 0.0,
+      "boundary_hausdorff_distance_m": 0.0,
+      "original_boundary_length_m": 2.637116903856589,
+      "normalized_boundary_length_m": 2.637116903856589,
+      "original_boundary_not_in_normalized_length_m": 0.0,
+      "normalized_boundary_not_in_original_length_m": 0.0,
+      "part_count": 1,
+      "removed_consecutive_or_closing_duplicate_vertices": 0,
+      "source_bytes_preserved": true,
+      "coordinate_tolerance_m": 0,
+      "area_interpretation": "Valid source polygon area retained."
+    },
+    {
+      "source_id": "983A2012-2805-49C7-B523-A46E4D32CF8F",
+      "source_type": "침실",
+      "valid_before": true,
+      "validity_reason_before": "Valid Geometry",
+      "method": "remove_consecutive_duplicates_only",
+      "original_polygon_mm": [
+        [
+          4339,
+          925
+        ],
+        [
+          1418,
+          925
+        ],
+        [
+          1418,
+          4268
+        ],
+        [
+          1611,
+          4268
+        ],
+        [
+          2096,
+          4268
+        ],
+        [
+          2096,
+          4268
+        ],
+        [
+          3856,
+          4268
+        ],
+        [
+          3856,
+          4268
+        ],
+        [
+          4339,
+          4268
+        ],
+        [
+          4339,
+          1104
+        ]
+      ],
+      "original_polygon_wkt_mm": "POLYGON ((4339 925, 1418 925, 1418 4268, 1611 4268, 2096 4268, 2096 4268, 3856 4268, 3856 4268, 4339 4268, 4339 1104, 4339 925))",
+      "normalized_polygon_parts_wkt_mm": [
+        "POLYGON ((4339 925, 1418 925, 1418 4268, 1611 4268, 2096 4268, 3856 4268, 4339 4268, 4339 1104, 4339 925))"
+      ],
+      "original_signed_ring_absolute_area_m2": 9.764903,
+      "source_reported_area_m2": 9.76,
+      "normalized_polygon_parts_area_m2": [
+        9.764903
+      ],
+      "normalized_polygon_area_m2": 9.764903,
+      "area_change_vs_original_ring_m2": 0.0,
+      "boundary_hausdorff_distance_m": 0.0,
+      "original_boundary_length_m": 12.528,
+      "normalized_boundary_length_m": 12.528,
+      "original_boundary_not_in_normalized_length_m": 0.0,
+      "normalized_boundary_not_in_original_length_m": 0.0,
+      "part_count": 1,
+      "removed_consecutive_or_closing_duplicate_vertices": 2,
+      "source_bytes_preserved": true,
+      "coordinate_tolerance_m": 0,
+      "area_interpretation": "Valid source polygon area retained."
+    },
+    {
+      "source_id": "4ECB6369-ABD7-43F8-88BC-F2D51189A7A4",
+      "source_type": "침실",
+      "valid_before": true,
+      "validity_reason_before": "Valid Geometry",
+      "method": "remove_consecutive_duplicates_only",
+      "original_polygon_mm": [
+        [
+          5860,
+          925
+        ],
+        [
+          4539,
+          925
+        ],
+        [
+          4539,
+          1104
+        ],
+        [
+          4539,
+          1104
+        ],
+        [
+          4539,
+          4268
+        ],
+        [
+          5193,
+          4268
+        ],
+        [
+          6950,
+          4268
+        ],
+        [
+          7590,
+          4268
+        ],
+        [
+          7590,
+          925
+        ]
+      ],
+      "original_polygon_wkt_mm": "POLYGON ((5860 925, 4539 925, 4539 1104, 4539 1104, 4539 4268, 5193 4268, 6950 4268, 7590 4268, 7590 925, 5860 925))",
+      "normalized_polygon_parts_wkt_mm": [
+        "POLYGON ((5860 925, 4539 925, 4539 1104, 4539 4268, 5193 4268, 6950 4268, 7590 4268, 7590 925, 5860 925))"
+      ],
+      "original_signed_ring_absolute_area_m2": 10.199493,
+      "source_reported_area_m2": 10.2,
+      "normalized_polygon_parts_area_m2": [
+        10.199493
+      ],
+      "normalized_polygon_area_m2": 10.199493,
+      "area_change_vs_original_ring_m2": 0.0,
+      "boundary_hausdorff_distance_m": 0.0,
+      "original_boundary_length_m": 12.788,
+      "normalized_boundary_length_m": 12.788,
+      "original_boundary_not_in_normalized_length_m": 0.0,
+      "normalized_boundary_not_in_original_length_m": 0.0,
+      "part_count": 1,
+      "removed_consecutive_or_closing_duplicate_vertices": 1,
+      "source_bytes_preserved": true,
+      "coordinate_tolerance_m": 0,
+      "area_interpretation": "Valid source polygon area retained."
+    },
+    {
+      "source_id": "AAB81B11-359F-4D00-8802-ED7E17C219B2",
+      "source_type": "욕실",
+      "valid_before": true,
+      "validity_reason_before": "Valid Geometry",
+      "method": "unchanged",
+      "original_polygon_mm": [
+        [
+          5960,
+          725
+        ],
+        [
+          7590,
+          725
+        ],
+        [
+          7590,
+          -1611
+        ],
+        [
+          5960,
+          -1611
+        ],
+        [
+          5960,
+          -504
+        ]
+      ],
+      "original_polygon_wkt_mm": "POLYGON ((5960 725, 7590 725, 7590 -1611, 5960 -1611, 5960 -504, 5960 725))",
+      "normalized_polygon_parts_wkt_mm": [
+        "POLYGON ((5960 725, 7590 725, 7590 -1611, 5960 -1611, 5960 -504, 5960 725))"
+      ],
+      "original_signed_ring_absolute_area_m2": 3.80768,
+      "source_reported_area_m2": 3.81,
+      "normalized_polygon_parts_area_m2": [
+        3.80768
+      ],
+      "normalized_polygon_area_m2": 3.80768,
+      "area_change_vs_original_ring_m2": 0.0,
+      "boundary_hausdorff_distance_m": 0.0,
+      "original_boundary_length_m": 7.932,
+      "normalized_boundary_length_m": 7.932,
+      "original_boundary_not_in_normalized_length_m": 0.0,
+      "normalized_boundary_not_in_original_length_m": 0.0,
+      "part_count": 1,
+      "removed_consecutive_or_closing_duplicate_vertices": 0,
+      "source_bytes_preserved": true,
+      "coordinate_tolerance_m": 0,
+      "area_interpretation": "Valid source polygon area retained."
+    },
+    {
+      "source_id": "7E8AE377-41BE-4301-BF23-47D663A48FE5",
+      "source_type": "NONE",
+      "valid_before": true,
+      "validity_reason_before": "Valid Geometry",
+      "method": "unchanged",
+      "original_polygon_mm": [
+        [
+          374,
+          -604
+        ],
+        [
+          374,
+          -935
+        ],
+        [
+          -310,
+          -935
+        ],
+        [
+          -310,
+          -604
+        ]
+      ],
+      "original_polygon_wkt_mm": "POLYGON ((374 -604, 374 -935, -310 -935, -310 -604, 374 -604))",
+      "normalized_polygon_parts_wkt_mm": [
+        "POLYGON ((374 -604, 374 -935, -310 -935, -310 -604, 374 -604))"
+      ],
+      "original_signed_ring_absolute_area_m2": 0.226404,
+      "source_reported_area_m2": 0.23,
+      "normalized_polygon_parts_area_m2": [
+        0.226404
+      ],
+      "normalized_polygon_area_m2": 0.226404,
+      "area_change_vs_original_ring_m2": 0.0,
+      "boundary_hausdorff_distance_m": 0.0,
+      "original_boundary_length_m": 2.03,
+      "normalized_boundary_length_m": 2.03,
+      "original_boundary_not_in_normalized_length_m": 0.0,
+      "normalized_boundary_not_in_original_length_m": 0.0,
+      "part_count": 1,
+      "removed_consecutive_or_closing_duplicate_vertices": 0,
+      "source_bytes_preserved": true,
+      "coordinate_tolerance_m": 0,
+      "area_interpretation": "Valid source polygon area retained."
+    },
+    {
+      "source_id": "8502301E-6453-48C0-92B9-6217B0F8528F",
+      "source_type": "침실",
+      "valid_before": true,
+      "validity_reason_before": "Valid Geometry",
+      "method": "remove_consecutive_duplicates_only",
+      "original_polygon_mm": [
+        [
+          2713,
+          -4955
+        ],
+        [
+          1174,
+          -4955
+        ],
+        [
+          1174,
+          -4955
+        ],
+        [
+          783,
+          -4955
+        ],
+        [
+          783,
+          -4955
+        ],
+        [
+          574,
+          -4955
+        ],
+        [
+          574,
+          -1035
+        ],
+        [
+          574,
+          -604
+        ],
+        [
+          2697,
+          -604
+        ],
+        [
+          2697,
+          -1358
+        ],
+        [
+          3200,
+          -1358
+        ],
+        [
+          3200,
+          -2726
+        ],
+        [
+          3200,
+          -4955
+        ]
+      ],
+      "original_polygon_wkt_mm": "POLYGON ((2713 -4955, 1174 -4955, 1174 -4955, 783 -4955, 783 -4955, 574 -4955, 574 -1035, 574 -604, 2697 -604, 2697 -1358, 3200 -1358, 3200 -2726, 3200 -4955, 2713 -4955))",
+      "normalized_polygon_parts_wkt_mm": [
+        "POLYGON ((2713 -4955, 1174 -4955, 783 -4955, 574 -4955, 574 -1035, 574 -604, 2697 -604, 2697 -1358, 3200 -1358, 3200 -2726, 3200 -4955, 2713 -4955))"
+      ],
+      "original_signed_ring_absolute_area_m2": 11.046464,
+      "source_reported_area_m2": 11.05,
+      "normalized_polygon_parts_area_m2": [
+        11.046464
+      ],
+      "normalized_polygon_area_m2": 11.046464,
+      "area_change_vs_original_ring_m2": 0.0,
+      "boundary_hausdorff_distance_m": 0.0,
+      "original_boundary_length_m": 13.954,
+      "normalized_boundary_length_m": 13.954,
+      "original_boundary_not_in_normalized_length_m": 0.0,
+      "normalized_boundary_not_in_original_length_m": 0.0,
+      "part_count": 1,
+      "removed_consecutive_or_closing_duplicate_vertices": 2,
+      "source_bytes_preserved": true,
+      "coordinate_tolerance_m": 0,
+      "area_interpretation": "Valid source polygon area retained."
+    },
+    {
+      "source_id": "284BEFB9-4791-453D-8045-AA24DBFFF1F7",
+      "source_type": "NONE",
+      "valid_before": true,
+      "validity_reason_before": "Valid Geometry",
+      "method": "unchanged",
+      "original_polygon_mm": [
+        [
+          3200,
+          -604
+        ],
+        [
+          3200,
+          -1158
+        ],
+        [
+          2897,
+          -1158
+        ],
+        [
+          2897,
+          -604
+        ]
+      ],
+      "original_polygon_wkt_mm": "POLYGON ((3200 -604, 3200 -1158, 2897 -1158, 2897 -604, 3200 -604))",
+      "normalized_polygon_parts_wkt_mm": [
+        "POLYGON ((3200 -604, 3200 -1158, 2897 -1158, 2897 -604, 3200 -604))"
+      ],
+      "original_signed_ring_absolute_area_m2": 0.167862,
+      "source_reported_area_m2": 0.17,
+      "normalized_polygon_parts_area_m2": [
+        0.167862
+      ],
+      "normalized_polygon_area_m2": 0.167862,
+      "area_change_vs_original_ring_m2": 0.0,
+      "boundary_hausdorff_distance_m": 0.0,
+      "original_boundary_length_m": 1.714,
+      "normalized_boundary_length_m": 1.714,
+      "original_boundary_not_in_normalized_length_m": 0.0,
+      "normalized_boundary_not_in_original_length_m": 0.0,
+      "part_count": 1,
+      "removed_consecutive_or_closing_duplicate_vertices": 0,
+      "source_bytes_preserved": true,
+      "coordinate_tolerance_m": 0,
+      "area_interpretation": "Valid source polygon area retained."
+    },
+    {
+      "source_id": "1AB56053-F705-4DDD-897B-3B23705A627E",
+      "source_type": "NONE",
+      "valid_before": true,
+      "validity_reason_before": "Valid Geometry",
+      "method": "unchanged",
+      "original_polygon_mm": [
+        [
+          574,
+          -5155
+        ],
+        [
+          683,
+          -5155
+        ],
+        [
+          683,
+          -6116
+        ],
+        [
+          574,
+          -6116
+        ]
+      ],
+      "original_polygon_wkt_mm": "POLYGON ((574 -5155, 683 -5155, 683 -6116, 574 -6116, 574 -5155))",
+      "normalized_polygon_parts_wkt_mm": [
+        "POLYGON ((574 -5155, 683 -5155, 683 -6116, 574 -6116, 574 -5155))"
+      ],
+      "original_signed_ring_absolute_area_m2": 0.104749,
+      "source_reported_area_m2": 0.1,
+      "normalized_polygon_parts_area_m2": [
+        0.104749
+      ],
+      "normalized_polygon_area_m2": 0.104749,
+      "area_change_vs_original_ring_m2": 0.0,
+      "boundary_hausdorff_distance_m": 0.0,
+      "original_boundary_length_m": 2.14,
+      "normalized_boundary_length_m": 2.14,
+      "original_boundary_not_in_normalized_length_m": 0.0,
+      "normalized_boundary_not_in_original_length_m": 0.0,
+      "part_count": 1,
+      "removed_consecutive_or_closing_duplicate_vertices": 0,
+      "source_bytes_preserved": true,
+      "coordinate_tolerance_m": 0,
+      "area_interpretation": "Valid source polygon area retained."
+    },
+    {
+      "source_id": "93E8BC5E-0E60-4D3A-9505-D8AEEC551B62",
+      "source_type": "NONE",
+      "valid_before": true,
+      "validity_reason_before": "Valid Geometry",
+      "method": "unchanged",
+      "original_polygon_mm": [
+        [
+          -3935,
+          -3932
+        ],
+        [
+          -5604,
+          -3932
+        ],
+        [
+          -5604,
+          -3116
+        ],
+        [
+          -3935,
+          -3116
+        ]
+      ],
+      "original_polygon_wkt_mm": "POLYGON ((-3935 -3932, -5604 -3932, -5604 -3116, -3935 -3116, -3935 -3932))",
+      "normalized_polygon_parts_wkt_mm": [
+        "POLYGON ((-3935 -3932, -5604 -3932, -5604 -3116, -3935 -3116, -3935 -3932))"
+      ],
+      "original_signed_ring_absolute_area_m2": 1.361904,
+      "source_reported_area_m2": 1.36,
+      "normalized_polygon_parts_area_m2": [
+        1.361904
+      ],
+      "normalized_polygon_area_m2": 1.361904,
+      "area_change_vs_original_ring_m2": 0.0,
+      "boundary_hausdorff_distance_m": 0.0,
+      "original_boundary_length_m": 4.97,
+      "normalized_boundary_length_m": 4.97,
+      "original_boundary_not_in_normalized_length_m": 0.0,
+      "normalized_boundary_not_in_original_length_m": 0.0,
+      "part_count": 1,
+      "removed_consecutive_or_closing_duplicate_vertices": 0,
+      "source_bytes_preserved": true,
+      "coordinate_tolerance_m": 0,
+      "area_interpretation": "Valid source polygon area retained."
+    },
+    {
+      "source_id": "DABA63CB-EB66-4EA2-BA0E-D514A993D462",
+      "source_type": "욕실",
+      "valid_before": true,
+      "validity_reason_before": "Valid Geometry",
+      "method": "remove_consecutive_duplicates_only",
+      "original_polygon_mm": [
+        [
+          -3934,
+          -602
+        ],
+        [
+          -3935,
+          -978
+        ],
+        [
+          -3935,
+          -978
+        ],
+        [
+          -3935,
+          -2916
+        ],
+        [
+          -5604,
+          -2916
+        ],
+        [
+          -5604,
+          -1663
+        ],
+        [
+          -5604,
+          -604
+        ]
+      ],
+      "original_polygon_wkt_mm": "POLYGON ((-3934 -602, -3935 -978, -3935 -978, -3935 -2916, -5604 -2916, -5604 -1663, -5604 -604, -3934 -602))",
+      "normalized_polygon_parts_wkt_mm": [
+        "POLYGON ((-3934 -602, -3935 -978, -3935 -2916, -5604 -2916, -5604 -1663, -5604 -604, -3934 -602))"
+      ],
+      "original_signed_ring_absolute_area_m2": 3.860584,
+      "source_reported_area_m2": 3.86,
+      "normalized_polygon_parts_area_m2": [
+        3.860584
+      ],
+      "normalized_polygon_area_m2": 3.860584,
+      "area_change_vs_original_ring_m2": 0.0,
+      "boundary_hausdorff_distance_m": 0.0,
+      "original_boundary_length_m": 7.965002527389244,
+      "normalized_boundary_length_m": 7.965002527389244,
+      "original_boundary_not_in_normalized_length_m": 0.0,
+      "normalized_boundary_not_in_original_length_m": 0.0,
+      "part_count": 1,
+      "removed_consecutive_or_closing_duplicate_vertices": 1,
+      "source_bytes_preserved": true,
+      "coordinate_tolerance_m": 0,
+      "area_interpretation": "Valid source polygon area retained."
+    },
+    {
+      "source_id": "A57004AF-CFD7-4475-A297-FE2B66EB97ED",
+      "source_type": "거실&다이닝",
+      "valid_before": true,
+      "validity_reason_before": "Valid Geometry",
+      "method": "unchanged",
+      "original_polygon_mm": [
+        [
+          -3735,
+          -878
+        ],
+        [
+          -3734,
+          -602
+        ],
+        [
+          -3709,
+          -602
+        ],
+        [
+          -3420,
+          -602
+        ],
+        [
+          -3419,
+          -878
+        ]
+      ],
+      "original_polygon_wkt_mm": "POLYGON ((-3735 -878, -3734 -602, -3709 -602, -3420 -602, -3419 -878, -3735 -878))",
+      "normalized_polygon_parts_wkt_mm": [
+        "POLYGON ((-3735 -878, -3734 -602, -3709 -602, -3420 -602, -3419 -878, -3735 -878))"
+      ],
+      "original_signed_ring_absolute_area_m2": 0.08694,
+      "source_reported_area_m2": 0.09,
+      "normalized_polygon_parts_area_m2": [
+        0.08694
+      ],
+      "normalized_polygon_area_m2": 0.08694,
+      "area_change_vs_original_ring_m2": 0.0,
+      "boundary_hausdorff_distance_m": 0.0,
+      "original_boundary_length_m": 1.182003623176515,
+      "normalized_boundary_length_m": 1.182003623176515,
+      "original_boundary_not_in_normalized_length_m": 0.0,
+      "normalized_boundary_not_in_original_length_m": 0.0,
+      "part_count": 1,
+      "removed_consecutive_or_closing_duplicate_vertices": 0,
+      "source_bytes_preserved": true,
+      "coordinate_tolerance_m": 0,
+      "area_interpretation": "Valid source polygon area retained."
+    }
+  ],
+  "source_boundary_repairs": [
+    {
+      "source_id": "8D8FC196-4328-42AF-8007-04B914F4761C",
+      "source_type": "발코니",
+      "valid_before": true,
+      "validity_reason_before": "Valid Geometry",
+      "method": "remove_consecutive_duplicates_only",
+      "original_polygon_mm": [
+        [
+          -3835,
+          -4132
+        ],
+        [
+          -3835,
+          -4132
+        ],
+        [
+          -3419,
+          -4132
+        ],
+        [
+          -3419,
+          -5254
+        ],
+        [
+          -3419,
+          -6116
+        ],
+        [
+          -3564,
+          -6116
+        ],
+        [
+          -4516,
+          -6116
+        ],
+        [
+          -4516,
+          -6116
+        ],
+        [
+          -4699,
+          -6116
+        ],
+        [
+          -4699,
+          -5103
+        ],
+        [
+          -5604,
+          -5103
+        ],
+        [
+          -5604,
+          -4132
+        ]
+      ],
+      "original_polygon_wkt_mm": "POLYGON ((-3835 -4132, -3835 -4132, -3419 -4132, -3419 -5254, -3419 -6116, -3564 -6116, -4516 -6116, -4516 -6116, -4699 -6116, -4699 -5103, -5604 -5103, -5604 -4132, -3835 -4132))",
+      "normalized_polygon_parts_wkt_mm": [
+        "POLYGON ((-3835 -4132, -3419 -4132, -3419 -5254, -3419 -6116, -3564 -6116, -4516 -6116, -4699 -6116, -4699 -5103, -5604 -5103, -5604 -4132, -3835 -4132))"
+      ],
+      "original_signed_ring_absolute_area_m2": 3.418275,
+      "source_reported_area_m2": 3.42,
+      "normalized_polygon_parts_area_m2": [
+        3.418275
+      ],
+      "normalized_polygon_area_m2": 3.418275,
+      "area_change_vs_original_ring_m2": 0.0,
+      "boundary_hausdorff_distance_m": 0.0,
+      "original_boundary_length_m": 8.338,
+      "normalized_boundary_length_m": 8.338,
+      "original_boundary_not_in_normalized_length_m": 0.0,
+      "normalized_boundary_not_in_original_length_m": 0.0,
+      "part_count": 1,
+      "removed_consecutive_or_closing_duplicate_vertices": 2,
+      "source_bytes_preserved": true,
+      "coordinate_tolerance_m": 0,
+      "area_interpretation": "Valid source polygon area retained."
+    },
+    {
+      "source_id": "17CDFCBA-CF77-4141-8C80-70DD14EADA96",
+      "source_type": "거실&다이닝",
+      "valid_before": true,
+      "validity_reason_before": "Valid Geometry",
+      "method": "remove_consecutive_duplicates_only",
+      "original_polygon_mm": [
+        [
+          -3219,
+          -6116
+        ],
+        [
+          -3219,
+          -5254
+        ],
+        [
+          -3219,
+          -4032
+        ],
+        [
+          -3219,
+          -2916
+        ],
+        [
+          -3735,
+          -2916
+        ],
+        [
+          -3735,
+          -1078
+        ],
+        [
+          -3219,
+          -1078
+        ],
+        [
+          -3220,
+          -401
+        ],
+        [
+          -3609,
+          -402
+        ],
+        [
+          -3609,
+          4368
+        ],
+        [
+          -3609,
+          5704
+        ],
+        [
+          -3217,
+          5704
+        ],
+        [
+          -3217,
+          5704
+        ],
+        [
+          722,
+          5704
+        ],
+        [
+          722,
+          5704
+        ],
+        [
+          1218,
+          5704
+        ],
+        [
+          1218,
+          4368
+        ],
+        [
+          1218,
+          4368
+        ],
+        [
+          1218,
+          725
+        ],
+        [
+          4439,
+          725
+        ],
+        [
+          5760,
+          725
+        ],
+        [
+          5760,
+          -404
+        ],
+        [
+          4924,
+          -404
+        ],
+        [
+          4923,
+          -1035
+        ],
+        [
+          4923,
+          -1035
+        ],
+        [
+          4923,
+          -2109
+        ],
+        [
+          4923,
+          -2109
+        ],
+        [
+          4923,
+          -2626
+        ],
+        [
+          4765,
+          -2626
+        ],
+        [
+          3856,
+          -2626
+        ],
+        [
+          3400,
+          -2626
+        ],
+        [
+          3400,
+          -1258
+        ],
+        [
+          3400,
+          -404
+        ],
+        [
+          2797,
+          -404
+        ],
+        [
+          474,
+          -404
+        ],
+        [
+          -510,
+          -404
+        ],
+        [
+          -510,
+          -1135
+        ],
+        [
+          374,
+          -1135
+        ],
+        [
+          374,
+          -5055
+        ],
+        [
+          374,
+          -5055
+        ],
+        [
+          374,
+          -6116
+        ],
+        [
+          -598,
+          -6116
+        ],
+        [
+          -2243,
+          -6116
+        ]
+      ],
+      "original_polygon_wkt_mm": "POLYGON ((-3219 -6116, -3219 -5254, -3219 -4032, -3219 -2916, -3735 -2916, -3735 -1078, -3219 -1078, -3220 -401, -3609 -402, -3609 4368, -3609 5704, -3217 5704, -3217 5704, 722 5704, 722 5704, 1218 5704, 1218 4368, 1218 4368, 1218 725, 4439 725, 5760 725, 5760 -404, 4924 -404, 4923 -1035, 4923 -1035, 4923 -2109, 4923 -2109, 4923 -2626, 4765 -2626, 3856 -2626, 3400 -2626, 3400 -1258, 3400 -404, 2797 -404, 474 -404, -510 -404, -510 -1135, 374 -1135, 374 -5055, 374 -5055, 374 -6116, -598 -6116, -2243 -6116, -3219 -6116))",
+      "normalized_polygon_parts_wkt_mm": [
+        "POLYGON ((-3219 -6116, -3219 -5254, -3219 -4032, -3219 -2916, -3735 -2916, -3735 -1078, -3219 -1078, -3220 -401, -3609 -402, -3609 4368, -3609 5704, -3217 5704, 722 5704, 1218 5704, 1218 4368, 1218 725, 4439 725, 5760 725, 5760 -404, 4924 -404, 4923 -1035, 4923 -2109, 4923 -2626, 4765 -2626, 3856 -2626, 3400 -2626, 3400 -1258, 3400 -404, 2797 -404, 474 -404, -510 -404, -510 -1135, 374 -1135, 374 -5055, 374 -6116, -598 -6116, -2243 -6116, -3219 -6116))"
+      ],
+      "original_signed_ring_absolute_area_m2": 58.8204385,
+      "source_reported_area_m2": 58.82,
+      "normalized_polygon_parts_area_m2": [
+        58.8204385
+      ],
+      "normalized_polygon_area_m2": 58.8204385,
+      "area_change_vs_original_ring_m2": 0.0,
+      "boundary_hausdorff_distance_m": 0.0,
+      "original_boundary_length_m": 49.62100281628949,
+      "normalized_boundary_length_m": 49.62100281628949,
+      "original_boundary_not_in_normalized_length_m": 0.0,
+      "normalized_boundary_not_in_original_length_m": 0.0,
+      "part_count": 1,
+      "removed_consecutive_or_closing_duplicate_vertices": 6,
+      "source_bytes_preserved": true,
+      "coordinate_tolerance_m": 0,
+      "area_interpretation": "Valid source polygon area retained."
+    },
+    {
+      "source_id": "2E48C574-2B2D-4359-9A9C-FB40BD521447",
+      "source_type": "NONE",
+      "valid_before": true,
+      "validity_reason_before": "Valid Geometry",
+      "method": "remove_consecutive_duplicates_only",
+      "original_polygon_mm": [
+        [
+          5760,
+          -2626
+        ],
+        [
+          5123,
+          -2626
+        ],
+        [
+          5123,
+          -2109
+        ],
+        [
+          5123,
+          -1035
+        ],
+        [
+          5123,
+          -1035
+        ],
+        [
+          5123,
+          -604
+        ],
+        [
+          5760,
+          -604
+        ],
+        [
+          5760,
+          -1711
+        ]
+      ],
+      "original_polygon_wkt_mm": "POLYGON ((5760 -2626, 5123 -2626, 5123 -2109, 5123 -1035, 5123 -1035, 5123 -604, 5760 -604, 5760 -1711, 5760 -2626))",
+      "normalized_polygon_parts_wkt_mm": [
+        "POLYGON ((5760 -2626, 5123 -2626, 5123 -2109, 5123 -1035, 5123 -604, 5760 -604, 5760 -1711, 5760 -2626))"
+      ],
+      "original_signed_ring_absolute_area_m2": 1.288014,
+      "source_reported_area_m2": 1.29,
+      "normalized_polygon_parts_area_m2": [
+        1.288014
+      ],
+      "normalized_polygon_area_m2": 1.288014,
+      "area_change_vs_original_ring_m2": 0.0,
+      "boundary_hausdorff_distance_m": 0.0,
+      "original_boundary_length_m": 5.318,
+      "normalized_boundary_length_m": 5.318,
+      "original_boundary_not_in_normalized_length_m": 0.0,
+      "normalized_boundary_not_in_original_length_m": 0.0,
+      "part_count": 1,
+      "removed_consecutive_or_closing_duplicate_vertices": 1,
+      "source_bytes_preserved": true,
+      "coordinate_tolerance_m": 0,
+      "area_interpretation": "Valid source polygon area retained."
+    },
+    {
+      "source_id": "837077F7-30B9-4E0A-B09F-AD458049DE8F",
+      "source_type": "침실",
+      "valid_before": true,
+      "validity_reason_before": "Valid Geometry",
+      "method": "remove_consecutive_duplicates_only",
+      "original_polygon_mm": [
+        [
+          -5804,
+          -404
+        ],
+        [
+          -5804,
+          -1563
+        ],
+        [
+          -6236,
+          -1563
+        ],
+        [
+          -6236,
+          -1563
+        ],
+        [
+          -7113,
+          -1563
+        ],
+        [
+          -7113,
+          -1563
+        ],
+        [
+          -7766,
+          -1563
+        ],
+        [
+          -7766,
+          4268
+        ],
+        [
+          -6444,
+          4268
+        ],
+        [
+          -6010,
+          4268
+        ],
+        [
+          -6010,
+          4268
+        ],
+        [
+          -4377,
+          4268
+        ],
+        [
+          -4377,
+          4268
+        ],
+        [
+          -4161,
+          4268
+        ],
+        [
+          -4161,
+          4268
+        ],
+        [
+          -3835,
+          4268
+        ],
+        [
+          -3835,
+          4268
+        ],
+        [
+          -3809,
+          4268
+        ],
+        [
+          -3809,
+          -402
+        ],
+        [
+          -3834,
+          -402
+        ]
+      ],
+      "original_polygon_wkt_mm": "POLYGON ((-5804 -404, -5804 -1563, -6236 -1563, -6236 -1563, -7113 -1563, -7113 -1563, -7766 -1563, -7766 4268, -6444 4268, -6010 4268, -6010 4268, -4377 4268, -4377 4268, -4161 4268, -4161 4268, -3835 4268, -3835 4268, -3809 4268, -3809 -402, -3834 -402, -5804 -404))",
+      "normalized_polygon_parts_wkt_mm": [
+        "POLYGON ((-5804 -404, -5804 -1563, -6236 -1563, -7113 -1563, -7766 -1563, -7766 4268, -6444 4268, -6010 4268, -4377 4268, -4161 4268, -3835 4268, -3809 4268, -3809 -402, -3834 -402, -5804 -404))"
+      ],
+      "original_signed_ring_absolute_area_m2": 20.759042,
+      "source_reported_area_m2": 20.76,
+      "normalized_polygon_parts_area_m2": [
+        20.759042
+      ],
+      "normalized_polygon_area_m2": 20.759042,
+      "area_change_vs_original_ring_m2": 0.0,
+      "boundary_hausdorff_distance_m": 0.0,
+      "original_boundary_length_m": 19.574001015228166,
+      "normalized_boundary_length_m": 19.574001015228166,
+      "original_boundary_not_in_normalized_length_m": 0.0,
+      "normalized_boundary_not_in_original_length_m": 0.0,
+      "part_count": 1,
+      "removed_consecutive_or_closing_duplicate_vertices": 6,
+      "source_bytes_preserved": true,
+      "coordinate_tolerance_m": 0,
+      "area_interpretation": "Valid source polygon area retained."
+    },
+    {
+      "source_id": "B67C6643-370B-4FFE-9FB2-831ECE6316F9",
+      "source_type": "벽장",
+      "valid_before": true,
+      "validity_reason_before": "Valid Geometry",
+      "method": "remove_consecutive_duplicates_only",
+      "original_polygon_mm": [
+        [
+          -5804,
+          -4032
+        ],
+        [
+          -5804,
+          -4032
+        ],
+        [
+          -5804,
+          -5103
+        ],
+        [
+          -6343,
+          -5103
+        ],
+        [
+          -7212,
+          -5103
+        ],
+        [
+          -7212,
+          -5103
+        ],
+        [
+          -7766,
+          -5103
+        ],
+        [
+          -7766,
+          -1763
+        ],
+        [
+          -7113,
+          -1763
+        ],
+        [
+          -7113,
+          -1763
+        ],
+        [
+          -6236,
+          -1763
+        ],
+        [
+          -6236,
+          -1763
+        ],
+        [
+          -5804,
+          -1763
+        ],
+        [
+          -5804,
+          -3016
+        ]
+      ],
+      "original_polygon_wkt_mm": "POLYGON ((-5804 -4032, -5804 -4032, -5804 -5103, -6343 -5103, -7212 -5103, -7212 -5103, -7766 -5103, -7766 -1763, -7113 -1763, -7113 -1763, -6236 -1763, -6236 -1763, -5804 -1763, -5804 -3016, -5804 -4032))",
+      "normalized_polygon_parts_wkt_mm": [
+        "POLYGON ((-5804 -4032, -5804 -5103, -6343 -5103, -7212 -5103, -7766 -5103, -7766 -1763, -7113 -1763, -6236 -1763, -5804 -1763, -5804 -3016, -5804 -4032))"
+      ],
+      "original_signed_ring_absolute_area_m2": 6.55308,
+      "source_reported_area_m2": 6.55,
+      "normalized_polygon_parts_area_m2": [
+        6.55308
+      ],
+      "normalized_polygon_area_m2": 6.55308,
+      "area_change_vs_original_ring_m2": 0.0,
+      "boundary_hausdorff_distance_m": 0.0,
+      "original_boundary_length_m": 10.604,
+      "normalized_boundary_length_m": 10.604,
+      "original_boundary_not_in_normalized_length_m": 0.0,
+      "normalized_boundary_not_in_original_length_m": 0.0,
+      "part_count": 1,
+      "removed_consecutive_or_closing_duplicate_vertices": 4,
+      "source_bytes_preserved": true,
+      "coordinate_tolerance_m": 0,
+      "area_interpretation": "Valid source polygon area retained."
+    },
+    {
+      "source_id": "09AA41BF-C22D-459B-9875-51E84E1FBED4",
+      "source_type": "NONE",
+      "valid_before": true,
+      "validity_reason_before": "Valid Geometry",
+      "method": "remove_consecutive_duplicates_only",
+      "original_polygon_mm": [
+        [
+          -7612,
+          5704
+        ],
+        [
+          -7612,
+          5704
+        ],
+        [
+          -6660,
+          5704
+        ],
+        [
+          -6544,
+          5704
+        ],
+        [
+          -6544,
+          4468
+        ],
+        [
+          -7766,
+          4468
+        ],
+        [
+          -7766,
+          5704
+        ]
+      ],
+      "original_polygon_wkt_mm": "POLYGON ((-7612 5704, -7612 5704, -6660 5704, -6544 5704, -6544 4468, -7766 4468, -7766 5704, -7612 5704))",
+      "normalized_polygon_parts_wkt_mm": [
+        "POLYGON ((-7612 5704, -6660 5704, -6544 5704, -6544 4468, -7766 4468, -7766 5704, -7612 5704))"
+      ],
+      "original_signed_ring_absolute_area_m2": 1.510392,
+      "source_reported_area_m2": 1.51,
+      "normalized_polygon_parts_area_m2": [
+        1.510392
+      ],
+      "normalized_polygon_area_m2": 1.510392,
+      "area_change_vs_original_ring_m2": 0.0,
+      "boundary_hausdorff_distance_m": 0.0,
+      "original_boundary_length_m": 4.916,
+      "normalized_boundary_length_m": 4.916,
+      "original_boundary_not_in_normalized_length_m": 0.0,
+      "normalized_boundary_not_in_original_length_m": 0.0,
+      "part_count": 1,
+      "removed_consecutive_or_closing_duplicate_vertices": 1,
+      "source_bytes_preserved": true,
+      "coordinate_tolerance_m": 0,
+      "area_interpretation": "Valid source polygon area retained."
+    },
+    {
+      "source_id": "08203BA2-D09C-43A6-A5A9-2D975FFBF59E",
+      "source_type": "침실",
+      "valid_before": false,
+      "validity_reason_before": "Self-intersection[-3809 5025]",
+      "method": "exact_make_valid_linework_no_tolerance",
+      "original_polygon_mm": [
+        [
+          -6010,
+          5704
+        ],
+        [
+          -6010,
+          5704
+        ],
+        [
+          -4525,
+          5704
+        ],
+        [
+          -4525,
+          5704
+        ],
+        [
+          -3809,
+          5704
+        ],
+        [
+          -3809,
+          4468
+        ],
+        [
+          -3735,
+          4468
+        ],
+        [
+          -3735,
+          5025
+        ],
+        [
+          -4261,
+          5025
+        ],
+        [
+          -4261,
+          4468
+        ],
+        [
+          -4377,
+          4468
+        ],
+        [
+          -6010,
+          4468
+        ],
+        [
+          -6344,
+          4468
+        ],
+        [
+          -6344,
+          5704
+        ]
+      ],
+      "original_polygon_wkt_mm": "POLYGON ((-6010 5704, -6010 5704, -4525 5704, -4525 5704, -3809 5704, -3809 4468, -3735 4468, -3735 5025, -4261 5025, -4261 4468, -4377 4468, -6010 4468, -6344 4468, -6344 5704, -6010 5704))",
+      "normalized_polygon_parts_wkt_mm": [
+        "POLYGON ((-3809 5704, -3809 5025, -4261 5025, -4261 4468, -4377 4468, -6010 4468, -6344 4468, -6344 5704, -6010 5704, -4525 5704, -3809 5704))",
+        "POLYGON ((-3735 4468, -3809 4468, -3809 5025, -3735 5025, -3735 4468))"
+      ],
+      "original_signed_ring_absolute_area_m2": 2.840278,
+      "source_reported_area_m2": 2.84,
+      "normalized_polygon_parts_area_m2": [
+        2.881496,
+        0.041218
+      ],
+      "normalized_polygon_area_m2": 2.922714,
+      "area_change_vs_original_ring_m2": 0.082436,
+      "boundary_hausdorff_distance_m": 0.0,
+      "original_boundary_length_m": 8.804,
+      "normalized_boundary_length_m": 8.804,
+      "original_boundary_not_in_normalized_length_m": 0.0,
+      "normalized_boundary_not_in_original_length_m": 0.0,
+      "part_count": 2,
+      "removed_consecutive_or_closing_duplicate_vertices": 2,
+      "source_bytes_preserved": true,
+      "coordinate_tolerance_m": 0,
+      "area_interpretation": "For an invalid self-crossing ring, shoelace area is not a valid occupied-area reference; exact linework partitions are preserved separately."
+    },
+    {
+      "source_id": "EF583F7D-0AC8-4706-9B59-DA6067786289",
+      "source_type": "발코니",
+      "valid_before": true,
+      "validity_reason_before": "Valid Geometry",
+      "method": "remove_consecutive_duplicates_only",
+      "original_polygon_mm": [
+        [
+          7590,
+          4468
+        ],
+        [
+          6950,
+          4468
+        ],
+        [
+          5193,
+          4468
+        ],
+        [
+          5193,
+          4468
+        ],
+        [
+          4439,
+          4468
+        ],
+        [
+          3856,
+          4468
+        ],
+        [
+          2096,
+          4468
+        ],
+        [
+          1709,
+          4468
+        ],
+        [
+          1690,
+          5804
+        ],
+        [
+          1690,
+          5804
+        ],
+        [
+          1690,
+          6192
+        ],
+        [
+          3756,
+          6192
+        ],
+        [
+          3756,
+          5391
+        ],
+        [
+          7590,
+          5391
+        ]
+      ],
+      "original_polygon_wkt_mm": "POLYGON ((7590 4468, 6950 4468, 5193 4468, 5193 4468, 4439 4468, 3856 4468, 2096 4468, 1709 4468, 1690 5804, 1690 5804, 1690 6192, 3756 6192, 3756 5391, 7590 5391, 7590 4468))",
+      "normalized_polygon_parts_wkt_mm": [
+        "POLYGON ((7590 4468, 6950 4468, 5193 4468, 4439 4468, 3856 4468, 2096 4468, 1709 4468, 1690 5804, 1690 6192, 3756 6192, 3756 5391, 7590 5391, 7590 4468))"
+      ],
+      "original_signed_ring_absolute_area_m2": 7.087874,
+      "source_reported_area_m2": 7.09,
+      "normalized_polygon_parts_area_m2": [
+        7.087874
+      ],
+      "normalized_polygon_area_m2": 7.087874,
+      "area_change_vs_original_ring_m2": 0.0,
+      "boundary_hausdorff_distance_m": 0.0,
+      "original_boundary_length_m": 15.229135097959785,
+      "normalized_boundary_length_m": 15.229135097959785,
+      "original_boundary_not_in_normalized_length_m": 0.0,
+      "normalized_boundary_not_in_original_length_m": 0.0,
+      "part_count": 1,
+      "removed_consecutive_or_closing_duplicate_vertices": 2,
+      "source_bytes_preserved": true,
+      "coordinate_tolerance_m": 0,
+      "area_interpretation": "Valid source polygon area retained."
+    },
+    {
+      "source_id": "983A2012-2805-49C7-B523-A46E4D32CF8F",
+      "source_type": "침실",
+      "valid_before": true,
+      "validity_reason_before": "Valid Geometry",
+      "method": "remove_consecutive_duplicates_only",
+      "original_polygon_mm": [
+        [
+          4339,
+          925
+        ],
+        [
+          1418,
+          925
+        ],
+        [
+          1418,
+          4268
+        ],
+        [
+          1611,
+          4268
+        ],
+        [
+          2096,
+          4268
+        ],
+        [
+          2096,
+          4268
+        ],
+        [
+          3856,
+          4268
+        ],
+        [
+          3856,
+          4268
+        ],
+        [
+          4339,
+          4268
+        ],
+        [
+          4339,
+          1104
+        ]
+      ],
+      "original_polygon_wkt_mm": "POLYGON ((4339 925, 1418 925, 1418 4268, 1611 4268, 2096 4268, 2096 4268, 3856 4268, 3856 4268, 4339 4268, 4339 1104, 4339 925))",
+      "normalized_polygon_parts_wkt_mm": [
+        "POLYGON ((4339 925, 1418 925, 1418 4268, 1611 4268, 2096 4268, 3856 4268, 4339 4268, 4339 1104, 4339 925))"
+      ],
+      "original_signed_ring_absolute_area_m2": 9.764903,
+      "source_reported_area_m2": 9.76,
+      "normalized_polygon_parts_area_m2": [
+        9.764903
+      ],
+      "normalized_polygon_area_m2": 9.764903,
+      "area_change_vs_original_ring_m2": 0.0,
+      "boundary_hausdorff_distance_m": 0.0,
+      "original_boundary_length_m": 12.528,
+      "normalized_boundary_length_m": 12.528,
+      "original_boundary_not_in_normalized_length_m": 0.0,
+      "normalized_boundary_not_in_original_length_m": 0.0,
+      "part_count": 1,
+      "removed_consecutive_or_closing_duplicate_vertices": 2,
+      "source_bytes_preserved": true,
+      "coordinate_tolerance_m": 0,
+      "area_interpretation": "Valid source polygon area retained."
+    },
+    {
+      "source_id": "4ECB6369-ABD7-43F8-88BC-F2D51189A7A4",
+      "source_type": "침실",
+      "valid_before": true,
+      "validity_reason_before": "Valid Geometry",
+      "method": "remove_consecutive_duplicates_only",
+      "original_polygon_mm": [
+        [
+          5860,
+          925
+        ],
+        [
+          4539,
+          925
+        ],
+        [
+          4539,
+          1104
+        ],
+        [
+          4539,
+          1104
+        ],
+        [
+          4539,
+          4268
+        ],
+        [
+          5193,
+          4268
+        ],
+        [
+          6950,
+          4268
+        ],
+        [
+          7590,
+          4268
+        ],
+        [
+          7590,
+          925
+        ]
+      ],
+      "original_polygon_wkt_mm": "POLYGON ((5860 925, 4539 925, 4539 1104, 4539 1104, 4539 4268, 5193 4268, 6950 4268, 7590 4268, 7590 925, 5860 925))",
+      "normalized_polygon_parts_wkt_mm": [
+        "POLYGON ((5860 925, 4539 925, 4539 1104, 4539 4268, 5193 4268, 6950 4268, 7590 4268, 7590 925, 5860 925))"
+      ],
+      "original_signed_ring_absolute_area_m2": 10.199493,
+      "source_reported_area_m2": 10.2,
+      "normalized_polygon_parts_area_m2": [
+        10.199493
+      ],
+      "normalized_polygon_area_m2": 10.199493,
+      "area_change_vs_original_ring_m2": 0.0,
+      "boundary_hausdorff_distance_m": 0.0,
+      "original_boundary_length_m": 12.788,
+      "normalized_boundary_length_m": 12.788,
+      "original_boundary_not_in_normalized_length_m": 0.0,
+      "normalized_boundary_not_in_original_length_m": 0.0,
+      "part_count": 1,
+      "removed_consecutive_or_closing_duplicate_vertices": 1,
+      "source_bytes_preserved": true,
+      "coordinate_tolerance_m": 0,
+      "area_interpretation": "Valid source polygon area retained."
+    },
+    {
+      "source_id": "8502301E-6453-48C0-92B9-6217B0F8528F",
+      "source_type": "침실",
+      "valid_before": true,
+      "validity_reason_before": "Valid Geometry",
+      "method": "remove_consecutive_duplicates_only",
+      "original_polygon_mm": [
+        [
+          2713,
+          -4955
+        ],
+        [
+          1174,
+          -4955
+        ],
+        [
+          1174,
+          -4955
+        ],
+        [
+          783,
+          -4955
+        ],
+        [
+          783,
+          -4955
+        ],
+        [
+          574,
+          -4955
+        ],
+        [
+          574,
+          -1035
+        ],
+        [
+          574,
+          -604
+        ],
+        [
+          2697,
+          -604
+        ],
+        [
+          2697,
+          -1358
+        ],
+        [
+          3200,
+          -1358
+        ],
+        [
+          3200,
+          -2726
+        ],
+        [
+          3200,
+          -4955
+        ]
+      ],
+      "original_polygon_wkt_mm": "POLYGON ((2713 -4955, 1174 -4955, 1174 -4955, 783 -4955, 783 -4955, 574 -4955, 574 -1035, 574 -604, 2697 -604, 2697 -1358, 3200 -1358, 3200 -2726, 3200 -4955, 2713 -4955))",
+      "normalized_polygon_parts_wkt_mm": [
+        "POLYGON ((2713 -4955, 1174 -4955, 783 -4955, 574 -4955, 574 -1035, 574 -604, 2697 -604, 2697 -1358, 3200 -1358, 3200 -2726, 3200 -4955, 2713 -4955))"
+      ],
+      "original_signed_ring_absolute_area_m2": 11.046464,
+      "source_reported_area_m2": 11.05,
+      "normalized_polygon_parts_area_m2": [
+        11.046464
+      ],
+      "normalized_polygon_area_m2": 11.046464,
+      "area_change_vs_original_ring_m2": 0.0,
+      "boundary_hausdorff_distance_m": 0.0,
+      "original_boundary_length_m": 13.954,
+      "normalized_boundary_length_m": 13.954,
+      "original_boundary_not_in_normalized_length_m": 0.0,
+      "normalized_boundary_not_in_original_length_m": 0.0,
+      "part_count": 1,
+      "removed_consecutive_or_closing_duplicate_vertices": 2,
+      "source_bytes_preserved": true,
+      "coordinate_tolerance_m": 0,
+      "area_interpretation": "Valid source polygon area retained."
+    },
+    {
+      "source_id": "DABA63CB-EB66-4EA2-BA0E-D514A993D462",
+      "source_type": "욕실",
+      "valid_before": true,
+      "validity_reason_before": "Valid Geometry",
+      "method": "remove_consecutive_duplicates_only",
+      "original_polygon_mm": [
+        [
+          -3934,
+          -602
+        ],
+        [
+          -3935,
+          -978
+        ],
+        [
+          -3935,
+          -978
+        ],
+        [
+          -3935,
+          -2916
+        ],
+        [
+          -5604,
+          -2916
+        ],
+        [
+          -5604,
+          -1663
+        ],
+        [
+          -5604,
+          -604
+        ]
+      ],
+      "original_polygon_wkt_mm": "POLYGON ((-3934 -602, -3935 -978, -3935 -978, -3935 -2916, -5604 -2916, -5604 -1663, -5604 -604, -3934 -602))",
+      "normalized_polygon_parts_wkt_mm": [
+        "POLYGON ((-3934 -602, -3935 -978, -3935 -2916, -5604 -2916, -5604 -1663, -5604 -604, -3934 -602))"
+      ],
+      "original_signed_ring_absolute_area_m2": 3.860584,
+      "source_reported_area_m2": 3.86,
+      "normalized_polygon_parts_area_m2": [
+        3.860584
+      ],
+      "normalized_polygon_area_m2": 3.860584,
+      "area_change_vs_original_ring_m2": 0.0,
+      "boundary_hausdorff_distance_m": 0.0,
+      "original_boundary_length_m": 7.965002527389244,
+      "normalized_boundary_length_m": 7.965002527389244,
+      "original_boundary_not_in_normalized_length_m": 0.0,
+      "normalized_boundary_not_in_original_length_m": 0.0,
+      "part_count": 1,
+      "removed_consecutive_or_closing_duplicate_vertices": 1,
+      "source_bytes_preserved": true,
+      "coordinate_tolerance_m": 0,
+      "area_interpretation": "Valid source polygon area retained."
+    }
+  ],
+  "source_room_intersections": [],
+  "entrance": {
+    "opening_id": "door-00",
+    "source_id": "FD492E03-96C0-4122-8C80-49471BCD74EB",
+    "source_product_name": "Archisketch Entrance Door",
+    "center_m": [
+      12.276,
+      3.59
+    ],
+    "axis": "x",
+    "along_xz": [
+      -1.0,
+      1.2246467991473532e-16
+    ],
+    "exterior_normal_xz": [
+      -1.2246467991473532e-16,
+      -1.0
+    ],
+    "interior_normal_xz": [
+      1.2246467991473532e-16,
+      1.0
+    ],
+    "interior_room_id": "living-kitchen-hall",
+    "interior_room_ids": [
+      "living-kitchen-hall"
+    ],
+    "width_m": 0.869,
+    "height_m": 2.3,
+    "identification_basis": "source Entrance Door product; interior direction from actual occupied polygon on one sampled side, no assumed cardinal orientation",
+    "exterior_common_area_source_status": "absent_from_unit_source; floor/common_core_placement_not_determined"
+  },
+  "entrance_opening_id": "door-00",
+  "classification_summary": {
+    "source_room_count": 22,
+    "normalized_room_part_count": 23,
+    "connected_unknown_source_ids": [
+      "09AA41BF-C22D-459B-9875-51E84E1FBED4",
+      "2E48C574-2B2D-4359-9A9C-FB40BD521447"
+    ],
+    "type_counts": {
+      "balcony": 2,
+      "bedroom": 6,
+      "excluded": 8,
+      "living": 2,
+      "storage": 1,
+      "utility": 2,
+      "wet": 2
+    }
+  },
+  "independent_as_built_validation": false,
+  "actual_unit_renovation_verified": false,
+  "limitations": [
+    "Coordinates, ceilings and opening sizes are source model data, not field measurements or confirmed renovation status.",
+    "Source positions/opening instance dimensions convert mm to meters without global fitting or arbitrary scaling.",
+    "External wall thickness is absent: the0.2m outside band is an explicit modeling assumption.",
+    "Per-room raw2.3/2.6 ceiling values are interpreted as meters against placed opening dimensions; no2.5m default override.",
+    "Frame thickness, glazing thickness, door leaf offsets and hinge/swing construction are visual assumptions, not product measurements.",
+    "Source opening rotations are retained; axis is a compatibility label only, not a cardinal-angle replacement.",
+    "Untyped regions use actual source door adjacency for provisional utility/excluded classification; tiny fragments are not walking starts.",
+    "Exact make_valid partitions of any invalid polygon are recorded with original coordinates, area and boundary audit; no arbitrary shape correction.",
+    "Furniture, fixtures, materials matching and common-core/floor placement are outside this structural shell artifact."
+  ]
+}

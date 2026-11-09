@@ -1,4 +1,5 @@
 import { Matrix4, Mesh, Vector3 } from 'three';
+import { bakedRenderData } from './baked-lighting-geometry.js';
 import { mergeGeometries } from 'three/addons/utils/BufferGeometryUtils.js';
 
 // Only the source's inferred structural layer prisms qualify. Material names alone
@@ -77,7 +78,7 @@ function internalCaps(objects, owners) {
 }
 
 function renderGeometry(object, inverse, removed) {
-  let geometry = object.geometry.clone().applyMatrix4(new Matrix4().multiplyMatrices(inverse, object.matrixWorld));
+  let geometry = (bakedRenderData(object)?.geometry ?? object.geometry).clone().applyMatrix4(new Matrix4().multiplyMatrices(inverse, object.matrixWorld));
   if (!removed?.size) return geometry;
   const index = geometry.index, count = index?.count ?? geometry.attributes.position.count, keep = [];
   for (let offset = 0; offset < count; offset += 3) {
@@ -105,11 +106,11 @@ export function batchStaticMeshes(root) {
       if (!p.visible || p.userData.doorId || p.userData.stagingId) return;
       if (p === root) break;
     }
-    const geometry = object.geometry;
+    const geometry = bakedRenderData(object)?.geometry ?? object.geometry;
     if (geometry.drawRange.start !== 0 || geometry.drawRange.count !== Infinity) return;
     const attributes = Object.entries(geometry.attributes).sort().map(([name,a]) =>
       [name,a.itemSize,a.normalized,a.array?.constructor.name||a.data?.array.constructor.name].join(':')).join('|');
-    const key = [object.material.uuid,object.castShadow,object.receiveShadow,object.renderOrder,Boolean(geometry.index),attributes].join('/');
+    const key = [(bakedRenderData(object)?.material ?? object.material).uuid,object.castShadow,object.receiveShadow,object.renderOrder,object.userData.component==='ceiling',Boolean(geometry.index),attributes].join('/');
     if (!groups.has(key)) groups.set(key, []);
     groups.get(key).push(object); sourceObjects.push(object);
   });
@@ -117,7 +118,7 @@ export function batchStaticMeshes(root) {
   let sourceMeshes = 0, drawMeshes = 0, removedInternalCapTriangles = 0;
   const batches = [];
   for (const objects of groups.values()) {
-    if (objects.length < 2) continue;
+    if (objects.length < 2 && !bakedRenderData(objects[0])) continue;
     // Pair only within a compatible batch: both faces are removed atomically,
     // and a failed merge leaves both original prisms visible and intact.
     const removed = internalCaps(objects, owners);
@@ -126,10 +127,11 @@ export function batchStaticMeshes(root) {
     geometries.forEach(g => g.dispose());
     if (!geometry) continue;
     geometry.computeBoundingBox(); geometry.computeBoundingSphere();
-    const first = objects[0], batch = new Mesh(geometry, first.material);
+    const first = objects[0], batch = new Mesh(geometry, bakedRenderData(first)?.material ?? first.material);
     batch.name = 'Static render batch / ' + first.material.name;
     batch.castShadow = first.castShadow; batch.receiveShadow = first.receiveShadow;
     batch.renderOrder = first.renderOrder;
+    if(objects.every(object=>object.userData.component===first.userData.component))batch.userData.component=first.userData.component;
     batch.userData.renderBatch = true; batch.userData.collisionDisabled = true;
     batch.matrixAutoUpdate = false;
     root.add(batch); batch.matrixWorldNeedsUpdate=true; batch.updateWorldMatrix(false,false); batches.push(batch);
@@ -140,5 +142,12 @@ export function batchStaticMeshes(root) {
     sourceMeshes += objects.length; drawMeshes++;
     for (const offsets of removed.values()) removedInternalCapTriangles += offsets.size;
   }
-  return { sourceMeshes, drawMeshes, savedDraws: sourceMeshes - drawMeshes, batches, removedInternalCapTriangles };
+  return { sourceMeshes, drawMeshes, savedDraws: sourceMeshes - drawMeshes, batches, removedInternalCapTriangles,
+    restore() {
+      for (const batch of batches) { batch.removeFromParent(); batch.geometry.dispose(); }
+      for (const object of sourceObjects) if (object.userData.renderBatched) {
+        object.visible = true; delete object.userData.renderBatched;
+      }
+    },
+  };
 }

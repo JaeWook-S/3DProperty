@@ -33,7 +33,7 @@ const NS='http://www.w3.org/2000/svg';
 const HINTS={touch:{walk:'왼쪽 아래 방향키 이동 · 화면을 밀어 시선 · 버튼으로 문 열기',tour:'방향키 이동 · 드래그 시선',orbit:'드래그 회전 · 두 손가락 확대'},pc:{walk:'WASD 이동 · E 문 열기 · Esc 해제',tour:'WASD 이동 · 마우스 시선',orbit:'드래그 회전 · 휠 확대'}};
 const hint=key=>HINTS[isTouchFirst()?'touch':'pc'][key];
 function svg(tag,attrs,text){const n=document.createElementNS(NS,tag);for(const [k,v]of Object.entries(attrs))n.setAttribute(k,v);if(text)n.textContent=text;return n;}
-export function createStudio({scene,camera,renderer,getActive,loadVariant,resize,invalidate,enterRoom,unlock,settle=()=>true,standAt=()=>false,resume=()=>{},openCommonArea=()=>false,onModeChange=()=>{},initialMode='complex',lighting='day'}) {
+export function createStudio({scene,camera,renderer,getActive,loadVariant,resize,invalidate,enterRoom,unlock,surfaceEditor=null,settle=()=>true,standAt=()=>false,resume=()=>{},openCommonArea=()=>false,onModeChange=()=>{},initialMode='complex',lighting='day'}) {
   document.body.classList.add('studio');
   const ui=document.createElement('section');ui.id='studio-ui';
   ui.innerHTML=`<header class="studio-header"><a href="?studio=1" class="studio-brand">CORTEX</a><nav aria-label="주요 메뉴"><button id="nav-plan">우리 집</button><button id="nav-complex"><span class="nav-long">새로운 </span>집 찾기</button></nav><div class="mode-switch"><button id="mode-tour">둘러보기</button><button id="mode-edit">꾸미기</button></div></header>
@@ -118,6 +118,7 @@ export function createStudio({scene,camera,renderer,getActive,loadVariant,resize
       },
     });
     if(changed)selectionEpoch++;
+    surfaceEditor?.activate(target,scope);
     return changed;
   }
   function restrictVariants(){
@@ -247,6 +248,7 @@ export function createStudio({scene,camera,renderer,getActive,loadVariant,resize
   function frame(bounds,top=false){const [x1,z1,x2,z2]=bounds,cx=(x1+x2)/2,cz=(z1+z2)/2,span=Math.max(x2-x1,z2-z1);const fit=Math.max(z2-z1,(x2-x1)/camera.aspect)/(2*Math.tan(THREE.MathUtils.degToRad(camera.fov/2)))*1.18;orbit.target.set(cx,.2,cz);camera.up.set(0,1,0);camera.position.set(cx+(top?0:span*.7),top?fit:Math.max(span,fit*.65),cz+(top?.001:span*.8));camera.lookAt(orbit.target);orbit.update();dirty();}
   function setMode(next){
     if(!current())return;
+    surfaceEditor?.setEditing(false);
     stopFloorCamera();unlock();mode=next;onModeChange(mode);document.body.dataset.studioMode=mode;
     commonStart.hidden=mode!=='tour';
     if(mode!=='tour'){commonBadge.hidden=true;commonStart.textContent='현관 밖 둘러보기 · 예시 공용부';}orbit.enabled=mode!=='tour';
@@ -431,14 +433,17 @@ export function createStudio({scene,camera,renderer,getActive,loadVariant,resize
     }catch(error){status(`가구를 추가하지 못했어요. ${error.message}`);}
     finally{if(asset)setFurniturePending(null);}
   };
-  $('save-layout').onclick=()=>{try{localStorage.setItem(key(),JSON.stringify({revision:1,items:current().staging.snapshot().map(i=>({...i,roomId:placementRoom(i).id}))}));status(actualUnit()?`${actualUnit().building}동 ${actualUnit().unit}호 ${current().definition.label} 배치를 이 브라우저에 저장했어요.`:'이 브라우저에 배치를 저장했어요.');}catch{status('브라우저 저장 공간을 사용할 수 없어요.');}};
+  $('save-layout').onclick=()=>{
+    if(surfaceEditor?.pending||surfaceEditor?.loading){status('마감을 불러오는 중이에요. 완료 후 저장해 주세요.');return;}
+    try{localStorage.setItem(key(),JSON.stringify({revision:2,items:current().staging.snapshot().map(i=>({...i,roomId:placementRoom(i).id})),surfaceFinishes:surfaceEditor?.snapshot()}));status(actualUnit()?`${actualUnit().building}동 ${actualUnit().unit}호 ${current().definition.label} 마감과 배치를 이 브라우저에 저장했어요.`:'이 브라우저에 마감과 배치를 저장했어요.');}catch{status('브라우저 저장 공간을 사용할 수 없어요.');}
+  };
   $('restore-layout').onclick=async()=>{
     if(furniturePending)return;
-    const target=current(),token=operationToken(),savedKey=key();let catalogLoading=false;
+    const target=current(),token=operationToken(),savedKey=key();let catalogLoading=false,surfaceRestore=null;
     setFurniturePending('restore');
     try{
       const data=JSON.parse(localStorage.getItem(savedKey));
-      if(data?.revision!==1||!Array.isArray(data.items))throw Error();
+      if(![1,2].includes(data?.revision)||!Array.isArray(data.items))throw Error();
       await generatedReady;
       if(!operationCurrent(token)||current()!==target)throw Error('평면이 바뀌어 복원하지 않았어요. 원하는 평면에서 다시 불러와 주세요.');
       if(data.items.some(i=>i?.kind?.startsWith('generated:')&&!target.staging.templates.has(i.kind)))throw Error('생성 가구를 불러오지 못했습니다. 모델이 저장된 서버 API·터널을 확인하세요.');
@@ -446,16 +451,21 @@ export function createStudio({scene,camera,renderer,getActive,loadVariant,resize
       // Resolve required templates before restoring, so a failed download leaves the current layout intact.
       for(const kind of catalogKinds){catalogLoading=true;status('저장된 CC0 가구를 불러오는 중이에요.');await installCatalogTemplate(target.staging,kind);}
       if(!operationCurrent(token)||current()!==target)throw Error('평면이 바뀌어 복원하지 않았어요. 원하는 평면에서 다시 불러와 주세요.');
+      surfaceRestore=await surfaceEditor?.prepareRestore(data.revision===2?data.surfaceFinishes:null);
+      if(!operationCurrent(token)||current()!==target)throw Error('평면이 바뀌어 복원하지 않았어요. 원하는 평면에서 다시 불러와 주세요.');
+      if(surfaceEditor&&!surfaceRestore)throw Error('마감 선택이 바뀌어 복원하지 않았어요. 다시 불러와 주세요.');
+      if(surfaceRestore&&!surfaceRestore.commit())throw Error('마감 선택이 바뀌어 복원하지 않았어요. 다시 불러와 주세요.');
       target.staging.restore(data.items,rooms());
       for(const i of data.items)if(rooms().some(r=>r.id===i?.roomId))assignments.set(i.id,i.roomId);
-      refreshRooms();refreshItems();renderPlan();showWarnings();dirty(true);status('저장한 배치를 불러왔어요.');
-    }catch(error){status(error.message?.includes('생성 가구')||error.message?.includes('평면이 바뀌어')?error.message:catalogLoading?`CC0 가구를 불러오지 못해 배치를 복원하지 않았어요. ${error.message}`:'이 평면에 저장된 유효한 배치가 없어요.');}
-    finally{setFurniturePending(null);}
+      refreshRooms();refreshItems();renderPlan();showWarnings();dirty(true);status('저장한 마감과 배치를 불러왔어요.');
+    }catch(error){status(error.message?.includes('생성 가구')||error.message?.includes('평면이 바뀌어')||error.message?.includes('마감')?error.message:catalogLoading?`CC0 가구를 불러오지 못해 배치를 복원하지 않았어요. ${error.message}`:'이 평면에 저장된 유효한 배치가 없어요.');}
+    finally{surfaceRestore?.discard();setFurniturePending(null);}
   };
   $('reset-layout').onclick=()=>{current().staging.reset();assignments.clear();refreshRooms();refreshItems();renderPlan();showWarnings();dirty(true);status('초기 배치로 되돌렸어요. 저장한 배치는 유지돼요.');};
   let pointerStart;
   renderer.domElement.addEventListener('pointerdown',e=>{pointerStart=[e.clientX,e.clientY];});
   renderer.domElement.addEventListener('pointerup',e=>{
+    if(surfaceEditor?.editing)return;
     if(!pointerStart||Math.hypot(e.clientX-pointerStart[0],e.clientY-pointerStart[1])>5)return;
     const rect=renderer.domElement.getBoundingClientRect();raycaster.setFromCamera(new THREE.Vector2((e.clientX-rect.left)/rect.width*2-1,-(e.clientY-rect.top)/rect.height*2+1),camera);
     if(mode==='complex'&&buildingSelected){const hit=tower.hitTest(raycaster);if(hit){if(hit.id!==tower.selected.id)chooseBuilding(hit.id);selectFloor(hit.floor);}}

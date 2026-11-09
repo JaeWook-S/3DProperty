@@ -7,8 +7,28 @@
     <title>CORTEX · 우리 집을 3D로 미리 살아보기</title>
     <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
-  </head>
+  <script>window.addEventListener('error',function(e){if(e.target?.tagName==='SCRIPT'&&e.target.type==='module'&&document.documentElement.dataset.entryState==='loading'){document.documentElement.dataset.entryState='error';const m=document.getElementById('entry-message');if(m)m.textContent='화면을 불러오지 못했어요. 연결을 확인하고 다시 열어 주세요.';const b=document.getElementById('entry-retry');if(b)b.hidden=false;}},true);(function(){const q=new URLSearchParams(location.search);if(q.get('serviceTour')!=='1' && !(['map','site'].includes(q.get('serviceView'))&&!q.has('studio'))){document.documentElement.dataset.entryState='loading';document.documentElement.dataset.entryKind=q.get('studio')==='0'||q.get('entry')==='overview'||q.has('tours')?'viewer':'home';}})();</script>
+<style id="entry-critical">
+html[data-entry-state="loading"],html[data-entry-state="error"]{background:#fafbf9}
+html[data-entry-state="loading"] body,html[data-entry-state="error"] body{margin:0}
+html:is([data-entry-state="loading"],[data-entry-state="error"]) body>:not(#entry-shell):not(script):not(noscript){visibility:hidden!important;opacity:0!important;pointer-events:none!important}
+#entry-shell{display:none}
+html:is([data-entry-state="loading"],[data-entry-state="error"]) #entry-shell{display:block;position:fixed;inset:0;z-index:2147483647;background:#fafbf9;color:#253d33;font:15px/1.5 "Pretendard Variable",Pretendard,system-ui,sans-serif;overflow:auto}
+.entry-header{height:72px;box-sizing:border-box;border-bottom:1px solid #e0e5df;display:flex;align-items:center;gap:48px;padding:0 max(24px,calc((100vw - 1088px)/2));background:#fff}
+.entry-header strong{font-size:24px;letter-spacing:2px}.entry-header span{font-size:13px;letter-spacing:1px}
+.entry-wrap{max-width:1088px;margin:auto;padding:24px}.entry-top{display:grid;grid-template-columns:2fr 1fr;gap:16px;height:456px}
+.entry-feature,.entry-card{border-radius:6px;border:1px solid #e0e5df;padding:24px;box-sizing:border-box;background:#fff}.entry-feature{background:#edf0eb;display:flex;flex-direction:column;justify-content:flex-end}.entry-feature h1{font-size:28px;line-height:1.4;margin:8px 0}.entry-side{display:flex;flex-direction:column;gap:16px}.entry-card{flex:1}.entry-card h2{font-size:18px;margin:0 0 14px}.entry-line{height:12px;max-width:220px;background:#e6eae4;border-radius:4px;margin:12px 0}.entry-line.short{width:60%}#entry-message{margin:24px 0;color:#627266}#entry-retry{color:#fff;background:#315744;border:0;border-radius:6px;padding:12px 20px;font:inherit}
+html[data-entry-kind="viewer"] .entry-top{display:none}
+@media(max-width:650px){.entry-header{padding:0 24px;gap:28px}.entry-top{height:auto;grid-template-columns:1fr}.entry-feature{min-height:260px}.entry-side{flex-direction:row}.entry-card{padding:16px;min-width:0}.entry-feature h1{font-size:24px}.entry-wrap{padding:16px}}
+</style>
+</head>
   <body>
+<section id="entry-shell" aria-label="CORTEX 시작 화면" aria-busy="true">
+  <header class="entry-header"><strong>CORTEX</strong><span>HOME</span></header>
+  <div class="entry-wrap"><div class="entry-top"><article class="entry-feature"><span>집들이</span><h1>나에게 맞는 공간을 찾아보세요.</h1><div class="entry-line short"></div></article><div class="entry-side"><article class="entry-card"><h2>우리 집</h2><div class="entry-line"></div><div class="entry-line short"></div></article><article class="entry-card"><h2>새로운 집 찾기</h2><div class="entry-line"></div></article></div></div>
+  <p id="entry-message" role="status">화면을 준비하고 있어요.</p><button id="entry-retry" hidden onclick="location.reload()">다시 열기</button></div>
+</section><noscript>CORTEX를 이용하려면 브라우저의 JavaScript를 켜 주세요.</noscript>
+
     <main id="app">
       <div id="viewport" aria-label="아파트 3D 공간"></div>
       <header class="topbar">

@@ -1,0 +1,859 @@
+{
+  "revision": "100-10f-five-unit-siteplan-v1",
+  "building": "100",
+  "floor": 10,
+  "layoutVerified": false,
+  "actualCommonAreaVerified": false,
+  "actualFloorOutlineVerified": false,
+  "renovationState": "unknown",
+  "scale": 1,
+  "reflection": false,
+  "basis": "User-supplied type catalog and illustrated relative positions; original-size source apartment models; actual adjacency, handedness, common core, and floor envelope remain unverified.",
+  "sourceReviewSha256": "33f535e624330323727de8b9cc000703dcbee2be189f48adb6b26af7b29b6478",
+  "coordinateTransform": {
+    "reviewAxes": "XZ meters; aligned illustration frame",
+    "siteAxes": "XZ meters; existing complex frame",
+    "siteRotationYRadians": 0.502907582359852,
+    "reviewDomainMin_m": [
+      -68.33898199991269,
+      28.41655696354766
+    ],
+    "formula": "siteXZ = R_three(siteRotationYRadians) * (reviewXZ + reviewDomainMin_m); siteYaw = reviewYaw + siteRotationYRadians",
+    "verticalPlacement": "Caller adds selected-floor elevation; source model scale remains 1."
+  },
+  "overflowOSM_m2": {
+    "basic": 45.7689967556,
+    "expanded": 48.2883933511
+  },
+  "summary_ko": "100동 10층 5세대 배치 검토안입니다. 원본 세대 크기는 유지했지만 실제 방향·인접 관계와 공용부 위치는 미확정입니다. 확장형 약 48.3㎡가 기존 지도 외곽을 벗어나며, 기존 외곽도 실측 층 경계는 아닙니다.",
+  "units": [
+    {
+      "id": "1001",
+      "type": "168d",
+      "reviewTranslation_m": [
+        64.084,
+        11.500000000000002
+      ],
+      "reviewYawDegrees": 270,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "reflection": false
+    },
+    {
+      "id": "1002",
+      "type": "145f",
+      "reviewTranslation_m": [
+        37.0,
+        19.000369
+      ],
+      "reviewYawDegrees": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "reflection": false
+    },
+    {
+      "id": "1003",
+      "type": "145f",
+      "reviewTranslation_m": [
+        21.0,
+        17.500369
+      ],
+      "reviewYawDegrees": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "reflection": false
+    },
+    {
+      "id": "1004",
+      "type": "211a",
+      "reviewTranslation_m": [
+        0.5,
+        17.00059
+      ],
+      "reviewYawDegrees": 0,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "reflection": false
+    },
+    {
+      "id": "1005",
+      "type": "168c",
+      "reviewTranslation_m": [
+        22.482,
+        16.851000000000003
+      ],
+      "reviewYawDegrees": 180,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "reflection": false
+    }
+  ],
+  "sources": {
+    "211a": {
+      "basic": {
+        "glbSha256": "0424ad064d7f354db1594a5ba39039bea8627fe423f219fe5e949ad3da28ff20",
+        "metadataSha256": "e857c5e6c1361c48ebb8a3dcd631b0a18a993ff135e972008aa5b503b7fce305",
+        "metadata": {
+          "unit_type": "211A",
+          "variant": "basic",
+          "revision": "archisketch-structure-v1",
+          "rooms": [
+            {
+              "id": "bedroom-01",
+              "name": "침실 1",
+              "kind": "bedroom"
+            },
+            {
+              "id": "living-kitchen-hall",
+              "name": "거실 · 주방 · 복도",
+              "kind": "living"
+            },
+            {
+              "id": "bedroom-02",
+              "name": "침실 2",
+              "kind": "bedroom"
+            },
+            {
+              "id": "bedroom-03",
+              "name": "침실 3",
+              "kind": "bedroom"
+            },
+            {
+              "id": "balcony-01",
+              "name": "발코니 1",
+              "kind": "balcony"
+            },
+            {
+              "id": "storage-01",
+              "name": "수납실 1",
+              "kind": "storage"
+            },
+            {
+              "id": "storage-02",
+              "name": "수납실 2",
+              "kind": "storage"
+            },
+            {
+              "id": "bathroom-01",
+              "name": "욕실 1",
+              "kind": "wet"
+            },
+            {
+              "id": "bathroom-02",
+              "name": "욕실 2",
+              "kind": "wet"
+            },
+            {
+              "id": "bedroom-04",
+              "name": "침실 4",
+              "kind": "bedroom"
+            },
+            {
+              "id": "primary",
+              "name": "안방",
+              "kind": "bedroom"
+            },
+            {
+              "id": "utility-01",
+              "name": "용도 미지정 보조실 1",
+              "kind": "utility"
+            },
+            {
+              "id": "balcony-02",
+              "name": "발코니 2",
+              "kind": "balcony"
+            },
+            {
+              "id": "balcony-03",
+              "name": "발코니 3",
+              "kind": "balcony"
+            },
+            {
+              "id": "storage-03",
+              "name": "수납실 3",
+              "kind": "storage"
+            },
+            {
+              "id": "storage-04",
+              "name": "수납실 4",
+              "kind": "storage"
+            },
+            {
+              "id": "living-fragment-01",
+              "name": "거실 부속 조각 1",
+              "kind": "living"
+            },
+            {
+              "id": "balcony-04",
+              "name": "발코니 4",
+              "kind": "balcony"
+            },
+            {
+              "id": "balcony-05",
+              "name": "발코니 5",
+              "kind": "balcony"
+            },
+            {
+              "id": "bathroom-03",
+              "name": "욕실 3",
+              "kind": "wet"
+            }
+          ]
+        }
+      },
+      "expanded": {
+        "glbSha256": "f29f8991294cf7e38d53cd85203a5ce5eba016947dbff5a88b723c68dff3052e",
+        "metadataSha256": "76b04fc3512ce53635027c0b6850053e8833e77332ff11751a2d89cb46895ce9",
+        "metadata": {
+          "unit_type": "211A",
+          "variant": "expanded",
+          "revision": "archisketch-structure-v1",
+          "rooms": [
+            {
+              "id": "bedroom-01",
+              "name": "침실 1",
+              "kind": "bedroom"
+            },
+            {
+              "id": "storage-01",
+              "name": "수납실 1",
+              "kind": "storage"
+            },
+            {
+              "id": "bedroom-02",
+              "name": "침실 2",
+              "kind": "bedroom"
+            },
+            {
+              "id": "bathroom-01",
+              "name": "욕실 1",
+              "kind": "wet"
+            },
+            {
+              "id": "utility-01",
+              "name": "용도 미지정 보조실 1",
+              "kind": "utility"
+            },
+            {
+              "id": "living-kitchen-hall",
+              "name": "거실 · 주방 · 복도",
+              "kind": "living"
+            },
+            {
+              "id": "bedroom-03",
+              "name": "침실 3",
+              "kind": "bedroom"
+            },
+            {
+              "id": "bedroom-04",
+              "name": "침실 4",
+              "kind": "bedroom"
+            },
+            {
+              "id": "storage-02",
+              "name": "수납실 2",
+              "kind": "storage"
+            },
+            {
+              "id": "bathroom-02",
+              "name": "욕실 2",
+              "kind": "wet"
+            },
+            {
+              "id": "bathroom-03",
+              "name": "욕실 3",
+              "kind": "wet"
+            },
+            {
+              "id": "primary",
+              "name": "안방",
+              "kind": "bedroom"
+            },
+            {
+              "id": "utility-02",
+              "name": "용도 미지정 보조실 2",
+              "kind": "utility"
+            },
+            {
+              "id": "storage-03",
+              "name": "수납실 3",
+              "kind": "storage"
+            },
+            {
+              "id": "balcony-01",
+              "name": "발코니 1",
+              "kind": "balcony"
+            },
+            {
+              "id": "utility-03",
+              "name": "용도 미지정 보조실 3",
+              "kind": "utility"
+            },
+            {
+              "id": "balcony-02",
+              "name": "발코니 2",
+              "kind": "balcony"
+            }
+          ]
+        }
+      }
+    },
+    "168c": {
+      "basic": {
+        "glbSha256": "6f4d10277720adfc043040b725ac736a679504faf4c4e9a1c26f541d222ce046",
+        "metadataSha256": "cbb4c06d70cd83c555d587fb5a4b55dcd213ddcab21d3a30cc84aecf1eb92c81",
+        "metadata": {
+          "unit_type": "168C",
+          "variant": "basic",
+          "revision": "archisketch-structure-v1",
+          "rooms": [
+            {
+              "id": "bedroom-balcony",
+              "name": "침실 앞 발코니",
+              "kind": "balcony"
+            },
+            {
+              "id": "kitchen-balcony",
+              "name": "주방 발코니",
+              "kind": "utility"
+            },
+            {
+              "id": "living-kitchen-hall",
+              "name": "거실 · 주방 · 복도",
+              "kind": "living"
+            },
+            {
+              "id": "living-balcony",
+              "name": "거실 남쪽 발코니",
+              "kind": "balcony"
+            },
+            {
+              "id": "bedroom-3",
+              "name": "침실 3",
+              "kind": "bedroom"
+            },
+            {
+              "id": "entry-storage",
+              "name": "현관 수납 공간",
+              "kind": "storage"
+            },
+            {
+              "id": "bedroom-1",
+              "name": "침실 1",
+              "kind": "bedroom"
+            },
+            {
+              "id": "bathroom-1",
+              "name": "화장실 1",
+              "kind": "wet"
+            },
+            {
+              "id": "hall-pantry",
+              "name": "침실 2 앞 팬트리",
+              "kind": "storage"
+            },
+            {
+              "id": "dressing",
+              "name": "드레스룸 안쪽 공간",
+              "kind": "storage"
+            },
+            {
+              "id": "primary-bath",
+              "name": "안방 화장실",
+              "kind": "wet"
+            },
+            {
+              "id": "primary",
+              "name": "안방",
+              "kind": "bedroom"
+            },
+            {
+              "id": "hall-storage",
+              "name": "복도 붙박이 수납",
+              "kind": "storage"
+            },
+            {
+              "id": "primary-balcony-storage",
+              "name": "안방 발코니 안쪽 공간",
+              "kind": "utility"
+            },
+            {
+              "id": "living-east-balcony",
+              "name": "거실 동쪽 발코니",
+              "kind": "balcony"
+            },
+            {
+              "id": "bedroom-2",
+              "name": "침실 2",
+              "kind": "bedroom"
+            },
+            {
+              "id": "primary-balcony",
+              "name": "안방 발코니",
+              "kind": "balcony"
+            }
+          ]
+        }
+      },
+      "expanded": {
+        "glbSha256": "d9f31a482095a6b4b98177978f9e269f9dc3bb38ad8c194166407e7905b94dce",
+        "metadataSha256": "b50157bc57140329d935f75eeb7b44c1f9893aeb624fe1820c5fd15311f6c086",
+        "metadata": {
+          "unit_type": "168C",
+          "variant": "expanded",
+          "revision": "archisketch-structure-v1",
+          "rooms": [
+            {
+              "id": "entry-storage",
+              "name": "현관 수납 공간",
+              "kind": "storage"
+            },
+            {
+              "id": "bedroom-1",
+              "name": "침실 1",
+              "kind": "bedroom"
+            },
+            {
+              "id": "bathroom-1",
+              "name": "화장실 1",
+              "kind": "wet"
+            },
+            {
+              "id": "living-kitchen-hall",
+              "name": "거실 · 주방 · 복도",
+              "kind": "living"
+            },
+            {
+              "id": "hall-pantry",
+              "name": "침실 2 앞 팬트리",
+              "kind": "storage"
+            },
+            {
+              "id": "bedroom-3",
+              "name": "침실 3",
+              "kind": "bedroom"
+            },
+            {
+              "id": "living-balcony",
+              "name": "거실 남쪽 발코니",
+              "kind": "balcony"
+            },
+            {
+              "id": "kitchen-pantry",
+              "name": "주방 팬트리",
+              "kind": "utility"
+            },
+            {
+              "id": "primary",
+              "name": "안방",
+              "kind": "bedroom"
+            },
+            {
+              "id": "primary-bath",
+              "name": "안방 화장실",
+              "kind": "wet"
+            },
+            {
+              "id": "dressing",
+              "name": "드레스룸 안쪽 공간",
+              "kind": "storage"
+            },
+            {
+              "id": "primary-balcony-storage",
+              "name": "안방 발코니 안쪽 공간",
+              "kind": "utility"
+            },
+            {
+              "id": "hall-storage",
+              "name": "복도 붙박이 수납",
+              "kind": "storage"
+            },
+            {
+              "id": "bedroom-2",
+              "name": "침실 2",
+              "kind": "bedroom"
+            },
+            {
+              "id": "primary-balcony",
+              "name": "안방 발코니",
+              "kind": "balcony"
+            }
+          ]
+        }
+      }
+    },
+    "145f": {
+      "basic": {
+        "glbSha256": "283d6dabf9af028c3fc0cb269d98abc116b2513d142ff573994e2a35d0ac7321",
+        "metadataSha256": "a2d3ae7bb2278683e5f6c94278c41ef6eccb84e5302dc21641116e6a67a4e145",
+        "metadata": {
+          "unit_type": "145F",
+          "variant": "basic",
+          "revision": "archisketch-structure-v1",
+          "rooms": [
+            {
+              "id": "utility-01",
+              "name": "용도 미지정 보조실 1",
+              "kind": "utility"
+            },
+            {
+              "id": "primary",
+              "name": "안방",
+              "kind": "bedroom"
+            },
+            {
+              "id": "balcony-01",
+              "name": "발코니 1",
+              "kind": "balcony"
+            },
+            {
+              "id": "storage-01",
+              "name": "수납실 1",
+              "kind": "storage"
+            },
+            {
+              "id": "balcony-02",
+              "name": "발코니 2",
+              "kind": "balcony"
+            },
+            {
+              "id": "balcony-03",
+              "name": "발코니 3",
+              "kind": "balcony"
+            },
+            {
+              "id": "balcony-04",
+              "name": "발코니 4",
+              "kind": "balcony"
+            },
+            {
+              "id": "living-kitchen-hall",
+              "name": "거실 · 주방 · 복도",
+              "kind": "living"
+            },
+            {
+              "id": "bedroom-01",
+              "name": "침실 1",
+              "kind": "bedroom"
+            },
+            {
+              "id": "bathroom-01",
+              "name": "욕실 1",
+              "kind": "wet"
+            },
+            {
+              "id": "utility-02",
+              "name": "용도 미지정 보조실 2",
+              "kind": "utility"
+            },
+            {
+              "id": "bedroom-02",
+              "name": "침실 2",
+              "kind": "bedroom"
+            },
+            {
+              "id": "bedroom-03",
+              "name": "침실 3",
+              "kind": "bedroom"
+            },
+            {
+              "id": "balcony-05",
+              "name": "발코니 5",
+              "kind": "balcony"
+            },
+            {
+              "id": "bathroom-02",
+              "name": "욕실 2",
+              "kind": "wet"
+            },
+            {
+              "id": "living-fragment-01",
+              "name": "거실 부속 조각 1",
+              "kind": "living"
+            }
+          ]
+        }
+      },
+      "expanded": {
+        "glbSha256": "6369a9ffa594ec9725d805e46d2b887fba981f28a28effbe0e0e45c3878b4561",
+        "metadataSha256": "67220f47a82ab1660cd7caa479c2ad61873b2abcf8741c8d0eec54341c5a4335",
+        "metadata": {
+          "unit_type": "145F",
+          "variant": "expanded",
+          "revision": "archisketch-structure-v1",
+          "rooms": [
+            {
+              "id": "balcony-01",
+              "name": "발코니 1",
+              "kind": "balcony"
+            },
+            {
+              "id": "living-kitchen-hall",
+              "name": "거실 · 주방 · 복도",
+              "kind": "living"
+            },
+            {
+              "id": "utility-01",
+              "name": "용도 미지정 보조실 1",
+              "kind": "utility"
+            },
+            {
+              "id": "primary",
+              "name": "안방",
+              "kind": "bedroom"
+            },
+            {
+              "id": "storage-01",
+              "name": "수납실 1",
+              "kind": "storage"
+            },
+            {
+              "id": "utility-02",
+              "name": "용도 미지정 보조실 2",
+              "kind": "utility"
+            },
+            {
+              "id": "bedroom-01-part-01",
+              "name": "침실 1 / 원본 분할 1",
+              "kind": "bedroom"
+            },
+            {
+              "id": "bedroom-01-part-02",
+              "name": "침실 1 / 원본 분할 2",
+              "kind": "bedroom"
+            },
+            {
+              "id": "balcony-02",
+              "name": "발코니 2",
+              "kind": "balcony"
+            },
+            {
+              "id": "bedroom-02",
+              "name": "침실 2",
+              "kind": "bedroom"
+            },
+            {
+              "id": "bedroom-03",
+              "name": "침실 3",
+              "kind": "bedroom"
+            },
+            {
+              "id": "bathroom-01",
+              "name": "욕실 1",
+              "kind": "wet"
+            },
+            {
+              "id": "bedroom-04",
+              "name": "침실 4",
+              "kind": "bedroom"
+            },
+            {
+              "id": "bathroom-02",
+              "name": "욕실 2",
+              "kind": "wet"
+            },
+            {
+              "id": "living-fragment-01",
+              "name": "거실 부속 조각 1",
+              "kind": "living"
+            }
+          ]
+        }
+      }
+    },
+    "168d": {
+      "basic": {
+        "glbSha256": "d5b36d1e9813c4faf8876d3abfb619c92d69bdab1d28efb54c116c15b7e6a879",
+        "metadataSha256": "fab4f521655e8a9c90f0c33a4b217d48aebd401bb45af0858f71516248ffbdda",
+        "metadata": {
+          "unit_type": "168D",
+          "variant": "basic",
+          "revision": "archisketch-structure-v1",
+          "rooms": [
+            {
+              "id": "balcony-01",
+              "name": "발코니 1",
+              "kind": "balcony"
+            },
+            {
+              "id": "living-kitchen-hall",
+              "name": "거실 · 주방 · 복도",
+              "kind": "living"
+            },
+            {
+              "id": "storage-01",
+              "name": "수납실 1",
+              "kind": "storage"
+            },
+            {
+              "id": "bathroom-01",
+              "name": "욕실 1",
+              "kind": "wet"
+            },
+            {
+              "id": "storage-02",
+              "name": "수납실 2",
+              "kind": "storage"
+            },
+            {
+              "id": "primary",
+              "name": "안방",
+              "kind": "bedroom"
+            },
+            {
+              "id": "utility-01",
+              "name": "용도 미지정 보조실 1",
+              "kind": "utility"
+            },
+            {
+              "id": "storage-03",
+              "name": "수납실 3",
+              "kind": "storage"
+            },
+            {
+              "id": "bathroom-02",
+              "name": "욕실 2",
+              "kind": "wet"
+            },
+            {
+              "id": "bedroom-01",
+              "name": "침실 1",
+              "kind": "bedroom"
+            },
+            {
+              "id": "bedroom-02",
+              "name": "침실 2",
+              "kind": "bedroom"
+            },
+            {
+              "id": "balcony-02",
+              "name": "발코니 2",
+              "kind": "balcony"
+            },
+            {
+              "id": "balcony-03",
+              "name": "발코니 3",
+              "kind": "balcony"
+            },
+            {
+              "id": "balcony-04",
+              "name": "발코니 4",
+              "kind": "balcony"
+            },
+            {
+              "id": "storage-04",
+              "name": "수납실 4",
+              "kind": "storage"
+            },
+            {
+              "id": "bedroom-03",
+              "name": "침실 3",
+              "kind": "bedroom"
+            }
+          ]
+        }
+      },
+      "expanded": {
+        "glbSha256": "287197c35dc55661f40b45fbbf0e0116e525152d122759fe0e41d0e33b52ebc8",
+        "metadataSha256": "3dc877d843ba09db3da09d0f0f960b68b0e8a562e92a539e903981f89226db70",
+        "metadata": {
+          "unit_type": "168D",
+          "variant": "expanded",
+          "revision": "archisketch-structure-v1",
+          "rooms": [
+            {
+              "id": "bedroom-01",
+              "name": "침실 1",
+              "kind": "bedroom"
+            },
+            {
+              "id": "balcony-01",
+              "name": "발코니 1",
+              "kind": "balcony"
+            },
+            {
+              "id": "primary",
+              "name": "안방",
+              "kind": "bedroom"
+            },
+            {
+              "id": "utility-01",
+              "name": "용도 미지정 보조실 1",
+              "kind": "utility"
+            },
+            {
+              "id": "storage-01",
+              "name": "수납실 1",
+              "kind": "storage"
+            },
+            {
+              "id": "bathroom-01",
+              "name": "욕실 1",
+              "kind": "wet"
+            },
+            {
+              "id": "storage-02",
+              "name": "수납실 2",
+              "kind": "storage"
+            },
+            {
+              "id": "storage-03",
+              "name": "수납실 3",
+              "kind": "storage"
+            },
+            {
+              "id": "bedroom-02",
+              "name": "침실 2",
+              "kind": "bedroom"
+            },
+            {
+              "id": "bedroom-03",
+              "name": "침실 3",
+              "kind": "bedroom"
+            },
+            {
+              "id": "bathroom-02",
+              "name": "욕실 2",
+              "kind": "wet"
+            },
+            {
+              "id": "storage-04",
+              "name": "수납실 4",
+              "kind": "storage"
+            },
+            {
+              "id": "utility-02",
+              "name": "용도 미지정 보조실 2",
+              "kind": "utility"
+            },
+            {
+              "id": "living-kitchen-hall",
+              "name": "거실 · 주방 · 복도",
+              "kind": "living"
+            },
+            {
+              "id": "balcony-02",
+              "name": "발코니 2",
+              "kind": "balcony"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

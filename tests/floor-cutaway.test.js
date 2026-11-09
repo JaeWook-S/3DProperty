@@ -43,3 +43,12 @@ test('top-floor roof is opened with a documented render offset; underlying asset
  assert.equal(a.cutawayMaterials[0].map,map);assert.equal(JSON.stringify(a.parts),parts);
  c.update(a,11,{});assert.equal(c.state.active,false);assert.equal(a.cutawayMaterials[0].clippingPlanes,null);
 });
+
+test('inline interior lowers only render clipping rim, not source storey or other buildings',()=>{
+ const a=fixture(),b=fixture('105'),c=createFloorCutaway([a,b]);
+ c.update(a,7,{interiorSection:true});
+ assert.equal(c.state.nominalTop_m,24.5);assert.equal(c.state.bottom_m,21);assert.equal(c.state.plateY_m,21.02);
+ assert.equal(c.state.clipTop_m,21.14);assert.equal(c.state.interiorSection,true);assert.equal(b.cutawayMaterials[0].clippingPlanes,null);
+ c.update(a,7,{interiorSection:false});assert.equal(c.state.clipTop_m,24.49);
+ c.update(a,7,{enabled:false,interiorSection:true});assert.equal(c.state.active,false);assert.equal(c.state.interiorSection,false);
+});

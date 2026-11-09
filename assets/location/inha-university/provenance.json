@@ -1,0 +1,92 @@
+{
+  "schema": "cortex.campus-provenance.v1",
+  "scope": "Inha University MAIN campus, Incheon; Inha Technical College is context, not main campus",
+  "source": {
+    "osm": "https://www.openstreetmap.org/way/472447787",
+    "license": "https://www.openstreetmap.org/copyright",
+    "raw_sha256": "6cea365756fcb9c0ea942c8a6cd60f58a1e193817d1d5cb08b03ee302f3f616c",
+    "osm_timestamp": "2026-11-01T17:22:21Z",
+    "official_map": "https://www.inha.ac.kr/kr/963/subview.do",
+    "official_buildings": "https://www.inha.ac.kr/kr/964/subview.do",
+    "official_address": "https://www.inha.ac.kr/kr/970/subview.do"
+  },
+  "coordinates": "metres; X east, Z south, Y up; local equirectangular projection",
+  "stats": {
+    "buildings": 226,
+    "campus_buildings": 25,
+    "roads": 385,
+    "surfaces": 61
+  },
+  "official_reference_images": "Reference-only files retained under runtime/inha-campus/2026-11-01/raw/reference-only; not published",
+  "assumptions": [
+    "OSM is community mapping, not a measured building survey.",
+    "Missing heights and all facade/window/roof details are visualization assumptions; do not use for surveying.",
+    "Tower/podium subdivisions of High-Tech and Anniversary Hall are photo-informed approximations inside the original footprint.",
+    "Trees are decorative placements; terrain is flat. Campus interiors are unavailable.",
+    "Official photos/maps are reference-only and not embedded."
+  ],
+  "primary_landmarks": [
+    {
+      "id": "way/217958067",
+      "name": "정석학술정보관",
+      "height_m": 40.0,
+      "height_basis": "osm_height",
+      "osm_levels": null
+    },
+    {
+      "id": "way/217958071",
+      "name": "본관",
+      "height_m": 20,
+      "height_basis": "visual_assumption",
+      "osm_levels": null
+    },
+    {
+      "id": "way/218081857",
+      "name": "하이테크센터",
+      "height_m": 54,
+      "height_basis": "visual_assumption",
+      "osm_levels": null
+    },
+    {
+      "id": "way/218189298",
+      "name": "60주년기념관",
+      "height_m": 50.4,
+      "height_basis": "osm_levels_assumed_storey",
+      "osm_levels": 14
+    },
+    {
+      "id": "relation/3149246",
+      "name": "5호관",
+      "height_m": 18.0,
+      "height_basis": "osm_levels_assumed_storey",
+      "osm_levels": 5
+    }
+  ],
+  "cpu_only": true,
+  "inference_used": false,
+  "generated_texture_assets": "Original procedural noise, no photo texture copying",
+  "renderer": "Three.js metre geometry; static batches and instancing; on-demand frames; capped DPR",
+  "unverified": [
+    "Facade survey",
+    "Terrain elevation",
+    "Mac and mobile real-device FPS",
+    "Building interiors"
+  ],
+  "photo_informed_massing_assumptions": {
+    "library": {
+      "main_body_m": 32,
+      "canopy_top_m": 40,
+      "basis": "OSM total height 40m, official photo silhouette; split dimensions assumed"
+    },
+    "anniversary": {
+      "podium_m": 10.8,
+      "tower_m": 50.4,
+      "basis": "OSM14levels * assumed3.6m; photo-informed footprint split"
+    },
+    "hightech": {
+      "podium_m": 18,
+      "tower_m": 54,
+      "basis": "official photo silhouette; dimensions assumed"
+    }
+  }
+}

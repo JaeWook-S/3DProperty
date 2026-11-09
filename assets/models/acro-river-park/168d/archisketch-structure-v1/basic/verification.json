@@ -1,0 +1,332 @@
+{
+  "unit_type": "168D",
+  "variant": "basic",
+  "status": "passed",
+  "errors": [],
+  "units": "m",
+  "scene_scale_length": 1,
+  "device": "CPU",
+  "cuda_visible_devices": "",
+  "floor_checks": [
+    {
+      "id": "balcony-01",
+      "source_id": "982937B8-DFD3-4DE4-90D8-CE5452012419",
+      "polygon_area_m2": 9.927116000000002,
+      "mesh_top_area_m2": 9.92711590602994,
+      "error_m2": 9.397006195399626e-08,
+      "ceiling_height_m": 2.6
+    },
+    {
+      "id": "living-kitchen-hall",
+      "source_id": "B75D856A-E933-49EE-9EE3-290BA4B1F237",
+      "polygon_area_m2": 53.927981999999986,
+      "mesh_top_area_m2": 53.92798112332821,
+      "error_m2": 8.766717769503884e-07,
+      "ceiling_height_m": 2.3
+    },
+    {
+      "id": "storage-01",
+      "source_id": "2A9D8461-2B79-4699-BEFC-D9C7525FA1F7",
+      "polygon_area_m2": 1.6550369999999992,
+      "mesh_top_area_m2": 1.6550366580486298,
+      "error_m2": 3.419513694424836e-07,
+      "ceiling_height_m": 2.6
+    },
+    {
+      "id": "bathroom-01",
+      "source_id": "B33FE356-BCD8-4E65-A4F4-1B41C04F23C4",
+      "polygon_area_m2": 3.5043029999999993,
+      "mesh_top_area_m2": 3.5043022334575653,
+      "error_m2": 7.665424339720062e-07,
+      "ceiling_height_m": 2.3
+    },
+    {
+      "id": "storage-02",
+      "source_id": "93E4F08A-F697-49EB-AAB2-9014B016E9A7",
+      "polygon_area_m2": 3.8499779999999975,
+      "mesh_top_area_m2": 3.8499773889780045,
+      "error_m2": 6.110219930022254e-07,
+      "ceiling_height_m": 2.3
+    },
+    {
+      "id": "primary",
+      "source_id": "9CA0C21F-B077-442C-8862-897705BE8C58",
+      "polygon_area_m2": 21.604041999999996,
+      "mesh_top_area_m2": 21.604041814804077,
+      "error_m2": 1.8519591904464505e-07,
+      "ceiling_height_m": 2.3
+    },
+    {
+      "id": "utility-01",
+      "source_id": "F3F8656C-2B6E-4554-895B-53DD3898EE95",
+      "polygon_area_m2": 1.6731000000000003,
+      "mesh_top_area_m2": 1.6730998642742634,
+      "error_m2": 1.3572573687170575e-07,
+      "ceiling_height_m": 2.3
+    },
+    {
+      "id": "storage-03",
+      "source_id": "01B33D92-A26F-4FFA-8A7B-B6CD11DDEEBE",
+      "polygon_area_m2": 1.52192,
+      "mesh_top_area_m2": 1.5219198316335678,
+      "error_m2": 1.6836643212947422e-07,
+      "ceiling_height_m": 2.3
+    },
+    {
+      "id": "bathroom-02",
+      "source_id": "B4FE7235-4650-4DE2-8AFF-0912C4E66792",
+      "polygon_area_m2": 3.9657179999999994,
+      "mesh_top_area_m2": 3.9657183289527893,
+      "error_m2": 3.289527898964195e-07,
+      "ceiling_height_m": 2.3
+    },
+    {
+      "id": "bedroom-01",
+      "source_id": "1A56D96D-2435-44DB-83A0-9694B3EDC795",
+      "polygon_area_m2": 11.93930000000001,
+      "mesh_top_area_m2": 11.939300030469894,
+      "error_m2": 3.0469884393369284e-08,
+      "ceiling_height_m": 2.6
+    },
+    {
+      "id": "bedroom-02",
+      "source_id": "3F093E25-3CC8-4BB5-852F-C552230FF875",
+      "polygon_area_m2": 9.864930000000003,
+      "mesh_top_area_m2": 9.864930614829063,
+      "error_m2": 6.148290605523243e-07,
+      "ceiling_height_m": 2.3
+    },
+    {
+      "id": "balcony-02",
+      "source_id": "BF1A8DEA-5E23-4292-927C-F711196E418F",
+      "polygon_area_m2": 10.705711000000006,
+      "mesh_top_area_m2": 10.705712422728539,
+      "error_m2": 1.4227285323187289e-06,
+      "ceiling_height_m": 2.3
+    },
+    {
+      "id": "balcony-03",
+      "source_id": "2C83DBC5-0E3B-4DC9-A501-52FFD03D3FDE",
+      "polygon_area_m2": 4.6167395,
+      "mesh_top_area_m2": 4.616740970872343,
+      "error_m2": 1.4708723421463787e-06,
+      "ceiling_height_m": 2.6
+    },
+    {
+      "id": "balcony-04",
+      "source_id": "33AE143C-055A-4FA4-BF96-94B8AA306649",
+      "polygon_area_m2": 5.132002000000002,
+      "mesh_top_area_m2": 5.132001858204603,
+      "error_m2": 1.4179539853387269e-07,
+      "ceiling_height_m": 2.3
+    },
+    {
+      "id": "storage-04",
+      "source_id": "D2B4D322-AE99-4B7C-9480-BF74C255A0E9",
+      "polygon_area_m2": 2.443482,
+      "mesh_top_area_m2": 2.4434812366962433,
+      "error_m2": 7.633037566456835e-07,
+      "ceiling_height_m": 2.3
+    },
+    {
+      "id": "bedroom-03",
+      "source_id": "79311FFE-6A63-45AD-9398-8F599B845FBA",
+      "polygon_area_m2": 8.690343000000002,
+      "mesh_top_area_m2": 8.690341591835022,
+      "error_m2": 1.408164980176707e-06,
+      "ceiling_height_m": 2.3
+    }
+  ],
+  "opening_checks": [
+    {
+      "id": "sliding-01",
+      "source_id": "D08EFAEA-05CE-4B19-9EC6-DCFC1F914D75",
+      "wall_clearance_rays": 6,
+      "blockers": [],
+      "placed_dimensions_exact": true
+    },
+    {
+      "id": "sliding-02",
+      "source_id": "EC3332DE-DACC-49CE-8756-06336B00E6CB",
+      "wall_clearance_rays": 6,
+      "blockers": [],
+      "placed_dimensions_exact": true
+    },
+    {
+      "id": "sliding-03",
+      "source_id": "03335ED9-AB66-49A4-B808-C041B2F7903C",
+      "wall_clearance_rays": 6,
+      "blockers": [],
+      "placed_dimensions_exact": true
+    },
+    {
+      "id": "sliding-04",
+      "source_id": "28DDF054-972C-4F94-B9FA-26FDC1623009",
+      "wall_clearance_rays": 6,
+      "blockers": [],
+      "placed_dimensions_exact": true
+    },
+    {
+      "id": "sliding-05",
+      "source_id": "54E7D4A5-923E-45B9-A7B2-712FB04293CE",
+      "wall_clearance_rays": 6,
+      "blockers": [],
+      "placed_dimensions_exact": true
+    },
+    {
+      "id": "sliding-06",
+      "source_id": "54F53EA4-A9E5-4466-B508-CAD83E779A21",
+      "wall_clearance_rays": 6,
+      "blockers": [],
+      "placed_dimensions_exact": true
+    },
+    {
+      "id": "sliding-07",
+      "source_id": "D1AC54E5-B970-4A39-A38E-C6AD323EFA8D",
+      "wall_clearance_rays": 6,
+      "blockers": [],
+      "placed_dimensions_exact": true
+    },
+    {
+      "id": "sliding-08",
+      "source_id": "E574E20E-ECE2-4779-AF0D-49EFAF791741",
+      "wall_clearance_rays": 6,
+      "blockers": [],
+      "placed_dimensions_exact": true
+    },
+    {
+      "id": "sliding-09",
+      "source_id": "6955814A-A1FB-444B-A533-D29375BBCE62",
+      "wall_clearance_rays": 6,
+      "blockers": [],
+      "placed_dimensions_exact": true
+    },
+    {
+      "id": "sliding-10",
+      "source_id": "EC6C3957-CA3C-49BC-91FC-0CE25037C5F6",
+      "wall_clearance_rays": 6,
+      "blockers": [],
+      "placed_dimensions_exact": true
+    },
+    {
+      "id": "sliding-11",
+      "source_id": "82151343-E7A8-4E94-981C-4DDB47D4076C",
+      "wall_clearance_rays": 6,
+      "blockers": [],
+      "placed_dimensions_exact": true
+    },
+    {
+      "id": "window-12",
+      "source_id": "A8783CFB-E259-4E68-AB52-308630736776",
+      "wall_clearance_rays": 6,
+      "blockers": [],
+      "placed_dimensions_exact": true
+    },
+    {
+      "id": "window-13",
+      "source_id": "7D25CA5F-7EA3-4D56-A4EB-70FB042B262F",
+      "wall_clearance_rays": 6,
+      "blockers": [],
+      "placed_dimensions_exact": true
+    },
+    {
+      "id": "window-14",
+      "source_id": "915F1F1E-16C0-46E8-979D-BF1AEB96E587",
+      "wall_clearance_rays": 6,
+      "blockers": [],
+      "placed_dimensions_exact": true
+    },
+    {
+      "id": "window-15",
+      "source_id": "470D0206-B3AD-4D38-8371-31BF96AB784C",
+      "wall_clearance_rays": 6,
+      "blockers": [],
+      "placed_dimensions_exact": true
+    },
+    {
+      "id": "window-16",
+      "source_id": "11805C73-5CBD-4B2E-A65D-ABEE498663E4",
+      "wall_clearance_rays": 6,
+      "blockers": [],
+      "placed_dimensions_exact": true
+    },
+    {
+      "id": "window-17",
+      "source_id": "26CE6C44-E745-44F5-9670-06DAE960F25B",
+      "wall_clearance_rays": 6,
+      "blockers": [],
+      "placed_dimensions_exact": true
+    },
+    {
+      "id": "sliding-18",
+      "source_id": "4BF4FAE5-4A9B-4AA2-8E63-ADA0148EDC08",
+      "wall_clearance_rays": 6,
+      "blockers": [],
+      "placed_dimensions_exact": true
+    },
+    {
+      "id": "door-19",
+      "source_id": "A9369D29-2C04-4C05-97C4-A227B14353FB",
+      "wall_clearance_rays": 6,
+      "blockers": [],
+      "placed_dimensions_exact": true
+    },
+    {
+      "id": "door-20",
+      "source_id": "3C49FA07-7DA5-4A47-A704-4713BD19D18A",
+      "wall_clearance_rays": 6,
+      "blockers": [],
+      "placed_dimensions_exact": true
+    },
+    {
+      "id": "door-21",
+      "source_id": "CBBAA30E-6A2B-4E37-AF91-8CE1EAA057A3",
+      "wall_clearance_rays": 6,
+      "blockers": [],
+      "placed_dimensions_exact": true
+    },
+    {
+      "id": "door-22",
+      "source_id": "5B41B6CA-6AD9-4749-8304-70A16CE243DE",
+      "wall_clearance_rays": 6,
+      "blockers": [],
+      "placed_dimensions_exact": true
+    },
+    {
+      "id": "door-23",
+      "source_id": "56E9D18D-021D-4536-A627-A848182FE7F2",
+      "wall_clearance_rays": 6,
+      "blockers": [],
+      "placed_dimensions_exact": true
+    },
+    {
+      "id": "door-24",
+      "source_id": "D7336FB8-8DD8-46CA-B402-52089215070B",
+      "wall_clearance_rays": 6,
+      "blockers": [],
+      "placed_dimensions_exact": true
+    },
+    {
+      "id": "door-25",
+      "source_id": "A8914A79-9AD8-4745-A38E-DB4E6F9F44B3",
+      "wall_clearance_rays": 6,
+      "blockers": [],
+      "placed_dimensions_exact": true
+    },
+    {
+      "id": "door-26",
+      "source_id": "D4EACA16-1EBF-4332-8B79-D982FE1211CF",
+      "wall_clearance_rays": 6,
+      "blockers": [],
+      "placed_dimensions_exact": true
+    },
+    {
+      "id": "door-00",
+      "source_id": "6F34BE9A-38D4-4CA1-BE38-82043B49FA38",
+      "wall_clearance_rays": 6,
+      "blockers": [],
+      "placed_dimensions_exact": true
+    }
+  ],
+  "scope": "source-to-mesh consistency; not field measurements or actual renovation confirmation"
+}

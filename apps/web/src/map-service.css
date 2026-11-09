@@ -62,3 +62,11 @@ body:has(#map-service){background:#f4f5f1}.site-header{height:70px;padding:0 30p
 #service-plan .plan-room-label{fill:#3e5446;pointer-events:none;dominant-baseline:middle}
 .plan-room-picker{display:flex;align-items:center;gap:10px;max-width:100%;font-size:11px;color:#5b715e;margin:2px 0 8px}
 .plan-room-picker select{min-width:0;max-width:300px;flex:1;padding:7px 10px;border:1px solid #ccd6c7;border-radius:7px;background:#fff;color:#315440;font-size:12px;min-height:36px}
+
+/* Exterior-only campus selection has its own entry and readiness description. */
+.campus-preview{margin-top:18px;padding:16px;border:1px solid #d5e1d2;border-radius:10px;background:#f3f7ef}
+.campus-preview h3{margin:0 0 8px;font-size:14px;color:#254b38}
+.campus-preview p{margin:6px 0;font-size:12px;line-height:1.7;color:#60725f}
+.campus-preview .campus-interior-status{color:#796b45}
+#open-campus{width:100%;min-height:44px;margin-top:12px;padding:10px 12px;border:1px solid #174b3d;border-radius:7px;background:#174b3d;color:#fff;font-size:12px}
+#open-campus:hover{background:#235b49}#open-campus:focus-visible{outline:3px solid #89b989;outline-offset:3px}

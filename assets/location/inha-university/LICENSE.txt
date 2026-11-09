@@ -1,0 +1,6 @@
+Geographic data: © OpenStreetMap contributors.
+Open Database License (ODbL) 1.0: https://www.openstreetmap.org/copyright
+Source snapshot: source.osm.json; transformed database: campus-context.json.
+Transform: tools/inha-campus/build-context.py. Modified coordinates/projected metres and explicit visualization assumptions.
+Official Inha web pages and photos were consulted for identity and massing; no official photograph/map image is redistributed.
+Sky environment is shared Poly Haven CC0, attributed in the viewer and third-party notices.

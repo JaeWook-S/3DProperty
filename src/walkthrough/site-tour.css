@@ -61,3 +61,13 @@
  .floor-unit-select img{width:148px;height:112px}.floor-unit-select{gap:18px;padding:12px}.floor-unit-caption strong{font-size:17px}.floor-unit-caption small{font-size:11px}
  .floor-unit-variants button,.floor-unit-actions button{min-height:38px;font-size:12px}.pending .floor-unit-select{min-height:46px}
 }
+
+/* Inline selected floor: original-size homes and an explicitly assumed core. */
+#tour-interior-panel{padding:0 0 18px;margin:0 0 20px;border-bottom:1px solid #c7d4bf}
+.floor-interior-heading{display:grid;gap:10px}.floor-interior-heading>div{display:grid;gap:5px}.floor-interior-heading small{font-size:8px;letter-spacing:1.6px;color:#849074}.floor-interior-heading strong{font-size:13px;line-height:1.5}#interior-toggle{border:0;border-radius:6px;background:#285343;color:#fff;padding:11px;font-size:12px}#interior-toggle[aria-pressed=true]{background:#e6ecde;color:#315840}
+#interior-options{margin-top:12px;display:grid;gap:10px}#interior-options label{display:flex;align-items:center;justify-content:space-between;gap:8px;font-size:10px}#interior-variant{min-width:0;padding:6px;border:1px solid #c7d4bf;border-radius:4px;background:white;font-size:11px}.interior-views{display:grid;grid-template-columns:1fr 1fr;gap:5px}.interior-views button{background:#fff;border:1px solid #ccd7c3;border-radius:5px;font-size:10px;padding:9px 3px}#interior-walk{color:#244f3c;font-size:11px;font-weight:600;line-height:1.5}#interior-status{font-size:10px;margin:10px 0 0;color:#4c6749;line-height:1.55}.interior-basis{font-size:9px;line-height:1.65;margin:7px 0 0;color:#7a8371}
+#tour-interior-badge{position:absolute;left:16px;bottom:12px;margin:0;background:#fcfdf5ed;color:#355240;border:1px solid #b2c0a9;border-radius:6px;padding:8px 11px;font-size:11px;pointer-events:none}
+#interior-retry{margin-top:8px;padding:8px 12px;border:1px solid #c7d4bf;border-radius:5px;background:#fff;color:#315840}
+@media(max-width:650px){.site-tour[data-floor-interior=active] #site-tour{grid-template-rows:62px minmax(380px,58dvh) auto auto}.floor-interior-heading strong{font-size:12px}.interior-views{grid-template-columns:repeat(4,1fr)}.interior-basis{font-size:10px}#interior-status{font-size:11px}#tour-interior-badge{left:8px;bottom:9px;font-size:9px;padding:7px}}
+@font-face{font-family:'Cortex Nanum';src:url('../paired-floor/fonts/NanumGothic-Regular.ttf') format('truetype');font-weight:400 700;font-display:swap}
+.site-tour{font-family:'Cortex Nanum','Apple SD Gothic Neo','Malgun Gothic',sans-serif}

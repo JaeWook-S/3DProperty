@@ -3,7 +3,7 @@ import * as THREE from 'three';
 // Display offsets avoid a coplanar roof/floor. They never change source dimensions.
 export const CUTAWAY_ROOF_OFFSET_M = .01;
 export const CUTAWAY_PLATE_OFFSET_M = .02;
-export function floorCutawayState(building, requestedFloor, {enabled=true, selected=true}={}) {
+export function floorCutawayState(building, requestedFloor, {enabled=true, selected=true, interiorSection=false}={}) {
   const floor = requestedFloor === null ? null : Number(requestedFloor);
   const supported = Number.isInteger(floor) && floor >= 1 && floor <= building.floors;
   const active = Boolean(enabled && selected && supported);
@@ -11,7 +11,8 @@ export function floorCutawayState(building, requestedFloor, {enabled=true, selec
   const top = supported ? floor * building.height_m / building.floors : null;
   return {enabled:Boolean(enabled), active, supported, buildingId:building.id, requestedFloor:floor,
     reason:!selected?'no-selection':!supported?'outside-envelope':!enabled?'disabled':'selected-floor',
-    bottom_m:bottom, nominalTop_m:top, clipTop_m:active?top-CUTAWAY_ROOF_OFFSET_M:null,
+    bottom_m:bottom, nominalTop_m:top, clipTop_m:active?(interiorSection?bottom+.14:top-CUTAWAY_ROOF_OFFSET_M):null,
+    interiorSection:Boolean(interiorSection&&active), sectionRimHeight_m:interiorSection&&active ? .14 : null,
     plateY_m:active?bottom+CUTAWAY_PLATE_OFFSET_M:null, displayRoofOffset_m:CUTAWAY_ROOF_OFFSET_M,
     plateBasis:'OSM footprint only; interior layout unknown'};
 }

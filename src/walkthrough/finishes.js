@@ -81,7 +81,7 @@ export class FinishLibrary {
     const assets = preset === 'original' ? null : await this.preload();
     const seen = new Set();
     model.traverse((object) => {
-      if (!object.isMesh) return;
+      if (!object.isMesh || object.userData.surfaceOverride || object.userData.renderBatch) return;
       for (const material of Array.isArray(object.material) ? object.material : [object.material]) {
         if (seen.has(material)) continue;
         seen.add(material);

@@ -387,12 +387,12 @@ function unitDetails(group, unit, palette) {
  * There are no new obstacles: floor/wall finishes are flush, skirting projects
  * at most 1 mm inside source rooms, fixtures stay on existing ceilings.
  */
-export function createPairedDetails({layout, units = [], commonGroup = null}) {
+export function createPairedDetails({layout, units = [], commonGroup = null, includeCommon = true}) {
   const area = layout.commonArea ?? layout, group = new THREE.Group();
   group.name = 'Paired floor / illustrative finish details';
   group.userData.collisionDisabled = true;
   const palette = materials();
-  const common = commonDetails(group, area, layout.units ?? units.map(unit => unit.placement), palette, commonGroup);
+  const common = includeCommon ? commonDetails(group, area, layout.units ?? units.map(unit => unit.placement), palette, commonGroup) : null;
   const interiors = units.filter(unit => unit.id === '211a').map(unit => unitDetails(group, unit, palette));
   group.updateMatrixWorld(true);
   let meshCount = 0, triangleCount = 0;

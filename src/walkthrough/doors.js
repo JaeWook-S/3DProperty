@@ -36,7 +36,8 @@ export class MovingDoor {
     this.progress = progress;
     this.applyProgress(progress);
     this.pivot.updateWorldMatrix(true, true);
-    this.tree = collisionTree(this.moving);
+    // Paired-floor hardware is visual only; the original leaf remains authoritative.
+    this.tree = collisionTree(this.moving, object => !object.userData.pairedArchitecturalDetail);
   }
   toggle() { this.target = this.target >= 0.5 ? 0 : 1; }
   update(dt, body) {

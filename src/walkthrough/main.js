@@ -1,11 +1,17 @@
+import {completeEntry,failEntry} from '../entry-state.js';
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { PointerLockControls } from 'three/addons/controls/PointerLockControls.js';
 import { createDoors, collisionTree, combinedWorld } from './doors.js';
 import { createEntryCommonArea } from './entry-common-area.js';
 import { batchStaticMeshes } from './static-batches.js';
+import { createBakedLighting, lightingModelId } from './baked-lighting.js';
 import { setupAppearance, refineMaterials, LIGHTING } from './appearance.js';
+import { createRenderPreview } from './render-preview.js';
 import { FinishLibrary, FINISHES } from './finishes.js';
+import { createSurfaceMaterials } from './surface-materials.js';
+import { SurfaceMaterialLibrary } from './surface-material-library.js';
+import { createMaterialDock } from './material-dock.js';
 import { VARIANTS, resolveVariant, variantTitle, populateVariantSelect } from './variants.js';
 import {readSelection} from '../property/service-selection.js';
 import {lookupUnit,getUnitModelVariants,variantForUnit} from '../property/unit-catalog.js';
@@ -82,7 +88,7 @@ async function boot() {
   // iPhone Safari has no Pointer Lock API. unlock() runs before every load and on blur,
   // so make it a no-op there instead of throwing; walking then uses the touch controls.
   if (!document.exitPointerLock) controls.unlock = () => {};
-  let needsRender = true, studio = null, commonArea = null, commonWorld = null, furnitureInfo = null, furnitureHover = null;
+  let needsRender = true, studio = null, commonArea = null, commonWorld = null, renderPreview=null, furnitureInfo=null, furnitureHover=null;
   // The original world is returned unchanged until the explicit outside tour.
   const walkingWorld = () => commonWorld ?? active?.world;
   const walkingDoors = () => [...(active?.doors ?? []), ...(commonArea?.doors ?? [])];
@@ -138,8 +144,6 @@ async function boot() {
   const startWalking = () => {
     if (furnitureInfo?.isOpen) return;
     if (touch.preferred() || !renderer.domElement.requestPointerLock) return touch.lock();
-    // Called directly from a click/P key gesture. Some browsers return a Promise;
-    // pointerlockerror below provides the retry UI without an unhandled rejection.
     renderer.domElement.requestPointerLock({ unadjustedMovement: false })?.catch?.(() => {});
   };
   const onLock = () => {
@@ -149,7 +153,7 @@ async function boot() {
   const onUnlock = () => {
     keys.clear();
     $('pause').hidden = true; $('interaction').hidden = true;
-    // Keep the exact tour viewport while the product card releases the pointer.
+    // Keep the walking viewport stable while product information releases the cursor.
     if (furnitureInfo?.isOpen) return;
     document.body.classList.remove('walking');
     $('start').innerHTML = '이어서 둘러보기 <span>↗</span>';
@@ -158,7 +162,7 @@ async function boot() {
   for (const source of [controls, touch]) { source.addEventListener('lock', onLock); source.addEventListener('unlock', onUnlock); }
   furnitureInfo = createFurnitureInfo({
     viewport: $('viewport'), camera, getActive: () => active,
-    eligible: () => ready && !busy && (!studio || studio.mode === 'tour'),
+    eligible: () => ready && !busy && !surfaceEditor.editing && !renderPreview?.inspect().open && (!studio || studio.mode === 'tour'),
     walking, occluders: () => commonArea ? [commonArea.group] : [],
     pause: () => { keys.clear(); controls.enabled = false; release(); needsRender = true; },
     resume: () => { controls.enabled = true; onUnlock(); startWalking(); },
@@ -166,7 +170,7 @@ async function boot() {
   });
   furnitureHover = createFurnitureHover({
     viewport: $('viewport'), renderer, camera, getActive: () => active,
-    eligible: () => ready && !busy && !furnitureInfo.isOpen && ['overview', 'edit'].includes(studio?.mode),
+    eligible: () => ready && !busy && !surfaceEditor.editing && !renderPreview?.inspect().open && !furnitureInfo.isOpen && ['overview', 'edit'].includes(studio?.mode),
   });
   document.addEventListener('pointerlockerror', () => {
     if (!furnitureInfo.isOpen) onUnlock();
@@ -190,7 +194,18 @@ async function boot() {
   const appearance = setupAppearance(renderer, scene, camera);
   appearance.setQuality(selected.quality); appearance.setLighting(selected.lighting);
   const finishes = new FinishLibrary(renderer);
+  let materialDock = null;
+  const surfaceEditor = createSurfaceMaterials({
+    library: new SurfaceMaterialLibrary({ anisotropy: Math.min(8, renderer.capabilities.getMaxAnisotropy()) }),
+    invalidate: () => { needsRender = true; }, onChange: () => materialDock?.sync(),
+  });
   let loadSequence=0,finishSequence=0,finishWork=Promise.resolve();
+  function updateBakedLighting(mode = studio?.mode ?? 'tour') {
+    if (!active) return;
+    const show = ['overview', 'edit', 'tour'].includes(mode) && selected.lighting === 'day';
+    active.bakedLighting.setEnabled(show);
+    if (show) void active.bakedLighting.ensure();
+  }
   // A late texture download must finish before the next household's material restore.
   function applyFinish(model,preset){
     const work=finishWork.catch(()=>{}).then(()=>finishes.apply(model,preset));
@@ -201,7 +216,7 @@ async function boot() {
     selected.quality = event.target.value; appearance.setQuality(selected.quality); needsRender = true; updateURL();
   });
   $('lighting').addEventListener('change', (event) => {
-    selected.lighting = event.target.value; appearance.setLighting(selected.lighting); studio?.setLighting(selected.lighting); needsRender = true; updateURL();
+    selected.lighting = event.target.value; appearance.setLighting(selected.lighting); studio?.setLighting(selected.lighting); updateBakedLighting(); needsRender = true; updateURL();
   });
   $('finish').addEventListener('change', async (event) => {
     const requested = event.target.value,target=active,sequence=++finishSequence,loadAtStart=loadSequence;
@@ -297,13 +312,17 @@ async function boot() {
       while (parent) { if (!parent.visible) return; parent = parent.parent; }
       pickMeshes.push(object);
     });
-    const batching = batchStaticMeshes(model);
+    let batching = batchStaticMeshes(model);
+    const bakedLighting = createBakedLighting(gltf, lightingModelId(definition.unitType, definition.info.variant), {
+      invalidate: () => { needsRender = true; },
+      rebuild: () => { batching.restore(); batching = batchStaticMeshes(model); if (active?.model === model) { active.batching = batching; void surfaceEditor.refreshLighting(); } },
+    });
     const architectureWorld = combinedWorld(staticTree, doors);
     const world = { capsuleIntersect(body) {
       const a=architectureWorld.capsuleIntersect(body), b=staging.capsuleIntersect(body);
       return b && (!a || b.depth>a.depth) ? b : a;
     } };
-    return { key, model, doors, pickMeshes, definition, meshCount, catalogFurniture, staging, batching,
+    return { key, model, doors, pickMeshes, definition, meshCount, catalogFurniture, staging, batching, bakedLighting,
       world, doorById: new Map(doors.map((d) => [d.definition.id, d])) };
   }
   async function loadVariant(key) {
@@ -320,6 +339,7 @@ async function boot() {
     }
     if(!Object.hasOwn(VARIANTS,key))return;
     const sequence = ++loadSequence;
+    surfaceEditor.beginLoad();
     busy = true; keys.clear(); release(); setEnabled();
     document.body.dataset.loadState = 'loading';
     $('status').textContent = `${VARIANTS[key].label} 공간을 불러오는 중…`;
@@ -336,7 +356,7 @@ async function boot() {
       const spawn = new THREE.Vector3(sx, eyeHeight, sz);
       if (!studio && !canStand(next.world, spawn, eyeHeight, bodyRadius)) throw new Error('Spawn intersects selected model');
       clearCommonArea();
-      if (active) scene.remove(active.model);
+      if (active) { active.bakedLighting.setEnabled(false); scene.remove(active.model); }
       active = next; selected.variant = key;
       if (next.definition.structureOnly) selected.finish = 'original';
       $('finish').value = selected.finish;
@@ -356,12 +376,13 @@ async function boot() {
         ? '거실에 표기 치수로 만든 소파와 스툴을 배치했어요.'
         : '문 가까이에서 E 또는 클릭으로 여닫을 수 있어요';
       document.body.dataset.loadState = 'ready'; document.body.dataset.finishState = 'ready';
-      loadingStage = 'idle'; updateRoom(); updateURL(); studio?.onVariant();
+      loadingStage = 'idle'; updateRoom(); updateURL(); studio?.onVariant(); if(studio||params.get('studio')==='0')updateBakedLighting();
       return true;
     } catch (error) {
       if (sequence !== loadSequence) return;
       console.error(error);
       if (active) {
+        surfaceEditor.activate(active, surfaceEditor.state().scope);
         $('variant').value = active.key;
         $('status').textContent = '선택한 평면을 불러오지 못해 이전 공간을 유지했어요. 다시 선택해 주세요.';
         document.body.dataset.loadState = 'ready';
@@ -382,7 +403,7 @@ async function boot() {
     while (object && !object.userData.doorId) object = object.parent;
     return active.doorById.get(object?.userData.doorId) ?? commonArea?.doorById.get(object?.userData.doorId);
   }
-  function interact(pointer) { if (furnitureInfo.isOpen) return; const door = pickDoor(pointer); if (door) { door.toggle(); updateInteraction(); } }
+  function interact(pointer) { if (surfaceEditor.editing || furnitureInfo.isOpen) return; const door = pickDoor(pointer); if (door) { door.toggle(); updateInteraction(); } }
   function updateInteraction() {
     const door = walking() && pickDoor();
     const label = door && `${door.definition.name} ${door.target >= 0.5 ? '닫기' : '열기'}`;
@@ -391,7 +412,7 @@ async function boot() {
     touch.setAction(label);
   }
   renderer.domElement.addEventListener('pointerdown', (event) => {
-    if (!ready || busy || event.button !== 0) return;
+    if (!ready || busy || surfaceEditor.editing || event.button !== 0) return;
     if (studio && studio.mode !== 'tour') return;
     const rect = renderer.domElement.getBoundingClientRect();
     interact(controls.isLocked ? undefined : new THREE.Vector2((event.clientX - rect.left) / rect.width * 2 - 1, -(event.clientY - rect.top) / rect.height * 2 + 1));
@@ -509,7 +530,12 @@ async function boot() {
     if (now-lastHUD >= 100) { if (walking()) { updateRoom(); updateInteraction(); } furnitureInfo.update(); lastHUD=now; }
     if (furnitureInfo.isOpen) furnitureInfo.update();
     furnitureHover.update();
-    if (needsRender && active) { appearance.render(dt); needsRender = false; }
+    if(active){
+      const currentMode=studio?.mode??'tour';appearance.setMode(currentMode);
+      if(needsRender)appearance.updateFocus(camera.position);
+      renderPreview?.sync({activeMode:commonArea?'common':currentMode,busy,editing:surfaceEditor.editing});
+      if(needsRender){active.bakedLighting.sync();appearance.render(dt);}needsRender=false;
+    }
   });
   if (import.meta.env.DEV && params.has('test')) {
     window.__walkthrough = {
@@ -519,9 +545,9 @@ async function boot() {
         furnitureInfo: furnitureInfo.inspect(), furnitureTarget: furnitureInfo.target(),
         furnitureHover: furnitureHover.inspect(),
         standing: active ? canStand(walkingWorld(), position, eyeHeight, bodyRadius) : false,
-        loadingStage, variant: active?.key, finish: active?.model.userData.finish, lighting: appearance.lighting,
+        bakedLighting:active?.bakedLighting.inspect(), loadingStage, variant: active?.key, finish: active?.model.userData.finish, lighting: appearance.lighting,
         quality: appearance.quality, resolution: appearance.resolution,
-        renderStats: appearance.stats, batching: active && {sourceMeshes:active.batching.sourceMeshes,drawMeshes:active.batching.drawMeshes,savedDraws:active.batching.savedDraws},
+        renderStats: appearance.stats, interiorLighting:appearance.interiorLighting, renderPreview:renderPreview?.inspect(), batching: active && {sourceMeshes:active.batching.sourceMeshes,drawMeshes:active.batching.drawMeshes,savedDraws:active.batching.savedDraws},
         doors: walkingDoors().map((d) => d.getState()), commonArea:commonArea?.inspect()??null, triangles: renderer.info.render.triangles,
         visibleVariants: scene.children.filter((o) => o.userData.variant).length }),
       inspectInterior: () => {
@@ -587,10 +613,22 @@ async function boot() {
   await loadVariant(selected.variant);
   // Studio is the default for every entry URL; the legacy viewer is opt-in.
   if (params.get('studio') !== '0' && active) {
-    studio=createStudio({scene,camera,renderer,initialMode:params.get('entry'),lighting:selected.lighting,getActive:()=>active,loadVariant,resize:resizeViewport,
-      invalidate:(shadows=false)=>{if(shadows)appearance.invalidateShadows();needsRender=true;},enterRoom,unlock:()=>{keys.clear();release();},
-      settle,standAt,openCommonArea,onModeChange:mode=>{furnitureHover.clear();if(mode!=='tour'){furnitureInfo.close();clearCommonArea();}},resume:()=>{if(ready&&!busy&&!walking())startWalking();}});
+    studio=createStudio({scene,camera,renderer,surfaceEditor,initialMode:params.get('entry'),lighting:selected.lighting,getActive:()=>active,loadVariant,resize:resizeViewport,
+      invalidate:(shadows=false)=>{if(shadows){appearance.invalidateShadows();}needsRender=true;},enterRoom,unlock:()=>{keys.clear();release();},
+      settle,standAt,openCommonArea,onModeChange:mode=>{furnitureHover.clear();if(mode!=='tour'){furnitureInfo.close();clearCommonArea();}updateBakedLighting(mode);},resume:()=>{if(ready&&!busy&&!walking())startWalking();}});
+    materialDock = createMaterialDock({ editor: surfaceEditor, renderer, camera,
+      onOpen: () => { furnitureInfo.close(); furnitureHover.clear(); keys.clear(); release(); },
+      onSave: () => { $('save-layout').onclick(); return $('studio-status').textContent; },
+      onRestore: async () => { await $('restore-layout').onclick(); return $('studio-status').textContent; },
+    });
+    if(import.meta.env.DEV&&params.has('test'))window.__surfaceMaterials={editor:surfaceEditor,camera,renderer,getActive:()=>active};
     if(import.meta.env.DEV&&params.has('test'))window.__studio=studio;
+    renderPreview=createRenderPreview({renderer,getActive:()=>active,onOpen:()=>{furnitureInfo.close();furnitureHover.clear();keys.clear();release();},onClose:()=>{needsRender=true;}});
+    if(import.meta.env.DEV&&params.has('test'))window.__renderPreview=renderPreview;
   }
 }
-boot().catch(showError);
+boot().then(() => {
+  if (!active) { failEntry(); return; }
+  // Deep links settle in a microtask before revealing the completed initial view.
+  requestAnimationFrame(() => completeEntry());
+}).catch(error => { showError(error); failEntry(); });

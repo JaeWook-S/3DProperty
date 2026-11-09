@@ -1,0 +1,99 @@
+{
+  "schema": "cortex-surface-library-v1",
+  "createdAt": "2026-11-02T12:33:30.655183+00:00",
+  "scope": "explicit selected structural wall side / independent room floor; furniture and fixed counters are not selection targets",
+  "source": "Existing project-authored S2 Blender CPU samples, 2026-10-22. Reused without map-byte modification. Not VLMaterial or SuperMat outputs.",
+  "rights": "Original project-authored outputs, no separate redistribution license declared. No new third-party pack; not labelled CC0. These samples already accompany the approved 168C PBR revision.",
+  "sourceManifest": "assets/models/acro-river-park/168c/archisketch-pbr-candidate-v1/expanded/material-manifest.json",
+  "files": [
+    {
+      "path": "assets/models/acro-river-park/168c/archisketch-pbr-candidate-v1/expanded/maps/plaster-metallicRoughness.png",
+      "sha256": "f4afd9792bf3862eb5d1e5d91cbe5ffe2115d1d49cad9c4a3663c44bf66648a7",
+      "bytes": 181290,
+      "colorSpace": "NoColorSpace",
+      "channel": 0
+    },
+    {
+      "path": "assets/models/acro-river-park/168c/archisketch-pbr-candidate-v1/expanded/maps/plaster-normal.png",
+      "sha256": "8f2476a673c2e76e2138ab7fa58ed16d30bdf2262eaf1e267afb6dffcd0260ab",
+      "bytes": 13779,
+      "colorSpace": "NoColorSpace",
+      "channel": 0
+    },
+    {
+      "path": "assets/models/acro-river-park/168c/archisketch-pbr-candidate-v1/expanded/maps/counter-basecolor.png",
+      "sha256": "a83da8378bded5e014dbf27828178709c0f97b4fe6772ec7363ac39ded33a919",
+      "bytes": 330081,
+      "colorSpace": "sRGB",
+      "channel": 0
+    },
+    {
+      "path": "assets/models/acro-river-park/168c/archisketch-pbr-candidate-v1/expanded/maps/counter-metallicRoughness.png",
+      "sha256": "ee794cf7ee94105491b2321e042377fcd574fe158682f903cfe162137f2d9e75",
+      "bytes": 184456,
+      "colorSpace": "NoColorSpace",
+      "channel": 0
+    },
+    {
+      "path": "assets/models/acro-river-park/168c/archisketch-pbr-candidate-v1/expanded/maps/counter-normal.png",
+      "sha256": "b82c6669c73136f26298d34b40452be98cfdd7cc3f6a8a84129abb7b1bcc33f5",
+      "bytes": 24334,
+      "colorSpace": "NoColorSpace",
+      "channel": 0
+    }
+  ],
+  "uniqueMapBytes": 733940,
+  "materials": {
+    "ivory-plaster-v1": {
+      "linearColor": [
+        0.78,
+        0.755,
+        0.7
+      ],
+      "maps": [
+        "plaster-metallicRoughness.png",
+        "plaster-normal.png"
+      ]
+    },
+    "greige-plaster-v1": {
+      "linearColor": [
+        0.42,
+        0.395,
+        0.36
+      ],
+      "maps": [
+        "plaster-metallicRoughness.png",
+        "plaster-normal.png"
+      ]
+    },
+    "warm-stone-v1": {
+      "linearColor": [
+        1,
+        1,
+        1
+      ],
+      "maps": [
+        "counter-basecolor.png",
+        "counter-metallicRoughness.png",
+        "counter-normal.png"
+      ]
+    }
+  },
+  "channels": {
+    "MR": "G=roughness, B=0 metallic, R=255 unused; factor roughness1 metalness0",
+    "normal": "OpenGL tangent-space +Y. New sample scalar1; current derivative-tangent Three basis is [1,-1], tangent attributes use [1,1]. Original loader materials/signs are untouched. No channel inversion.",
+    "ao": "none; no mismatched inherited AO"
+  },
+  "uv": {
+    "sourceUV": "unchanged",
+    "channel": 0,
+    "wrap": "REPEAT",
+    "flipY": false,
+    "repeat": "source texture_repeat_m / 1.2; default1.2 only when metadata absent",
+    "tileMetres": 1.2,
+    "basis": "existing source generator design convention; not measured installed material or verified physical normal relief",
+    "transform": "new matching complete map set uses identical UV transform; original maps and transforms remain on the original material"
+  },
+  "thumbnails": "CSS-native schematic swatches in src/walkthrough/material-dock.css; no raster thumbnails or network images are loaded on opening. They are color/material cues, not photographs.",
+  "loading": "No texture request until explicit material-card action, promise cache by sample; failures retry. Restoring an explicitly saved override also loads required samples."
+}

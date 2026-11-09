@@ -90,6 +90,7 @@ export function createWalkThemes({ hooks, concepts, palettes, applied, recommend
   }
 
   document.addEventListener('keydown', (event) => {
+    if (document.body.dataset.materialEditing === 'true') return;
     if (root.hidden || event.repeat || event.ctrlKey || event.metaKey || event.altKey) return;
     if (event.target.closest?.('input, select, textarea')) return;
     const digit = /^Digit(\d)$/.exec(event.code)?.[1];

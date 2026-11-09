@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "id": "168d-expanded",
+  "sourceGlbSha256": "287197c35dc55661f40b45fbbf0e0116e525152d122759fe0e41d0e33b52ebc8",
+  "sourceBlendSha256": "32258c699bb3df5674e5cfdc03e1af7ca63be532aef2fe2dc8870830726cb3da",
+  "bindings": "bindings.json",
+  "atlas": "indirect-4096-rgbm.png",
+  "range": 1,
+  "samples": 4096,
+  "lightingPreset": "day",
+  "irradianceFactor": 3.141592653589793,
+  "uvChannel": 1,
+  "encoding": "RGBM8",
+  "colorSpace": "NoColorSpace",
+  "flipY": true,
+  "mipmaps": false,
+  "filtering": "decode-before-bilinear",
+  "dimensions": [
+    2048,
+    2048
+  ],
+  "textureMemoryBytes": 16777216,
+  "receiverComponents": [
+    "ceiling",
+    "floor",
+    "wall"
+  ],
+  "receiverObjects": 79,
+  "receiverTriangles": 15400,
+  "sha256": {
+    "bindings": "f422a48f1016a75b32e2084d9b6f6cc20c201d2f33d57f451676a9e892234a9a",
+    "uv1": "990cfbc51ca1d5c22047c0c085c417f96cf0e97ae6140c62f005c96d85aa0690",
+    "atlas": "f1cb5cdf9f51d99482b555c065cea088d163f38e40340d60f7fdc5659b42bdb7"
+  },
+  "bytes": {
+    "bindings": 34904,
+    "uv1": 369600,
+    "atlas": 2213764
+  }
+}

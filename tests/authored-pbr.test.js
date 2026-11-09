@@ -28,10 +28,10 @@ test('authored glTF material policy preserves exported channels, strengths and U
   refineMaterials(root,renderer);assert.deepEqual(signature(material),before);assert.equal(material.map.anisotropy,8);
  }
 });
-test('unmarked and unknown policies retain legacy appearance adjustments',()=>{
+test('unmarked policies retain legacy scalars while preserving the loader normal Y sign',()=>{
  for(const policy of [undefined,'authored-pbr-v2',true]){
   const {material,root}=fixture('168C / Warm ivory plaster',policy);
-  refineMaterials(root,renderer);assert.equal(material.roughness,.92);assert.deepEqual(material.normalScale.toArray(),[.45,.45]);assert.equal(material.emissiveIntensity,1.4);
+  refineMaterials(root,renderer);assert.equal(material.roughness,.92);assert.deepEqual(material.normalScale.toArray(),[.45,-.45]);assert.equal(material.emissiveIntensity,1.4);
  }
  const {material,root}=fixture('168C / VR polished stone floor');refineMaterials(root,renderer);assert.equal(material.roughness,.31);
 });
@@ -60,6 +60,6 @@ test('legacy window panes receive the clear-glass fix while authored glass keeps
   assert.equal(material.transparent,!authored);
   assert.equal(material.depthWrite,authored);
   assert.equal(material.specularIntensity,authored ? .6 : .04);
-  assert.deepEqual(material.normalScale.toArray(),authored ? [.12,-.19] : [.45,.45]);
+  assert.deepEqual(material.normalScale.toArray(),authored ? [.12,-.19] : [.45,-.45]);
  }
 });

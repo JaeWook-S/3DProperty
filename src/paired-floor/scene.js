@@ -1,6 +1,7 @@
 import * as THREE from 'three';
 import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
 import { createPairedDetails } from './details.js';
+import { createPairedArchitecturalDetails } from './architectural-details.js';
 import { createTransportView } from './transport-view.js';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
@@ -9,9 +10,10 @@ import { archisketchWebData, bindArchisketchModel } from '../walkthrough/archisk
 import { collisionTree, combinedWorld, createDoors, MovingDoor } from '../walkthrough/doors.js';
 import { BODY_RADIUS, DEFAULT_EYE_HEIGHT, bodyAt, canStand, movementVector, moveWithCollisions } from '../walkthrough/movement.js';
 import { batchStaticMeshes } from '../walkthrough/static-batches.js';
+import { createBakedLighting, lightingModelId } from '../walkthrough/baked-lighting.js';
 import { floorSlabs, pointOnFloor, staticCollisionMesh, transformPoint } from './geometry.js';
 
-const modelSources = {
+export const modelSources = {
   '168c': {
     basic: {info: new URL('../../assets/models/acro-river-park/168c/archisketch-details-v2/basic/model-info.json', import.meta.url).href, glb: new URL('../../assets/models/acro-river-park/168c/archisketch-details-v2/basic/acro168c-basic.glb', import.meta.url).href},
     expanded: {info: new URL('../../assets/models/acro-river-park/168c/archisketch-metric-v1/expanded/model-info.json', import.meta.url).href, glb: new URL('../../assets/models/acro-river-park/168c/archisketch-metric-v1/expanded/acro168c-expanded.glb', import.meta.url).href},
@@ -26,7 +28,7 @@ async function json(url) {
   if (!response.ok) throw Error(`파일을 불러올 수 없습니다 (${response.status}): ${url}`);
   return response.json();
 }
-function makeCommonArea(layout) {
+export function makeCommonArea(layout) {
   const group = new THREE.Group(); group.name = 'Illustrative shared floor';
   const materials = {
     wall: new THREE.MeshStandardMaterial({color:0xdde4d6,roughness:.85}),
@@ -161,7 +163,7 @@ export function createPairedScene(container, callbacks={}) {
   function setMode(next) {
     mode=next;orbit.enabled=mode==='overview';keys.clear();
     if(mode==='overview'&&document.pointerLockElement)document.exitPointerLock();
-    if(active)active.group.traverse(object=>{if(object.isMesh&&object.userData.component==='ceiling')object.visible=mode==='walk';});
+    if(active)active.group.traverse(object=>{if(object.isMesh&&object.userData.component==='ceiling')object.visible=mode==='walk'&&!object.userData.renderBatched;});
     mark();callbacks.onMode?.(mode);callbacks.onChange?.();
   }
   function frameAll(top=false) {
@@ -185,7 +187,7 @@ export function createPairedScene(container, callbacks={}) {
   function transportGeometry() {
     if(!active)return null;
     const obstacles=[],openings=[];
-    const boundsOf=object=>new THREE.Box3().setFromObject(object);
+    const boundsOf=object=>{object.geometry.computeBoundingBox();return object.geometry.boundingBox.clone().applyMatrix4(object.matrixWorld);};
     const addBox=(id,title,bounds)=>{
       if(bounds.isEmpty())return;
       const c=bounds.getCenter(new THREE.Vector3()),s=bounds.getSize(new THREE.Vector3());
@@ -195,7 +197,7 @@ export function createPairedScene(container, callbacks={}) {
       const progress=door.progress,target=door.target;
       try {
         door.setProgress(1);let index=0;
-        door.moving.traverse(object=>{if(object.isMesh&&!object.userData.renderBatch)addBox(`${door.definition.id}:open:${index++}`,`${door.definition.name??door.definition.id} 열린 문짝`,boundsOf(object));});
+        door.moving.traverse(object=>{if(object.isMesh&&!object.userData.renderBatch&&!object.userData.pairedArchitecturalDetail)addBox(`${door.definition.id}:open:${index++}`,`${door.definition.name??door.definition.id} 열린 문짝`,boundsOf(object));});
       } finally {door.setProgress(progress);door.target=target;}
     }
     for(const unit of active.units) {
@@ -228,16 +230,17 @@ export function createPairedScene(container, callbacks={}) {
         metadata.unit_type??=placement.id.toUpperCase();
         const data=archisketchWebData(metadata);bindArchisketchModel(gltf,data.info);
         const definitions=data.doors.map(door=>({...door,id:`paired-floor:${placement.id}:${variant}:${door.sourceOpening}`}));
-        const model=gltf.scene;const doors=createDoors(model,definitions);
+        const model=gltf.scene;const bakedLighting=createBakedLighting(gltf,lightingModelId(placement.id,variant));bakedLighting.setEnabled(true);await bakedLighting.ensure();const doors=createDoors(model,definitions);
         model.position.set(...placement.translation);model.rotation.y=placement.rotationYRadians;model.scale.set(1,1,1);model.updateMatrixWorld(true);
         for(const door of doors)door.setProgress(0);
         model.traverse(object=>{if(!object.isMesh)return;if(['base','decoration'].includes(object.userData.component))object.visible=false;});
-        return {id:placement.id,placement,info:data.info,model,doors,source};
+        return {id:placement.id,placement,info:data.info,model,doors,source,bakedLighting};
       }));
       group=new THREE.Group();group.name=`168C + 211A ${variant}`;
       for(const unit of units)group.add(unit.model);
       const common=makeCommonArea(layout.commonArea);group.add(common.group);
       const details=createPairedDetails({layout,units,commonGroup:common.group});group.add(details.group);group.updateMatrixWorld(true);
+      details.stats.architecture=units.filter(unit=>unit.id==='211a').map(unit=>createPairedArchitecturalDetails(unit).stats);
       group.traverse(object=>{if(!object.isMesh)return;object.receiveShadow=true;object.castShadow=!['ceiling','floor','base','decoration','lighting'].includes(object.userData.component)&&!object.material.transparent;});
       const lightBounds=new THREE.Box3().setFromObject(group),lightCenter=lightBounds.getCenter(new THREE.Vector3()),lightSize=lightBounds.getSize(new THREE.Vector3());
       sunlight.position.set(lightCenter.x-15,30,lightCenter.z+10);sunlight.target.position.set(lightCenter.x,0,lightCenter.z);
@@ -254,10 +257,11 @@ export function createPairedScene(container, callbacks={}) {
       if(token!==sequence){disposeGroup(group);return false;}
       // Keep ceilings outside batches because they change visibility by view.
       // Static originals remain authoritative for picking and the already-built collision tree.
-      group.traverse(object=>{if(object.isMesh&&object.userData.component==='ceiling')object.visible=false;});
+      group.traverse(object=>{if(object.isMesh&&object.userData.component==='ceiling')object.visible=true;});
       const batches=[...units.map(unit=>batchStaticMeshes(unit.model)),batchStaticMeshes(common.group),batchStaticMeshes(details.group)];
+      group.traverse(object=>{if(object.isMesh&&object.userData.component==='ceiling')object.visible=false;});
       const batching={sourceMeshes:batches.reduce((n,b)=>n+b.sourceMeshes,0),drawMeshes:batches.reduce((n,b)=>n+b.drawMeshes,0),savedDraws:batches.reduce((n,b)=>n+b.savedDraws,0)};
-      if(active){scene.remove(active.group);disposeGroup(active.group);}
+      if(active){for(const unit of active.units)unit.bakedLighting.dispose();scene.remove(active.group);disposeGroup(active.group);}
       active={group,units,doors,common,layout,variant,batching,detailStats:details.stats,world:combinedWorld(staticTree,doors),doorById:new Map(doors.map(door=>[door.definition.id,door]))};
       scene.add(group);busy=false;
       const start=nearestSafe(layout.spawns.hall);if(!start)throw Error('공용 홀 시작 위치에 충돌이 있습니다.');
@@ -296,7 +300,7 @@ export function createPairedScene(container, callbacks={}) {
       for(const door of active.doors){const result=door.update(dt,bodyAt(position));if(result.changed)mark();if(result.blocked)callbacks.onDoorBlocked?.(door.getState());}
     }
     if(needsRender) {
-      renderer.render(scene,mode==='overview'?planCamera:walkCamera);needsRender=false;frame++;
+      for(const unit of active?.units??[])unit.bakedLighting.sync();renderer.render(scene,mode==='overview'?planCamera:walkCamera);needsRender=false;frame++;
       const nearby=pickDoor();callbacks.onFrame?.({position:position.toArray(),door:nearby?.getState()??null,mode});
     }
   }
@@ -309,7 +313,7 @@ export function createPairedScene(container, callbacks={}) {
     setTouchMovement(forward,right){touchMovement=[forward,right];},
     setDoor(id,open){const door=active?.doorById.get(id);if(!door)return false;door.target=open?1:0;mark();return true;},
     pickDoor(){return pickDoor()?.definition.id??null;},
-    inspect(){return {ready:Boolean(active)&&!busy,variant:active?.variant,mode,locked:pointer.isLocked,position:position.toArray(),eyeHeight:DEFAULT_EYE_HEIGHT,bodyRadius:BODY_RADIUS,bodyWidth:BODY_RADIUS*2,standing:active?canStand(currentWorld(),position):false,frames:frame,renderStats:{drawCalls:renderer.info.render.calls,triangles:renderer.info.render.triangles},batching:active?.batching,details:active?.detailStats,transport:transportView.inspect(),renderer:renderer.getContext().getParameter(renderer.getContext().RENDERER),doors:active?.doors.map(door=>door.getState())??[],units:active?.units.map(unit=>({id:unit.id,scale:unit.model.scale.toArray(),translation:unit.model.position.toArray(),rotationYRadians:unit.model.rotation.y,model:unit.source.glb,entryWorld:transformPoint(unit.placement.entryLocal,unit.placement),rooms:unit.info.rooms.map(room=>({id:room.id,label:room.name_ko,point:transformPoint(room.representative_point_m,unit.placement)}))}))??[],layout:active?.layout};},
+    inspect(){return {ready:Boolean(active)&&!busy,variant:active?.variant,mode,locked:pointer.isLocked,position:position.toArray(),eyeHeight:DEFAULT_EYE_HEIGHT,bodyRadius:BODY_RADIUS,bodyWidth:BODY_RADIUS*2,standing:active?canStand(currentWorld(),position):false,frames:frame,renderStats:{drawCalls:renderer.info.render.calls,triangles:renderer.info.render.triangles},batching:active?.batching,details:active?.detailStats,transport:transportView.inspect(),renderer:renderer.getContext().getParameter(renderer.getContext().RENDERER),doors:active?.doors.map(door=>door.getState())??[],units:active?.units.map(unit=>({id:unit.id,bakedLighting:unit.bakedLighting.inspect(),scale:unit.model.scale.toArray(),translation:unit.model.position.toArray(),rotationYRadians:unit.model.rotation.y,model:unit.source.glb,entryWorld:transformPoint(unit.placement.entryLocal,unit.placement),rooms:unit.info.rooms.map(room=>({id:room.id,label:room.name_ko,point:transformPoint(room.representative_point_m,unit.placement)}))}))??[],layout:active?.layout};},
     dispose(){disposed=true;sequence++;observer.disconnect();pointer.dispose();orbit.dispose();document.removeEventListener('keydown',onKeyDown);document.removeEventListener('keyup',onKeyUp);window.removeEventListener('blur',onBlur);if(active)disposeGroup(active.group);transportView.dispose();environmentTarget.dispose();renderer.dispose();renderer.domElement.remove();},
   };
 }

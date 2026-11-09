@@ -166,13 +166,13 @@ export function createComplexContext(scene, invalidate) {
   const appearance = installSiteAppearance(scene, group, invalidate);
 
   const cutaway=createFloorCutaway(buildings);
-  let cutawayEnabled=true;
+  let cutawayEnabled=true, interiorSection=false;
   const floorLabel = labelSprite('1F', true); floorLabel.scale.set(16, 7, 1); group.add(floorLabel);
   let selected = buildings.find((building) => building.id === '109') || buildings[0], floor = 1, view = 'focus', selectionVisible = true;
   function floorHeight(building, number) { return Math.min(building.height_m, number * building.height_m / building.floors); }
   function updateSelection() {
     const supported=floorCutawayState(selected,floor,{selected:selectionVisible}).supported;
-    cutaway.update(selected,floor,{enabled:cutawayEnabled,selected:selectionVisible});
+    cutaway.update(selected,floor,{enabled:cutawayEnabled,selected:selectionVisible,interiorSection});
     group.userData.floorCutawayActive=cutaway.state.active;
     for (const building of buildings) {
       const subdued = view === 'focus' && building !== selected;
@@ -189,14 +189,14 @@ export function createComplexContext(scene, invalidate) {
       building.material.emissive.setHex(building === selected ? 0x3b3114 : 0x000000);
       building.material.emissiveIntensity = building === selected ? .05 : 0;
       for (const marker of building.markerParts) {
-        marker.mesh.visible = selectionVisible && supported && building === selected && marker.levels >= floor;
+        marker.mesh.visible = !interiorSection && selectionVisible && supported && building === selected && marker.levels >= floor;
         const bottom = floorHeight(building, floor - 1) + .04;
         const top = Math.min(marker.height_m, floorHeight(building, floor)) - .04;
         marker.mesh.position.y = bottom;
         marker.mesh.scale.y = Math.max(.01, top - bottom);
       }
     }
-    floorLabel.visible = selectionVisible && supported;
+    floorLabel.visible = !interiorSection && selectionVisible && supported;
     floorLabel.userData.setText(`${floor}F`);
     floorLabel.position.set(selected.bounds.maxX + 12, floorHeight(selected, floor - .5), selected.z);
   }
@@ -227,6 +227,7 @@ export function createComplexContext(scene, invalidate) {
   updateSelection(); group.visible = false;
   return { group, buildings, surroundings,
     setCutawayEnabled(value){cutawayEnabled=Boolean(value);updateSelection();},
+    setInteriorSection(value){interiorSection=Boolean(value);updateSelection();},
     get cutawayEnabled(){return cutawayEnabled;},get cutawayState(){return cutaway.state;},
     inspectCutaway:()=>({...cutaway.inspect(),floorMarkerVisible:floorLabel.visible}),
     inspectRay(raycaster){group.updateMatrixWorld(true);return {raw:raycaster.intersectObjects(pickMeshes,false).map(h=>({id:h.object.userData.buildingId,y:h.point.y,accepted:cutaway.acceptsHit(h)})),hit:hitTest(raycaster)};},

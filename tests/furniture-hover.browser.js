@@ -1,5 +1,8 @@
 import { test, expect } from '@playwright/test';
 
+// Shared dev-server HMR is unrelated to this scoped integration scenario.
+test.beforeEach(async ({ page }) => { await page.routeWebSocket('**/*', socket => socket.close()); });
+
 async function load(page) {
   await page.goto('/?studio=1&entry=overview&test=1&quality=light');
   await expect(page.locator('body')).toHaveAttribute('data-load-state', 'ready', { timeout: 90000 });
@@ -131,4 +134,36 @@ test('shared YAML reloads on each plus click and late responses cannot reopen di
   await expect(page.locator('#furniture-hover-link')).toHaveAttribute('href', 'https://example.org/product');
   await expect(page.locator('#furniture-hover-example')).toBeHidden();
   await page.keyboard.press('Escape'); await expect(page.locator('#furniture-hover-card')).toBeHidden();
+});
+
+
+test('baked 168C lighting stays active while product cards yield to clicked-surface editing', async ({ page }, info) => {
+  const errors = []; page.on('pageerror', error => errors.push(error.message));
+  await page.goto('/?studio=1&entry=overview&test=1&quality=light&variant=168c-expanded-archisketch&lighting=day');
+  await expect(page.locator('body')).toHaveAttribute('data-load-state', 'ready', { timeout: 90000 });
+  await expect.poll(() => page.evaluate(() => window.__walkthrough.getState().bakedLighting.status), { timeout: 90000 }).toBe('ready');
+  const initial = await page.evaluate(() => window.__walkthrough.getState());
+  expect(initial.bakedLighting.enabled).toBe(true);
+  const item = await hoverFurniture(page);
+  await page.locator('#furniture-hover-plus').click();
+  await expect(page.locator('#furniture-hover-card')).toBeVisible();
+  await page.locator('#material-toggle').click();
+  await expect(page.locator('#material-dock')).toBeVisible();
+  await expect(page.locator('#furniture-hover-layer')).toBeHidden();
+  const point = item.screenPoints[0]; await page.mouse.move(point.x, point.y);
+  await page.keyboard.press('p');
+  await expect(page.locator('#furniture-info-layer')).toBeHidden();
+  await expect(page.locator('#furniture-hover-plus')).toBeHidden();
+  expect(await page.evaluate(() => window.__surfaceMaterials.editor.editing)).toBe(true);
+  await page.locator('#material-close').click();
+  await hoverFurniture(page); await page.locator('#furniture-hover-plus').click();
+  await expect(page.locator('#furniture-hover-card')).toBeVisible();
+  const final = await page.evaluate(() => window.__walkthrough.getState());
+  expect(final.bakedLighting.enabled).toBe(true);
+  expect(final.bakedLighting.receivers).toBe(initial.bakedLighting.receivers);
+  expect(final.bakedLighting.sourceGeometryUnchanged).toBe(true);
+  expect(final.doors).toEqual(initial.doors);
+  expect(final.scale).toEqual(initial.scale);
+  await page.screenshot({path: info.outputPath('baked-lighting-product-card.png')});
+  expect(errors).toEqual([]);
 });
