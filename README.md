@@ -64,7 +64,7 @@ open ~/Desktop/open-studio.command
 
 ### Mac의 로컬 소스로 개발하기
 
-기본 시작 화면은 **http://localhost:5185 (`apps/web`)의 지도**다. 루트와 `apps/web`에서 최초 1회 `npm ci` 후, 루트에서 **`bash start.sh`** 하나로 웹과 3D 뷰어를 실행한다. GPU 서버 API가 준비돼 있으면 SSH 터널도 켜서 이미지 측정을 연결하고, 서버가 없으면 이미지 미리보기·JSON 확인·3D 기능만 사용한다. 서버 API 실행과 SSH 설정은 [가구 측정 실행 안내](services/furniture_pipeline/README.md)를 따른다. 5173은 서비스 시작 화면이 아니라 3D 공간 뷰어다. 기존처럼 두 폴더의 `npm run dev`와 `npm run furniture:tunnel`을 수동 실행해도 된다. 수동 개발 실행의 API 설정과 별개로 `open-studio.command`는 새 서버를 웹 전용 모드로 시작하며 기존 서버의 설정은 바꾸지 않는다. 이후 API를 연결했다면 두 Vite 서버를 재시작한다. 명시한 `VITE_FURNITURE_MEASUREMENT_ENABLED=0/1`은 자동 감지보다 우선한다.
+기본 시작 화면은 **http://localhost:5185 (`apps/web`)의 지도**다. 루트에서 **`bash start.sh`** 하나로 웹과 3D 뷰어를 실행한다. 패키지가 없거나 `package-lock.json`이 바뀌었으면 스크립트가 루트와 `apps/web`에서 `npm ci`를 자동으로 실행한다(Node.js 20.19 이상 필요). GPU 서버 API가 준비돼 있으면 SSH 터널도 켜서 이미지 측정을 연결하고, 서버가 없으면 이미지 미리보기·JSON 확인·3D 기능만 사용한다. 서버 API 실행과 SSH 설정은 [가구 측정 실행 안내](services/furniture_pipeline/README.md)를 따른다. 5173은 서비스 시작 화면이 아니라 3D 공간 뷰어다. 기존처럼 두 폴더의 `npm run dev`와 `npm run furniture:tunnel`을 수동 실행해도 된다. 수동 개발 실행의 API 설정과 별개로 `open-studio.command`는 새 서버를 웹 전용 모드로 시작하며 기존 서버의 설정은 바꾸지 않는다. 이후 API를 연결했다면 두 Vite 서버를 재시작한다. 명시한 `VITE_FURNITURE_MEASUREMENT_ENABLED=0/1`은 자동 감지보다 우선한다.
 
 ### 단지 → 세대 → 방 선택 및 꾸미기
 
@@ -220,7 +220,7 @@ docs/
 
 위 폴더의 BLEND·GLB·model-info가 편집·실행 기준입니다. 이전 구조 검토 페이지와 회귀 검사가 직접 참조하는 일부 과거 GLB/metadata도 유지합니다. 원본 도면·VR 사진·전체 데이터셋과 모델 재생성에 필요한 일부 외부 입력은 별도 관리하며, 웹 실행에는 필요하지 않습니다.
 
-두 앱에서 각각 `npm ci`를 실행한 뒤 루트의 `bash start.sh`로 실행합니다. GPU 서버가 없어도 웹 전용 모드를 사용할 수 있습니다. 우리 집·집들이는 `http://localhost:5173/`, 지도는 `http://localhost:5185/`, 한 층 보기는 `http://localhost:5173/paired-floor-review.html`입니다. 새 GPU 추론이나 유료 API는 별도 설정·승인 없이 실행하지 않습니다.
+Node.js 20.19 이상을 설치한 뒤 루트에서 `bash start.sh`를 실행합니다. 처음 실행하면 두 앱의 패키지를 자동으로 설치합니다. GPU 서버가 없어도 웹 전용 모드를 사용할 수 있습니다. 우리 집·집들이는 `http://localhost:5173/`, 지도는 `http://localhost:5185/`, 한 층 보기는 `http://localhost:5173/paired-floor-review.html`입니다. 새 GPU 추론이나 유료 API는 별도 설정·승인 없이 실행하지 않습니다.
 
 ```bash
 npm test

@@ -15,14 +15,35 @@ if [[ "${1:-}" == --help ]]; then
 fi
 [[ "$#" == 0 ]] || { echo '사용법: bash start.sh' >&2; exit 1; }
 
-for TASK_COMMAND in node npm curl lsof; do
-  command -v "$TASK_COMMAND" >/dev/null || { echo "$TASK_COMMAND 명령이 필요합니다." >&2; exit 1; }
-done
-for TASK_DIRECTORY in "$TASK_ROOT" "$TASK_ROOT/apps/web"; do
-  [[ -x "$TASK_DIRECTORY/node_modules/.bin/vite" ]] || {
-    echo "먼저 $TASK_DIRECTORY 에서 npm ci를 실행하세요." >&2
+for TASK_COMMAND in node npm; do
+  command -v "$TASK_COMMAND" >/dev/null || {
+    echo 'Node.js가 필요합니다. https://nodejs.org 에서 LTS 버전을 설치한 뒤 다시 실행하세요.' >&2
     exit 1
   }
+done
+for TASK_COMMAND in curl lsof; do
+  command -v "$TASK_COMMAND" >/dev/null || { echo "$TASK_COMMAND 명령이 필요합니다." >&2; exit 1; }
+done
+# package.json engines: node >= 20.19
+TASK_NODE_VERSION="$(node -p 'process.versions.node')"
+TASK_NODE_MAJOR="${TASK_NODE_VERSION%%.*}"
+TASK_NODE_MINOR="${TASK_NODE_VERSION#*.}"; TASK_NODE_MINOR="${TASK_NODE_MINOR%%.*}"
+if (( TASK_NODE_MAJOR < 20 || ( TASK_NODE_MAJOR == 20 && TASK_NODE_MINOR < 19 ) )); then
+  echo "Node.js $TASK_NODE_VERSION 은(는) 너무 오래됐습니다. 20.19 이상(LTS 권장)을 https://nodejs.org 에서 설치하세요." >&2
+  exit 1
+fi
+# A fresh clone has no node_modules, and a pulled lockfile change makes the
+# old install stale. Both cases install exactly what package-lock.json pins.
+for TASK_DIRECTORY in "$TASK_ROOT" "$TASK_ROOT/apps/web"; do
+  if [[ ! -x "$TASK_DIRECTORY/node_modules/.bin/vite" || \
+        "$TASK_DIRECTORY/package-lock.json" -nt "$TASK_DIRECTORY/node_modules/.package-lock.json" ]]; then
+    if [[ "$TASK_DIRECTORY" == "$TASK_ROOT" ]]; then TASK_LABEL='3D 뷰어'; else TASK_LABEL='지도 웹(apps/web)'; fi
+    echo "[설치] $TASK_LABEL 패키지를 설치합니다. 처음 한 번만 1~2분 걸려요…"
+    (cd "$TASK_DIRECTORY" && npm ci --no-audit --no-fund) || {
+      echo "패키지 설치에 실패했습니다. 인터넷 연결을 확인한 뒤 다시 실행하세요." >&2
+      exit 1
+    }
+  fi
 done
 
 # Each background service gets its own process group, including npm's Vite child.
