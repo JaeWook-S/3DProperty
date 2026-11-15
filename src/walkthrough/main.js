@@ -11,7 +11,8 @@ import { createRenderPreview } from './render-preview.js';
 import { FinishLibrary, FINISHES } from './finishes.js';
 import { createSurfaceMaterials } from './surface-materials.js';
 import { SurfaceMaterialLibrary } from './surface-material-library.js';
-import { createMaterialDock } from './material-dock.js';
+import { createQualityReview } from './quality-review.js';
+import { guardBakedGeometry } from '../interior/structure-editor.js';
 import { VARIANTS, resolveVariant, variantTitle, populateVariantSelect } from './variants.js';
 import {readSelection} from '../property/service-selection.js';
 import {lookupUnit,getUnitModelVariants,variantForUnit} from '../property/unit-catalog.js';
@@ -88,7 +89,7 @@ async function boot() {
   // iPhone Safari has no Pointer Lock API. unlock() runs before every load and on blur,
   // so make it a no-op there instead of throwing; walking then uses the touch controls.
   if (!document.exitPointerLock) controls.unlock = () => {};
-  let needsRender = true, studio = null, commonArea = null, commonWorld = null, renderPreview=null, furnitureInfo=null, furnitureHover=null;
+  let needsRender = true, studio = null, commonArea = null, commonWorld = null, renderPreview=null, furnitureInfo=null, furnitureHover=null, qualityReview=null;
   // The original world is returned unchanged until the explicit outside tour.
   const walkingWorld = () => commonWorld ?? active?.world;
   const walkingDoors = () => [...(active?.doors ?? []), ...(commonArea?.doors ?? [])];
@@ -172,9 +173,11 @@ async function boot() {
     viewport: $('viewport'), renderer, camera, getActive: () => active,
     eligible: () => ready && !busy && !surfaceEditor.editing && !renderPreview?.inspect().open && !furnitureInfo.isOpen && ['overview', 'edit'].includes(studio?.mode),
   });
+  // Embedded browsers may refuse Pointer Lock: walk with drag-to-look and the on-screen stick instead.
   document.addEventListener('pointerlockerror', () => {
-    if (!furnitureInfo.isOpen) onUnlock();
-    toast('마우스 잠금에 실패했습니다. 이어서 둘러보기를 눌러 주세요.');
+    if (furnitureInfo.isOpen) return;
+    onUnlock();
+    if (studio?.mode === 'tour' || !studio) { touch.lock(); toast('드래그로 둘러보고 WASD나 방향 패드로 걸어요.'); }
   });
   $('start').addEventListener('click', () => {
     if (!ready || busy) return;
@@ -202,7 +205,8 @@ async function boot() {
   let loadSequence=0,finishSequence=0,finishWork=Promise.resolve();
   function updateBakedLighting(mode = studio?.mode ?? 'tour') {
     if (!active) return;
-    const show = ['overview', 'edit', 'tour'].includes(mode) && selected.lighting === 'day';
+    // Baked indirect light describes the original walls; a remodelled plan falls back to live lighting.
+    const show = ['overview', 'edit', 'tour', 'interior'].includes(mode) && selected.lighting === 'day' && !active.interiorEdited;
     active.bakedLighting.setEnabled(show);
     if (show) void active.bakedLighting.ensure();
   }
@@ -289,7 +293,7 @@ async function boot() {
     refineMaterials(model, renderer);
     const staging = stagingAssets(model, definition.info);
     const doors = createDoors(model, definition.doors);
-    const staticTree = collisionTree(model, (object) => {
+    const collides = (object) => {
       let owner = object;
       while (owner) {
         if (owner.userData.doorId || owner.userData.collisionDisabled || owner.userData.stagingId) return false;
@@ -304,26 +308,61 @@ async function boot() {
       }
       if (definition.unitType==='168C' && ['window_frame','wall'].includes(object.userData.component) && /frame-bottom|\/sill$/.test(info?.name||'') && new THREE.Box3().setFromObject(object).max.y<.15) return false;
       return true;
-    });
+    };
+    let staticTree = collisionTree(model, collides);
+    // Batched sources stay pickable; interior overlays and hidden (demolished) parts do not.
     const pickMeshes = [];
-    model.traverse((object) => {
-      if (!object.isMesh) return;
-      let parent = object;
-      while (parent) { if (!parent.visible) return; parent = parent.parent; }
-      pickMeshes.push(object);
-    });
+    function collectPickMeshes() {
+      pickMeshes.length = 0;
+      model.traverse((object) => {
+        if (!object.isMesh || object.userData.renderBatch) return;
+        let parent = object;
+        while (parent) { if ((!parent.visible && !parent.userData.renderBatched) || parent.userData.surfaceOverride) return; parent = parent.parent; }
+        pickMeshes.push(object);
+      });
+    }
+    collectPickMeshes();
     let batching = batchStaticMeshes(model);
     const bakedLighting = createBakedLighting(gltf, lightingModelId(definition.unitType, definition.info.variant), {
       invalidate: () => { needsRender = true; },
-      rebuild: () => { batching.restore(); batching = batchStaticMeshes(model); if (active?.model === model) { active.batching = batching; void surfaceEditor.refreshLighting(); } },
+      rebuild: () => {
+        batching.restore(); guardBakedGeometry(model); batching = batchStaticMeshes(model); result.batching = batching;
+        if (active?.model === model) { void surfaceEditor.refreshLighting(); studio?.refreshInterior(); }
+      },
     });
-    const architectureWorld = combinedWorld(staticTree, doors);
+    let architectureWorld = combinedWorld(staticTree, doors), collisionDirty = false;
+    // The collision octree takes ~0.4 s to build, so remodelling only marks it
+    // stale; it is rebuilt the first time walking or placement needs it.
+    function refreshCollision() {
+      if (!collisionDirty) return;
+      collisionDirty = false;
+      staticTree = collisionTree(model, collides);
+      architectureWorld = combinedWorld(staticTree, doors.filter((d) => !d.disabled));
+    }
     const world = { capsuleIntersect(body) {
+      refreshCollision();
       const a=architectureWorld.capsuleIntersect(body), b=staging.capsuleIntersect(body);
       return b && (!a || b.depth>a.depth) ? b : a;
     } };
-    return { key, model, doors, pickMeshes, definition, meshCount, catalogFurniture, staging, batching, bakedLighting,
-      world, doorById: new Map(doors.map((d) => [d.definition.id, d])) };
+    const result = { key, model, doors, pickMeshes, definition, meshCount, catalogFurniture, staging, batching, bakedLighting,
+      world, doorById: new Map(doors.map((d) => [d.definition.id, d])), interiorEdited: false };
+    // Interior structure edits mutate the model between an unbatched restore
+    // and a fresh batch, then rebuild collision and picking from the result.
+    result.rebuildStructure = (mutate) => {
+      const t = [performance.now()];
+      batching.restore(); t.push(performance.now());
+      try { mutate(); }
+      finally {
+        t.push(performance.now());
+        model.updateMatrixWorld(true); guardBakedGeometry(model);
+        collisionDirty = true; t.push(performance.now());
+        collectPickMeshes();
+        batching = batchStaticMeshes(model); result.batching = batching; t.push(performance.now());
+        result.lastRebuild = { restoreMs: t[1] - t[0], mutateMs: t[2] - t[1], batchMs: t[4] - t[3] };
+        if (active === result) { appearance.invalidateShadows(); needsRender = true; }
+      }
+    };
+    return result;
   }
   async function loadVariant(key) {
     furnitureInfo?.close();
@@ -531,10 +570,12 @@ async function boot() {
     if (furnitureInfo.isOpen) furnitureInfo.update();
     furnitureHover.update();
     if(active){
-      const currentMode=studio?.mode??'tour';appearance.setMode(currentMode);
+      const currentMode=studio?.mode??'tour';appearance.setMode(studio?.appearanceMode??currentMode);
       if(needsRender)appearance.updateFocus(camera.position);
       renderPreview?.sync({activeMode:commonArea?'common':currentMode,busy,editing:surfaceEditor.editing});
-      if(needsRender){active.bakedLighting.sync();appearance.render(dt);}needsRender=false;
+      // The path tracer runs only for the interior inside view; it falls back to raster on any change.
+      const traced=qualityReview?.renderFrame({dirty:needsRender,activeMode:studio?.qualityMode??'off',busy,editing:surfaceEditor.editing,dt})??false;
+      if(needsRender&&!traced){active.bakedLighting.sync();appearance.render(dt);}needsRender=false;
     }
   });
   if (import.meta.env.DEV && params.has('test')) {
@@ -607,22 +648,39 @@ async function boot() {
         position.copy(next); camera.position.copy(next); camera.lookAt(targetX, targetY, targetZ); needsRender = true;
       },
       pickDoor: () => pickDoor()?.definition.id, interact: () => interact(),
+      // Render now and summarise the frame (works while the page is not painted).
+      sampleFrame: (size = 48) => {
+        appearance.render(0);
+        const canvas = document.createElement('canvas'); canvas.width = canvas.height = size;
+        const context = canvas.getContext('2d'); context.drawImage(renderer.domElement, 0, 0, size, size);
+        const data = context.getImageData(0, 0, size, size).data; let sum = 0, square = 0;
+        for (let i = 0; i < data.length; i += 4) { const v = (data[i] + data[i + 1] + data[i + 2]) / 3; sum += v; square += v * v; }
+        const n = data.length / 4; return { mean: sum / n, std: Math.sqrt(square / n - (sum / n) ** 2), image: canvas.toDataURL('image/png') };
+      },
       commonPoint:(t,s)=>commonArea?.layout.point(t,s),
     };
   }
   await loadVariant(selected.variant);
   // Studio is the default for every entry URL; the legacy viewer is opt-in.
   if (params.get('studio') !== '0' && active) {
-    studio=createStudio({scene,camera,renderer,surfaceEditor,initialMode:params.get('entry'),lighting:selected.lighting,getActive:()=>active,loadVariant,resize:resizeViewport,
+    qualityReview=createQualityReview({renderer,camera,getActive:()=>active,getLights:()=>appearance.pathtraceLights,getLighting:()=>selected.lighting,rasterize:dt=>appearance.render(dt),invalidate:()=>{needsRender=true;}});
+    const interiorHooks={
+      realistic:qualityReview,
+      onStructureChange:()=>{active.interiorEdited=Boolean(studio?.interiorEdited);updateBakedLighting();qualityReview.invalidateScene();appearance.invalidateShadows();needsRender=true;},
+      // Raster snapshot for the quote (drawn in the same task, so no preserveDrawingBuffer is needed).
+      snapshotImage:()=>{
+        appearance.render(0);const source=renderer.domElement,width=Math.min(1280,source.width),height=Math.round(source.height*width/source.width);
+        const canvas=document.createElement('canvas');canvas.width=width;canvas.height=height;canvas.getContext('2d').drawImage(source,0,0,width,height);
+        needsRender=true;return canvas.toDataURL('image/jpeg',.86);
+      },
+    };
+    studio=createStudio({scene,camera,renderer,surfaceEditor,interiorHooks,initialMode:params.get('entry'),lighting:selected.lighting,getActive:()=>active,loadVariant,resize:resizeViewport,
       invalidate:(shadows=false)=>{if(shadows){appearance.invalidateShadows();}needsRender=true;},enterRoom,unlock:()=>{keys.clear();release();},
       settle,standAt,openCommonArea,onModeChange:mode=>{furnitureHover.clear();if(mode!=='tour'){furnitureInfo.close();clearCommonArea();}updateBakedLighting(mode);},resume:()=>{if(ready&&!busy&&!walking())startWalking();}});
-    materialDock = createMaterialDock({ editor: surfaceEditor, renderer, camera,
-      onOpen: () => { furnitureInfo.close(); furnitureHover.clear(); keys.clear(); release(); },
-      onSave: () => { $('save-layout').onclick(); return $('studio-status').textContent; },
-      onRestore: async () => { await $('restore-layout').onclick(); return $('studio-status').textContent; },
-    });
+    // Finishes are edited in the interior mode (procedural PBR library); the
+    // former image-based dock depended on texture files that are not shipped.
     if(import.meta.env.DEV&&params.has('test'))window.__surfaceMaterials={editor:surfaceEditor,camera,renderer,getActive:()=>active};
-    if(import.meta.env.DEV&&params.has('test'))window.__studio=studio;
+    if(import.meta.env.DEV&&params.has('test')){window.__studio=studio;window.__interior=studio.interior;window.__qualityReview=qualityReview;}
     renderPreview=createRenderPreview({renderer,getActive:()=>active,onOpen:()=>{furnitureInfo.close();furnitureHover.clear();keys.clear();release();},onClose:()=>{needsRender=true;}});
     if(import.meta.env.DEV&&params.has('test'))window.__renderPreview=renderPreview;
   }

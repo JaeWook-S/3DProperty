@@ -23,8 +23,14 @@ import { readHome, saveHome } from './my-home.js';
 import { setupFurnitureImageRegistration } from './furniture-registration.js';
 import { fetchGeneratedAssets, generatedKind, installGeneratedTemplate, loadGeneratedModel } from './generated-furniture.js';
 import { CATALOG_FURNITURE, installCatalogTemplate } from './catalog-furniture.js';
+import { createInteriorStudio } from '../interior/interior-studio.js';
+import { KIT_KINDS, buildFurniture } from '../concepts/kit.js';
+import { FURNITURE } from '../concepts/furniture-spec.js';
 
 const catalogByKind=new Map(CATALOG_FURNITURE.map(asset=>[asset.kind,asset]));
+// Code-built kit furniture (shared with concepts) is addable on every plan.
+const kitGroups=new Map();
+function ensureKitTemplates(staging){for(const kind of KIT_KINDS){if(staging.templates.has(kind))continue;const spec=FURNITURE[kind];if(!kitGroups.has(kind))kitGroups.set(kind,buildFurniture(kind));staging.addTemplate(kind,{title:spec.title,label:spec.label,group:kitGroups.get(kind),width:spec.w,depth:spec.d,height:spec.h});}}
 const catalogSize=asset=>{const d=asset.dimensions_m;return `모델 규격 · 너비 ${(d.width*100).toFixed(1)} × 깊이 ${(d.depth*100).toFixed(1)} × 높이 ${(d.height*100).toFixed(1)} cm`;};
 
 const $=id=>document.getElementById(id);
@@ -33,17 +39,17 @@ const NS='http://www.w3.org/2000/svg';
 const HINTS={touch:{walk:'왼쪽 아래 방향키 이동 · 화면을 밀어 시선 · 버튼으로 문 열기',tour:'방향키 이동 · 드래그 시선',orbit:'드래그 회전 · 두 손가락 확대'},pc:{walk:'WASD 이동 · E 문 열기 · Esc 해제',tour:'WASD 이동 · 마우스 시선',orbit:'드래그 회전 · 휠 확대'}};
 const hint=key=>HINTS[isTouchFirst()?'touch':'pc'][key];
 function svg(tag,attrs,text){const n=document.createElementNS(NS,tag);for(const [k,v]of Object.entries(attrs))n.setAttribute(k,v);if(text)n.textContent=text;return n;}
-export function createStudio({scene,camera,renderer,getActive,loadVariant,resize,invalidate,enterRoom,unlock,surfaceEditor=null,settle=()=>true,standAt=()=>false,resume=()=>{},openCommonArea=()=>false,onModeChange=()=>{},initialMode='complex',lighting='day'}) {
+export function createStudio({scene,camera,renderer,getActive,loadVariant,resize,invalidate,enterRoom,unlock,surfaceEditor=null,settle=()=>true,standAt=()=>false,resume=()=>{},openCommonArea=()=>false,onModeChange=()=>{},initialMode='complex',lighting='day',interiorHooks={}}) {
   document.body.classList.add('studio');
   const ui=document.createElement('section');ui.id='studio-ui';
-  ui.innerHTML=`<header class="studio-header"><a href="?studio=1" class="studio-brand">CORTEX</a><nav aria-label="주요 메뉴"><button id="nav-plan">우리 집</button><button id="nav-complex"><span class="nav-long">새로운 </span>집 찾기</button></nav><div class="mode-switch"><button id="mode-tour">둘러보기</button><button id="mode-edit">꾸미기</button></div></header>
+  ui.innerHTML=`<header class="studio-header"><a href="?studio=1" class="studio-brand">CORTEX</a><nav aria-label="주요 메뉴"><button id="nav-plan">우리 집</button><button id="nav-complex"><span class="nav-long">새로운 </span>집 찾기</button></nav><div class="mode-switch"><button id="mode-tour">둘러보기</button><button id="mode-edit" hidden>꾸미기</button><button id="mode-interior">인테리어</button></div></header>
   <aside id="studio-sidebar"><p class="studio-eyebrow" id="studio-step"></p><h1 id="studio-title"></h1><p id="studio-description"></p>
   <section id="unit-picker"><button id="select-building">동·층 선택 시작</button><div id="unit-options" hidden><label for="studio-variant">동·층과 별개인 체험 평면 선택</label><select id="studio-variant"><option value="expanded">112A · 확장형</option><option value="basic">112A · 기본형</option><option value="168c-expanded">168C · 확장형</option></select><button id="open-unit" class="studio-primary">체험 평면 열기 →</button></div></section>
-  <section id="room-picker" hidden><label for="studio-model">평면 선택</label><select id="studio-model"></select><label for="studio-room">장소 선택</label><select id="studio-room"></select><p id="studio-room-dimensions" class="evidence-note"></p><div class="room-actions"><button id="room-walk" class="studio-primary">이곳에서 둘러보기</button><button id="room-edit">이곳 꾸미기</button></div><p id="studio-dimension-note" class="evidence-note">천장고 2.6m · 문 개구부 2.1m 가정<br>안방 킹 167×207.5cm · 작은 방은 빈 방/서재<br>책상·의자·욕실 집기 세부 치수는 가정입니다.</p></section>
-  <section id="editor-tools" hidden><div class="editor-row"><label for="add-kind">가구 추가</label><select id="add-kind"></select><button id="add-item">＋ 추가</button></div><section class="furniture-registration" aria-labelledby="furniture-registration-title"><div class="furniture-registration-heading"><div><span>MY FURNITURE</span><strong id="furniture-registration-title">이미지로 새 가구 등록</strong></div><button id="register-furniture" class="register-furniture-button" type="button" aria-controls="furniture-image-file">가구 등록</button></div><input id="furniture-image-file" type="file" accept="image/jpeg,image/png,image/webp,.jpg,.jpeg,.png,.webp" aria-label="등록할 가구 이미지 선택" hidden><p class="furniture-registration-help">JPG, PNG, WebP · 최대 20MB<br>이미지를 선택하면 가구 치수를 자동으로 측정합니다.</p><figure id="furniture-image-preview" hidden><img alt=""><figcaption><strong id="furniture-image-name"></strong><span id="furniture-image-metadata"></span></figcaption></figure><p id="furniture-image-status" role="status" aria-live="polite"></p></section><label for="selected-item">배치한 가구</label><select id="selected-item"></select><p id="item-size"></p><div class="coordinate-inputs"><label>X (m)<input id="item-x" type="number" step="0.01"></label><label>Z (m)<input id="item-z" type="number" step="0.01"></label></div><div class="editor-row"><button id="apply-position">위치 적용</button><button id="rotate-item">90° 회전</button><button id="remove-item">삭제</button></div><div class="editor-row"><button id="save-layout">배치 저장</button><button id="restore-layout">저장 불러오기</button><button id="reset-layout">초기 배치</button></div><p class="evidence-note">이 브라우저에 저장됩니다. 2D에서 가구를 드래그하거나 방향키로 5cm씩 옮기세요. 가구 크기는 유지됩니다.</p></section>
+  <section id="room-picker" hidden><label for="studio-model">평면 선택</label><select id="studio-model"></select><label for="studio-room">장소 선택</label><select id="studio-room"></select><p id="studio-room-dimensions" class="evidence-note" hidden></p><p id="studio-dimension-note" class="evidence-note" hidden></p><div class="room-actions"><button id="room-walk" class="studio-primary">이곳에서 둘러보기</button><button id="room-edit">이곳 꾸미기</button></div></section>
+  <section id="editor-tools" hidden><div class="editor-row"><label for="add-kind">가구 추가</label><select id="add-kind"></select><button id="add-item">＋ 추가</button></div><section class="furniture-registration" aria-labelledby="furniture-registration-title"><div class="furniture-registration-heading"><div><span>MY FURNITURE</span><strong id="furniture-registration-title">이미지로 새 가구 등록</strong></div><button id="register-furniture" class="register-furniture-button" type="button" aria-controls="furniture-image-file">가구 등록</button></div><input id="furniture-image-file" type="file" accept="image/jpeg,image/png,image/webp,.jpg,.jpeg,.png,.webp" aria-label="등록할 가구 이미지 선택" hidden><figure id="furniture-image-preview" hidden><img alt=""><figcaption><strong id="furniture-image-name"></strong><span id="furniture-image-metadata"></span></figcaption></figure><p id="furniture-image-status" role="status" aria-live="polite"></p></section><label for="selected-item">배치한 가구</label><select id="selected-item"></select><p id="item-size"></p><div class="coordinate-inputs"><label>X (m)<input id="item-x" type="number" step="0.01"></label><label>Z (m)<input id="item-z" type="number" step="0.01"></label></div><div class="editor-row"><button id="apply-position">위치 적용</button><button id="rotate-item">90° 회전</button><button id="remove-item">삭제</button></div><div class="editor-row"><button id="save-layout">배치 저장</button><button id="restore-layout">저장 불러오기</button><button id="reset-layout">초기 배치</button></div></section>
 
   <p id="studio-status" role="status" aria-live="polite"></p></aside>
-  <section id="plan-pane" hidden><div class="pane-label"><strong id="plan-title">2D 배치도</strong></div><svg id="layout-plan" role="img" aria-label="공간과 가구 배치도"></svg></section><div id="three-label" class="pane-label"><strong>단지 둘러보기</strong><span id="orbit-help">드래그 회전 · 휠 확대</span></div><button id="back-plan" hidden>← 세대 전체 보기</button>`;
+  <section id="plan-pane" hidden><div class="pane-label"><strong id="plan-title">2D 배치도</strong></div><svg id="layout-plan" role="img" aria-label="공간과 가구 배치도"></svg></section><div id="three-label" class="pane-label"><strong>단지 둘러보기</strong><span id="orbit-help">드래그 회전 · 휠 확대</span></div><button id="back-plan" hidden>← 세대 전체 보기</button><button id="back-interior" hidden>← 인테리어로 돌아가기</button>`;
   document.body.append(ui);
   const commonStart=document.createElement('button');commonStart.id='common-area-start';commonStart.hidden=true;
   commonStart.textContent='현관 밖 둘러보기 · 예시 공용부';
@@ -66,7 +72,7 @@ export function createStudio({scene,camera,renderer,getActive,loadVariant,resize
   const catalogNote=document.createElement('p');catalogNote.id='catalog-add-note';catalogNote.className='evidence-note';catalogNote.hidden=true;
   $('add-kind').closest('.editor-row').after(catalogNote);$('add-kind').setAttribute('aria-describedby',catalogNote.id);
   function updateCatalogNote(){
-    const asset=catalogByKind.get($('add-kind').value);catalogNote.hidden=!asset;catalogNote.replaceChildren();
+    const asset=catalogByKind.get($('add-kind').value);catalogNote.hidden=true;catalogNote.replaceChildren();
     if(!asset)return;
     catalogNote.append(`${catalogSize(asset)}. 원본 비율로 추가합니다. 제품 실측값은 확인되지 않았습니다. `);
     const source=document.createElement('a');source.href=asset.source.official_page;source.target='_blank';source.rel='noopener';source.textContent='Poly Haven · CC0 ↗';catalogNote.append(source);
@@ -91,7 +97,7 @@ export function createStudio({scene,camera,renderer,getActive,loadVariant,resize
       if(assets.length&&operationCurrent(measurementToken)) await importGeneratedAssets(assets,true);
     },
   });
-  let mode='complex',roomId='Living front',placeId=null,selection=null,drag=null,ready=false;
+  let mode='complex',roomId='Living front',placeId=null,selection=null,drag=null,ready=false,fromInterior=false;
   // The room select also offers the first unit screen: the whole 2D plan beside the 3D model.
   const WHOLE='whole';let whole=true;
   let serviceSelection=readSelection(location.href);
@@ -250,6 +256,8 @@ export function createStudio({scene,camera,renderer,getActive,loadVariant,resize
     if(!current())return;
     surfaceEditor?.setEditing(false);
     stopFloorCamera();unlock();mode=next;onModeChange(mode);document.body.dataset.studioMode=mode;
+    // A saved interior design is what the user expects to see and walk, even before opening the interior tab.
+    if(interior&&(mode==='tour'||mode==='overview')&&hooks.savedInterior?.()){try{interior.ensureBound();}catch(error){console.warn('Saved interior not applied:',error);}}
     commonStart.hidden=mode!=='tour';
     if(mode!=='tour'){commonBadge.hidden=true;commonStart.textContent='현관 밖 둘러보기 · 예시 공용부';}orbit.enabled=mode!=='tour';
     if(mode==='overview')whole=true;$('studio-room').value=mode==='overview'?WHOLE:placeId;roomActions();
@@ -264,14 +272,14 @@ export function createStudio({scene,camera,renderer,getActive,loadVariant,resize
     orbit.maxDistance=mode==='complex'?550:90;
     exterior.group.visible=mode==='tour'&&exteriorEnabled;badge.hidden=!exterior.group.visible;
     renderer.clippingPlanes=['overview','edit'].includes(mode)?[clipping]:[];dirty(true);
-    $('unit-picker').hidden=mode!=='complex';$('room-picker').hidden=mode==='complex';$('editor-tools').hidden=mode!=='edit';
-    $('plan-pane').hidden=!['overview','edit'].includes(mode);$('back-plan').hidden=mode!=='tour';
-    $('mode-edit').disabled=mode==='complex';$('mode-tour').disabled=mode==='complex';
+    $('unit-picker').hidden=mode!=='complex';$('room-picker').hidden=mode==='complex'||mode==='interior';$('editor-tools').hidden=mode!=='edit';
+    $('plan-pane').hidden=!['overview','edit','interior'].includes(mode);$('back-plan').hidden=mode!=='tour'||fromInterior;$('back-interior').hidden=mode!=='tour'||!fromInterior;if(['overview','complex'].includes(mode))fromInterior=false;
+    $('mode-edit').disabled=mode==='complex';$('mode-tour').disabled=mode==='complex';$('mode-interior').disabled=mode==='complex';$('mode-interior').classList.toggle('selected',mode==='interior');
     $('mode-edit').classList.toggle('selected',mode==='edit');$('mode-tour').classList.toggle('selected',mode==='tour');
-    $('studio-step').textContent=mode==='complex'?'새로운 집 찾기':mode==='overview'?'우리 집':mode==='edit'?'꾸미기':'둘러보기';
-    $('studio-title').textContent=mode==='complex'?'살아볼 공간을 선택하세요.':mode==='overview'?'우리 집을 한눈에.':mode==='edit'?`${room().name_ko} 꾸미기`:`${selectedPlace().name_ko} 둘러보기`;
-    $('studio-description').textContent=mode==='complex'?'단지를 둘러보고 체험할 평면을 선택하세요.':mode==='overview'?'평면도나 3D에서 장소를 선택하세요.':mode==='edit'?'왼쪽에서 배치하면 오른쪽 공간에 바로 반영됩니다.':`방을 선택한 뒤 둘러보기를 시작하세요. ${hint('walk')}`;
-    $('three-label').querySelector('strong').textContent=mode==='complex'?(buildingSelected?`${tower.selected.title} · ${floor}층 강조`:'아크로 리버파크'):mode==='overview'?(actualUnit()?`${actualUnit().building}동 ${actualUnit().unit}호 · ${current().definition.unitType} · 확장 여부 선택 보기`:'체험 평면 · 실제 세대 대응 미확인'):mode==='edit'?'실시간 3D':'1인칭 둘러보기';
+    $('studio-step').textContent=mode==='complex'?'새로운 집 찾기':mode==='overview'?'우리 집':mode==='edit'?'꾸미기':mode==='interior'?'인테리어':'둘러보기';
+    $('studio-title').textContent=mode==='complex'?'살아볼 공간을 선택하세요.':mode==='overview'?'우리 집을 한눈에.':mode==='edit'?`${room().name_ko} 꾸미기`:mode==='interior'?'우리 집 인테리어':`${selectedPlace().name_ko} 둘러보기`;
+    $('studio-description').textContent=mode==='complex'?'단지를 둘러보고 체험할 평면을 선택하세요.':mode==='overview'?'평면도나 3D에서 장소를 선택하세요.':mode==='interior'?'벽을 허물고, 세우고, 옮겨 보세요.':mode==='edit'?'왼쪽에서 배치하면 오른쪽 공간에 바로 반영됩니다.':`방을 선택한 뒤 둘러보기를 시작하세요. ${hint('walk')}`;
+    $('three-label').querySelector('strong').textContent=mode==='complex'?(buildingSelected?`${tower.selected.title} · ${floor}층 강조`:'아크로 리버파크'):mode==='overview'?(actualUnit()?`${actualUnit().building}동 ${actualUnit().unit}호 · ${current().definition.unitType} · 확장 여부 선택 보기`:'체험 평면 · 실제 세대 대응 미확인'):mode==='edit'?'실시간 3D':mode==='interior'?'인테리어 3D':'1인칭 둘러보기';
 
     $('orbit-help').textContent=hint(mode==='tour'?'tour':'orbit');
     requestAnimationFrame(()=>{resize();if(mode==='complex')selectFloor(floor,{focus:true});else if(mode==='overview')frame(unitBounds(),true);else if(mode==='edit')frame(room().bounds_m);dirty();});
@@ -285,7 +293,7 @@ export function createStudio({scene,camera,renderer,getActive,loadVariant,resize
     $('studio-room-dimensions').textContent=r?`${r.source_room_id?'구역':'방'} 최대 외곽 범위 ${(r.width_m??r.bounds_m[2]-r.bounds_m[0]).toFixed(3)} m × ${(r.depth_m??r.bounds_m[3]-r.bounds_m[1]).toFixed(3)} m · 천장 ${(current().definition.info.ceilingHeight_m??current().definition.info.ceiling_m??2.6).toFixed(2)} m. ${current().definition.coordinateBased?'아키스케치 좌표':'모델 경계'} 기준입니다. 위치별 벽 사이 폭은 달라질 수 있으며, 가구 여유폭이나 실측값을 뜻하지 않습니다.`:'';
     const all=mode==='overview'&&whole;
     $('room-walk').textContent=all?`${r.name_ko}에서 둘러보기`:'이곳에서 둘러보기';
-    $('room-edit').textContent=all?`${r.name_ko} 꾸미기`:'이곳 꾸미기';
+    $('room-edit').textContent=all?`${r.name_ko} 인테리어`:'이곳 인테리어';
   }
   function inside(i,r){return pointInRoom(r,i.x,i.z);}
   function refreshRooms(){
@@ -311,7 +319,7 @@ export function createStudio({scene,camera,renderer,getActive,loadVariant,resize
     if(!item()||placementRoom(item()).id!==roomId)selection=host.options[0]?.value||null;
     host.value=selection||'';const selected=item();
     const catalog=selected&&catalogByKind.get(selected.kind);
-    $('item-size').textContent=catalog?`${selected.title} · ${catalogSize(catalog)} · 제품 실측 미확인`:selected?`${selected.title} · 외곽 ${(selected.width*100).toFixed(1)} × ${(selected.depth*100).toFixed(1)}cm`:'배치할 가구를 추가해 보세요.';
+    $('item-size').textContent=catalog?`${selected.title} · ${catalogSize(catalog).replace('모델 규격 · ','')}`:selected?`${selected.title} · 외곽 ${(selected.width*100).toFixed(1)} × ${(selected.depth*100).toFixed(1)}cm`:'배치할 가구를 추가해 보세요.';
     $('item-x').value=selected?selected.x.toFixed(2):'';$('item-z').value=selected?selected.z.toFixed(2):'';
     for(const id of ['apply-position','rotate-item','remove-item','item-x','item-z'])$(id).disabled=!selected;
     const old=$('add-kind').value;$('add-kind').replaceChildren();
@@ -322,8 +330,10 @@ export function createStudio({scene,camera,renderer,getActive,loadVariant,resize
     updateCatalogNote();
   }
   const wallPaths=new WeakMap();
+  let interior=null;
   function renderPlan(){
     if(!current()||!room())return;
+    if(mode==='interior'){$('plan-title').textContent='구조 · 2D 평면';interior?.renderPlan();return;}
     const plan=$('layout-plan'),b=[...(mode==='edit'?room().bounds_m:unitBounds())],pad=.25;
     // Keep freely dragged furniture visible and selectable beyond the room edge.
     if(mode==='edit'&&!drag)for(const i of current().staging.items.filter(i=>!i.deleted&&placementRoom(i).id===roomId))for(const [x,z] of corners(i)){b[0]=Math.min(b[0],x);b[1]=Math.min(b[1],z);b[2]=Math.max(b[2],x);b[3]=Math.max(b[3],z);}
@@ -343,18 +353,23 @@ export function createStudio({scene,camera,renderer,getActive,loadVariant,resize
     }
     for(const o of current().staging.obstacles){const x=Math.max(b[0],o.x-o.width/2),z=Math.max(b[1],o.z-o.depth/2),x2=Math.min(b[2],o.x+o.width/2),z2=Math.min(b[3],o.z+o.depth/2);if(x2>x&&z2>z)plan.append(svg('rect',{x,y:z,width:x2-x,height:z2-z,class:'plan-fixed'}));}
     if(current().definition.info.wallSlice){
-      const walls=svg('g',{class:'plan-walls','fill-rule':'evenodd'});
-      current().model.traverse(o=>{
-        if(!o.isMesh||current().definition.info.objects[o.userData.object_id]?.category!=='Structure')return;
-        if(!wallPaths.has(o))wallPaths.set(o,wallSectionPath(o));
-        const d=wallPaths.get(o);if(d)walls.append(svg('path',{d}));
-      });plan.append(walls);
+      // Interior remodel (removed/new walls) shows in every plan once edited.
+      if(interior?.edited)plan.append(interior.planWalls());
+      else{
+        const walls=svg('g',{class:'plan-walls','fill-rule':'evenodd'});
+        current().model.traverse(o=>{
+          if(!o.isMesh||current().definition.info.objects[o.userData.object_id]?.category!=='Structure')return;
+          if(!wallPaths.has(o.geometry))wallPaths.set(o.geometry,wallSectionPath(o));
+          const d=wallPaths.get(o.geometry);if(d)walls.append(svg('path',{d}));
+        });plan.append(walls);
+      }
+      const hiddenOpenings=interior?.edited?interior.hiddenOpenings():new Set();
       for(const o of current().definition.info.openings ?? []){
-        if(!['window','sliding'].includes(o.kind))continue;
+        if(!['window','sliding'].includes(o.kind)||hiddenOpenings.has(o.id))continue;
         const [x,z]=o.center_m,dx=o.axis==='x'?o.width_m/2:0,dz=o.axis==='z'?o.width_m/2:0;
         plan.append(svg('line',{x1:x-dx,y1:z-dz,x2:x+dx,y2:z+dz,class:'plan-window'}));
       }
-      for(const door of current().doors.filter(d=>d.definition.type==='hinged')){
+      for(const door of current().doors.filter(d=>d.definition.type==='hinged'&&!d.disabled)){
         const [x1,y1,x2,y2]=hingedSegment(door.definition,door.progress);
         plan.append(svg('line',{x1,y1,x2,y2,class:'plan-door-leaf'}));
         if(door.definition.operationBasis==='furnished_reference_plan_image'){
@@ -408,11 +423,26 @@ export function createStudio({scene,camera,renderer,getActive,loadVariant,resize
   $('nav-plan').onclick=goHome;$('back-plan').onclick=()=>setMode('overview');
   function walk({capture=true}={}){setMode('tour');if(!enterRoom(selectedPlace(),{capture})){status('이 공간에서 안전한 시작 위치를 찾지 못했어요. 다른 장소를 선택해 주세요.');return false;}return true;}
 
-  $('room-walk').onclick=walk;$('mode-tour').onclick=walk;$('mode-edit').onclick=()=>setMode('edit');$('room-edit').onclick=()=>setMode('edit');
+  $('room-walk').onclick=walk;$('mode-tour').onclick=walk;$('mode-interior').onclick=()=>setMode('interior');
+  const openFurniture=()=>{interior?interior.open('furniture',roomId):setMode('edit');};
+  $('mode-edit').onclick=openFurniture;$('room-edit').onclick=openFurniture;
+  $('back-interior').onclick=()=>setMode('interior');
   $('selected-item').onchange=e=>{selection=e.target.value;refreshItems();renderPlan();};
   $('apply-position').onclick=()=>moveSelected({x:Number($('item-x').value),z:Number($('item-z').value)});
   $('rotate-item').onclick=()=>{if(item())moveSelected({angle:(item().angle+Math.PI/2)%(Math.PI*2)});};
   $('remove-item').onclick=()=>{current().staging.remove(selection);selection=null;refreshItems();renderPlan();showWarnings();dirty(true);status('가구를 제거했어요.');};
+  // Shared by the interior furniture tab: add a template (or CC0 catalog model) to a room.
+  async function addFurniture(kind,targetRoom){
+    if(furniturePending)return {error:'가구를 불러오는 중이에요.'};
+    const target=current(),token=operationToken(),asset=catalogByKind.get(kind);
+    try{
+      if(asset){setFurniturePending('add');await installCatalogTemplate(target.staging,kind);if(!operationCurrent(token)||current()!==target)return {error:'평면이 바뀌어 추가하지 않았어요.'};}
+      const result=target.staging.add(kind,targetRoom,true);
+      if(result.error)return result;
+      selection=result.item.id;assignments.set(selection,targetRoom.id);dirty(true);return result;
+    }catch(error){return {error:`가구를 불러오지 못했어요. ${error.message}`};}
+    finally{if(asset)setFurniturePending(null);}
+  }
   $('add-item').onclick=async()=>{
     if(furniturePending)return;
     const target=current(),token=operationToken(),targetRoom=room(),targetRoomId=roomId,targetPlaceId=placeId,kind=$('add-kind').value;
@@ -435,7 +465,7 @@ export function createStudio({scene,camera,renderer,getActive,loadVariant,resize
   };
   $('save-layout').onclick=()=>{
     if(surfaceEditor?.pending||surfaceEditor?.loading){status('마감을 불러오는 중이에요. 완료 후 저장해 주세요.');return;}
-    try{localStorage.setItem(key(),JSON.stringify({revision:2,items:current().staging.snapshot().map(i=>({...i,roomId:placementRoom(i).id})),surfaceFinishes:surfaceEditor?.snapshot()}));status(actualUnit()?`${actualUnit().building}동 ${actualUnit().unit}호 ${current().definition.label} 마감과 배치를 이 브라우저에 저장했어요.`:'이 브라우저에 마감과 배치를 저장했어요.');}catch{status('브라우저 저장 공간을 사용할 수 없어요.');}
+    try{interior?.ensureBound();localStorage.setItem(key(),JSON.stringify({revision:3,items:current().staging.snapshot().map(i=>({...i,roomId:placementRoom(i).id})),interior:interior?.snapshot()??null}));status(actualUnit()?`${actualUnit().building}동 ${actualUnit().unit}호 ${current().definition.label} 인테리어와 가구 배치를 이 브라우저에 저장했어요.`:'이 브라우저에 인테리어와 가구 배치를 저장했어요.');}catch{status('브라우저 저장 공간을 사용할 수 없어요.');}
   };
   $('restore-layout').onclick=async()=>{
     if(furniturePending)return;
@@ -443,7 +473,7 @@ export function createStudio({scene,camera,renderer,getActive,loadVariant,resize
     setFurniturePending('restore');
     try{
       const data=JSON.parse(localStorage.getItem(savedKey));
-      if(![1,2].includes(data?.revision)||!Array.isArray(data.items))throw Error();
+      if(![1,2,3].includes(data?.revision)||!Array.isArray(data.items))throw Error();
       await generatedReady;
       if(!operationCurrent(token)||current()!==target)throw Error('평면이 바뀌어 복원하지 않았어요. 원하는 평면에서 다시 불러와 주세요.');
       if(data.items.some(i=>i?.kind?.startsWith('generated:')&&!target.staging.templates.has(i.kind)))throw Error('생성 가구를 불러오지 못했습니다. 모델이 저장된 서버 API·터널을 확인하세요.');
@@ -451,13 +481,16 @@ export function createStudio({scene,camera,renderer,getActive,loadVariant,resize
       // Resolve required templates before restoring, so a failed download leaves the current layout intact.
       for(const kind of catalogKinds){catalogLoading=true;status('저장된 CC0 가구를 불러오는 중이에요.');await installCatalogTemplate(target.staging,kind);}
       if(!operationCurrent(token)||current()!==target)throw Error('평면이 바뀌어 복원하지 않았어요. 원하는 평면에서 다시 불러와 주세요.');
-      surfaceRestore=await surfaceEditor?.prepareRestore(data.revision===2?data.surfaceFinishes:null);
+      // Revision 2 surface finishes used the retired image library; revision 3 stores the interior design.
+      surfaceRestore=await surfaceEditor?.prepareRestore(null);
       if(!operationCurrent(token)||current()!==target)throw Error('평면이 바뀌어 복원하지 않았어요. 원하는 평면에서 다시 불러와 주세요.');
       if(surfaceEditor&&!surfaceRestore)throw Error('마감 선택이 바뀌어 복원하지 않았어요. 다시 불러와 주세요.');
       if(surfaceRestore&&!surfaceRestore.commit())throw Error('마감 선택이 바뀌어 복원하지 않았어요. 다시 불러와 주세요.');
-      target.staging.restore(data.items,rooms());
+      ensureKitTemplates(target.staging);target.staging.restore(data.items,rooms());
       for(const i of data.items)if(rooms().some(r=>r.id===i?.roomId))assignments.set(i.id,i.roomId);
-      refreshRooms();refreshItems();renderPlan();showWarnings();dirty(true);status('저장한 마감과 배치를 불러왔어요.');
+      let interiorNote='';
+      if(data.revision===3&&data.interior){try{interior.ensureBound();interior.restore(data.interior);}catch(error){interiorNote=` 인테리어는 불러오지 못했어요. (${error.message})`;}}
+      refreshRooms();refreshItems();renderPlan();showWarnings();dirty(true);status(`저장한 인테리어와 배치를 불러왔어요.${interiorNote}`);
     }catch(error){status(error.message?.includes('생성 가구')||error.message?.includes('평면이 바뀌어')||error.message?.includes('마감')?error.message:catalogLoading?`CC0 가구를 불러오지 못해 배치를 복원하지 않았어요. ${error.message}`:'이 평면에 저장된 유효한 배치가 없어요.');}
     finally{surfaceRestore?.discard();setFurniturePending(null);}
   };
@@ -522,11 +555,49 @@ export function createStudio({scene,camera,renderer,getActive,loadVariant,resize
       $('studio-variant').value=current().key;return current().key===canonical;
     },
     get layoutScope(){return layoutState.current;},rooms,frame,status,exterior,setMode,selectRoom:chooseRoom,invalidate:dirty,settle,standAt,resume,previewRoom:()=>walk({capture:isTouchFirst()}),get mode(){return mode;},
-    refreshLayout(){assignments.clear();refreshRooms();refreshItems();renderPlan();showWarnings();dirty(true);},
+    refreshLayout(){assignments.clear();refreshRooms();refreshItems();renderPlan();showWarnings();dirty(true);interior?.refreshFurniture();},
     warnings:()=>current().staging.items.filter(i=>!i.deleted).map(i=>({id:i.id,title:i.title,messages:warnings(i)}))};
   syncLayout(current());
   const concepts=createConceptStudio(hooks);
-  const extensions=[concepts,createWindowView(hooks),createHouseTours(hooks,concepts.api)];
+  Object.assign(hooks,{camera,renderer,orbit,getSelection:()=>pendingServiceSelection??serviceSelection,
+    setTitle:text=>{if(mode==='interior')$('studio-description').textContent=text;},
+    save:()=>$('save-layout').onclick(),
+    savedInterior:()=>{try{const data=JSON.parse(localStorage.getItem(key()));return data?.revision===3?data.interior:null;}catch{return null;}},
+    // Interior → walk: start in the room being designed, with a way back.
+    walk(target){const place=places().find(p=>(p.source_room_id||p.id)===target)||places().find(p=>p.id===target);if(place){placeId=place.id;roomId=place.source_room_id||place.id;}fromInterior=true;return walk();},
+    furniture:{
+      items:()=>current().staging.items.filter(i=>!i.deleted),
+      kinds(){ensureKitTemplates(current().staging);return [...[...current().staging.templates].filter(([kind])=>!catalogByKind.has(kind)).map(([kind,source])=>({kind,title:source.title.replace(/^(안방|서쪽|가운데|동쪽|작은 방 \d) /,''),group:source.group,width:source.width,depth:source.depth,kit:KIT_KINDS.includes(kind),catalog:false})),
+        ...CATALOG_FURNITURE.map(asset=>({kind:asset.kind,catalogId:asset.id,title:asset.title,preview:asset.previewUrl,width:asset.dimensions_m.width,depth:asset.dimensions_m.depth,catalog:true}))];},
+      roomOf:i=>placementRoom(i).id,
+      warnings:id=>{const i=current().staging.items.find(x=>x.id===id);return i?warnings(i):[];},
+      add:(kind,target)=>addFurniture(kind,target),
+      move(id,patch,commit=true){
+        const i=current().staging.items.find(x=>x.id===id);if(!i)return '가구를 선택해 주세요.';
+        const next={...i,...patch},r=rooms().find(r=>inside(next,r))||placementRoom(i);
+        const error=current().staging.move(id,patch,r,commit,true);if(!error)assignments.set(id,r.id);
+        selection=id;dirty(true);return error;
+      },
+      remove(id){current().staging.remove(id);if(selection===id)selection=null;dirty(true);},
+      snapshot:()=>current().staging.snapshot(),
+      restore(saved){ensureKitTemplates(current().staging);current().staging.restore(saved,rooms());for(const i of current().staging.items)if(!i.deleted)assignments.set(i.id,placementRoom(i).id);dirty(true);},
+      // The saved interior reopens with its furniture, unless furniture was already moved this session.
+      async restoreSaved(){
+        const target=current(),pristine=target.staging.items.every(i=>!i.id.startsWith('added-')&&!i.deleted&&i.x===i.initial.x&&i.z===i.initial.z&&i.angle===i.initial.angle);
+        let data=null;try{data=JSON.parse(localStorage.getItem(key()));}catch{return false;}
+        if(!pristine||data?.revision!==3||!Array.isArray(data.items))return false;
+        if(data.items.some(i=>i?.kind?.startsWith('generated:')&&!target.staging.templates.has(i.kind)))return false;
+        try{for(const kind of new Set(data.items.filter(i=>i?.deleted!==true&&i?.kind?.startsWith('catalog:')).map(i=>i.kind)))await installCatalogTemplate(target.staging,kind);}catch{return false;}
+        if(current()!==target)return false;
+        ensureKitTemplates(target.staging);target.staging.restore(data.items,rooms());
+        for(const i of data.items)if(rooms().some(r=>r.id===i?.roomId))assignments.set(i.id,i.roomId);
+        refreshItems();renderPlan();dirty(true);return true;
+      },
+    },
+    ...interiorHooks});
+  interior=createInteriorStudio(hooks);interior.bindPlan($('layout-plan'));
+  const openInterior=document.createElement('button');openInterior.id='open-interior';openInterior.type='button';openInterior.textContent='벽·마감재 인테리어 →';openInterior.onclick=()=>setMode('interior');$('view-action-bar').append(openInterior);
+  const extensions=[concepts,createWindowView(hooks),createHouseTours(hooks,concepts.api),interior];
   refreshRooms();syncModelUI();setMode(initialMode==='overview'?'overview':'complex');ready=true;
   if(serviceSelection.room)chooseRoom(serviceSelection.room);
   const serviceNav=document.createElement('a');serviceNav.id='service-map-link';serviceNav.textContent='← 지도에서 위치 찾기';
@@ -562,5 +633,9 @@ export function createStudio({scene,camera,renderer,getActive,loadVariant,resize
   const generatedReady=initializeGeneratedAssets();
   return {getSelection:()=>pendingServiceSelection??serviceSelection,onVariant(){if(!ready)return;if(pendingServiceSelection){serviceSelection=pendingServiceSelection;pendingServiceSelection=null;}syncLayout(current());installGeneratedTemplates();refreshRooms();syncModelUI();setMode(mode==='tour'?'overview':mode);for(const extension of extensions)extension.onVariant?.();refreshItems();},get mode(){return mode;},
     inspect:()=>({layoutScope:layoutState.current,layoutEpoch:layoutState.epoch,storageKey:key(),siteBuilt:tower.built,serviceSelection,mode,roomId,placeId,selection,floor,contextView,cutaway:tower.inspectCutaway(),rendererLocalClipping:renderer.localClippingEnabled,contextCamera:{position_m:camera.position.toArray(),target_m:orbit.target.toArray()},visibleBuildings:tower.buildings.filter(b=>b.tower.visible).map(b=>b.id),buildingPresentation:tower.buildings.map(b=>({id:b.id,opacity:b.material.opacity,depthWrite:b.material.depthWrite})),buildingId:tower.selected.id,buildingCount:tower.buildings.length,siteAppearance:{environment:tower.appearance.state,facadeWindows:tower.buildings.reduce((sum,b)=>sum+b.facade.userData.windowCount,0)},building:{id:tower.selected.id,floors:tower.selected.floors,height_m:tower.selected.height_m,floorHeight_m:tower.floorHeight(tower.selected,floor)},allowOverlap,exteriorVisible:exterior.group.visible,warnings:current().staging.items.filter(i=>!i.deleted).map(i=>({id:i.id,messages:warnings(i)})),items:current().staging.snapshot(),positions:current().staging.items.map(i=>({id:i.id,position:i.group.position.toArray(),rotation:i.group.rotation.y,visible:i.group.visible}))}),
-    selectRoom:chooseRoom,setMode,moveSelected,setLighting:exterior.setLighting};
+    selectRoom:chooseRoom,setMode,moveSelected,setLighting:exterior.setLighting,
+    get appearanceMode(){return mode==='interior'?interior.appearanceMode:mode;},
+    get qualityMode(){return mode==='interior'?interior.qualityMode:'off';},
+    get interiorEdited(){return Boolean(interior?.edited);},
+    refreshInterior(){interior?.refreshLighting();},interior:interior.api};
 }

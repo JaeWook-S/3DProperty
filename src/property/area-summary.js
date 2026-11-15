@@ -28,19 +28,5 @@ export function renderAreaSummary(host, unitType) {
     cell.append(node('dt', label), description);
     list.append(cell);
   }
-  const details = node('details');
-  details.append(node('summary', '면적 기준 · 아키스케치'));
-  details.append(node('p', '전용면적은 세대 내부, 공급면적은 전용면적에 주거 공용면적을 더한 값입니다. 발코니 확장 여부와 관계없이 같은 타입의 등록 면적을 표시합니다.'));
-  const sources = node('p', '도면 출처: ');
-  for (const [index, floorplan] of area.floorplans.entries()) {
-    if (index) sources.append(' · ');
-    const link = node('a', floorplan.label);
-    link.href = `https://planner.archisketch.com/?mapId=${floorplan.id}&flip=0`;
-    link.target = '_blank';
-    link.rel = 'noopener noreferrer';
-    sources.append(link);
-  }
-  sources.append(` (${catalog.source.checkedAt} 확인)`);
-  details.append(sources);
-  host.append(list, details);
+  host.append(list);
 }

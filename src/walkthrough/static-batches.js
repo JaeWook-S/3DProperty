@@ -103,7 +103,8 @@ export function batchStaticMeshes(root) {
         object.children.length || object.userData.renderBatch || object.morphTargetInfluences?.length ||
         Array.isArray(object.material) || object.material.transparent || object.material.transmission > 0) return;
     for (let p = object; p; p = p.parent) {
-      if (!p.visible || p.userData.doorId || p.userData.stagingId) return;
+      // Editable overlays (finish try-on, selection) own their buffers; never merge them.
+      if (!p.visible || p.userData.doorId || p.userData.stagingId || p.userData.noBatch || p.userData.surfaceOverride) return;
       if (p === root) break;
     }
     const geometry = bakedRenderData(object)?.geometry ?? object.geometry;

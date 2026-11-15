@@ -50,3 +50,127 @@ products:
   chair:
     name: "임시 상품 · 의자"
     price: 99000
+  coffee-table:
+    name: "임시 상품 · 거실 테이블"
+    price: 199000
+  dining-table:
+    name: "임시 상품 · 식탁"
+    price: 590000
+  # 인테리어 > 가구 탭의 기본 가구(코드로 만든 가구 키트)입니다.
+  sofa4:
+    name: "임시 상품 · 4인 소파"
+    price: 1490000
+  sofa3:
+    name: "임시 상품 · 3인 소파"
+    price: 1190000
+  loveseat:
+    name: "임시 상품 · 2인 소파"
+    price: 790000
+  sofaLow:
+    name: "임시 상품 · 모듈 로우 소파"
+    price: 1290000
+  armchair:
+    name: "임시 상품 · 라운지 체어"
+    price: 290000
+  coffeeRound:
+    name: "임시 상품 · 원형 테이블"
+    price: 189000
+  coffeeRect:
+    name: "임시 상품 · 커피 테이블"
+    price: 159000
+  rugRound:
+    name: "임시 상품 · 원형 러그"
+    price: 129000
+  rugRect:
+    name: "임시 상품 · 러그"
+    price: 149000
+  rugSmall:
+    name: "임시 상품 · 작은 러그"
+    price: 59000
+  playMat:
+    name: "임시 상품 · 놀이 매트"
+    price: 119000
+  tvConsole:
+    name: "임시 상품 · TV장 + 65형 TV"
+    price: 1690000
+  bookshelf:
+    name: "임시 상품 · 책장"
+    price: 129000
+  bookshelfWide:
+    name: "임시 상품 · 서가 벽면장"
+    price: 590000
+  wardrobe2:
+    name: "임시 상품 · 2400 옷장"
+    price: 990000
+  sideboard:
+    name: "임시 상품 · 낮은 수납장"
+    price: 390000
+  dresser:
+    name: "임시 상품 · 화장대 세트"
+    price: 290000
+  toyShelf:
+    name: "임시 상품 · 교구장"
+    price: 149000
+  teepee:
+    name: "임시 상품 · 놀이 텐트"
+    price: 89000
+  kidsTable:
+    name: "임시 상품 · 유아 테이블 세트"
+    price: 129000
+  singleBed:
+    name: "임시 상품 · 싱글 침대"
+    price: 499000
+  queenBed:
+    name: "임시 상품 · 퀸 침대"
+    price: 890000
+  loftBed:
+    name: "임시 상품 · 벙커 침대"
+    price: 690000
+  crib:
+    name: "임시 상품 · 아기 침대"
+    price: 290000
+  deskSet:
+    name: "임시 상품 · 책상 세트"
+    price: 259000
+  deskWide:
+    name: "임시 상품 · 2인 책상"
+    price: 390000
+  deskPro:
+    name: "임시 상품 · 재택 데스크 + 듀얼 모니터"
+    price: 990000
+  dining6:
+    name: "임시 상품 · 6인 식탁"
+    price: 990000
+  dining4:
+    name: "임시 상품 · 4인 식탁"
+    price: 590000
+  dining2:
+    name: "임시 상품 · 2인 식탁"
+    price: 290000
+  piano:
+    name: "임시 상품 · 업라이트 피아노"
+    price: 3900000
+  catTower:
+    name: "임시 상품 · 캣타워"
+    price: 129000
+  petBed:
+    name: "임시 상품 · 반려동물 쿠션"
+    price: 59000
+  yogaMat:
+    name: "임시 상품 · 요가 매트"
+    price: 39000
+  exerciseBike:
+    name: "임시 상품 · 실내 자전거"
+    price: 390000
+  dumbbellRack:
+    name: "임시 상품 · 덤벨 랙"
+    price: 190000
+  floorMirror:
+    name: "임시 상품 · 전신 거울"
+    price: 99000
+  plant:
+    name: "임시 상품 · 대형 화분"
+    price: 89000
+  floorLamp:
+    name: "임시 상품 · 플로어 조명"
+    price: 129000
