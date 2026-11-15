@@ -3,7 +3,10 @@
 // beds put the headboard at -Z, desks and shelves stand with their back at -Z.
 // Sizes follow common Korean retail ranges; they are representative examples, not
 // measurements of a particular product. Heights exclude small decor on top (lamps, vases).
+import { MOUNTAIN_WHITE_SPECS } from './mountain-white-spec.js';
+
 export const FURNITURE = {
+  ...MOUNTAIN_WHITE_SPECS,
   sofa4: { title: '4인 소파', label: '소파', w: 2.6, d: 0.98, h: 0.8, seats: 4 },
   sofa3: { title: '3인 소파', label: '소파', w: 2.2, d: 0.95, h: 0.8, seats: 3 },
   loveseat: { title: '2인 소파', label: '소파', w: 1.6, d: 0.88, h: 0.78, seats: 2 },

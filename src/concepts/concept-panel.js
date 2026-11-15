@@ -7,6 +7,8 @@ import { planDressing, createDressing } from './dressing.js';
 import { corners } from '../walkthrough/layout.js';
 import { rememberTheme } from '../walkthrough/my-home.js';
 import { coordinateConceptInput, conceptRoomId } from './coordinate-plan.js';
+import { conceptForTour } from './mountain-white-spec.js';
+import { installMountainWhiteTemplates, mountainWhiteLoadError } from './mountain-white-furniture.js';
 import './concepts.css';
 
 // Recommended concepts for the 112A unit (W7-06): the "컨셉 보기" tab ranks concepts by
@@ -99,11 +101,12 @@ export function createConceptStudio(hooks) {
       const spec = FURNITURE[kind];
       staging.addTemplate(kind, { title: spec.title, label: spec.label, group: template(kind), width: spec.w, depth: spec.d, height: spec.h });
     }
+    installMountainWhiteTemplates(staging);
   }
 
   const planCache = new Map();
   function plan(concept) {
-    const key = `${variant()}:${concept.id}`;
+    const key = `${scope()}:${concept.id}:${concept.furnitureSet ?? 'kit'}`;
     if (!planCache.has(key)) {
       const active = hooks.current();
       // Kept model furniture returns to its initial transform when a concept is applied.
@@ -139,10 +142,10 @@ export function createConceptStudio(hooks) {
   function dress(applied) {
     const active = hooks.current();
     if (!applied) { dressing.clear(active.model); return; }
-    const concept = CONCEPTS.find((c) => c.id === applied.concept);
+    const concept = conceptForTour(CONCEPTS.find((c) => c.id === applied.concept), applied.tour);
     const kept = active.staging.items.filter((i) => !i.id.startsWith('added-') && concept.keep.includes(i.kind)).map((i) => ({ ...i, ...i.initial }));
     const placements = plan(concept).placements.map((item) => ({ ...item, room: modelRoomId(item.room) }));
-    const props = planDressing(placements, hooks.rooms(), { kept, doors: active.definition.doors, seed: seedOf(concept.id) });
+    const props = planDressing(placements.map(p => ({ ...p, kind: FURNITURE[p.kind]?.baseKind ?? p.kind })), hooks.rooms(), { kept, doors: active.definition.doors, seed: seedOf(concept.id) });
     dressing.build(active.model, props, PALETTES[applied.palette].colors);
   }
   function paint() {
@@ -179,10 +182,15 @@ export function createConceptStudio(hooks) {
   // history. `tour` is the 집들이 the theme was taken from.
   function apply(conceptId, paletteId, { url = true, frame = true, tour = null } = {}) {
     if(!supported())return false;
-    const concept = CONCEPTS.find((c) => c.id === conceptId);
+    const concept = conceptForTour(CONCEPTS.find((c) => c.id === conceptId), tour);
     if (!concept) return false;
     const staging = hooks.current().staging;
     ensureTemplates();
+    if (concept.furnitureSet && concept.items.some(p => !staging.templates.has(p.kind))) {
+      const error = mountainWhiteLoadError();
+      hooks.status(error ? `화이트 오크 가구 로딩 실패 — ${error.message}` : '화이트 오크 가구를 준비하는 중이에요. 잠시 후 다시 시도해 주세요.');
+      return false;
+    }
     staging.reset();
     for (const item of staging.items) {
       if (concept.keep.includes(item.kind)) continue;
@@ -239,8 +247,11 @@ export function createConceptStudio(hooks) {
 
   function writeURL() {
     const url = new URL(location.href), applied = appliedHere();
-    if (applied) { url.searchParams.set('concept', applied.concept); url.searchParams.set('palette', applied.palette); }
-    else { url.searchParams.delete('concept'); url.searchParams.delete('palette'); }
+    if (applied) {
+      url.searchParams.set('concept', applied.concept); url.searchParams.set('palette', applied.palette);
+      if (applied.tour) url.searchParams.set('conceptTour', applied.tour); else url.searchParams.delete('conceptTour');
+    }
+    else { url.searchParams.delete('concept'); url.searchParams.delete('palette'); url.searchParams.delete('conceptTour'); }
     history.replaceState(null, '', url);
   }
 
@@ -270,7 +281,7 @@ export function createConceptStudio(hooks) {
     const kept = hooks.current().staging.items.filter((i) => !i.id.startsWith('added-') && concept.keep.includes(i.kind))
       .map((i) => ({ ...i, ...i.initial }));
     for (const p of [...kept, ...plan(concept).placements]) {
-      const fill = colors[PLAN_FILL[p.kind] ?? 'wood'] ?? '#bbb';
+      const fill = colors[PLAN_FILL[FURNITURE[p.kind]?.baseKind ?? p.kind] ?? 'wood'] ?? '#bbb';
       const flat = (FURNITURE[p.kind]?.flat) || p.height < 0.05;
       svg.append(svgNode('polygon', { points: corners(p).map((c) => c.join(',')).join(' '), fill, class: flat ? 'thumb-flat' : 'thumb-item' }));
     }
@@ -301,6 +312,7 @@ export function createConceptStudio(hooks) {
 
   function card({ concept, fit, needs, palette }) {
     const applied = appliedHere()?.concept === concept.id ? appliedHere() : null;
+    concept = conceptForTour(concept, applied?.tour);
     const shown = applied?.palette ?? palette;
     const met = needs.filter((n) => n.ok).length;
     const badge = fit === 'best' || fit === 'good' ? FIT_LABELS[fit] : null;
@@ -347,7 +359,7 @@ export function createConceptStudio(hooks) {
 
   function renderDetail() {
     const applied = appliedHere();
-    const concept = CONCEPTS.find((c) => c.id === applied.concept);
+    const concept = conceptForTour(CONCEPTS.find((c) => c.id === applied.concept), applied.tour);
     const result = plan(concept);
     const household = state.household ?? concept.households[0];
     const needs = checkNeeds(summarize(result.placements, concept.keep), household);
@@ -511,14 +523,14 @@ export function createConceptStudio(hooks) {
   if (linked && supported()) queueMicrotask(() => {
     hooks.setMode('overview');
     open();
-    apply(linked.id, PALETTES[params.get('palette')] && linked.palettes.includes(params.get('palette')) ? params.get('palette') : undefined);
+    apply(linked.id, PALETTES[params.get('palette')] && linked.palettes.includes(params.get('palette')) ? params.get('palette') : undefined, { tour: params.get('conceptTour') || null });
   });
 
   if (import.meta.env.DEV && params.has('test')) {
     window.__concepts = {
       apply, setPalette, clear, open, close,
       state: () => ({ open: state.open, view: state.view, household: state.household, mood: state.mood, applied: appliedHere() }),
-      plan: (id) => plan(CONCEPTS.find((c) => c.id === id)),
+      plan: (id, tour) => plan(conceptForTour(CONCEPTS.find((c) => c.id === id), tour)),
       ranked: () => ranked().map((r) => ({ id: r.concept.id, fit: r.fit, palette: r.palette })),
       colors: () => Object.fromEntries(Object.entries(MATERIALS).map(([slot, material]) => [slot, `#${material.color.getHexString()}`])),
     };

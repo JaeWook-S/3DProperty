@@ -116,6 +116,25 @@ function dining(tableW, tableD, chairs) {
   return p;
 }
 
+/** Supplement a supplied table-only GLB without drawing a second table. */
+export function buildDiningChairs() {
+  const p = new Parts();
+  for (const x of [-0.72, 0, 0.72]) {
+    chair(p, x, -0.48, 0);
+    chair(p, x, 0.48, Math.PI);
+  }
+  return p.build('dining6', { center: false });
+}
+
+/** Supplement a supplied cabinet-only GLB with the existing television. */
+export function buildTelevision(surfaceHeight) {
+  const p = new Parts();
+  p.add(box(0.36, 0.015, 0.22), MATERIALS.metal, [0, surfaceHeight + 0.0075, -0.05]);
+  p.add(box(0.07, 0.05, 0.03), MATERIALS.metal, [0, surfaceHeight + 0.035, -0.05]);
+  p.add(rbox(1.45, 0.83, 0.035, 0.008), FIXED.screen, [0, surfaceHeight + 0.43, -0.05]);
+  return p.build('tvConsole', { center: false });
+}
+
 function bed(w, d, { top = 0.3, headboard = 0.9, frameMaterial = MATERIALS.wood } = {}) {
   const p = new Parts();
   legs(p, w, d - 0.05, 0.06, MATERIALS.woodDark, 0.08, 0.025);

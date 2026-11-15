@@ -17,7 +17,7 @@ const OUT = new URL('../../assets/house-tours/', import.meta.url);
 const SIZE = { width: 1440, height: 900 };
 const only = new Set(process.argv.slice(2));
 
-const browser = await chromium.launch({ args: ['--use-angle=swiftshader', '--enable-unsafe-swiftshader', '--no-sandbox'] });
+const browser = await chromium.launch({ channel: process.env.PLAYWRIGHT_CHANNEL || undefined, args: ['--use-angle=swiftshader', '--enable-unsafe-swiftshader', '--no-sandbox'] });
 const page = await browser.newPage({ viewport: SIZE });
 // Headless Chromium refuses Pointer Lock; pretend it succeeded so walking starts normally.
 await page.addInitScript(() => {

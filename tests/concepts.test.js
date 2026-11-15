@@ -79,7 +79,7 @@ test('ranking puts the matching concept first and the mood picks the palette', (
 });
 
 test('kit pieces are built at their catalog sizes, centered, standing on the floor', () => {
-  assert.deepEqual([...KIT_KINDS].sort(), Object.keys(FURNITURE).sort());
+  assert.deepEqual([...KIT_KINDS].sort(), Object.keys(FURNITURE).filter(kind => !FURNITURE[kind].baseKind).sort());
   for (const kind of KIT_KINDS) {
     const group = buildFurniture(kind);
     const box = new Box3().setFromObject(group), size = box.getSize(new Vector3()), center = box.getCenter(new Vector3());

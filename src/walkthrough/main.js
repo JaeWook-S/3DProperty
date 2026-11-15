@@ -22,6 +22,7 @@ import { verticalFromHorizontal, horizontalFromVertical, screenHorizontalFov } f
 import './style.css';
 import { stagingAssets } from './staging-assets.js';
 import { createStudio } from './studio.js';
+import { loadMountainWhiteFurniture } from '../concepts/mountain-white-furniture.js';
 import { createMinimap } from './minimap.js';
 import { createFurnitureInfo } from './furniture-info.js';
 import { createFurnitureHover } from './furniture-hover.js';
@@ -661,6 +662,13 @@ async function boot() {
     };
   }
   await loadVariant(selected.variant);
+  try {
+    $('status').textContent = '화이트 오크 가구를 준비하는 중…';
+    await loadMountainWhiteFurniture();
+  } catch (error) {
+    console.error('mountain-white furniture:', error);
+    $('status').textContent = `화이트 오크 가구 로딩 실패 — ${error.message}`;
+  }
   // Studio is the default for every entry URL; the legacy viewer is opt-in.
   if (params.get('studio') !== '0' && active) {
     qualityReview=createQualityReview({renderer,camera,getActive:()=>active,getLights:()=>appearance.pathtraceLights,getLighting:()=>selected.lighting,rasterize:dt=>appearance.render(dt),invalidate:()=>{needsRender=true;}});

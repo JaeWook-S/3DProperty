@@ -3,6 +3,7 @@ import { compareFit, verdictText } from './fit.js';
 import { tourPlanInput } from './plan-input.js';
 import { CONCEPTS, PALETTES } from '../concepts/catalog.js';
 import { FURNITURE } from '../concepts/furniture-spec.js';
+import { conceptForTour } from '../concepts/mountain-white-spec.js';
 import { VARIANTS, resolveVariant } from '../walkthrough/variants.js';
 import { navigationRooms } from '../walkthrough/minimap-geometry.js';
 import { corners } from '../walkthrough/layout.js';
@@ -35,7 +36,7 @@ const findComplexes = (text) => {
 const THEME_PLAN = 'expanded';
 const UNIT_BOUNDS = [-0.2, -0.2, 13.8, 10.3];
 const params = () => new URLSearchParams(location.search);
-const conceptOf = (tour) => CONCEPTS.find((c) => c.id === tour.concept);
+const conceptOf = (tour) => conceptForTour(CONCEPTS.find((c) => c.id === tour.concept), tour.id);
 const householdLabel = (id) => tagLabel('household', id);
 const planShort = (plan) => PLANS[plan].replace('112A ', '');
 const dateLabel = (iso) => iso.replaceAll('-', '.');
@@ -48,7 +49,7 @@ const PLAN_INPUTS = Object.fromEntries(Object.keys(PLANS).map(key => {const defi
 const fits = new Map();
 /** The tour's theme, laid out in full, compared with the theme laid out in 우리 집. */
 function fitFor(tour, home) {
-  const key = `${tour.concept}>${home}`;
+  const key = `${tour.id}>${home}`;
   if (!fits.has(key)) fits.set(key, compareFit(conceptOf(tour), tourPlanInput(conceptOf(tour),PLAN_INPUTS[THEME_PLAN].definition), tourPlanInput(conceptOf(tour),PLAN_INPUTS[home].definition)));
   return fits.get(key);
 }
@@ -73,7 +74,7 @@ function planDrawing(tour, plan, placements, marks = new Map(), label) {
   for (const p of [...tourPlanInput(conceptOf(tour),PLAN_INPUTS[plan].definition).existing, ...placements]) {
     const flat = FURNITURE[p.kind]?.flat;
     const status = marks.get(p.index) ?? '';
-    node.append(svg('polygon', { points: corners(p).map((c) => c.join(',')).join(' '), fill: colors[PLAN_FILL[p.kind] ?? 'wood'] ?? '#bbb', class: `pl-item ${flat ? 'pl-flat' : ''} ${status}` }));
+    node.append(svg('polygon', { points: corners(p).map((c) => c.join(',')).join(' '), fill: colors[PLAN_FILL[FURNITURE[p.kind]?.baseKind ?? p.kind] ?? 'wood'] ?? '#bbb', class: `pl-item ${flat ? 'pl-flat' : ''} ${status}` }));
   }
   return node;
 }
@@ -427,9 +428,12 @@ export function createHouseTours(hooks, concepts) {
     // Desktop previews keep the cursor free for room switches, apply and exit.
     // Walking starts only when requested; touch previews retain their joystick.
     if(!hooks.previewRoom())return false;
-    const [x1, z1, x2, z2] = room.bounds_m;
+    const bounds = state.session?.tour.id === 'mountain-white'
+      ? tourPlanInput(conceptOf(state.session.tour), hooks.current().definition).rooms.find(r => r.id === roomId)?.bounds_m ?? room.bounds_m
+      : room.bounds_m;
+    const [x1, z1, x2, z2] = bounds;
     const views = [view && [x1 + view[0] * (x2 - x1), z1 + view[1] * (z2 - z1), x1 + view[2] * (x2 - x1), z1 + view[3] * (z2 - z1), view[4] ?? drop],
-      ...(VIEWS[roomId]?.(room.bounds_m) ?? []).map((v) => [...v, drop])];
+      ...(VIEWS[roomId]?.(bounds) ?? []).map((v) => [...v, drop])];
     for (const spot of views.filter(Boolean)) if (hooks.standAt(...spot)) return true;
     return false;
   }
@@ -441,9 +445,9 @@ export function createHouseTours(hooks, concepts) {
   }
   async function stage(tour, plan = state.home) {
     const prev = { variant: hooks.current().key, mode: hooks.mode, lighting: $('lighting')?.value };
-    if (!(await hooks.loadVariant(plan))) return null;
+    if (!(await hooks.loadVariant(plan))) { hooks.status('우리 집 평면을 불러오지 못했어요.'); return null; }
     const snap = concepts.snapshot();
-    if(!concepts.apply(tour.concept, tour.palette, { url: false, frame: false }))return null;
+    if(!concepts.apply(tour.concept, tour.palette, { url: false, frame: false, tour: tour.id }))return null;
     setLighting(tour.lighting);
     return { tour, prev, snap };
   }
@@ -454,7 +458,7 @@ export function createHouseTours(hooks, concepts) {
       if (state.session) await endTour({ route: false });
       if (sheet.open) sheet.close();
       const staged = await stage(tour);
-      if (!staged) { hooks.status('우리 집 평면을 불러오지 못했어요.'); return; }
+      if (!staged) return;
       state.session = staged;
       count(tour.id, 'walks');
       document.body.dataset.houseTour = tour.id;

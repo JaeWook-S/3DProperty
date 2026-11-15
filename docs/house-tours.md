@@ -80,6 +80,12 @@ CORTEX는 여러 집이 추가되고, 사용자가 우리 집을 직접 추가�
 
 ### 사진과 집 정보
 
+`mountain-white`의 3D 가구는 `assets/house-tours/mountain-white/`의 사용자 제작 GLB 7개를 사용합니다. `src/concepts/mountain-white-spec.js`에서 이 집들이에만 전용 가구 키와 배치를 선택하며, 공용 `family-lounge` 및 `river-view`는 기존 가구를 유지합니다. `mountain-white-furniture.js`가 원본 크기와 PBR 재질을 보존해 로드하고 침대 촬영용 바닥·기본 Cube를 제외합니다. TV장에는 기존 TV를, 식탁에는 안쪽으로 넣은 기존 의자 6개를 보완합니다. 확장형은 7개 모두 배치하며, 기본형에서 들어가지 않는 식탁은 배치 비교에 제외 사유를 표시합니다. `conceptTour=mountain-white`는 적용 후 새로고침과 공유 링크에서 가구 구성을 유지합니다.
+
+가구 로더는 기존 조립 루트와, 텍스처 베이킹 후 루트 없이 개별 메시로 내보낸 GLB를 모두 지원합니다. 루트가 없으면 파일별 부품 접두사(`SOFA_`, `TVR_`, `STBL_`, `TVC_`, `TPL_`, `RDT_`, `BED_`)로 가구만 선택합니다. 다시 내보낼 때 이 접두사를 유지하고, GLB 경계 규격이 달라지면 전용 spec도 함께 수정합니다. 로딩 실패 시 파일명과 원인을 표시합니다. 원본 집들이 사진은 그대로이며 3D 미리보기는 개발 서버를 켠 뒤 `node tools/house-tours/render-tours.mjs mountain-white`로 갱신합니다. 검증: `node --test tests/mountain-white.test.js`, `PLAYWRIGHT_CHANNEL=chrome npx playwright test tests/mountain-white.browser.js`.
+
+교체된 GLB 7개에는 베이킹한 PBR 이미지가 내장되어 있습니다. 로더는 해당 재질을 유지하며 테마 팔레트로 덮어쓰지 않습니다. 내장 색상 텍스처가 실제 브라우저에서 디코딩되는지 검증합니다.
+
 - 사진은 모두 [Unsplash 라이선스](https://unsplash.com/license) 사진입니다. 상업적 사용이 가능하고 허락이 필요 없습니다. Unsplash 이미지 주소로 불러오고, 상세에 작가를 링크로 표시합니다. 한 집들이의 사진은 한 작가가 같은 집에서 찍은 묶음(같은 업로드)에서 골랐습니다. 대부분 부동산 촬영입니다.
 - 오늘의집 등 다른 서비스의 사진은 쓰지 않습니다. 올린 사용자와 회사에 저작권이 있습니다.
 - 평수 · 방 수 · 가족 구성은 사진에 맞춰 정한 **시연용 예시**입니다(화면에는 적지 않습니다). 사용자가 집들이를 올리는 기능이 생기면 그 기록으로 바뀝니다.

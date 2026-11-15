@@ -21,7 +21,7 @@ export function coordinateConceptInput(concept,info){
     if(item.room!=='Kitchen')return item;
     const b=table?.bounds_m,center=b?[(b[0]+b[2])/2,(b[1]+b[3])/2]:[7.2,4];
     return {...item,x:['at',center[0]],z:['at',center[1]],variants:undefined,
-      candidates:[{kind:'dining4',x:['at',center[0]],z:['at',center[1]]},{kind:'dining2',x:['at',center[0]],z:['at',center[1]]}]};
+      candidates:concept.furnitureSet ? item.candidates : [{kind:'dining4',x:['at',center[0]],z:['at',center[1]]},{kind:'dining2',x:['at',center[0]],z:['at',center[1]]}]};
   });
   return {concept:{...concept,items},rooms,variant:info.variant,search:true};
 }
