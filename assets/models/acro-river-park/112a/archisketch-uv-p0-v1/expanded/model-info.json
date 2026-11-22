@@ -2741,7 +2741,7 @@
     }
   },
   "detail_sources": {
-    "layout_path": "/home/nas5/kinamkim/Repos/geonwoo/AisideProject/datasets/acro-river-park/raw/archisketch/112A/expanded/detail-review-20261012T141111Z/furniture-layout.json",
+    "layout_path": "/home/nas5/kinamkim/Repos/geonwoo/11_projects/cortex/AisideProject/datasets/acro-river-park/raw/archisketch/112A/expanded/detail-review-20261012T141111Z/furniture-layout.json",
     "layout_sha256": "524720f66a77db8baaa7abcddb6f5cb150bd22a52541cbb31c489b5a86ab13ef",
     "reference_image": "아크로리버파크 112A_확장형_0.jpg",
     "furniture_status": "image-guided staging, not a physical survey",

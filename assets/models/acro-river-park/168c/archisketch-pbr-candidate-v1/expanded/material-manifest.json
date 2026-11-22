@@ -58,7 +58,7 @@
         "condition": "current candidate has no TANGENT attributes; current local GLTFLoader flips y for derivative tangents",
         "tangent_present_case": "preserve loader result; do not globally force negative Y",
         "normal_map_pixels": "unchanged OpenGL tangent-space +Y; do not invert green channel",
-        "evidence": "/home/nas5/kinamkim/Repos/geonwoo/3DProperty/node_modules/three/examples/jsm/loaders/GLTFLoader.js",
+        "evidence": "/home/nas5/kinamkim/Repos/geonwoo/11_projects/cortex/3DProperty/node_modules/three/examples/jsm/loaders/GLTFLoader.js",
         "loader_sha256": "131c0f78c01d19368ae495caa65b3adaa10487810a36a05bb5901b769a35ac16",
         "runtime_normalScale": "Preserve signed GLTFLoader result. With no TANGENT attribute this loader uses [1,-1], not setScalar(1). glTF normalTexture.scale stays 1."
       },
@@ -355,7 +355,7 @@
         "condition": "current candidate has no TANGENT attributes; current local GLTFLoader flips y for derivative tangents",
         "tangent_present_case": "preserve loader result; do not globally force negative Y",
         "normal_map_pixels": "unchanged OpenGL tangent-space +Y; do not invert green channel",
-        "evidence": "/home/nas5/kinamkim/Repos/geonwoo/3DProperty/node_modules/three/examples/jsm/loaders/GLTFLoader.js",
+        "evidence": "/home/nas5/kinamkim/Repos/geonwoo/11_projects/cortex/3DProperty/node_modules/three/examples/jsm/loaders/GLTFLoader.js",
         "loader_sha256": "131c0f78c01d19368ae495caa65b3adaa10487810a36a05bb5901b769a35ac16",
         "runtime_normalScale": "Preserve signed GLTFLoader result. With no TANGENT attribute this loader uses [1,-1], not setScalar(1). glTF normalTexture.scale stays 1."
       },
@@ -468,7 +468,7 @@
         "condition": "current candidate has no TANGENT attributes; current local GLTFLoader flips y for derivative tangents",
         "tangent_present_case": "preserve loader result; do not globally force negative Y",
         "normal_map_pixels": "unchanged OpenGL tangent-space +Y; do not invert green channel",
-        "evidence": "/home/nas5/kinamkim/Repos/geonwoo/3DProperty/node_modules/three/examples/jsm/loaders/GLTFLoader.js",
+        "evidence": "/home/nas5/kinamkim/Repos/geonwoo/11_projects/cortex/3DProperty/node_modules/three/examples/jsm/loaders/GLTFLoader.js",
         "loader_sha256": "131c0f78c01d19368ae495caa65b3adaa10487810a36a05bb5901b769a35ac16",
         "runtime_normalScale": "Preserve signed GLTFLoader result. With no TANGENT attribute this loader uses [1,-1], not setScalar(1). glTF normalTexture.scale stays 1."
       },
@@ -706,7 +706,7 @@
         "condition": "current candidate has no TANGENT attributes; current local GLTFLoader flips y for derivative tangents",
         "tangent_present_case": "preserve loader result; do not globally force negative Y",
         "normal_map_pixels": "unchanged OpenGL tangent-space +Y; do not invert green channel",
-        "evidence": "/home/nas5/kinamkim/Repos/geonwoo/3DProperty/node_modules/three/examples/jsm/loaders/GLTFLoader.js",
+        "evidence": "/home/nas5/kinamkim/Repos/geonwoo/11_projects/cortex/3DProperty/node_modules/three/examples/jsm/loaders/GLTFLoader.js",
         "loader_sha256": "131c0f78c01d19368ae495caa65b3adaa10487810a36a05bb5901b769a35ac16",
         "runtime_normalScale": "Preserve signed GLTFLoader result. With no TANGENT attribute this loader uses [1,-1], not setScalar(1). glTF normalTexture.scale stays 1."
       },
@@ -822,7 +822,7 @@
         "condition": "current candidate has no TANGENT attributes; current local GLTFLoader flips y for derivative tangents",
         "tangent_present_case": "preserve loader result; do not globally force negative Y",
         "normal_map_pixels": "unchanged OpenGL tangent-space +Y; do not invert green channel",
-        "evidence": "/home/nas5/kinamkim/Repos/geonwoo/3DProperty/node_modules/three/examples/jsm/loaders/GLTFLoader.js",
+        "evidence": "/home/nas5/kinamkim/Repos/geonwoo/11_projects/cortex/3DProperty/node_modules/three/examples/jsm/loaders/GLTFLoader.js",
         "loader_sha256": "131c0f78c01d19368ae495caa65b3adaa10487810a36a05bb5901b769a35ac16",
         "runtime_normalScale": "Preserve signed GLTFLoader result. With no TANGENT attribute this loader uses [1,-1], not setScalar(1). glTF normalTexture.scale stays 1."
       },
@@ -966,7 +966,7 @@
   "normalScale_correction": "Supersedes prior S2 (1,1) runtime recommendation. Preserve loader sign; glTF scale remains 1.",
   "paired_blend": "acro168c-expanded.blend",
   "paired_blend_sha256": "0a9348bc0c32639499fe5db27f16e263fa324ae70a0ca4ebca0ee0ac0c5b6005",
-  "source_manifest": "/home/nas5/kinamkim/Repos/geonwoo/AisideProject/realestate-spatial-ai/experiments/service-appearance/2026-10-22-168c/s2/material-manifest.json",
+  "source_manifest": "/home/nas5/kinamkim/Repos/geonwoo/11_projects/cortex/AisideProject/realestate-spatial-ai/experiments/service-appearance/2026-10-22-168c/s2/material-manifest.json",
   "source_manifest_sha256": "f4d12d22b90f5b4ce166ad31ead92342fd7c8a6a56ae964d0d5a4920e80b0608",
   "metadata": "model-info.json",
   "active_web_changed": false

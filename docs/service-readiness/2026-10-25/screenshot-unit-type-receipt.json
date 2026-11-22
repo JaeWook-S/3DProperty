@@ -1,8 +1,8 @@
 {
   "status": "normalized_separate_observations_archived",
   "completed_at_utc": "2026-10-25T16:18:14.047403+00:00",
-  "data": "/home/nas5/kinamkim/Repos/geonwoo/AisideProject/datasets/acro-river-park/releases/2026-10-25-unit-type-observations-v1/data/observations.json",
-  "verification": "/home/nas5/kinamkim/Repos/geonwoo/AisideProject/datasets/acro-river-park/releases/2026-10-25-unit-type-observations-v1/validation.json",
+  "data": "/home/nas5/kinamkim/Repos/geonwoo/11_projects/cortex/AisideProject/datasets/acro-river-park/releases/2026-10-25-unit-type-observations-v1/data/observations.json",
+  "verification": "/home/nas5/kinamkim/Repos/geonwoo/11_projects/cortex/AisideProject/datasets/acro-river-park/releases/2026-10-25-unit-type-observations-v1/validation.json",
   "rows": 5,
   "eligible_for_unit_selection_count": 0,
   "existing_csv_unit_selection_unchanged": true,

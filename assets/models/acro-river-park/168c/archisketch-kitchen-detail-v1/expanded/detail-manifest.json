@@ -9,17 +9,17 @@
   ],
   "references": [
     {
-      "path": "/home/nas5/kinamkim/Repos/geonwoo/AisideProject/references/week-07/acro-river-park/naver/vr/168C/screenshots/expanded/168C_VR_확장형_거실부엌.png",
+      "path": "/home/nas5/kinamkim/Repos/geonwoo/11_projects/cortex/AisideProject/references/week-07/acro-river-park/naver/vr/168C/screenshots/expanded/168C_VR_확장형_거실부엌.png",
       "sha256": "1a992f5691dfc584916388dd8c46123ecb0bedefce11a52d00fbcef0a902e3cb",
       "use": "appearance/layout reference, no extraction of surveyed appliance dimensions"
     },
     {
-      "path": "/home/nas5/kinamkim/Repos/geonwoo/AisideProject/references/week-07/acro-river-park/naver/vr/168C/screenshots/expanded/168C_VR_확장형_부엌내부.png",
+      "path": "/home/nas5/kinamkim/Repos/geonwoo/11_projects/cortex/AisideProject/references/week-07/acro-river-park/naver/vr/168C/screenshots/expanded/168C_VR_확장형_부엌내부.png",
       "sha256": "364aea65b1579ccaa0f955f3356ef3d8496ea04e4db402e16bc24ba291ec66df",
       "use": "appearance/layout reference, no extraction of surveyed appliance dimensions"
     },
     {
-      "path": "/home/nas5/kinamkim/Repos/geonwoo/AisideProject/references/week-07/acro-river-park/naver/vr/168C/screenshots/expanded/168C_VR_확장형_부엌내부_펜트리.png",
+      "path": "/home/nas5/kinamkim/Repos/geonwoo/11_projects/cortex/AisideProject/references/week-07/acro-river-park/naver/vr/168C/screenshots/expanded/168C_VR_확장형_부엌내부_펜트리.png",
       "sha256": "fa2c5bbd9dfe7982dbf571907f5ab9352e68f1e47c9825c58676ebc2b972b945",
       "use": "appearance/layout reference, no extraction of surveyed appliance dimensions"
     }
@@ -101,7 +101,7 @@
   "collision": false,
   "additional_glb_bytes": 246296,
   "material_policy": "No new materials/images/maps. Exact original 26 GLB materials and existing authored-pbr-v1 bindings preserved. Reuse unchanged named metal/glass/recess/white/diffuser materials.",
-  "parent_material_manifest": "/home/nas5/kinamkim/Repos/geonwoo/3DProperty/assets/models/acro-river-park/168c/archisketch-pbr-candidate-v1/expanded/material-manifest.json",
+  "parent_material_manifest": "/home/nas5/kinamkim/Repos/geonwoo/11_projects/cortex/3DProperty/assets/models/acro-river-park/168c/archisketch-pbr-candidate-v1/expanded/material-manifest.json",
   "parent_material_manifest_sha256": "c9fbc80631233d3f9fea6e59362bc1e089082a6bb375381c417a9d64ae094fb2",
   "maps_external_required": false,
   "new_uv": {
@@ -125,7 +125,7 @@
     "result": "Oven and hood controls/edges become distinguishable; window pane perimeter has a gasket edge. Small detail improvement, not photorealism. Window grips and hood filter underside are not individually established as visible by these three views.",
     "comparability": "same CPU settings, camera, light, source materials; ceilings restored for both; Blender review, not Three runtime"
   },
-  "validation": "/home/nas5/kinamkim/Repos/geonwoo/3DProperty/runtime/interior/2026-10-22-kitchen-detail/verification.json",
+  "validation": "/home/nas5/kinamkim/Repos/geonwoo/11_projects/cortex/3DProperty/runtime/interior/2026-10-22-kitchen-detail/verification.json",
   "web_not_yet_active": true,
   "gpu_used": false
 }

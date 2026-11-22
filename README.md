@@ -50,7 +50,7 @@
 
 ```bash
 scp \
-  yj1-H200-kinamkim:/home/nas5/kinamkim/Repos/geonwoo/3DProperty/open-studio.command \
+  yj1-H200-kinamkim:/home/nas5/kinamkim/Repos/geonwoo/11_projects/cortex/3DProperty/open-studio.command \
   ~/Desktop/open-studio.command &&
 chmod +x ~/Desktop/open-studio.command &&
 open ~/Desktop/open-studio.command

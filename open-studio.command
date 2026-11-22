@@ -2,7 +2,7 @@
 # Standalone macOS launcher; compatible with system Bash 3.2.
 set -euo pipefail
 TASK_HOST="${CORTEX_SSH_HOST:-yj1-H200-kinamkim}"
-TASK_REMOTE_ROOT="${CORTEX_REMOTE_ROOT:-/home/nas5/kinamkim/Repos/geonwoo/3DProperty}"
+TASK_REMOTE_ROOT="${CORTEX_REMOTE_ROOT:-/home/nas5/kinamkim/Repos/geonwoo/11_projects/cortex/3DProperty}"
 TASK_LOCKED=0
 finish() {
   TASK_STATUS=$?

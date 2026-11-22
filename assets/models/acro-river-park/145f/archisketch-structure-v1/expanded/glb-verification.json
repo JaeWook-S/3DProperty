@@ -13,13 +13,13 @@
   "actual_unit_renovation_confirmed": false,
   "blender_version": "4.5.3 LTS",
   "paths": {
-    "blend": "/home/nas5/kinamkim/Repos/geonwoo/3DProperty/assets/models/acro-river-park/145f/archisketch-structure-v1/expanded/acro145f-expanded-archisketch.blend",
-    "glb": "/home/nas5/kinamkim/Repos/geonwoo/3DProperty/assets/models/acro-river-park/145f/archisketch-structure-v1/expanded/acro145f-expanded-archisketch.glb",
-    "metadata": "/home/nas5/kinamkim/Repos/geonwoo/3DProperty/assets/models/acro-river-park/145f/archisketch-structure-v1/expanded/model-info.json",
-    "topview": "/home/nas5/kinamkim/Repos/geonwoo/3DProperty/assets/models/acro-river-park/145f/archisketch-structure-v1/expanded/top-view.png",
-    "spec": "/home/nas5/kinamkim/Repos/geonwoo/3DProperty/tools/blender/specs145f168d/acro145f-expanded-archisketch-v1.json",
-    "summary": "/home/nas5/kinamkim/Repos/geonwoo/AisideProject/datasets/acro-river-park/raw/archisketch/145F/expanded/2026-11-02-user-saved/project-summary.json",
-    "layout": "/home/nas5/kinamkim/Repos/geonwoo/AisideProject/datasets/acro-river-park/raw/archisketch/145F/expanded/2026-11-02-user-saved/furniture-layout.json"
+    "blend": "/home/nas5/kinamkim/Repos/geonwoo/11_projects/cortex/3DProperty/assets/models/acro-river-park/145f/archisketch-structure-v1/expanded/acro145f-expanded-archisketch.blend",
+    "glb": "/home/nas5/kinamkim/Repos/geonwoo/11_projects/cortex/3DProperty/assets/models/acro-river-park/145f/archisketch-structure-v1/expanded/acro145f-expanded-archisketch.glb",
+    "metadata": "/home/nas5/kinamkim/Repos/geonwoo/11_projects/cortex/3DProperty/assets/models/acro-river-park/145f/archisketch-structure-v1/expanded/model-info.json",
+    "topview": "/home/nas5/kinamkim/Repos/geonwoo/11_projects/cortex/3DProperty/assets/models/acro-river-park/145f/archisketch-structure-v1/expanded/top-view.png",
+    "spec": "/home/nas5/kinamkim/Repos/geonwoo/11_projects/cortex/3DProperty/tools/blender/specs145f168d/acro145f-expanded-archisketch-v1.json",
+    "summary": "/home/nas5/kinamkim/Repos/geonwoo/11_projects/cortex/AisideProject/datasets/acro-river-park/raw/archisketch/145F/expanded/2026-11-02-user-saved/project-summary.json",
+    "layout": "/home/nas5/kinamkim/Repos/geonwoo/11_projects/cortex/AisideProject/datasets/acro-river-park/raw/archisketch/145F/expanded/2026-11-02-user-saved/furniture-layout.json"
   },
   "checks": [
     {

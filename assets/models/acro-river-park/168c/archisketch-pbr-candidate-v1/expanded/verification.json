@@ -2,9 +2,9 @@
   "passed": true,
   "revision": "archisketch-pbr-candidate-v1",
   "source_files_sha256": {
-    "/home/nas5/kinamkim/Repos/geonwoo/3DProperty/assets/models/acro-river-park/168c/archisketch-details-v2/expanded/acro168c-expanded.blend": "90c92ba391f79f282bfc6f897593d07e043e432c91611628e3b3f16b53770311",
-    "/home/nas5/kinamkim/Repos/geonwoo/3DProperty/assets/models/acro-river-park/168c/archisketch-details-v2/expanded/acro168c-expanded.glb": "1b15525640d4ece5914b5ce679233f8134b3b3eb5ae6a77e96d767a95c474216",
-    "/home/nas5/kinamkim/Repos/geonwoo/3DProperty/assets/models/acro-river-park/168c/archisketch-details-v2/expanded/model-info.json": "14d8b07c165d183647b73adf83ecabecd35807b2e64fb2bbd29789c1ee399a63"
+    "/home/nas5/kinamkim/Repos/geonwoo/11_projects/cortex/3DProperty/assets/models/acro-river-park/168c/archisketch-details-v2/expanded/acro168c-expanded.blend": "90c92ba391f79f282bfc6f897593d07e043e432c91611628e3b3f16b53770311",
+    "/home/nas5/kinamkim/Repos/geonwoo/11_projects/cortex/3DProperty/assets/models/acro-river-park/168c/archisketch-details-v2/expanded/acro168c-expanded.glb": "1b15525640d4ece5914b5ce679233f8134b3b3eb5ae6a77e96d767a95c474216",
+    "/home/nas5/kinamkim/Repos/geonwoo/11_projects/cortex/3DProperty/assets/models/acro-river-park/168c/archisketch-details-v2/expanded/model-info.json": "14d8b07c165d183647b73adf83ecabecd35807b2e64fb2bbd29789c1ee399a63"
   },
   "source_files_unchanged": true,
   "source_glb_binary_prefix_identical": true,

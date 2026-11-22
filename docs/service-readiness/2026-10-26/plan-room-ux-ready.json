@@ -41,9 +41,9 @@
   "status": "ui_improvement_published_reported_dot_unreproduced",
   "public_version": 9,
   "public_url": "https://cortex-design-preview-20261024.spunky-note-2434.chatgpt.site",
-  "public_verification": "/home/nas5/kinamkim/Repos/geonwoo/3DProperty/runtime/plan-room-ux/2026-10-26/public/verification.json",
-  "static_verification": "/home/nas5/kinamkim/Repos/geonwoo/3DProperty/runtime/plan-room-ux/2026-10-26/static/verification.json",
-  "package_audit": "/home/nas5/kinamkim/Repos/geonwoo/3DProperty/startup/07_팀미팅/2026-10-24_designer-demo/hosting-plan-room-ux-20261026/package-audit.json",
+  "public_verification": "/home/nas5/kinamkim/Repos/geonwoo/11_projects/cortex/3DProperty/runtime/plan-room-ux/2026-10-26/public/verification.json",
+  "static_verification": "/home/nas5/kinamkim/Repos/geonwoo/11_projects/cortex/3DProperty/runtime/plan-room-ux/2026-10-26/static/verification.json",
+  "package_audit": "/home/nas5/kinamkim/Repos/geonwoo/11_projects/cortex/3DProperty/startup/07_팀미팅/2026-10-24_designer-demo/hosting-plan-room-ux-20261026/package-audit.json",
   "deployment": {
     "id": "appgdep_6adeed040cb08191acc41c0f1d8809e7",
     "project_id": "appgprj_6adc181c49708191a65db8c32f5dc69d",

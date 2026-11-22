@@ -11,7 +11,7 @@
   "site_source_commit": "6e9b51533d3128c5bb7a5cea8bd757d97ae936d5",
   "public_audience": "unchanged public; anonymous browser initial cookies0",
   "implementation": "Selected building upper floors clipped, footprint-only plate, other14buildings retained; on/off and floor synchronization; outside-envelope/no selection no-cut; actual layouts not invented.",
-  "local_evidence": "/home/nas5/kinamkim/Repos/geonwoo/3DProperty/runtime/service-map/2026-10-25/floor-cutaway/verification.json",
+  "local_evidence": "/home/nas5/kinamkim/Repos/geonwoo/11_projects/cortex/3DProperty/runtime/service-map/2026-10-25/floor-cutaway/verification.json",
   "local_tests": {
     "unit": 12,
     "browser": 4,

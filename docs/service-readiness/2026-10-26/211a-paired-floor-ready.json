@@ -19,5 +19,5 @@
   "dataset_manifest": "AisideProject/datasets/acro-river-park/derived/2026-10-26-211a-paired-floor-v1/manifest.json",
   "local_completion_status": "local_models_and_walkthrough_verified_not_published",
   "public_url": "https://cortex-design-preview-20261024.spunky-note-2434.chatgpt.site/paired-floor/",
-  "public_verification": "/home/nas5/kinamkim/Repos/geonwoo/3DProperty/startup/07_팀미팅/2026-10-24_designer-demo/hosting-paired-floor-20261026/verification.json"
+  "public_verification": "/home/nas5/kinamkim/Repos/geonwoo/11_projects/cortex/3DProperty/startup/07_팀미팅/2026-10-24_designer-demo/hosting-paired-floor-20261026/verification.json"
 }

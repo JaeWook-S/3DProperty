@@ -1,7 +1,7 @@
 import {test,expect} from '@playwright/test';
 import fs from 'node:fs';
 // Test-only font for readable captures on the Linux host; no product asset added.
-const fontPath='/home/nas5/kinamkim/Repos/geonwoo/AisideProject/realestate-spatial-ai/docs/benchmarking/2026-10-22-rivals/feature-teardown-2026-10-23/assets/fonts/NanumGothic-Regular.ttf';
+const fontPath='/home/nas5/kinamkim/Repos/geonwoo/11_projects/cortex/AisideProject/realestate-spatial-ai/docs/benchmarking/2026-10-22-rivals/feature-teardown-2026-10-23/assets/fonts/NanumGothic-Regular.ttf';
 const snapshot=page=>page.evaluate(()=>window.cortexFloorAccess.inspect());
 async function ready(page){await page.goto('/floor-access-review.html');await expect(page.locator('body')).toHaveAttribute('data-load-state','ready');if(fs.existsSync(fontPath)){await page.addStyleTag({content:`@font-face{font-family:CaptureKorean;src:url(data:font/ttf;base64,${fs.readFileSync(fontPath).toString('base64')})}body,button,input,select,text{font-family:CaptureKorean,sans-serif!important}`});await page.evaluate(()=>document.fonts.ready);}}
 

@@ -2,7 +2,7 @@
   "status": "local_web_integrated_verified",
   "passed": true,
   "verified_at": "2026-10-25T13:53:43.242821+00:00",
-  "evidence": "/home/nas5/kinamkim/Repos/geonwoo/3DProperty/runtime/service-map/2026-10-25/unit-selection/verification.json",
+  "evidence": "/home/nas5/kinamkim/Repos/geonwoo/11_projects/cortex/3DProperty/runtime/service-map/2026-10-25/unit-selection/verification.json",
   "data": {
     "residential_units": 1612,
     "buildings": 15,
@@ -38,7 +38,7 @@
     "status": "live_public_verified",
     "at": "2026-10-25T14:35:28.712921+00:00",
     "url": "https://cortex-design-preview-20261024.spunky-note-2434.chatgpt.site",
-    "evidence": "/home/nas5/kinamkim/Repos/geonwoo/3DProperty/startup/07_팀미팅/2026-10-24_designer-demo/hosting-refresh-20261025-latest/verification.json",
+    "evidence": "/home/nas5/kinamkim/Repos/geonwoo/11_projects/cortex/3DProperty/startup/07_팀미팅/2026-10-24_designer-demo/hosting-refresh-20261025-latest/verification.json",
     "note": "후속 공개 배포. 이전 로컬 검증 범위/시점은 보존."
   }
 }

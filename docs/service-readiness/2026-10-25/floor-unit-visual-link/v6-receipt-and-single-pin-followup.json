@@ -22,9 +22,9 @@
   "remaining_status_updated_at": "2026-10-25T17:07:06.524476+00:00",
   "remaining_published_at": "2026-10-25T16:47:31.284240+00:00",
   "remaining_public_version": 7,
-  "remaining_completion_record": "/home/nas5/kinamkim/Repos/geonwoo/3DProperty/docs/service-readiness/2026-10-25/map-point-classification-ready.json",
-  "remaining_public_verification": "/home/nas5/kinamkim/Repos/geonwoo/3DProperty/startup/07_팀미팅/2026-10-24_designer-demo/hosting-map-point-label-20261025/public-browser/verification.json",
-  "remaining_three_click_verification": "/home/nas5/kinamkim/Repos/geonwoo/3DProperty/runtime/service-map/2026-10-25/map-point-classification/three-click-reselect/verification.json",
-  "original_receipt_preserved": "/home/nas5/kinamkim/Repos/geonwoo/3DProperty/runtime/service-map/2026-10-25/map-point-classification/handoff-reconciliation/v6-receipt-before.json",
+  "remaining_completion_record": "/home/nas5/kinamkim/Repos/geonwoo/11_projects/cortex/3DProperty/docs/service-readiness/2026-10-25/map-point-classification-ready.json",
+  "remaining_public_verification": "/home/nas5/kinamkim/Repos/geonwoo/11_projects/cortex/3DProperty/startup/07_팀미팅/2026-10-24_designer-demo/hosting-map-point-label-20261025/public-browser/verification.json",
+  "remaining_three_click_verification": "/home/nas5/kinamkim/Repos/geonwoo/11_projects/cortex/3DProperty/runtime/service-map/2026-10-25/map-point-classification/three-click-reselect/verification.json",
+  "original_receipt_preserved": "/home/nas5/kinamkim/Repos/geonwoo/11_projects/cortex/3DProperty/runtime/service-map/2026-10-25/map-point-classification/handoff-reconciliation/v6-receipt-before.json",
   "status_note": "Original v6 receipt and queue details remain historical. The assigned single-pin follow-up was completed and publicly published later as v7; it is no longer pending."
 }

@@ -4,27 +4,27 @@
   "variant": "168c-expanded-archisketch",
   "files": {
     "glb": {
-      "absolute_path": "/home/nas5/kinamkim/Repos/geonwoo/3DProperty/assets/models/acro-river-park/168c/archisketch-pbr-candidate-v1/expanded/acro168c-expanded.glb",
+      "absolute_path": "/home/nas5/kinamkim/Repos/geonwoo/11_projects/cortex/3DProperty/assets/models/acro-river-park/168c/archisketch-pbr-candidate-v1/expanded/acro168c-expanded.glb",
       "repo_path": "assets/models/acro-river-park/168c/archisketch-pbr-candidate-v1/expanded/acro168c-expanded.glb",
       "sha256": "4834a91ececc43f5c9961ca224024117f1b39192564090c664ac64d72d51e8da"
     },
     "metadata": {
-      "absolute_path": "/home/nas5/kinamkim/Repos/geonwoo/3DProperty/assets/models/acro-river-park/168c/archisketch-pbr-candidate-v1/expanded/model-info.json",
+      "absolute_path": "/home/nas5/kinamkim/Repos/geonwoo/11_projects/cortex/3DProperty/assets/models/acro-river-park/168c/archisketch-pbr-candidate-v1/expanded/model-info.json",
       "repo_path": "assets/models/acro-river-park/168c/archisketch-pbr-candidate-v1/expanded/model-info.json",
       "sha256": "edf86a4ed2bac8a23f284a884b4c4c8545b713cc07176271cf24087d1fc40e4f"
     },
     "blend": {
-      "absolute_path": "/home/nas5/kinamkim/Repos/geonwoo/3DProperty/assets/models/acro-river-park/168c/archisketch-pbr-candidate-v1/expanded/acro168c-expanded.blend",
+      "absolute_path": "/home/nas5/kinamkim/Repos/geonwoo/11_projects/cortex/3DProperty/assets/models/acro-river-park/168c/archisketch-pbr-candidate-v1/expanded/acro168c-expanded.blend",
       "repo_path": "assets/models/acro-river-park/168c/archisketch-pbr-candidate-v1/expanded/acro168c-expanded.blend",
       "sha256": "0a9348bc0c32639499fe5db27f16e263fa324ae70a0ca4ebca0ee0ac0c5b6005"
     },
     "manifest": {
-      "absolute_path": "/home/nas5/kinamkim/Repos/geonwoo/3DProperty/assets/models/acro-river-park/168c/archisketch-pbr-candidate-v1/expanded/material-manifest.json",
+      "absolute_path": "/home/nas5/kinamkim/Repos/geonwoo/11_projects/cortex/3DProperty/assets/models/acro-river-park/168c/archisketch-pbr-candidate-v1/expanded/material-manifest.json",
       "repo_path": "assets/models/acro-river-park/168c/archisketch-pbr-candidate-v1/expanded/material-manifest.json",
       "sha256": "c9fbc80631233d3f9fea6e59362bc1e089082a6bb375381c417a9d64ae094fb2"
     },
     "verification": {
-      "absolute_path": "/home/nas5/kinamkim/Repos/geonwoo/3DProperty/assets/models/acro-river-park/168c/archisketch-pbr-candidate-v1/expanded/verification.json",
+      "absolute_path": "/home/nas5/kinamkim/Repos/geonwoo/11_projects/cortex/3DProperty/assets/models/acro-river-park/168c/archisketch-pbr-candidate-v1/expanded/verification.json",
       "repo_path": "assets/models/acro-river-park/168c/archisketch-pbr-candidate-v1/expanded/verification.json",
       "sha256": "a6615f2193326c68be8c752457569c55c772061b9aaafd8e47b05b36dd55c3b3"
     }
@@ -50,5 +50,5 @@
   "s1_runtime_edits": 0,
   "s1_gpu_calls": 0,
   "s1_dataset_current_release_changed": false,
-  "source_handoff": "/home/nas5/kinamkim/Repos/geonwoo/AisideProject/realestate-spatial-ai/docs/session-handoffs/s1-168c-pbr-candidate-20261022.json"
+  "source_handoff": "/home/nas5/kinamkim/Repos/geonwoo/11_projects/cortex/AisideProject/realestate-spatial-ai/docs/session-handoffs/s1-168c-pbr-candidate-20261022.json"
 }

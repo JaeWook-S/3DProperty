@@ -13,19 +13,19 @@
   "scopes": {
     "floorUnitCards": {
       "status": "complete_in_v6_retained_in_v7",
-      "evidence": "/home/nas5/kinamkim/Repos/geonwoo/3DProperty/docs/service-readiness/2026-10-25/floor-unit-visual-link/ready.json",
+      "evidence": "/home/nas5/kinamkim/Repos/geonwoo/11_projects/cortex/3DProperty/docs/service-readiness/2026-10-25/floor-unit-visual-link/ready.json",
       "behavior": "All floor households listed; supported112A/168C previews and basic/expanded→2D/explicit3D; actual spatial arrangement remains unknown."
     },
     "surroundings": {
       "status": "complete_in_v6_retained_in_v7",
-      "evidence": "/home/nas5/kinamkim/Repos/geonwoo/3DProperty/docs/service-readiness/2026-10-25/site-surroundings-ready.json",
+      "evidence": "/home/nas5/kinamkim/Repos/geonwoo/11_projects/cortex/3DProperty/docs/service-readiness/2026-10-25/site-surroundings-ready.json",
       "behavior": "OSM river/park/road/neighbour footprints, decorative trees and reflective water. Source details remain collapsed.",
       "basisLimits": "Tree placement/materials/road-width defaults and some heights are visualization assumptions; not surveyed or an actual shared-floor reproduction."
     },
     "temporaryPoint": {
       "status": "complete_in_v7_and_additional_three_click_test_passed",
-      "evidence": "/home/nas5/kinamkim/Repos/geonwoo/3DProperty/docs/service-readiness/2026-10-25/map-point-classification-ready.json",
-      "additionalEvidence": "/home/nas5/kinamkim/Repos/geonwoo/3DProperty/runtime/service-map/2026-10-25/map-point-classification/three-click-reselect/verification.json",
+      "evidence": "/home/nas5/kinamkim/Repos/geonwoo/11_projects/cortex/3DProperty/docs/service-readiness/2026-10-25/map-point-classification-ready.json",
+      "additionalEvidence": "/home/nas5/kinamkim/Repos/geonwoo/11_projects/cortex/3DProperty/runtime/service-map/2026-10-25/map-point-classification/three-click-reselect/verification.json",
       "behavior": "One current transient pin, no list accumulation, ready-only list, Acro/search results/URL restoration retained; explicit local request only."
     }
   },

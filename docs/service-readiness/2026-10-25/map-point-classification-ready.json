@@ -13,9 +13,9 @@
   },
   "version": 7,
   "liveURL": "https://cortex-design-preview-20261024.spunky-note-2434.chatgpt.site",
-  "verification": "/home/nas5/kinamkim/Repos/geonwoo/3DProperty/startup/07_팀미팅/2026-10-24_designer-demo/hosting-map-point-label-20261025/verification.json",
-  "runtime": "/home/nas5/kinamkim/Repos/geonwoo/3DProperty/runtime/service-map/2026-10-25/map-point-classification/verification.json",
-  "publicVerification": "/home/nas5/kinamkim/Repos/geonwoo/3DProperty/startup/07_팀미팅/2026-10-24_designer-demo/hosting-map-point-label-20261025/public-browser/verification.json",
+  "verification": "/home/nas5/kinamkim/Repos/geonwoo/11_projects/cortex/3DProperty/startup/07_팀미팅/2026-10-24_designer-demo/hosting-map-point-label-20261025/verification.json",
+  "runtime": "/home/nas5/kinamkim/Repos/geonwoo/11_projects/cortex/3DProperty/runtime/service-map/2026-10-25/map-point-classification/verification.json",
+  "publicVerification": "/home/nas5/kinamkim/Repos/geonwoo/11_projects/cortex/3DProperty/startup/07_팀미팅/2026-10-24_designer-demo/hosting-map-point-label-20261025/public-browser/verification.json",
   "changedProductFiles": [
     "apps/web/src/map-service.js",
     "apps/web/src/map-service.css"
@@ -35,7 +35,7 @@
   "additionalThreeClickReselectVerification": {
     "at": "2026-10-25T16:59:01.652Z",
     "passed": true,
-    "evidence": "/home/nas5/kinamkim/Repos/geonwoo/3DProperty/runtime/service-map/2026-10-25/map-point-classification/three-click-reselect/verification.json",
+    "evidence": "/home/nas5/kinamkim/Repos/geonwoo/11_projects/cortex/3DProperty/runtime/service-map/2026-10-25/map-point-classification/three-click-reselect/verification.json",
     "consecutiveClicks": 3,
     "temporaryPinsAfterEach": 1,
     "preparedListAfterEach": 1,

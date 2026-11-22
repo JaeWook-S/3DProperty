@@ -41,7 +41,7 @@ ssh -N -o ExitOnForwardFailure=yes -L 35185:127.0.0.1:5185 -L 35173:127.0.0.1:51
 ## 실행
 
 ```bash
-cd /home/nas5/kinamkim/Repos/geonwoo/3DProperty/apps/web
+cd /home/nas5/kinamkim/Repos/geonwoo/11_projects/cortex/3DProperty/apps/web
 npm ci
 npm run dev
 ```
@@ -97,7 +97,7 @@ ssh -N -o ExitOnForwardFailure=yes -L 5185:127.0.0.1:5185 -L 5173:127.0.0.1:5173
 ## 검증
 
 ```bash
-cd /home/nas5/kinamkim/Repos/geonwoo/3DProperty/apps/web
+cd /home/nas5/kinamkim/Repos/geonwoo/11_projects/cortex/3DProperty/apps/web
 npm test
 npm run build
 # 기존 5173 뷰어가 실행되어 있어야 두 실제 GLB 연결 검사를 수행할 수 있다.
@@ -147,9 +147,9 @@ SHA256: d1fe1b2edf17866b07b76f58278a66acc8c6d5cb2719e80b6fb339c3b6ba49a7
 실제 파일을 포함한 재현 명령(해당 비공개 파일이 있는 서버에서 실행):
 
 ```bash
-cd /home/nas5/kinamkim/Repos/geonwoo/3DProperty/apps/web
-CORTEX_FURNITURE_ASSET=/home/nas5/kinamkim/Repos/geonwoo/AisideProject/realestate-spatial-ai/experiments/furniture-dimensions/runs/2026-09-29-moge3-sofa2-geometry/furniture-package/asset.json \
-CORTEX_CAPTURE_DIR=/home/nas5/kinamkim/Repos/geonwoo/AisideProject/submissions/week-05/assets/web-integration/s3-20260929 \
+cd /home/nas5/kinamkim/Repos/geonwoo/11_projects/cortex/3DProperty/apps/web
+CORTEX_FURNITURE_ASSET=/home/nas5/kinamkim/Repos/geonwoo/11_projects/cortex/AisideProject/realestate-spatial-ai/experiments/furniture-dimensions/runs/2026-09-29-moge3-sofa2-geometry/furniture-package/asset.json \
+CORTEX_CAPTURE_DIR=/home/nas5/kinamkim/Repos/geonwoo/11_projects/cortex/AisideProject/submissions/week-05/assets/web-integration/s3-20260929 \
 CORTEX_FONTCONFIG_FILE=/tmp/cortex-s3-fonts.conf \
 npm run test:browser
 ```
@@ -229,11 +229,11 @@ S1이 채택한 생산 규칙과 소비자 요청을 `apps/web/src/furniture.js`
 ```bash
 npm test
 npm run build
-CORTEX_FURNITURE_ROOT=/home/nas5/kinamkim/Repos/geonwoo/AisideProject/realestate-spatial-ai/experiments/furniture-dimensions \
+CORTEX_FURNITURE_ROOT=/home/nas5/kinamkim/Repos/geonwoo/11_projects/cortex/AisideProject/realestate-spatial-ai/experiments/furniture-dimensions \
 CORTEX_FONTCONFIG_FILE=/tmp/cortex-s3-fonts.conf \
 npm run test:browser -- tests/diagnostics.browser.js --output=/tmp/cortex-s3-diagnostics-browser
 node scripts/verify-diagnostics.mjs \
-/home/nas5/kinamkim/Repos/geonwoo/AisideProject/realestate-spatial-ai/experiments/furniture-dimensions \
+/home/nas5/kinamkim/Repos/geonwoo/11_projects/cortex/AisideProject/realestate-spatial-ai/experiments/furniture-dimensions \
 /tmp/cortex-s3-diagnostics-new-report.json
 ```
 
@@ -256,7 +256,7 @@ Node 재검증 스크립트는 지정한 새 JSON을 `wx`로 작성해 기존 �
 검증:
 
 ```bash
-cd /home/nas5/kinamkim/Repos/geonwoo/3DProperty
+cd /home/nas5/kinamkim/Repos/geonwoo/11_projects/cortex/3DProperty
 node --test tests/site-context.test.js
 npx playwright test tests/site-context.browser.js --reporter=line
 npm test
