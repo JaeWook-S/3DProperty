@@ -17,7 +17,7 @@ Conditions
   A : floor plan image only
   B : floor plan image + floorplan_numbers.json (Archisketch source numbers: HAR base + MCP derived values,
       built from the release by build_stage2_input.py)
-  C : B + 360 panoramas (168C_expanded only)
+  C : floor plan image + 360 panoramas, no Archisketch numbers (168C_expanded only)
 
 Usage
   python run_baseline.py --unit 168C_expanded --condition A --run r1 [--dry-run] [--no-score]
@@ -85,7 +85,7 @@ def stage_inputs(unit, cond, inp):
     inp.mkdir(parents=True)
     shutil.copy(RELEASE / unit / 'input_floorplan.jpg', inp / 'plan.jpg')
     names = ['plan.jpg']
-    if cond in ('B', 'C'):
+    if cond == 'B':
         shutil.copy(STAGE2_ROOT / unit / 'stage2' / 'floorplan_numbers.json', inp / 'floorplan_numbers.json')
         names += ['floorplan_numbers.json']
     if cond == 'C':
