@@ -61,13 +61,31 @@ Task
      walls:    [{{"id","start":[x,z],"end":[x,z],"thickness","height"}}]
      openings: [{{"id","type":"swing_door|sliding_door|window","center":[x,z],"width","height","sill","host_wall","hinge_side","swing_direction"}}]
   all lengths in meters, plan coordinates (x, z) in the same frame as model.glb.
-
+{defaults}
 Rules
 - Use only the files in this directory. Do not read other directories and do not use the internet.
 - Do not inspect other processes, users or system state (no ps, top, pgrep, /proc, env dumps).
 - Do not ask questions; make reasonable assumptions and list them in ./output/assumptions.md.
 - Finish with a short summary of what you built.
 """
+
+# --defaults standard: values the plan image does not show, fixed for every unit.
+# Source: counted over the 10 released Archisketch GT units (2026-11-20 release), 2026-11-23:
+#   wall thickness 200 mm and height 2300 mm on every wall; swing doors 900 x 2120 (78 of 83); sliding doors 1977 high
+#   (59 of 59); entrance 1000 x 2300 (8 of 10); balcony glazing 2296 high, sill ~0 (22 of 22); windows 1750 high with
+#   sill 425 (29) or 275 (20), or 1200/1000 (12) -> 1750/425 chosen. The prompt text does not name the source.
+STANDARD_DEFAULTS = """
+Default dimensions (the same for every unit; the floor plan does not show these, so use them as given)
+- Every wall: thickness 0.20 m and height 2.30 m, exterior and interior alike. Do not vary thickness with the
+  drawn line weight; place each wall on the centreline of the drawn wall.
+- Swing doors: 0.90 m wide (narrower only if the plan clearly draws it narrower), 2.12 m high, sill 0.
+  Entrance door: 1.00 m wide, 2.30 m high, sill 0.
+- Interior sliding doors: 1.98 m high, sill 0; take the width from the plan.
+- Windows: 1.75 m high, sill 0.425 m; take the width from the plan.
+  Full-height glazing to a balcony: 2.30 m high, sill 0.
+- Take from the plan: wall positions and lengths, room outlines, and the widths of sliding doors and windows.
+"""
+DEFAULTS = {'none': '', 'standard': STANDARD_DEFAULTS}
 
 INPUT_DESC = {
     'plan.jpg': '  - plan.jpg: the floor plan image (printed dimensions are in millimeters)',
@@ -197,6 +215,8 @@ def main():
     ap.add_argument('--run', required=True)
     ap.add_argument('--dry-run', action='store_true')
     ap.add_argument('--no-score', action='store_true')
+    ap.add_argument('--defaults', choices=list(DEFAULTS), default='none',
+                    help='standard: fix wall thickness/height and door/window heights to the default dimensions')
     a = ap.parse_args()
     if a.condition == 'C' and a.unit != '168C_expanded':
         raise SystemExit('condition C (panoramas) exists only for 168C_expanded')
@@ -215,10 +235,11 @@ def main():
     descs = [INPUT_DESC[n] for n in names if not n.startswith('panoramas/')]
     if any(n.startswith('panoramas/') for n in names):
         descs.append(INPUT_DESC['panoramas/'])
-    prompt = PROMPT.format(inputs='\n'.join(descs), bpy=BPY_PYTHON)
+    prompt = PROMPT.format(inputs='\n'.join(descs), bpy=BPY_PYTHON, defaults=DEFAULTS[a.defaults])
     (run_dir / 'prompt.md').write_text(prompt)
 
-    meta = dict(unit=a.unit, condition=a.condition, run=a.run, gt=str(gt), model=MODEL, effort=EFFORT, codex=str(CODEX),
+    meta = dict(unit=a.unit, condition=a.condition, run=a.run, defaults=a.defaults, gt=str(gt), model=MODEL,
+                effort=EFFORT, codex=str(CODEX),
                 inputs={n: sha(work / 'inputs' / n) for n in names}, started_kst=None)
     with tempfile.TemporaryDirectory(prefix='codex-home-') as home:
         shutil.copy(AUTH, Path(home) / 'auth.json'); os.chmod(Path(home) / 'auth.json', 0o600)
