@@ -11,7 +11,8 @@
 | `score_glb.py` | GLB 하나를 정답과 비교해 `score.json`, 벽별 CSV, 겹쳐 보기 그림을 만든다 |
 | `summarize_scores.py` | 여러 `score.json`을 정해진 열의 표(마크다운, CSV)로 모은다 |
 | `requirements.txt` | 필요한 Python 패키지 |
-| `examples/168c_expanded_stage1.glb` | 설치 확인용 모델 (168C 확장형 1단계 결과) |
+| `examples/168c_expanded_stage1.glb` | 설치 확인용 모델 (168C 확장형 1단계 A/trial2, 기본 치수 없이 만든 결과) |
+| `examples/168c_expanded_std1_r0/` | 개선 방법(CRITIC, Dream-RSI 등) 비교의 공통 출발점 R0. 168C 확장형 1단계를 `run_baseline.py --defaults standard`로 만든 결과(model.glb, elements.json, build_model.py, verify_model.py, assumptions.md). 벽 F1@10cm 0.7521 |
 | `run_baseline.py`, `build_stage2_input.py`, `exp0_source_wall_audit.py` | 1~3단계 실행기와 보조 도구 (채점에는 필요 없음) |
 
 ## 준비
