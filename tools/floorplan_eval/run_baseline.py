@@ -25,16 +25,17 @@ Usage
 import argparse, hashlib, json, os, re, shutil, subprocess, sys, tempfile, time
 from pathlib import Path
 
-REPO = Path('/home/nas5/kinamkim/Repos/geonwoo')
-AISIDE = REPO / 'AisideProject'
-OUT_BASE = REPO / '3DProperty/runtime/floorplan-accuracy/baseline'
+REPO = Path('/home/nas5/kinamkim/Repos/geonwoo')          # holds .codex (not moved)
+CORTEX = REPO / '11_projects/cortex'                       # 3DProperty, AisideProject, floorplan-runs
+AISIDE = CORTEX / 'AisideProject'
+OUT_BASE = CORTEX / '3DProperty/runtime/floorplan-accuracy/baseline'
 RELEASE = AISIDE / 'datasets/acro-river-park/releases/2026-11-20-floorplans10/data'
-STAGE2_ROOT = REPO / '3DProperty/runtime/floorplan-accuracy/inputs'
+STAGE2_ROOT = CORTEX / '3DProperty/runtime/floorplan-accuracy/inputs'
 SCORER = Path(__file__).resolve().parent / 'score_glb.py'
 UNITS = sorted(p.name for p in RELEASE.iterdir() if p.is_dir())
 # The OS sandbox (bwrap) cannot run on yj-1 (unprivileged userns blocked by AppArmor), so the agent
 # runs with danger-full-access in a scratch dir outside the project trees; leakage is checked post hoc.
-RUN_ROOT = REPO / 'floorplan-runs'
+RUN_ROOT = CORTEX / 'floorplan-runs'
 CODEX = REPO / '.codex/bin/codex'
 AUTH = REPO / '.codex/home/auth.json'
 BPY_PYTHON = '/home/nas_main/kinamkim/miniconda3/envs/intern_mvsam3d/bin/python'
@@ -142,7 +143,8 @@ def _scan_text(txt, work, where, flags):
     norm = txt.replace('\\n', ' ').replace('\\"', ' ')
     for tok in norm.replace('"', ' ').replace("'", ' ').replace('(', ' ').replace(')', ' ').replace(',', ' ').split():
         tok = tok.strip(';:')
-        if tok.startswith(('/home', '/nas', '/root', '/mnt', '/data', '/srv')) and not tok.startswith((str(work),) + ALLOWED_PREFIX):
+        if tok.startswith(('/home', '/nas', '/root', '/mnt', '/data', '/srv')) and not tok.startswith(
+                (str(work), str(work.resolve())) + ALLOWED_PREFIX):
             flags.append(f'{where}: path {tok[:160]}')
         if tok == '..' or tok.startswith('../') or '/../' in tok:
             flags.append(f'{where}: parent {tok[:160]}')

@@ -22,9 +22,9 @@ import trimesh
 from shapely.geometry import LineString, Point, Polygon
 from shapely.ops import unary_union
 
-REPO = Path('/home/nas5/kinamkim/Repos/geonwoo')
-AISIDE = REPO / 'AisideProject'
-PROP = REPO / '3DProperty'
+CORTEX = Path('/home/nas5/kinamkim/Repos/geonwoo/11_projects/cortex')
+AISIDE = CORTEX / 'AisideProject'
+PROP = CORTEX / '3DProperty'
 SUMMARY = AISIDE / 'datasets/acro-river-park/raw/archisketch/168C/expanded/modeling-source-20261012T091458Z/project-summary.json'
 LAYOUT = AISIDE / 'realestate-spatial-ai/experiments/service-readiness/2026-10-23/archisketch-live/20261023T130327Z/168C-expanded/furniture-layout.json'
 ZIP = AISIDE / 'datasets/acro-river-park/raw/user-provided/168c-intake-20261025/archisketch_168C.zip'
