@@ -1,0 +1,13 @@
+# score_glb.py, summarize_scores.py (Python 3.10+)
+# Same scores (to 4 decimals) were obtained with both of these sets:
+#   numpy 2.1.2, scipy 1.15.1, trimesh 4.6.2, shapely 2.1.1, pillow 11.0.0, scikit-image 0.25.2, rtree 1.4.0, matplotlib 3.9.0, embreex
+#   numpy 2.2.6, scipy 1.15.3, trimesh 5.2.2, shapely 2.1.2, pillow 12.3.0, scikit-image 0.25.2, rtree 1.4.1, matplotlib (latest), no embreex
+numpy>=1.24
+scipy>=1.10
+trimesh>=4.0
+shapely>=2.0
+pillow>=10.0
+scikit-image>=0.21
+rtree>=1.0
+matplotlib>=3.7
+# optional: embreex makes ray casting about 5x faster; results are identical without it
