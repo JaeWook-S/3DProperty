@@ -52,7 +52,9 @@ test('P opens the actual model card, freezes walking/look and restores pointer l
   await expect(page.locator('#furniture-info-card')).toBeVisible();
   await expect.poll(async () => (await state(page)).locked).toBe(false);
   await page.keyboard.up('w');
-  await expect(page.locator('#furniture-info-link')).toHaveAttribute('href', 'https://example.com/');
+  // The model's own sofa is not a shop product: no shop button, the customer-owned line instead.
+  await expect(page.locator('#furniture-info-link')).toBeHidden();
+  await expect(page.locator('#furniture-info-owned')).toHaveText('고객 소유 가구이므로 판매하지 않습니다');
   await expect(page.locator('#furniture-info-price')).toContainText('₩');
   await expect.poll(() => page.locator('#furniture-info-image').evaluate(img => img.complete && img.naturalWidth > 0)).toBe(true);
   await expect(page.locator('#furniture-info-image')).toHaveAttribute('src', /^data:image\/png/);

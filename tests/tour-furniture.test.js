@@ -4,7 +4,8 @@ import { readFileSync } from 'node:fs';
 import { Box3, BoxGeometry, Group, Mesh, MeshStandardMaterial, Texture, Vector3 } from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { CONCEPTS, PALETTES } from '../src/concepts/catalog.js';
-import { TOUR_FURNITURE_SPECS, TOUR_FURNITURE_SETS, conceptForTour } from '../src/concepts/tour-furniture-spec.js';
+import { TOUR_FURNITURE_SPECS, TOUR_FURNITURE_SETS, TOUR_PIECES, conceptForTour } from '../src/concepts/tour-furniture-spec.js';
+import { expandPlacement } from '../src/concepts/furniture-spec.js';
 import { TOUR_MODELS, TOUR_PARTS, loadTourFurniture, prepareTourModel, installTourTemplates, tourFurnitureLoadError, tourProp } from '../src/concepts/tour-furniture.js';
 import { createDressing } from '../src/concepts/dressing.js';
 import { TOURS } from '../src/house-tours/tours.js';
@@ -16,7 +17,12 @@ import { applyPalette } from '../src/concepts/kit.js';
 
 const tourOf = (id) => TOURS.find(t => t.id === id);
 const conceptOf = (id) => CONCEPTS.find(c => c.id === tourOf(id).concept);
-const kindsOf = (set) => Object.keys(TOUR_FURNITURE_SPECS).filter(kind => TOUR_FURNITURE_SPECS[kind].set === set).sort();
+// A table or desk set is one plan kind; staging holds its table and chairs as separate pieces.
+// (The loft bed is both: a plan kind and its own piece, with a chair added under it.)
+const planOnly = (kind) => Boolean(TOUR_PIECES[kind]) && TOUR_PIECES[kind][0][0] !== kind;
+const pieceKinds = new Set(Object.entries(TOUR_PIECES).flatMap(([set, pieces]) => pieces.map(([kind]) => kind).filter(kind => kind !== set)));
+const kindsOf = (set) => Object.keys(TOUR_FURNITURE_SPECS).filter(kind => TOUR_FURNITURE_SPECS[kind].set === set && !pieceKinds.has(kind)).sort();
+const stagedKindsOf = (set) => Object.keys(TOUR_FURNITURE_SPECS).filter(kind => TOUR_FURNITURE_SPECS[kind].set === set && !planOnly(kind)).sort();
 const gltf = new GLTFLoader();
 // Node checks the actual embedded geometry; the browser test decodes the images.
 gltf.register(() => ({ name: 'test-image-placeholder', loadTexture: async () => new Texture() }));
@@ -37,6 +43,7 @@ test('each furniture set stays inside its own 집들이; the shared concepts and
     assert.notEqual(custom, shared);
     assert.equal(custom.furnitureSet, tour);
     assert.deepEqual([...new Set(custom.items.filter(p => TOUR_FURNITURE_SPECS[p.kind]).map(p => p.kind))].sort(), kindsOf(tour));
+    assert.deepEqual([...new Set(custom.items.filter(p => TOUR_FURNITURE_SPECS[p.kind]).flatMap(p => expandPlacement({ ...p, x: 0, z: 0 }, 'a').map(q => q.kind)))].sort(), stagedKindsOf(tour));
     assert.ok(!custom.keep.includes('king'), `${tour}: its own bed replaces the model king bed`);
     assert.equal(JSON.stringify(shared), before);
     // Another 집들이 (or none) gets the shared concept back.
@@ -82,8 +89,8 @@ test('legacy assembly roots and flattened baked parts preserve world transforms 
   assert.deepEqual(bounds.min.toArray().map(v => +v.toFixed(6)), [-1, 0, -0.45]);
 });
 
-test('every supplied GLB keeps its native scale and authored materials; chairs and TV fill their footprints', async () => {
-  assert.deepEqual(Object.keys(TOUR_PARTS).sort(), ['mwChair', 'mwFrame', 'mwNightstand', 'mwPendant', 'mwSideTable', 'swChair', 'swFrame', 'swPendant', 'swShelf', 'swTriptych', 'tableLamp']);
+test('every supplied GLB keeps its native scale and authored materials; the TV fills its footprint', async () => {
+  assert.deepEqual(Object.keys(TOUR_PARTS).sort(), ['mwFrame', 'mwNightstand', 'mwPendant', 'mwSideTable', 'swFrame', 'swPendant', 'swShelf', 'swTriptych', 'tableLamp']);
   await loadTourFurniture(loader);
   const groups = new Map();
   installTourTemplates({ addTemplate: (kind, template) => groups.set(kind, template.group) });
@@ -105,10 +112,37 @@ test('every supplied GLB keeps its native scale and authored materials; chairs a
       assert.equal(m.map, map);
     }
   }
-  const chairs = (kind) => groups.get(kind).getObjectByName('Dining chairs').children.length;
-  assert.equal(chairs('mwDiningTable'), 6);
-  assert.equal(chairs('swDining'), 4);
-  assert.equal(chairs('swDesk'), 1);
+  // Tables, desks and chairs are separate staging pieces: no template carries a chair inside it.
+  assert.deepEqual([...groups.keys()].sort(), Object.keys(TOUR_FURNITURE_SPECS).filter(kind => !planOnly(kind)).sort());
+  for (const kind of ['mwDiningTable', 'swDiningTable', 'swDesk']) assert.equal(groups.get(kind).children.length, 1, kind);
+  assert.equal(groups.get('mwTvConsole').children.length, 2);
+});
+
+test('a table or desk set lands as its table and chairs, each inside the set footprint and facing the table', () => {
+  assert.deepEqual(Object.keys(TOUR_PIECES).sort(), ['mwDiningSet', 'mwLoftBed', 'swDeskSet', 'swDiningSet']);
+  for (const [set, pieces] of Object.entries(TOUR_PIECES)) {
+    const spec = TOUR_FURNITURE_SPECS[set], [[table], ...chairs] = pieces;
+    assert.ok(TOUR_FURNITURE_SPECS[table].table, `${set}: ${table} lets chairs pull up`);
+    assert.equal(chairs.length, { mwDiningSet: 6, swDiningSet: 4, swDeskSet: 1, mwLoftBed: 1 }[set]);
+    for (const [kind, x, z] of pieces) {
+      const piece = TOUR_FURNITURE_SPECS[kind];
+      assert.equal(piece.set, spec.set);
+      assert.ok(Math.abs(x) + piece.w / 2 <= spec.w / 2 + 1e-3 && Math.abs(z) + piece.d / 2 <= spec.d / 2 + 1e-3, `${set}: ${kind} at ${x}, ${z}`);
+    }
+    for (const [kind, , z, facing] of chairs) {
+      assert.ok(TOUR_FURNITURE_SPECS[kind].chair, kind);
+      // Front is +Z at facing 0: a chair on the -Z side looks at +Z, one on the +Z side turns around.
+      assert.equal(facing, z < 0 ? 0 : Math.PI, `${set}: ${kind} at z ${z}`);
+    }
+    // Turned with the set: the east-facing set keeps every chair at its table.
+    const placed = expandPlacement({ kind: set, x: 4, z: 6, angle: Math.PI / 2 }, 'added-test-0');
+    assert.deepEqual(placed.map(p => p.id), pieces.map((_, n) => (n ? `added-test-0-${n}` : 'added-test-0')));
+    for (const [n, p] of placed.entries()) {
+      const [, x, z, facing] = pieces[n];
+      assert.ok(Math.abs(p.x - (4 + z)) < 1e-9 && Math.abs(p.z - (6 - x)) < 1e-9, `${set} piece ${n}`);
+      assert.ok(Math.abs(p.angle - ((Math.PI / 2 + facing) % (Math.PI * 2))) < 1e-9);
+    }
+  }
 });
 
 test('small_ variants made from the supplied GLBs keep their edited sizes', async () => {
@@ -155,6 +189,11 @@ test('a 집들이 swaps styling props for its own models and never disposes thei
   const shelf = new Box3().setFromObject(tourProp('stone-walnut', 'wallShelf'));
   assert.ok(Math.abs(shelf.max.y - 0.0125) < 0.005 && Math.abs(shelf.min.z + 0.03) < 0.005);
   assert.equal(tourProp('mountain-white', 'wallShelf'), null);
+  // Each prop and the lamp on a prop table carry their own product kind for the P card.
+  const side = tourProp('mountain-white', 'sideLamp');
+  assert.deepEqual([side.userData.furnitureInfo.kind, side.children[1].userData.furnitureInfo.kind], ['mwSideTable', 'tableLamp']);
+  assert.equal(tourProp('stone-walnut', 'nightLamp').userData.furnitureInfo.title, TOUR_FURNITURE_SPECS.swNightstand.title);
+  assert.equal(tourProp('stone-walnut', 'wallShelf').userData.furnitureInfo.kind, 'swShelf');
   assert.equal(tourProp('olive-piano', 'sideLamp'), null);
   assert.equal(tourProp(null, 'nightLamp'), null);
   // Building and clearing the props leaves the template geometry usable, and the group is never batched.
@@ -163,8 +202,11 @@ test('a 집들이 swaps styling props for its own models and never disposes thei
   const shared = geometry(pendant);
   let disposed = false;
   shared.addEventListener('dispose', () => { disposed = true; });
-  const group = dressing.build(model, [{ kind: 'pendant', x: 1, y: 0, z: 2, angle: 0 }], {}, (prop) => tourProp('stone-walnut', prop.kind));
+  const group = dressing.build(model, [{ kind: 'pendant', x: 1, y: 0, z: 2, angle: 0 }, { kind: 'nightLamp', x: 0, y: 0, z: 0, angle: 0 }, { kind: 'rod', x: 0, y: 2.45, z: 0, angle: 0, options: { length: 2 } }],
+    {}, (prop) => (prop.kind === 'rod' ? null : tourProp('stone-walnut', prop.kind)));
   assert.equal(group.userData.noBatch, true);
+  const infos = []; group.traverse(o => { if (o.userData.furnitureInfo) infos.push([o.userData.furnitureInfo.id, o.userData.furnitureInfo.kind]); });
+  assert.deepEqual(infos, [['styling-0', 'swPendant'], ['styling-1', 'swNightstand'], ['styling-1-1', 'tableLamp']]); // the curtain rod has no card
   assert.equal(geometry(group), shared);
   dressing.clear(model);
   assert.equal(disposed, false);
@@ -176,7 +218,7 @@ test('the expanded plan uses every piece of each set; the basic plan never swaps
     const expanded = planFor(tour, 'expanded');
     assert.deepEqual([...new Set(expanded.placements.filter(p => TOUR_FURNITURE_SPECS[p.kind]).map(p => p.kind))].sort(), kindsOf(tour), tour);
     const basic = planFor(tour, 'basic');
-    const dining = tour === 'mountain-white' ? 'mwDiningTable' : 'swDining';
+    const dining = tour === 'mountain-white' ? 'mwDiningSet' : 'swDiningSet';
     assert.ok(basic.skipped.some(p => p.kind === dining), `${tour}: the basic kitchen is too small for the set's table`);
     assert.ok(!basic.placements.some(p => /^dining[246]$/.test(p.kind)), tour);
   }
@@ -185,8 +227,8 @@ test('the expanded plan uses every piece of each set; the basic plan never swaps
 test('load failures identify the affected GLB and allow a retry', async () => {
   // A fresh module instance would be cleaner; the failed promise resets the shared one.
   const fresh = await import(`../src/concepts/tour-furniture.js?retry=${Date.now()}`);
-  await assert.rejects(fresh.loadTourFurniture({ async loadAsync() { throw new Error('HTTP 404'); } }), /black_chair\.glb: HTTP 404/);
-  assert.match(fresh.tourFurnitureLoadError().message, /black_chair\.glb: HTTP 404/);
+  await assert.rejects(fresh.loadTourFurniture({ async loadAsync() { throw new Error('HTTP 404'); } }), /small_black_side_table\.glb: HTTP 404/);
+  assert.match(fresh.tourFurnitureLoadError().message, /small_black_side_table\.glb: HTTP 404/);
 });
 
 test('set kinds survive placement snapshots and restore with their GLB geometry', async () => {
@@ -201,4 +243,21 @@ test('set kinds survive placement snapshots and restore with their GLB geometry'
   staging.restore(saved, []);
   assert.deepEqual(staging.snapshot(), saved);
   assert.deepEqual(staging.items.map(p => p.group.userData.furnitureSet), kinds.map(kind => TOUR_FURNITURE_SPECS[kind].set));
+});
+
+test('the mountain-white loft bed stands with its back on the west wall in the corner, a chair at its desk', () => {
+  for (const variant of ['expanded', 'basic']) {
+    const raw = JSON.parse(readFileSync(new URL(`../assets/models/acro-river-park/112a/archisketch-metric-v1/${variant}/model-info.json`, import.meta.url)));
+    const input = tourPlanInput(conceptForTour(conceptOf('mountain-white'), 'mountain-white'), { ...archisketchWebData(raw), coordinateBased: true });
+    const bed = planConcept(input.concept, input).placements.find(p => p.kind === 'mwLoftBed');
+    const [x1, z1] = input.rooms.find(r => r.id === bed.room).bounds_m;
+    assert.equal(bed.room, 'Bedroom center');
+    assert.ok(Math.abs(bed.angle - Math.PI / 2) < 1e-9, `${variant}: faces east, back on the west wall`);
+    assert.ok(bed.x - bed.depth / 2 - x1 < 0.065 && bed.z - bed.width / 2 - z1 < 0.025, `${variant}: ${bed.x}, ${bed.z} in the north-west corner`);
+    const [frame, chair] = expandPlacement(bed, 'added-test');
+    assert.equal(frame.kind, 'mwLoftBed');
+    assert.equal(chair.kind, 'mwChair');
+    // Under the bed, facing the desk on the wall side.
+    assert.ok(chair.x > bed.x && chair.x < bed.x + bed.depth / 2 && Math.abs(Math.sin(chair.angle) + 1) < 1e-9, variant);
+  }
 });

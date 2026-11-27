@@ -7,6 +7,9 @@ import { FURNITURE, FACING } from './furniture-spec.js';
 import { buildDressing } from './kit.js';
 import { doorFootprints, corners } from '../walkthrough/layout.js';
 
+// Product-card names of the kit props; P shows their card like any furniture (the rod is part
+// of the curtain). A 집들이's own prop models name themselves (tourProp).
+const PROP_TITLES = { art: '액자', curtain: '커튼', pendant: '펜던트 조명', sideLamp: '사이드 테이블과 조명', nightLamp: '협탁과 조명', wallShelf: '벽 선반', tableLamp: '탁상 조명' };
 const SOFAS = new Set(['sofa4', 'sofa3', 'loveseat', 'sofaLow']);
 const BEDS = new Set(['singleBed', 'queenBed']);
 const DESKS = new Set(['deskSet', 'deskWide', 'deskPro']);
@@ -137,11 +140,17 @@ export function createDressing() {
       group.name = 'Concept styling';
       // Props change with every theme; merged into the static batches they would outlive clear().
       group.userData.noBatch = true;
-      for (const prop of props) {
+      for (const [index, prop] of props.entries()) {
         const piece = own(prop) ?? buildDressing(prop.kind, { ...prop.options, colors });
         piece.position.set(prop.x, prop.y, prop.z);
         piece.rotation.y = prop.angle;
-        piece.traverse((o) => { if (o.isMesh) { o.castShadow = prop.kind !== 'rod'; o.receiveShadow = true; } });
+        if (!piece.userData.furnitureInfo && PROP_TITLES[prop.kind]) piece.userData.furnitureInfo = { kind: prop.kind, title: PROP_TITLES[prop.kind] };
+        let part = 0;
+        piece.traverse((o) => {
+          if (o.isMesh) { o.castShadow = prop.kind !== 'rod'; o.receiveShadow = true; }
+          // Not staging items, but P picks them by this id and product kind (furniture-picker.js).
+          if (o.userData.furnitureInfo) o.userData.furnitureInfo = { ...o.userData.furnitureInfo, id: `styling-${index}${part++ ? `-${part - 1}` : ''}` };
+        });
         group.add(piece);
       }
       model.add(group);

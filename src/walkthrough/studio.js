@@ -25,13 +25,13 @@ import { fetchGeneratedAssets, generatedKind, installGeneratedTemplate, loadGene
 import { CATALOG_FURNITURE, installCatalogTemplate } from './catalog-furniture.js';
 import { createInteriorStudio } from '../interior/interior-studio.js';
 import { KIT_KINDS, buildFurniture } from '../concepts/kit.js';
-import { FURNITURE } from '../concepts/furniture-spec.js';
+import { FURNITURE, expandSaved } from '../concepts/furniture-spec.js';
 import { installTourTemplates } from '../concepts/tour-furniture.js';
 
 const catalogByKind=new Map(CATALOG_FURNITURE.map(asset=>[asset.kind,asset]));
 // Code-built kit furniture (shared with concepts) is addable on every plan.
 const kitGroups=new Map();
-function ensureKitTemplates(staging){for(const kind of KIT_KINDS){if(staging.templates.has(kind))continue;const spec=FURNITURE[kind];if(!kitGroups.has(kind))kitGroups.set(kind,buildFurniture(kind));staging.addTemplate(kind,{title:spec.title,label:spec.label,group:kitGroups.get(kind),width:spec.w,depth:spec.d,height:spec.h});}installTourTemplates(staging);}
+function ensureKitTemplates(staging){for(const kind of KIT_KINDS){if(staging.templates.has(kind))continue;const spec=FURNITURE[kind];if(!kitGroups.has(kind))kitGroups.set(kind,buildFurniture(kind));staging.addTemplate(kind,{title:spec.title,label:spec.label,group:kitGroups.get(kind),width:spec.w,depth:spec.d,height:spec.h,chair:spec.chair,table:spec.table});}installTourTemplates(staging);}
 const catalogSize=asset=>{const d=asset.dimensions_m;return `모델 규격 · 너비 ${(d.width*100).toFixed(1)} × 깊이 ${(d.depth*100).toFixed(1)} × 높이 ${(d.height*100).toFixed(1)} cm`;};
 
 const $=id=>document.getElementById(id);
@@ -487,8 +487,9 @@ export function createStudio({scene,camera,renderer,getActive,loadVariant,resize
       if(!operationCurrent(token)||current()!==target)throw Error('평면이 바뀌어 복원하지 않았어요. 원하는 평면에서 다시 불러와 주세요.');
       if(surfaceEditor&&!surfaceRestore)throw Error('마감 선택이 바뀌어 복원하지 않았어요. 다시 불러와 주세요.');
       if(surfaceRestore&&!surfaceRestore.commit())throw Error('마감 선택이 바뀌어 복원하지 않았어요. 다시 불러와 주세요.');
-      ensureKitTemplates(target.staging);target.staging.restore(data.items,rooms());
-      for(const i of data.items)if(rooms().some(r=>r.id===i?.roomId))assignments.set(i.id,i.roomId);
+      const savedItems=expandSaved(data.items);
+      ensureKitTemplates(target.staging);target.staging.restore(savedItems,rooms());
+      for(const i of savedItems)if(rooms().some(r=>r.id===i?.roomId))assignments.set(i.id,i.roomId);
       let interiorNote='';
       if(data.revision===3&&data.interior){try{interior.ensureBound();interior.restore(data.interior);}catch(error){interiorNote=` 인테리어는 불러오지 못했어요. (${error.message})`;}}
       refreshRooms();refreshItems();renderPlan();showWarnings();dirty(true);status(`저장한 인테리어와 배치를 불러왔어요.${interiorNote}`);
@@ -590,8 +591,9 @@ export function createStudio({scene,camera,renderer,getActive,loadVariant,resize
         if(data.items.some(i=>i?.kind?.startsWith('generated:')&&!target.staging.templates.has(i.kind)))return false;
         try{for(const kind of new Set(data.items.filter(i=>i?.deleted!==true&&i?.kind?.startsWith('catalog:')).map(i=>i.kind)))await installCatalogTemplate(target.staging,kind);}catch{return false;}
         if(current()!==target)return false;
-        ensureKitTemplates(target.staging);target.staging.restore(data.items,rooms());
-        for(const i of data.items)if(rooms().some(r=>r.id===i?.roomId))assignments.set(i.id,i.roomId);
+        const savedItems=expandSaved(data.items);
+        ensureKitTemplates(target.staging);target.staging.restore(savedItems,rooms());
+        for(const i of savedItems)if(rooms().some(r=>r.id===i?.roomId))assignments.set(i.id,i.roomId);
         refreshItems();renderPlan();dirty(true);return true;
       },
     },

@@ -21,11 +21,15 @@ export function overlap(a,b,clearance=.015) {
 // Rugs and play mats lie flat on the floor: furniture may stand on them and they do not
 // narrow a passage, so they skip the furniture overlap and clearance checks.
 const flat=o=>o.height<.05;
+// A chair is its own piece but pulls up to a table or desk: it may stand partly under one,
+// and chairs side by side around a table do not narrow a passage for each other.
+const tucked=(a,b)=>(a.chair&&b.table)||(a.table&&b.chair);
+const seated=(a,b)=>tucked(a,b)||(a.chair&&b.chair);
 export function placementError(item,room,others,obstacles) {
   if(![item.x,item.z,item.angle].every(Number.isFinite))return '위치와 회전값을 확인해 주세요.';
   const [x1,z1,x2,z2]=room.bounds_m;
   if(corners(item).some(([x,z])=>x<x1+.015||x>x2-.015||z<z1+.015||z>z2-.015||!pointInRoom(room,x,z)))return '가구 전체가 선택한 공간 안에 있어야 해요.';
-  if(!flat(item)&&others.some(o=>o.id!==item.id&&!o.deleted&&!flat(o)&&overlap(item,o)))return '다른 가구와 겹쳐요.';
+  if(!flat(item)&&others.some(o=>o.id!==item.id&&!o.deleted&&!flat(o)&&!tucked(item,o)&&overlap(item,o)))return '다른 가구와 겹쳐요.';
   if(obstacles.some(o=>overlap(item,o)))return '벽이나 고정 집기와 겹쳐요.';
   return null;
 }
@@ -47,13 +51,13 @@ export function placementWarnings(item,room,others,obstacles,doors=[],clearance=
   const warnings=[], [x1,z1,x2,z2]=room.bounds_m;
   if(corners(item).some(([x,z])=>!pointInRoom(room,x,z)))warnings.push('선택한 공간의 경계를 벗어났어요.');
   const furniture=flat(item)?[]:others.filter(o=>o.id!==item.id&&!o.deleted&&!flat(o));
-  if(furniture.some(o=>overlap(item,o,0)))warnings.push('다른 가구와 겹쳐요.');
+  if(furniture.some(o=>!tucked(item,o)&&overlap(item,o,0)))warnings.push('다른 가구와 겹쳐요.');
   if(obstacles.some(o=>overlap(item,o,0)))warnings.push('벽이나 고정 집기와 겹쳐요.');
   const hits=[...new Set(doors.filter(o=>overlap(item,o,0)).map(o=>o.title))];
   if(hits.length)warnings.push(`${hits.join(', ')} 개방 범위에 걸려요. (문 방향 가정)`);
   // Walls separate rooms, so only furniture standing in the same room narrows a passage.
   const sameRoom=o=>o.x>=x1&&o.x<=x2&&o.z>=z1&&o.z<=z2;
   const envelope={...item,width:item.width+2*clearance,depth:item.depth+2*clearance};
-  if(furniture.some(o=>sameRoom(o)&&!overlap(item,o,0)&&overlap(envelope,o,0)))warnings.push('가구 사이 여유가 60cm 미만일 수 있어요.');
+  if(furniture.some(o=>sameRoom(o)&&!seated(item,o)&&!overlap(item,o,0)&&overlap(envelope,o,0)))warnings.push('가구 사이 여유가 60cm 미만일 수 있어요.');
   return warnings;
 }

@@ -57,7 +57,9 @@ test('3D hover reveals a plus and opens a compact card without changing the room
   await expect(page.locator('#furniture-hover-card')).toHaveAttribute('data-item-id', item.id);
   await expect(page.locator('#furniture-hover-name')).toContainText('소파');
   await expect(page.locator('#furniture-hover-price')).toContainText('₩899,000');
-  await expect(page.locator('#furniture-hover-link')).toHaveAttribute('href', 'https://example.com/');
+  // The model's own sofa is not a shop product: no shop link, the customer-owned line instead.
+  await expect(page.locator('#furniture-hover-link')).toBeHidden();
+  await expect(page.locator('#furniture-hover-owned')).toHaveText('고객 소유 가구이므로 판매하지 않습니다');
   await expect.poll(() => page.locator('#furniture-hover-image').evaluate(image => image.complete && image.naturalWidth > 0)).toBe(true);
   await expect(page.locator('#furniture-hover-image')).toHaveAttribute('src', /^data:image\/png/);
   const after = await page.evaluate(() => window.__studio.inspect());
@@ -69,7 +71,7 @@ test('3D hover reveals a plus and opens a compact card without changing the room
   expect(card.y).toBeGreaterThanOrEqual(viewport.y);
   expect(card.x + card.width).toBeLessThanOrEqual(viewport.x + viewport.width + 1);
   expect(card.y + card.height).toBeLessThanOrEqual(viewport.y + viewport.height + 1);
-  expect(card.height).toBeLessThan(240);
+  expect(card.height).toBeLessThan(480); // about twice the original card
   await page.screenshot({ path: info.outputPath('split-3d-product-card.png') });
   await page.locator('#furniture-hover-close').click();
   await expect(page.locator('#furniture-hover-card')).toBeHidden();

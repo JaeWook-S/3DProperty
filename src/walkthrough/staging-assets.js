@@ -61,9 +61,10 @@ export function stagingAssets(model,info) {
   function reset(){for(const i of items){if(i.id.startsWith('added-')){model.remove(i.group);}else{Object.assign(i,i.initial,{deleted:false});apply(i);}}for(let n=items.length-1;n>=0;n--)if(items[n].id.startsWith('added-'))items.splice(n,1);rebuild();}
   // Furniture built in code (src/concepts/kit.js) becomes an addable template. Its plan
   // size comes from the catalog spec so editor warnings match the concept planner.
-  function addTemplate(kind,{title,label,group,width,depth,height}){
+  // `chair` pieces may stand under and beside `table` pieces (layout.js).
+  function addTemplate(kind,{title,label,group,width,depth,height,chair=false,table=false}){
     if(templates.has(kind))return templates.get(kind);
-    const template={id:`template-${kind}`,title,label,kind,width,depth,height,x:0,z:0,angle:0,deleted:false,group};
+    const template={id:`template-${kind}`,title,label,kind,width,depth,height,chair:Boolean(chair),table:Boolean(table),x:0,z:0,angle:0,deleted:false,group};
     templates.set(kind,template);return template;
   }
   // Places a copy of a template at an exact transform; ids starting with 'added-' are

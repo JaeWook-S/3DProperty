@@ -3,7 +3,8 @@ import { parse } from 'yaml';
 const record = value => value !== null && typeof value === 'object' && !Array.isArray(value);
 export const EXAMPLE_PRODUCTS = Object.freeze({
   version: 1,
-  defaults: { price: 199000, currency: 'KRW', seller: '임시 판매처', url: 'https://example.com/', placeholder: true },
+  // No shop link by default: only products with their own url get the shop button.
+  defaults: { price: 199000, currency: 'KRW', seller: '임시 판매처', placeholder: true },
   products: {},
 });
 

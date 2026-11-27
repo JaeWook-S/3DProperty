@@ -114,9 +114,12 @@ function table(p, tableW, tableD) {
   return p;
 }
 
-function dining(tableW, tableD, chairs) {
-  const p = table(new Parts(), tableW, tableD);
-  for (const [x, z, facing] of chairs) chair(p, x, z, facing);
+// A small child's chair: the sitter faces +Z, the back stands at -Z.
+function kidsChair(material) {
+  const p = new Parts();
+  p.add(rbox(0.3, 0.03, 0.18, 0.04), material, [0, 0.27, 0]);
+  p.add(rbox(0.3, 0.2, 0.03, 0.04), material, [0, 0.38, -0.08]);
+  for (const sx of [-1, 1]) for (const sz of [-1, 1]) p.add(cyl(0.015, 0.015, 0.26, 8), MATERIALS.wood, [sx * 0.12, 0.13, sz * 0.07]);
   return p;
 }
 
@@ -286,18 +289,15 @@ const BUILDERS = {
     p.add(rbox(0.3, 0.3, 0.12, 0.06), MATERIALS.white, [0.12, 0.2, -0.1], [-0.3, 0.3, 0]);
     return p;
   },
-  kidsTable() {
+  playTable() {
     const p = new Parts();
     p.add(rbox(0.6, 0.03, 0.5, 0.06), MATERIALS.white, [0, 0.475, 0]);
     for (const sx of [-1, 1]) for (const sz of [-1, 1]) p.add(cyl(0.022, 0.022, 0.46, 10), MATERIALS.wood, [sx * 0.24, 0.23, sz * 0.19]);
-    for (const [z, material, s] of [[0.36, FIXED.toy3, 1], [-0.36, FIXED.toy1, -1]]) {
-      p.add(rbox(0.3, 0.03, 0.18, 0.04), material, [0, 0.27, z]);
-      p.add(rbox(0.3, 0.2, 0.03, 0.04), material, [0, 0.38, z + s * 0.08]);
-      for (const sx of [-1, 1]) for (const sz of [-1, 1]) p.add(cyl(0.015, 0.015, 0.26, 8), MATERIALS.wood, [sx * 0.12, 0.13, z + sz * 0.07]);
-    }
     p.add(rbox(0.16, 0.012, 0.22, 0.003), MATERIALS.white, [-0.1, 0.495, 0.05]);
     return p;
   },
+  kidsChairBlue: () => kidsChair(FIXED.toy3),
+  kidsChairPink: () => kidsChair(FIXED.toy1),
   singleBed: () => bed(1.1, 2.15),
   loftBed() {
     const p = new Parts(), w = 1.1, d = 2.15;
@@ -315,7 +315,6 @@ const BUILDERS = {
     p.add(box(0.03, 0.72, 0.03), MATERIALS.metal, [-w / 2 + 0.6, 0.36, -0.85]);
     p.add(box(0.03, 0.72, 0.03), MATERIALS.metal, [-w / 2 + 0.6, 0.36, 0.35]);
     shelfBooks(p, -0.3, 0.05, 0.755, 0.18, 41);
-    taskChair(p, 0.18, -0.2, -Math.PI / 2);
     return p;
   },
   crib() {
@@ -332,20 +331,16 @@ const BUILDERS = {
     p.add(ball(0.06), FIXED.toy2, [0.08, 0.46, -0.3]);
     return p;
   },
-  deskSet() {
-    const p = deskOnly();
-    taskChair(p, 0, 0.22);
-    return p;
-  },
-  deskWide() {
+  studyDesk: () => deskOnly(),
+  deskDouble() {
     const p = new Parts();
     deskTop(p, 1.8, 0.7, -0.25);
-    for (const x of [-0.45, 0.45]) { monitor(p, x, -0.48); taskChair(p, x, 0.35); p.add(rbox(0.36, 0.012, 0.13, 0.004), MATERIALS.white, [x, 0.756, -0.2]); }
+    for (const x of [-0.45, 0.45]) { monitor(p, x, -0.48); p.add(rbox(0.36, 0.012, 0.13, 0.004), MATERIALS.white, [x, 0.756, -0.2]); }
     p.add(ball(0.08), FIXED.leaf, [0.82, 0.86, -0.5]);
     p.add(cyl(0.06, 0.05, 0.1, 14), MATERIALS.pot, [0.82, 0.8, -0.5]);
     return p;
   },
-  deskPro() {
+  deskDual() {
     const p = new Parts();
     deskTop(p, 1.6, 0.7, -0.25);
     monitor(p, -0.29, -0.45, 0.6, 0.18);
@@ -354,18 +349,18 @@ const BUILDERS = {
     p.add(cyl(0.06, 0.07, 0.02, 16), MATERIALS.metal, [0.68, 0.76, -0.5]);
     p.add(cyl(0.008, 0.008, 0.4, 8), MATERIALS.metal, [0.68, 0.95, -0.5]);
     p.add(cyl(0.05, 0.08, 0.09, 16, true), FIXED.lamp, [0.64, 1.12, -0.46], [0.5, 0, 0]);
-    taskChair(p, 0, 0.35);
     return p;
   },
-  dining6: () => dining(1.8, 0.9, [-0.6, 0, 0.6].flatMap((x) => [[x, 0.68, Math.PI], [x, -0.68, 0]])),
-  dining4: () => dining(1.4, 0.8, [-0.35, 0.35].flatMap((x) => [[x, 0.6, Math.PI], [x, -0.6, 0]])),
-  dining2() {
+  // One chair of the desks and the loft bed; one chair of the dining tables.
+  officeChair() { const p = new Parts(); taskChair(p, 0, 0, 0); return p; },
+  sideChair() { const p = new Parts(); chair(p, 0, 0, 0); return p; },
+  diningTable6: () => table(new Parts(), 1.8, 0.9),
+  diningTable4: () => table(new Parts(), 1.4, 0.8),
+  roundTable2() {
     const p = new Parts();
     p.add(cyl(0.4, 0.4, 0.035, 40), MATERIALS.wood, [0, 0.7325, 0]);
     p.add(cyl(0.05, 0.05, 0.69, 16), MATERIALS.woodDark, [0, 0.36, 0]);
     p.add(cyl(0.24, 0.24, 0.025, 28), MATERIALS.woodDark, [0, 0.0125, 0]);
-    chair(p, -0.58, 0, Math.PI / 2);
-    chair(p, 0.58, 0, -Math.PI / 2);
     p.add(cyl(0.05, 0.04, 0.12, 16), MATERIALS.pot, [0, 0.81, 0]);
     p.add(ball(0.08), FIXED.leafLight, [0, 0.9, 0]);
     return p;
@@ -399,9 +394,9 @@ const BUILDERS = {
     return p;
   },
   queenBed: () => bed(1.65, 2.15, { headboard: 1.0, frameMaterial: MATERIALS.woodDark }),
-  dresser() {
+  vanityDresser() {
     const p = new Parts(), w = 1.0;
-    // Table against the wall (back at -Z), mirror above, stool in front.
+    // Table against the wall (back at -Z), mirror above; its stool is a piece of its own.
     legs(p, w, 0.42, 0.72, MATERIALS.wood, 0.05, 0.016);
     p.add(rbox(w, 0.04, 0.42, 0.01), MATERIALS.white, [0, 0.74, -0.215]);
     p.add(rbox(w - 0.1, 0.12, 0.38, 0.008), MATERIALS.white, [0, 0.66, -0.215]);
@@ -409,9 +404,13 @@ const BUILDERS = {
     p.add(cyl(0.28, 0.28, 0.022, 40), FIXED.mirror, [0, 1.14, -0.4], [Math.PI / 2, 0, 0]);
     p.add(cyl(0.035, 0.035, 0.12, 14), MATERIALS.pot, [0.3, 0.82, -0.25]);
     p.add(cyl(0.025, 0.03, 0.08, 14), MATERIALS.accent, [0.38, 0.8, -0.2]);
-    p.add(cyl(0.2, 0.2, 0.06, 28), MATERIALS.fabric2, [0, 0.45, 0.2]);
-    p.add(cyl(0.018, 0.018, 0.42, 10), MATERIALS.metal, [0, 0.21, 0.2]);
-    p.add(cyl(0.16, 0.16, 0.012, 24), MATERIALS.metal, [0, 0.006, 0.2]);
+    return p;
+  },
+  vanityStool() {
+    const p = new Parts();
+    p.add(cyl(0.2, 0.2, 0.06, 28), MATERIALS.fabric2, [0, 0.45, 0]);
+    p.add(cyl(0.018, 0.018, 0.42, 10), MATERIALS.metal, [0, 0.21, 0]);
+    p.add(cyl(0.16, 0.16, 0.012, 24), MATERIALS.metal, [0, 0.006, 0]);
     return p;
   },
   piano() {

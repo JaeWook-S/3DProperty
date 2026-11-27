@@ -14,6 +14,7 @@ export const TOUR_MODELS = {
   mwTvConsole: { url: glb('mountain-white', 'tv_shelves.glb'), root: 'TVC_Cabinet_ROOT', prefix: 'TVC_' },
   mwFloorLamp: { url: glb('mountain-white', 'floor_stance.glb'), root: 'TPL_Lamp_ROOT', prefix: 'TPL_' },
   mwDiningTable: { url: glb('mountain-white', 'wood_table.glb'), root: 'RDT_Table_ROOT', prefix: 'RDT_' },
+  mwChair: { url: glb('mountain-white', 'black_chair.glb') }, // six around mwDiningTable
   mwBed: { url: glb('mountain-white', 'bed.glb'), root: 'BED_Bed_ROOT', prefix: 'BED_' },
   mwArmchair: { url: glb('mountain-white', 'armchair.glb') },
   mwPlant: { url: glb('mountain-white', 'monstera.glb') },
@@ -27,33 +28,29 @@ export const TOUR_MODELS = {
   swSideTable: { url: glb('stone-walnut', 'dark_brown_circle_table.glb') },
   swSideboard: { url: glb('stone-walnut', 'walnut_sideboard.glb') },
   swFloorLamp: { url: glb('stone-walnut', 'black_lamp.glb') },
-  swDining: { url: glb('stone-walnut', 'oak_brown_table.glb') }, // with four GLB chairs
+  swDiningTable: { url: glb('stone-walnut', 'oak_brown_table.glb') },
+  swChair: { url: glb('stone-walnut', 'metal_black_chair.glb') }, // four at swDiningTable, one at swDesk
   swBed: { url: glb('stone-walnut', 'dark_brown_bed.glb') },
   swNightstand: { url: glb('stone-walnut', 'dark_brown_table.glb') },
   swGuestBed: { url: glb('stone-walnut', 'small_dark_brown_bed.glb') },
-  swDesk: { url: glb('stone-walnut', 'dark_desk.glb') }, // with the dining chair GLB
+  swDesk: { url: glb('stone-walnut', 'dark_desk.glb') },
   swWardrobe: { url: glb('stone-walnut', 'small_black_wardrobe.glb') },
   swPlant: { url: glb('mountain-white', 'monstera.glb') }, // the same monstera, shared with mountain-white
 };
-// Parts that only appear inside a placeable piece or as a styling prop (see `props` in the spec).
-// `keepHeight` keeps a hanging piece at its modeled height instead of standing it on the floor.
+// Parts that only appear as a styling prop (see `props` in the spec). `keepHeight` keeps a
+// hanging piece at its modeled height instead of standing it on the floor. `title` names the
+// prop on its product card (P); its product is looked up by the part name.
 export const TOUR_PARTS = {
-  mwChair: { url: glb('mountain-white', 'black_chair.glb') },
-  swChair: { url: glb('stone-walnut', 'metal_black_chair.glb') },
-  mwSideTable: { url: glb('mountain-white', 'small_black_side_table.glb') },
-  mwNightstand: { url: glb('mountain-white', 'small_white_nightstand.glb') },
-  swPendant: { url: glb('stone-walnut', 'small_black_pendant.glb'), keepHeight: true },
-  mwPendant: { url: glb('mountain-white', 'small_pendant_lamp.glb'), keepHeight: true },
-  tableLamp: { url: glb('mountain-white', 'small_table_lamp.glb') }, // on every set side table and nightstand
-  mwFrame: { url: glb('mountain-white', 'oak_frame.glb') },
-  swFrame: { url: glb('stone-walnut', 'small_black_frame.glb') },
-  swTriptych: { url: glb('stone-walnut', 'three_picture_frames.glb') },
-  swShelf: { url: glb('stone-walnut', 'wall_shelf.glb') },
+  mwSideTable: { url: glb('mountain-white', 'small_black_side_table.glb'), title: '화이트 오크 · 블랙 보조 테이블' },
+  mwNightstand: { url: glb('mountain-white', 'small_white_nightstand.glb'), title: '화이트 오크 · 화이트 협탁' },
+  swPendant: { url: glb('stone-walnut', 'small_black_pendant.glb'), keepHeight: true, title: '다크 스톤 · 블랙 펜던트 조명' },
+  mwPendant: { url: glb('mountain-white', 'small_pendant_lamp.glb'), keepHeight: true, title: '화이트 오크 · 블랙 펜던트 조명' },
+  tableLamp: { url: glb('mountain-white', 'small_table_lamp.glb'), title: '화이트 탁상 조명' }, // on every set side table and nightstand
+  mwFrame: { url: glb('mountain-white', 'oak_frame.glb'), title: '화이트 오크 · 오크 액자' },
+  swFrame: { url: glb('stone-walnut', 'small_black_frame.glb'), title: '다크 스톤 · 블랙 액자' },
+  swTriptych: { url: glb('stone-walnut', 'three_picture_frames.glb'), title: '다크 스톤 · 세 폭 액자' },
+  swShelf: { url: glb('stone-walnut', 'wall_shelf.glb'), title: '다크 스톤 · 벽 선반' },
 };
-// [x, z, facing]: where each chair stands around its table and the way its sitter looks.
-const SIX_CHAIRS = [-0.72, 0, 0.72].flatMap((x) => [[x, -0.44, 0], [x, 0.44, Math.PI]]);
-const FOUR_CHAIRS = [-0.35, 0.35].flatMap((x) => [[x, -0.62, 0], [x, 0.62, Math.PI]]);
-
 const templates = new Map();
 const parts = new Map();
 let loading;
@@ -95,32 +92,17 @@ function extract(definition, scene, label) {
   return object;
 }
 
-function chairsAround(chair, seats) {
-  const group = new THREE.Group();
-  group.name = 'Dining chairs';
-  for (const [x, z, facing] of seats) {
-    const seat = chair.clone(true);
-    seat.position.set(x, 0, z);
-    seat.rotation.y = facing;
-    group.add(seat);
-  }
-  return group;
-}
-
 /**
- * One placeable set piece from its loaded GLB scene. `parts` holds the extracted chair
- * objects for the dining sets. The piece's own GLB (or the kit table) is the first child.
+ * One placeable set piece from its loaded GLB scene: the GLB is the first child. Tables, desks
+ * and chairs are separate pieces (TOUR_PIECES places the chairs of a *Set kind).
  */
-export function prepareTourModel(kind, scene, chairs = {}) {
+export function prepareTourModel(kind, scene) {
   const definition = TOUR_MODELS[kind], spec = TOUR_FURNITURE_SPECS[kind];
   if (!definition || !spec) throw new Error(`Unknown tour furniture: ${kind}`);
   const group = new THREE.Group();
   group.add(extract(definition, scene, kind));
   if (kind === 'mwTvConsole') group.add(buildTelevision(0.562));
-  if (kind === 'mwDiningTable') group.add(chairsAround(chairs.mwChair, SIX_CHAIRS));
-  if (kind === 'swDining') group.add(chairsAround(chairs.swChair, FOUR_CHAIRS));
-  if (kind === 'swDesk') group.add(chairsAround(chairs.swChair, [[0, 0.43, Math.PI]]));
-  // Center the whole footprint (table and chairs) on the plan position.
+  // Center the whole footprint (the console and its TV) on the plan position.
   const bounds = new THREE.Box3().setFromObject(group), center = bounds.getCenter(new THREE.Vector3());
   for (const child of group.children) child.position.sub(new THREE.Vector3(center.x, bounds.min.y, center.z));
   group.name = spec.title;
@@ -148,7 +130,7 @@ export function loadTourFurniture(loader = new GLTFLoader()) {
     const loaded = Object.fromEntries(await Promise.all(Object.entries(TOUR_PARTS).map(async ([name, definition]) =>
       [name, extract(definition, await scene(definition.url), name)])));
     const entries = await Promise.all(Object.entries(TOUR_MODELS).map(async ([kind, definition]) =>
-      [kind, prepareTourModel(kind, definition.url ? await scene(definition.url) : null, loaded)]));
+      [kind, prepareTourModel(kind, await scene(definition.url))]));
     for (const [name, object] of Object.entries(loaded)) parts.set(name, object);
     for (const [kind, group] of entries) templates.set(kind, group);
     loadError = null;
@@ -184,19 +166,23 @@ export function tourProp(tour, kind, prop = {}) {
   } else {
     group.add(source.clone(true));
   }
+  // The table and the lamp on it are separate products, each with its own card.
   if (kind === 'sideLamp' || kind === 'nightLamp') {
     const lamp = parts.get('tableLamp');
-    if (lamp) { const placed = lamp.clone(true); placed.position.y = box.max.y; group.add(placed); }
-    else group.add(buildDressing('tableLamp', { height: box.max.y }));
+    const placed = lamp ? lamp.clone(true) : buildDressing('tableLamp', { height: box.max.y });
+    if (lamp) placed.position.y = box.max.y;
+    placed.userData.furnitureInfo = { kind: 'tableLamp', title: TOUR_PARTS.tableLamp.title };
+    group.add(placed);
   }
   group.name = `Dressing ${kind} · ${name}`;
   group.userData.dressing = kind;
+  group.userData.furnitureInfo = { kind: name, title: TOUR_PARTS[name]?.title ?? TOUR_FURNITURE_SPECS[name]?.title ?? name };
   return group;
 }
 
 export function installTourTemplates(staging) {
   for (const [kind, group] of templates) {
     const spec = TOUR_FURNITURE_SPECS[kind];
-    staging.addTemplate(kind, { title: spec.title, label: spec.label, group, width: spec.w, depth: spec.d, height: spec.h });
+    staging.addTemplate(kind, { title: spec.title, label: spec.label, group, width: spec.w, depth: spec.d, height: spec.h, chair: spec.chair, table: spec.table });
   }
 }

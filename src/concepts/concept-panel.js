@@ -1,5 +1,5 @@
 import { HOUSEHOLDS, MOODS, PALETTES, CONCEPTS } from './catalog.js';
-import { FURNITURE } from './furniture-spec.js';
+import { FURNITURE, piecesOf, expandPlacement } from './furniture-spec.js';
 import { planConcept, summarize, rankConcepts, checkNeeds, pickPalette, CLEARANCE_WARNING } from './planner.js';
 import { buildFurniture, applyPalette, KIT_KINDS, MATERIALS } from './kit.js';
 import { createWalkThemes } from './walk-themes.js';
@@ -99,7 +99,7 @@ export function createConceptStudio(hooks) {
     const staging = hooks.current().staging;
     for (const kind of KIT_KINDS) {
       const spec = FURNITURE[kind];
-      staging.addTemplate(kind, { title: spec.title, label: spec.label, group: template(kind), width: spec.w, depth: spec.d, height: spec.h });
+      staging.addTemplate(kind, { title: spec.title, label: spec.label, group: template(kind), width: spec.w, depth: spec.d, height: spec.h, chair: spec.chair, table: spec.table });
     }
     installTourTemplates(staging);
   }
@@ -186,7 +186,7 @@ export function createConceptStudio(hooks) {
     if (!concept) return false;
     const staging = hooks.current().staging;
     ensureTemplates();
-    if (concept.furnitureSet && concept.items.some(p => !staging.templates.has(p.kind))) {
+    if (concept.furnitureSet && concept.items.some(p => piecesOf(p.kind).some(([kind]) => !staging.templates.has(kind)))) {
       const error = tourFurnitureLoadError();
       hooks.status(error ? `집들이 가구 로딩 실패 — ${error.message}` : '집들이 가구를 준비하는 중이에요. 잠시 후 다시 시도해 주세요.');
       return false;
@@ -198,7 +198,8 @@ export function createConceptStudio(hooks) {
       item.group.visible = false;
     }
     const result = plan(concept);
-    for (const [index, p] of result.placements.entries()) staging.place(p.kind, { id: `added-${concept.id}-${index}`, x: p.x, z: p.z, angle: p.angle });
+    // A table or desk set lands as separate pieces: the table and each chair is its own item.
+    for (const [index, p] of result.placements.entries()) for (const piece of expandPlacement(p, `added-${concept.id}-${index}`)) staging.place(piece.kind, piece);
     staging.rebuild();
     if (walking()) hooks.settle();
     const palette = paletteId ?? pickPalette(concept, state.mood);

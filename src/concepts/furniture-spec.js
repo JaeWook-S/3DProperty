@@ -3,7 +3,7 @@
 // beds put the headboard at -Z, desks and shelves stand with their back at -Z.
 // Sizes follow common Korean retail ranges; they are representative examples, not
 // measurements of a particular product. Heights exclude small decor on top (lamps, vases).
-import { TOUR_FURNITURE_SPECS } from './tour-furniture-spec.js';
+import { TOUR_FURNITURE_SPECS, TOUR_PIECES } from './tour-furniture-spec.js';
 
 export const FURNITURE = {
   ...TOUR_FURNITURE_SPECS,
@@ -25,7 +25,7 @@ export const FURNITURE = {
   teepee: { title: '놀이 텐트', label: '텐트', w: 1.1, d: 1.1, h: 1.5, play: true },
   kidsTable: { title: '유아 테이블 세트', label: '유아책상', w: 0.6, d: 0.9, h: 0.52, play: true },
   singleBed: { title: '싱글 침대', label: '싱글', w: 1.1, d: 2.15, h: 0.9, sleeps: 1 },
-  loftBed: { title: '벙커 침대 · 하부 책상', label: '벙커', w: 1.1, d: 2.15, h: 1.65, sleeps: 1, desks: 1 },
+  loftBed: { title: '벙커 침대 · 하부 책상', label: '벙커', w: 1.1, d: 2.15, h: 1.65, sleeps: 1, desks: 1, table: true },
   crib: { title: '아기 침대', label: '아기침대', w: 0.7, d: 1.3, h: 0.95, infant: 1 },
   deskSet: { title: '책상 세트', label: '책상', w: 1.0, d: 0.95, h: 0.95, desks: 1 },
   deskWide: { title: '2인 책상', label: '책상', w: 1.8, d: 1.2, h: 1.15, desks: 2 },
@@ -46,7 +46,68 @@ export const FURNITURE = {
   floorMirror: { title: '전신 거울', label: '거울', w: 0.6, d: 0.39, h: 1.75 },
   plant: { title: '대형 화분', label: '화분', w: 0.5, d: 0.5, h: 1.4, decor: true },
   floorLamp: { title: '플로어 조명', label: '조명', w: 0.4, d: 0.4, h: 1.6, decor: true },
+  // Pieces of the sets in PIECES: each table, desk and chair is its own staging item.
+  // `table` pieces let `chair` pieces stand under and beside them (src/walkthrough/layout.js).
+  diningTable6: { title: '6인 식탁', label: '식탁', w: 1.8, d: 0.9, h: 0.8, table: true },
+  diningTable4: { title: '4인 식탁', label: '식탁', w: 1.4, d: 0.8, h: 0.8, table: true },
+  roundTable2: { title: '2인 원형 식탁', label: '식탁', w: 0.8, d: 0.8, h: 0.75, table: true },
+  sideChair: { title: '다이닝 의자', label: '의자', w: 0.44, d: 0.43, h: 0.88, chair: true },
+  studyDesk: { title: '책상', label: '책상', w: 1.0, d: 0.56, h: 0.95, table: true },
+  deskDouble: { title: '2인 책상', label: '책상', w: 1.8, d: 0.7, h: 1.15, table: true },
+  deskDual: { title: '재택 데스크 · 듀얼 모니터', label: '책상', w: 1.6, d: 0.7, h: 1.15, table: true },
+  officeChair: { title: '사무용 의자', label: '의자', w: 0.52, d: 0.52, h: 0.92, chair: true },
+  playTable: { title: '유아 테이블', label: '유아책상', w: 0.6, d: 0.5, h: 0.5, table: true },
+  kidsChairBlue: { title: '유아 의자 · 블루', label: '의자', w: 0.3, d: 0.19, h: 0.48, chair: true },
+  kidsChairPink: { title: '유아 의자 · 핑크', label: '의자', w: 0.3, d: 0.19, h: 0.48, chair: true },
+  vanityDresser: { title: '화장대', label: '화장대', w: 1.0, d: 0.6, h: 1.44, table: true },
+  vanityStool: { title: '화장대 스툴', label: '스툴', w: 0.4, d: 0.4, h: 0.48, chair: true },
 };
+
+// Tables and desks with their chairs. The planner lays a set out as one footprint (its spec
+// above, chairs included); staging places each piece as its own item, so a chair and its table
+// have separate product cards and move, turn and delete apart. [kind, x, z, facing]: the
+// piece's footprint center from the set's center (set front = +Z) and its turn within the set.
+const HALF_TURN = Math.PI;
+export const PIECES = {
+  ...TOUR_PIECES,
+  dining6: [['diningTable6', 0, 0, 0], ...[-0.6, 0, 0.6].flatMap((x) => [['sideChair', x, -0.684, 0], ['sideChair', x, 0.684, HALF_TURN]])],
+  dining4: [['diningTable4', 0, 0, 0], ...[-0.35, 0.35].flatMap((x) => [['sideChair', x, -0.604, 0], ['sideChair', x, 0.604, HALF_TURN]])],
+  dining2: [['roundTable2', 0, 0, 0], ['sideChair', -0.584, 0, HALF_TURN / 2], ['sideChair', 0.584, 0, -HALF_TURN / 2]],
+  deskSet: [['studyDesk', 0, -0.197, 0], ['officeChair', 0, 0.218, HALF_TURN]],
+  deskWide: [['deskDouble', 0, -0.255, 0], ['officeChair', -0.45, 0.345, HALF_TURN], ['officeChair', 0.45, 0.345, HALF_TURN]],
+  deskPro: [['deskDual', 0, -0.255, 0], ['officeChair', 0, 0.345, HALF_TURN]],
+  kidsTable: [['playTable', 0, 0, 0], ['kidsChairBlue', 0, 0.362, HALF_TURN], ['kidsChairPink', 0, -0.362, 0]],
+  dresser: [['vanityDresser', 0, -0.112, 0], ['vanityStool', 0, 0.213, 0]],
+  // The loft bed stays its own piece; its desk chair stands under it, inside the same footprint.
+  loftBed: [['loftBed', 0, 0, 0], ['officeChair', 0.18, -0.2, -HALF_TURN / 2]],
+};
+/** The staging pieces of a planned kind: the kind itself unless it is a set. */
+export const piecesOf = (kind) => PIECES[kind] ?? [[kind, 0, 0, 0]];
+/** A kind that only exists in plans: staging holds its pieces instead. */
+export const isSetKind = (kind) => Boolean(PIECES[kind]) && PIECES[kind][0][0] !== kind;
+
+const TURN = Math.PI * 2;
+const turn = (angle) => { const a = ((angle % TURN) + TURN) % TURN; return TURN - a < 1e-9 ? 0 : a; };
+/**
+ * A planned placement { kind, x, z, angle } as the staging items it becomes. The first piece
+ * keeps `id`; the others get `${id}-1`, `${id}-2`, ...
+ */
+export function expandPlacement({ kind, x, z, angle = 0 }, id) {
+  const c = Math.cos(angle), s = Math.sin(angle);
+  return piecesOf(kind).map(([piece, dx, dz, facing], n) => ({
+    kind: piece, id: n ? `${id}-${n}` : id, x: x + c * dx + s * dz, z: z - s * dx + c * dz, angle: turn(angle + facing),
+  }));
+}
+// Set kinds renamed when the sets were split.
+const RENAMED = { swDining: 'swDiningSet' };
+/** Saved layouts from before the split: a saved set item comes back as its pieces. */
+export function expandSaved(items) {
+  return items.flatMap((p) => {
+    const kind = RENAMED[p?.kind] ?? p?.kind;
+    if (!isSetKind(kind) || typeof p.id !== 'string') return [p];
+    return expandPlacement({ ...p, kind }, p.id).map((piece) => ({ ...p, ...piece, title: FURNITURE[piece.kind].title }));
+  });
+}
 
 // Furniture that already exists in the 112A model and that concepts may keep.
 export const MODEL_FURNITURE = {

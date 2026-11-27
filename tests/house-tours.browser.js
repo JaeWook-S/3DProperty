@@ -221,9 +221,11 @@ test('applying brings the 집들이 theme into 우리 집, and the toast can und
   await expectKing(page);
   expect(await page.evaluate(() => window.__concepts.state().applied)).toEqual({ concept: 'family-lounge', palette: 'white-oak', tour: 'mountain-white' });
   const applied = await inspect(page);
-  // What the sheet promised is what landed: the basic plan's 2-seat table instead of 6 seats.
-  expect(applied.items.some((i) => i.kind === 'dining2' && !i.deleted)).toBe(true);
-  expect(applied.items.some((i) => i.kind === 'dining6' && !i.deleted)).toBe(false);
+  // What the sheet promised is what landed: the basic plan's 2-seat table instead of 6 seats,
+  // with its two chairs as separate pieces.
+  expect(applied.items.some((i) => i.kind === 'roundTable2' && !i.deleted)).toBe(true);
+  expect(applied.items.filter((i) => i.kind === 'sideChair' && !i.deleted).length).toBe(2);
+  expect(applied.items.some((i) => i.kind === 'diningTable6' && !i.deleted)).toBe(false);
   expect(applied.warnings.flatMap((w) => w.messages).filter((m) => m !== CLEARANCE)).toEqual([]);
   await expect(page.locator('#tour-toast')).toBeVisible();
   await expect(page.locator('#tour-toast')).toContainText('기본형');

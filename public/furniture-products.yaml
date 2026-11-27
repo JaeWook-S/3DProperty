@@ -1,13 +1,14 @@
-# 둘러보기에서 가구를 바라보고 P를 누르면 표시되는 상품 정보입니다.
-# 저장 후 카드를 다시 열면 반영됩니다. 배포된 사이트는 이 파일을 포함해 재배포하세요.
+# 둘러보기에서 가구를 바라보고 P를 누르면, 스튜디오 3D에서 가구에 마우스를 올려 +를 누르면
+# 표시되는 상품 정보입니다. 저장 후 카드를 다시 열면 반영됩니다. 배포된 사이트는 이 파일을 포함해 재배포하세요.
 # price는 쉼표 없는 숫자, currency는 KRW/USD 등의 통화 코드입니다.
 # placeholder를 false로 바꾸면 '예시 상품 정보' 표시가 사라집니다.
+# url이 있는 가구(실제 판매 상품)만 판매 사이트 버튼이 보입니다. url이 없으면 버튼 대신
+# "고객 소유 가구이므로 판매하지 않습니다"가 표시됩니다. 그래서 defaults에는 url을 두지 않습니다.
 version: 1
 defaults:
   price: 199000
   currency: KRW
   seller: "임시 판매처"
-  url: "https://example.com/"
   placeholder: true
 
 # 키 우선순위: 배치 ID → CC0 모델 ID → 가구 종류(kind).
@@ -105,18 +106,27 @@ products:
   sideboard:
     name: "임시 상품 · 낮은 수납장"
     price: 390000
-  dresser:
-    name: "임시 상품 · 화장대 세트"
-    price: 290000
+  vanityDresser:
+    name: "임시 상품 · 화장대"
+    price: 239000
+  vanityStool:
+    name: "임시 상품 · 화장대 스툴"
+    price: 49000
   toyShelf:
     name: "임시 상품 · 교구장"
     price: 149000
   teepee:
     name: "임시 상품 · 놀이 텐트"
     price: 89000
-  kidsTable:
-    name: "임시 상품 · 유아 테이블 세트"
-    price: 129000
+  playTable:
+    name: "임시 상품 · 유아 테이블"
+    price: 79000
+  kidsChairBlue:
+    name: "임시 상품 · 유아 의자 블루"
+    price: 25000
+  kidsChairPink:
+    name: "임시 상품 · 유아 의자 핑크"
+    price: 25000
   singleBed:
     name: "임시 상품 · 싱글 침대"
     price: 499000
@@ -129,24 +139,31 @@ products:
   crib:
     name: "임시 상품 · 아기 침대"
     price: 290000
-  deskSet:
-    name: "임시 상품 · 책상 세트"
-    price: 259000
-  deskWide:
+  # 책상·식탁과 의자는 따로 놓이는 가구라 상품도 따로 적습니다.
+  studyDesk:
+    name: "임시 상품 · 책상"
+    price: 159000
+  deskDouble:
     name: "임시 상품 · 2인 책상"
-    price: 390000
-  deskPro:
-    name: "임시 상품 · 재택 데스크 + 듀얼 모니터"
-    price: 990000
-  dining6:
-    name: "임시 상품 · 6인 식탁"
-    price: 990000
-  dining4:
-    name: "임시 상품 · 4인 식탁"
-    price: 590000
-  dining2:
-    name: "임시 상품 · 2인 식탁"
     price: 290000
+  deskDual:
+    name: "임시 상품 · 재택 데스크 + 듀얼 모니터"
+    price: 890000
+  officeChair:
+    name: "임시 상품 · 사무용 의자"
+    price: 99000
+  diningTable6:
+    name: "임시 상품 · 6인 식탁"
+    price: 690000
+  diningTable4:
+    name: "임시 상품 · 4인 식탁"
+    price: 390000
+  roundTable2:
+    name: "임시 상품 · 2인 원형 식탁"
+    price: 190000
+  sideChair:
+    name: "임시 상품 · 다이닝 의자"
+    price: 59000
   piano:
     name: "임시 상품 · 업라이트 피아노"
     price: 3900000
@@ -174,3 +191,216 @@ products:
   floorLamp:
     name: "임시 상품 · 플로어 조명"
     price: 129000
+
+  # 집들이 전용 가구(GLB) 중 IKEA 제품을 보고 만든 것. 가격은 2026-11-27 IKEA 코리아 기준입니다.
+  # 식탁·책상과 의자는 따로 놓이는 가구라 상품도 하나씩 적습니다(의자 가격은 1개 기준).
+  # 창밖이 액자가 되는 집(mountain-white): 원목 식탁(mwDiningTable, wood_table.glb)은 출처 링크를
+  # 받기 전이라 목록에 없습니다.
+  mwSofa:
+    name: "STOCKHOLM 2025 스톡홀름 2025 3인용소파 · 순드함 베이지"
+    price: 1790000
+    seller: "IKEA"
+    url: "https://www.ikea.com/kr/ko/p/stockholm-2025-3-seat-sofa-sundhamn-beige-50586094/"
+    placeholder: false
+  mwRug:
+    name: "TVERSTED 트베르스테드 단모러그 · 베이지 170x240"
+    price: 199000
+    seller: "IKEA"
+    url: "https://www.ikea.com/kr/ko/p/tversted-rug-low-pile-beige-30560863/"
+    placeholder: false
+  mwSmallRug:
+    # IKEA 코리아에는 170x240만 있어, 작은 방 크기(102x144)에 맞춰 줄인 모델입니다.
+    name: "TVERSTED 트베르스테드 단모러그 · 베이지 (작은 방 크기에 맞춤)"
+    price: 199000
+    seller: "IKEA"
+    url: "https://www.ikea.com/kr/ko/p/tversted-rug-low-pile-beige-30560863/"
+    placeholder: false
+  mwCoffeeTable:
+    name: "ÖRTRÄSK 외르트레스크 커피테이블 · 브라운 물푸레무늬목 110x68"
+    price: 249000
+    seller: "IKEA"
+    url: "https://www.ikea.com/kr/ko/p/oertraesk-coffee-table-brown-ash-veneer-90635846/"
+    placeholder: false
+  mwTvConsole:
+    # 가격은 TV장식장만입니다. 위의 TV는 포함되지 않습니다.
+    name: "STOCKHOLM 2025 스톡홀름 2025 TV장식장+미닫이도어 · 참나무무늬목 179x42x56"
+    price: 499000
+    seller: "IKEA"
+    url: "https://www.ikea.com/kr/ko/p/stockholm-2025-tv-bench-with-sliding-doors-oak-veneer-00586510/"
+    placeholder: false
+  mwFloorLamp:
+    name: "LAUTERS 라우테르스 플로어스탠드 · 물푸레나무/화이트"
+    price: 99900
+    seller: "IKEA"
+    url: "https://www.ikea.com/kr/ko/p/lauters-floor-lamp-ash-white-80405054/"
+    placeholder: false
+  mwBed:
+    name: "RAMNEFJÄLL 람네피엘 쿠션형 침대프레임 · 이데쿨라 베이지/루뢰위 180x200"
+    price: 339000
+    seller: "IKEA"
+    url: "https://www.ikea.com/kr/ko/p/ramnefjaell-upholstered-bed-frame-idekulla-beige-luroey-s59627250/"
+    placeholder: false
+  mwChair:
+    name: "LISABO 리사보 의자 · 블랙"
+    price: 79900
+    seller: "IKEA"
+    url: "https://www.ikea.com/kr/ko/p/lisabo-chair-black-10457230/"
+    placeholder: false
+  # 스타일링 소품(벽 액자 · 벽 선반 · 펜던트 · 보조 테이블 위 조명)도 P로 볼 수 있습니다.
+  # 화이트 협탁(mwNightstand)은 IKEA 코리아에 같은 색이 없어 목록에 없습니다.
+  mwSideTable:
+    name: "STOCKHOLM 2025 스톡홀름 2025 보조테이블 · 소나무무늬목 블랙 40cm"
+    price: 99900
+    seller: "IKEA"
+    url: "https://www.ikea.com/kr/ko/p/stockholm-2025-side-table-pine-veneer-black-10586562/"
+    placeholder: false
+  tableLamp:
+    # 두 집들이의 보조 테이블 · 협탁 위 탁상 조명 모두 같은 제품입니다.
+    name: "NYMÅNE 뉘모네 탁상스탠드 · 화이트 33cm"
+    price: 69900
+    seller: "IKEA"
+    url: "https://www.ikea.com/kr/ko/p/nymane-table-lamp-white-10594326/"
+    placeholder: false
+  mwPendant:
+    name: "SKURUP 스쿠루프 펜던트등 · 블랙 38cm"
+    price: 39900
+    seller: "IKEA"
+    url: "https://www.ikea.com/kr/ko/p/skurup-pendant-lamp-black-30407121/"
+    placeholder: false
+  mwFrame:
+    name: "RÖDALM 뢰달름 액자 · 참나무무늬 50x70"
+    price: 27900
+    seller: "IKEA"
+    url: "https://www.ikea.com/kr/ko/p/roedalm-frame-oak-effect-40566402/"
+    placeholder: false
+  mwArmchair:
+    name: "LILLESÄTER 릴레세테르 회전라운지체어 · 악스발 오프화이트"
+    price: 299000
+    seller: "IKEA"
+    url: "https://www.ikea.com/kr/ko/p/lillesaeter-swivel-easy-chair-axvall-off-white-80618687/"
+    placeholder: false
+  mwPlant:
+    name: "FEJKA 페이카 인조식물 · 몬스테라 19cm"
+    price: 42900
+    seller: "IKEA"
+    url: "https://www.ikea.com/kr/ko/p/fejka-artificial-potted-plant-in-outdoor-monstera-60615246/"
+    placeholder: false
+  mwSingleBed:
+    name: "MALM 말름 높은침대프레임+수납상자2 · 화이트스테인 참나무 90x200"
+    price: 291000
+    seller: "IKEA"
+    url: "https://www.ikea.com/kr/ko/p/malm-bed-frame-high-w-2-storage-boxes-white-stained-oak-veneer-s99200934/"
+    placeholder: false
+  mwLoftBed:
+    name: "SMÅSTAD 스모스타드 로프트침대프레임+책상/수납장 · 화이트 90x200"
+    price: 550000
+    seller: "IKEA"
+    url: "https://www.ikea.com/kr/ko/p/smastad-loft-bed-frame-w-desk-and-storage-white-30454037/"
+    placeholder: false
+  mwBookcase:
+    name: "BILLY 빌리 책장 · 블랙 참나무무늬 80x28x202"
+    price: 99900
+    seller: "IKEA"
+    url: "https://www.ikea.com/kr/ko/p/billy-bookcase-black-oak-effect-20477341/"
+    placeholder: false
+  # 호텔 같은 고급스러움, 1인 가구의 13평(stone-walnut)
+  swSofa:
+    name: "LANDSKRONA 란스크로나 3인용소파 · 그란/봄스타드 골든브라운/메탈"
+    price: 1029000
+    seller: "IKEA"
+    url: "https://www.ikea.com/kr/ko/p/landskrona-3-seat-sofa-grann-bomstad-golden-brown-metal-s09270304/"
+    placeholder: false
+  swRug:
+    name: "VOLLERSLEV 볼레르슬레브 장모러그 · 화이트 133x195"
+    price: 199000
+    seller: "IKEA"
+    url: "https://www.ikea.com/kr/ko/p/vollerslev-rug-high-pile-white-90492569/"
+    placeholder: false
+  swCoffeeTable:
+    name: "LACK 라크 커피테이블 · 블랙브라운 118x78"
+    price: 59900
+    seller: "IKEA"
+    url: "https://www.ikea.com/kr/ko/p/lack-coffee-table-black-brown-80352951/"
+    placeholder: false
+  swSideTable:
+    name: "STOCKHOLM 2025 스톡홀름 보조테이블 · 참나무무늬목 다크브라운 55cm"
+    price: 149000
+    seller: "IKEA"
+    url: "https://www.ikea.com/kr/ko/p/stockholm-2025-side-table-oak-veneer-dark-brown-10586557/"
+    placeholder: false
+  swSideboard:
+    name: "RÅDMANSÖ 로드만쇠 TV장식장 · 브라운 월넛 176x48x66"
+    price: 299000
+    seller: "IKEA"
+    url: "https://www.ikea.com/kr/ko/p/radmansoe-tv-bench-brown-walnut-effect-20597819/"
+    placeholder: false
+  swFloorLamp:
+    name: "NYMÖ 뉘뫼 / SKAFTET 스카프테트 플로어스탠드 · 블랙 황동/황동"
+    price: 69900
+    seller: "IKEA"
+    url: "https://www.ikea.com/kr/ko/p/nymoe-skaftet-floor-lamp-black-brass-brass-s99319693/"
+    placeholder: false
+  swDiningTable:
+    name: "MÖRBYLÅNGA 뫼르뷜롱아 테이블 · 참나무무늬목 브라운스테인 140x85"
+    price: 799000
+    seller: "IKEA"
+    url: "https://www.ikea.com/kr/ko/p/moerbylanga-table-oak-veneer-brown-stained-70386249/"
+    placeholder: false
+  swChair:
+    # 식탁 의자 4개와 책상 의자 1개가 같은 의자입니다.
+    name: "TOSSBERG 토스베리 의자 · 메탈 블랙/군나레드 다크그레이"
+    price: 199000
+    seller: "IKEA"
+    url: "https://www.ikea.com/kr/ko/p/tossberg-chair-metal-black-gunnared-dark-grey-20582648/"
+    placeholder: false
+  swBed:
+    name: "IDANÄS 이다네스 침대프레임 · 다크브라운 스테인 180x200"
+    price: 287000
+    seller: "IKEA"
+    url: "https://www.ikea.com/kr/ko/p/idanaes-bed-frame-dark-brown-stained-40458902/"
+    placeholder: false
+  swGuestBed:
+    # IKEA 코리아에는 180x200만 있어, 게스트룸 폭(151cm)에 맞춰 줄인 모델입니다.
+    name: "IDANÄS 이다네스 침대프레임 · 다크브라운 스테인 (게스트룸 폭에 맞춤)"
+    price: 287000
+    seller: "IKEA"
+    url: "https://www.ikea.com/kr/ko/p/idanaes-bed-frame-dark-brown-stained-40458902/"
+    placeholder: false
+  swNightstand:
+    name: "IDANÄS 이다네스 보조테이블 · 다크브라운 스테인 46x36"
+    price: 149000
+    seller: "IKEA"
+    url: "https://www.ikea.com/kr/ko/p/idanaes-side-table-dark-brown-stained-40496046/"
+    placeholder: false
+  swDesk:
+    name: "MICKE 미케 책상 · 블랙브라운 105x50"
+    price: 119000
+    seller: "IKEA"
+    url: "https://www.ikea.com/kr/ko/p/micke-desk-black-brown-00354275/"
+    placeholder: false
+  swPlant:
+    name: "FEJKA 페이카 인조식물 · 몬스테라 19cm"
+    price: 42900
+    seller: "IKEA"
+    url: "https://www.ikea.com/kr/ko/p/fejka-artificial-potted-plant-in-outdoor-monstera-60615246/"
+    placeholder: false
+  swWardrobe:
+    name: "PAX 팍스 / FORSAND 포르산드 옷장 · 다크그레이 250x60x201"
+    price: 978000
+    seller: "IKEA"
+    url: "https://www.ikea.com/kr/ko/p/pax-forsand-wardrobe-dark-grey-dark-grey-s59610301/"
+    placeholder: false
+  # 스타일링 소품. 세 폭 액자(swTriptych)와 블랙 펜던트(swPendant)는 출처 제품이 없어 목록에 없습니다.
+  swShelf:
+    name: "BERGSHULT 베리스훌트 / RAMSHULT 람스훌트 벽선반 · 브라운블랙 120x30"
+    price: 29400
+    seller: "IKEA"
+    url: "https://www.ikea.com/kr/ko/p/bergshult-ramshult-wall-shelf-brown-black-s79290619/"
+    placeholder: false
+  swFrame:
+    # 오크 액자(mwFrame)를 블랙으로 칠한 모델이라 같은 제품의 블랙입니다.
+    name: "RÖDALM 뢰달름 액자 · 블랙 50x70"
+    price: 22900
+    seller: "IKEA"
+    url: "https://www.ikea.com/kr/ko/p/roedalm-frame-black-40550104/"
+    placeholder: false

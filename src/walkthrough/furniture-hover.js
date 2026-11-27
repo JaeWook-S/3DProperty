@@ -15,7 +15,8 @@ export function createFurnitureHover({ viewport, renderer, camera, getActive, el
       <div class="furniture-hover-summary"><img id="furniture-hover-image" alt=""><div class="furniture-hover-details">
         <p id="furniture-hover-seller"></p><h3 id="furniture-hover-name"></h3><p id="furniture-hover-price"></p><span id="furniture-hover-example">예시 상품</span>
       </div></div>
-      <a id="furniture-hover-link" target="_blank" rel="noopener noreferrer">상품 보러가기 <span aria-hidden="true">↗</span></a>
+      <a id="furniture-hover-link" target="_blank" rel="noopener noreferrer" hidden>상품 보러가기 <span aria-hidden="true">↗</span></a>
+      <p id="furniture-hover-owned" hidden>고객 소유 가구이므로 판매하지 않습니다</p>
       <p id="furniture-hover-status" role="status" hidden></p>
     </section>`;
   viewport.append(layer);
@@ -57,15 +58,18 @@ export function createFurnitureHover({ viewport, renderer, camera, getActive, el
     card.style.left = `${left}px`; card.style.top = `${top}px`;
     card.dataset.side = right ? 'right' : 'left';
   }
-  function showProduct(config, error = '') {
+  // Products with a shop url (the IKEA pieces) get the shop link; others are the customer's own.
+  // While the product file is still loading neither shows, so the link never flips.
+  function showProduct(config, error = '', pending = false) {
     const product = resolveFurnitureProduct(config, selection.item);
     el('name').textContent = product.name;
     el('price').textContent = product.priceLabel;
     el('seller').textContent = product.seller;
     el('example').hidden = !product.placeholder;
     el('status').textContent = error; el('status').hidden = !error;
-    if (product.url) { link.href = product.url; link.removeAttribute('aria-disabled'); }
-    else { link.removeAttribute('href'); link.setAttribute('aria-disabled', 'true'); }
+    if (product.url) link.href = product.url; else link.removeAttribute('href');
+    link.hidden = pending || !product.url;
+    el('owned').hidden = pending || Boolean(product.url);
     card.dataset.productKey = product.key;
     position();
   }
@@ -80,7 +84,7 @@ export function createFurnitureHover({ viewport, renderer, camera, getActive, el
     image.hidden = false;
     image.alt = `${hit.item.title} 3D 모델 미리보기`;
     image.onerror = () => { if (selection && token === sequence) { image.onerror = null; renderModel(hit.item); } };
-    showProduct(EXAMPLE_PRODUCTS);
+    showProduct(EXAMPLE_PRODUCTS, '', true);
     const catalog = CATALOG_FURNITURE.find(asset => asset.kind === hit.item.kind || asset.id === hit.item.group.userData.catalog_id);
     if (catalog) image.src = catalog.previewUrl; else renderModel(hit.item);
     card.focus({ preventScroll: true }); position();

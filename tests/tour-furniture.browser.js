@@ -1,7 +1,8 @@
 import { test, expect } from '@playwright/test';
-import { TOUR_FURNITURE_SPECS } from '../src/concepts/tour-furniture-spec.js';
+import { TOUR_FURNITURE_SPECS, TOUR_PIECES } from '../src/concepts/tour-furniture-spec.js';
 
-const kindsOf = (set) => Object.keys(TOUR_FURNITURE_SPECS).filter(kind => TOUR_FURNITURE_SPECS[kind].set === set).sort();
+// Staging holds the table and chairs of a set as separate pieces, never the set itself.
+const kindsOf = (set) => Object.keys(TOUR_FURNITURE_SPECS).filter(kind => TOUR_FURNITURE_SPECS[kind].set === set && !(TOUR_PIECES[kind] && TOUR_PIECES[kind][0][0] !== kind)).sort();
 const setKinds = (page) => page.evaluate((specs) => [...new Set(window.__studio.inspect().items.filter(p => !p.deleted && specs[p.kind]).map(p => p.kind))].sort(), TOUR_FURNITURE_SPECS);
 const surfaces = (page) => page.evaluate(() => ({ finish: document.getElementById('finish').value, lighting: document.getElementById('lighting').value }));
 

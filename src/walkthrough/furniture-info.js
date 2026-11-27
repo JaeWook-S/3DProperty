@@ -17,7 +17,8 @@ export function createFurnitureInfo({ viewport, camera, getActive, eligible, wal
     <div class="furniture-info-photo"><img id="furniture-info-image" alt=""><span id="furniture-info-example">예시 상품 정보</span></div>
     <div class="furniture-info-content"><p class="furniture-info-eyebrow">FURNITURE DETAILS</p><h2 id="furniture-info-name"></h2>
     <p id="furniture-info-price"></p><p class="furniture-info-seller">판매처 <strong id="furniture-info-seller"></strong></p>
-    <a id="furniture-info-link" target="_blank" rel="noopener noreferrer">판매 사이트에서 보기 <span aria-hidden="true">↗</span></a>
+    <a id="furniture-info-link" target="_blank" rel="noopener noreferrer" hidden>판매 사이트에서 보기 <span aria-hidden="true">↗</span></a>
+    <p id="furniture-info-owned" hidden>고객 소유 가구이므로 판매하지 않습니다</p>
     <p id="furniture-info-status" role="status" hidden></p>
     <button id="furniture-info-close" type="button">P · 닫고 둘러보기 계속</button>
     <p id="furniture-info-help">정보 확인 중에는 이동과 시점 회전이 멈춥니다.</p></div></section>`;
@@ -43,14 +44,17 @@ export function createFurnitureInfo({ viewport, camera, getActive, eligible, wal
     card.dataset.side = right ? 'right' : 'left';
     card.style.setProperty('--pointer-top', `${Math.max(24, Math.min(y - top, height - 24))}px`);
   }
-  function showProduct(config, error = '') {
+  // Products with a shop url (the IKEA pieces) get the shop button; others are the customer's own.
+  // While the product file is still loading neither shows, so the button never flips.
+  function showProduct(config, error = '', pending = false) {
     const product = resolveFurnitureProduct(config, selection.item);
     el('name').textContent = product.name;
     el('price').textContent = product.priceLabel;
     el('seller').textContent = product.seller;
     el('example').hidden = !product.placeholder;
-    if (product.url) { link.href = product.url; link.removeAttribute('aria-disabled'); }
-    else { link.removeAttribute('href'); link.setAttribute('aria-disabled', 'true'); }
+    if (product.url) link.href = product.url; else link.removeAttribute('href');
+    link.hidden = pending || !product.url;
+    el('owned').hidden = pending || Boolean(product.url);
     el('status').textContent = error; el('status').hidden = !error;
     card.dataset.productKey = product.key;
     positionCard();
@@ -64,7 +68,7 @@ export function createFurnitureInfo({ viewport, camera, getActive, eligible, wal
     card.dataset.itemId = hit.item.id;
     document.body.classList.add('furniture-info-open');
     pause();
-    showProduct(EXAMPLE_PRODUCTS);
+    showProduct(EXAMPLE_PRODUCTS, '', true);
     image.alt = `${hit.item.title} 3D 모델 미리보기`;
     const catalog = CATALOG_FURNITURE.find(asset => asset.kind === hit.item.kind || asset.id === hit.item.group.userData.catalog_id);
     image.hidden = false;

@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { Box3, Vector3 } from 'three';
 import { CONCEPTS, PALETTES, HOUSEHOLDS, MOODS } from '../src/concepts/catalog.js';
-import { FURNITURE } from '../src/concepts/furniture-spec.js';
+import { FURNITURE, PIECES, isSetKind, expandPlacement, expandSaved } from '../src/concepts/furniture-spec.js';
 import { planConcept, summarize, checkNeeds, rankConcepts, pickPalette, CLEARANCE_WARNING } from '../src/concepts/planner.js';
 import { buildFurniture, KIT_KINDS, MATERIALS, applyPalette } from '../src/concepts/kit.js';
 import { navigationRooms } from '../src/walkthrough/minimap-geometry.js';
@@ -79,7 +79,8 @@ test('ranking puts the matching concept first and the mood picks the palette', (
 });
 
 test('kit pieces are built at their catalog sizes, centered, standing on the floor', () => {
-  assert.deepEqual([...KIT_KINDS].sort(), Object.keys(FURNITURE).filter(kind => !FURNITURE[kind].set).sort()); // set pieces are GLBs
+  // 집들이 set pieces are GLBs; table/desk sets exist only in plans (staging holds their pieces).
+  assert.deepEqual([...KIT_KINDS].sort(), Object.keys(FURNITURE).filter(kind => !FURNITURE[kind].set && !isSetKind(kind)).sort());
   for (const kind of KIT_KINDS) {
     const group = buildFurniture(kind);
     const box = new Box3().setFromObject(group), size = box.getSize(new Vector3()), center = box.getCenter(new Vector3());
@@ -115,6 +116,43 @@ test('rugs and mats lie under furniture, and walls separate rooms for the 60 cm 
   assert.ok(placementWarnings(shelf, room, [neighbour], []).includes(CLEARANCE_WARNING));
 });
 
+test('tables and desks land apart from their chairs, inside the planned set footprint', () => {
+  const kitSets = Object.keys(PIECES).filter(kind => !FURNITURE[kind].set);
+  assert.deepEqual(kitSets.sort(), ['deskPro', 'deskSet', 'deskWide', 'dining2', 'dining4', 'dining6', 'dresser', 'kidsTable', 'loftBed']);
+  for (const set of kitSets) {
+    const spec = FURNITURE[set], [[table], ...chairs] = PIECES[set];
+    assert.ok(FURNITURE[table].table && KIT_KINDS.includes(table), `${set}: ${table}`);
+    assert.ok(chairs.length && chairs.every(([kind]) => FURNITURE[kind].chair && KIT_KINDS.includes(kind)), set);
+    for (const [kind, x, z, facing] of PIECES[set]) {
+      const turned = Math.abs(Math.sin(facing)) > 0.5, w = turned ? FURNITURE[kind].d : FURNITURE[kind].w, d = turned ? FURNITURE[kind].w : FURNITURE[kind].d;
+      assert.ok(Math.abs(x) + w / 2 <= spec.w / 2 + 0.01 && Math.abs(z) + d / 2 <= spec.d / 2 + 0.01, `${set}: ${kind} at ${x}, ${z}`);
+    }
+  }
+  // Only the loft bed is both a plan kind and a piece; a set kind never has its own template.
+  assert.equal(isSetKind('loftBed'), false);
+  assert.equal(isSetKind('dining6'), true);
+  assert.deepEqual(expandPlacement({ kind: 'sofa3', x: 1, z: 2, angle: Math.PI }, 'added-a-0'), [{ kind: 'sofa3', id: 'added-a-0', x: 1, z: 2, angle: Math.PI }]);
+  // A chair that faced north (+π) in a north-facing set turns all the way round to 0, not 2π.
+  assert.deepEqual(expandPlacement({ kind: 'dining4', x: 0, z: 0, angle: Math.PI }, 'a').filter(p => p.kind === 'sideChair').map(p => p.angle), [Math.PI, 0, Math.PI, 0]);
+  // Layouts saved before the split come back as pieces, in the same room.
+  const saved = expandSaved([{ id: 'added-c-3', kind: 'deskSet', title: '책상 세트', x: 2, z: 3, angle: 0, deleted: false, roomId: 'r1' }, { id: 'sofa', kind: 'sofa', x: 1, z: 1, angle: 0 }]);
+  assert.deepEqual(saved.map(p => [p.id, p.kind, p.title, p.roomId]), [['added-c-3', 'studyDesk', '책상', 'r1'], ['added-c-3-1', 'officeChair', '사무용 의자', 'r1'], ['sofa', 'sofa', undefined, undefined]]);
+});
+
+test('a chair may stand under or beside its table and next to other chairs without overlap or passage warnings', () => {
+  const room = { bounds_m: [0, 0, 6, 6] };
+  const table = { id: 't', x: 3, z: 3, width: 1.4, depth: 0.8, height: 0.8, angle: 0, table: true };
+  const chair = { id: 'c1', x: 2.65, z: 3.6, width: 0.44, depth: 0.43, height: 0.88, angle: Math.PI, chair: true };
+  const next = { ...chair, id: 'c2', x: 3.35 };
+  assert.deepEqual(placementWarnings(chair, room, [table, next], []), []);
+  assert.deepEqual(placementWarnings(table, room, [chair, next], []), []);
+  assert.equal(placementError(chair, room, [table], []), null);
+  // Two chairs on the same spot still overlap, and a chair still keeps clear of other furniture.
+  assert.equal(placementError({ ...next, x: 2.7 }, room, [chair], []), '다른 가구와 겹쳐요.');
+  const sofa = { id: 's', x: 2.65, z: 4.1, width: 2.2, depth: 0.95, height: 0.8, angle: 0 };
+  assert.equal(placementError(chair, room, [sofa], []), '다른 가구와 겹쳐요.');
+  assert.ok(placementWarnings({ ...chair, z: 3.2 }, room, [{ ...sofa, z: 4.4 }], []).includes(CLEARANCE_WARNING));
+});
 
 test('searched placements retain fallback option and plan override metadata for house-tour comparisons', () => {
   const room = { id: 'room', bounds_m: [0, 0, 4, 4] };

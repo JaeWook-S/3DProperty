@@ -27,8 +27,12 @@ export function pickFurniture(active, camera, { pointer = new THREE.Vector2(), m
   // should occlude furniture, while the tour retains the full geometry.
   const hit = ray.intersectObjects(meshes, false).find(hit => clippingPlanes.every(plane => plane.distanceToPoint(hit.point) >= -1e-6));
   let owner = hit?.object;
-  while (owner && !owner.userData.stagingId) owner = owner.parent;
-  const item = owner && active.staging.items.find(value => value.id === owner.userData.stagingId && !value.deleted);
+  while (owner && !owner.userData.stagingId && !owner.userData.furnitureInfo) owner = owner.parent;
+  if (!owner) return null;
+  // Concept styling (frames and shelves on the walls, pendants, lamps) is not a staging item;
+  // it carries its own product id, kind and title instead.
+  if (!owner.userData.stagingId) return { item: { ...owner.userData.furnitureInfo, group: owner, deleted: false }, point: hit.point, distance: hit.distance };
+  const item = active.staging.items.find(value => value.id === owner.userData.stagingId && !value.deleted);
   return item ? { item, point: hit.point, distance: hit.distance } : null;
 }
 
