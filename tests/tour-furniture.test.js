@@ -5,7 +5,8 @@ import { Box3, BoxGeometry, Group, Mesh, MeshStandardMaterial, Texture, Vector3 
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { CONCEPTS, PALETTES } from '../src/concepts/catalog.js';
 import { TOUR_FURNITURE_SPECS, TOUR_FURNITURE_SETS, conceptForTour } from '../src/concepts/tour-furniture-spec.js';
-import { TOUR_MODELS, TOUR_PARTS, loadTourFurniture, prepareTourModel, installTourTemplates, tourFurnitureLoadError } from '../src/concepts/tour-furniture.js';
+import { TOUR_MODELS, TOUR_PARTS, loadTourFurniture, prepareTourModel, installTourTemplates, tourFurnitureLoadError, tourProp } from '../src/concepts/tour-furniture.js';
+import { createDressing } from '../src/concepts/dressing.js';
 import { TOURS } from '../src/house-tours/tours.js';
 import { stagingAssets } from '../src/walkthrough/staging-assets.js';
 import { archisketchWebData } from '../src/walkthrough/archisketch-model.js';
@@ -82,7 +83,7 @@ test('legacy assembly roots and flattened baked parts preserve world transforms 
 });
 
 test('every supplied GLB keeps its native scale and authored materials; chairs and TV fill their footprints', async () => {
-  assert.deepEqual(Object.keys(TOUR_PARTS).sort(), ['mwChair', 'swChair']);
+  assert.deepEqual(Object.keys(TOUR_PARTS).sort(), ['mwChair', 'mwFrame', 'mwNightstand', 'mwPendant', 'mwSideTable', 'swChair', 'swFrame', 'swPendant', 'swShelf', 'swTriptych', 'tableLamp']);
   await loadTourFurniture(loader);
   const groups = new Map();
   installTourTemplates({ addTemplate: (kind, template) => groups.set(kind, template.group) });
@@ -107,6 +108,67 @@ test('every supplied GLB keeps its native scale and authored materials; chairs a
   const chairs = (kind) => groups.get(kind).getObjectByName('Dining chairs').children.length;
   assert.equal(chairs('mwDiningTable'), 6);
   assert.equal(chairs('swDining'), 4);
+  assert.equal(chairs('swDesk'), 1);
+});
+
+test('small_ variants made from the supplied GLBs keep their edited sizes', async () => {
+  const size = async (tour, file) => {
+    const { scene } = await loader.loadAsync(new URL(`../assets/house-tours/${tour}/${file}`, import.meta.url).href);
+    const b = new Box3().setFromObject(scene);
+    return [...b.getSize(new Vector3()).toArray(), b.min.y].map(v => +v.toFixed(3));
+  };
+  assert.deepEqual(await size('mountain-white', 'small_rug.glb'), [1.02, 0.01, 1.44, 0]);
+  assert.deepEqual(await size('mountain-white', 'small_black_side_table.glb'), [0.4, 0.48, 0.4, 0]);
+  assert.deepEqual(await size('mountain-white', 'small_white_nightstand.glb'), [0.42, 0.56, 0.36, 0]);
+  assert.deepEqual(await size('stone-walnut', 'small_dark_brown_bed.glb'), [1.51, 1.12, 2.07, 0]);
+  // The pendant hangs from a 2.6 m ceiling: shade from 1.59 m, cord and canopy up to 2.6 m.
+  assert.deepEqual(await size('stone-walnut', 'small_black_pendant.glb'), [0.44, 1.01, 0.44, 1.59]);
+  // Fixed copies of supplied GLBs: drawer pushed in, doors closed, cord shortened, frame stained black.
+  assert.deepEqual(await size('mountain-white', 'small_oak_bed.glb'), [1.05, 1, 2.09, 0]);
+  assert.deepEqual(await size('stone-walnut', 'small_black_wardrobe.glb'), [2.508, 2.012, 0.612, 0]);
+  assert.deepEqual(await size('mountain-white', 'small_pendant_lamp.glb'), [0.38, 1, 0.38, 1.6]);
+  assert.deepEqual(await size('stone-walnut', 'small_black_frame.glb'), [0.52, 0.72, 0.03, 0]);
+});
+
+test('a 집들이 swaps styling props for its own models and never disposes their shared meshes', async () => {
+  await loadTourFurniture(loader);
+  const pendant = tourProp('stone-walnut', 'pendant');
+  assert.ok(pendant);
+  assert.ok(Math.abs(new Box3().setFromObject(pendant).min.y - 1.59) < 0.005, 'the pendant keeps its hanging height');
+  for (const [tour, kind, top] of [['mountain-white', 'sideLamp', 0.48], ['mountain-white', 'nightLamp', 0.56], ['stone-walnut', 'nightLamp', 0.63]]) {
+    const prop = tourProp(tour, kind);
+    assert.equal(prop.children.length, 2, `${tour} ${kind}: the model and a kit lamp`);
+    const lamp = new Box3().setFromObject(prop.children[1]);
+    assert.ok(Math.abs(lamp.min.y - top) < 0.005, `${tour} ${kind}: lamp stands on the ${top} m top`);
+  }
+  assert.ok(Math.abs(new Box3().setFromObject(tourProp('mountain-white', 'pendant')).min.y - 1.6) < 0.005);
+  // Art: the triptych over the stone-walnut sofa, black frames over its beds; small oak frames
+  // repeat to fill the width planned over the mountain-white sofa. Centered on the prop height.
+  const art = (tour, over, w) => tourProp(tour, 'art', { options: { over, w } });
+  assert.match(art('stone-walnut', 'sofa', 0.9).name, /swTriptych/);
+  assert.match(art('stone-walnut', 'bed', 1.0).name, /swFrame/);
+  assert.equal(art('mountain-white', 'sofa', 1.2).children.length, 2);
+  assert.equal(art('mountain-white', 'bed', 1.0).children.length, 1);
+  const frame = new Box3().setFromObject(art('mountain-white', 'bed', 1.0));
+  assert.ok(Math.abs(frame.min.y + frame.max.y) < 0.005, 'centered on the prop height');
+  // The shelf's board sits at the prop origin with its back on the wall, 3 cm behind the origin.
+  const shelf = new Box3().setFromObject(tourProp('stone-walnut', 'wallShelf'));
+  assert.ok(Math.abs(shelf.max.y - 0.0125) < 0.005 && Math.abs(shelf.min.z + 0.03) < 0.005);
+  assert.equal(tourProp('mountain-white', 'wallShelf'), null);
+  assert.equal(tourProp('olive-piano', 'sideLamp'), null);
+  assert.equal(tourProp(null, 'nightLamp'), null);
+  // Building and clearing the props leaves the template geometry usable, and the group is never batched.
+  const model = new Group(), dressing = createDressing();
+  const geometry = (prop) => { let g; prop.traverse(o => { if (!g && o.isMesh) g = o.geometry; }); return g; };
+  const shared = geometry(pendant);
+  let disposed = false;
+  shared.addEventListener('dispose', () => { disposed = true; });
+  const group = dressing.build(model, [{ kind: 'pendant', x: 1, y: 0, z: 2, angle: 0 }], {}, (prop) => tourProp('stone-walnut', prop.kind));
+  assert.equal(group.userData.noBatch, true);
+  assert.equal(geometry(group), shared);
+  dressing.clear(model);
+  assert.equal(disposed, false);
+  assert.equal(model.children.length, 0);
 });
 
 test('the expanded plan uses every piece of each set; the basic plan never swaps in a kit dining set', () => {

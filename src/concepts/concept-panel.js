@@ -8,7 +8,7 @@ import { corners } from '../walkthrough/layout.js';
 import { rememberTheme } from '../walkthrough/my-home.js';
 import { coordinateConceptInput, conceptRoomId } from './coordinate-plan.js';
 import { conceptForTour } from './tour-furniture-spec.js';
-import { installTourTemplates, tourFurnitureLoadError } from './tour-furniture.js';
+import { installTourTemplates, tourFurnitureLoadError, tourProp } from './tour-furniture.js';
 import './concepts.css';
 
 // Recommended concepts for the 112A unit (W7-06): the "컨셉 보기" tab ranks concepts by
@@ -146,7 +146,7 @@ export function createConceptStudio(hooks) {
     const kept = active.staging.items.filter((i) => !i.id.startsWith('added-') && concept.keep.includes(i.kind)).map((i) => ({ ...i, ...i.initial }));
     const placements = plan(concept).placements.map((item) => ({ ...item, room: modelRoomId(item.room) }));
     const props = planDressing(placements.map(p => ({ ...p, kind: FURNITURE[p.kind]?.baseKind ?? p.kind })), hooks.rooms(), { kept, doors: active.definition.doors, seed: seedOf(concept.id) });
-    dressing.build(active.model, props, PALETTES[applied.palette].colors);
+    dressing.build(active.model, props, PALETTES[applied.palette].colors, (prop) => tourProp(applied.tour, prop.kind, prop));
   }
   function paint() {
     const applied = appliedHere();

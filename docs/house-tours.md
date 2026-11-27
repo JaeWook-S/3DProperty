@@ -77,10 +77,26 @@ CORTEX는 여러 집이 추가되고, 사용자가 우리 집을 직접 추가�
 
 | 집들이 | GLB (`assets/house-tours/<ID>/`) | 바꾸는 코드 가구 |
 | --- | --- | --- |
-| `mountain-white` | `sofa` `rug` `short_table` `tv_shelves` `floor_stance` `wood_table` `bed` (기존 7개), `armchair` `black_chair` `monstera` (2026-11-27 추가) | 4인 소파 · 원형 러그 · 원형 테이블 · TV장 · 플로어 조명 · 6인 식탁 · 화분, 안방 킹 침대. 부클레 라운지 체어를 소파 옆에 더하고, 식탁 의자 6개는 `black_chair`(LISABO 블랙)로 둡니다. |
-| `stone-walnut` | `orange_sofa` `black_coffee_table` `white_rug` `black_lamp` `walnut_sideboard` `dark_brown_circle_table` `metal_black_chair` `dark_brown_bed` `dark_brown_table` | 로우 소파 · 러그 · 커피 테이블 · 낮은 수납장 · 플로어 조명 · 4인 식탁, 안방 킹 침대. 소파 끝에 원형 보조 테이블, 침대 옆에 협탁을 더합니다. 식탁 GLB는 없어 코드 식탁(월넛색)에 `metal_black_chair` 4개를 둡니다. |
+| `mountain-white` | `sofa` `rug` `short_table` `tv_shelves` `floor_stance` `wood_table` `bed` (기존 7개), `armchair` `black_chair` `monstera`, `oak_bed` `loft_bed` `black_bookcase` `oak_frame` `pendant_lamp` `small_table_lamp` (2026-11-27 추가), `small_*` 변형 (아래) | 4인 소파 · 원형 러그 · 원형 테이블 · TV장 · 플로어 조명 · 6인 식탁 · 화분 · 작은 러그 · 싱글 침대 · 로프트 침대 · 책장, 안방 킹 침대. 부클레 라운지 체어를 소파 옆에 더하고, 식탁 의자 6개는 `black_chair`(LISABO 블랙)로 둡니다. TV장 위 TV만 코드로 남아 있습니다. |
+| `stone-walnut` | `orange_sofa` `black_coffee_table` `white_rug` `black_lamp` `walnut_sideboard` `dark_brown_circle_table` `metal_black_chair` `dark_brown_bed` `dark_brown_table`, `oak_brown_table` `black_wardrobe` `dark_desk` `wall_shelf` `three_picture_frames`, `small_*` 변형 (아래) | 로우 소파 · 러그 · 커피 테이블 · 낮은 수납장 · 플로어 조명 · 4인 식탁, 안방 킹 침대. 소파 끝에 원형 보조 테이블, 침대 옆에 협탁을 더합니다. 식탁(`oak_brown_table`)에 `metal_black_chair` 4개, 책상(`dark_desk`)에 같은 의자 1개를 둡니다. 게스트 침대 · 옷장 · 책상 · 화분도 GLB입니다. |
 
-- `src/concepts/tour-furniture-spec.js`: 세트별 크기(`TOUR_FURNITURE_SPECS`)와 컨셉을 바꾸는 규칙(`replace` · `tweak` · `add` · `dropKeep`). `conceptForTour(concept, tourId)`는 그 집들이일 때만 전용 세트를 돌려주고, 공용 컨셉과 다른 집들이는 그대로 둡니다.
+**`small_*.glb` (기존 GLB를 고쳐 만든 것, 2026-11-27):** 새로 생성하지 않고 이미 있는 GLB의 크기나 색을 바꿔 만들었습니다. `tools/blender/make_small_variants.py`가 Blender(헤드리스)로 다시 만듭니다: `/Applications/Blender.app/Contents/MacOS/Blender -b --factory-startup --python tools/blender/make_small_variants.py -- [이름 ...]`.
+
+| 파일 | 원본 | 바꾼 것 | 쓰는 곳 |
+| --- | --- | --- | --- |
+| `mountain-white/small_rug.glb` | `rug.glb` | 평면 0.6배(1.02×1.44m), 4096 텍스처를 2048로 | 첫째 방 작은 러그 |
+| `mountain-white/small_black_side_table.glb` | `dark_brown_circle_table.glb` | 지름 55→40cm, 블랙 스테인 | 소파·라운지 체어 옆 사이드 테이블(+코드 램프) |
+| `mountain-white/small_white_nightstand.glb` | `dark_brown_table.glb` | 46×63→42×56cm, 화이트 스테인 | 침대 옆 협탁(+코드 램프) |
+| `stone-walnut/small_dark_brown_bed.glb` | `dark_brown_bed.glb` | 폭 191→151cm. 기둥·레일·살은 두께를 유지하고 가운데만 늘림 | 게스트룸 침대 |
+| `stone-walnut/small_black_pendant.glb` | `black_lamp.glb` | 갓만 남기고 2.6m 천장에 코드·캐노피로 매닮 | 식탁 펜던트 |
+| `mountain-white/small_oak_bed.glb` | `oak_bed.glb` | 옆으로 빠져 있던 수납 서랍을 침대 밑으로 밀어 넣음 (1.65 → 1.05m) | 첫째 방 싱글 침대 |
+| `stone-walnut/small_black_wardrobe.glb` | `black_wardrobe.glb` | 열려 있던 문 2개를 닫고(가운데는 원래 문 없는 선반 칸), 회색 라미네이트를 차콜로 | 서재·드레스룸 옷장 |
+| `mountain-white/small_pendant_lamp.glb` | `pendant_lamp.glb` | 150cm 코드를 줄여 2.6m 천장에서 갓 아래가 1.6m | 식탁 펜던트 |
+| `stone-walnut/small_black_frame.glb` | `mountain-white/oak_frame.glb` | 오크 테를 블랙 스테인으로 | 침대 위 액자 |
+
+그대로 다시 쓰는 GLB(새 파일 없음): `stone-walnut` 게스트룸 협탁 = `dark_brown_table.glb`, 책상 의자 = `metal_black_chair.glb`(코드 책상에 둠), 화분 = `mountain-white/monstera.glb`. 같은 파일은 한 번만 내려받습니다.
+
+- `src/concepts/tour-furniture-spec.js`: 세트별 크기(`TOUR_FURNITURE_SPECS`)와 컨셉을 바꾸는 규칙(`replace` · `tweak` · `add` · `dropKeep` · `props`). `props`는 컨셉 스타일링 소품(사이드 테이블+램프, 협탁+램프, 펜던트, 액자, 벽 선반)을 세트 GLB로 바꿉니다. 램프는 `small_table_lamp.glb` 하나를 모든 테이블 위에 둡니다. 액자는 걸린 자리(`over`: 소파·침대·수납장)별로 고를 수 있어 stone-walnut은 소파 위에 `three_picture_frames`, 침대 위에 검은 액자를 겁니다. 작은 액자는 계획된 폭을 채우도록 2~3개 나란히 겁니다. 스타일링 그룹은 정적 배치 병합(`static-batches.js`)에서 빠져 있어, 다른 집들이로 바꿔도 이전 소품이 남지 않습니다. `conceptForTour(concept, tourId)`는 그 집들이일 때만 전용 세트를 돌려주고, 공용 컨셉과 다른 집들이는 그대로 둡니다.
 - `src/concepts/tour-furniture.js`: GLB를 읽어 바닥 중심으로 맞추고(원본 크기 · PBR 재질 유지), 식탁에 의자 GLB를 둘러 놓습니다. 예전 내보내기는 조립 루트나 부품 접두사(`SOFA_`, `TVR_`, `STBL_`, `TVC_`, `TPL_`, `RDT_`, `BED_`)로 가구만 고르고, 새 GLB는 파일 전체를 씁니다. 모든 세트를 시작할 때 한 번 읽고, 실패하면 파일명과 원인을 표시합니다.
 - 벽 · 바닥은 팔레트가 바꿉니다. `white-oak`(하얀 벽 · 라이트 오크 마루), `stone-walnut`(짙은 스톤 그레이 벽 · 월넛 마루). 월넛 마루는 보기 설정의 **마감 → 월넛**(오크 결을 어둡게 칠한 것)이며, 적용을 되돌리면 원래 벽 · 마감으로 돌아갑니다. 인테리어 탭의 마감(페인트 · 타일)은 사용자가 직접 바꾸는 별도 기능이라 집들이 적용이 건드리지 않습니다.
 - 확장형은 세트 가구를 모두 배치합니다. 기본형 주방은 두 세트의 식탁이 들어가지 않아 제외 사유를 표시하며, 코드 식탁으로 몰래 바꾸지 않습니다.

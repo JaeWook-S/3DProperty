@@ -60,25 +60,26 @@ export function planDressing(placements, rooms, { kept = [], doors = [], seed = 
     }
     return null;
   }
-  const addArt = (spot, y, w, h) => spot && props.push({ kind: 'art', x: spot[0], y, z: spot[1], angle: spot[2], options: { w, h, seed: art++ } });
+  // `over` records what the art hangs above, so a 집들이 can pick its own print per wall.
+  const addArt = (spot, y, w, h, over) => spot && props.push({ kind: 'art', x: spot[0], y, z: spot[1], angle: spot[2], options: { w, h, seed: art++, over } });
 
   for (const p of placements) {
     const room = roomOf(p.room);
     if (!room) continue;
     if (SOFAS.has(p.kind)) {
-      addArt(wallBehind(p, room), 1.5, p.width >= 2.2 ? 1.2 : 0.9, p.width >= 2.2 ? 0.8 : 0.65);
+      addArt(wallBehind(p, room), 1.5, p.width >= 2.2 ? 1.2 : 0.9, p.width >= 2.2 ? 0.8 : 0.65, 'sofa');
       const spot = beside(p, room, 0.46);
       if (spot) props.push({ kind: 'sideLamp', x: spot[0], y: 0, z: spot[1], angle: p.angle });
     } else if (p.kind === 'armchair') {
       const spot = beside(p, room, 0.46);
       if (spot) props.push({ kind: 'sideLamp', x: spot[0], y: 0, z: spot[1], angle: p.angle });
     } else if (BEDS.has(p.kind)) {
-      addArt(wallBehind(p, room), 1.5, p.width > 1.4 ? 1.0 : 0.7, p.width > 1.4 ? 0.65 : 0.5);
+      addArt(wallBehind(p, room), 1.5, p.width > 1.4 ? 1.0 : 0.7, p.width > 1.4 ? 0.65 : 0.5, 'bed');
       const spot = beside(p, room, 0.44);
       if (spot) props.push({ kind: 'nightLamp', x: spot[0], y: 0, z: spot[1], angle: p.angle });
     } else if (p.kind === 'sideboard' || p.kind === 'piano' || p.kind === 'toyShelf' || p.kind === 'dresser') {
       const tall = p.kind === 'piano' ? 1.7 : p.kind === 'dresser' ? null : 1.4;
-      if (tall) addArt(wallBehind(p, room), tall, p.kind === 'sideboard' ? 1.0 : 0.7, p.kind === 'sideboard' ? 0.7 : 0.5);
+      if (tall) addArt(wallBehind(p, room), tall, p.kind === 'sideboard' ? 1.0 : 0.7, p.kind === 'sideboard' ? 0.7 : 0.5, p.kind);
     } else if (DESKS.has(p.kind)) {
       const spot = wallBehind(p, room);
       if (spot) props.push({ kind: 'wallShelf', x: spot[0], y: 1.5, z: spot[1], angle: spot[2], options: { w: Math.min(0.9, p.width * 0.6) } });
@@ -90,7 +91,7 @@ export function planDressing(placements, rooms, { kept = [], doors = [], seed = 
   for (const k of kept.filter((item) => item.kind === 'king')) {
     const room = rooms.find((r) => k.x > r.bounds_m[0] && k.x < r.bounds_m[2] && k.z > r.bounds_m[1] && k.z < r.bounds_m[3]);
     if (!room) continue;
-    props.push({ kind: 'art', x: room.bounds_m[0] + 0.03, y: 1.55, z: k.z, angle: FACING.east, options: { w: 1.1, h: 0.7, seed: art++ } });
+    props.push({ kind: 'art', x: room.bounds_m[0] + 0.03, y: 1.55, z: k.z, angle: FACING.east, options: { w: 1.1, h: 0.7, seed: art++, over: 'bed' } });
     for (const side of [-1, 1]) {
       const z = k.z + side * (k.depth / 2 + 0.27), x = k.x - k.width / 2 + 0.22, r = rect(x, z, 0.44, 0.44);
       if (free(r, room)) { take(r); props.push({ kind: 'nightLamp', x, y: 0, z, angle: FACING.east }); }
@@ -123,17 +124,21 @@ export function createDressing() {
     const group = groups.get(model);
     if (!group) return;
     model.remove(group);
-    group.traverse((o) => { if (o.isMesh) { o.geometry.dispose(); if (o.material.map) { o.material.map.dispose(); o.material.dispose(); } } });
+    // Set models (GLB side tables, nightstands, pendants) share their template's geometry and textures.
+    group.traverse((o) => { if (o.isMesh && !o.userData.sharedAsset) { o.geometry.dispose(); if (o.material.map) { o.material.map.dispose(); o.material.dispose(); } } });
     groups.delete(model);
   }
   return {
     clear,
-    build(model, props, colors) {
+    // `own(prop)` may return a 집들이's own model for a prop; otherwise the kit builds it.
+    build(model, props, colors, own = () => null) {
       clear(model);
       const group = new Group();
       group.name = 'Concept styling';
+      // Props change with every theme; merged into the static batches they would outlive clear().
+      group.userData.noBatch = true;
       for (const prop of props) {
-        const piece = buildDressing(prop.kind, { ...prop.options, colors });
+        const piece = own(prop) ?? buildDressing(prop.kind, { ...prop.options, colors });
         piece.position.set(prop.x, prop.y, prop.z);
         piece.rotation.y = prop.angle;
         piece.traverse((o) => { if (o.isMesh) { o.castShadow = prop.kind !== 'rod'; o.receiveShadow = true; } });

@@ -120,10 +120,6 @@ function dining(tableW, tableD, chairs) {
   return p;
 }
 
-/** The kit dining table alone, for a set that brings its own chairs. */
-export function buildDiningTable(tableW, tableD) {
-  return table(new Parts(), tableW, tableD).build('dining4');
-}
 
 /** Supplement a supplied cabinet-only GLB with the existing television. */
 export function buildTelevision(surfaceHeight) {
@@ -178,6 +174,19 @@ function deskTop(p, w, d, z, legMaterial = MATERIALS.metal) {
   for (const sx of [-1, 1]) for (const sz of [-1, 1]) p.add(box(0.03, 0.72, 0.03), legMaterial, [sx * (w / 2 - 0.05), 0.36, z + sz * (d / 2 - 0.05)]);
 }
 // `facing` is the direction the sitter looks (radians about +Y; Math.PI faces -Z).
+// The 1 m desk of the desk set with its lamp, laptop and books (front = +Z, chair side).
+function deskOnly() {
+  const p = new Parts();
+  deskTop(p, 1.0, 0.55, -0.2);
+  p.add(cyl(0.06, 0.07, 0.02, 16), MATERIALS.metal, [0.36, 0.76, -0.38]);
+  p.add(cyl(0.008, 0.008, 0.36, 8), MATERIALS.metal, [0.36, 0.93, -0.38]);
+  p.add(cyl(0.05, 0.08, 0.09, 16, true), FIXED.lamp, [0.32, 1.11, -0.33], [0.5, 0, 0]);
+  p.add(rbox(0.32, 0.012, 0.22, 0.004), MATERIALS.metal, [-0.05, 0.758, -0.15]);
+  p.add(rbox(0.32, 0.21, 0.01, 0.004), FIXED.screen, [-0.05, 0.86, -0.26], [-0.25, 0, 0]);
+  shelfBooks(p, -0.48, -0.32, 0.75, 0.2, 5);
+  return p;
+}
+
 function taskChair(p, x, z, facing = Math.PI) {
   const bx = -Math.sin(facing) * 0.2, bz = -Math.cos(facing) * 0.2;
   p.add(cyl(0.26, 0.26, 0.03, 20), MATERIALS.metal, [x, 0.05, z]);
@@ -324,14 +333,7 @@ const BUILDERS = {
     return p;
   },
   deskSet() {
-    const p = new Parts();
-    deskTop(p, 1.0, 0.55, -0.2);
-    p.add(cyl(0.06, 0.07, 0.02, 16), MATERIALS.metal, [0.36, 0.76, -0.38]);
-    p.add(cyl(0.008, 0.008, 0.36, 8), MATERIALS.metal, [0.36, 0.93, -0.38]);
-    p.add(cyl(0.05, 0.08, 0.09, 16, true), FIXED.lamp, [0.32, 1.11, -0.33], [0.5, 0, 0]);
-    p.add(rbox(0.32, 0.012, 0.22, 0.004), MATERIALS.metal, [-0.05, 0.758, -0.15]);
-    p.add(rbox(0.32, 0.21, 0.01, 0.004), FIXED.screen, [-0.05, 0.86, -0.26], [-0.25, 0, 0]);
-    shelfBooks(p, -0.48, -0.32, 0.75, 0.2, 5);
+    const p = deskOnly();
     taskChair(p, 0, 0.22);
     return p;
   },
@@ -597,6 +599,13 @@ const DRESSING = {
     p.add(cyl(0.1, 0.14, 0.16, 24, true), FIXED.lamp, [0.04, 0.82, -0.03]);
     p.add(rbox(0.18, 0.03, 0.13, 0.006), FIXED.book1, [-0.07, 0.55, 0.08], [0, 0.4, 0]);
     return p.build('sideLamp', { center: false });
+  },
+  // A lamp alone, standing on a surface at `height` (a set's own side table or nightstand).
+  tableLamp({ height = 0.5 }) {
+    const p = new Parts();
+    p.add(cyl(0.045, 0.06, 0.16, 18), MATERIALS.pot, [0.05, height + 0.08, -0.04]);
+    p.add(cyl(0.09, 0.12, 0.15, 24, true), FIXED.lamp, [0.05, height + 0.235, -0.04]);
+    return p.build('tableLamp', { center: false });
   },
   // Nightstand with a lamp.
   nightLamp() {

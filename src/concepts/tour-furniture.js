@@ -1,7 +1,7 @@
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
-import { TOUR_FURNITURE_SPECS } from './tour-furniture-spec.js';
-import { buildDiningTable, buildTelevision } from './kit.js';
+import { TOUR_FURNITURE_SPECS, tourPropModel } from './tour-furniture-spec.js';
+import { buildDressing, buildTelevision } from './kit.js';
 
 const glb = (tour, file) => new URL(`../../assets/house-tours/${tour}/${file}`, import.meta.url).href;
 
@@ -17,26 +17,45 @@ export const TOUR_MODELS = {
   mwBed: { url: glb('mountain-white', 'bed.glb'), root: 'BED_Bed_ROOT', prefix: 'BED_' },
   mwArmchair: { url: glb('mountain-white', 'armchair.glb') },
   mwPlant: { url: glb('mountain-white', 'monstera.glb') },
+  mwSmallRug: { url: glb('mountain-white', 'small_rug.glb') },
+  mwSingleBed: { url: glb('mountain-white', 'small_oak_bed.glb') },
+  mwLoftBed: { url: glb('mountain-white', 'loft_bed.glb') },
+  mwBookcase: { url: glb('mountain-white', 'black_bookcase.glb') },
   swSofa: { url: glb('stone-walnut', 'orange_sofa.glb') },
   swRug: { url: glb('stone-walnut', 'white_rug.glb') },
   swCoffeeTable: { url: glb('stone-walnut', 'black_coffee_table.glb') },
   swSideTable: { url: glb('stone-walnut', 'dark_brown_circle_table.glb') },
   swSideboard: { url: glb('stone-walnut', 'walnut_sideboard.glb') },
   swFloorLamp: { url: glb('stone-walnut', 'black_lamp.glb') },
-  swDining: { url: null }, // a kit table with four GLB chairs (no table GLB was supplied)
+  swDining: { url: glb('stone-walnut', 'oak_brown_table.glb') }, // with four GLB chairs
   swBed: { url: glb('stone-walnut', 'dark_brown_bed.glb') },
   swNightstand: { url: glb('stone-walnut', 'dark_brown_table.glb') },
+  swGuestBed: { url: glb('stone-walnut', 'small_dark_brown_bed.glb') },
+  swDesk: { url: glb('stone-walnut', 'dark_desk.glb') }, // with the dining chair GLB
+  swWardrobe: { url: glb('stone-walnut', 'small_black_wardrobe.glb') },
+  swPlant: { url: glb('mountain-white', 'monstera.glb') }, // the same monstera, shared with mountain-white
 };
-// Parts that only appear inside a placeable piece.
+// Parts that only appear inside a placeable piece or as a styling prop (see `props` in the spec).
+// `keepHeight` keeps a hanging piece at its modeled height instead of standing it on the floor.
 export const TOUR_PARTS = {
   mwChair: { url: glb('mountain-white', 'black_chair.glb') },
   swChair: { url: glb('stone-walnut', 'metal_black_chair.glb') },
+  mwSideTable: { url: glb('mountain-white', 'small_black_side_table.glb') },
+  mwNightstand: { url: glb('mountain-white', 'small_white_nightstand.glb') },
+  swPendant: { url: glb('stone-walnut', 'small_black_pendant.glb'), keepHeight: true },
+  mwPendant: { url: glb('mountain-white', 'small_pendant_lamp.glb'), keepHeight: true },
+  tableLamp: { url: glb('mountain-white', 'small_table_lamp.glb') }, // on every set side table and nightstand
+  mwFrame: { url: glb('mountain-white', 'oak_frame.glb') },
+  swFrame: { url: glb('stone-walnut', 'small_black_frame.glb') },
+  swTriptych: { url: glb('stone-walnut', 'three_picture_frames.glb') },
+  swShelf: { url: glb('stone-walnut', 'wall_shelf.glb') },
 };
 // [x, z, facing]: where each chair stands around its table and the way its sitter looks.
 const SIX_CHAIRS = [-0.72, 0, 0.72].flatMap((x) => [[x, -0.44, 0], [x, 0.44, Math.PI]]);
 const FOUR_CHAIRS = [-0.35, 0.35].flatMap((x) => [[x, -0.62, 0], [x, 0.62, Math.PI]]);
 
 const templates = new Map();
+const parts = new Map();
 let loading;
 let loadError = null;
 
@@ -70,7 +89,9 @@ function extract(definition, scene, label) {
   const bounds = new THREE.Box3().setFromObject(object);
   if (bounds.isEmpty()) throw new Error(`${label}: 빈 가구 모델입니다.`);
   const center = bounds.getCenter(new THREE.Vector3());
-  object.position.sub(new THREE.Vector3(center.x, bounds.min.y, center.z));
+  object.position.sub(new THREE.Vector3(center.x, definition.keepHeight ? 0 : bounds.min.y, center.z));
+  // Dressing props reuse these meshes; their geometry and textures belong to the template.
+  object.traverse(node => { if (node.isMesh) node.userData.sharedAsset = true; });
   return object;
 }
 
@@ -90,15 +111,15 @@ function chairsAround(chair, seats) {
  * One placeable set piece from its loaded GLB scene. `parts` holds the extracted chair
  * objects for the dining sets. The piece's own GLB (or the kit table) is the first child.
  */
-export function prepareTourModel(kind, scene, parts = {}) {
+export function prepareTourModel(kind, scene, chairs = {}) {
   const definition = TOUR_MODELS[kind], spec = TOUR_FURNITURE_SPECS[kind];
   if (!definition || !spec) throw new Error(`Unknown tour furniture: ${kind}`);
   const group = new THREE.Group();
-  if (kind === 'swDining') group.add(buildDiningTable(1.4, 0.8));
-  else group.add(extract(definition, scene, kind));
+  group.add(extract(definition, scene, kind));
   if (kind === 'mwTvConsole') group.add(buildTelevision(0.562));
-  if (kind === 'mwDiningTable') group.add(chairsAround(parts.mwChair, SIX_CHAIRS));
-  if (kind === 'swDining') group.add(chairsAround(parts.swChair, FOUR_CHAIRS));
+  if (kind === 'mwDiningTable') group.add(chairsAround(chairs.mwChair, SIX_CHAIRS));
+  if (kind === 'swDining') group.add(chairsAround(chairs.swChair, FOUR_CHAIRS));
+  if (kind === 'swDesk') group.add(chairsAround(chairs.swChair, [[0, 0.43, Math.PI]]));
   // Center the whole footprint (table and chairs) on the plan position.
   const bounds = new THREE.Box3().setFromObject(group), center = bounds.getCenter(new THREE.Vector3());
   for (const child of group.children) child.position.sub(new THREE.Vector3(center.x, bounds.min.y, center.z));
@@ -119,17 +140,58 @@ async function loadScene(loader, url) {
   }
 }
 
-/** Loads every set once; a failure names the file and the next call retries. */
+/** Loads every set once (each file once, even when two pieces share it); a failure names the file and the next call retries. */
 export function loadTourFurniture(loader = new GLTFLoader()) {
   if (!loading) loading = (async () => {
-    const parts = Object.fromEntries(await Promise.all(Object.entries(TOUR_PARTS).map(async ([name, definition]) =>
-      [name, extract(definition, await loadScene(loader, definition.url), name)])));
+    const files = new Map();
+    const scene = (url) => { if (!files.has(url)) files.set(url, loadScene(loader, url)); return files.get(url); };
+    const loaded = Object.fromEntries(await Promise.all(Object.entries(TOUR_PARTS).map(async ([name, definition]) =>
+      [name, extract(definition, await scene(definition.url), name)])));
     const entries = await Promise.all(Object.entries(TOUR_MODELS).map(async ([kind, definition]) =>
-      [kind, prepareTourModel(kind, definition.url ? await loadScene(loader, definition.url) : null, parts)]));
+      [kind, prepareTourModel(kind, definition.url ? await scene(definition.url) : null, loaded)]));
+    for (const [name, object] of Object.entries(loaded)) parts.set(name, object);
     for (const [kind, group] of entries) templates.set(kind, group);
     loadError = null;
   })().catch(error => { loading = null; loadError = error; throw error; });
   return loading;
+}
+
+/**
+ * The set's own model for a styling prop of a 집들이 (see `props` in the spec), placed the way
+ * the kit prop would be, or null to keep the kit prop:
+ *   sideLamp / nightLamp  the table with the set's table lamp on top
+ *   art                   centered on the prop's height; small frames repeat to fill the planned width
+ *   wallShelf             board level with the prop's origin, back against the wall
+ *   pendant               as modeled, hanging from the ceiling
+ */
+export function tourProp(tour, kind, prop = {}) {
+  const name = tourPropModel(tour, kind, prop.options?.over);
+  const source = name && (parts.get(name) ?? templates.get(name));
+  if (!source) return null;
+  const group = new THREE.Group(), box = new THREE.Box3().setFromObject(source), size = box.getSize(new THREE.Vector3());
+  if (kind === 'art') {
+    const gap = 0.12, width = prop.options?.w ?? size.x;
+    const count = Math.max(1, Math.min(3, Math.floor((width + gap) / (size.x + gap))));
+    for (let i = 0; i < count; i++) {
+      const frame = source.clone(true);
+      frame.position.set((i - (count - 1) / 2) * (size.x + gap), -size.y / 2, 0);
+      group.add(frame);
+    }
+  } else if (kind === 'wallShelf') {
+    const shelf = source.clone(true);
+    shelf.position.set(0, -box.max.y + 0.0125, -0.03 - box.min.z);
+    group.add(shelf);
+  } else {
+    group.add(source.clone(true));
+  }
+  if (kind === 'sideLamp' || kind === 'nightLamp') {
+    const lamp = parts.get('tableLamp');
+    if (lamp) { const placed = lamp.clone(true); placed.position.y = box.max.y; group.add(placed); }
+    else group.add(buildDressing('tableLamp', { height: box.max.y }));
+  }
+  group.name = `Dressing ${kind} · ${name}`;
+  group.userData.dressing = kind;
+  return group;
 }
 
 export function installTourTemplates(staging) {
