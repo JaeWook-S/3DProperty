@@ -1,9 +1,9 @@
-import { TOURS, TAG_GROUPS, LIGHTING, PLANS, MY_HOME, HOME_TYPES, tourById, tagLabel, matchTours, similarity, isSimilar, homeLine, photoPage } from './tours.js';
+import { TOURS, TAG_GROUPS, LIGHTING, PLANS, MY_HOME, HOME_TYPES, tourById, tagLabel, matchTours, similarity, isSimilar, homeLine, photoSource } from './tours.js';
 import { compareFit, verdictText } from './fit.js';
 import { tourPlanInput } from './plan-input.js';
 import { CONCEPTS, PALETTES } from '../concepts/catalog.js';
 import { FURNITURE } from '../concepts/furniture-spec.js';
-import { conceptForTour } from '../concepts/mountain-white-spec.js';
+import { conceptForTour } from '../concepts/tour-furniture-spec.js';
 import { VARIANTS, resolveVariant } from '../walkthrough/variants.js';
 import { navigationRooms } from '../walkthrough/minimap-geometry.js';
 import { corners } from '../walkthrough/layout.js';
@@ -299,7 +299,7 @@ export function createHouseTours(hooks, concepts) {
         element('article', { class: 'td-main' },
           element('a', { class: 'tp-back', href: '?studio=1&tours=all', onclick: (event) => { if (!plain(event)) return; event.preventDefault(); show('gallery'); } }, icon('left', 16), '집들이'),
           element('h1', { id: 'tours-title', tabindex: '-1', text: tour.title }),
-          element('p', { class: 'td-byline' }, '사진 ', credit, ` · Unsplash · ${dateLabel(tour.published)}`),
+          element('p', { class: 'td-byline' }, '사진 ', credit, ` · ${photoSource(tour)} · ${dateLabel(tour.published)}`),
           element('div', { class: 'td-info' },
             element('dl', { class: 'td-facts' },
               [['주거형태', HOME_TYPES[tour.home.type]], ['평수', `${tour.home.pyeong}평`], ['방', tour.home.rooms ? `${tour.home.rooms}개` : '원룸'], ['가족', tour.tags.household.map(householdLabel).join(', ')]]
@@ -428,9 +428,9 @@ export function createHouseTours(hooks, concepts) {
     // Desktop previews keep the cursor free for room switches, apply and exit.
     // Walking starts only when requested; touch previews retain their joystick.
     if(!hooks.previewRoom())return false;
-    const bounds = state.session?.tour.id === 'mountain-white'
-      ? tourPlanInput(conceptOf(state.session.tour), hooks.current().definition).rooms.find(r => r.id === roomId)?.bounds_m ?? room.bounds_m
-      : room.bounds_m;
+    // Camera spots are fractions of the room as the concept planner sees it, the same frame the
+    // staged furniture uses; the loaded model's own room record can be in another frame.
+    const bounds = (state.session && tourPlanInput(conceptOf(state.session.tour), hooks.current().definition).rooms.find(r => r.id === roomId)?.bounds_m) ?? room.bounds_m;
     const [x1, z1, x2, z2] = bounds;
     const views = [view && [x1 + view[0] * (x2 - x1), z1 + view[1] * (z2 - z1), x1 + view[2] * (x2 - x1), z1 + view[3] * (z2 - z1), view[4] ?? drop],
       ...(VIEWS[roomId]?.(bounds) ?? []).map((v) => [...v, drop])];

@@ -27,7 +27,7 @@ test('catalog references only known furniture, palettes, households and moods', 
   }
   for (const palette of Object.values(PALETTES)) {
     assert.ok(MOODS.some((m) => m.id === palette.mood));
-    assert.ok(['original', 'oak', 'stone'].includes(palette.finish));
+    assert.ok(['original', 'oak', 'stone', 'walnut'].includes(palette.finish));
     for (const slot of Object.keys(palette.colors)) assert.ok(MATERIALS[slot], slot);
   }
 });
@@ -79,7 +79,7 @@ test('ranking puts the matching concept first and the mood picks the palette', (
 });
 
 test('kit pieces are built at their catalog sizes, centered, standing on the floor', () => {
-  assert.deepEqual([...KIT_KINDS].sort(), Object.keys(FURNITURE).filter(kind => !FURNITURE[kind].baseKind).sort());
+  assert.deepEqual([...KIT_KINDS].sort(), Object.keys(FURNITURE).filter(kind => !FURNITURE[kind].set).sort()); // set pieces are GLBs
   for (const kind of KIT_KINDS) {
     const group = buildFurniture(kind);
     const box = new Box3().setFromObject(group), size = box.getSize(new Vector3()), center = box.getCenter(new Vector3());

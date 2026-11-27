@@ -26,12 +26,12 @@ import { CATALOG_FURNITURE, installCatalogTemplate } from './catalog-furniture.j
 import { createInteriorStudio } from '../interior/interior-studio.js';
 import { KIT_KINDS, buildFurniture } from '../concepts/kit.js';
 import { FURNITURE } from '../concepts/furniture-spec.js';
-import { installMountainWhiteTemplates } from '../concepts/mountain-white-furniture.js';
+import { installTourTemplates } from '../concepts/tour-furniture.js';
 
 const catalogByKind=new Map(CATALOG_FURNITURE.map(asset=>[asset.kind,asset]));
 // Code-built kit furniture (shared with concepts) is addable on every plan.
 const kitGroups=new Map();
-function ensureKitTemplates(staging){for(const kind of KIT_KINDS){if(staging.templates.has(kind))continue;const spec=FURNITURE[kind];if(!kitGroups.has(kind))kitGroups.set(kind,buildFurniture(kind));staging.addTemplate(kind,{title:spec.title,label:spec.label,group:kitGroups.get(kind),width:spec.w,depth:spec.d,height:spec.h});}installMountainWhiteTemplates(staging);}
+function ensureKitTemplates(staging){for(const kind of KIT_KINDS){if(staging.templates.has(kind))continue;const spec=FURNITURE[kind];if(!kitGroups.has(kind))kitGroups.set(kind,buildFurniture(kind));staging.addTemplate(kind,{title:spec.title,label:spec.label,group:kitGroups.get(kind),width:spec.w,depth:spec.d,height:spec.h});}installTourTemplates(staging);}
 const catalogSize=asset=>{const d=asset.dimensions_m;return `모델 규격 · 너비 ${(d.width*100).toFixed(1)} × 깊이 ${(d.depth*100).toFixed(1)} × 높이 ${(d.height*100).toFixed(1)} cm`;};
 
 const $=id=>document.getElementById(id);

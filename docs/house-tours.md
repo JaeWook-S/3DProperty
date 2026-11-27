@@ -6,7 +6,7 @@ CORTEX는 여러 집이 추가되고, 사용자가 우리 집을 직접 추가�
 
 다른 사람이 꾸민 **실제 집**을 실제 사진으로 구경하고, 마음에 드는 테마를 도면이 다른 **우리 집**에 가져오는 기능입니다.
 
-1. 여러 집 14곳(아파트 · 빌라 · 오피스텔, 10평대–40평대)의 사진을 봅니다. 주거형태 · 평수 · 가족 구성처럼 우리 집과 조건이 비슷한 집을 먼저 찾을 수 있습니다.
+1. 여러 집 3곳(아파트, 10평대–30평대)의 사진을 봅니다. 주거형태 · 평수 · 가족 구성처럼 우리 집과 조건이 비슷한 집을 먼저 찾을 수 있습니다.
 2. 집마다 CORTEX가 그 분위기를 다시 만드는 방법(컨셉 배치 + 색감 + 조명)이 붙어 있습니다.
 3. **우리 집에서 3D로 보기**로 그 테마를 우리 집 평면(112A 확장형/기본형)에 꾸며 1인칭으로 걸어 봅니다.
 4. **우리 집에 적용하기** 전에 방 크기 때문에 바뀌거나 빠지는 가구와 이유를 보여주고, 적용한 뒤에는 되돌릴 수 있습니다.
@@ -57,38 +57,39 @@ CORTEX는 여러 집이 추가되고, 사용자가 우리 집을 직접 추가�
 - 우리 집 사이드바(전체 보기)에 최근 3개와 `더 보기`, 홈에 최근 4개를 보여줍니다. 카드에는 우리 집 거실 렌더, 색감 세 가지, 집들이 이름이나 컨셉, 평면, 적용한 때가 있습니다. 지금 우리 집에 적용된 테마는 `적용 중`으로 표시합니다.
 - **다시 적용**은 그 평면을 열어 기억한 컨셉과 색감으로 다시 꾸미고, 알림의 **되돌리기**로 다시 적용하기 전 배치로 돌아갑니다.
 
-## 집들이 14곳
+## 집들이 3곳
 
 | ID | 집 | 사진 | CORTEX 테마 |
 | --- | --- | --- | --- |
-| `mountain-white` | 아파트 · 33평 · 방 3 | Lisa Anna | 패밀리 라운지 · 오트밀 & 라이트 오크 |
-| `pink-nursery` | 아파트 · 32평 · 방 3 | Lisa Anna | 키즈 플레이 하우스 · 크림 & 파스텔 |
-| `olive-piano` | 아파트 · 24평 · 방 2 | Alex Tyson | 피아노 북카페 하우스 · 오트밀 & 라이트 오크 |
-| `river-view` | 아파트 · 45평 · 방 4 | Huy Nguyen | 패밀리 라운지 · 월넛 & 네이비 |
-| `golden-dog` | 아파트 · 26평 · 방 2 | Caroline Badran | 반려동물과 사는 집 · 세이지 & 화이트 |
-| `hotel-condo` | 아파트 · 28평 · 방 2 | Huy Nguyen | 호텔식 미니멀 하우스 · 그레이지 & 테라코타 |
-| `mauve-gallery` | 아파트 · 19평 · 방 1 | Alex Tyson | 신혼 갤러리 라운지 · 그레이지 & 테라코타 |
-| `pink-small` | 빌라 · 15평 · 원룸 | Bozica Uglesic | 신혼 갤러리 라운지 · 세이지 & 화이트 |
-| `cat-gray` | 빌라 · 17평 · 원룸 | pure julia | 반려동물과 사는 집 · 그레이지 & 테라코타 |
-| `oak-officetel` | 오피스텔 · 12평 · 원룸 | Aquilion Property | 재택 라이브러리 스튜디오 · 오트밀 & 라이트 오크 |
-| `plant-jungle` | 빌라 · 18평 · 방 1 | Kate Darmody | 신혼 갤러리 라운지 · 세이지 & 화이트 |
-| `gray-orange` | 아파트 · 21평 · 방 1 | Alexey Aladashvili | 호텔식 미니멀 하우스 · 아이보리 & 차콜 |
-| `green-marble` | 아파트 · 23평 · 방 1 | Alexey Aladashvili | 재택 라이브러리 스튜디오 · 차콜 & 딥그린 |
-| `terrazzo-red` | 빌라 · 25평 · 방 2 | Louis Hansel | 신혼 갤러리 라운지 · 그레이지 & 테라코타 |
+| `mountain-white` | 아파트 · 33평 · 방 3 | Lisa Anna (Unsplash) | 패밀리 라운지 · 화이트 & 오크 · 전용 GLB 가구 |
+| `olive-piano` | 아파트 · 24평 · 방 2 | Alex Tyson (Unsplash) | 피아노 북카페 하우스 · 오트밀 & 라이트 오크 |
+| `stone-walnut` | 아파트 · 18평 · 방 1 | 용테리어 디자인 ([오늘의집](https://contents.ohou.se/projects/142083)) | 호텔식 미니멀 하우스 · 다크 스톤 & 월넛 · 전용 GLB 가구 |
+
+2026-11-27에 14곳에서 위 3곳으로 줄였습니다. 빠진 11곳의 미리보기 렌더(`assets/house-tours/<ID>/`)는 아직 지우지 않았습니다.
 
 데이터는 `src/house-tours/tours.js`에 있습니다: 집 기록(`home`, 방이 따로 없는 원룸은 `rooms: 0`), 실제 사진과 공간(`photos`, 첫 장이 대표), 작가(`by`), 테마(`concept` · `palette` · `lighting`), 이야기와 태그. 주거형태 · 평수 태그는 집 기록에서 만들어 서로 어긋나지 않습니다.
 
 ### 사진과 집 정보
 
-`mountain-white`의 3D 가구는 `assets/house-tours/mountain-white/`의 사용자 제작 GLB 7개를 사용합니다. `src/concepts/mountain-white-spec.js`에서 이 집들이에만 전용 가구 키와 배치를 선택하며, 공용 `family-lounge` 및 `river-view`는 기존 가구를 유지합니다. `mountain-white-furniture.js`가 원본 크기와 PBR 재질을 보존해 로드하고 침대 촬영용 바닥·기본 Cube를 제외합니다. TV장에는 기존 TV를, 식탁에는 안쪽으로 넣은 기존 의자 6개를 보완합니다. 확장형은 7개 모두 배치하며, 기본형에서 들어가지 않는 식탁은 배치 비교에 제외 사유를 표시합니다. `conceptTour=mountain-white`는 적용 후 새로고침과 공유 링크에서 가구 구성을 유지합니다.
+### 집들이 전용 가구 세트
 
-가구 로더는 기존 조립 루트와, 텍스처 베이킹 후 루트 없이 개별 메시로 내보낸 GLB를 모두 지원합니다. 루트가 없으면 파일별 부품 접두사(`SOFA_`, `TVR_`, `STBL_`, `TVC_`, `TPL_`, `RDT_`, `BED_`)로 가구만 선택합니다. 다시 내보낼 때 이 접두사를 유지하고, GLB 경계 규격이 달라지면 전용 spec도 함께 수정합니다. 로딩 실패 시 파일명과 원인을 표시합니다. 원본 집들이 사진은 그대로이며 3D 미리보기는 개발 서버를 켠 뒤 `node tools/house-tours/render-tours.mjs mountain-white`로 갱신합니다. 검증: `node --test tests/mountain-white.test.js`, `PLAYWRIGHT_CHANNEL=chrome npx playwright test tests/mountain-white.browser.js`.
+`mountain-white`와 `stone-walnut`은 사진 속 가구를 IKEA 유사 제품으로 골라 GPT Astra로 만든 GLB를 씁니다. `olive-piano`는 공용 컨셉의 코드 가구 그대로입니다.
 
-교체된 GLB 7개에는 베이킹한 PBR 이미지가 내장되어 있습니다. 로더는 해당 재질을 유지하며 테마 팔레트로 덮어쓰지 않습니다. 내장 색상 텍스처가 실제 브라우저에서 디코딩되는지 검증합니다.
+| 집들이 | GLB (`assets/house-tours/<ID>/`) | 바꾸는 코드 가구 |
+| --- | --- | --- |
+| `mountain-white` | `sofa` `rug` `short_table` `tv_shelves` `floor_stance` `wood_table` `bed` (기존 7개), `armchair` `black_chair` `monstera` (2026-11-27 추가) | 4인 소파 · 원형 러그 · 원형 테이블 · TV장 · 플로어 조명 · 6인 식탁 · 화분, 안방 킹 침대. 부클레 라운지 체어를 소파 옆에 더하고, 식탁 의자 6개는 `black_chair`(LISABO 블랙)로 둡니다. |
+| `stone-walnut` | `orange_sofa` `black_coffee_table` `white_rug` `black_lamp` `walnut_sideboard` `dark_brown_circle_table` `metal_black_chair` `dark_brown_bed` `dark_brown_table` | 로우 소파 · 러그 · 커피 테이블 · 낮은 수납장 · 플로어 조명 · 4인 식탁, 안방 킹 침대. 소파 끝에 원형 보조 테이블, 침대 옆에 협탁을 더합니다. 식탁 GLB는 없어 코드 식탁(월넛색)에 `metal_black_chair` 4개를 둡니다. |
 
-- 사진은 모두 [Unsplash 라이선스](https://unsplash.com/license) 사진입니다. 상업적 사용이 가능하고 허락이 필요 없습니다. Unsplash 이미지 주소로 불러오고, 상세에 작가를 링크로 표시합니다. 한 집들이의 사진은 한 작가가 같은 집에서 찍은 묶음(같은 업로드)에서 골랐습니다. 대부분 부동산 촬영입니다.
-- 오늘의집 등 다른 서비스의 사진은 쓰지 않습니다. 올린 사용자와 회사에 저작권이 있습니다.
-- 평수 · 방 수 · 가족 구성은 사진에 맞춰 정한 **시연용 예시**입니다(화면에는 적지 않습니다). 사용자가 집들이를 올리는 기능이 생기면 그 기록으로 바뀝니다.
+- `src/concepts/tour-furniture-spec.js`: 세트별 크기(`TOUR_FURNITURE_SPECS`)와 컨셉을 바꾸는 규칙(`replace` · `tweak` · `add` · `dropKeep`). `conceptForTour(concept, tourId)`는 그 집들이일 때만 전용 세트를 돌려주고, 공용 컨셉과 다른 집들이는 그대로 둡니다.
+- `src/concepts/tour-furniture.js`: GLB를 읽어 바닥 중심으로 맞추고(원본 크기 · PBR 재질 유지), 식탁에 의자 GLB를 둘러 놓습니다. 예전 내보내기는 조립 루트나 부품 접두사(`SOFA_`, `TVR_`, `STBL_`, `TVC_`, `TPL_`, `RDT_`, `BED_`)로 가구만 고르고, 새 GLB는 파일 전체를 씁니다. 모든 세트를 시작할 때 한 번 읽고, 실패하면 파일명과 원인을 표시합니다.
+- 벽 · 바닥은 팔레트가 바꿉니다. `white-oak`(하얀 벽 · 라이트 오크 마루), `stone-walnut`(짙은 스톤 그레이 벽 · 월넛 마루). 월넛 마루는 보기 설정의 **마감 → 월넛**(오크 결을 어둡게 칠한 것)이며, 적용을 되돌리면 원래 벽 · 마감으로 돌아갑니다. 인테리어 탭의 마감(페인트 · 타일)은 사용자가 직접 바꾸는 별도 기능이라 집들이 적용이 건드리지 않습니다.
+- 확장형은 세트 가구를 모두 배치합니다. 기본형 주방은 두 세트의 식탁이 들어가지 않아 제외 사유를 표시하며, 코드 식탁으로 몰래 바꾸지 않습니다.
+- GLB를 다시 만들면 크기가 바뀐 만큼 spec의 `w` · `d` · `h`를 고치고(단위 테스트가 0.2mm까지 비교), 미리보기를 다시 렌더합니다: `node tools/house-tours/render-tours.mjs mountain-white stone-walnut`. 검증: `node --test tests/tour-furniture.test.js`, `PLAYWRIGHT_CHANNEL=chrome npx playwright test tests/tour-furniture.browser.js`.
+- GLB 원본 크기: `white_rug` 54MB(85만 삼각형), `orange_sofa` 17MB, `black_lamp` 22MB처럼 형상이 무거운 파일이 있어 첫 로딩이 그만큼 늘어납니다. 필요하면 Blender에서 Decimate로 줄일 수 있습니다.
+
+- `mountain-white` · `olive-piano` 사진은 [Unsplash 라이선스](https://unsplash.com/license) 사진입니다. 상업적 사용이 가능하고 허락이 필요 없습니다. Unsplash 이미지 주소로 불러오고, 상세에 작가를 링크로 표시합니다. 한 집들이의 사진은 한 작가가 같은 집에서 찍은 묶음(같은 업로드)에서 골랐습니다. 대부분 부동산 촬영입니다.
+- **예외:** `stone-walnut`은 수업 시연용으로 오늘의집 집들이 글(용테리어 디자인)의 사진을 씁니다. 저작권은 올린 사용자와 오늘의집에 있습니다. 레포에 복사하지 않고 오늘의집 이미지 주소(`image.ohousecdn.com`)에서 불러오며, 상세에 `사진 용테리어 디자인 · 오늘의집`과 원글 링크를 표시합니다(`tour.source`, 사진의 `src` · `page`). 공개 사이트에 배포하기 전에는 허락을 받거나 사진을 바꿔야 합니다.
+- 평수 · 방 수 · 가족 구성은 사진에 맞춰 정한 **시연용 예시**입니다(화면에는 적지 않습니다). `stone-walnut`의 18평 · 방 1 · 1인 가구는 원글에 적힌 값입니다. 사용자가 집들이를 올리는 기능이 생기면 그 기록으로 바뀝니다.
 - 우리 집 조건(`MY_HOME`)은 112A를 공급 112㎡(약 34평), 방 3으로 읽은 값입니다. 단지 공식 평면 자료로 확인해야 합니다.
 
 ## 테마를 우리 집에 맞추는 방식
@@ -104,10 +105,10 @@ CORTEX는 여러 집이 추가되고, 사용자가 우리 집을 직접 추가�
 
 ## 테마 미리보기 이미지
 
-상세의 **이 테마를 우리 집에** 이미지는 CORTEX 3D 모델 렌더링입니다(`assets/house-tours/<ID>/<평면>-living.webp`, `<평면>-overview.webp`). 우리 집 평면을 바꾸면 그 평면의 렌더로 바뀝니다. 홈 **우리 집** 카드는 `assets/house-tours/_home/<평면>.webp`, 집들이가 쓰지 않는 컨셉(홈트)의 **최근 적용한 테마** 카드는 `assets/house-tours/_concepts/<컨셉>-<평면>.webp`입니다. 테마나 시점, 창밖을 바꾸면 개발 서버를 켠 상태에서 다시 만듭니다.
+상세의 **이 테마를 우리 집에** 이미지는 CORTEX 3D 모델 렌더링입니다(`assets/house-tours/<ID>/<평면>-living.webp`, `<평면>-overview.webp`). 우리 집 평면을 바꾸면 그 평면의 렌더로 바뀝니다. 홈 **우리 집** 카드는 `assets/house-tours/_home/<평면>.webp`, 집들이가 쓰지 않는 컨셉(키즈 플레이 · 신혼 갤러리 · 재택 스튜디오 · 반려동물 · 홈트)의 **최근 적용한 테마** 카드는 `assets/house-tours/_concepts/<컨셉>-<평면>.webp`입니다. 테마나 시점, 창밖을 바꾸면 개발 서버를 켠 상태에서 다시 만듭니다.
 
 ```bash
-node tools/house-tours/render-tours.mjs              # 14곳 × 두 평면, 컨셉, 우리 집 이미지
+node tools/house-tours/render-tours.mjs              # 3곳 × 두 평면, 컨셉, 우리 집 이미지
 node tools/house-tours/render-tours.mjs olive-piano  # 하나만
 node tools/house-tours/render-tours.mjs concepts     # 집들이가 쓰지 않는 컨셉만
 node tools/house-tours/render-tours.mjs homes        # 우리 집 이미지만

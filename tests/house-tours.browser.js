@@ -42,19 +42,19 @@ test('the home page leads to 우리 집, 새로운 집 찾기 and 집들이, and
   await expect(page.locator('.hf-count')).not.toHaveText(slide);
   // Homes like 우리 집, then spaces and styles from the 집들이 photos; the complex photo stays the official one.
   const near = page.locator('.home-section', { has: page.locator('h2', { hasText: '우리 집과 비슷한 집들이' }) });
-  await expect(near.locator('.tp-card')).toHaveCount(4);
+  await expect(near.locator('.tp-card')).toHaveCount(2);
   await expect(near.locator('.tp-card').first()).toHaveAttribute('data-tour', 'mountain-white');
-  await expect(page.locator('.photos-space img')).toHaveCount(6);
+  await expect(page.locator('.photos-space img')).toHaveCount(2); // 거실, 침실: the spaces the three 집들이 photograph
   await expect(page.locator('.photos-style img')).toHaveCount(5);
   const tiles = await page.locator('.hp-photo img').evaluateAll((images) => images.map((img) => img.getAttribute('src')));
   expect(new Set(tiles).size).toBe(tiles.length); // no photo twice
   await expect(page.locator('#location-hero img.official-photo')).toHaveCount(1);
   await page.screenshot({ path: testInfo.outputPath('home.png') });
   // A space photo opens the 집들이 that furnish that space.
-  await page.locator('.hp-tile[data-tag=pet]').click();
+  await page.locator('.hp-tile[data-tag=bedroom]').click();
   await expect(page.locator('#tours-page')).toBeVisible();
   await expect(cards(page)).toHaveCount(2);
-  await expect(page.locator('.tp-filter[data-group=space]')).toHaveText('반려동물');
+  await expect(page.locator('.tp-filter[data-group=space]')).toHaveText('침실');
   // The header search finds 집들이 (and complexes).
   await page.locator('#header-search').fill('피아노');
   await expect(page.locator('.hs-option').first()).toContainText('업라이트 피아노');
@@ -95,7 +95,7 @@ test('one tag per group from each dropdown, homes like 우리 집, and three ord
   await landing(page);
   await page.evaluate(() => { localStorage.removeItem('cortex-my-home'); localStorage.removeItem('cortex-tour-stats'); });
   await page.locator('#open-tours').click();
-  await expect(cards(page)).toHaveCount(14);
+  await expect(cards(page)).toHaveCount(3);
   await expect(page.locator('#tours-page .tp-card img').first()).toHaveJSProperty('complete', true);
   expect(await page.locator('#tours-page .tp-card img').first().evaluate((img) => img.naturalWidth)).toBeGreaterThan(300);
   await expect(page.locator('.tp-mine')).toContainText('아파트 · 34평 · 방 3');
@@ -103,9 +103,9 @@ test('one tag per group from each dropdown, homes like 우리 집, and three ord
   await expect(page.locator('[data-sort=popular]')).toHaveAttribute('aria-checked', 'true');
   await expect(cards(page).first()).toHaveAttribute('data-tour', 'mountain-white');
   await page.locator('[data-sort=recent]').click();
-  await expect(cards(page).first()).toHaveAttribute('data-tour', 'plant-jungle');
+  await expect(cards(page).first()).toHaveAttribute('data-tour', 'stone-walnut');
   await page.locator('[data-sort=similar]').click();
-  await expect(cards(page).nth(1)).toHaveAttribute('data-tour', 'pink-nursery');
+  await expect(cards(page).nth(1)).toHaveAttribute('data-tour', 'olive-piano');
   await expect(cards(page).first().locator('.tp-near')).toHaveText('우리 집과 비슷해요');
   await page.locator('[data-sort=popular]').click();
 
@@ -115,14 +115,14 @@ test('one tag per group from each dropdown, homes like 우리 집, and three ord
   await expect(page.locator('.tp-chip[aria-checked=true]')).toHaveCount(1);
   await expect(page.locator('.tp-pop:not([hidden])')).toHaveCount(0);
   await expect(page.locator('.tp-filter[data-group=household]')).toHaveText('신혼부부');
-  await expect(cards(page)).toHaveCount(9);
+  await expect(cards(page)).toHaveCount(2);
   await pick(page, 'style', 'minimal');
-  await expect(cards(page)).toHaveCount(4);
-  expect(await cards(page).evaluateAll((list) => list.map((c) => c.dataset.tour))).toEqual(['mountain-white', 'hotel-condo', 'gray-orange', 'green-marble']);
+  await expect(cards(page)).toHaveCount(1);
+  expect(await cards(page).evaluateAll((list) => list.map((c) => c.dataset.tour))).toEqual(['mountain-white']);
   await expect(page.locator('.tp-filter[data-group=style]')).toBeFocused(); // focus returns to the dropdown that was used
   await page.screenshot({ path: testInfo.outputPath('gallery-filtered.png') });
   await page.locator('.tp-selected .tp-tag', { hasText: '미니멀' }).click();
-  await expect(cards(page)).toHaveCount(9);
+  await expect(cards(page)).toHaveCount(2);
   await pick(page, 'type', 'villa');
   await pick(page, 'size', '40s');
   await pick(page, 'style', 'minimal');
@@ -130,7 +130,7 @@ test('one tag per group from each dropdown, homes like 우리 집, and three ord
   await expect(page.locator('.tp-chip[aria-checked=true]')).toHaveCount(5); // at most one per group
   await expect(page.locator('.tp-empty')).toBeVisible();
   await page.locator('.tp-empty .tp-ghost').click();
-  await expect(cards(page)).toHaveCount(14);
+  await expect(cards(page)).toHaveCount(3);
   // Escape and a click outside close an open dropdown.
   await page.locator('.tp-filter[data-group=color]').click();
   await expect(page.locator('#tp-pop-color')).toBeVisible();
@@ -143,8 +143,8 @@ test('one tag per group from each dropdown, homes like 우리 집, and three ord
   // 우리 집과 비슷한 집: apartments around 30평 with similar rooms, each saying what matches.
   await page.locator('#tours-similar').check();
   const similar = await cards(page).evaluateAll((list) => list.map((c) => c.dataset.tour));
-  expect(similar.sort()).toEqual(['golden-dog', 'gray-orange', 'green-marble', 'hotel-condo', 'mountain-white', 'olive-piano', 'pink-nursery', 'river-view']);
-  await expect(page.locator('#tours-page .tp-card[data-tour=pink-nursery] .tp-similar')).toHaveText('같은 조건: 아파트 · 30평대 · 방 3');
+  expect(similar.sort()).toEqual(['mountain-white', 'olive-piano']);
+  await expect(page.locator('#tours-page .tp-card[data-tour=mountain-white] .tp-similar')).toHaveText('같은 조건: 아파트 · 30평대 · 방 3');
   // The plan of 우리 집 is remembered for the preview and applying.
   await page.locator('.tp-head [data-home=basic]').click();
   expect(await page.evaluate(() => localStorage.getItem('cortex-my-home'))).toBe('basic');
@@ -182,7 +182,7 @@ test('previewing a 집들이 theme in 우리 집 in 3D stages it, and leaving re
   const lighting = await page.locator('#lighting').inputValue();
   await expectKing(page);
 
-  await page.evaluate(() => window.__tours.show('detail', 'hotel-condo'));
+  await page.evaluate(() => window.__tours.show('detail', 'stone-walnut'));
   await page.locator('#tour-walk').click();
   await expect(page.locator('body')).toHaveAttribute('data-studio-mode', 'tour');
   await expect(page.locator('#tour-session')).toBeVisible();
@@ -190,7 +190,7 @@ test('previewing a 집들이 theme in 우리 집 in 3D stages it, and leaving re
   const visit = await page.evaluate(() => window.__walkthrough.getState());
   expect(visit.standing).toBe(true);
   expect(await page.evaluate(() => window.__walkthrough.getState().variant)).toBe('expanded'); // the preview is in 우리 집
-  expect(await page.evaluate(() => window.__concepts.state().applied)).toEqual({ concept: 'hotel-minimal', palette: 'greige-terracotta' });
+  expect(await page.evaluate(() => window.__concepts.state().applied)).toEqual({ concept: 'hotel-minimal', palette: 'stone-walnut', tour: 'stone-walnut' });
   expect(await page.locator('#lighting').inputValue()).toBe('sunset');
   expect((await inspect(page)).items.some((i) => i.id.startsWith('added-hotel-minimal'))).toBe(true);
   expect((await inspect(page)).warnings.flatMap((w) => w.messages).filter((m) => m !== CLEARANCE)).toEqual([]);
@@ -202,7 +202,7 @@ test('previewing a 집들이 theme in 우리 집 in 3D stages it, and leaving re
 
   await page.locator('#tour-session .ts-exit').click();
   await expect(page.locator('#tours-page')).toBeVisible();
-  await expect(page.locator('#tours-title')).toHaveText(/호텔 같은 침실/);
+  await expect(page.locator('#tours-title')).toHaveText(/호텔 같은 고급스러움/);
   expect((await tours(page)).session).toBe(null);
   expect(await layout(page)).toEqual(before);
   expect(await page.evaluate(() => window.__concepts.state().applied)).toBe(null);
@@ -219,7 +219,7 @@ test('applying brings the 집들이 theme into 우리 집, and the toast can und
   await expect(page.locator('body')).toHaveAttribute('data-studio-mode', 'overview', { timeout: 90000 });
   expect(await page.evaluate(() => window.__walkthrough.getState().variant)).toBe('basic');
   await expectKing(page);
-  expect(await page.evaluate(() => window.__concepts.state().applied)).toEqual({ concept: 'family-lounge', palette: 'oat-oak', tour: 'mountain-white' });
+  expect(await page.evaluate(() => window.__concepts.state().applied)).toEqual({ concept: 'family-lounge', palette: 'white-oak', tour: 'mountain-white' });
   const applied = await inspect(page);
   // What the sheet promised is what landed: the basic plan's 2-seat table instead of 6 seats.
   expect(applied.items.some((i) => i.kind === 'dining2' && !i.deleted)).toBe(true);
@@ -251,20 +251,20 @@ test('최근 적용한 테마 collects what was applied to 우리 집 and applie
   await expect(page.locator('body')).toHaveAttribute('data-studio-mode', 'tour', { timeout: 90000 });
   await page.evaluate(() => window.__tours.endTour());
   await expect(page.locator('body')).toHaveAttribute('data-studio-mode', 'overview', { timeout: 90000 });
-  await page.evaluate(() => window.__tours.applyToHome('hotel-condo', 'expanded'));
+  await page.evaluate(() => window.__tours.applyToHome('stone-walnut', 'expanded'));
   await expect(page.locator('#tour-toast')).toBeVisible();
   await page.evaluate(() => { window.__concepts.apply('home-gym'); window.__concepts.apply('kids-play', 'cream-pastel'); window.__concepts.setPalette('sage-white'); });
   await expect(page.locator('#theme-history')).toBeVisible();
-  expect(await sidebar(page)).toEqual(['kids-play/sage-white/-*', expect.stringMatching(/^home-gym\//), 'hotel-minimal/greige-terracotta/hotel-condo']);
+  expect(await sidebar(page)).toEqual(['kids-play/sage-white/-*', expect.stringMatching(/^home-gym\//), 'hotel-minimal/stone-walnut/stone-walnut']);
   await expect(page.locator('#theme-history .th-item').first().locator('.th-current')).toHaveText('적용 중');
-  await expect(page.locator('#theme-history .th-item').nth(2)).toContainText('호텔 같은 침실');
+  await expect(page.locator('#theme-history .th-item').nth(2)).toContainText('호텔 같은 고급스러움');
   await page.screenshot({ path: testInfo.outputPath('sidebar.png') });
 
   // 다시 적용 brings back the 집들이 theme with its colors; the toast undoes it.
   await page.locator('#theme-history .th-item').nth(2).locator('.th-apply').click();
   await expect(page.locator('#tour-toast')).toContainText('다시 적용했어요');
-  expect(await page.evaluate(() => window.__concepts.state().applied)).toEqual({ concept: 'hotel-minimal', palette: 'greige-terracotta', tour: 'hotel-condo' });
-  expect((await sidebar(page))[0]).toBe('hotel-minimal/greige-terracotta/hotel-condo*');
+  expect(await page.evaluate(() => window.__concepts.state().applied)).toEqual({ concept: 'hotel-minimal', palette: 'stone-walnut', tour: 'stone-walnut' });
+  expect((await sidebar(page))[0]).toBe('hotel-minimal/stone-walnut/stone-walnut*');
   await page.locator('#tour-toast .tt-undo').click();
   expect(await page.evaluate(() => window.__concepts.state().applied)).toEqual({ concept: 'kids-play', palette: 'sage-white' });
   expect((await sidebar(page))[1]).toBe('kids-play/sage-white/-*');
@@ -302,9 +302,9 @@ test.describe('phone', () => {
     // A dropdown opens as a sheet at the bottom on phones.
     await page.locator('.tp-filter[data-group=space]').tap();
     await expect.poll(async () => { const pop = await page.locator('#tp-pop-space').boundingBox(); return Math.round(pop.y + pop.height); }).toBe(832);
-    await page.locator('.tp-chip[data-group=space][data-tag=kids]').tap();
-    await expect(cards(page)).toHaveCount(1);
-    await page.locator('#tours-page .tp-card[data-tour=pink-nursery]').tap();
+    await page.locator('.tp-chip[data-group=space][data-tag=bedroom]').tap();
+    await expect(cards(page)).toHaveCount(2);
+    await page.locator('#tours-page .tp-card[data-tour=olive-piano]').tap();
     await expect(page.locator('.td-mobile-bar')).toBeVisible();
     await expect(page.locator('.td-fit-line')).toBeVisible();
     await page.screenshot({ path: testInfo.outputPath('phone-detail.png') });

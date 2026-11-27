@@ -23,11 +23,18 @@ test('every 집들이 is a real home: credited photos of known spaces, a home re
     assert.ok(concept(tour.concept).palettes.includes(tour.palette), `${tour.id}: palette ${tour.palette}`);
     assert.ok(PALETTES[tour.palette]);
     assert.equal(tour.points.length, 3);
-    assert.ok(tour.by.name && tour.by.page.startsWith('https://unsplash.com/@'), tour.id);
+    // Unsplash photos credit the photographer; an 오늘의집 post credits its author and every photo links to it.
+    const ohouse = tour.source === '오늘의집';
+    assert.ok(tour.source === undefined || ohouse, `${tour.id}: ${tour.source}`);
+    assert.ok(tour.by.name && tour.by.page.startsWith(ohouse ? 'https://contents.ohou.se/projects/' : 'https://unsplash.com/@'), tour.id);
     assert.ok(tour.photos.length >= 3, `${tour.id}: at least a cover and two rooms`);
     for (const item of tour.photos) {
-      assert.match(item.photo, /^photo-\d{10,13}-[0-9a-f]{12}$/, `${tour.id}: ${item.photo}`);
-      assert.ok(!photos.has(item.photo), `${item.photo} is used twice`); photos.add(item.photo);
+      if (ohouse) {
+        assert.match(item.src, /^https:\/\/image\.ohousecdn\.com\/.+\.jpg$/, `${tour.id}: ${item.src}`);
+        assert.equal(item.page, tour.by.page);
+      } else assert.match(item.photo, /^photo-\d{10,13}-[0-9a-f]{12}$/, `${tour.id}: ${item.photo}`);
+      const key = item.photo ?? item.src;
+      assert.ok(!photos.has(key), `${key} is used twice`); photos.add(key);
       assert.ok(known('space', item.space), `${tour.id}: ${item.space}`);
       assert.ok(item.text.length > 10);
     }
@@ -47,16 +54,19 @@ test('every 집들이 is a real home: credited photos of known spaces, a home re
 
 test('tags filter with AND across groups and OR within a group, most matches first', () => {
   assert.equal(matchTours({}).length, TOURS.length);
-  const villas = matchTours({ type: new Set(['villa']) }).map((m) => m.tour.id);
-  assert.deepEqual(villas.sort(), ['cat-gray', 'pink-small', 'plant-jungle', 'terrazzo-red']);
+  assert.equal(matchTours({ type: new Set(['apartment']) }).length, TOURS.length);
+  assert.deepEqual(matchTours({ size: new Set(['10s']) }).map((m) => m.tour.id), ['stone-walnut']);
   const couple = matchTours({ household: new Set(['couple']) }).map((m) => m.tour.id);
-  assert.ok(couple.includes('hotel-condo') && couple.includes('golden-dog') && !couple.includes('pink-nursery'));
+  assert.deepEqual(couple, ['mountain-white', 'olive-piano']);
   const both = matchTours({ household: new Set(['couple']), style: new Set(['minimal']) }).map((m) => m.tour.id);
-  assert.deepEqual(both, ['mountain-white', 'hotel-condo', 'gray-orange', 'green-marble']);
+  assert.deepEqual(both, ['mountain-white']);
+  const solo = matchTours({ household: new Set(['solo']), style: new Set(['modern', 'classic']) }).map((m) => m.tour.id);
+  assert.deepEqual(solo, ['stone-walnut', 'olive-piano']); // stone-walnut is both modern and classic
   assert.deepEqual(matchTours({ household: new Set(['baby']), color: new Set(['black']) }), []);
   assert.deepEqual(matchTours({ type: new Set(['villa']), size: new Set(['40s']) }), []);
-  const ranked = matchTours({ space: new Set(['dining', 'storage']) });
+  const ranked = matchTours({ space: new Set(['dining', 'bedroom']) });
   assert.equal(ranked[0].matched.length, 2);
+  assert.equal(ranked.at(-1).tour.id, 'mountain-white'); // dining only
 });
 
 test('homes like 우리 집 are found by 주거형태, 평수 and rooms', () => {
@@ -67,9 +77,11 @@ test('homes like 우리 집 are found by 주거형태, 평수 and rooms', () => 
   assert.equal(similarity({ type: 'apartment', pyeong: 45, rooms: 4 }).score, 3); // next band up
   assert.equal(similarity({ type: 'villa', pyeong: 15, rooms: 1 }).score, 0);
   const near = TOURS.filter((t) => isSimilar(t.home)).map((t) => t.id);
-  assert.deepEqual(near.sort(), ['golden-dog', 'gray-orange', 'green-marble', 'hotel-condo', 'mountain-white', 'olive-piano', 'pink-nursery', 'river-view']);
+  assert.deepEqual(near.sort(), ['mountain-white', 'olive-piano']);
   // A different home changes the answer.
-  assert.equal(isSimilar(TOURS.find((t) => t.id === 'oak-officetel').home, { type: 'officetel', pyeong: 14, rooms: 0 }), true);
+  const small = TOURS.find((t) => t.id === 'stone-walnut').home;
+  assert.equal(isSimilar(small), false);
+  assert.equal(isSimilar(small, { type: 'apartment', pyeong: 15, rooms: 1 }), true);
 });
 
 test('a theme laid out in full on the expanded plan carries over unchanged there', () => {

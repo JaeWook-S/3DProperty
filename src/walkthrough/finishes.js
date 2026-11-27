@@ -1,6 +1,8 @@
 import { RepeatWrapping, SRGBColorSpace, TextureLoader } from 'three';
 
-export const FINISHES = { original: '원본 마감', oak: '라이트 오크', stone: '웜 스톤' };
+export const FINISHES = { original: '원본 마감', oak: '라이트 오크', stone: '웜 스톤', walnut: '월넛' };
+// Walnut reuses the oak plank texture, darkened; floors only, cabinets keep oak.
+const WALNUT_TINT = 0x8e7a6a;
 const urls = {
   limestone: new URL('../../assets/materials/generated-v1/limestone.png', import.meta.url).href,
   oak: new URL('../../assets/materials/generated-v1/oak.png', import.meta.url).href,
@@ -90,7 +92,8 @@ export class FinishLibrary {
         if (assets) {
           const name = material.name;
           let texture;
-          if (/limestone floor|VR polished stone floor|Bedroom light oak/.test(name)) texture = preset === 'oak' ? 'oak' : 'limestone';
+          const floor = /limestone floor|VR polished stone floor|Bedroom light oak/.test(name);
+          if (floor) texture = preset === 'stone' ? 'limestone' : 'oak';
           if (/Smoked oak cabinet/.test(name)) texture = 'oak';
           if (/Calacatta bronze stone|Travertine bathroom/.test(name)) texture = 'limestone';
           if (texture) {
@@ -103,9 +106,10 @@ export class FinishLibrary {
             material.aoMapIntensity = 1;
             material.normalScale?.set(1, 1);
             material.roughness = texture === 'oak' ? 0.58 : /stone/.test(name) ? 0.4 : 0.65;
+            if (floor && preset === 'walnut') { material.color.setHex(WALNUT_TINT); material.roughness = 0.5; }
           }
-          if (/Warm ivory plaster/.test(name)) material.color.setHex(preset === 'oak' ? 0xeee8dd : 0xded8cc);
-          if (/Lacquer warm white/.test(name)) material.color.setHex(preset === 'oak' ? 0xe9e5dc : 0xe7e2d9);
+          if (/Warm ivory plaster/.test(name)) material.color.setHex(preset === 'stone' ? 0xded8cc : 0xeee8dd);
+          if (/Lacquer warm white/.test(name)) material.color.setHex(preset === 'stone' ? 0xe7e2d9 : 0xe9e5dc);
         }
         material.needsUpdate = true;
       }

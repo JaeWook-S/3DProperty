@@ -81,6 +81,19 @@ export const PALETTES = {
     wall: '#e2e2dd',
     colors: { fabric: '#34435c', fabric2: '#c9b99d', wood: '#6e4b35', woodDark: '#3e2a1f', metal: '#b08d57', accent: '#c2924a', rug: '#d9d0c1', rugPattern: '#34435c', bedding: '#f0ece4', white: '#ebe6dc', pot: '#3e4a5e' },
   },
+  // The two 집들이 with their own furniture sets bring their photos' walls and floors.
+  'white-oak': {
+    name: '화이트 & 오크', mood: 'natural', finish: 'oak',
+    note: '하얀 벽에 오크 마루, 블랙 의자와 부클레로 포인트',
+    wall: '#f3f1ec',
+    colors: { fabric: '#ebe7df', fabric2: '#cfc6b8', wood: '#c99f6e', woodDark: '#2f2c2a', metal: '#262626', accent: '#6d6a62', rug: '#ece8e0', rugPattern: '#bfb3a3', bedding: '#f6f4ef', white: '#f4f2ed', pot: '#2b2a28' },
+  },
+  'stone-walnut': {
+    name: '다크 스톤 & 월넛', mood: 'modern', finish: 'walnut',
+    note: '짙은 스톤 그레이 벽과 월넛 마루, 코냑 가죽 포인트',
+    wall: '#3c3d3f',
+    colors: { fabric: '#55575a', fabric2: '#a8683a', wood: '#6b4a32', woodDark: '#33251b', metal: '#1c1c1c', accent: '#a8683a', rug: '#d8d4cd', rugPattern: '#3c3d3f', bedding: '#e9e7e2', white: '#d9d6d0', pot: '#2a2a2a' },
+  },
 };
 
 const L = 'Living front', W = 'Bedroom west', C = 'Bedroom center', M = 'Master bedroom', K = 'Kitchen';
@@ -101,7 +114,7 @@ export const CONCEPTS = [
     id: 'family-lounge', title: '패밀리 라운지', short: '패밀리 라운지', households: ['family4'], also: ['baby'],
     tagline: '넉넉한 4인 소파와 6인 식탁, 아이 방 두 개',
     story: 'TV와 소파를 마주 두고 거실 가운데를 비워 아이들이 뛰놀 수 있게 했어요. 작은 방 두 곳은 각자의 침대와 공부 자리를 갖춘 아이 방이에요.',
-    palettes: ['oat-oak', 'sage-white', 'walnut-navy'], keep: ['king'],
+    palettes: ['oat-oak', 'sage-white', 'walnut-navy', 'white-oak'], keep: ['king'],
     rooms: { [L]: '가족 거실', [W]: '첫째 방', [C]: '둘째 방', [M]: '부부 침실', [K]: '다이닝' },
     items: [
       { kind: 'rugRound', room: L, face: 'south', x: ['mid', 0.12], z: ['mid', 0] },
@@ -187,7 +200,7 @@ export const CONCEPTS = [
     id: 'hotel-minimal', title: '호텔식 미니멀 하우스', short: '호텔 미니멀', households: ['couple'], also: ['solo'],
     tagline: '로우 소파와 낮은 수납장만 둔 거실, 게스트룸과 작은 서재',
     story: '거실에는 TV 대신 낮은 수납장을 두고 로우 소파와 러그만 남겨 호텔 라운지처럼 비웠어요. 작은 방 하나는 퀸 침대를 창가에 둔 게스트룸, 다른 하나는 옷장과 책상을 둔 서재 겸 드레스룸이에요.',
-    palettes: ['ivory-charcoal', 'greige-terracotta', 'sage-white'], keep: ['king'],
+    palettes: ['ivory-charcoal', 'greige-terracotta', 'sage-white', 'stone-walnut'], keep: ['king'],
     rooms: { [L]: '라운지 거실', [W]: '게스트룸', [C]: '서재 · 드레스룸', [M]: '침실', [K]: '다이닝' },
     items: [
       { kind: 'rugRect', room: L, face: 'west', x: ['mid', 0.2], z: ['mid', 0], candidates: [{ face: 'south' }] },

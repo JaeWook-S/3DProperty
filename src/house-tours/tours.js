@@ -5,7 +5,8 @@
 // Each tour has
 //   home    주거형태, 평수 and rooms of that home, so viewers can find homes like their own
 //   photos  real photographs of that one home, each with the space it shows; the first is the
-//           cover. All are Unsplash License photos, credited by photographer; one shoot per home.
+//           cover. One shoot per home, credited by its author. Photos are Unsplash License photos
+//           unless the tour names another `source` (an 오늘의집 post, linked from every photo).
 //   concept/palette/lighting  how CORTEX recreates the look in a 112A plan
 //           (src/concepts/catalog.js); previews are renders of that (tools/house-tours/render-tours.mjs).
 // Until viewers post their own homes, the home details (평수, 가족 구성) are example values chosen
@@ -50,22 +51,19 @@ export const sizeBand = (pyeong) => (pyeong >= 40 ? '40s' : pyeong >= 30 ? '30s'
 export const MY_HOME = { type: 'apartment', pyeong: 34, rooms: 3 };
 
 const unsplash = (id, photo, space, text) => ({ id, photo, space, text });
+// A photo from an 오늘의집 집들이 post, shown from 오늘의집's image server and linked to the post.
+const OHOUSE_PHOTO = 'https://image.ohousecdn.com/i/bucketplace-v2-development/uploads/cards/projects/';
+const ohouse = (post) => (file, space, text) => ({ id: file, src: `${OHOUSE_PHOTO}${file}.jpg`, page: post, space, text });
 const BY = {
   tyson: { name: 'Alex Tyson', page: 'https://unsplash.com/@alextyson195' },
   lisa: { name: 'Lisa Anna', page: 'https://unsplash.com/@lisaanna195' },
-  huy: { name: 'Huy Nguyen', page: 'https://unsplash.com/@huynguyen_pch' },
-  bozica: { name: 'Bozica Uglesic', page: 'https://unsplash.com/@bozica24' },
-  julia: { name: 'pure julia', page: 'https://unsplash.com/@purejulia' },
-  caroline: { name: 'Caroline Badran', page: 'https://unsplash.com/@___atmos' },
-  aquilion: { name: 'Aquilion Property', page: 'https://unsplash.com/@aquilionproperty' },
-  alexey: { name: 'Alexey Aladashvili', page: 'https://unsplash.com/@alexeyaladashvili61' },
-  kate: { name: 'Kate Darmody', page: 'https://unsplash.com/@kdarmody' },
-  louis: { name: 'Louis Hansel', page: 'https://unsplash.com/@louishansel' },
+  yong: { name: '용테리어 디자인', page: 'https://contents.ohou.se/projects/142083' },
 };
+const yong = ohouse(BY.yong.page);
 
 const RAW = [
   {
-    id: 'mountain-white', by: BY.lisa, concept: 'family-lounge', palette: 'oat-oak', lighting: 'day',
+    id: 'mountain-white', by: BY.lisa, concept: 'family-lounge', palette: 'white-oak', lighting: 'day',
     home: { type: 'apartment', pyeong: 33, rooms: 3 }, popularity: 96, published: '2026-10-20',
     title: '창밖이 액자가 되는 집, 하얀 벽과 오크 마루의 33평',
     summary: '벽과 천장은 모두 하얀색으로 두고 바닥과 식탁만 밝은 오크로 맞췄어요. 가구를 낮게 두어 큰 창 너머 풍경이 거실의 주인공이 돼요.',
@@ -76,21 +74,6 @@ const RAW = [
       unsplash('NCBt_DWPx7w', 'photo-1733839206899-21bad759dca4', 'dining', '거실 한쪽에 둥근 식탁을 두었어요. 모서리가 없어 지나다니기 편해요.'),
       unsplash('xM2jVxui-5M', 'photo-1733839205624-d395439a3785', 'living', '창가에는 라운지 체어 하나만 두고 풍경을 보는 자리로 비웠어요.'),
       unsplash('tmOH5yCnE0Q', 'photo-1733839206340-14fac5d07d37', 'living', '발코니는 가구 없이 비워 두고 창을 크게 열었어요.'),
-    ],
-  },
-  {
-    id: 'pink-nursery', by: BY.lisa, concept: 'kids-play', palette: 'cream-pastel', lighting: 'day',
-    home: { type: 'apartment', pyeong: 32, rooms: 3 }, popularity: 91, published: '2026-10-21',
-    title: '아기 방은 핑크, 첫째 방은 블루그레이로 나눈 32평 가족 집',
-    summary: '방마다 벽 색을 달리해 아이마다 자기 방을 갖게 했어요. 가구는 흰색과 원목으로 통일해 색이 많아도 차분해요.',
-    points: ['아기 방은 연한 핑크 벽과 흰 아기 침대', '첫째 방은 데이베드와 벽 선반 책상', '가구는 흰색·원목으로만 맞추기'],
-    tags: { household: ['baby', 'family4'], style: ['cozy', 'natural'], space: ['kids', 'bedroom', 'dining'], color: ['pink', 'white'] },
-    photos: [
-      unsplash('5_OrHwAeo5Y', 'photo-1734965158037-972d2fbcd869', 'kids', '연한 핑크 벽에 흰 아기 침대와 검은 서랍장을 두었어요. 모빌과 작은 그림으로만 꾸몄어요.'),
-      unsplash('wSS1-njcPgY', 'photo-1734965158035-5b255dec1ebb', 'kids', '첫째 방은 블루그레이 벽에 서랍형 데이베드를 놓아 낮에는 소파처럼 써요.'),
-      unsplash('KwXrRwic-14', 'photo-1734965158337-9f78cda8032d', 'kids', '창가 벽에 선반형 책상을 달아 바닥을 넓게 남겼어요.'),
-      unsplash('c9tuAoEyjh4', 'photo-1734965158024-d7419f9260b7', 'bedroom', '부부 침실은 원목 붙박이장과 흰 침구로 단정하게 두었어요.'),
-      unsplash('UTjdmi0nklI', 'photo-1734965158375-630e397394da', 'dining', '원목 의자와 작은 샹들리에를 단 다이닝이에요.'),
     ],
   },
   {
@@ -108,159 +91,18 @@ const RAW = [
     ],
   },
   {
-    id: 'river-view', by: BY.huy, concept: 'family-lounge', palette: 'walnut-navy', lighting: 'sunset',
-    home: { type: 'apartment', pyeong: 45, rooms: 4 }, popularity: 85, published: '2026-10-16',
-    title: '강과 다리가 보이는 고층, 월넛과 대리석으로 맞춘 45평',
-    summary: '거실 창으로 강이 보이는 고층 아파트예요. 짙은 월넛 수납장과 대리석 아일랜드로 무게를 주고, 선반에는 간접 조명을 넣었어요.',
-    points: ['창을 가리지 않는 낮은 거실 가구', '월넛 수납장 속 간접 조명 선반', '대리석 아일랜드 주방'],
-    tags: { household: ['family4'], style: ['classic', 'modern'], space: ['living', 'dining'], color: ['brown', 'wood'] },
+    id: 'stone-walnut', by: BY.yong, source: '오늘의집', concept: 'hotel-minimal', palette: 'stone-walnut', lighting: 'sunset',
+    home: { type: 'apartment', pyeong: 18, rooms: 1 }, popularity: 84, published: '2026-11-27',
+    title: '호텔 같은 고급스러움, 1인 가구의 13평 올리모델링',
+    summary: '벽은 다크 스톤 그레이 타일로, 바닥과 문은 월넛으로 맞춰 호텔처럼 묵직하게 꾸몄어요. 가구는 코냑색 가죽 소파와 검은 낮은 테이블만 두고, 우물천장 간접조명으로 분위기를 바꿔요.',
+    points: ['다크 스톤 그레이 벽 + 월넛 마루와 문', '코냑 가죽 소파와 검은 낮은 테이블만 두기', '우물천장과 커튼 박스의 간접조명'],
+    tags: { household: ['solo'], style: ['modern', 'classic'], space: ['living', 'dining', 'bedroom'], color: ['black', 'gray', 'brown'] },
     photos: [
-      unsplash('ciHrgv7HKZE', 'photo-1776831234992-57ee0eaa9bbf', 'living', '아일랜드 너머로 강과 다리가 보이는 거실이에요. 가구를 낮게 두어 창을 가리지 않아요.'),
-      unsplash('HdV8o72FhgU', 'photo-1776831185107-179b943aa16b', 'living', '월넛 수납장에 조명을 넣어 저녁에는 선반이 은은하게 빛나요.'),
-      unsplash('kb_Q3CLOlzo', 'photo-1776831293955-f569f2f3a4b5', 'dining', '대리석 아일랜드와 짙은 상부장으로 맞춘 주방이에요.'),
-      unsplash('yeiddImKtF0', 'photo-1776831308461-36a6725e1f98', 'dining', '조리대 아래에도 조명을 달아 작업 공간이 밝아요.'),
-    ],
-  },
-  {
-    id: 'golden-dog', by: BY.caroline, concept: 'pet-lounge', palette: 'sage-white', lighting: 'day',
-    home: { type: 'apartment', pyeong: 26, rooms: 2 }, popularity: 83, published: '2026-10-23',
-    title: '소파는 강아지 자리, 그레이와 세이지로 꾸민 26평',
-    summary: '털이 덜 보이는 회색 소파에 세이지 니트 담요를 덮어 강아지와 함께 써요. 수납장은 낮게 두고 위쪽 선반에 책과 화분을 올렸어요.',
-    points: ['털이 덜 보이는 회색 소파와 니트 담요', '손 닿지 않는 높이의 벽 선반', '하얀 벽에 초록 화분으로 포인트'],
-    tags: { household: ['couple'], style: ['cozy', 'natural'], space: ['living', 'pet', 'storage'], color: ['gray', 'green', 'white'] },
-    photos: [
-      unsplash('OIQw5xjr6Bc', 'photo-1789916978486-d5a91067b509', 'pet', '회색 소파 위 세이지 담요는 강아지 자리예요. 쿠션은 줄무늬와 하늘색으로 맞췄어요.'),
-      unsplash('NU56v6foDLs', 'photo-1789916978458-d07c22cc0987', 'living', '소파 옆에는 작은 테이블과 흰 램프를 두었어요.'),
-      unsplash('Pek7STpLEvg', 'photo-1789916978401-429bca35ae92', 'storage', '낮은 수납장 위는 비우고, 선반에 조명을 넣었어요.'),
-      unsplash('lIPgkPAb-zk', 'photo-1789916978445-e7af8cde80f5', 'storage', '하얀 벽 선반에 책과 레코드, 늘어지는 화분을 올렸어요.'),
-    ],
-  },
-  {
-    id: 'hotel-condo', by: BY.huy, concept: 'hotel-minimal', palette: 'greige-terracotta', lighting: 'sunset',
-    home: { type: 'apartment', pyeong: 28, rooms: 2 }, popularity: 79, published: '2026-10-14',
-    title: '호텔 같은 침실, 그레이지와 오렌지 쿠션으로 맞춘 28평',
-    summary: '침실은 호텔처럼 침대와 협탁만 두고, 둥근 거울과 오렌지 쿠션으로 포인트를 줬어요. 거실은 낮은 소파와 유리 테이블로 가볍게 비웠어요.',
-    points: ['침대·협탁·거울만 둔 호텔식 침실', '그레이지 톤에 오렌지 쿠션 하나', '창가까지 비운 거실'],
-    tags: { household: ['couple'], style: ['modern', 'minimal'], space: ['bedroom', 'living', 'dining', 'office'], color: ['gray', 'brown'] },
-    photos: [
-      unsplash('i9Lp1hd5M-c', 'photo-1612320583049-eabe3c21bd94', 'bedroom', '패브릭 헤드보드 침대에 둥근 거울과 벽등을 달았어요. 쿠션은 오렌지로 맞췄어요.'),
-      unsplash('QGxBeUDkeWk', 'photo-1612419299101-6c294dc2901d', 'living', '거실은 베이지 소파와 유리 테이블만 두고 창 쪽을 비웠어요.'),
-      unsplash('mVLMZiILyxM', 'photo-1612320743558-020669ff20e8', 'bedroom', '다른 침실은 벽걸이 TV와 간접 조명으로 정리했어요.'),
-      unsplash('9vvp_nuVaJk', 'photo-1612320648993-61c1cd604b71', 'dining', '주방 앞에는 둥근 원목 식탁과 검은 의자를 두었어요.'),
-      unsplash('KlZ33F_Y3aI', 'photo-1612320583354-02dd0cf04612', 'office', '작은 방은 붉은 벽에 창가 데이베드와 책상을 둔 서재예요.'),
-    ],
-  },
-  {
-    id: 'mauve-gallery', by: BY.tyson, concept: 'newlywed', palette: 'greige-terracotta', lighting: 'sunset',
-    home: { type: 'apartment', pyeong: 19, rooms: 1 }, popularity: 76, published: '2026-10-22',
-    title: '모브 벽에 그림을 건 19평, 갤러리처럼 사는 1인 가구',
-    summary: '벽을 짙은 모브 톤으로 칠하고 그림을 크게 걸었어요. 조명은 펜던트와 스탠드로 나눠 저녁이 더 아늑해요.',
-    points: ['짙은 모브 벽 + 큰 그림 두 점', '식탁 위 돔 펜던트와 스탠드 조명', '현관은 오픈 행거와 거울로 수납'],
-    tags: { household: ['solo', 'couple'], style: ['classic', 'cozy'], space: ['living', 'dining', 'storage'], color: ['brown', 'pink'] },
-    photos: [
-      unsplash('pWs45f1YDIg', 'photo-1734242693887-506df954637b', 'dining', '모브 벽에 색이 강한 그림 두 점을 걸고, 식탁 위에 흰 돔 펜던트를 달았어요.'),
-      unsplash('BkNDNbz8aS8', 'photo-1734242693773-1a79a6f890f3', 'living', '거실 벽에는 흑백 그림을 걸고 소파는 밝은 패브릭으로 골랐어요.'),
-      unsplash('TUi6J0I-LSE', 'photo-1734242693844-d6c3e1e5ba6e', 'dining', '창가 쪽에는 앰버 스탠드와 화병으로 따뜻한 빛을 더했어요.'),
-      unsplash('TWWULN2wuJY', 'photo-1734242693810-77acdb8e12c7', 'storage', '현관은 오픈 행거와 서랍장, 긴 거울로 정리했어요.'),
-    ],
-  },
-  {
-    id: 'pink-small', by: BY.bozica, concept: 'newlywed', palette: 'sage-white', lighting: 'day',
-    home: { type: 'villa', pyeong: 15, rooms: 0 }, popularity: 72, published: '2026-10-19',
-    title: '하얀 가구에 핑크 한 스푼, 15평 빌라 원룸',
-    summary: '가구는 모두 흰색으로 골라 작은 집이 답답하지 않게 했어요. 쿠션과 꽃, 머그컵만 핑크로 맞춰 포인트를 줬어요.',
-    points: ['흰 소파·흰 식탁 의자로 넓어 보이게', '쿠션과 꽃만 핑크로', '침대 옆 작은 라운지 체어'],
-    tags: { household: ['solo'], style: ['cozy', 'natural'], space: ['living', 'dining', 'bedroom'], color: ['pink', 'white'] },
-    photos: [
-      unsplash('7MGj75YLNTw', 'photo-1663756915301-2ba688e078cf', 'living', '흰 커튼과 흰 소파, 작은 TV장으로 거실을 가볍게 꾸몄어요.'),
-      unsplash('e3qWTOOOzKs', 'photo-1663756915436-c6842b9d3eb0', 'living', '소파 벽만 짙은 색으로 두고 핑크 쿠션을 얹었어요.'),
-      unsplash('mf3BJqfZSso', 'photo-1663756915302-437cd36f4cfd', 'dining', '창가에 둥근 식탁과 흰 의자를 두었어요.'),
-      unsplash('RvZ2CLnc0nY', 'photo-1663756915302-78b3bc4be8f1', 'bedroom', '침대 옆에는 작은 체어와 사이드 테이블을 두었어요.'),
-    ],
-  },
-  {
-    id: 'cat-gray', by: BY.julia, concept: 'pet-lounge', palette: 'greige-terracotta', lighting: 'day',
-    home: { type: 'villa', pyeong: 17, rooms: 0 }, popularity: 69, published: '2026-10-17',
-    title: '고양이와 사는 17평, 그레이 의자와 하얀 선반',
-    summary: '둥근 흰 식탁에 회색 의자를 두고, 벽에는 얇은 선반을 달아 책과 그림을 올렸어요. 고양이가 올라가도 넘어지지 않는 낮고 무거운 가구를 골랐어요.',
-    points: ['모서리 없는 둥근 식탁', '고양이가 좋아하는 창가 의자', '벽 선반에 책·액자·바구니'],
-    tags: { household: ['solo'], style: ['minimal', 'cozy'], space: ['pet', 'dining', 'storage'], color: ['gray', 'white'] },
-    photos: [
-      unsplash('A44l695RdC8', 'photo-1632489752105-4b2dc7d1c6b6', 'pet', '창가 식탁 의자는 고양이 자리예요. 회색 의자와 흰 식탁이 잘 어울려요.'),
-      unsplash('O_4ZEWRLyl8', 'photo-1632489752865-28346e16cd85', 'dining', '둥근 흰 식탁에 회색 의자, 벽에는 작은 그림 하나만 걸었어요.'),
-      unsplash('hhUkMLJUTTE', 'photo-1632489753406-52689c507a83', 'storage', '얇은 벽 선반에 액자와 소품을 올렸어요.'),
-      unsplash('0KF67LFQbFs', 'photo-1632489752912-7e817fdcb64a', 'storage', '아래 선반에는 책과 라탄 바구니를 두었어요.'),
-    ],
-  },
-  {
-    id: 'oak-officetel', by: BY.aquilion, concept: 'wfh-studio', palette: 'oat-oak', lighting: 'day',
-    home: { type: 'officetel', pyeong: 12, rooms: 0 }, popularity: 64, published: '2026-10-15',
-    title: '일하고 쉬는 12평 오피스텔, 오크 칸막이로 나눈 원룸',
-    summary: '원룸을 오크 프레임 칸막이로 침실과 작업 공간으로 나눴어요. 주방 옆 작은 식탁은 낮에는 책상, 저녁에는 식탁이 돼요.',
-    points: ['오크 프레임 칸막이로 침대 가리기', '창가 책상과 벽걸이 TV', '식탁 겸 책상 하나로 두 가지'],
-    tags: { household: ['solo'], style: ['natural', 'modern'], space: ['office', 'bedroom', 'dining'], color: ['wood', 'white'] },
-    photos: [
-      unsplash('NoPzk4m4jHc', 'photo-1702014862053-946a122b920d', 'office', '오크 칸막이 너머로 침대, 앞쪽에 식탁 겸 책상을 두었어요.'),
-      unsplash('1EJXSLUfqU0', 'photo-1702014859878-5d4743176d28', 'office', '침대 맞은편 벽에 책상과 TV를 붙여 작업 자리를 만들었어요.'),
-      unsplash('hrY-pZqFGyI', 'photo-1702014859908-d48b9b844240', 'dining', '초록 타일 주방 옆에 2인 식탁을 두었어요.'),
-      unsplash('qbhF5gOzhVU', 'photo-1702014861736-d62834317c5e', 'bedroom', '침대는 창 사이에 두고 협탁 대신 벽등을 달았어요.'),
-    ],
-  },
-  {
-    id: 'plant-jungle', by: BY.kate, concept: 'newlywed', palette: 'sage-white', lighting: 'day',
-    home: { type: 'villa', pyeong: 18, rooms: 1 }, popularity: 81, published: '2026-10-24',
-    title: '창가를 식물로 채운 18평, 초록 정글 같은 거실',
-    summary: '큰 창 앞에 선반을 달아 화분을 층층이 올리고, 거실 가운데는 회색 소파와 러그만 두었어요. 식물이 많아도 가구를 낮게 두어 답답하지 않아요.',
-    points: ['창가 선반과 행잉 화분으로 만든 식물 벽', '회색 소파 + 패턴 러그로 차분하게', '침대 옆 작은 램프와 흑백 그림'],
-    tags: { household: ['couple', 'solo'], style: ['cozy', 'natural'], space: ['living', 'bedroom'], color: ['green', 'wood'] },
-    photos: [
-      unsplash('kN-xa7kZKIw', 'photo-1649445006396-ba5435168009', 'living', '창 앞 선반과 바닥까지 화분을 채우고, 소파는 창을 등지게 두었어요.'),
-      unsplash('2YmEjjGIUOs', 'photo-1649445006945-083a7299b4b4', 'living', '창틀 위 선반과 행잉 화분으로 식물이 창을 감싸요.'),
-      unsplash('rf52O4FQkZk', 'photo-1649445006098-e1ab371a4aca', 'living', '둥근 종이 펜던트 아래 소파와 러그로 거실 가운데를 묶었어요.'),
-      unsplash('5sXr9LM1MsA', 'photo-1649445005748-4d99c2de54a4', 'bedroom', '침실은 흰 침구에 작은 램프와 흑백 그림으로 단정하게 두었어요.'),
-    ],
-  },
-  {
-    id: 'gray-orange', by: BY.alexey, concept: 'hotel-minimal', palette: 'ivory-charcoal', lighting: 'day',
-    home: { type: 'apartment', pyeong: 21, rooms: 1 }, popularity: 74, published: '2026-10-13',
-    title: '그레이 톤에 오렌지 한 점, 유리 칸막이로 나눈 21평',
-    summary: '벽·바닥·가구를 모두 회색으로 맞추고 둥근 오렌지 테이블과 파란 화병만 색으로 남겼어요. 침실은 유리 칸막이로 나눠 거실이 더 넓어 보여요.',
-    points: ['회색 톤 위에 오렌지·블루 포인트 하나씩', '유리 칸막이 뒤 침실', '창가에 붙인 작은 책상'],
-    tags: { household: ['solo', 'couple'], style: ['minimal', 'modern'], space: ['living', 'dining', 'bedroom', 'office'], color: ['gray', 'white'] },
-    photos: [
-      unsplash('G52knRZZO6I', 'photo-1750764611091-93ac9e7d4c92', 'living', '창가에 낮은 소파와 둥근 오렌지 테이블, 흰 라운지 체어를 두었어요.'),
-      unsplash('5aJpyxXaCyA', 'photo-1750764515068-80d222d974bb', 'dining', '회색 아일랜드 주방과 오렌지 스툴, 파란 화병이 이어지는 열린 구조예요.'),
-      unsplash('hIkG3rwaaQE', 'photo-1750764673942-11e683ec65b0', 'bedroom', '침실은 유리 칸막이 너머에 두고 회색 침구로 맞췄어요.'),
-      unsplash('bx32PsiTym8', 'photo-1750764766618-0c47bb1802f1', 'office', '창가 벽에 작은 책상과 스탠드를 붙여 일하는 자리를 만들었어요.'),
-      unsplash('gq1y5sBvNeE', 'photo-1750764634377-583a271553a1', 'living', '물결 모양 오렌지 테이블이 회색 거실의 포인트예요.'),
-    ],
-  },
-  {
-    id: 'green-marble', by: BY.alexey, concept: 'wfh-studio', palette: 'charcoal-green', lighting: 'sunset',
-    home: { type: 'apartment', pyeong: 23, rooms: 1 }, popularity: 67, published: '2026-10-12',
-    title: '콘크리트 벽과 초록 대리석, 차분한 23평',
-    summary: '벽과 수납장을 금속·콘크리트 톤으로 맞추고, 주방 아일랜드만 초록 대리석으로 골랐어요. 침실은 타공 철판 칸막이로 가볍게 나눴어요.',
-    points: ['초록 대리석 아일랜드 하나로 포인트', '타공 철판 칸막이로 나눈 침실', '낮고 넓은 회색 소파'],
-    tags: { household: ['couple'], style: ['modern', 'minimal'], space: ['living', 'dining', 'bedroom'], color: ['gray', 'green', 'black'] },
-    photos: [
-      unsplash('-E2-jiwSthQ', 'photo-1738748444626-ed333be8afc7', 'living', '거실에서 초록 대리석 아일랜드 주방이 이어져 보여요.'),
-      unsplash('fO94dDrbEgk', 'photo-1738748444602-8e95197f4dbd', 'dining', '금속 상부장과 초록 대리석 아일랜드, 원목 스툴로 맞춘 주방이에요.'),
-      unsplash('etIFTz0LhFQ', 'photo-1738748444659-f8975b12ce57', 'bedroom', '침실은 타공 철판 칸막이 너머에 두어 빛은 들어오고 시선은 가려요.'),
-      unsplash('sI_6arPyB1M', 'photo-1738748444676-113d30c9a25b', 'living', '창가에는 낮은 회색 소파와 작은 테이블만 두었어요.'),
-    ],
-  },
-  {
-    id: 'terrazzo-red', by: BY.louis, concept: 'newlywed', palette: 'greige-terracotta', lighting: 'day',
-    home: { type: 'villa', pyeong: 25, rooms: 2 }, popularity: 62, published: '2026-10-11',
-    title: '패턴 타일 바닥에 빨간 의자, 25평 빌라의 지중해 무드',
-    summary: '오래된 패턴 타일 바닥을 그대로 살리고, 하얀 벽에 빨간 의자와 그림으로 색을 더했어요. 둥근 거울과 시계 같은 소품은 한쪽 벽에 모아 걸었어요.',
-    points: ['패턴 타일 바닥은 그대로 살리기', '빨간 의자와 빨간 그림으로 색 맞추기', '시계·거울은 한 벽에 모아서'],
-    tags: { household: ['couple'], style: ['classic', 'cozy'], space: ['living', 'dining', 'office'], color: ['white', 'red'] },
-    photos: [
-      unsplash('w1w7sQ8md0I', 'photo-1551806235-a05dd14a54c7', 'living', '패턴 타일 바닥 위에 체크 소파와 빨간 의자를 둔 거실이에요.'),
-      unsplash('ANYshwAv224', 'photo-1551806136-0688c7552454', 'dining', '빨간 그림 아래 둥근 검은 식탁과 의자를 두었어요.'),
-      unsplash('5YWiNuWgiMs', 'photo-1551806235-fa3578e4ec2c', 'dining', '창가에는 작은 식탁과 빨간 의자, 둥근 거울을 걸었어요.'),
-      unsplash('gelCOOqEM64', 'photo-1551806136-5062b4d5f6a4', 'office', '시계 두 개를 건 벽 앞의 검은 테이블은 작업대로도 써요.'),
+      yong('168567407731095248', 'living', '스톤 타일 벽 앞에 코냑색 가죽 소파와 흰 러그, 검은 낮은 테이블만 두었어요.'),
+      yong('168567404047258641', 'living', 'TV 벽에는 수납장을 숨겨 넣고, 거실과 주방을 같은 스톤 그레이로 이었어요.'),
+      yong('168567410351970099', 'living', '소파 뒤 벽도 타일로 마감했어요. 월넛 마루와 가죽 소파가 같은 갈색 톤이에요.'),
+      yong('168713693776312113', 'dining', 'ㄱ자로 줄인 주방은 다크 그레이와 월넛 장으로 짜서 식기가 보이지 않게 했어요.'),
+      yong('168713889211169618', 'bedroom', '침실은 라이트 그레이 벽지에 러그 하나만 두고 조명은 어둡게 맞췄어요.'),
     ],
   },
 ];
@@ -270,8 +112,10 @@ export const TOURS = RAW.map((tour) => ({ ...tour, tags: { type: [tour.home.type
 
 export const tourById = (id) => TOURS.find((tour) => tour.id === id) ?? null;
 export const tagLabel = (group, id) => TAG_GROUPS.find((g) => g.id === group)?.tags.find((t) => t.id === id)?.label ?? id;
-export const photoURL = (photo, width) => `https://images.unsplash.com/${photo.photo}?w=${width}&q=78&auto=format&fit=crop`;
-export const photoPage = (photo) => `https://unsplash.com/photos/${photo.id}`;
+export const photoURL = (photo, width) => (photo.src ? `${photo.src}?w=${width}` : `https://images.unsplash.com/${photo.photo}?w=${width}&q=78&auto=format&fit=crop`);
+export const photoPage = (photo) => photo.page ?? `https://unsplash.com/photos/${photo.id}`;
+/** Where a tour's photos come from, for its byline. */
+export const photoSource = (tour) => tour.source ?? 'Unsplash';
 /** "아파트 · 33평 · 방 3"; a home without a separate bedroom (rooms 0) is a 원룸. */
 export const homeLine = (home) => `${HOME_TYPES[home.type]} · ${home.pyeong}평 · ${home.rooms ? `방 ${home.rooms}` : '원룸'}`;
 

@@ -105,25 +105,24 @@ function chair(p, x, z, facing, seat = MATERIALS.fabric, frame = MATERIALS.woodD
   p.add(rbox(0.42, 0.36, 0.035, 0.012), frame, at(-0.2, 0, 0.7), [0, facing, 0]);
 }
 
-function dining(tableW, tableD, chairs) {
-  const p = new Parts();
+function table(p, tableW, tableD) {
   p.add(rbox(tableW, 0.04, tableD, 0.012), MATERIALS.wood, [0, 0.73, 0]);
   for (const sx of [-1, 1]) for (const sz of [-1, 1]) p.add(box(0.06, 0.71, 0.06), MATERIALS.woodDark, [sx * (tableW / 2 - 0.1), 0.355, sz * (tableD / 2 - 0.1)]);
-  for (const [x, z, facing] of chairs) chair(p, x, z, facing);
   p.add(cyl(0.07, 0.05, 0.12, 16), MATERIALS.pot, [0, 0.81, 0]);
   p.add(ball(0.1), FIXED.leaf, [0, 0.92, 0]);
   p.add(rbox(Math.min(1.2, tableW * 0.6), 0.005, 0.3, 0.002), MATERIALS.accent, [0, 0.7525, 0]);
   return p;
 }
 
-/** Supplement a supplied table-only GLB without drawing a second table. */
-export function buildDiningChairs() {
-  const p = new Parts();
-  for (const x of [-0.72, 0, 0.72]) {
-    chair(p, x, -0.48, 0);
-    chair(p, x, 0.48, Math.PI);
-  }
-  return p.build('dining6', { center: false });
+function dining(tableW, tableD, chairs) {
+  const p = table(new Parts(), tableW, tableD);
+  for (const [x, z, facing] of chairs) chair(p, x, z, facing);
+  return p;
+}
+
+/** The kit dining table alone, for a set that brings its own chairs. */
+export function buildDiningTable(tableW, tableD) {
+  return table(new Parts(), tableW, tableD).build('dining4');
 }
 
 /** Supplement a supplied cabinet-only GLB with the existing television. */

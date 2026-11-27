@@ -7,8 +7,8 @@ import { planDressing, createDressing } from './dressing.js';
 import { corners } from '../walkthrough/layout.js';
 import { rememberTheme } from '../walkthrough/my-home.js';
 import { coordinateConceptInput, conceptRoomId } from './coordinate-plan.js';
-import { conceptForTour } from './mountain-white-spec.js';
-import { installMountainWhiteTemplates, mountainWhiteLoadError } from './mountain-white-furniture.js';
+import { conceptForTour } from './tour-furniture-spec.js';
+import { installTourTemplates, tourFurnitureLoadError } from './tour-furniture.js';
 import './concepts.css';
 
 // Recommended concepts for the 112A unit (W7-06): the "컨셉 보기" tab ranks concepts by
@@ -101,7 +101,7 @@ export function createConceptStudio(hooks) {
       const spec = FURNITURE[kind];
       staging.addTemplate(kind, { title: spec.title, label: spec.label, group: template(kind), width: spec.w, depth: spec.d, height: spec.h });
     }
-    installMountainWhiteTemplates(staging);
+    installTourTemplates(staging);
   }
 
   const planCache = new Map();
@@ -187,8 +187,8 @@ export function createConceptStudio(hooks) {
     const staging = hooks.current().staging;
     ensureTemplates();
     if (concept.furnitureSet && concept.items.some(p => !staging.templates.has(p.kind))) {
-      const error = mountainWhiteLoadError();
-      hooks.status(error ? `화이트 오크 가구 로딩 실패 — ${error.message}` : '화이트 오크 가구를 준비하는 중이에요. 잠시 후 다시 시도해 주세요.');
+      const error = tourFurnitureLoadError();
+      hooks.status(error ? `집들이 가구 로딩 실패 — ${error.message}` : '집들이 가구를 준비하는 중이에요. 잠시 후 다시 시도해 주세요.');
       return false;
     }
     staging.reset();

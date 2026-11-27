@@ -33,3 +33,5 @@ playwright-report/
 /.vite/
 /test-results-*/
 .nfs*
+
+CLAUDE.md
